@@ -15,6 +15,7 @@ using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 namespace CONTACTS.INTERFACE.FORMS
 {
 	//Do something useless ... .
+	//remove this uselss thing
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class FrmPerson : Form
 	{
