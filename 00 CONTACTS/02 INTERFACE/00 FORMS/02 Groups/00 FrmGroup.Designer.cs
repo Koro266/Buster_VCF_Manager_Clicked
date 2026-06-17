@@ -36,7 +36,6 @@
 			btn_NewGroup = new Button();
 			lbl_Nth = new Label();
 			lbl_Zero = new Label();
-			btn_FindGroup = new Button();
 			btn_CloseForm = new Button();
 			btn_FirstGroup = new Button();
 			lbl_Notes = new Label();
@@ -67,13 +66,12 @@
 			lbx_MatchingGroups.ForeColor = Color.Blue;
 			lbx_MatchingGroups.FormattingEnabled = true;
 			lbx_MatchingGroups.ItemHeight = 15;
-			lbx_MatchingGroups.Location = new Point( 102, 185 );
+			lbx_MatchingGroups.Location = new Point( 106, 178 );
 			lbx_MatchingGroups.Name = "lbx_MatchingGroups";
-			lbx_MatchingGroups.Size = new Size( 421, 199 );
+			lbx_MatchingGroups.Size = new Size( 421, 214 );
 			lbx_MatchingGroups.TabIndex = 1;
 			lbx_MatchingGroups.TabStop = false;
 			lbx_MatchingGroups.SelectedIndexChanged +=  lbx_MatchingGroups_SelectedIndexChanged ;
-			lbx_MatchingGroups.Enter +=  lbx_MatchingGroups_Enter ;
 			// 
 			// box_GroupData
 			// 
@@ -83,7 +81,6 @@
 			box_GroupData.Controls.Add( btn_NewGroup );
 			box_GroupData.Controls.Add( lbl_Nth );
 			box_GroupData.Controls.Add( lbl_Zero );
-			box_GroupData.Controls.Add( btn_FindGroup );
 			box_GroupData.Controls.Add( lbx_MatchingGroups );
 			box_GroupData.Controls.Add( btn_CloseForm );
 			box_GroupData.Controls.Add( btn_FirstGroup );
@@ -108,7 +105,7 @@
 			box_GroupData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			box_GroupData.Location = new Point( 12, 12 );
 			box_GroupData.Name = "box_GroupData";
-			box_GroupData.Size = new Size( 706, 394 );
+			box_GroupData.Size = new Size( 706, 398 );
 			box_GroupData.TabIndex = 0;
 			box_GroupData.TabStop = false;
 			box_GroupData.Text = "Group Data";
@@ -118,7 +115,7 @@
 			label3.AutoSize = true;
 			label3.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label3.ForeColor = Color.Blue;
-			label3.Location = new Point( 19, 27 );
+			label3.Location = new Point( 24, 27 );
 			label3.Name = "label3";
 			label3.Size = new Size( 78, 19 );
 			label3.TabIndex = 120;
@@ -127,16 +124,17 @@
 			// tbx_Matches
 			// 
 			tbx_Matches.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Matches.Location = new Point( 102, 24 );
+			tbx_Matches.Location = new Point( 106, 24 );
 			tbx_Matches.Name = "tbx_Matches";
 			tbx_Matches.Size = new Size( 233, 23 );
 			tbx_Matches.TabIndex = 119;
+			tbx_Matches.TextChanged +=  tbx_Matches_TextChanged ;
 			// 
 			// btn_ExportGroup
 			// 
 			btn_ExportGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_ExportGroup.ForeColor = Color.Maroon;
-			btn_ExportGroup.Location = new Point( 542, 272 );
+			btn_ExportGroup.Location = new Point( 558, 289 );
 			btn_ExportGroup.Name = "btn_ExportGroup";
 			btn_ExportGroup.Size = new Size( 133, 28 );
 			btn_ExportGroup.TabIndex = 13;
@@ -148,7 +146,7 @@
 			// 
 			btn_NewGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_NewGroup.ForeColor = Color.Maroon;
-			btn_NewGroup.Location = new Point( 542, 164 );
+			btn_NewGroup.Location = new Point( 558, 146 );
 			btn_NewGroup.Name = "btn_NewGroup";
 			btn_NewGroup.Size = new Size( 133, 28 );
 			btn_NewGroup.TabIndex = 10;
@@ -160,7 +158,7 @@
 			// lbl_Nth
 			// 
 			lbl_Nth.AutoSize = true;
-			lbl_Nth.Location = new Point( 653, 130 );
+			lbl_Nth.Location = new Point( 669, 110 );
 			lbl_Nth.Name = "lbl_Nth";
 			lbl_Nth.Size = new Size( 16, 17 );
 			lbl_Nth.TabIndex = 14;
@@ -169,30 +167,17 @@
 			// lbl_Zero
 			// 
 			lbl_Zero.AutoSize = true;
-			lbl_Zero.Location = new Point( 550, 130 );
+			lbl_Zero.Location = new Point( 566, 110 );
 			lbl_Zero.Name = "lbl_Zero";
 			lbl_Zero.Size = new Size( 15, 17 );
 			lbl_Zero.TabIndex = 13;
 			lbl_Zero.Text = "1";
 			// 
-			// btn_FindGroup
-			// 
-			btn_FindGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FindGroup.ForeColor = Color.Maroon;
-			btn_FindGroup.Location = new Point( 542, 303 );
-			btn_FindGroup.Name = "btn_FindGroup";
-			btn_FindGroup.Size = new Size( 133, 28 );
-			btn_FindGroup.TabIndex = 14;
-			btn_FindGroup.Text = "Find Group";
-			btn_FindGroup.UseVisualStyleBackColor = true;
-			btn_FindGroup.UseWaitCursor = true;
-			btn_FindGroup.Click +=  btn_FindGroup_Click ;
-			// 
 			// btn_CloseForm
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 542, 357 );
+			btn_CloseForm.Location = new Point( 559, 364 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 133, 28 );
 			btn_CloseForm.TabIndex = 15;
@@ -203,7 +188,7 @@
 			// btn_FirstGroup
 			// 
 			btn_FirstGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FirstGroup.Location = new Point( 543, 105 );
+			btn_FirstGroup.Location = new Point( 559, 85 );
 			btn_FirstGroup.Name = "btn_FirstGroup";
 			btn_FirstGroup.Size = new Size( 27, 23 );
 			btn_FirstGroup.TabIndex = 6;
@@ -216,7 +201,7 @@
 			lbl_Notes.AutoSize = true;
 			lbl_Notes.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Notes.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_Notes.Location = new Point( 48, 115 );
+			lbl_Notes.Location = new Point( 54, 116 );
 			lbl_Notes.Name = "lbl_Notes";
 			lbl_Notes.Size = new Size( 48, 19 );
 			lbl_Notes.TabIndex = 23;
@@ -226,7 +211,7 @@
 			// 
 			btn_InsertGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertGroup.ForeColor = Color.Maroon;
-			btn_InsertGroup.Location = new Point( 542, 196 );
+			btn_InsertGroup.Location = new Point( 558, 197 );
 			btn_InsertGroup.Name = "btn_InsertGroup";
 			btn_InsertGroup.Size = new Size( 133, 28 );
 			btn_InsertGroup.TabIndex = 11;
@@ -237,7 +222,7 @@
 			// tbx_Notes
 			// 
 			tbx_Notes.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Notes.Location = new Point( 102, 114 );
+			tbx_Notes.Location = new Point( 106, 114 );
 			tbx_Notes.Name = "tbx_Notes";
 			tbx_Notes.Size = new Size( 421, 23 );
 			tbx_Notes.TabIndex = 2;
@@ -248,7 +233,7 @@
 			// btn_PreviousGroup
 			// 
 			btn_PreviousGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_PreviousGroup.Location = new Point( 578, 105 );
+			btn_PreviousGroup.Location = new Point( 594, 85 );
 			btn_PreviousGroup.Name = "btn_PreviousGroup";
 			btn_PreviousGroup.Size = new Size( 27, 23 );
 			btn_PreviousGroup.TabIndex = 7;
@@ -260,17 +245,16 @@
 			// 
 			cbx_GroupType.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			cbx_GroupType.FormattingEnabled = true;
-			cbx_GroupType.Location = new Point( 102, 83 );
+			cbx_GroupType.Location = new Point( 106, 83 );
 			cbx_GroupType.Name = "cbx_GroupType";
 			cbx_GroupType.Size = new Size( 421, 25 );
 			cbx_GroupType.TabIndex = 1;
 			cbx_GroupType.SelectedIndexChanged +=  cbx_GroupType_SelectedIndexChanged ;
-			cbx_GroupType.Enter +=  cbx_GroupType_Enter ;
 			// 
 			// btn_LastGroup
 			// 
 			btn_LastGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_LastGroup.Location = new Point( 648, 105 );
+			btn_LastGroup.Location = new Point( 664, 85 );
 			btn_LastGroup.Name = "btn_LastGroup";
 			btn_LastGroup.Size = new Size( 27, 23 );
 			btn_LastGroup.TabIndex = 9;
@@ -283,18 +267,17 @@
 			dbx_CurrencyDate.CustomFormat = "ddd, d MMM yyyy HH:mm";
 			dbx_CurrencyDate.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			dbx_CurrencyDate.Format = DateTimePickerFormat.Custom;
-			dbx_CurrencyDate.Location = new Point( 102, 144 );
+			dbx_CurrencyDate.Location = new Point( 106, 144 );
 			dbx_CurrencyDate.Name = "dbx_CurrencyDate";
 			dbx_CurrencyDate.Size = new Size( 219, 23 );
 			dbx_CurrencyDate.TabIndex = 3;
 			dbx_CurrencyDate.ValueChanged +=  dbx_CurrencyDate_ValueChanged ;
-			dbx_CurrencyDate.Enter +=  dbx_CurrencyDate_Enter ;
 			// 
 			// btn_UpdateGroup
 			// 
 			btn_UpdateGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateGroup.ForeColor = Color.Maroon;
-			btn_UpdateGroup.Location = new Point( 542, 227 );
+			btn_UpdateGroup.Location = new Point( 558, 228 );
 			btn_UpdateGroup.Name = "btn_UpdateGroup";
 			btn_UpdateGroup.Size = new Size( 133, 28 );
 			btn_UpdateGroup.TabIndex = 12;
@@ -306,7 +289,7 @@
 			// 
 			btn_CurrencyNow.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CurrencyNow.ForeColor = Color.Maroon;
-			btn_CurrencyNow.Location = new Point( 327, 143 );
+			btn_CurrencyNow.Location = new Point( 331, 143 );
 			btn_CurrencyNow.Name = "btn_CurrencyNow";
 			btn_CurrencyNow.Size = new Size( 50, 25 );
 			btn_CurrencyNow.TabIndex = 4;
@@ -317,7 +300,7 @@
 			// btn_NextGroup
 			// 
 			btn_NextGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NextGroup.Location = new Point( 613, 105 );
+			btn_NextGroup.Location = new Point( 629, 85 );
 			btn_NextGroup.Name = "btn_NextGroup";
 			btn_NextGroup.Size = new Size( 27, 23 );
 			btn_NextGroup.TabIndex = 8;
@@ -330,7 +313,7 @@
 			lbl_CurrencyDate.AutoSize = true;
 			lbl_CurrencyDate.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_CurrencyDate.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_CurrencyDate.Location = new Point( -5, 146 );
+			lbl_CurrencyDate.Location = new Point( -2, 147 );
 			lbl_CurrencyDate.Name = "lbl_CurrencyDate";
 			lbl_CurrencyDate.Size = new Size( 104, 19 );
 			lbl_CurrencyDate.TabIndex = 21;
@@ -342,7 +325,7 @@
 			lbl_PK.AutoSize = true;
 			lbl_PK.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_PK.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_PK.Location = new Point( 566, 43 );
+			lbl_PK.Location = new Point( 582, 23 );
 			lbl_PK.Name = "lbl_PK";
 			lbl_PK.Size = new Size( 34, 21 );
 			lbl_PK.TabIndex = 4;
@@ -353,7 +336,7 @@
 			lbl_GroupName.AutoSize = true;
 			lbl_GroupName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_GroupName.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_GroupName.Location = new Point( 0, 54 );
+			lbl_GroupName.Location = new Point( 7, 56 );
 			lbl_GroupName.Name = "lbl_GroupName";
 			lbl_GroupName.Size = new Size( 95, 19 );
 			lbl_GroupName.TabIndex = 7;
@@ -363,7 +346,7 @@
 			// 
 			tbx_Filter.BackColor = Color.FromArgb(     255,     192,     192 );
 			tbx_Filter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Filter.Location = new Point( 602, 72 );
+			tbx_Filter.Location = new Point( 618, 52 );
 			tbx_Filter.MaxLength = 6;
 			tbx_Filter.Name = "tbx_Filter";
 			tbx_Filter.Size = new Size( 73, 25 );
@@ -374,7 +357,7 @@
 			// tbx_GroupName
 			// 
 			tbx_GroupName.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_GroupName.Location = new Point( 102, 53 );
+			tbx_GroupName.Location = new Point( 106, 53 );
 			tbx_GroupName.Name = "tbx_GroupName";
 			tbx_GroupName.Size = new Size( 421, 25 );
 			tbx_GroupName.TabIndex = 0;
@@ -388,7 +371,7 @@
 			tbx_PkGroup.BackColor = Color.FromArgb(     192,     192,     255 );
 			tbx_PkGroup.Enabled = false;
 			tbx_PkGroup.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_PkGroup.Location = new Point( 602, 41 );
+			tbx_PkGroup.Location = new Point( 618, 21 );
 			tbx_PkGroup.Name = "tbx_PkGroup";
 			tbx_PkGroup.PlaceholderText = "PK";
 			tbx_PkGroup.ReadOnly = true;
@@ -402,7 +385,7 @@
 			lbl_FindPk.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_FindPk.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbl_FindPk.ImageAlign = ContentAlignment.MiddleRight;
-			lbl_FindPk.Location = new Point( 529, 74 );
+			lbl_FindPk.Location = new Point( 545, 54 );
 			lbl_FindPk.Name = "lbl_FindPk";
 			lbl_FindPk.Size = new Size( 71, 21 );
 			lbl_FindPk.TabIndex = 0;
@@ -414,7 +397,7 @@
 			lbl_GroupType.AutoSize = true;
 			lbl_GroupType.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_GroupType.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_GroupType.Location = new Point( 12, 85 );
+			lbl_GroupType.Location = new Point( 15, 86 );
 			lbl_GroupType.Name = "lbl_GroupType";
 			lbl_GroupType.Size = new Size( 87, 19 );
 			lbl_GroupType.TabIndex = 5;
@@ -426,7 +409,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 730, 411 );
+			ClientSize = new Size( 730, 422 );
 			Controls.Add( box_GroupData );
 			Name = "FrmGroup";
 			StartPosition = FormStartPosition.CenterScreen;
@@ -451,7 +434,6 @@
 		private TextBox tbx_Notes;
 		private Label lbl_Nth;
 		private Label lbl_Zero;
-		private Button btn_FindGroup;
 		private Button btn_CloseForm;
 		private Button btn_FirstGroup;
 		private Button btn_InsertGroup;
