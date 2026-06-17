@@ -26,7 +26,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
 
 		private LIKE_ROW[] matching_Groups;
-		private bool is_events_Enabled = false;
+		private bool is_event_Disabled = false;
 		private TextAccumulator txt_Accumulator;
 		#endregion
 
@@ -46,6 +46,7 @@ namespace CONTACTS.INTERFACE.FORMS
 
 
 		#region 01 INITIALISE & DISPLAY
+
 		#region DISPLAY
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayGroup()
@@ -89,11 +90,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.Text = db_Connector.PartiallyQualifiedFileName;
 		}
 		#endregion
+
 		#endregion
 
 
 		#region 02 RESPONDERS
-		#region RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
 		private ONE_GROUP Group
 		{
@@ -131,12 +132,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void UpdateGroup()
 		{
-			if ( all_Groups.UpdateGroup( Group ) )
-			{
-			}
-			else
-			{
-			}
+			all_Groups.UpdateGroup( Group );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string GroupName
@@ -199,11 +195,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private DATE_COLUMN CurrencyDateAsColumn
-		{
-			get { return Group.CurrencyDate; }
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private DateTime CurrencyDate
 		{
 			get { return Group.CurrencyDate.Value; }
@@ -214,28 +205,10 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventDisabled
-		{
-			get { return false; }
-			set { bool is_event_Disabled = value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private bool IsEventEnabled
 		{
-			get { return false; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void FindGroup()
-		{
-			//using ( FIND_GROUP find_group = new FIND_GROUP() )
-			//{
-			//	find_group.ShowDialog();
-			//	find_group.DialogResult = DialogResult.OK;
-			//	int selected_group_pk = find_group.SelectedGroup;
-
-			//	if ( selected_group_pk != GLOBAL_PRESET.MINUS_ONE )
-			//		this.GroupPk = selected_group_pk;
-			//}
+			get { return is_event_Disabled == false; }
+			set { bool is_event_Disabled = value; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
@@ -243,10 +216,10 @@ namespace CONTACTS.INTERFACE.FORMS
 			set { txt_Accumulator = new TextAccumulator( value ); }
 		}
 		#endregion
-		#endregion
 
 
 		#region 03 ENTER / CHANGE / LEAVE
+
 		#region GROUP NAME
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_GroupName_Enter( object sender, EventArgs e )
@@ -272,10 +245,6 @@ namespace CONTACTS.INTERFACE.FORMS
 
 
 		#region GROUP TYPE
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_GroupType_Enter( object sender, EventArgs e )
-		{
-		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_GroupType_SelectedIndexChanged( object sender, EventArgs e )
 		{
@@ -307,10 +276,6 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region CURRENCY DATE
 		//___________________________________________________________________________________________________________________________________________
-		private void dbx_CurrencyDate_Enter( object sender, EventArgs e )
-		{
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void dbx_CurrencyDate_ValueChanged( object sender, EventArgs e )
 		{
 			if ( IsEventEnabled )
@@ -321,24 +286,20 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region MATCHING GROUPS
 		//___________________________________________________________________________________________________________________________________________
-		private void lbx_MatchingGroups_Enter( object sender, EventArgs e )
-		{
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void lbx_MatchingGroups_SelectedIndexChanged( object sender, EventArgs e )
 		{
 			GroupsSelectedIndex = this.lbx_MatchingGroups.SelectedIndex;
 		}
 		#endregion
+
 		#endregion
 
 
-		#region 04 CLICK / PROMPT
-		#region CLICKS
+		#region 04 CLICK & 05 NAVIGATION ETC
 		//___________________________________________________________________________________________________________________________________________
-		private void btn_FindGroup_Click( object sender, EventArgs e )
+		private void tbx_Matches_TextChanged( object sender, EventArgs e )
 		{
-			FindGroup();
+			MatchesText = tbx_Matches.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_CurrencyNow_Click( object sender, EventArgs e )
@@ -376,14 +337,10 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.Close();
 		}
 		#endregion
-		#endregion
-
-
-		#region 05 NAVIGATION ETC
-		#endregion
 
 
 		#region 06 SQL (INSERT, UPDATE)
+
 		#region NEW/INSERT/UPDATE
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_NewGroup_Click( object sender, EventArgs e )
@@ -411,7 +368,6 @@ namespace CONTACTS.INTERFACE.FORMS
 				GroupPkAsText = tbx_Filter.Text;
 		}
 		#endregion
-
 
 		#endregion
 	}
