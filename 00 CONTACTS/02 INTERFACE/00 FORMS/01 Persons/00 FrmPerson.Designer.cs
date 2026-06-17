@@ -731,9 +731,9 @@
 			grp_PersonData.Controls.Add( tbx_SortableName );
 			grp_PersonData.Controls.Add( tbx_NaturalName );
 			grp_PersonData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			grp_PersonData.Location = new Point( 15, 17 );
+			grp_PersonData.Location = new Point( 15, 12 );
 			grp_PersonData.Name = "grp_PersonData";
-			grp_PersonData.Size = new Size( 936, 609 );
+			grp_PersonData.Size = new Size( 936, 614 );
 			grp_PersonData.TabIndex = 0;
 			grp_PersonData.TabStop = false;
 			grp_PersonData.Text = "Person Data";
