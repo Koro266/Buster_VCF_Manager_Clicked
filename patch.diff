@@ -1,0 +1,50 @@
+From 2ffed4815f8fbec4ff2a2f6148be51a676929657 Mon Sep 17 00:00:00 2001
+From: Brusster <Brusster@DESKTOP-7Q27I7C>
+Date: Mon, 1 Jul 2024 03:31:42 +1200
+Subject: [PATCH] 'Backroom' changes to bring XConnector form back into the
+ system.
+
+---
+ Program.cs        | 3 ++-
+ VcfManager.csproj | 3 ---
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/Program.cs b/Program.cs
+index 9009eaa..6bedc68 100644
+--- a/Program.cs
++++ b/Program.cs
+@@ -17,8 +17,9 @@ namespace VcfManager
+         static void Main()
+         {
+             ApplicationConfiguration.Initialize();
++            Application.Run( new FrmXConnector() );
+             //Application.Run( new FrmOverseer() );
+-            Application.Run( new DlgFindAddress() );
++            //Application.Run( new DlgFindAddress() );
+             //Application.Run( new FrmGroup() );
+             //Application.Run( new FrmPerson() );
+             //Application.Run( new FrmFamily() );
+diff --git a/VcfManager.csproj b/VcfManager.csproj
+index 7a6119f..d9948a4 100644
+--- a/VcfManager.csproj
++++ b/VcfManager.csproj
+@@ -160,8 +160,6 @@
+     <Compile Remove="TDFs\Person\TDF\Fields\18 IS_Selected.cs" />
+     <Compile Remove="TDFs\Person\VCF\Person\Lines\PERSON, Lines.cs" />
+     <Compile Remove="TDFs\Person\VCF\Person\Notes\Note_03_VERSION.cs" />
+-    <Compile Remove="VcfForms\Forms\FrmVcfManager.cs" />
+-    <Compile Remove="VcfForms\Forms\FrmVcfManager.Designer.cs" />
+     <Compile Remove="VcfForms\FrmInitialEntry.cs" />
+     <Compile Remove="VcfForms\FrmInitialEntry.Designer.cs" />
+     <Compile Remove="xFrmPerson.cs" />
+@@ -169,7 +167,6 @@
+   </ItemGroup>
+ 
+   <ItemGroup>
+-    <EmbeddedResource Remove="VcfForms\Forms\FrmVcfManager.resx" />
+     <EmbeddedResource Remove="VcfForms\FrmInitialEntry.resx" />
+   </ItemGroup>
+ 
+-- 
+2.39.1.windows.1
+

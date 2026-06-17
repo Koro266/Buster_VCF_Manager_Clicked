@@ -1,0 +1,231 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>AnyCPU;x86;ARM32</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="00 CONTACTS\00 GLOBAL\01 LISTS\**" />
+    <Compile Remove="00 CONTACTS\00 GLOBAL\02 ROW\00 Row Types\**" />
+    <Compile Remove="00 CONTACTS\00 GLOBAL\02 ROW\02 WRITEa\**" />
+    <Compile Remove="00 CONTACTS\00 GLOBAL\02 ROW\02 WRITE\**" />
+    <Compile Remove="00 CONTACTS\00 GLOBAL\04 VALUE\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\06 PersonPair\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\05 VCF\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\XX 05 VCF Person_X_Address\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\XX 05 VCF\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\01 TABLE\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\05 VCF\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\02 X_EDDRESS\05 VCF\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04a FAMILY\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04b GROUP\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\05 X_NOTE\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\01 X_DEVICE\05 VCF\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\05 TAGS\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\04 VCF\**" />
+    <Compile Remove="00 CONTACTS\02 INTERFACE\00 FORMS\03 Families - Copy\**" />
+    <Compile Remove="00 CONTACTS\02 INTERFACE\01 DIALOGS\02 Find Family\**" />
+    <Compile Remove="00 CONTACTS\02 INTERFACE\99 BUMPS\**" />
+    <Compile Remove="00 CONTACTS\03 Code Workbooks\**" />
+    <Compile Remove="00 CONTACTS\04 Garbage Pile\**" />
+    <Compile Remove="00 CONTACTS\Garbage Pile\**" />
+    <Compile Remove="ABROGATED\**" />
+    <Compile Remove="CODE_Helpers\**" />
+    <Compile Remove="Common\**" />
+    <Compile Remove="DbConnector\**" />
+    <Compile Remove="GLOBAL\Constants\**" />
+    <Compile Remove="GLOBAL\CONST\OtherStuff\**" />
+    <Compile Remove="GLOBAL\Procedures\**" />
+    <Compile Remove="LOCAL\**" />
+    <Compile Remove="TDFs\**" />
+    <Compile Remove="VcfConstructor\**" />
+    <Compile Remove="VcfFormsOLD\**" />
+    <Compile Remove="FORMS\Archive\**" />
+    <Compile Remove="FORMS\FORM\FamilyConnections\**" />
+    <Compile Remove="FORMS\FORM\Family_X\**" />
+    <Compile Remove="FORMS\FORM\PersonConnections\**" />
+    <Compile Remove="Z_Helpers\**" />
+    <EmbeddedResource Remove="00 CONTACTS\00 GLOBAL\01 LISTS\**" />
+    <EmbeddedResource Remove="00 CONTACTS\00 GLOBAL\02 ROW\00 Row Types\**" />
+    <EmbeddedResource Remove="00 CONTACTS\00 GLOBAL\02 ROW\02 WRITEa\**" />
+    <EmbeddedResource Remove="00 CONTACTS\00 GLOBAL\02 ROW\02 WRITE\**" />
+    <EmbeddedResource Remove="00 CONTACTS\00 GLOBAL\04 VALUE\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\06 PersonPair\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\05 VCF\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\XX 05 VCF Person_X_Address\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\XX 05 VCF\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\01 TABLE\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\05 VCF\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\02 X_EDDRESS\05 VCF\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04a FAMILY\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04b GROUP\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\05 X_NOTE\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\01 X_DEVICE\05 VCF\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\05 TAGS\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\04 VCF\**" />
+    <EmbeddedResource Remove="00 CONTACTS\02 INTERFACE\00 FORMS\03 Families - Copy\**" />
+    <EmbeddedResource Remove="00 CONTACTS\02 INTERFACE\01 DIALOGS\02 Find Family\**" />
+    <EmbeddedResource Remove="00 CONTACTS\02 INTERFACE\99 BUMPS\**" />
+    <EmbeddedResource Remove="00 CONTACTS\03 Code Workbooks\**" />
+    <EmbeddedResource Remove="00 CONTACTS\04 Garbage Pile\**" />
+    <EmbeddedResource Remove="00 CONTACTS\Garbage Pile\**" />
+    <EmbeddedResource Remove="ABROGATED\**" />
+    <EmbeddedResource Remove="CODE_Helpers\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <EmbeddedResource Remove="DbConnector\**" />
+    <EmbeddedResource Remove="GLOBAL\Constants\**" />
+    <EmbeddedResource Remove="GLOBAL\CONST\OtherStuff\**" />
+    <EmbeddedResource Remove="GLOBAL\Procedures\**" />
+    <EmbeddedResource Remove="LOCAL\**" />
+    <EmbeddedResource Remove="TDFs\**" />
+    <EmbeddedResource Remove="VcfConstructor\**" />
+    <EmbeddedResource Remove="VcfFormsOLD\**" />
+    <EmbeddedResource Remove="FORMS\Archive\**" />
+    <EmbeddedResource Remove="FORMS\FORM\FamilyConnections\**" />
+    <EmbeddedResource Remove="FORMS\FORM\Family_X\**" />
+    <EmbeddedResource Remove="FORMS\FORM\PersonConnections\**" />
+    <EmbeddedResource Remove="Z_Helpers\**" />
+    <None Remove="00 CONTACTS\00 GLOBAL\01 LISTS\**" />
+    <None Remove="00 CONTACTS\00 GLOBAL\02 ROW\00 Row Types\**" />
+    <None Remove="00 CONTACTS\00 GLOBAL\02 ROW\02 WRITEa\**" />
+    <None Remove="00 CONTACTS\00 GLOBAL\02 ROW\02 WRITE\**" />
+    <None Remove="00 CONTACTS\00 GLOBAL\04 VALUE\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\06 PersonPair\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\05 VCF\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\XX 05 VCF Person_X_Address\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\XX 05 VCF\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\01 TABLE\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\05 VCF\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\02 X_EDDRESS\05 VCF\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04a FAMILY\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04b GROUP\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\05 X_NOTE\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\01 X_DEVICE\05 VCF\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\05 TAGS\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\04 VCF\**" />
+    <None Remove="00 CONTACTS\02 INTERFACE\00 FORMS\03 Families - Copy\**" />
+    <None Remove="00 CONTACTS\02 INTERFACE\01 DIALOGS\02 Find Family\**" />
+    <None Remove="00 CONTACTS\02 INTERFACE\99 BUMPS\**" />
+    <None Remove="00 CONTACTS\03 Code Workbooks\**" />
+    <None Remove="00 CONTACTS\04 Garbage Pile\**" />
+    <None Remove="00 CONTACTS\Garbage Pile\**" />
+    <None Remove="ABROGATED\**" />
+    <None Remove="CODE_Helpers\**" />
+    <None Remove="Common\**" />
+    <None Remove="DbConnector\**" />
+    <None Remove="GLOBAL\Constants\**" />
+    <None Remove="GLOBAL\CONST\OtherStuff\**" />
+    <None Remove="GLOBAL\Procedures\**" />
+    <None Remove="LOCAL\**" />
+    <None Remove="TDFs\**" />
+    <None Remove="VcfConstructor\**" />
+    <None Remove="VcfFormsOLD\**" />
+    <None Remove="FORMS\Archive\**" />
+    <None Remove="FORMS\FORM\FamilyConnections\**" />
+    <None Remove="FORMS\FORM\Family_X\**" />
+    <None Remove="FORMS\FORM\PersonConnections\**" />
+    <None Remove="Z_Helpers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="00 CONTACTS\00 FrmPerson.cs" />
+    <Compile Remove="00 CONTACTS\00 FrmPerson.Designer.cs" />
+    <Compile Remove="00 CONTACTS\00 GLOBAL\05 VCF\01 VcfPatterns.cs" />
+    <Compile Remove="00 CONTACTS\01 FrmPerson.InitialiseDisplay.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 PersonDatabase.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 READ\02 LIKE\09 Prefix.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 READ\02 LIKE\10 Suffix.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 READ\02 LIKE\11 Initials.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 READ\02 LIKE\13 Notes.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 READ\03 COUNT\AfterCurrencyDatex.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\01 TABLE\01 Selector %28Table%29.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\02 ROW\02 Person Row, Navigation .cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\02 ROW\03 Person Row, Counters.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\00 DATABASE\00 READ\01 SELECT\DefaultPersonAddress.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\02 ROW\01 Row, Exporter %28Person_X_Address%29.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\00 DATABASE\00 READ\01 SELECT\DefaultPersonDevice.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\02 ROW\01 Row, Exporter %28Person_X_Device%29.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\02 X_EDDRESS\00 DATABASE\00 READ\01 SELECT\DefaultPersonEddress.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\02 X_EDDRESS\00 DATABASE\00 READ\01 SELECT\DefaultPersonEddress2.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\03 X_WEBSITE\00 DATABASE\01 READ\01 SELECT\Website, SQL.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\00 X_ADDRESS\00 DATABASE\01 READ\01 SELECT\DefaultGroupAddress.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\00 X_ADDRESS\02 ROW\01 Row, Exporter %28Group_X_Address%29.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\00 X_ADDRESS\03 COLUMNS\03 ST_AddressType.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\02 X_EDDRESS\00 DATABASE\01 READ\01 SELECT\DefaultPersonEddress.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\03 WEBSITE\00 DATABASE\01 SELECT\DefaultWebsite.cs" />
+    <Compile Remove="00 CONTACTS\02 FrmPerson.Respond.cs" />
+    <Compile Remove="00 CONTACTS\02 INTERFACE\00 FORMS\01 Persons\04 FrmPerson.Constants.cs" />
+    <Compile Remove="00 CONTACTS\02 INTERFACE\00 FORMS\02 Groups\03 FrmGroup.Constants.cs" />
+    <Compile Remove="00 CONTACTS\03 FrmPerson.EnterChangeLeave.cs" />
+    <Compile Remove="00 CONTACTS\04 FrmPerson.ClickPrompt.cs" />
+    <Compile Remove="00 CONTACTS\05 FrmPerson.NavigationEtc.cs" />
+    <Compile Remove="GLOBAL\BASE\Entity.cs" />
+    <Compile Remove="GLOBAL\BASE\IsInit.cs" />
+    <Compile Remove="GLOBAL\BASE\SQL_BASE.cs" />
+    <Compile Remove="GLOBAL\CONST\2023.12.04 KEEPERS.cs" />
+    <Compile Remove="GLOBAL\CONST\DB_Eddresses.cs" />
+    <Compile Remove="GLOBAL\CONST\DB_Families.cs" />
+    <Compile Remove="GLOBAL\CONST\DB_Groups.cs" />
+    <Compile Remove="GLOBAL\CONST\DB_Persons.cs" />
+    <Compile Remove="FORMS\FrmInitialEntry.cs" />
+    <Compile Remove="FORMS\FrmInitialEntry.Designer.cs" />
+    <Compile Remove="FORMS\Person_X.cs" />
+    <Compile Remove="FORMS\X_Adresses.cs" />
+    <Compile Remove="FORMS\X_Devices.cs" />
+    <Compile Remove="FORMS\X_Eddresses.cs" />
+    <Compile Remove="FORMS\X_Groups.cs" />
+    <Compile Remove="xFrmPerson.cs" />
+    <Compile Remove="xFrmPerson.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="00 CONTACTS\00 FrmPerson.resx" />
+    <EmbeddedResource Remove="FORMS\FORM\FrmPerson_X_Connector.resx" />
+    <EmbeddedResource Remove="FORMS\FrmInitialEntry.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="2023.05.20.0000 TEST VCF Builder.accdb" />
+    <None Remove="patch.diff" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="FORMS\DIALOG\DlgFindFamily.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS\DIALOG\DlgFindGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS\DIALOG\DlgFindEddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS\DIALOG\DlgFindDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS\DIALOG\DlgFindPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VcfResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VcfResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="VcfResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VcfResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,111 @@
+
+
+Ordering of The Seven [Address] Slots: ADR:1;2;3;4;5;6;7;
+Line 1: Slot 1	 
+Line 2: Slot 3	 
+Line 3: Slot 2	 
+Line 4: Slot 5	 
+Line 5: Slot 4	 
+Line 6: Slot 6	 
+Line 7: Slot 7	 
+
+Standard residential physical addresss
+Slot 1 POBox, RD
+Slot 3 house number street name street type	compass
+Slot 2 suburb city metro zip
+Slot 5	province ,PvAbbrev
+Slot 4	country
+Slot 5	assemblage
+Slot 6	level, unit
+Slot 7	extensions
+
+
+1------2---------------3---------------4---5-------6-----------7
+/bx /rd;/sb /ct /mt /pc;/hn /sn /st /cp;/cy;/pv /pa;/as /lv /un;/ex
+
+
+public const string RuralDelivery_AsIs			= "/rd";
+public const string PostalCode_AsIs				= "/pc";
+public const string BoxNumber_AsIs				= "/bx";
+public const string HouseNumber_AsIs			= "/hn";
+public const string StreetName_AsIs				= "/sn";
+public const string StreetType_AsIs				= "/st";
+public const string Compass_AsIs				= "/cp";
+public const string Suburb_AsIs					= "/sb";
+public const string City_AsIs					= "/ct";
+public const string Metropolitan_AsIs			= "/mt";
+public const string ProvinceName_AsIs			= "/pv";
+public const string ProvinceCode_AsIs			= "/pa";
+public const string CountryName_AsIs			= "/cy";
+public const string CountryCode_AsIs			= "/cd";
+public const string ShortIsoCode_AsIs			= "/si";
+public const string LongIsoCode_AsIs			= "/li";
+
+
+The structured type value consists of a sequence of address components.
+The component values MUST be specified in their corresponding position.
+The structured type value corresponds, in sequence, to
+	the post office box;
+	the extended address (e.g. apartment or suite number);
+	the street address;
+	the locality (e.g., city);
+	the region (e.g., state or province);
+	the postal code;
+	the country name.
+	 
+When a component value is missing, the associated component separator MUST still be specified.
+The text components are separated by the SEMI-COLON character (ASCII decimal 59).
+Where it makes semantic sense, individual text components can include multiple text values 
+	(e.g., a "street" component with multiple lines) separated by the COMMA character (ASCII decimal 44).
+	
+The type can include the type parameter "TYPE" to specify the delivery address type.
+The TYPE parameter values can include
+	"home" to indicate a delivery address for a residence;
+	"work" to indicate delivery address for a place of work;
+    and "pref" to indicate the preferred delivery address when more than one address is specified. 
+    
+These type parameter values can be specified as 
+a parameter list (i.e., "TYPE=home;TYPE=pref")
+or as a value list (i.e., "TYPE=home,pref").
+
+The default is "TYPE=work".
+
+
+Standard NZ postal addresss
+Slot 1	PO Box 12345
+Slot 3	suburb city zip
+Slot 2	metro
+Slot 5	province
+Slot 4	country
+
+Extensions address
+Slot 1	Assemblage
+Slot 3	level
+Slot 2	unit
+Slot 5	extentions
+Slot 4	country
+
+EXCEL row (Christmas mailing list)
+XL row	street address \tsuburb city zip\tmetro\tprovince\tcountry
+
+PLUME Russell William
+"Koror?"
+
+rwp cell	+64 27 266 1200
+home	brussterplume@gmail.com
+home pg	URL
+birthday	24 September 1947
+wedding	4 October 1975
+
+father	W F Plume Jr (id)
+mother	M L Plume, nee Batson (id)
+spouse	H J Plume, nee Roxburgh (id)
+daughter	M A R Freeman-Plume (id)
+daughter	J F R Plume (id)
+
+physical	24 Corlett Rd
+Plimmerton, Porirua 5026
+Wellington
+WELLINGTON
+NZ
+

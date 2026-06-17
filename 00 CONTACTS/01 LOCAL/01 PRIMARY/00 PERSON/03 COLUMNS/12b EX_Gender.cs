@@ -1,0 +1,173 @@
+﻿//___________________________________________________________________________________________________________________________________________________
+//GLOBAL
+using PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset; 
+using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using WORDS		= CONTACTS.GLOBAL.VALUES.CONSTANT.Words;
+
+//___________________________________________________________________________________________________________________________________________________
+namespace CONTACTS.LOCAL.PRIMARY.PERSON
+{
+	//_______________________________________________________________________________________________________________________________________________
+	public partial class Column
+	{
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// EXTENSIONS for ST_Gender.
+		/// </summary>
+		public partial class ST_Gender : SHORT_TXT
+		{
+			#region DECLARATIONS
+			public enum Gender { Male, Female, Unknown };
+
+			private static SHORT_TXT Male		= WORDS.Male;
+			private static SHORT_TXT Female		= WORDS.Female;
+			private static SHORT_TXT Unknown	= WORDS.Unknown;
+
+			private Gender type_Gender = Gender.Female;
+			#endregion
+
+
+			#region
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Examines user input and determines the value of enum type_Gender.
+			/// </summary>
+			public Gender GetGenderType
+			{
+				get
+				{
+					//-----------------------------------------------
+					//'m'
+					if ( base.Value == Male.AsLowerInitial )
+						return Gender.Male;
+
+					//'M'
+					else if ( base.Value == Male.AsUpperInitial )
+						return Gender.Male;
+
+					//'male'
+					else if ( base.Value == Male.AsLower )
+						return Gender.Male;
+
+					//'Male'
+					else if ( base.Value == Male.AsProper )
+						return Gender.Male;
+
+					//'MALE'
+					else if ( base.Value == Male.AsUpper )
+						return Gender.Male;
+
+					//-----------------------------------------------
+					//'f'
+					else if ( base.Value == Female.AsLowerInitial )
+						return Gender.Female;
+
+					//'F'
+					else if ( base.Value == Female.AsUpperInitial )
+						return Gender.Female;
+
+					//'female'
+					if ( base.Value == Female.AsLower )
+						return Gender.Female;
+
+					//'Female'
+					else if ( base.Value == Female.AsProper )
+						return Gender.Female;
+
+					//'FEMALE'
+					else if ( base.Value == Female.AsUpper )
+						return Gender.Female;
+
+					//-----------------------------------------------
+					else
+						return Gender.Unknown;
+				}
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public object DbWriteValue
+			{
+				get
+				{
+					switch ( GetGenderType )
+					{
+						case Gender.Male:
+							return Male.AsUpperInitial;
+
+						case Gender.Female:
+							return Female.AsUpperInitial;
+
+						case Gender.Unknown:
+							return Unknown.AsUpperInitial;
+
+						default:
+							return Unknown.AsUpperInitial;
+					}
+				}
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed in a TextBox.
+			/// </summary>
+			override public string TextboxValue
+			{
+				get
+				{
+					switch ( GetGenderType )
+					{
+						case Gender.Male:
+							return Male.AsProper;
+
+						case Gender.Female:
+							return Female.AsProper;
+
+						case Gender.Unknown:
+							return Unknown.AsUpper;
+
+						default:
+							return Unknown.AsUpper;
+					}
+				}
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get
+				{
+					switch ( GetGenderType )
+					{
+						case Gender.Male:
+							return Male.AsUpperInitial;
+
+						case Gender.Female:
+							return Female.AsUpperInitial;
+
+						case Gender.Unknown:
+							return Unknown.AsUpperInitial;
+
+						default:
+							return Unknown.AsUpperInitial;
+					}
+				}
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true because the Gender field value is required.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return true; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			public bool IsMale		{ get { return this.type_Gender == Gender.Male; } }
+			public bool IsFemale	{ get { return this.type_Gender == Gender.Female; } }
+			public bool IsUnknown	{ get { return this.type_Gender == Gender.Unknown; } }
+			#endregion
+		}
+	}
+}
