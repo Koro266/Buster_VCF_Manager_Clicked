@@ -6,6 +6,7 @@ using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
 using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
 using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
+using COUNT			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
 using ONE_GROUP		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
 
@@ -125,14 +126,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		private string GroupPkAsText
 		{
 			get { return Group.PkGroup.AsString; }
-			set 
+			set
 			{
 				if ( int.TryParse( value, out int result ) )
-					GroupPk = result;
-
-				//do nothing.
+					if ( new COUNT.IsPkExtant( result ).Execute )
+						GroupPk = result;
 			}
-
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertGroup()
