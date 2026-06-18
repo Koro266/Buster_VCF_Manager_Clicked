@@ -65,6 +65,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm()
 		{
+			SetTabIndices();
 			ValuateGroupTypes();
 			PutHeader();
 		}
@@ -78,6 +79,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void PutHeader()
 		{
 			this.Text = db_Connector.PartiallyQualifiedFileName;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void SetTabIndices()
+		{
+			this.tbx_Matches.TabIndex = 0;
+			//TODO Complete the tab index list.
 		}
 		#endregion
 
@@ -362,3 +369,5 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 	}
 }
+//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
+//TODO: Standardise across all forms the "is enabled" approach.
