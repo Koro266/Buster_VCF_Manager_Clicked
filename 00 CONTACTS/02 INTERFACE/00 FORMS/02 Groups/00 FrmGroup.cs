@@ -22,8 +22,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
 
 		private LIKE_ROW[] matching_Groups;
-		private bool is_event_Enabled = true;
 		private TextAccumulator txt_Accumulator;
+
+		/// <summary>
+		/// is_event_Disabled == true ==> that the default functionality of an system event is set aside.
+		/// </summary>
+		private bool is_event_Disabled = true;
+		
 		//___________________________________________________________________________________________________________________________________________
 		public FrmGroup()
 		{
@@ -207,19 +212,30 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventEnabled
+		/// <summary>
+		/// Returns true if default functionality of an event is required.
+		/// </summary>
+		private bool IsEventDisabled
 		{
-			get { return is_event_Enabled; }
+			get { return is_event_Disabled; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// EnableEvents means the default functionality of an event will be allowed to proceed.
+		/// Events are enabled when human input via the interface is allowed.
+		/// </summary>
 		private void EnableEvents()
 		{
-			is_event_Enabled = true;
+			is_event_Disabled = false;
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// DisableEvents means the default functionality of an event is impeded (passed over).
+		/// Events are disabled when the interaction with the field is code-enforced.
+		/// </summary>
 		private void DisableEvents()
 		{
-			is_event_Enabled = false;
+			is_event_Disabled = true;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
@@ -240,7 +256,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_GroupName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( IsEventDisabled )
 			{
 				string value = tbx_GroupName.Text;
 				DisplayMatchingGroups( new LIKE.MatchingGroups( value ).Execute );
@@ -259,7 +275,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_GroupType_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( IsEventDisabled )
 				GroupType = cbx_GroupType.Text;
 		}
 		#endregion
@@ -274,7 +290,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( IsEventDisabled )
 				Accumulate = tbx_Notes.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -289,7 +305,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_CurrencyDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( IsEventDisabled )
 				CurrencyDate = dbx_CurrencyDate.Value;
 		}
 		#endregion
@@ -384,5 +400,5 @@ namespace CONTACTS.INTERFACE.FORMS
 	}
 }
 //TODO: Add boolean fields to form: is_DefaultRow, is_Export.
-//TODO: Standardise across all forms the "is enabled" approach.
+//TODO: Standardise across all forms the "is enabled/disabled" approach.
 //TODO: Fix the record indexing and look again at the interaction with the database.
