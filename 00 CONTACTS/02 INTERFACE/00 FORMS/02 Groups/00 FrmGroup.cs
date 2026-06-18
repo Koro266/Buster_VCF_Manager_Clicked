@@ -43,12 +43,14 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			DisableEvents();
 
-			this.tbx_PkGroup.Text = GroupPkAsText;
-			this.tbx_GroupName.Text = GroupName;
-			this.cbx_GroupType.Text = GroupType;
-			this.dbx_CurrencyDate.CustomFormat = Group.CurrencyDate.DatePickerFormat;
-			this.dbx_CurrencyDate.Value = Group.CurrencyDate.DatePickerValue;
-			this.tbx_Notes.Text = Notes;
+			this.tbx_Matches.Clear();
+
+			this.tbx_PkGroup.Text				= GroupPkAsText;
+			this.tbx_GroupName.Text				= GroupName;
+			this.cbx_GroupType.Text				= GroupType;
+			this.dbx_CurrencyDate.CustomFormat	= Group.CurrencyDate.DatePickerFormat;
+			this.dbx_CurrencyDate.Value			= Group.CurrencyDate.DatePickerValue;
+			this.tbx_Notes.Text					= Notes;
 
 			EnableEvents();
 		}
@@ -380,3 +382,4 @@ namespace CONTACTS.INTERFACE.FORMS
 }
 //TODO: Add boolean fields to form: is_DefaultRow, is_Export.
 //TODO: Standardise across all forms the "is enabled" approach.
+//TODO: Fix the record indexing and look again at the interaction with the database.
