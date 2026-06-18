@@ -25,7 +25,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private TextAccumulator txt_Accumulator;
 
 		/// <summary>
-		/// is_event_Disabled == true ==> that the default functionality of an system event is set aside.
+		/// is_event_Disabled == true ==> that the default functionality of an system event is impeded.
 		/// </summary>
 		private bool is_event_Disabled = true;
 		
@@ -230,8 +230,9 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// DisableEvents means the default functionality of an event is impeded (passed over).
-		/// Events are disabled when the interaction with the field is code-enforced.
+		/// DisableEvents means the default functionality of an event will be impeded.
+		/// Events are disabled when the interaction with the field is code-enforced;
+		///		e.g., code, rather than the user, setting the value of a control.
 		/// </summary>
 		private void DisableEvents()
 		{
@@ -275,8 +276,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_GroupType_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			if ( IsEventDisabled )
-				GroupType = cbx_GroupType.Text;
+			GroupType = cbx_GroupType.Text;
 		}
 		#endregion
 
@@ -290,8 +290,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventDisabled )
-				Accumulate = tbx_Notes.Text;
+			Accumulate = tbx_Notes.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_Leave( object sender, EventArgs e )
@@ -305,8 +304,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_CurrencyDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventDisabled )
-				CurrencyDate = dbx_CurrencyDate.Value;
+			CurrencyDate = dbx_CurrencyDate.Value;
 		}
 		#endregion
 
