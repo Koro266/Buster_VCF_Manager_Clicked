@@ -22,7 +22,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
 
 		private LIKE_ROW[] matching_Groups;
-		private bool is_event_Disabled = false;
+		private bool is_event_Enabled = true;
 		private TextAccumulator txt_Accumulator;
 		//___________________________________________________________________________________________________________________________________________
 		public FrmGroup()
@@ -41,7 +41,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayGroup()
 		{
-			//DisableEvents();
+			DisableEvents();
 
 			this.tbx_PkGroup.Text = GroupPkAsText;
 			this.tbx_GroupName.Text = GroupName;
@@ -50,7 +50,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.dbx_CurrencyDate.Value = Group.CurrencyDate.DatePickerValue;
 			this.tbx_Notes.Text = Notes;
 
-			//EnableEvents();
+			EnableEvents();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayMatchingGroups( LIKE_ROW[] matching_groups )
@@ -204,8 +204,17 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private bool IsEventEnabled
 		{
-			get { return is_event_Disabled == false; }
-			set { bool is_event_Disabled = value; }
+			get { return is_event_Enabled; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void EnableEvents()
+		{
+			is_event_Enabled = true;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void DisableEvents()
+		{
+			is_event_Enabled = false;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
