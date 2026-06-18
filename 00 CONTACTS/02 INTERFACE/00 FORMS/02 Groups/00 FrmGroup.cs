@@ -125,7 +125,14 @@ namespace CONTACTS.INTERFACE.FORMS
 		private string GroupPkAsText
 		{
 			get { return Group.PkGroup.AsString; }
-			set { GroupPk = Convert.ToInt32( value ); }
+			set 
+			{
+				if ( int.TryParse( value, out int result ) )
+					GroupPk = result;
+
+				//do nothing.
+			}
+
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertGroup()
