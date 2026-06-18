@@ -29,7 +29,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// is_event_Disabled == true ==> that the default functionality of an system event is impeded.
 		/// </summary>
 		private bool is_event_Disabled = true;
-		
+
+		private int async_Delay = 2000;
+		private string no_Item_Selected = "No item selected. Move to default Group.";
+		private string is_Valid_Selection = " is a valid selection.";
+
 		//___________________________________________________________________________________________________________________________________________
 		public FrmGroup()
 		{
@@ -197,15 +201,25 @@ namespace CONTACTS.INTERFACE.FORMS
 				if ( value == GLOBAL_PRESET.NoItemSelected )
 				{
 					Group = all_Groups.DefaultGroup;
+					AsyncMessage( no_Item_Selected );
 				}
 				else
 				{
 					LIKE_ROW like_row = ( LIKE_ROW )( this.lbx_MatchingGroups.SelectedItem );
+					AsyncMessage( like_row.LikeValue + is_Valid_Selection );
 					this.GroupPk = like_row.PkRow;
 				}
 
 				this.tbx_GroupName.Focus();
 			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private async Task AsyncMessage( string msg)
+		{
+			this.tbx_Messages.Text = msg;
+			await Task.Delay( async_Delay );
+			this.tbx_Messages.Text = String.Empty;
+			this.tbx_Matches.Focus();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private DateTime CurrencyDate
@@ -371,7 +385,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 
 
-		#region 06 SQL (INSERT, UPDATE)
+		#region 05 SQL (INSERT, UPDATE)
 
 		#region NEW/INSERT/UPDATE
 		//___________________________________________________________________________________________________________________________________________

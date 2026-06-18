@@ -30,6 +30,7 @@
 		{
 			lbx_MatchingGroups = new ListBox();
 			box_GroupData = new GroupBox();
+			tbx_Messages = new TextBox();
 			label3 = new Label();
 			tbx_Matches = new TextBox();
 			btn_ExportGroup = new Button();
@@ -75,6 +76,7 @@
 			// 
 			// box_GroupData
 			// 
+			box_GroupData.Controls.Add( tbx_Messages );
 			box_GroupData.Controls.Add( label3 );
 			box_GroupData.Controls.Add( tbx_Matches );
 			box_GroupData.Controls.Add( btn_ExportGroup );
@@ -105,10 +107,20 @@
 			box_GroupData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			box_GroupData.Location = new Point( 12, 12 );
 			box_GroupData.Name = "box_GroupData";
-			box_GroupData.Size = new Size( 706, 398 );
+			box_GroupData.Size = new Size( 706, 444 );
 			box_GroupData.TabIndex = 0;
 			box_GroupData.TabStop = false;
 			box_GroupData.Text = "Group Data";
+			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.LavenderBlush;
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.Location = new Point( 106, 415 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 585, 23 );
+			tbx_Messages.TabIndex = 121;
+			tbx_Messages.TabStop = false;
 			// 
 			// label3
 			// 
@@ -410,7 +422,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 730, 422 );
+			ClientSize = new Size( 730, 462 );
 			Controls.Add( box_GroupData );
 			Name = "FrmGroup";
 			StartPosition = FormStartPosition.CenterScreen;
@@ -450,5 +462,6 @@
 		private Button btn_ExportGroup;
 		private Label label3;
 		private TextBox tbx_Matches;
+		private TextBox tbx_Messages;
 	}
 }
