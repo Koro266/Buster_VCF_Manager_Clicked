@@ -129,6 +129,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			set
 			{
 				if ( int.TryParse( value, out int result ) )
+					//TODO consider moving this to the table object.
 					if ( new COUNT.IsPkExtant( result ).Execute )
 						GroupPk = result;
 			}
@@ -406,3 +407,4 @@ namespace CONTACTS.INTERFACE.FORMS
 //TODO: Add boolean fields to form: is_DefaultRow, is_Export.
 //TODO: Standardise across all forms the "is enabled/disabled" approach.
 //TODO: Fix the record indexing and look again at the interaction with the database.
+//TODO: Consider adding a message TextBox on the form.
