@@ -126,7 +126,7 @@
 			tbx_Matches.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Matches.Location = new Point( 106, 24 );
 			tbx_Matches.Name = "tbx_Matches";
-			tbx_Matches.Size = new Size( 233, 23 );
+			tbx_Matches.Size = new Size( 122, 23 );
 			tbx_Matches.TabIndex = 119;
 			tbx_Matches.TextChanged +=  tbx_Matches_TextChanged ;
 			// 
@@ -378,6 +378,7 @@
 			tbx_PkGroup.Size = new Size( 73, 25 );
 			tbx_PkGroup.TabIndex = 1;
 			tbx_PkGroup.TabStop = false;
+			tbx_PkGroup.TextAlign = HorizontalAlignment.Right;
 			// 
 			// lbl_FindPk
 			// 

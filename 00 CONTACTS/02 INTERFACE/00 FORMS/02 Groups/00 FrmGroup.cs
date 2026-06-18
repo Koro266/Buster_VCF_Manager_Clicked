@@ -6,6 +6,7 @@ using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
 using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
 using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
+using COUNT			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
 using ONE_GROUP		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
 
@@ -22,8 +23,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
 
 		private LIKE_ROW[] matching_Groups;
-		private bool is_event_Disabled = false;
 		private TextAccumulator txt_Accumulator;
+
+		/// <summary>
+		/// is_event_Disabled == true ==> that the default functionality of an system event is impeded.
+		/// </summary>
+		private bool is_event_Disabled = true;
+		
 		//___________________________________________________________________________________________________________________________________________
 		public FrmGroup()
 		{
@@ -41,16 +47,18 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayGroup()
 		{
-			//DisableEvents();
+			DisableEvents();
 
-			this.tbx_PkGroup.Text = GroupPkAsText;
-			this.tbx_GroupName.Text = GroupName;
-			this.cbx_GroupType.Text = GroupType;
-			this.dbx_CurrencyDate.CustomFormat = Group.CurrencyDate.DatePickerFormat;
-			this.dbx_CurrencyDate.Value = Group.CurrencyDate.DatePickerValue;
-			this.tbx_Notes.Text = Notes;
+			this.tbx_Matches.Clear();
 
-			//EnableEvents();
+			this.tbx_PkGroup.Text				= GroupPkAsText;
+			this.tbx_GroupName.Text				= GroupName;
+			this.cbx_GroupType.Text				= GroupType;
+			this.dbx_CurrencyDate.CustomFormat	= Group.CurrencyDate.DatePickerFormat;
+			this.dbx_CurrencyDate.Value			= Group.CurrencyDate.DatePickerValue;
+			this.tbx_Notes.Text					= Notes;
+
+			EnableEvents();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayMatchingGroups( LIKE_ROW[] matching_groups )
@@ -65,6 +73,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm()
 		{
+			SetTabIndices();
 			ValuateGroupTypes();
 			PutHeader();
 		}
@@ -78,6 +87,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void PutHeader()
 		{
 			this.Text = db_Connector.PartiallyQualifiedFileName;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void SetTabIndices()
+		{
+			this.tbx_Matches.TabIndex = 0;
+			//TODO Complete the tab index list.
 		}
 		#endregion
 
@@ -111,7 +126,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		private string GroupPkAsText
 		{
 			get { return Group.PkGroup.AsString; }
-			set { GroupPk = Convert.ToInt32( value ); }
+			set
+			{
+				if ( int.TryParse( value, out int result ) )
+					//TODO consider moving this to the table object.
+					if ( new COUNT.IsPkExtant( result ).Execute )
+						GroupPk = result;
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertGroup()
@@ -182,11 +203,14 @@ namespace CONTACTS.INTERFACE.FORMS
 					LIKE_ROW like_row = ( LIKE_ROW )( this.lbx_MatchingGroups.SelectedItem );
 					this.GroupPk = like_row.PkRow;
 				}
+
+				this.tbx_GroupName.Focus();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private DateTime CurrencyDate
 		{
+			//TODO: No apparent interaction with CurrencyDate.
 			get { return Group.CurrencyDate.Value; }
 			set
 			{
@@ -195,10 +219,31 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventEnabled
+		/// <summary>
+		/// Returns true if default functionality of an event is required.
+		/// </summary>
+		private bool IsEventDisabled
 		{
-			get { return is_event_Disabled == false; }
-			set { bool is_event_Disabled = value; }
+			get { return is_event_Disabled; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// EnableEvents means the default functionality of an event will be allowed to proceed.
+		/// Events are enabled when human input via the interface is allowed.
+		/// </summary>
+		private void EnableEvents()
+		{
+			is_event_Disabled = false;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// DisableEvents means the default functionality of an event will be impeded.
+		/// Events are disabled when the interaction with the field is code-enforced;
+		///		e.g., code, rather than the user, setting the value of a control.
+		/// </summary>
+		private void DisableEvents()
+		{
+			is_event_Disabled = true;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
@@ -219,7 +264,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_GroupName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( IsEventDisabled )
 			{
 				string value = tbx_GroupName.Text;
 				DisplayMatchingGroups( new LIKE.MatchingGroups( value ).Execute );
@@ -238,8 +283,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_GroupType_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
-				GroupType = cbx_GroupType.Text;
+			GroupType = cbx_GroupType.Text;
 		}
 		#endregion
 
@@ -253,8 +297,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
-				Accumulate = tbx_Notes.Text;
+			Accumulate = tbx_Notes.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_Leave( object sender, EventArgs e )
@@ -268,8 +311,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_CurrencyDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
-				CurrencyDate = dbx_CurrencyDate.Value;
+			CurrencyDate = dbx_CurrencyDate.Value;
 		}
 		#endregion
 
@@ -362,3 +404,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 	}
 }
+//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
+//TODO: Standardise across all forms the "is enabled/disabled" approach.
+//TODO: Fix the record indexing and look again at the interaction with the database.
+//TODO: Consider adding a message TextBox on the form.
