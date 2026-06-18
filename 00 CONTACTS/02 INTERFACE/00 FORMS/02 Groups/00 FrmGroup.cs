@@ -191,11 +191,14 @@ namespace CONTACTS.INTERFACE.FORMS
 					LIKE_ROW like_row = ( LIKE_ROW )( this.lbx_MatchingGroups.SelectedItem );
 					this.GroupPk = like_row.PkRow;
 				}
+
+				this.tbx_GroupName.Focus();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private DateTime CurrencyDate
 		{
+			//TODO: No apparent interaction with CurrencyDate.
 			get { return Group.CurrencyDate.Value; }
 			set
 			{

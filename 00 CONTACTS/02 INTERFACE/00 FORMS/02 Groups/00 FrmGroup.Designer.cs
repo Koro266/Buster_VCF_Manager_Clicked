@@ -378,6 +378,7 @@
 			tbx_PkGroup.Size = new Size( 73, 25 );
 			tbx_PkGroup.TabIndex = 1;
 			tbx_PkGroup.TabStop = false;
+			tbx_PkGroup.TextAlign = HorizontalAlignment.Right;
 			// 
 			// lbl_FindPk
 			// 
