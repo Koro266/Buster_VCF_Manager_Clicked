@@ -1,7 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using DATE_COLUMN	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
@@ -9,8 +8,6 @@ using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
 using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
 using ONE_GROUP		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
-//FORMS
-using FIND_GROUP	= CONTACTS.INTERFACE.DIALOGS.DlgFindGroup;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
