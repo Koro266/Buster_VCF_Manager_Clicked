@@ -32,6 +32,7 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 				public IsPkExtant( int pk_group ) : base( sql_text )
 				{
 					COLUMNS.PK_Group pk = new COLUMNS.PK_Group( pk_group );
+					base.DbCommand.Parameters.Add( pk.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>
