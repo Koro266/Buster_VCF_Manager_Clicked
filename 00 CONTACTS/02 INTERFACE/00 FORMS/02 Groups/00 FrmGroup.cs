@@ -237,9 +237,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private async Task AsyncMessage( string msg)
 		{
 			_Messenger.Message = msg;
-			//this.tbx_Messages.Text = msg;
-			//await Task.Delay( async_Delay );
-			//this.tbx_Messages.Text = String.Empty;
 			this.tbx_Matches.Focus();
 		}
 		//___________________________________________________________________________________________________________________________________________
