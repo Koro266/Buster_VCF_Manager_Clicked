@@ -40,11 +40,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// is_event_Disabled == true ==> that the default functionality of an system event is impeded.
 		/// </summary>
 		private bool is_event_Disabled = true;
-		/// <summary>
-		/// 'Immediate', self-cancelling messaging.
+
 		// TODO: Consider moving these constants into Group constants file. 
-		/// </summary>
-		private const int async_Delay = 2000;
 		private const string no_Item_Selected = "No item selected. Move to default Group.";
 		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
@@ -234,7 +231,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private async Task AsyncMessage( string msg)
+		private void AsyncMessage( string msg)
 		{
 			_Messenger.Message = msg;
 			this.tbx_Matches.Focus();
