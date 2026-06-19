@@ -17,6 +17,8 @@ namespace CONTACTS.INTERFACE.FORMS
 	public partial class FrmGroup : Form
 	{
 		#region 00 DECLARE / CONSTRUCT
+
+		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
 
@@ -34,7 +36,10 @@ namespace CONTACTS.INTERFACE.FORMS
 		private int async_Delay = 2000;
 		private string no_Item_Selected = "No item selected. Move to default Group.";
 		private string is_Valid_Selection = " is a valid selection.";
+		#endregion
 
+
+		#region CONSTRUCTION
 		//___________________________________________________________________________________________________________________________________________
 		public FrmGroup()
 		{
@@ -45,34 +50,10 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
-
-		#region 01 INITIALISE & DISPLAY
-
-		#region DISPLAY
-		//___________________________________________________________________________________________________________________________________________
-		private void DisplayGroup()
-		{
-			DisableEvents();
-
-			this.tbx_Matches.Clear();
-
-			this.tbx_PkGroup.Text				= GroupPkAsText;
-			this.tbx_GroupName.Text				= GroupName;
-			this.cbx_GroupType.Text				= GroupType;
-			this.dbx_CurrencyDate.CustomFormat	= Group.CurrencyDate.DatePickerFormat;
-			this.dbx_CurrencyDate.Value			= Group.CurrencyDate.DatePickerValue;
-			this.tbx_Notes.Text					= Notes;
-
-			EnableEvents();
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void DisplayMatchingGroups( LIKE_ROW[] matching_groups )
-		{
-			this.lbx_MatchingGroups.Items.Clear();
-			this.lbx_MatchingGroups.Items.AddRange( matching_groups );
-		}
 		#endregion
 
+
+		#region 01 INITIALISE & DISPLAY
 
 		#region INITIALISATION/FINALISATION
 		//___________________________________________________________________________________________________________________________________________
@@ -98,6 +79,32 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			this.tbx_Matches.TabIndex = 0;
 			//TODO Complete the tab index list.
+		}
+		#endregion
+
+
+		#region DISPLAY
+		//___________________________________________________________________________________________________________________________________________
+		private void DisplayGroup()
+		{
+			DisableEvents();
+
+			this.tbx_Matches.Clear();
+
+			this.tbx_PkGroup.Text				= GroupPkAsText;
+			this.tbx_GroupName.Text				= GroupName;
+			this.cbx_GroupType.Text				= GroupType;
+			this.dbx_CurrencyDate.CustomFormat	= Group.CurrencyDate.DatePickerFormat;
+			this.dbx_CurrencyDate.Value			= Group.CurrencyDate.DatePickerValue;
+			this.tbx_Notes.Text					= Notes;
+
+			EnableEvents();
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void DisplayMatchingGroups( LIKE_ROW[] matching_groups )
+		{
+			this.lbx_MatchingGroups.Items.Clear();
+			this.lbx_MatchingGroups.Items.AddRange( matching_groups );
 		}
 		#endregion
 
