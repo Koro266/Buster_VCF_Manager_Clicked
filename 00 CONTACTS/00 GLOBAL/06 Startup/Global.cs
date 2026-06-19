@@ -31,6 +31,7 @@ namespace CONTACTS.GLOBAL
 			get { return startup_Interface; }
 		}
 	}
+	//TODO: Standardise across all forms the "is enabled/disabled" approach.
 
 
 	//_______________________________________________________________________________________________

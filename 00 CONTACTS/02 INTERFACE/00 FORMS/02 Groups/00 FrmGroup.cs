@@ -21,7 +21,6 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region TODO LIST
 		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
-		//TODO: Standardise across all forms the "is enabled/disabled" approach.
 		//TODO: Fix the record indexing and look again at the interaction with the database.
 		//TODO: Consider adding a message TextBox on the form.
 		#endregion
@@ -32,7 +31,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private ONE_GROUP one_Group;
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
 		private static MESSENGER _Messenger;
-
 		private LIKE_ROW[] matching_Groups;
 		private TextAccumulator txt_Accumulator;
 
@@ -41,7 +39,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private bool is_event_Disabled = true;
 
-		// TODO: Consider moving these constants into Group constants file. 
+		//TODO: Consider moving these constants into Group constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Group.";
 		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
