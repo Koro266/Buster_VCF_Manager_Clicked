@@ -19,6 +19,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region 00 DECLARE / CONSTRUCT
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
+
 		private ONE_GROUP one_Group;
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
 
