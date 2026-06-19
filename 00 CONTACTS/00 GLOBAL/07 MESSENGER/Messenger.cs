@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.GLOBAL
 {
 	//___________________________________________________________________________________________________________________________________________________
 	public class Messenger
 	{
+		private TextBox tbx_Messages;
+		private const int async_Delay = 2000;
+
 		//___________________________________________________________________________________________________________________________________________________
-		public Messenger()
+		public Messenger( TextBox tbx_msg)
 		{
+			tbx_Messages = tbx_msg;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private async Task AsyncMessage( string msg )
+		{
+			this.tbx_Messages.Text = msg;
+			await Task.Delay( async_Delay );
+			this.tbx_Messages.Text = String.Empty;
 		}
 	}
 }
