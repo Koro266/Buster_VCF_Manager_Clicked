@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
@@ -30,6 +31,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private ONE_GROUP one_Group;
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
+		private static MESSENGER _Messenger;
 
 		private LIKE_ROW[] matching_Groups;
 		private TextAccumulator txt_Accumulator;
@@ -55,6 +57,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitializeComponent();
 			InitialiseForm();
 
+			_Messenger = new MESSENGER( this.tbx_Messages );
 			Group = all_Groups.DefaultGroup;
 		}
 		#endregion
@@ -233,9 +236,10 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private async Task AsyncMessage( string msg)
 		{
-			this.tbx_Messages.Text = msg;
-			await Task.Delay( async_Delay );
-			this.tbx_Messages.Text = String.Empty;
+			_Messenger.Message = msg;
+			//this.tbx_Messages.Text = msg;
+			//await Task.Delay( async_Delay );
+			//this.tbx_Messages.Text = String.Empty;
 			this.tbx_Matches.Focus();
 		}
 		//___________________________________________________________________________________________________________________________________________
