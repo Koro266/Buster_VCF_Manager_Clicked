@@ -20,8 +20,6 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
-
-
 		private ONE_GROUP one_Group;
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
 
@@ -32,10 +30,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// is_event_Disabled == true ==> that the default functionality of an system event is impeded.
 		/// </summary>
 		private bool is_event_Disabled = true;
-
-		private int async_Delay = 2000;
-		private string no_Item_Selected = "No item selected. Move to default Group.";
-		private string is_Valid_Selection = " is a valid selection.";
+		/// <summary>
+		/// 'Immediate', self-cancelling messaging.
+		// TODO: Consider moving these constants into Group constants file. 
+		/// </summary>
+		private const int async_Delay = 2000;
+		private const string no_Item_Selected = "No item selected. Move to default Group.";
+		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
 
 
