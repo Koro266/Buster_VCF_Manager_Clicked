@@ -16,7 +16,15 @@ namespace CONTACTS.INTERFACE.FORMS
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class FrmGroup : Form
 	{
-		#region 00 DECLARE / CONSTRUCT
+		#region 00 TODO / DECLARE / CONSTRUCT
+
+		#region TODO LIST
+		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
+		//TODO: Standardise across all forms the "is enabled/disabled" approach.
+		//TODO: Fix the record indexing and look again at the interaction with the database.
+		//TODO: Consider adding a message TextBox on the form.
+		#endregion
+
 
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
@@ -394,7 +402,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 
 
-		#region 05 SQL (INSERT, UPDATE)
+		#region 05 SQL (INSERT, UPDATE) & KEY_UP
 
 		#region NEW/INSERT/UPDATE
 		//___________________________________________________________________________________________________________________________________________
@@ -427,7 +435,3 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 	}
 }
-//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
-//TODO: Standardise across all forms the "is enabled/disabled" approach.
-//TODO: Fix the record indexing and look again at the interaction with the database.
-//TODO: Consider adding a message TextBox on the form.
