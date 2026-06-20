@@ -88,6 +88,7 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
+			tbx_Messages = new TextBox();
 			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -671,6 +672,7 @@
 			// 
 			// grp_PersonData
 			// 
+			grp_PersonData.Controls.Add( tbx_Messages );
 			grp_PersonData.Controls.Add( label3 );
 			grp_PersonData.Controls.Add( tbx_Matches );
 			grp_PersonData.Controls.Add( label1 );
@@ -733,7 +735,7 @@
 			grp_PersonData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_PersonData.Location = new Point( 15, 12 );
 			grp_PersonData.Name = "grp_PersonData";
-			grp_PersonData.Size = new Size( 936, 614 );
+			grp_PersonData.Size = new Size( 936, 642 );
 			grp_PersonData.TabIndex = 0;
 			grp_PersonData.TabStop = false;
 			grp_PersonData.Text = "Person Data";
@@ -850,13 +852,23 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.LavenderBlush;
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.Location = new Point( 142, 608 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 783, 23 );
+			tbx_Messages.TabIndex = 122;
+			tbx_Messages.TabStop = false;
+			// 
 			// FrmPerson
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
-			ClientSize = new Size( 955, 630 );
+			ClientSize = new Size( 955, 653 );
 			Controls.Add( grp_PersonData );
 			FormBorderStyle = FormBorderStyle.Fixed3D;
 			Name = "FrmPerson";
@@ -931,5 +943,6 @@
 		private Label label1;
 		private Label label3;
 		private TextBox tbx_Matches;
+		private TextBox tbx_Messages;
 	}
 }
