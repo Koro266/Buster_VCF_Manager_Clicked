@@ -1,15 +1,15 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using MESSENGER		= CONTACTS.GLOBAL.Messenger;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using MESSENGER = CONTACTS.GLOBAL.Messenger;
+using GLOBAL_DB = CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using LIKE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
-using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
-using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
-using COUNT			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
-using LIKE			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
-using ONE_GROUP		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
+using ALL_GROUPS = CONTACTS.LOCAL.PRIMARY.GROUP.Table;
+using SELECT = CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
+using COUNT = CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
+using LIKE = CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
+using ONE_GROUP = CONTACTS.LOCAL.PRIMARY.GROUP.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -98,12 +98,12 @@ namespace CONTACTS.INTERFACE.FORMS
 
 			this.tbx_Matches.Clear();
 
-			this.tbx_PkGroup.Text				= GroupPkAsText;
-			this.tbx_GroupName.Text				= GroupName;
-			this.cbx_GroupType.Text				= GroupType;
-			this.dbx_CurrencyDate.CustomFormat	= Group.CurrencyDate.DatePickerFormat;
-			this.dbx_CurrencyDate.Value			= Group.CurrencyDate.DatePickerValue;
-			this.tbx_Notes.Text					= Notes;
+			this.tbx_PkGroup.Text = GroupPkAsText;
+			this.tbx_GroupName.Text = GroupName;
+			this.cbx_GroupType.Text = GroupType;
+			this.dbx_CurrencyDate.CustomFormat = Group.CurrencyDate.DatePickerFormat;
+			this.dbx_CurrencyDate.Value = Group.CurrencyDate.DatePickerValue;
+			this.tbx_Notes.Text = Notes;
 
 			EnableEvents();
 		}
@@ -229,7 +229,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void AsyncMessage( string msg)
+		private void AsyncMessage( string msg )
 		{
 			_Messenger.Message = msg;
 			this.tbx_Matches.Focus();
