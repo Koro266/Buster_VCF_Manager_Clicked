@@ -79,11 +79,13 @@
 			btn_CurrencyNow = new Button();
 			lbl_CurrencyDate = new Label();
 			lbl_WeddingDate = new Label();
+			tbx_Messages = new TextBox();
 			box_FamilyData.SuspendLayout();
 			SuspendLayout();
 			// 
 			// box_FamilyData
 			// 
+			box_FamilyData.Controls.Add( tbx_Messages );
 			box_FamilyData.Controls.Add( label3 );
 			box_FamilyData.Controls.Add( btn_TriggerDerivation );
 			box_FamilyData.Controls.Add( btn_FindFamily );
@@ -138,7 +140,7 @@
 			box_FamilyData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			box_FamilyData.Location = new Point( 12, 9 );
 			box_FamilyData.Name = "box_FamilyData";
-			box_FamilyData.Size = new Size( 1089, 516 );
+			box_FamilyData.Size = new Size( 1089, 549 );
 			box_FamilyData.TabIndex = 0;
 			box_FamilyData.TabStop = false;
 			box_FamilyData.Text = "Family Data";
@@ -712,13 +714,23 @@
 			lbl_WeddingDate.Text = "Wedding Date";
 			lbl_WeddingDate.TextAlign = ContentAlignment.MiddleRight;
 			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.LavenderBlush;
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.Location = new Point( 172, 511 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 907, 23 );
+			tbx_Messages.TabIndex = 123;
+			tbx_Messages.TabStop = false;
+			// 
 			// FrmFamily
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 1108, 537 );
+			ClientSize = new Size( 1108, 556 );
 			Controls.Add( box_FamilyData );
 			Name = "FrmFamily";
 			StartPosition = FormStartPosition.CenterScreen;
@@ -782,5 +794,6 @@
 		private Label label3;
 		private Button btn_NewFamily;
 		private Button btn_InsertFamily;
+		private TextBox tbx_Messages;
 	}
 }
