@@ -79,6 +79,7 @@
 			tbx_Notes = new TextBox();
 			lbl_Notes = new Label();
 			grp_PersonData = new GroupBox();
+			tbx_Messages = new TextBox();
 			label3 = new Label();
 			tbx_Matches = new TextBox();
 			label1 = new Label();
@@ -88,7 +89,6 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
-			tbx_Messages = new TextBox();
 			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -97,7 +97,7 @@
 			lbl_PersonPK.AutoSize = true;
 			lbl_PersonPK.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_PersonPK.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_PersonPK.Location = new Point( 443, 24 );
+			lbl_PersonPK.Location = new Point( 896, 30 );
 			lbl_PersonPK.Name = "lbl_PersonPK";
 			lbl_PersonPK.Size = new Size( 30, 21 );
 			lbl_PersonPK.TabIndex = 0;
@@ -241,7 +241,7 @@
 			lbl_FindPK.AutoSize = true;
 			lbl_FindPK.Font = new Font( "Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_FindPK.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_FindPK.Location = new Point( 423, 59 );
+			lbl_FindPK.Location = new Point( 876, 65 );
 			lbl_FindPK.Name = "lbl_FindPK";
 			lbl_FindPK.Size = new Size( 47, 13 );
 			lbl_FindPK.TabIndex = 47;
@@ -252,7 +252,7 @@
 			lbl_SURNAME.AutoSize = true;
 			lbl_SURNAME.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_SURNAME.ForeColor = Color.Blue;
-			lbl_SURNAME.Location = new Point( 55, 488 );
+			lbl_SURNAME.Location = new Point( 55, 519 );
 			lbl_SURNAME.Name = "lbl_SURNAME";
 			lbl_SURNAME.Size = new Size( 77, 19 );
 			lbl_SURNAME.TabIndex = 13;
@@ -264,7 +264,7 @@
 			lbl_NaturalName.AutoSize = true;
 			lbl_NaturalName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_NaturalName.ForeColor = Color.Blue;
-			lbl_NaturalName.Location = new Point( 29, 519 );
+			lbl_NaturalName.Location = new Point( 29, 550 );
 			lbl_NaturalName.Name = "lbl_NaturalName";
 			lbl_NaturalName.Size = new Size( 103, 19 );
 			lbl_NaturalName.TabIndex = 14;
@@ -276,7 +276,7 @@
 			lbl_SortableName.AutoSize = true;
 			lbl_SortableName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_SortableName.ForeColor = Color.Blue;
-			lbl_SortableName.Location = new Point( 22, 549 );
+			lbl_SortableName.Location = new Point( 22, 580 );
 			lbl_SortableName.Name = "lbl_SortableName";
 			lbl_SortableName.Size = new Size( 110, 19 );
 			lbl_SortableName.TabIndex = 15;
@@ -299,7 +299,7 @@
 			// 
 			btn_InsertPerson.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertPerson.ForeColor = Color.Maroon;
-			btn_InsertPerson.Location = new Point( 425, 177 );
+			btn_InsertPerson.Location = new Point( 878, 183 );
 			btn_InsertPerson.Name = "btn_InsertPerson";
 			btn_InsertPerson.Size = new Size( 133, 32 );
 			btn_InsertPerson.TabIndex = 5;
@@ -312,7 +312,7 @@
 			// 
 			btn_UpdatePerson.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdatePerson.ForeColor = Color.Maroon;
-			btn_UpdatePerson.Location = new Point( 425, 213 );
+			btn_UpdatePerson.Location = new Point( 878, 219 );
 			btn_UpdatePerson.Name = "btn_UpdatePerson";
 			btn_UpdatePerson.Size = new Size( 133, 32 );
 			btn_UpdatePerson.TabIndex = 6;
@@ -325,7 +325,7 @@
 			tbx_PersonId.BackColor = Color.FromArgb(     192,     192,     255 );
 			tbx_PersonId.Enabled = false;
 			tbx_PersonId.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_PersonId.Location = new Point( 476, 22 );
+			tbx_PersonId.Location = new Point( 929, 28 );
 			tbx_PersonId.Name = "tbx_PersonId";
 			tbx_PersonId.PlaceholderText = "PK";
 			tbx_PersonId.ReadOnly = true;
@@ -428,7 +428,7 @@
 			// tbx_UpperSurname
 			// 
 			tbx_UpperSurname.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_UpperSurname.Location = new Point( 142, 484 );
+			tbx_UpperSurname.Location = new Point( 142, 515 );
 			tbx_UpperSurname.Name = "tbx_UpperSurname";
 			tbx_UpperSurname.Size = new Size( 416, 25 );
 			tbx_UpperSurname.TabIndex = 14;
@@ -437,7 +437,7 @@
 			// tbx_NaturalName
 			// 
 			tbx_NaturalName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_NaturalName.Location = new Point( 142, 515 );
+			tbx_NaturalName.Location = new Point( 142, 546 );
 			tbx_NaturalName.Name = "tbx_NaturalName";
 			tbx_NaturalName.Size = new Size( 416, 25 );
 			tbx_NaturalName.TabIndex = 15;
@@ -446,7 +446,7 @@
 			// tbx_SortableName
 			// 
 			tbx_SortableName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_SortableName.Location = new Point( 142, 546 );
+			tbx_SortableName.Location = new Point( 142, 577 );
 			tbx_SortableName.Name = "tbx_SortableName";
 			tbx_SortableName.Size = new Size( 416, 25 );
 			tbx_SortableName.TabIndex = 16;
@@ -469,7 +469,7 @@
 			tbx_Filter.BackColor = Color.FromArgb(     255,     192,     192 );
 			tbx_Filter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Filter.HideSelection = false;
-			tbx_Filter.Location = new Point( 476, 53 );
+			tbx_Filter.Location = new Point( 929, 59 );
 			tbx_Filter.MaxLength = 6;
 			tbx_Filter.Name = "tbx_Filter";
 			tbx_Filter.Size = new Size( 82, 25 );
@@ -527,7 +527,7 @@
 			// lbl_LastRecord
 			// 
 			lbl_LastRecord.AutoSize = true;
-			lbl_LastRecord.Location = new Point( 537, 112 );
+			lbl_LastRecord.Location = new Point( 990, 118 );
 			lbl_LastRecord.Name = "lbl_LastRecord";
 			lbl_LastRecord.Size = new Size( 16, 17 );
 			lbl_LastRecord.TabIndex = 49;
@@ -536,7 +536,7 @@
 			// lbl_FirstRecord
 			// 
 			lbl_FirstRecord.AutoSize = true;
-			lbl_FirstRecord.Location = new Point( 432, 112 );
+			lbl_FirstRecord.Location = new Point( 885, 118 );
 			lbl_FirstRecord.Name = "lbl_FirstRecord";
 			lbl_FirstRecord.Size = new Size( 15, 17 );
 			lbl_FirstRecord.TabIndex = 48;
@@ -546,7 +546,7 @@
 			// 
 			btn_FindPerson.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindPerson.ForeColor = Color.Maroon;
-			btn_FindPerson.Location = new Point( 425, 307 );
+			btn_FindPerson.Location = new Point( 878, 313 );
 			btn_FindPerson.Name = "btn_FindPerson";
 			btn_FindPerson.Size = new Size( 133, 28 );
 			btn_FindPerson.TabIndex = 4;
@@ -558,7 +558,7 @@
 			// btn_FirstPerson
 			// 
 			btn_FirstPerson.Font = new Font( "Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FirstPerson.Location = new Point( 425, 85 );
+			btn_FirstPerson.Location = new Point( 878, 91 );
 			btn_FirstPerson.Name = "btn_FirstPerson";
 			btn_FirstPerson.Size = new Size( 27, 23 );
 			btn_FirstPerson.TabIndex = 1;
@@ -569,7 +569,7 @@
 			// btn_PreviousPerson
 			// 
 			btn_PreviousPerson.Font = new Font( "Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_PreviousPerson.Location = new Point( 459, 85 );
+			btn_PreviousPerson.Location = new Point( 912, 91 );
 			btn_PreviousPerson.Name = "btn_PreviousPerson";
 			btn_PreviousPerson.Size = new Size( 27, 23 );
 			btn_PreviousPerson.TabIndex = 2;
@@ -581,7 +581,7 @@
 			// 
 			btn_Close.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Close.ForeColor = Color.Maroon;
-			btn_Close.Location = new Point( 425, 370 );
+			btn_Close.Location = new Point( 878, 534 );
 			btn_Close.Name = "btn_Close";
 			btn_Close.Size = new Size( 133, 34 );
 			btn_Close.TabIndex = 7;
@@ -592,7 +592,7 @@
 			// btn_LastPerson
 			// 
 			btn_LastPerson.Font = new Font( "Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_LastPerson.Location = new Point( 531, 85 );
+			btn_LastPerson.Location = new Point( 984, 91 );
 			btn_LastPerson.Name = "btn_LastPerson";
 			btn_LastPerson.Size = new Size( 27, 23 );
 			btn_LastPerson.TabIndex = 4;
@@ -603,7 +603,7 @@
 			// btn_NextPerson
 			// 
 			btn_NextPerson.Font = new Font( "Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NextPerson.Location = new Point( 496, 85 );
+			btn_NextPerson.Location = new Point( 949, 91 );
 			btn_NextPerson.Name = "btn_NextPerson";
 			btn_NextPerson.Size = new Size( 27, 23 );
 			btn_NextPerson.TabIndex = 3;
@@ -614,7 +614,7 @@
 			// tbx_Initials
 			// 
 			tbx_Initials.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Initials.Location = new Point( 142, 577 );
+			tbx_Initials.Location = new Point( 142, 484 );
 			tbx_Initials.Name = "tbx_Initials";
 			tbx_Initials.Size = new Size( 73, 25 );
 			tbx_Initials.TabIndex = 17;
@@ -625,7 +625,7 @@
 			lbl_Initials.AutoSize = true;
 			lbl_Initials.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Initials.ForeColor = Color.Blue;
-			lbl_Initials.Location = new Point( 80, 580 );
+			lbl_Initials.Location = new Point( 80, 487 );
 			lbl_Initials.Name = "lbl_Initials";
 			lbl_Initials.Size = new Size( 52, 19 );
 			lbl_Initials.TabIndex = 51;
@@ -639,9 +639,9 @@
 			lbx_MatchingPersons.ForeColor = Color.Blue;
 			lbx_MatchingPersons.FormattingEnabled = true;
 			lbx_MatchingPersons.ItemHeight = 15;
-			lbx_MatchingPersons.Location = new Point( 570, 22 );
+			lbx_MatchingPersons.Location = new Point( 564, 24 );
 			lbx_MatchingPersons.Name = "lbx_MatchingPersons";
-			lbx_MatchingPersons.Size = new Size( 355, 574 );
+			lbx_MatchingPersons.Size = new Size( 306, 544 );
 			lbx_MatchingPersons.TabIndex = 1;
 			lbx_MatchingPersons.TabStop = false;
 			lbx_MatchingPersons.Click +=  lbx_MatchingPersons_Click ;
@@ -735,10 +735,21 @@
 			grp_PersonData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_PersonData.Location = new Point( 15, 12 );
 			grp_PersonData.Name = "grp_PersonData";
-			grp_PersonData.Size = new Size( 936, 642 );
+			grp_PersonData.Size = new Size( 1021, 617 );
 			grp_PersonData.TabIndex = 0;
 			grp_PersonData.TabStop = false;
 			grp_PersonData.Text = "Person Data";
+			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.ForeColor = Color.ForestGreen;
+			tbx_Messages.Location = new Point( 564, 578 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 447, 23 );
+			tbx_Messages.TabIndex = 122;
+			tbx_Messages.TabStop = false;
 			// 
 			// label3
 			// 
@@ -775,7 +786,7 @@
 			// 
 			btn_NewPerson.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_NewPerson.ForeColor = Color.Maroon;
-			btn_NewPerson.Location = new Point( 425, 142 );
+			btn_NewPerson.Location = new Point( 878, 148 );
 			btn_NewPerson.Name = "btn_NewPerson";
 			btn_NewPerson.Size = new Size( 133, 32 );
 			btn_NewPerson.TabIndex = 104;
@@ -788,7 +799,7 @@
 			// 
 			btn_ExportPersonVcf.Font = new Font( "Rockwell", 11.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_ExportPersonVcf.ForeColor = Color.Maroon;
-			btn_ExportPersonVcf.Location = new Point( 425, 272 );
+			btn_ExportPersonVcf.Location = new Point( 878, 278 );
 			btn_ExportPersonVcf.Name = "btn_ExportPersonVcf";
 			btn_ExportPersonVcf.Size = new Size( 133, 32 );
 			btn_ExportPersonVcf.TabIndex = 103;
@@ -852,23 +863,13 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
-			// tbx_Messages
-			// 
-			tbx_Messages.BackColor = Color.LavenderBlush;
-			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Messages.Location = new Point( 142, 608 );
-			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 783, 23 );
-			tbx_Messages.TabIndex = 122;
-			tbx_Messages.TabStop = false;
-			// 
 			// FrmPerson
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
-			ClientSize = new Size( 955, 653 );
+			ClientSize = new Size( 1045, 635 );
 			Controls.Add( grp_PersonData );
 			FormBorderStyle = FormBorderStyle.Fixed3D;
 			Name = "FrmPerson";
