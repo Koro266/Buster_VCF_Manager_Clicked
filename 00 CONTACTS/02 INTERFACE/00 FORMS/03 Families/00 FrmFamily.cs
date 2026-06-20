@@ -32,6 +32,10 @@ namespace CONTACTS.INTERFACE.FORMS
 		private TextAccumulator txt_Accumulator;
 
 		private bool is_event_Disabled = true;
+
+		//TODO: Consider moving these constants into Person constants file. 
+		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
+		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
 
 
@@ -254,12 +258,12 @@ namespace CONTACTS.INTERFACE.FORMS
 				if ( value == GLOBAL_PRESET.NoItemSelected )
 				{
 					Family = all_Familys.DefaultFamily;
-					AsyncMessage( "no_Item_Selected" );
+					AsyncMessage( no_Item_Selected );
 				}
 				else
 				{
 					GLOBAL_LIKE like_row = ( GLOBAL_LIKE )( this.lbx_MatchingFamilies.SelectedItem );
-					AsyncMessage( like_row.LikeValue + "is_Valid_Selection" );
+					AsyncMessage( like_row.LikeValue + is_Valid_Selection );
 					this.PkFamily = like_row.PkRow;
 				}
 
