@@ -2,6 +2,7 @@
 //GLOBAL
 using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 //LOCAL	
@@ -24,9 +25,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		private PERSONS all_Persons = new PERSONS();
 		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Persons;
+		private TextAccumulator txt_Accumulator;
 
 		private bool is_event_Disabled = false;
-		private TextAccumulator txt_Accumulator;
+
+		//TODO: Consider moving these constants into Person constants file. 
+		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
+		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
 
 
@@ -35,14 +40,14 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmPerson()
 		{
 			InitializeComponent();
-			//_Messenger = new MESSENGER( this.tbx_Messages );
+			_Messenger = new MESSENGER( this.tbx_Messages );
 			InitialisePerson();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmPerson( int pk_person )
 		{
 			InitializeComponent();
-			//_Messenger = new MESSENGER( this.tbx_Messages );
+			_Messenger = new MESSENGER( this.tbx_Messages );
 			InitialisePerson( pk_person );
 		}
 		#endregion
@@ -351,6 +356,32 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
+		private int PersonSelectedIndex
+		{
+			set
+			{
+				if ( value == GLOBAL_PRESET.NoItemSelected )
+				{
+					Person = all_Persons.DefaultPerson;
+					AsyncMessage( no_Item_Selected );
+				}
+				else
+				{
+					LIKE_ROW like_row = ( LIKE_ROW )( this.lbx_MatchingPersons.SelectedItem );
+					AsyncMessage( like_row.LikeValue + is_Valid_Selection );
+					this.PkPerson = like_row.PkRow;
+				}
+
+				this.tbx_ProperSurname.Focus();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void AsyncMessage( string msg )
+		{
+			_Messenger.Message = msg;
+			this.tbx_Matches.Focus();
+		}
+		//___________________________________________________________________________________________________________________________________________
 		private PERSON Insert
 		{
 			set { all_Persons.InsertPerson( value ); }
@@ -634,8 +665,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void lbx_MatchingPersons_Click( object sender, EventArgs e )
 		{
-			LIKE_ROW row = ( LIKE_ROW )lbx_MatchingPersons.SelectedItem;
-			PkPerson = row.PkRow;
+			PersonSelectedIndex = lbx_MatchingPersons.SelectedIndex;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_ClearBirthDate_Click( object sender, EventArgs e )
