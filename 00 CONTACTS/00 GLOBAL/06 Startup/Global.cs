@@ -4,6 +4,7 @@ namespace CONTACTS.GLOBAL
 	//___________________________________________________________________________________________________________________________________________________
 	public static class StartupManager
 	{
+		//TODO: Standardise across all forms the "is enabled/disabled" approach.
 		//___________________________________________________________________________________________________________________________________________________
 		public enum StartupForm
 		{
@@ -20,7 +21,7 @@ namespace CONTACTS.GLOBAL
 		};
 
 		#if DEBUG
-		private static StartupForm startup_Interface = StartupForm.Family;
+		private static StartupForm startup_Interface = StartupForm.Person;
 		#else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
 		#endif
@@ -31,9 +32,6 @@ namespace CONTACTS.GLOBAL
 			get { return startup_Interface; }
 		}
 	}
-	//TODO: Standardise across all forms the "is enabled/disabled" approach.
-
-
 	//_______________________________________________________________________________________________
 	/// <summary>
 	/// This enum is supposed to companion every value object and report on its USABILTY (i.e., its NULL) state.
