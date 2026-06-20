@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
@@ -21,6 +22,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private PERSON one_Person;
 		private PERSONS all_Persons = new PERSONS();
+		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Persons;
 
 		private bool is_event_Disabled = false;
@@ -33,12 +35,14 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmPerson()
 		{
 			InitializeComponent();
+			//_Messenger = new MESSENGER( this.tbx_Messages );
 			InitialisePerson();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmPerson( int pk_person )
 		{
 			InitializeComponent();
+			//_Messenger = new MESSENGER( this.tbx_Messages );
 			InitialisePerson( pk_person );
 		}
 		#endregion
