@@ -6,10 +6,10 @@ using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_LIKE	= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
-using FAMILY		= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
 using FAMILYS		= CONTACTS.LOCAL.PRIMARY.FAMILY.Table;
-using MATCH_FAMILYS = CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Like.MatchingFamilies;
+using FAMILY		= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
+using MATCH_FAMILYS = CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Like.MatchingFamilies;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -20,21 +20,21 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region 00 TODO / DECLARE / CONSTRUCT
 
 		#region TODO LIST
-		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
+		//TODO: Add boolean fields to form: is_DefaultRow, is_Export. (?)
 		#endregion
 
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
-		private FAMILY one_Family;
 		private static FAMILYS all_Familys = new FAMILYS();
+		private FAMILY one_Family;
 		private static MESSENGER _Messenger;
 		private GLOBAL_LIKE[] matching_Familys;
 		private TextAccumulator txt_Accumulator;
 
 		private bool is_event_Disabled = true;
 
-		//TODO: Consider moving these constants into Person constants file. 
-		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
+		//TODO: Consider moving these constants into Family constants file. 
+		private const string no_Item_Selected = "No item selected. Move to default Family.";
 		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
 
