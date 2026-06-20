@@ -1,13 +1,15 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using MESSENGER		= CONTACTS.GLOBAL.Messenger;
+using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_LIKE	= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
-using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using FAMILY		= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
 using FAMILYS		= CONTACTS.LOCAL.PRIMARY.FAMILY.Table;
 using MATCH_FAMILYS = CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Like.MatchingFamilies;
+using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -15,32 +17,48 @@ namespace CONTACTS.INTERFACE.FORMS
 	//___________________________________________________________________________________________________________________________________________
 	public partial class FrmFamily : Form
 	{
-		#region 00 FRM_FAMILY.DECLARE CONSTRUCT
-		private FAMILYS all_Familys = new FAMILYS();
-		private FAMILY one_Family;
+		#region 00 TODO / DECLARE / CONSTRUCT
 
-		private GLOBAL_LIKE[] matching_Familys;
+		#region TODO LIST
+		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
+		#endregion
+
+		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
-		private bool is_event_Disabled = true;
+		private FAMILY one_Family;
+		private static FAMILYS all_Familys = new FAMILYS();
+		private static MESSENGER _Messenger;
+		private GLOBAL_LIKE[] matching_Familys;
 		private TextAccumulator txt_Accumulator;
 
+		private bool is_event_Disabled = true;
+		#endregion
+
+
+		#region CONSTRUCTION
 		//___________________________________________________________________________________________________________________________________________
 		public FrmFamily()
 		{
 			InitializeComponent();
 			InitialiseForm();
+
+			_Messenger = new MESSENGER( this.tbx_Messages );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmFamily( int family_pk )
 		{
 			InitializeComponent();
 			InitialiseForm( family_pk );
+
+			_Messenger = new MESSENGER( this.tbx_Messages );
 		}
+		#endregion
+
 		#endregion
 
 
 		#region 01 INITIALISE & DISPLAY
-		
+
 		#region DISPLAY
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayFamily()
@@ -227,6 +245,32 @@ namespace CONTACTS.INTERFACE.FORMS
 					DisplayMatchingFamilies();
 
 			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private int FamilySelectedIndex
+		{
+			set
+			{
+				if ( value == GLOBAL_PRESET.NoItemSelected )
+				{
+					Family = all_Familys.DefaultFamily;
+					AsyncMessage( "no_Item_Selected" );
+				}
+				else
+				{
+					GLOBAL_LIKE like_row = ( GLOBAL_LIKE )( this.lbx_MatchingFamilies.SelectedItem );
+					AsyncMessage( like_row.LikeValue + "is_Valid_Selection" );
+					this.PkFamily = like_row.PkRow;
+				}
+
+				this.tbx_LeftPersonName.Focus();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void AsyncMessage( string msg )
+		{
+			_Messenger.Message = msg;
+			this.tbx_Matches.Focus();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string FamilyType
@@ -490,11 +534,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void lbx_MatchingFamilies_Click( object sender, EventArgs e )
 		{
-			SelectedFamily = ( GLOBAL_LIKE )lbx_MatchingFamilies.SelectedItem;
+			FamilySelectedIndex = lbx_MatchingFamilies.SelectedIndex;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void lbx_MatchingFamilies_DoubleClick( object sender, EventArgs e )
 		{
+			// TODO:Review what to do about in the context of Messenger.
 			SelectedFamily = ( GLOBAL_LIKE )lbx_MatchingFamilies.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
