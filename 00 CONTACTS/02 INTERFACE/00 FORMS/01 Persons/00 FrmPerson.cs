@@ -143,36 +143,36 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex			=  0;
-			tbx_ProperSurname.TabIndex		=  1;
-			btn_ElaborateNames.TabIndex		=  2;
-			tbx_GivenName.TabIndex			=  3;
-			tbx_MiddleNames.TabIndex		=  4;
-			tbx_NickName.TabIndex			=  5;
-			tbx_BirthName.TabIndex			=  6;
-			tbx_Prefixes.TabIndex			=  7;
-			tbx_Suffixes.TabIndex			=  8;
-			tbx_Gender.TabIndex				=  9;
-			dbx_Birthday.TabIndex			= 10;
-			btn_ClearBirthDate.TabIndex		= 11;
-			dbx_DeathDate.TabIndex			= 12;
-			btn_ClearDeathDate.TabIndex		= 13;
-			dbx_WeddingDate.TabIndex		= 14;
-			btn_ClearWeddingDate.TabIndex	= 15;
-			dbx_CurrencyDate.TabIndex		= 16;
-			btn_CurrencyNow.TabIndex		= 18;
-			tbx_Notes.TabIndex				= 19;
-			tbx_Filter.TabIndex				= 20;
-			btn_FirstPerson.TabIndex		= 21;
-			btn_PreviousPerson.TabIndex		= 22;
-			btn_NextPerson.TabIndex			= 23;
-			btn_LastPerson.TabIndex			= 24;
-			btn_NewPerson.TabIndex			= 25;
-			btn_InsertPerson.TabIndex		= 26;
-			btn_UpdatePerson.TabIndex		= 27;
-			btn_ExportPersonVcf.TabIndex	= 28;
-			btn_FindPerson.TabIndex			= 29;
-			btn_Close.TabIndex				= 30;
+			tbx_Matches.TabIndex = 0;
+			tbx_ProperSurname.TabIndex = 1;
+			btn_ElaborateNames.TabIndex = 2;
+			tbx_GivenName.TabIndex = 3;
+			tbx_MiddleNames.TabIndex = 4;
+			tbx_NickName.TabIndex = 5;
+			tbx_BirthName.TabIndex = 6;
+			tbx_Prefixes.TabIndex = 7;
+			tbx_Suffixes.TabIndex = 8;
+			tbx_Gender.TabIndex = 9;
+			dbx_Birthday.TabIndex = 10;
+			btn_ClearBirthDate.TabIndex = 11;
+			dbx_DeathDate.TabIndex = 12;
+			btn_ClearDeathDate.TabIndex = 13;
+			dbx_WeddingDate.TabIndex = 14;
+			btn_ClearWeddingDate.TabIndex = 15;
+			dbx_CurrencyDate.TabIndex = 16;
+			btn_CurrencyNow.TabIndex = 18;
+			tbx_Notes.TabIndex = 19;
+			tbx_Filter.TabIndex = 20;
+			btn_FirstPerson.TabIndex = 21;
+			btn_PreviousPerson.TabIndex = 22;
+			btn_NextPerson.TabIndex = 23;
+			btn_LastPerson.TabIndex = 24;
+			btn_NewPerson.TabIndex = 25;
+			btn_InsertPerson.TabIndex = 26;
+			btn_UpdatePerson.TabIndex = 27;
+			btn_ExportPersonVcf.TabIndex = 28;
+			btn_FindPerson.TabIndex = 29;
+			btn_Close.TabIndex = 30;
 		}
 		#endregion
 
@@ -399,7 +399,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			set
 			{
-				if( all_Persons.UpdatePerson( value ) )
+				if ( all_Persons.UpdatePerson( value ) )
 					AsyncMessage( Update_Succeeded );
 				else
 					AsyncMessage( Update_Failed );
@@ -442,6 +442,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region ENTER / CHANGE / LEAVE
 
 		#region 03 PRE-FIND
+		//___________________________________________________________________________________________________________________________________________
+		private void tbx_Matches_Leave( object sender, EventArgs e )
+		{
+			IsEventDisabled = true;
+			tbx_Matches.Clear();
+			IsEventDisabled = false;
+		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Matches_TextChanged( object sender, EventArgs e )
 		{

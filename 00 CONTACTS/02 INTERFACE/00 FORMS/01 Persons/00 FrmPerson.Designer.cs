@@ -770,6 +770,7 @@
 			tbx_Matches.Size = new Size( 233, 23 );
 			tbx_Matches.TabIndex = 0;
 			tbx_Matches.TextChanged +=  tbx_Matches_TextChanged ;
+			tbx_Matches.Leave +=  tbx_Matches_Leave ;
 			// 
 			// label1
 			// 
