@@ -39,6 +39,10 @@ namespace CONTACTS.INTERFACE.FORMS
 		//TODO: Consider moving these constants into Person constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
 		private const string is_Valid_Selection = " is a valid selection.";
+		private const string Update_Succeeded = "Update was successful.";
+		private const string Update_Failed = "Update failed.";
+		private const string Insert_Succeeded = "Insert was successful.";
+		private const string Insert_Failed = "Insert failed.";
 		#endregion
 
 
@@ -382,14 +386,23 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private PERSON Insert
 		{
-			set { all_Persons.InsertPerson( value ); }
+			set
+			{
+				if ( all_Persons.InsertPerson( value ) )
+					AsyncMessage( Insert_Succeeded );
+				else
+					AsyncMessage( Insert_Failed );
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private PERSON Update
 		{
 			set
 			{
-				bool is_success = all_Persons.UpdatePerson( value );
+				if( all_Persons.UpdatePerson( value ) )
+					AsyncMessage( Update_Succeeded );
+				else
+					AsyncMessage( Update_Failed );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -436,6 +449,7 @@ namespace CONTACTS.INTERFACE.FORMS
 				DisplayMatchingPersons( new LIKE.ProperSurname( tbx_Matches.Text ).Execute );
 		}
 		#endregion
+
 
 		#region 04 PROPER SURNAME
 		//___________________________________________________________________________________________________________________________________________
@@ -601,7 +615,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_Enter( object sender, EventArgs e )
 		{
-			txt_Accumulator = NewAccumulator( tbx_ProperSurname.Text );
+			txt_Accumulator = NewAccumulator( tbx_Notes.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
