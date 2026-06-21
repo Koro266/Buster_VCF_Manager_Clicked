@@ -9,7 +9,6 @@ using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
-
 //FORMS
 using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 
@@ -19,6 +18,14 @@ namespace CONTACTS.INTERFACE.FORMS
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class FrmPerson : Form
 	{
+		#region 00 TODO / DECLARE / CONSTRUCT
+
+		#region TODO LIST
+		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
+		//TODO: Fix the record indexing and look again at the interaction with the database. (?)
+		#endregion
+
+
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private PERSON one_Person;
@@ -50,6 +57,8 @@ namespace CONTACTS.INTERFACE.FORMS
 			_Messenger = new MESSENGER( this.tbx_Messages );
 			InitialisePerson( pk_person );
 		}
+		#endregion
+
 		#endregion
 
 
