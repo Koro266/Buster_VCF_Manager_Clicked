@@ -69,7 +69,7 @@
 			lbx_MatchingGroups.ItemHeight = 15;
 			lbx_MatchingGroups.Location = new Point( 106, 178 );
 			lbx_MatchingGroups.Name = "lbx_MatchingGroups";
-			lbx_MatchingGroups.Size = new Size( 421, 214 );
+			lbx_MatchingGroups.Size = new Size( 421, 229 );
 			lbx_MatchingGroups.TabIndex = 1;
 			lbx_MatchingGroups.TabStop = false;
 			lbx_MatchingGroups.SelectedIndexChanged +=  lbx_MatchingGroups_SelectedIndexChanged ;
@@ -114,8 +114,9 @@
 			// 
 			// tbx_Messages
 			// 
-			tbx_Messages.BackColor = Color.LavenderBlush;
+			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
 			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.ForeColor = Color.ForestGreen;
 			tbx_Messages.Location = new Point( 106, 415 );
 			tbx_Messages.Name = "tbx_Messages";
 			tbx_Messages.Size = new Size( 585, 23 );

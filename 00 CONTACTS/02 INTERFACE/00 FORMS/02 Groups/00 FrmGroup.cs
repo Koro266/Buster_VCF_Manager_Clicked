@@ -1,15 +1,15 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using MESSENGER = CONTACTS.GLOBAL.Messenger;
-using GLOBAL_DB = CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using MESSENGER		= CONTACTS.GLOBAL.Messenger;
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
-using ALL_GROUPS = CONTACTS.LOCAL.PRIMARY.GROUP.Table;
-using SELECT = CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
-using COUNT = CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
-using LIKE = CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
-using ONE_GROUP = CONTACTS.LOCAL.PRIMARY.GROUP.Row;
+using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
+using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
+using COUNT			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
+using LIKE			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
+using ONE_GROUP		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -21,8 +21,7 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region TODO LIST
 		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
-		//TODO: Fix the record indexing and look again at the interaction with the database.
-		//TODO: Consider adding a message TextBox on the form.
+		//TODO: Fix the record indexing and look again at the interaction with the database. (?)
 		#endregion
 
 
