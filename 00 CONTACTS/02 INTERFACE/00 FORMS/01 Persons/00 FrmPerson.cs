@@ -48,14 +48,16 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			InitializeComponent();
 			_Messenger = new MESSENGER( this.tbx_Messages );
-			InitialisePerson();
+			Person = all_Persons.DefaultPerson;
+			InitialiseForm();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmPerson( int pk_person )
 		{
 			InitializeComponent();
 			_Messenger = new MESSENGER( this.tbx_Messages );
-			InitialisePerson( pk_person );
+			Person = all_Persons.PersonByKey( pk_person );
+			InitialiseForm();
 		}
 		#endregion
 
@@ -128,58 +130,45 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region INITIALISATION
 		//___________________________________________________________________________________________________________________________________________
-		private void InitialisePerson()
-		{
-			Person = all_Persons.DefaultPerson;
-			InitialiseForm();
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void InitialisePerson( int pk_person )
-		{
-			Person = all_Persons.PersonByKey( pk_person );
-			InitialiseForm();
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm()
 		{
 			this.Text = db_Connector.PartiallyQualifiedFileName;
 			SetTabIndices();
-			tbx_ProperSurname.Select();
+			tbx_Matches.Focus();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_ProperSurname.TabIndex = 0;
-			btn_ElaborateNames.TabIndex = 1;
-			tbx_GivenName.TabIndex = 2;
-			tbx_MiddleNames.TabIndex = 3;
-			tbx_NickName.TabIndex = 4;
-			tbx_BirthName.TabIndex = 5;
-			tbx_Prefixes.TabIndex = 6;
-			tbx_Suffixes.TabIndex = 7;
-			tbx_Gender.TabIndex = 8;
-			dbx_Birthday.TabIndex = 9;
-			btn_ClearBirthDate.TabIndex = 10;
-			dbx_DeathDate.TabIndex = 11;
-			btn_ClearDeathDate.TabIndex = 12;
-			dbx_WeddingDate.TabIndex = 13;
-			btn_ClearWeddingDate.TabIndex = 14;
-			dbx_CurrencyDate.TabIndex = 15;
-			btn_CurrencyNow.TabIndex = 16;
-			tbx_Notes.TabIndex = 18;
-
-			tbx_Filter.TabIndex = 19;
-			btn_FirstPerson.TabIndex = 20;
-			btn_PreviousPerson.TabIndex = 21;
-			btn_NextPerson.TabIndex = 22;
-			btn_LastPerson.TabIndex = 23;
-
-			btn_NewPerson.TabIndex = 24;
-			btn_InsertPerson.TabIndex = 25;
-			btn_UpdatePerson.TabIndex = 26;
-			btn_ExportPersonVcf.TabIndex = 27;
-			btn_FindPerson.TabIndex = 28;
-			btn_Close.TabIndex = 29;
+			tbx_Matches.TabIndex			=  0;
+			tbx_ProperSurname.TabIndex		=  1;
+			btn_ElaborateNames.TabIndex		=  2;
+			tbx_GivenName.TabIndex			=  3;
+			tbx_MiddleNames.TabIndex		=  4;
+			tbx_NickName.TabIndex			=  5;
+			tbx_BirthName.TabIndex			=  6;
+			tbx_Prefixes.TabIndex			=  7;
+			tbx_Suffixes.TabIndex			=  8;
+			tbx_Gender.TabIndex				=  9;
+			dbx_Birthday.TabIndex			= 10;
+			btn_ClearBirthDate.TabIndex		= 11;
+			dbx_DeathDate.TabIndex			= 12;
+			btn_ClearDeathDate.TabIndex		= 13;
+			dbx_WeddingDate.TabIndex		= 14;
+			btn_ClearWeddingDate.TabIndex	= 15;
+			dbx_CurrencyDate.TabIndex		= 16;
+			btn_CurrencyNow.TabIndex		= 18;
+			tbx_Notes.TabIndex				= 19;
+			tbx_Filter.TabIndex				= 20;
+			btn_FirstPerson.TabIndex		= 21;
+			btn_PreviousPerson.TabIndex		= 22;
+			btn_NextPerson.TabIndex			= 23;
+			btn_LastPerson.TabIndex			= 24;
+			btn_NewPerson.TabIndex			= 25;
+			btn_InsertPerson.TabIndex		= 26;
+			btn_UpdatePerson.TabIndex		= 27;
+			btn_ExportPersonVcf.TabIndex	= 28;
+			btn_FindPerson.TabIndex			= 29;
+			btn_Close.TabIndex				= 30;
 		}
 		#endregion
 

@@ -768,7 +768,7 @@
 			tbx_Matches.Location = new Point( 142, 25 );
 			tbx_Matches.Name = "tbx_Matches";
 			tbx_Matches.Size = new Size( 233, 23 );
-			tbx_Matches.TabIndex = 117;
+			tbx_Matches.TabIndex = 0;
 			tbx_Matches.TextChanged +=  tbx_Matches_TextChanged ;
 			// 
 			// label1
