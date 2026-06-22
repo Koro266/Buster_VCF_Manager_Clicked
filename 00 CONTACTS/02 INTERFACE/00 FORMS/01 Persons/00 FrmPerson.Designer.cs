@@ -558,7 +558,7 @@
 			// btn_FirstPerson
 			// 
 			btn_FirstPerson.Font = new Font( "Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FirstPerson.Location = new Point( 878, 91 );
+			btn_FirstPerson.Location = new Point( 881, 91 );
 			btn_FirstPerson.Name = "btn_FirstPerson";
 			btn_FirstPerson.Size = new Size( 27, 23 );
 			btn_FirstPerson.TabIndex = 1;
