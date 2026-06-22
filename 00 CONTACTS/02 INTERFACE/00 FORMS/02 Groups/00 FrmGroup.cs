@@ -154,6 +154,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertGroup()
 		{
+			//TODO: update INSERT & UPDATE to match code in FrmPerson
 			all_Groups.InsertGroup( Group );
 			Group = all_Groups.CurrentGroup;
 		}
