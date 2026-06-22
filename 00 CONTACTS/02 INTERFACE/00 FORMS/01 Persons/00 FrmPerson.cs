@@ -34,7 +34,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private LIKE_ROW[] matching_Persons;
 		private TextAccumulator txt_Accumulator;
 
-		private bool is_event_Disabled = false;
+		private bool is_event_Enabled = true;
 
 		//TODO: Consider moving these constants into Person constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
@@ -406,15 +406,25 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventDisabled
+		private void DisableEvents()
 		{
-			get { return is_event_Disabled; }
-			set { is_event_Disabled = value; }
+			is_event_Enabled = false;
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventEnabled
+		private void EnableEvents()
 		{
-			get { return is_event_Disabled == false; }
+			is_event_Enabled = true;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool AreEventsEnabled
+		{
+			get { return is_event_Enabled == true; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+
+		private bool AreEventsDisabled
+		{
+			get { return is_event_Enabled == false; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void FindPerson()
@@ -445,14 +455,14 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Matches_Leave( object sender, EventArgs e )
 		{
-			IsEventDisabled = true;
+			DisableEvents();
 			tbx_Matches.Clear();
-			IsEventDisabled = false;
+			EnableEvents();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Matches_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( AreEventsEnabled )
 				DisplayMatchingPersons( new LIKE.ProperSurname( tbx_Matches.Text ).Execute );
 		}
 		#endregion
