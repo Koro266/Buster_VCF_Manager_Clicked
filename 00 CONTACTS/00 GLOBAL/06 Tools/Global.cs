@@ -21,7 +21,7 @@ namespace CONTACTS.GLOBAL
 		};
 
 		#if DEBUG
-		private static StartupForm startup_Interface = StartupForm.Group;
+		private static StartupForm startup_Interface = StartupForm.Family;
 		#else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
 		#endif

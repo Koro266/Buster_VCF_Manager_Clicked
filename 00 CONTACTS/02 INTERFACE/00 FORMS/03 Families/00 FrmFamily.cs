@@ -1,6 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using MESSENGER		= CONTACTS.GLOBAL.Messenger;
+using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
@@ -27,11 +28,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private static FAMILYS all_Familys = new FAMILYS();
 		private FAMILY one_Family;
-		private static MESSENGER _Messenger;
 		private GLOBAL_LIKE[] matching_Familys;
 		private TextAccumulator txt_Accumulator;
 
-		private bool is_event_Disabled = true;
+		private static EVENT_STATE _EventState;
+		private static MESSENGER _Messenger;
 
 		//TODO: Consider moving these constants into Family constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Family.";
@@ -44,17 +45,22 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmFamily()
 		{
 			InitializeComponent();
+
+			_EventState = new EVENT_STATE();
+			_Messenger = new MESSENGER( this.tbx_Messages );
+
 			InitialiseForm();
 
-			_Messenger = new MESSENGER( this.tbx_Messages );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmFamily( int family_pk )
 		{
 			InitializeComponent();
-			InitialiseForm( family_pk );
 
+			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
+
+			InitialiseForm( family_pk );
 		}
 		#endregion
 
@@ -67,7 +73,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayFamily()
 		{
-			IsEventDisabled = true;
+			_EventState.DisableEvents();
 
 			tbx_LeftPersonName.Text = LeftPerson.SortableName.AsIs;
 			tbx_RightPersonName.Text = RightPerson.SortableName.AsIs;
@@ -90,7 +96,7 @@ namespace CONTACTS.INTERFACE.FORMS
 
 			ValuateWeddingDateboxes();
 
-			IsEventDisabled = false;
+			_EventState.EnableEvents();
 		}
 		#endregion
 
@@ -422,17 +428,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			set { all_Familys.UpdateFamily( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventDisabled
-		{
-			get { return is_event_Disabled; }
-			set { is_event_Disabled = value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventEnabled
-		{
-			get { return !IsEventDisabled; }
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void Accumulator( string s )
 		{
 			txt_Accumulator = new TextAccumulator( s );
@@ -446,7 +441,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_FamilyType_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				FamilyType = cbx_FamilyType.Text;
 		}
 		#endregion
@@ -461,7 +456,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Notes.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -476,7 +471,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_WeddingDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Wedding_DateTime = dbx_WeddingDate.Value;
 		}
 		#endregion
@@ -486,7 +481,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_CurrencyDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Currency_DateTime = dbx_CurrencyDate.Value;
 		}
 		#endregion
@@ -496,7 +491,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsChristmas_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Christmas = chk_IsChristmas.Checked;
 		}
 		#endregion
@@ -506,7 +501,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsDissolved_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Dissolved = chk_IsDissolved.Checked;
 		}
 		#endregion
@@ -516,7 +511,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsCorlettRd_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				CorlettRd = chk_IsCorlettRd.Checked;
 		}
 		#endregion
@@ -526,7 +521,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsStTheresa_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				StTheresa = chk_IsStTheresa.Checked;
 		}
 		#endregion
