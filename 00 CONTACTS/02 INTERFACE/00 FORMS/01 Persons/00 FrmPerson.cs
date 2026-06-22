@@ -1,16 +1,18 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using MESSENGER		= CONTACTS.GLOBAL.Messenger;
+using CONTACTS.GLOBAL;
+using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
+//FORMS
+using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 //LOCAL	
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
-using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
-//FORMS
-using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -30,11 +32,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private PERSON one_Person;
 		private PERSONS all_Persons = new PERSONS();
+
+		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Persons;
 		private TextAccumulator txt_Accumulator;
-
-		private bool is_event_Enabled = true;
 
 		//TODO: Consider moving these constants into Person constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
@@ -51,6 +53,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmPerson()
 		{
 			InitializeComponent();
+			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 			Person = all_Persons.DefaultPerson;
 			InitialiseForm();
@@ -59,6 +62,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmPerson( int pk_person )
 		{
 			InitializeComponent();
+			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 			Person = all_Persons.PersonByKey( pk_person );
 			InitialiseForm();
@@ -72,7 +76,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayPerson()
 		{
-			IsEventDisabled = true;
+			_EventState.DisableEvents();
 
 			this.tbx_PersonId.Text = PkPersonAsText;
 			this.tbx_Gender.Text = Gender;
@@ -94,7 +98,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			ValuateWeddingDatebox();
 			ValuateCurrencyDatebox();
 
-			IsEventDisabled = false;
+			_EventState.EnableEvents();
 		}
 		#endregion
 
@@ -405,27 +409,27 @@ namespace CONTACTS.INTERFACE.FORMS
 					AsyncMessage( Update_Failed );
 			}
 		}
-		//___________________________________________________________________________________________________________________________________________
-		private void DisableEvents()
-		{
-			is_event_Enabled = false;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void EnableEvents()
-		{
-			is_event_Enabled = true;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private bool AreEventsEnabled
-		{
-			get { return is_event_Enabled == true; }
-		}
-		//___________________________________________________________________________________________________________________________________________
+		////___________________________________________________________________________________________________________________________________________
+		//private void DisableEvents()
+		//{
+		//	is_event_Enabled = false;
+		//}
+		////___________________________________________________________________________________________________________________________________________
+		//private void EnableEvents()
+		//{
+		//	is_event_Enabled = true;
+		//}
+		////___________________________________________________________________________________________________________________________________________
+		//private bool AreEventsEnabled
+		//{
+		//	get { return is_event_Enabled == true; }
+		//}
+		////___________________________________________________________________________________________________________________________________________
 
-		private bool AreEventsDisabled
-		{
-			get { return is_event_Enabled == false; }
-		}
+		//private bool AreEventsDisabled
+		//{
+		//	get { return is_event_Enabled == false; }
+		//}
 		//___________________________________________________________________________________________________________________________________________
 		private void FindPerson()
 		{
@@ -455,14 +459,14 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Matches_Leave( object sender, EventArgs e )
 		{
-			DisableEvents();
+			_EventState.DisableEvents();
 			tbx_Matches.Clear();
-			EnableEvents();
+			_EventState.EnableEvents();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Matches_TextChanged( object sender, EventArgs e )
 		{
-			if ( AreEventsEnabled )
+			if ( _EventState.IsEnabled )
 				DisplayMatchingPersons( new LIKE.ProperSurname( tbx_Matches.Text ).Execute );
 		}
 		#endregion
@@ -477,7 +481,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ProperSurname_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_ProperSurname.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -497,7 +501,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_GivenName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_GivenName.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -517,7 +521,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_MiddleNames_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_MiddleNames.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -537,7 +541,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_NickName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_NickName.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -557,7 +561,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_BirthName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_BirthName.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -577,7 +581,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Prefixes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_Prefixes.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -597,7 +601,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Suffixes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_Suffixes.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -617,7 +621,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Gender_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_Gender.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -637,7 +641,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_Notes.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -652,7 +656,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_BirthDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				BirthDate = dbx_Birthday.Value;
 		}
 		#endregion
@@ -662,7 +666,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_DeathDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				DeathDate = dbx_DeathDate.Value;
 		}
 		#endregion
@@ -672,7 +676,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_WeddingDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				WeddingDate = dbx_WeddingDate.Value;
 		}
 		#endregion
@@ -682,7 +686,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void dbx_CurrencyDate_ValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				CurrencyDate = dbx_CurrencyDate.Value;
 		}
 		#endregion
@@ -762,7 +766,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_PkFilter_KeyUp( object sender, KeyEventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				if ( e.KeyCode == Keys.Enter )
 					PkPersonAsText = this.tbx_Filter.Text;
 		}
