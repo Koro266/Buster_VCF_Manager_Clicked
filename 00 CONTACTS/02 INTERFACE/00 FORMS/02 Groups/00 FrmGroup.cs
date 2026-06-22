@@ -1,6 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using MESSENGER		= CONTACTS.GLOBAL.Messenger;
+using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
@@ -29,6 +30,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private ONE_GROUP one_Group;
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
+		
+		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Groups;
 		private TextAccumulator txt_Accumulator;
@@ -49,9 +52,10 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmGroup()
 		{
 			InitializeComponent();
+			_EventState = new EVENT_STATE();
+			_Messenger = new MESSENGER( this.tbx_Messages );
 			InitialiseForm();
 
-			_Messenger = new MESSENGER( this.tbx_Messages );
 			Group = all_Groups.DefaultGroup;
 		}
 		#endregion
@@ -93,7 +97,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayGroup()
 		{
-			DisableEvents();
+			_EventState.DisableEvents();
 
 			this.tbx_Matches.Clear();
 
@@ -104,7 +108,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.dbx_CurrencyDate.Value = Group.CurrencyDate.DatePickerValue;
 			this.tbx_Notes.Text = Notes;
 
-			EnableEvents();
+			_EventState.EnableEvents();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayMatchingGroups( LIKE_ROW[] matching_groups )
@@ -245,33 +249,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns true if default functionality of an event is required.
-		/// </summary>
-		private bool IsEventDisabled
-		{
-			get { return is_event_Disabled; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// EnableEvents means the default functionality of an event will be allowed to proceed.
-		/// Events are enabled when human input via the interface is allowed.
-		/// </summary>
-		private void EnableEvents()
-		{
-			is_event_Disabled = false;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// DisableEvents means the default functionality of an event will be impeded.
-		/// Events are disabled when the interaction with the field is code-enforced;
-		///		e.g., code, rather than the user, setting the value of a control.
-		/// </summary>
-		private void DisableEvents()
-		{
-			is_event_Disabled = true;
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
 		{
 			set { txt_Accumulator = new TextAccumulator( value ); }
@@ -290,12 +267,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_GroupName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventDisabled )
-			{
-				string value = tbx_GroupName.Text;
-				DisplayMatchingGroups( new LIKE.MatchingGroups( value ).Execute );
+			if ( _EventState.IsEnabled )
 				Accumulate = tbx_GroupName.Text;
-			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_GroupName_Leave( object sender, EventArgs e )

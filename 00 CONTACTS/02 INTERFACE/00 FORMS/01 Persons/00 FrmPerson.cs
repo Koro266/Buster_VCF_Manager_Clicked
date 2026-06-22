@@ -1,18 +1,17 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using CONTACTS.GLOBAL;
-using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
-//FORMS
-using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
+using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 //LOCAL	
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
+//FORMS
+using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
