@@ -36,11 +36,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private LIKE_ROW[] matching_Groups;
 		private TextAccumulator txt_Accumulator;
 
-		/// <summary>
-		/// is_event_Disabled == true ==> that the default functionality of an system event is impeded.
-		/// </summary>
-		private bool is_event_Disabled = true;
-
 		//TODO: Consider moving these constants into Group constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Group.";
 		private const string is_Valid_Selection = " is a valid selection.";
