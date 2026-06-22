@@ -75,7 +75,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayPerson()
 		{
-			//TODO xxx
 			_EventState.DisableEvents();
 
 			this.tbx_PersonId.Text = PkPersonAsText;
