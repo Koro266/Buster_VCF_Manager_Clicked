@@ -59,6 +59,7 @@
 			btn_Eddresses = new Button();
 			btn_Open_Group_Form = new Button();
 			btn_CloseForm = new Button();
+			label3 = new Label();
 			bx_Groups.SuspendLayout();
 			bx_Families.SuspendLayout();
 			bx_Persons.SuspendLayout();
@@ -277,6 +278,7 @@
 			// btn_Devices
 			// 
 			btn_Devices.BackColor = Color.MistyRose;
+			btn_Devices.Enabled = false;
 			btn_Devices.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Devices.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_Devices.Location = new Point( 257, 75 );
@@ -285,11 +287,13 @@
 			btn_Devices.TabIndex = 4;
 			btn_Devices.Text = "Devices";
 			btn_Devices.UseVisualStyleBackColor = false;
+			btn_Devices.Visible = false;
 			btn_Devices.Click +=  btn_Devices_Click ;
 			// 
 			// btn_OpenAddressForm
 			// 
 			btn_OpenAddressForm.BackColor = Color.MistyRose;
+			btn_OpenAddressForm.Enabled = false;
 			btn_OpenAddressForm.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_OpenAddressForm.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_OpenAddressForm.Location = new Point( 257, 31 );
@@ -298,6 +302,7 @@
 			btn_OpenAddressForm.TabIndex = 3;
 			btn_OpenAddressForm.Text = "Addresses";
 			btn_OpenAddressForm.UseVisualStyleBackColor = false;
+			btn_OpenAddressForm.Visible = false;
 			btn_OpenAddressForm.Click +=  btn_OpenAddressForm_Click ;
 			// 
 			// btn_Open_Person_Form
@@ -460,6 +465,15 @@
 			btn_CloseForm.UseVisualStyleBackColor = true;
 			btn_CloseForm.Click +=  btn_CloseForm_Click ;
 			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Location = new Point( 12, 485 );
+			label3.Name = "label3";
+			label3.Size = new Size( 178, 15 );
+			label3.TabIndex = 7;
+			label3.Text = "Pre-Release V2026.06.23.0849";
+			// 
 			// FrmOverseer
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -467,6 +481,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 687, 520 );
+			Controls.Add( label3 );
 			Controls.Add( grp_Add_Mod_Del );
 			Controls.Add( btn_CloseForm );
 			Controls.Add( grp_Export );
@@ -484,6 +499,7 @@
 			grp_Export.PerformLayout();
 			grp_Add_Mod_Del.ResumeLayout( false );
 			ResumeLayout( false );
+			PerformLayout();
 
 		}
 
@@ -520,5 +536,6 @@
 		private Button btn_Open_FamilyX_Form;
 		private TextBox tbx_Updated_Status;
 		private TextBox tbx_All_Status;
+		private Label label3;
 	}
 }
