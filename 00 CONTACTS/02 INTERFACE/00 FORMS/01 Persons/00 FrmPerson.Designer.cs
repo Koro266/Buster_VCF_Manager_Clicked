@@ -89,7 +89,6 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
-			label2 = new Label();
 			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -673,7 +672,6 @@
 			// 
 			// grp_PersonData
 			// 
-			grp_PersonData.Controls.Add( label2 );
 			grp_PersonData.Controls.Add( tbx_Messages );
 			grp_PersonData.Controls.Add( label3 );
 			grp_PersonData.Controls.Add( tbx_Matches );
@@ -866,15 +864,6 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Location = new Point( 474, 114 );
-			label2.Name = "label2";
-			label2.Size = new Size( 45, 17 );
-			label2.TabIndex = 123;
-			label2.Text = "label2";
-			// 
 			// FrmPerson
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -957,6 +946,5 @@
 		private Label label3;
 		private TextBox tbx_Matches;
 		private TextBox tbx_Messages;
-		private Label label2;
 	}
 }
