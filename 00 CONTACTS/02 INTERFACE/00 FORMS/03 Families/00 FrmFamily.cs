@@ -50,7 +50,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
 			InitialiseForm();
-
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmFamily( int family_pk )
