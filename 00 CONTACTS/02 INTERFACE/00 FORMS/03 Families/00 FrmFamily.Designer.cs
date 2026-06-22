@@ -299,7 +299,7 @@
 			// lbl_Last
 			// 
 			lbl_Last.AutoSize = true;
-			lbl_Last.Location = new Point( 1054, 115 );
+			lbl_Last.Location = new Point( 1047, 115 );
 			lbl_Last.Name = "lbl_Last";
 			lbl_Last.Size = new Size( 16, 17 );
 			lbl_Last.TabIndex = 13;
@@ -322,7 +322,7 @@
 			// lbl_First
 			// 
 			lbl_First.AutoSize = true;
-			lbl_First.Location = new Point( 944, 115 );
+			lbl_First.Location = new Point( 955, 115 );
 			lbl_First.Name = "lbl_First";
 			lbl_First.Size = new Size( 15, 17 );
 			lbl_First.TabIndex = 12;
@@ -376,7 +376,7 @@
 			// btn_FirstFamily
 			// 
 			btn_FirstFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FirstFamily.Location = new Point( 938, 87 );
+			btn_FirstFamily.Location = new Point( 949, 87 );
 			btn_FirstFamily.Name = "btn_FirstFamily";
 			btn_FirstFamily.Size = new Size( 27, 23 );
 			btn_FirstFamily.TabIndex = 1;
@@ -445,7 +445,7 @@
 			// btn_PreviousFamily
 			// 
 			btn_PreviousFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_PreviousFamily.Location = new Point( 968, 87 );
+			btn_PreviousFamily.Location = new Point( 979, 87 );
 			btn_PreviousFamily.Name = "btn_PreviousFamily";
 			btn_PreviousFamily.Size = new Size( 27, 23 );
 			btn_PreviousFamily.TabIndex = 2;
@@ -514,7 +514,7 @@
 			// btn_LastFamily
 			// 
 			btn_LastFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_LastFamily.Location = new Point( 1046, 87 );
+			btn_LastFamily.Location = new Point( 1039, 87 );
 			btn_LastFamily.Name = "btn_LastFamily";
 			btn_LastFamily.Size = new Size( 27, 23 );
 			btn_LastFamily.TabIndex = 4;
@@ -572,7 +572,7 @@
 			// btn_NextFamily
 			// 
 			btn_NextFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NextFamily.Location = new Point( 998, 87 );
+			btn_NextFamily.Location = new Point( 1009, 87 );
 			btn_NextFamily.Name = "btn_NextFamily";
 			btn_NextFamily.Size = new Size( 27, 23 );
 			btn_NextFamily.TabIndex = 3;
