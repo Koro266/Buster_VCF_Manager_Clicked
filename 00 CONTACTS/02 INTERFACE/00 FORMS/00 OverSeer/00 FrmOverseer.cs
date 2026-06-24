@@ -33,6 +33,8 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitialiseForm();
 
 			_Messenger = new GLOBAL.Messenger( tbx_Export_Status );
+			_Messenger.AsyncDelay = 3000;
+
 		}
 		#endregion
 

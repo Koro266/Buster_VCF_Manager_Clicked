@@ -37,21 +37,22 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private void ExportOnePerson( int pk_person )
 		{
-			INT_32 pk = new INT_32( pk_person );
-			SHORT_TEXT msg = new SHORT_TEXT();
-
+			string msg;
+			PERSON_ROW person_row;
+			
 			if ( new PERSON_COUNT.IsPersonExtant( pk_person ).Execute )
 			{
-				PERSON_ROW person_row = new PERSON_SELECT.ByPkPerson( pk_person ).Execute;
+				person_row = new PERSON_SELECT.ByPkPerson( pk_person ).Execute;
 				person_row.ExportPerson();
-				msg = new SHORT_TEXT( person_row.SortableName + " exported." );
+
+				msg = $"{person_row.SortableName.AsUpper} (PK = {person_row.PkPerson.AsString}) successfully exported.";
 			}
 			else
 			{
-				msg = new SHORT_TEXT( pk.AsString + " does not exist as a primary key in Persons table." );
+				msg = $"Primary key: {pk_person.ToString()} does not exist in Persons table.";
 			}
 
-			_Messenger.Message = msg.Value;
+			_Messenger.Message = msg;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -59,8 +60,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private void ExportRecentPersons( DateTime dt )
 		{
-			if ( new PERSON_COUNT.CountAfterCurrencyDate( dt ).Execute <= GLOBAL_PRESET.ZERO )
+			int count = new PERSON_COUNT.CountAfterCurrencyDate( dt ).Execute;
+
+			if ( count <= GLOBAL_PRESET.ZERO )
+			{
+				_Messenger.Message = $"There are no persons updated after {dt.ToString()}.";
 				return;
+			}
 
 			Dictionary<int, BASE_ROW> base_rows = new PERSON_SELECT.SelectAfterCurrencyDate( dt ).Execute;
 			foreach ( BASE_ROW base_row in base_rows.Values )
@@ -68,6 +74,8 @@ namespace CONTACTS.INTERFACE.FORMS
 				PERSON_ROW person_row = ( PERSON_ROW )base_row;
 				person_row.ExportPerson();
 			}
+			_Messenger.Message = $"There are {count.ToString()} persons updated after {dt.ToString()}.";
+
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>

@@ -7,7 +7,7 @@ namespace CONTACTS.GLOBAL
 	public class Messenger
 	{
 		private TextBox tbx_Messages;
-		private const int async_Delay = 2000;
+		private int async_Delay = 2000;
 
 		//___________________________________________________________________________________________________________________________________________________
 		public Messenger( TextBox tbx_msg)
@@ -25,6 +25,14 @@ namespace CONTACTS.GLOBAL
 			this.tbx_Messages.Text = msg;
 			await Task.Delay( async_Delay );
 			this.tbx_Messages.Text = String.Empty;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Sets number of milliseconds message is displayed (default = 2000).
+		/// </summary>
+		public int AsyncDelay
+		{
+			set { async_Delay = value; }
 		}
 	}
 }

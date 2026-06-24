@@ -19,12 +19,16 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			{
 				private const string sql_text =
 				@"
-					SELECT 
-						Count([pk_Person]) AS RowCount  
-					FROM 
-						TDF_Persons  
+					SELECT
+						Count(pk_Person) AS ROWCOUNT
+					FROM
+						TDF_Persons
 					WHERE
-						(((TDF_Persons.dt_CurrencyDate)>=@currency_date));
+					(
+						(
+							(TDF_Persons.dt_CurrencyDate) >= @dt_currencydate 
+						)
+					);
 				";
 
 				//_______________________________________________________________________________________________________________________________
