@@ -2,6 +2,8 @@
 //GLOBAL
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using INT_32		= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
+using SHORT_TEXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 //LOCAL
 using PERSON_ROW	= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSON_SELECT	= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
@@ -35,8 +37,21 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private void ExportOnePerson( int pk_person )
 		{
-			PERSON_ROW person_row = new PERSON_SELECT.ByPkPerson( pk_person ).Execute;
-			person_row.ExportPerson();
+			INT_32 pk = new INT_32( pk_person );
+			SHORT_TEXT msg = new SHORT_TEXT();
+
+			if ( new PERSON_COUNT.IsPersonExtant( pk_person ).Execute )
+			{
+				PERSON_ROW person_row = new PERSON_SELECT.ByPkPerson( pk_person ).Execute;
+				person_row.ExportPerson();
+				msg = new SHORT_TEXT( person_row.SortableName + " exported." );
+			}
+			else
+			{
+				msg = new SHORT_TEXT( pk.AsString + " does not exist as a primary key in Persons table." );
+			}
+
+			_Messenger.Message = msg.Value;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		/// <summary>

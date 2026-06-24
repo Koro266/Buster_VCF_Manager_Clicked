@@ -49,9 +49,7 @@
 			btn_OpenAddressForm = new Button();
 			btn_Open_Person_Form = new Button();
 			grp_Export = new GroupBox();
-			tbx_Updated_Status = new TextBox();
-			tbx_All_Status = new TextBox();
-			tbx_ByPk_Status = new TextBox();
+			tbx_Export_Status = new TextBox();
 			grp_Add_Mod_Del = new GroupBox();
 			btn_Open_Group_X_Form = new Button();
 			btn_Open_Person_X_Form = new Button();
@@ -321,9 +319,7 @@
 			// grp_Export
 			// 
 			grp_Export.BackColor = Color.PapayaWhip;
-			grp_Export.Controls.Add( tbx_Updated_Status );
-			grp_Export.Controls.Add( tbx_All_Status );
-			grp_Export.Controls.Add( tbx_ByPk_Status );
+			grp_Export.Controls.Add( tbx_Export_Status );
 			grp_Export.Controls.Add( bx_Groups );
 			grp_Export.Controls.Add( bx_Families );
 			grp_Export.Controls.Add( bx_Persons );
@@ -334,32 +330,13 @@
 			grp_Export.TabStop = false;
 			grp_Export.Text = "VCF Export";
 			// 
-			// tbx_Updated_Status
+			// tbx_Export_Status
 			// 
-			tbx_Updated_Status.Location = new Point( 236, 239 );
-			tbx_Updated_Status.Name = "tbx_Updated_Status";
-			tbx_Updated_Status.Size = new Size( 197, 23 );
-			tbx_Updated_Status.TabIndex = 5;
-			tbx_Updated_Status.TabStop = false;
-			tbx_Updated_Status.Visible = false;
-			// 
-			// tbx_All_Status
-			// 
-			tbx_All_Status.Location = new Point( 32, 239 );
-			tbx_All_Status.Name = "tbx_All_Status";
-			tbx_All_Status.Size = new Size( 198, 23 );
-			tbx_All_Status.TabIndex = 4;
-			tbx_All_Status.TabStop = false;
-			tbx_All_Status.Visible = false;
-			// 
-			// tbx_ByPk_Status
-			// 
-			tbx_ByPk_Status.Location = new Point( 439, 239 );
-			tbx_ByPk_Status.Name = "tbx_ByPk_Status";
-			tbx_ByPk_Status.Size = new Size( 199, 23 );
-			tbx_ByPk_Status.TabIndex = 3;
-			tbx_ByPk_Status.TabStop = false;
-			tbx_ByPk_Status.Visible = false;
+			tbx_Export_Status.Location = new Point( 32, 239 );
+			tbx_Export_Status.Name = "tbx_Export_Status";
+			tbx_Export_Status.Size = new Size( 606, 23 );
+			tbx_Export_Status.TabIndex = 4;
+			tbx_Export_Status.TabStop = false;
 			// 
 			// grp_Add_Mod_Del
 			// 
@@ -530,12 +507,10 @@
 		private Button btn_CloseForm;
 		private Button btn_Open_Group_Form;
 		private Button btn_Eddresses;
-		private TextBox tbx_ByPk_Status;
 		private Button btn_Open_Group_X_Form;
 		private Button btn_Open_Person_X_Form;
 		private Button btn_Open_FamilyX_Form;
-		private TextBox tbx_Updated_Status;
-		private TextBox tbx_All_Status;
+		private TextBox tbx_Export_Status;
 		private Label label3;
 	}
 }

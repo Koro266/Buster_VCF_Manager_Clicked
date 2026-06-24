@@ -19,7 +19,8 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
-		private static MESSENGER _Messenger;
+		private MESSENGER _Messenger;
+
 		private const string export_Completed = "Export completed.";
 		#endregion
 
@@ -30,6 +31,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			InitializeComponent();
 			InitialiseForm();
+
+			_Messenger = new GLOBAL.Messenger( tbx_Export_Status );
 		}
 		#endregion
 
@@ -181,6 +184,7 @@ namespace CONTACTS.INTERFACE.FORMS
 	}
 
 	#region TEXT ACCUMULATOR
+	//TODO: Remove this from here.
 	//_______________________________________________________________________________________________________________________________________________
 	public class TextAccumulator : SHORT_TEXT
 	{
