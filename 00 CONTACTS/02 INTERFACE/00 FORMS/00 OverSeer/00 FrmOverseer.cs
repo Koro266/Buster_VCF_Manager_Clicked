@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using SHORT_TEXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
@@ -11,8 +12,15 @@ namespace CONTACTS.INTERFACE.FORMS
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class FrmOverseer : Form
 	{
+		#region 00 TODO / DECLARE / CONSTRUCT
+
+		#region TODO LIST
+		#endregion
+
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
+		private static MESSENGER _Messenger;
+		private const string export_Completed = "Export completed.";
 		#endregion
 
 
@@ -23,6 +31,8 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitializeComponent();
 			InitialiseForm();
 		}
+		#endregion
+
 		#endregion
 
 
