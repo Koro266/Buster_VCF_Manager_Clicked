@@ -73,11 +73,11 @@ namespace CONTACTS.INTERFACE.FORMS
 					PERSON_ROW person_row = ( PERSON_ROW )base_row;
 					person_row.ExportPerson();
 				}
-				msg = $"{count} persons updated after {date_time.AsDisplayedDate} have been exported.";
+				msg = $"{count} Persons updated after {date_time.AsDisplayedDate} have been exported.";
 			}
 			else
 			{
-				msg = $"There are no persons updated after {date_time.As_d_MMM_yyyy}.";
+				msg = $"There are no Persons updated after {date_time.As_d_MMM_yyyy}.";
 			}
 
 			_Messenger.Message = msg;

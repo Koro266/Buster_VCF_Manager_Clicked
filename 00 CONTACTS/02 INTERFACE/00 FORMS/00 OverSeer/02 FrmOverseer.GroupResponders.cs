@@ -60,12 +60,27 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private void ExportRecentGroups( DateTime dt )
 		{
-			//if{ new GROUP_COUNT.CountUpdatedPersons( dt ) <= GLOBAL_PRESET.ZERO )
-			return;
+			string msg;
+			DATE_TIME date_time = new DATE_TIME( dt );
 
-			//	TDF_PERSON[] tdf_groups = new PERSON_SELECT.AfterCurrencyDate( group_count, dt ).Execute;
-			//	VCF_Persons vcf_groups = new VCF_Persons();
-			//	vcf_groups.ExportPersons( tdf_groups );
+			int count = new GROUP_COUNT.CountAfterCurrencyDate( dt ).Execute;
+
+			if ( count > GLOBAL_PRESET.ZERO )
+			{
+				Dictionary<int, BASE_ROW> base_rows = new GROUP_SELECT.SelectAfterCurrencyDate( dt ).Execute;
+				foreach ( BASE_ROW base_row in base_rows.Values )
+				{
+					GROUP_ROW group_row = ( GROUP_ROW )base_row;
+					group_row.ExportGroup();
+				}
+				msg = $"{count} Groups updated after {date_time.AsDisplayedDate} have been exported.";
+			}
+			else
+			{
+				msg = $"There are no Groups updated after {date_time.As_d_MMM_yyyy}.";
+			}
+
+			_Messenger.Message = msg;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		/// <summary>
