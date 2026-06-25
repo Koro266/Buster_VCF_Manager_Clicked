@@ -84,16 +84,44 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Processes all Groups.
+		/// Exports all Groups to VCF files.
 		/// </summary>
-		private void ExportAllGroups()
+		private async void ExportAllGroups()
 		{
+			DisableButton( this._btn_Export_All_Groups );
+
 			Dictionary<int, BASE_ROW> base_rows = new GROUP_SELECT.AllGroups().Execute;
-			foreach ( BASE_ROW base_row in base_rows.Values )
-			{
-				GROUP_ROW group_row = ( GROUP_ROW )base_row;
-				group_row.ExportGroup();
-			}
+
+			int group_count = base_rows.Count;
+			tbx_Export_Status.Text = $"Working on 0 of {group_count} ...";
+
+			var progress = new Progress<int>
+				(
+					count =>
+					{
+						tbx_Export_Status.Text = $"Working on {count} of {group_count} ...";
+					}
+				);
+
+			await 
+				Task.Run
+					( () =>
+						{
+							int current_count = 0;
+							foreach ( BASE_ROW base_row in base_rows.Values )
+							{
+								GROUP_ROW group_row = ( GROUP_ROW )base_row;
+								group_row.ExportGroup();
+								current_count++;
+
+								( ( IProgress<int> )progress ).Report( current_count );
+							}
+						}
+					);
+
+			tbx_Export_Status.Text = "Done!";
+
+			EnableButton( _btn_Export_All_Groups );
 		}
 	}
 }
