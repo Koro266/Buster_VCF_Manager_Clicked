@@ -241,6 +241,7 @@
 			btn_DoTheLot.TabIndex = 3;
 			btn_DoTheLot.Text = "The Lot ...";
 			btn_DoTheLot.UseVisualStyleBackColor = true;
+			btn_DoTheLot.Visible = false;
 			btn_DoTheLot.Click +=  btn_DoTheLot_Click ;
 			// 
 			// bx_Families

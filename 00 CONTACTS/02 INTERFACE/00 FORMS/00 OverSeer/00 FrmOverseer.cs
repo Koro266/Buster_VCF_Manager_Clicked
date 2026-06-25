@@ -145,6 +145,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_DoTheLot_Click( object sender, EventArgs e )
 		{
+			// TODO: This fails ... fix it.
 			ExportAllGroups();
 			ExportAllFamilys();
 			ExportAllPersons();
