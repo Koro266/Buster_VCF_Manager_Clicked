@@ -1,10 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
-using FAMILY_FORM	= CONTACTS.INTERFACE.FORMS.FrmFamily;
 //LOCAL
 using FAMILY_ROW	= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
 using FAMILY_SELECT	= CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Select;
+using FAMILY_COUNT	= CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Count;
+//INTERFACE
+using FAMILY_FORM	= CONTACTS.INTERFACE.FORMS.FrmFamily;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -29,16 +31,26 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Processes the family with pk_Family = tbx_Primary_Key.Text.
+		/// Processes the Family with pk_Family = tbx_Primary_Key.Text.
 		/// </summary>
 		private void ExportOneFamily( int pk_family )
 		{
-			FAMILY_ROW family_row = new FAMILY_SELECT.ByPkFamily( pk_family ).Execute;
-			
-			family_row.ExportFamily();
+			string msg;
+			FAMILY_ROW family_row;
 
-			//	VCF_Familys vcf_families = new VCF_Familys();
-			//	vcf_families.ExportFamily( family_id );
+			if ( new FAMILY_COUNT.IsFamilyExtant( pk_family ).Execute )
+			{
+				family_row = new FAMILY_SELECT.ByPkFamily( pk_family ).Execute;
+				family_row.ExportFamily();
+
+				msg = $"{family_row.SortableName.AsUpper} (PK = {family_row.PkFamily.AsString}) successfully exported.";
+			}
+			else
+			{
+				msg = $"Primary key: {pk_family} does not exist in Persons table.";
+			}
+
+			_Messenger.Message = msg;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		/// <summary>
