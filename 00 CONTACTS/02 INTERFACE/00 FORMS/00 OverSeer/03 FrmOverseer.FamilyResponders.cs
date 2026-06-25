@@ -1,10 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using FAMILY_ROW	= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
-using FAMILY_SELECT	= CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Select;
 using FAMILY_COUNT	= CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Count;
+using FAMILY_SELECT	= CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Select;
 //INTERFACE
 using FAMILY_FORM	= CONTACTS.INTERFACE.FORMS.FrmFamily;
 
@@ -58,27 +60,68 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private void ExportRecentFamilys( DateTime dt )
 		{
-			//int family_count = new FAMILY_COUNT.CountUpdatedFamilys( dt ).Execute;
+			string msg;
+			DATE_TIME date_time = new DATE_TIME( dt );
 
-			//if ( family_count > GLOBAL_PRESET.ZERO )
-			//{
-			//	TDF_FAMILY[] tdf_familys = new FAMILY_SELECT.AfterCurrencyDate( family_count, dt ).Execute;
-			//	VCF_Familys vcf_familys = new VCF_Familys();
-			//	vcf_familys.ExportFamilys( tdf_familys );
-			//}
+			int count = new FAMILY_COUNT.CountAfterCurrencyDate( dt ).Execute;
+
+			if ( count > GLOBAL_PRESET.ZERO )
+			{
+				Dictionary<int, BASE_ROW> base_rows = new FAMILY_SELECT.SelectAfterCurrencyDate( dt ).Execute;
+				foreach ( BASE_ROW base_row in base_rows.Values )
+				{
+					FAMILY_ROW family_row = ( FAMILY_ROW )base_row;
+					family_row.ExportFamily();
+				}
+				msg = $"{count} Families updated after {date_time.AsDisplayedDate} have been exported.";
+			}
+			else
+			{
+				msg = $"There are no Families updated after {date_time.As_d_MMM_yyyy}.";
+			}
+
+			_Messenger.Message = msg;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Processes all familys into VCF files.
+		/// Processes all Family rows into VCF files.
 		/// </summary>
-		private void ExportAllFamilys()
+		private async void ExportAllFamilys()
 		{
+			DisableButton( this._btn_Export_All_Families );
+
 			Dictionary<int, BASE_ROW> base_rows = new FAMILY_SELECT.AllFamilys().Execute;
-			foreach ( BASE_ROW base_row in base_rows.Values )
-			{
-				FAMILY_ROW family_row = ( FAMILY_ROW )base_row;
-				family_row.ExportFamily();
-			}
+
+			int family_count = base_rows.Count;
+			tbx_Export_Status.Text = $"Working on 0 of {family_count} ...";
+
+			var progress = new Progress<int>
+				(
+					count =>
+					{
+						tbx_Export_Status.Text = $"Working on {count} of {family_count} ...";
+					}
+				);
+
+			await
+				Task.Run
+					( () =>
+					{
+						int current_count = 0;
+						foreach ( BASE_ROW base_row in base_rows.Values )
+						{
+							FAMILY_ROW family_row = ( FAMILY_ROW )base_row;
+							family_row.ExportFamily();
+							current_count++;
+
+							( ( IProgress<int> )progress ).Report( current_count );
+						}
+					}
+					);
+
+			tbx_Export_Status.Text = "Done!";
+
+			EnableButton( _btn_Export_All_Families );
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using COUNT		= CONTACTS.GLOBAL.DATABASE.READ.Count;
+//GLOBAL
+using BASE_ROW	= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using COLUMNS	= CONTACTS.LOCAL.PRIMARY.FAMILY.Column;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -9,38 +10,35 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	public partial class Database
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class Count
+		public partial class Select
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Counts the number of Families with CurrencyDate >= given date.
+			/// Returns Families with CurrencyDate >= given date.
 			/// </summary>
-			public class CountAfterCurrencyDate : COUNT
+			public class SelectAfterCurrencyDate
 			{
+				public FamilyReader family_Reader;
 				private const string sql_text =
 				@"
-					SELECT
-						Count(pk_Family) AS ROWCOUNT
-					FROM
-						TDF_Families
+					SELECT 
+						TDF_Families.*   
+					FROM 
+						TDF_Families  
 					WHERE
-					(
-						(
-							(TDF_Families.dt_CurrencyDate) >= @dt_currencydate 
-						)
-					);
+						(((TDF_Families.dt_CurrencyDate) >= @dt_currencydate));
 				";
 
 				//_______________________________________________________________________________________________________________________________
-				public CountAfterCurrencyDate( DateTime after_date ) : base( sql_text )
+				public SelectAfterCurrencyDate( DateTime after_date )
 				{
 					COLUMNS.DT_CurrencyDate dt = new COLUMNS.DT_CurrencyDate( after_date );
-					base.DbCommand.Parameters.Add( dt.DbParameter );
+					family_Reader = new FamilyReader( sql_text, dt.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
-				public int Execute
+				public Dictionary<int, BASE_ROW> Execute
 				{
-					get { return base.RowCount; }
+					get { return family_Reader.ReadFamilies(); }
 				}
 			}
 		}
