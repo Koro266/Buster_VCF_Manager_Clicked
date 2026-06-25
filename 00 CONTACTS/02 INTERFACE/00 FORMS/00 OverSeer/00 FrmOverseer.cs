@@ -15,13 +15,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region 00 TODO / DECLARE / CONSTRUCT
 
 		#region TODO LIST
+		// TODO Delete / overwrite all VCF files before new files are exported.
 		#endregion
 
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private MESSENGER _Messenger;
-
-		private const string export_Completed = "Export completed.";
+		private  const int _msg_Delay = 3000;
 		#endregion
 
 
@@ -33,8 +33,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitialiseForm();
 
 			_Messenger = new GLOBAL.Messenger( tbx_Export_Status );
-			_Messenger.AsyncDelay = 3000;
-
+			_Messenger.AsyncDelay = _msg_Delay;
 		}
 		#endregion
 

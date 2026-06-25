@@ -1,14 +1,14 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using CONTACTS.GLOBAL.DATABASE.COLUMN;
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using PERSON_COUNT	= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Count;
-using PERSON_FORM	= CONTACTS.INTERFACE.FORMS.FrmPerson;
 //LOCAL
 using PERSON_ROW	= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSON_SELECT	= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
+using PERSON_COUNT	= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Count;
+//INTERFACE
+using PERSON_FORM	= CONTACTS.INTERFACE.FORMS.FrmPerson;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -31,7 +31,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		public void OpenPersonXForm()
 		{
 		}
-		// TODO Delete all Person VCFs before new files are exported.
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Processes the person with pk_Person = tbx_Primary_Key.Text.

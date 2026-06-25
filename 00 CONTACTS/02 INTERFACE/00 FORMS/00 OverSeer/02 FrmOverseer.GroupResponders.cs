@@ -1,10 +1,14 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
-using GROUP_FORM	= CONTACTS.INTERFACE.FORMS.FrmGroup;
+using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using GROUP_ROW		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
 using GROUP_SELECT	= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
+using GROUP_COUNT	= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
+//INTERFACE
+using GROUP_FORM	= CONTACTS.INTERFACE.FORMS.FrmGroup;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -29,12 +33,26 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Processes the group with pk_group.
+		/// Processes the group with pk_group = tbx_Primary_Key.Text.
 		/// </summary>
 		private void ExportOneGroup( int pk_group )
 		{
-			GROUP_ROW group_row = new GROUP_SELECT.ByPkGroup( pk_group ).Execute;
-			group_row.ExportGroup();
+			string msg;
+			GROUP_ROW group_row;
+
+			if ( new GROUP_COUNT.IsPkExtant( pk_group ).Execute )
+			{
+				group_row = new GROUP_SELECT.ByPkGroup( pk_group ).Execute;
+				group_row.ExportGroup();
+
+				msg = $"{group_row.GroupName.AsUpper} (PK = {group_row.PkGroup.AsString}) successfully exported.";
+			}
+			else
+			{
+				msg = $"Primary key: {pk_group} does not exist in Groups table.";
+			}
+
+			_Messenger.Message = msg;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		/// <summary>
