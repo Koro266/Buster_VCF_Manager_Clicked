@@ -93,13 +93,13 @@ namespace CONTACTS.INTERFACE.FORMS
 			Dictionary<int, BASE_ROW> base_rows = new PERSON_SELECT.AllPersons().Execute;
 
 			int person_count = base_rows.Count;
-			tbx_Export_Status.Text = $"Working on 0 of {person_count} ...";
+			tbx_Export_Status.Text = $"Working on 0 of {person_count} Persons ...";
 
 			var progress = new Progress<int>
 				( 
 					count =>
 					{
-						tbx_Export_Status.Text = $"Working on {count} of {person_count} ...";
+						tbx_Export_Status.Text = $"Working on {count} of {person_count} Persons ...";
 					} 
 				);
 

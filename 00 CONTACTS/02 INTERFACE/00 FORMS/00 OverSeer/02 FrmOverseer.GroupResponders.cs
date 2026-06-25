@@ -93,13 +93,13 @@ namespace CONTACTS.INTERFACE.FORMS
 			Dictionary<int, BASE_ROW> base_rows = new GROUP_SELECT.AllGroups().Execute;
 
 			int group_count = base_rows.Count;
-			tbx_Export_Status.Text = $"Working on 0 of {group_count} ...";
+			tbx_Export_Status.Text = $"Working on 0 of {group_count} Groups ...";
 
 			var progress = new Progress<int>
 				(
 					count =>
 					{
-						tbx_Export_Status.Text = $"Working on {count} of {group_count} ...";
+						tbx_Export_Status.Text = $"Working on {count} of {group_count} Groups ...";
 					}
 				);
 

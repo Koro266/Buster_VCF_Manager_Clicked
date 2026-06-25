@@ -42,6 +42,7 @@
 			_btn_Export_All_Families = new Button();
 			_btn_Export_All_Persons = new Button();
 			bx_Groups = new GroupBox();
+			btn_DoTheLot = new Button();
 			bx_Families = new GroupBox();
 			bx_Persons = new GroupBox();
 			btn_OpenFamilyForm = new Button();
@@ -217,6 +218,7 @@
 			// bx_Groups
 			// 
 			bx_Groups.BackColor = Color.Moccasin;
+			bx_Groups.Controls.Add( btn_DoTheLot );
 			bx_Groups.Controls.Add( _btn_Export_All_Persons );
 			bx_Groups.Controls.Add( _btn_Export_All_Families );
 			bx_Groups.Controls.Add( _btn_Export_All_Groups );
@@ -227,6 +229,19 @@
 			bx_Groups.TabIndex = 0;
 			bx_Groups.TabStop = false;
 			bx_Groups.Text = "Export All";
+			// 
+			// btn_DoTheLot
+			// 
+			btn_DoTheLot.Enabled = false;
+			btn_DoTheLot.Font = new Font( "Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_DoTheLot.ForeColor = Color.Maroon;
+			btn_DoTheLot.Location = new Point( 19, 149 );
+			btn_DoTheLot.Name = "btn_DoTheLot";
+			btn_DoTheLot.Size = new Size( 155, 35 );
+			btn_DoTheLot.TabIndex = 3;
+			btn_DoTheLot.Text = "The Lot ...";
+			btn_DoTheLot.UseVisualStyleBackColor = true;
+			btn_DoTheLot.Click +=  btn_DoTheLot_Click ;
 			// 
 			// bx_Families
 			// 
@@ -514,5 +529,6 @@
 		private Button btn_Open_FamilyX_Form;
 		private TextBox tbx_Export_Status;
 		private Label label3;
+		private Button btn_DoTheLot;
 	}
 }

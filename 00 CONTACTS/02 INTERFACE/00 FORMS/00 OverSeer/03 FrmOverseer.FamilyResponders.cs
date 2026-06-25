@@ -49,7 +49,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 			else
 			{
-				msg = $"Primary key: {pk_family} does not exist in Persons table.";
+				msg = $"Primary key: {pk_family} does not exist in Families table.";
 			}
 
 			_Messenger.Message = msg;
@@ -93,13 +93,13 @@ namespace CONTACTS.INTERFACE.FORMS
 			Dictionary<int, BASE_ROW> base_rows = new FAMILY_SELECT.AllFamilys().Execute;
 
 			int family_count = base_rows.Count;
-			tbx_Export_Status.Text = $"Working on 0 of {family_count} ...";
+			tbx_Export_Status.Text = $"Working on 0 of {family_count} Families ...";
 
 			var progress = new Progress<int>
 				(
 					count =>
 					{
-						tbx_Export_Status.Text = $"Working on {count} of {family_count} ...";
+						tbx_Export_Status.Text = $"Working on {count} of {family_count} Families ...";
 					}
 				);
 
