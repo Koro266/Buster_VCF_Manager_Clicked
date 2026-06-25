@@ -182,6 +182,16 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			this.Close();
 		}
+		//___________________________________________________________________________________________________________________________________________
+		private void DisableButton( Button button)
+		{
+			button.Enabled = false;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void EnableButton( Button button )
+		{
+			button.Enabled = true;
+		}
 		#endregion
 	}
 

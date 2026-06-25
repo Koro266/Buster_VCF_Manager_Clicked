@@ -332,6 +332,8 @@
 			// 
 			// tbx_Export_Status
 			// 
+			tbx_Export_Status.BackColor = Color.FromArgb(     255,     255,     192 );
+			tbx_Export_Status.ForeColor = Color.ForestGreen;
 			tbx_Export_Status.Location = new Point( 32, 239 );
 			tbx_Export_Status.Name = "tbx_Export_Status";
 			tbx_Export_Status.Size = new Size( 606, 23 );

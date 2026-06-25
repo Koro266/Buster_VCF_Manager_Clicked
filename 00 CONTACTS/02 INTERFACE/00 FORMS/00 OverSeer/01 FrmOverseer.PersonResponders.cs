@@ -31,6 +31,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		public void OpenPersonXForm()
 		{
 		}
+		// TODO Delete all Person VCFs before new files are exported.
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Processes the person with pk_Person = tbx_Primary_Key.Text.
@@ -49,7 +50,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 			else
 			{
-				msg = $"Primary key: {pk_person.ToString()} does not exist in Persons table.";
+				msg = $"Primary key: {pk_person} does not exist in Persons table.";
 			}
 
 			_Messenger.Message = msg;
@@ -73,7 +74,7 @@ namespace CONTACTS.INTERFACE.FORMS
 					PERSON_ROW person_row = ( PERSON_ROW )base_row;
 					person_row.ExportPerson();
 				}
-				msg = $"{count.ToString()} persons updated after {date_time.AsDisplayedDate} have been exported.";
+				msg = $"{count} persons updated after {date_time.AsDisplayedDate} have been exported.";
 			}
 			else
 			{
@@ -88,34 +89,40 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private async void ExportAllPersons()
 		{
-			_btn_Export_All_Persons.Enabled = false;
+			DisableButton( _btn_Export_All_Persons );
 
 			Dictionary<int, BASE_ROW> base_rows = new PERSON_SELECT.AllPersons().Execute;
 
 			int person_count = base_rows.Count;
 			tbx_Export_Status.Text = $"Working on 0 of {person_count} ...";
 
-			var progress = new Progress<int>( count =>
-			{
-				tbx_Export_Status.Text = $"Working on {count} of {person_count} ...";
-			} );
+			var progress = new Progress<int>
+				( 
+					count =>
+					{
+						tbx_Export_Status.Text = $"Working on {count} of {person_count} ...";
+					} 
+				);
 
-			await Task.Run( () =>
-			{
-				int current_count = 0;
-				foreach ( BASE_ROW base_row in base_rows.Values )
-				{
-					PERSON_ROW person_row = ( PERSON_ROW )base_row;
-					person_row.ExportPerson();
-					current_count++;
+			await
+				Task.Run
+					( () =>
+						{
+							int current_count = 0;
+							foreach ( BASE_ROW base_row in base_rows.Values )
+							{
+								PERSON_ROW person_row = ( PERSON_ROW )base_row;
+								person_row.ExportPerson();
+								current_count++;
 
-					( ( IProgress<int> )progress ).Report( current_count );
-				}
-			} );
+								( ( IProgress<int> )progress ).Report( current_count );
+							}
+						} 
+					);
 
 			tbx_Export_Status.Text = "Done!";
 
-			_btn_Export_All_Persons.Enabled = true;
+			EnableButton( _btn_Export_All_Persons );
 		}
 	}
 }
