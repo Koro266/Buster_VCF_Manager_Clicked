@@ -58,7 +58,6 @@
 			btn_Eddresses = new Button();
 			btn_Open_Group_Form = new Button();
 			btn_CloseForm = new Button();
-			label3 = new Label();
 			bx_Groups.SuspendLayout();
 			bx_Families.SuspendLayout();
 			bx_Persons.SuspendLayout();
@@ -241,7 +240,6 @@
 			btn_DoTheLot.TabIndex = 3;
 			btn_DoTheLot.Text = "The Lot ...";
 			btn_DoTheLot.UseVisualStyleBackColor = true;
-			btn_DoTheLot.Visible = false;
 			btn_DoTheLot.Click +=  btn_DoTheLot_Click ;
 			// 
 			// bx_Families
@@ -373,7 +371,7 @@
 			grp_Add_Mod_Del.Size = new Size( 654, 174 );
 			grp_Add_Mod_Del.TabIndex = 0;
 			grp_Add_Mod_Del.TabStop = false;
-			grp_Add_Mod_Del.Text = "TDFs: Add, Modify, Delete";
+			grp_Add_Mod_Del.Text = "Add, Modify, Delete";
 			// 
 			// btn_Open_Group_X_Form
 			// 
@@ -460,15 +458,6 @@
 			btn_CloseForm.UseVisualStyleBackColor = true;
 			btn_CloseForm.Click +=  btn_CloseForm_Click ;
 			// 
-			// label3
-			// 
-			label3.AutoSize = true;
-			label3.Location = new Point( 12, 485 );
-			label3.Name = "label3";
-			label3.Size = new Size( 178, 15 );
-			label3.TabIndex = 7;
-			label3.Text = "Pre-Release V2026.06.23.0849";
-			// 
 			// FrmOverseer
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -476,7 +465,6 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 687, 520 );
-			Controls.Add( label3 );
 			Controls.Add( grp_Add_Mod_Del );
 			Controls.Add( btn_CloseForm );
 			Controls.Add( grp_Export );
@@ -494,7 +482,6 @@
 			grp_Export.PerformLayout();
 			grp_Add_Mod_Del.ResumeLayout( false );
 			ResumeLayout( false );
-			PerformLayout();
 
 		}
 
@@ -529,7 +516,6 @@
 		private Button btn_Open_Person_X_Form;
 		private Button btn_Open_FamilyX_Form;
 		private TextBox tbx_Export_Status;
-		private Label label3;
 		private Button btn_DoTheLot;
 	}
 }
