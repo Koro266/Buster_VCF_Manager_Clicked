@@ -774,16 +774,14 @@
 			// btn_InsertAddress
 			// 
 			btn_InsertAddress.BackColor = Color.FromArgb(     224,     224,     224 );
-			btn_InsertAddress.Enabled = false;
 			btn_InsertAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertAddress.ForeColor = Color.Maroon;
-			btn_InsertAddress.Location = new Point( 1009, 388 );
+			btn_InsertAddress.Location = new Point( 1013, 284 );
 			btn_InsertAddress.Name = "btn_InsertAddress";
 			btn_InsertAddress.Size = new Size( 135, 35 );
 			btn_InsertAddress.TabIndex = 6;
 			btn_InsertAddress.Text = "Insert Address";
 			btn_InsertAddress.UseVisualStyleBackColor = false;
-			btn_InsertAddress.Visible = false;
 			btn_InsertAddress.Click +=  btn_InsertAddress_Click ;
 			btn_InsertAddress.Enter +=  btn_InsertAddress_Enter ;
 			// 
@@ -830,7 +828,7 @@
 			btn_UpdateAddress.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_UpdateAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateAddress.ForeColor = Color.Maroon;
-			btn_UpdateAddress.Location = new Point( 1013, 198 );
+			btn_UpdateAddress.Location = new Point( 1013, 243 );
 			btn_UpdateAddress.Name = "btn_UpdateAddress";
 			btn_UpdateAddress.Size = new Size( 135, 35 );
 			btn_UpdateAddress.TabIndex = 7;
@@ -911,7 +909,7 @@
 			tbx_Prompt.Location = new Point( 491, 628 );
 			tbx_Prompt.Multiline = true;
 			tbx_Prompt.Name = "tbx_Prompt";
-			tbx_Prompt.Size = new Size( 660, 137 );
+			tbx_Prompt.Size = new Size( 660, 56 );
 			tbx_Prompt.TabIndex = 9;
 			tbx_Prompt.TabStop = false;
 			tbx_Prompt.Text = "Prompt...";
@@ -944,7 +942,7 @@
 			chk_Christmas.CheckAlign = ContentAlignment.MiddleRight;
 			chk_Christmas.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Christmas.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Christmas.Location = new Point( 60, 682 );
+			chk_Christmas.Location = new Point( 1019, 385 );
 			chk_Christmas.Name = "chk_Christmas";
 			chk_Christmas.Size = new Size( 99, 23 );
 			chk_Christmas.TabIndex = 2;
@@ -1003,7 +1001,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 1174, 783 );
+			ClientSize = new Size( 1170, 692 );
 			Controls.Add( chk_Christmas );
 			Controls.Add( tbx_Assemblage );
 			Controls.Add( lbl_Unit );
