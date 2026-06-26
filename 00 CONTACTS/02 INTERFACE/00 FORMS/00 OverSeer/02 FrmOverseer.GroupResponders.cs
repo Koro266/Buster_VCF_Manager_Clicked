@@ -119,7 +119,7 @@ namespace CONTACTS.INTERFACE.FORMS
 						}
 					);
 
-			_Messenger.Message = "Done!";
+			_Messenger.Done();
 
 			_EventState.EnableButton( _btn_Export_All_Groups );
 		}

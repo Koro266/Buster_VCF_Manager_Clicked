@@ -32,5 +32,14 @@ namespace CONTACTS.GLOBAL.TOOLS
 		{
 			set { async_Delay = value; }
 		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Inserts literal "Done!".
+		/// </summary>
+		public void Done()
+		{
+			Message = "Done!";
+		}
+
 	}
 }
