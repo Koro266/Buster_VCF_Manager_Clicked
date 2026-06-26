@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using TXT_GATHER		= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 //LOCAL
 using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
@@ -27,7 +28,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATION current_Nation;
 
 		private bool is_event_Disabled = false;
-		private TextAccumulator txt_Accumulator;
+		private TXT_GATHER txt_Accumulator;
 		#endregion
 
 
@@ -435,7 +436,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void Accumulator( string s )
 		{
-			txt_Accumulator = new TextAccumulator( s );
+			txt_Accumulator = new TXT_GATHER( s );
 		}
 		#endregion OTHERS...
 

@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
@@ -29,8 +30,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static FAMILYS all_Familys = new FAMILYS();
 		private FAMILY one_Family;
 		private GLOBAL_LIKE[] matching_Familys;
-		private TextAccumulator txt_Accumulator;
 
+		private TXT_GATHER txt_Accumulator;
 		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 
@@ -430,7 +431,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void Accumulator( string s )
 		{
-			txt_Accumulator = new TextAccumulator( s );
+			txt_Accumulator = new TXT_GATHER( s );
 		}
 		#endregion
 

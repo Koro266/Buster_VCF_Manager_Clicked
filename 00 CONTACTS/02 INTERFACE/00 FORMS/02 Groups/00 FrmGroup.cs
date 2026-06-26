@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
@@ -34,7 +35,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Groups;
-		private TextAccumulator txt_Accumulator;
+		private TXT_GATHER txt_Accumulator;
 
 		//TODO: Consider moving these constants into Group constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Group.";
@@ -247,7 +248,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
 		{
-			set { txt_Accumulator = new TextAccumulator( value ); }
+			set { txt_Accumulator = new TXT_GATHER( value ); }
 		}
 		#endregion
 

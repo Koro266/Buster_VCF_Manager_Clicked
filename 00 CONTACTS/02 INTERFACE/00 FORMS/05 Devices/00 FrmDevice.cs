@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
@@ -31,7 +32,7 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		private LIKE_ROW[] matching_Devices;
 		private bool is_event_Disabled = true;
-		private TextAccumulator txt_Accumulator;
+		private TXT_GATHER txt_Accumulator;
 		#endregion
 
 
@@ -300,7 +301,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void Accumulator( string s )
 		{
-			txt_Accumulator = new TextAccumulator( s );
+			txt_Accumulator = new TXT_GATHER( s );
 		}
 		#endregion
 

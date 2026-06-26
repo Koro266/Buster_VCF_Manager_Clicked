@@ -4,7 +4,7 @@ using SHORT_TEXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.GLOBAL
+namespace CONTACTS.GLOBAL.TOOLS
 {
 	//___________________________________________________________________________________________________________________________________________________
 	public class TextAccumulator : SHORT_TEXT

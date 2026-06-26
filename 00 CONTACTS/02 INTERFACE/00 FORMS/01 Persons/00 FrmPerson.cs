@@ -1,15 +1,16 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using MESSENGER		= CONTACTS.GLOBAL.Messenger;
 using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL	
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
+using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 //FORMS
 using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 
@@ -36,7 +37,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Persons;
-		private TextAccumulator txt_Accumulator;
+		private TXT_GATHER txt_Accumulator;
 
 		//TODO: Consider moving these constants into Person constants file. 
 		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
@@ -420,14 +421,14 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private TextAccumulator NewAccumulator( string s )
+		private TXT_GATHER NewAccumulator( string s )
 		{
-			return new TextAccumulator( s );
+			return new TXT_GATHER( s );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
 		{
-			set { txt_Accumulator = new TextAccumulator( value ); }
+			set { txt_Accumulator = new TXT_GATHER( value ); }
 		}
 		#endregion
 
