@@ -906,13 +906,14 @@
 			tbx_Prompt.BorderStyle = BorderStyle.FixedSingle;
 			tbx_Prompt.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Prompt.ForeColor = Color.Gray;
-			tbx_Prompt.Location = new Point( 491, 628 );
+			tbx_Prompt.Location = new Point( 1060, 436 );
 			tbx_Prompt.Multiline = true;
 			tbx_Prompt.Name = "tbx_Prompt";
-			tbx_Prompt.Size = new Size( 660, 56 );
+			tbx_Prompt.Size = new Size( 45, 56 );
 			tbx_Prompt.TabIndex = 9;
 			tbx_Prompt.TabStop = false;
 			tbx_Prompt.Text = "Prompt...";
+			tbx_Prompt.Visible = false;
 			// 
 			// lbl_IsoCodes
 			// 
