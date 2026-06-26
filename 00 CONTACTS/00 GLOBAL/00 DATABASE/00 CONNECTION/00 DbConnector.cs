@@ -153,7 +153,7 @@ namespace CONTACTS.GLOBAL.DATABASE.CONNECTION
 		/// </summary>
 		private const string file_Name					= "VCF Builder.accdb";
 		private const string header_Text				= "VCF Builder";
-		private const string git_Commit					= "85ccfe4; 0835, 26 June 26";
+		private const string git_Commit					= "1dd1c4e; 26 June 26, 7:06 pm";
 		private const string fullyqualified_Pattern		="#0#1 #2";
 		private const string abbreviated_Pattern		=@"C:\...ContactsManager...\#0 #1, (RELEASE Commit: #2)";
 
