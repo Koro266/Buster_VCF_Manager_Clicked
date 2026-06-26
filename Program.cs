@@ -1,5 +1,5 @@
 //___________________________________________________________________________________________________________________________________________________
-using STARTUP_MAN	= CONTACTS.GLOBAL.StartupManager;
+using STARTUP_MAN	= CONTACTS.GLOBAL.TOOLS.StartupManager;
 using OVERSEER		= CONTACTS.INTERFACE.FORMS.FrmOverseer;
 using PERSON		= CONTACTS.INTERFACE.FORMS.FrmPerson;
 using FAMILY		= CONTACTS.INTERFACE.FORMS.FrmFamily;

@@ -1,6 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using MESSENGER		= CONTACTS.GLOBAL.Messenger;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using SHORT_TEXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
@@ -32,7 +32,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitializeComponent();
 			InitialiseForm();
 
-			_Messenger = new GLOBAL.Messenger( tbx_Export_Status );
+			_Messenger = new MESSENGER( tbx_Export_Status );
 			_Messenger.AsyncDelay = _msg_Delay;
 		}
 		#endregion

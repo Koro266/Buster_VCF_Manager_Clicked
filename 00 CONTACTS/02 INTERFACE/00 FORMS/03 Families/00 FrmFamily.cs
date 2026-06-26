@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
-using MESSENGER		= CONTACTS.GLOBAL.Messenger;
-using EVENT_STATE	= CONTACTS.GLOBAL.EventState;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
