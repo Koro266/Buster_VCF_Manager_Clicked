@@ -88,7 +88,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private async void ExportAllGroups()
 		{
-			DisableButton( this._btn_Export_All_Groups );
+			_EventState.DisableButton( this._btn_Export_All_Groups );
 
 			Dictionary<int, BASE_ROW> base_rows = new GROUP_SELECT.AllGroups().Execute;
 
@@ -121,7 +121,7 @@ namespace CONTACTS.INTERFACE.FORMS
 
 			_Messenger.Message = "Done!";
 
-			EnableButton( _btn_Export_All_Groups );
+			_EventState.EnableButton( _btn_Export_All_Groups );
 		}
 	}
 }

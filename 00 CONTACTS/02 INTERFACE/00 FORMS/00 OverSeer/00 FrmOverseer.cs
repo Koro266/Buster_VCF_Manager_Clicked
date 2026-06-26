@@ -1,9 +1,9 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using SHORT_TEXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -21,6 +21,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private MESSENGER _Messenger;
+		private EVENT_STATE _EventState;
 		private const int _msg_Delay = 3000;
 		#endregion
 
@@ -197,16 +198,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_CloseForm_Click( object sender, EventArgs e )
 		{
 			this.Close();
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void DisableButton( Button button )
-		{
-			button.Enabled = false;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void EnableButton( Button button )
-		{
-			button.Enabled = true;
 		}
 		#endregion
 	}

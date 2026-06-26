@@ -88,7 +88,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private async void ExportAllPersons()
 		{
-			DisableButton( _btn_Export_All_Persons );
+			_EventState.DisableButton( _btn_Export_All_Persons );
 
 			Dictionary<int, BASE_ROW> base_rows = new PERSON_SELECT.AllPersons().Execute;
 
@@ -121,7 +121,7 @@ namespace CONTACTS.INTERFACE.FORMS
 
 			_Messenger.Message = "Done!";
 
-			EnableButton( _btn_Export_All_Persons );
+			_EventState.EnableButton( _btn_Export_All_Persons );
 		}
 	}
 }
