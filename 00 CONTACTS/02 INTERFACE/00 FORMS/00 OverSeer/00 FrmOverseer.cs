@@ -214,15 +214,15 @@ namespace CONTACTS.INTERFACE.FORMS
 	#region TEXT ACCUMULATOR
 	//TODO: Remove this from here.
 	//_______________________________________________________________________________________________________________________________________________
-	public class TextAccumulator : SHORT_TEXT
+	public class TextAccumulatorx : SHORT_TEXT
 	{
 
 		//___________________________________________________________________________________________________________________________________________
-		public TextAccumulator() : base( GLOBAL_PRESET.ZLS )
+		public TextAccumulatorx() : base( GLOBAL_PRESET.ZLS )
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public TextAccumulator( string s ) : base( s )
+		public TextAccumulatorx	( string s ) : base( s )
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________

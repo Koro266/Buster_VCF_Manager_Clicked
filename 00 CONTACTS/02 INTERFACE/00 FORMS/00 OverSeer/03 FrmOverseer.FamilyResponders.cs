@@ -119,7 +119,7 @@ namespace CONTACTS.INTERFACE.FORMS
 					}
 					);
 
-			tbx_Export_Status.Text = "Done!";
+			_Messenger.Message = "Done!";
 
 			EnableButton( _btn_Export_All_Families );
 		}

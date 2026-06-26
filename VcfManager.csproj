@@ -136,7 +136,7 @@
     <Compile Remove="00 CONTACTS\00 FrmPerson.cs" />
     <Compile Remove="00 CONTACTS\00 FrmPerson.Designer.cs" />
     <Compile Remove="00 CONTACTS\00 GLOBAL\05 VCF\01 VcfPatterns.cs" />
-    <Compile Remove="00 CONTACTS\00 GLOBAL\06 Tools\TextBetween.cs" />
+    <Compile Remove="00 CONTACTS\00 GLOBAL\06 TOOLS\TextBetween.cs" />
     <Compile Remove="00 CONTACTS\01 FrmPerson.InitialiseDisplay.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 PersonDatabase.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 READ\02 LIKE\09 Prefix.cs" />
