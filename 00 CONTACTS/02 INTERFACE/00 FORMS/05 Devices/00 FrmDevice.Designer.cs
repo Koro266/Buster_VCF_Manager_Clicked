@@ -96,7 +96,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_UpdateDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateDevice.ForeColor = Color.Maroon;
-			btn_UpdateDevice.Location = new Point( 385, 162 );
+			btn_UpdateDevice.Location = new Point( 385, 172 );
 			btn_UpdateDevice.Name = "btn_UpdateDevice";
 			btn_UpdateDevice.Size = new Size( 133, 35 );
 			btn_UpdateDevice.TabIndex = 16;
@@ -235,19 +235,20 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Prompt.BackColor = Color.Beige;
 			tbx_Prompt.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Prompt.ForeColor = Color.Gray;
-			tbx_Prompt.Location = new Point( 9, 382 );
+			tbx_Prompt.Location = new Point( 267, 165 );
 			tbx_Prompt.Multiline = true;
 			tbx_Prompt.Name = "tbx_Prompt";
-			tbx_Prompt.Size = new Size( 511, 99 );
+			tbx_Prompt.Size = new Size( 64, 32 );
 			tbx_Prompt.TabIndex = 68;
 			tbx_Prompt.TabStop = false;
 			tbx_Prompt.Text = "Prompt...";
+			tbx_Prompt.Visible = false;
 			// 
 			// btn_CloseForm
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 384, 239 );
+			btn_CloseForm.Location = new Point( 385, 338 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 133, 35 );
 			btn_CloseForm.TabIndex = 17;
@@ -258,16 +259,14 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			// btn_InsertDevice
 			// 
-			btn_InsertDevice.Enabled = false;
 			btn_InsertDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertDevice.ForeColor = Color.Maroon;
-			btn_InsertDevice.Location = new Point( 233, 114 );
+			btn_InsertDevice.Location = new Point( 385, 213 );
 			btn_InsertDevice.Name = "btn_InsertDevice";
 			btn_InsertDevice.Size = new Size( 133, 35 );
 			btn_InsertDevice.TabIndex = 15;
 			btn_InsertDevice.Text = "Insert Device";
 			btn_InsertDevice.UseVisualStyleBackColor = true;
-			btn_InsertDevice.Visible = false;
 			btn_InsertDevice.Click +=  btn_Insert_Click ;
 			btn_InsertDevice.Enter +=  btn_Insert_Enter ;
 			// 
@@ -421,7 +420,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.ItemHeight = 15;
 			lbx_MatchingDevices.Location = new Point( 532, 71 );
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
-			lbx_MatchingDevices.Size = new Size( 158, 409 );
+			lbx_MatchingDevices.Size = new Size( 158, 304 );
 			lbx_MatchingDevices.TabIndex = 73;
 			lbx_MatchingDevices.SelectedIndexChanged +=  lbx_MatchingDevices_SelectedIndexChanged ;
 			lbx_MatchingDevices.Enter +=  lbx_MatchingDevices_Enter ;
@@ -512,7 +511,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			grp_DeviceData.Location = new Point( 12, 8 );
 			grp_DeviceData.Name = "grp_DeviceData";
 			grp_DeviceData.Padding = new Padding( 2 );
-			grp_DeviceData.Size = new Size( 702, 492 );
+			grp_DeviceData.Size = new Size( 702, 387 );
 			grp_DeviceData.TabIndex = 0;
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Data";
@@ -567,7 +566,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 724, 503 );
+			ClientSize = new Size( 724, 401 );
 			Controls.Add( grp_DeviceData );
 			Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			FormBorderStyle = FormBorderStyle.FixedSingle;

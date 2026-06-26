@@ -290,7 +290,6 @@
 			// btn_Devices
 			// 
 			btn_Devices.BackColor = Color.MistyRose;
-			btn_Devices.Enabled = false;
 			btn_Devices.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Devices.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_Devices.Location = new Point( 257, 75 );
@@ -299,13 +298,11 @@
 			btn_Devices.TabIndex = 4;
 			btn_Devices.Text = "Devices";
 			btn_Devices.UseVisualStyleBackColor = false;
-			btn_Devices.Visible = false;
 			btn_Devices.Click +=  btn_Devices_Click ;
 			// 
 			// btn_OpenAddressForm
 			// 
 			btn_OpenAddressForm.BackColor = Color.MistyRose;
-			btn_OpenAddressForm.Enabled = false;
 			btn_OpenAddressForm.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_OpenAddressForm.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_OpenAddressForm.Location = new Point( 257, 31 );
@@ -314,7 +311,6 @@
 			btn_OpenAddressForm.TabIndex = 3;
 			btn_OpenAddressForm.Text = "Addresses";
 			btn_OpenAddressForm.UseVisualStyleBackColor = false;
-			btn_OpenAddressForm.Visible = false;
 			btn_OpenAddressForm.Click +=  btn_OpenAddressForm_Click ;
 			// 
 			// btn_Open_Person_Form
