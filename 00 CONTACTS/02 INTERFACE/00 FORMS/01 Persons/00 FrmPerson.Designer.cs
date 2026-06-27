@@ -768,7 +768,7 @@
 			// 
 			chk_SundayMass.AutoSize = true;
 			chk_SundayMass.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_SundayMass.Location = new Point( 423, 313 );
+			chk_SundayMass.Location = new Point( 422, 389 );
 			chk_SundayMass.Name = "chk_SundayMass";
 			chk_SundayMass.Size = new Size( 113, 21 );
 			chk_SundayMass.TabIndex = 134;
@@ -779,7 +779,7 @@
 			// 
 			chk_Vigil.AutoSize = true;
 			chk_Vigil.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Vigil.Location = new Point( 423, 287 );
+			chk_Vigil.Location = new Point( 422, 363 );
 			chk_Vigil.Name = "chk_Vigil";
 			chk_Vigil.Size = new Size( 62, 21 );
 			chk_Vigil.TabIndex = 133;
@@ -790,7 +790,7 @@
 			// 
 			chk_Sacristan.AutoSize = true;
 			chk_Sacristan.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Sacristan.Location = new Point( 423, 261 );
+			chk_Sacristan.Location = new Point( 422, 337 );
 			chk_Sacristan.Name = "chk_Sacristan";
 			chk_Sacristan.Size = new Size( 88, 21 );
 			chk_Sacristan.TabIndex = 132;
@@ -801,7 +801,7 @@
 			// 
 			chk_Minister.AutoSize = true;
 			chk_Minister.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Minister.Location = new Point( 423, 235 );
+			chk_Minister.Location = new Point( 422, 311 );
 			chk_Minister.Name = "chk_Minister";
 			chk_Minister.Size = new Size( 84, 21 );
 			chk_Minister.TabIndex = 131;
@@ -812,7 +812,7 @@
 			// 
 			chk_TimeTalent.AutoSize = true;
 			chk_TimeTalent.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_TimeTalent.Location = new Point( 423, 209 );
+			chk_TimeTalent.Location = new Point( 422, 285 );
 			chk_TimeTalent.Name = "chk_TimeTalent";
 			chk_TimeTalent.Size = new Size( 118, 21 );
 			chk_TimeTalent.TabIndex = 130;
@@ -823,7 +823,7 @@
 			// 
 			chk_Export.AutoSize = true;
 			chk_Export.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Export.Location = new Point( 423, 183 );
+			chk_Export.Location = new Point( 422, 259 );
 			chk_Export.Name = "chk_Export";
 			chk_Export.Size = new Size( 72, 21 );
 			chk_Export.TabIndex = 129;
@@ -834,7 +834,7 @@
 			// 
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 423, 157 );
+			chk_DefaultRow.Location = new Point( 422, 233 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 128;
@@ -845,7 +845,7 @@
 			// 
 			chk_NoRightPerson.AutoSize = true;
 			chk_NoRightPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_NoRightPerson.Location = new Point( 423, 131 );
+			chk_NoRightPerson.Location = new Point( 422, 207 );
 			chk_NoRightPerson.Name = "chk_NoRightPerson";
 			chk_NoRightPerson.Size = new Size( 134, 21 );
 			chk_NoRightPerson.TabIndex = 127;
@@ -856,7 +856,7 @@
 			// 
 			chk_NewLeftPerson.AutoSize = true;
 			chk_NewLeftPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_NewLeftPerson.Location = new Point( 423, 105 );
+			chk_NewLeftPerson.Location = new Point( 422, 181 );
 			chk_NewLeftPerson.Name = "chk_NewLeftPerson";
 			chk_NewLeftPerson.Size = new Size( 134, 21 );
 			chk_NewLeftPerson.TabIndex = 126;
@@ -867,7 +867,7 @@
 			// 
 			chk_HolySomething.AutoSize = true;
 			chk_HolySomething.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_HolySomething.Location = new Point( 423, 79 );
+			chk_HolySomething.Location = new Point( 422, 155 );
 			chk_HolySomething.Name = "chk_HolySomething";
 			chk_HolySomething.Size = new Size( 133, 21 );
 			chk_HolySomething.TabIndex = 125;
@@ -878,7 +878,7 @@
 			// 
 			chk_Enlightened.AutoSize = true;
 			chk_Enlightened.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Enlightened.Location = new Point( 423, 53 );
+			chk_Enlightened.Location = new Point( 422, 129 );
 			chk_Enlightened.Name = "chk_Enlightened";
 			chk_Enlightened.Size = new Size( 107, 21 );
 			chk_Enlightened.TabIndex = 124;
@@ -889,7 +889,7 @@
 			// 
 			chk_Selected.AutoSize = true;
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 423, 27 );
+			chk_Selected.Location = new Point( 422, 103 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 123;
