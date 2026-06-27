@@ -89,6 +89,18 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
+			checkBox1 = new CheckBox();
+			checkBox2 = new CheckBox();
+			checkBox3 = new CheckBox();
+			checkBox4 = new CheckBox();
+			checkBox5 = new CheckBox();
+			checkBox6 = new CheckBox();
+			checkBox7 = new CheckBox();
+			checkBox8 = new CheckBox();
+			checkBox9 = new CheckBox();
+			checkBox10 = new CheckBox();
+			checkBox11 = new CheckBox();
+			checkBox12 = new CheckBox();
 			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -672,6 +684,18 @@
 			// 
 			// grp_PersonData
 			// 
+			grp_PersonData.Controls.Add( checkBox12 );
+			grp_PersonData.Controls.Add( checkBox11 );
+			grp_PersonData.Controls.Add( checkBox10 );
+			grp_PersonData.Controls.Add( checkBox9 );
+			grp_PersonData.Controls.Add( checkBox8 );
+			grp_PersonData.Controls.Add( checkBox7 );
+			grp_PersonData.Controls.Add( checkBox6 );
+			grp_PersonData.Controls.Add( checkBox5 );
+			grp_PersonData.Controls.Add( checkBox4 );
+			grp_PersonData.Controls.Add( checkBox3 );
+			grp_PersonData.Controls.Add( checkBox2 );
+			grp_PersonData.Controls.Add( checkBox1 );
 			grp_PersonData.Controls.Add( tbx_Messages );
 			grp_PersonData.Controls.Add( label3 );
 			grp_PersonData.Controls.Add( tbx_Matches );
@@ -864,6 +888,138 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
+			// checkBox1
+			// 
+			checkBox1.AutoSize = true;
+			checkBox1.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox1.Location = new Point( 423, 27 );
+			checkBox1.Name = "checkBox1";
+			checkBox1.Size = new Size( 84, 21 );
+			checkBox1.TabIndex = 123;
+			checkBox1.Text = "Selected?";
+			checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// checkBox2
+			// 
+			checkBox2.AutoSize = true;
+			checkBox2.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox2.Location = new Point( 423, 53 );
+			checkBox2.Name = "checkBox2";
+			checkBox2.Size = new Size( 107, 21 );
+			checkBox2.TabIndex = 124;
+			checkBox2.Text = "Enlightened?";
+			checkBox2.UseVisualStyleBackColor = true;
+			// 
+			// checkBox3
+			// 
+			checkBox3.AutoSize = true;
+			checkBox3.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox3.Location = new Point( 423, 79 );
+			checkBox3.Name = "checkBox3";
+			checkBox3.Size = new Size( 133, 21 );
+			checkBox3.TabIndex = 125;
+			checkBox3.Text = "Holy Something?";
+			checkBox3.UseVisualStyleBackColor = true;
+			// 
+			// checkBox4
+			// 
+			checkBox4.AutoSize = true;
+			checkBox4.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox4.Location = new Point( 423, 105 );
+			checkBox4.Name = "checkBox4";
+			checkBox4.Size = new Size( 134, 21 );
+			checkBox4.TabIndex = 126;
+			checkBox4.Text = "New Left-Person?";
+			checkBox4.UseVisualStyleBackColor = true;
+			// 
+			// checkBox5
+			// 
+			checkBox5.AutoSize = true;
+			checkBox5.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox5.Location = new Point( 423, 131 );
+			checkBox5.Name = "checkBox5";
+			checkBox5.Size = new Size( 134, 21 );
+			checkBox5.TabIndex = 127;
+			checkBox5.Text = "No Right-Person?";
+			checkBox5.UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			checkBox6.AutoSize = true;
+			checkBox6.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox6.Location = new Point( 423, 157 );
+			checkBox6.Name = "checkBox6";
+			checkBox6.Size = new Size( 109, 21 );
+			checkBox6.TabIndex = 128;
+			checkBox6.Text = "Default Row?";
+			checkBox6.UseVisualStyleBackColor = true;
+			// 
+			// checkBox7
+			// 
+			checkBox7.AutoSize = true;
+			checkBox7.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox7.Location = new Point( 423, 183 );
+			checkBox7.Name = "checkBox7";
+			checkBox7.Size = new Size( 72, 21 );
+			checkBox7.TabIndex = 129;
+			checkBox7.Text = "Export?";
+			checkBox7.UseVisualStyleBackColor = true;
+			// 
+			// checkBox8
+			// 
+			checkBox8.AutoSize = true;
+			checkBox8.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox8.Location = new Point( 423, 209 );
+			checkBox8.Name = "checkBox8";
+			checkBox8.Size = new Size( 118, 21 );
+			checkBox8.TabIndex = 130;
+			checkBox8.Text = "Time + Talent?";
+			checkBox8.UseVisualStyleBackColor = true;
+			// 
+			// checkBox9
+			// 
+			checkBox9.AutoSize = true;
+			checkBox9.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox9.Location = new Point( 423, 235 );
+			checkBox9.Name = "checkBox9";
+			checkBox9.Size = new Size( 84, 21 );
+			checkBox9.TabIndex = 131;
+			checkBox9.Text = "Minister?";
+			checkBox9.UseVisualStyleBackColor = true;
+			// 
+			// checkBox10
+			// 
+			checkBox10.AutoSize = true;
+			checkBox10.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox10.Location = new Point( 423, 261 );
+			checkBox10.Name = "checkBox10";
+			checkBox10.Size = new Size( 88, 21 );
+			checkBox10.TabIndex = 132;
+			checkBox10.Text = "Sacristan?";
+			checkBox10.UseVisualStyleBackColor = true;
+			// 
+			// checkBox11
+			// 
+			checkBox11.AutoSize = true;
+			checkBox11.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox11.Location = new Point( 423, 287 );
+			checkBox11.Name = "checkBox11";
+			checkBox11.Size = new Size( 62, 21 );
+			checkBox11.TabIndex = 133;
+			checkBox11.Text = "Vigil?";
+			checkBox11.UseVisualStyleBackColor = true;
+			// 
+			// checkBox12
+			// 
+			checkBox12.AutoSize = true;
+			checkBox12.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox12.Location = new Point( 423, 313 );
+			checkBox12.Name = "checkBox12";
+			checkBox12.Size = new Size( 113, 21 );
+			checkBox12.TabIndex = 134;
+			checkBox12.Text = "Sunday Mass?";
+			checkBox12.UseVisualStyleBackColor = true;
+			// 
 			// FrmPerson
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -946,5 +1102,17 @@
 		private Label label3;
 		private TextBox tbx_Matches;
 		private TextBox tbx_Messages;
+		private CheckBox checkBox1;
+		private CheckBox checkBox12;
+		private CheckBox checkBox11;
+		private CheckBox checkBox10;
+		private CheckBox checkBox9;
+		private CheckBox checkBox8;
+		private CheckBox checkBox7;
+		private CheckBox checkBox6;
+		private CheckBox checkBox5;
+		private CheckBox checkBox4;
+		private CheckBox checkBox3;
+		private CheckBox checkBox2;
 	}
 }
