@@ -36,7 +36,6 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
-		private LIKE_ROW[] matching_Persons;
 		private TXT_GATHER txt_Accumulator;
 
 		//TODO: Consider moving these constants into Person constants file. 
