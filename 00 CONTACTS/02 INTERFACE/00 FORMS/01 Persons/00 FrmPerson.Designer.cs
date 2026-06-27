@@ -79,6 +79,18 @@
 			tbx_Notes = new TextBox();
 			lbl_Notes = new Label();
 			grp_PersonData = new GroupBox();
+			chk_SundayMass = new CheckBox();
+			chk_Vigil = new CheckBox();
+			chk_Sacristan = new CheckBox();
+			chk_Minister = new CheckBox();
+			chk_TimeTalent = new CheckBox();
+			chk_Export = new CheckBox();
+			chk_DefaultRow = new CheckBox();
+			chk_NoRightPerson = new CheckBox();
+			chk_NewLeftPerson = new CheckBox();
+			chk_HolySomething = new CheckBox();
+			chk_Enlightened = new CheckBox();
+			chk_Selected = new CheckBox();
 			tbx_Messages = new TextBox();
 			label3 = new Label();
 			tbx_Matches = new TextBox();
@@ -89,18 +101,6 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
-			checkBox1 = new CheckBox();
-			checkBox2 = new CheckBox();
-			checkBox3 = new CheckBox();
-			checkBox4 = new CheckBox();
-			checkBox5 = new CheckBox();
-			checkBox6 = new CheckBox();
-			checkBox7 = new CheckBox();
-			checkBox8 = new CheckBox();
-			checkBox9 = new CheckBox();
-			checkBox10 = new CheckBox();
-			checkBox11 = new CheckBox();
-			checkBox12 = new CheckBox();
 			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -684,18 +684,18 @@
 			// 
 			// grp_PersonData
 			// 
-			grp_PersonData.Controls.Add( checkBox12 );
-			grp_PersonData.Controls.Add( checkBox11 );
-			grp_PersonData.Controls.Add( checkBox10 );
-			grp_PersonData.Controls.Add( checkBox9 );
-			grp_PersonData.Controls.Add( checkBox8 );
-			grp_PersonData.Controls.Add( checkBox7 );
-			grp_PersonData.Controls.Add( checkBox6 );
-			grp_PersonData.Controls.Add( checkBox5 );
-			grp_PersonData.Controls.Add( checkBox4 );
-			grp_PersonData.Controls.Add( checkBox3 );
-			grp_PersonData.Controls.Add( checkBox2 );
-			grp_PersonData.Controls.Add( checkBox1 );
+			grp_PersonData.Controls.Add( chk_SundayMass );
+			grp_PersonData.Controls.Add( chk_Vigil );
+			grp_PersonData.Controls.Add( chk_Sacristan );
+			grp_PersonData.Controls.Add( chk_Minister );
+			grp_PersonData.Controls.Add( chk_TimeTalent );
+			grp_PersonData.Controls.Add( chk_Export );
+			grp_PersonData.Controls.Add( chk_DefaultRow );
+			grp_PersonData.Controls.Add( chk_NoRightPerson );
+			grp_PersonData.Controls.Add( chk_NewLeftPerson );
+			grp_PersonData.Controls.Add( chk_HolySomething );
+			grp_PersonData.Controls.Add( chk_Enlightened );
+			grp_PersonData.Controls.Add( chk_Selected );
 			grp_PersonData.Controls.Add( tbx_Messages );
 			grp_PersonData.Controls.Add( label3 );
 			grp_PersonData.Controls.Add( tbx_Matches );
@@ -763,6 +763,138 @@
 			grp_PersonData.TabIndex = 0;
 			grp_PersonData.TabStop = false;
 			grp_PersonData.Text = "Person Data";
+			// 
+			// chk_SundayMass
+			// 
+			chk_SundayMass.AutoSize = true;
+			chk_SundayMass.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_SundayMass.Location = new Point( 423, 313 );
+			chk_SundayMass.Name = "chk_SundayMass";
+			chk_SundayMass.Size = new Size( 113, 21 );
+			chk_SundayMass.TabIndex = 134;
+			chk_SundayMass.Text = "Sunday Mass?";
+			chk_SundayMass.UseVisualStyleBackColor = true;
+			// 
+			// chk_Vigil
+			// 
+			chk_Vigil.AutoSize = true;
+			chk_Vigil.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Vigil.Location = new Point( 423, 287 );
+			chk_Vigil.Name = "chk_Vigil";
+			chk_Vigil.Size = new Size( 62, 21 );
+			chk_Vigil.TabIndex = 133;
+			chk_Vigil.Text = "Vigil?";
+			chk_Vigil.UseVisualStyleBackColor = true;
+			// 
+			// chk_Sacristan
+			// 
+			chk_Sacristan.AutoSize = true;
+			chk_Sacristan.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Sacristan.Location = new Point( 423, 261 );
+			chk_Sacristan.Name = "chk_Sacristan";
+			chk_Sacristan.Size = new Size( 88, 21 );
+			chk_Sacristan.TabIndex = 132;
+			chk_Sacristan.Text = "Sacristan?";
+			chk_Sacristan.UseVisualStyleBackColor = true;
+			// 
+			// chk_Minister
+			// 
+			chk_Minister.AutoSize = true;
+			chk_Minister.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Minister.Location = new Point( 423, 235 );
+			chk_Minister.Name = "chk_Minister";
+			chk_Minister.Size = new Size( 84, 21 );
+			chk_Minister.TabIndex = 131;
+			chk_Minister.Text = "Minister?";
+			chk_Minister.UseVisualStyleBackColor = true;
+			// 
+			// chk_TimeTalent
+			// 
+			chk_TimeTalent.AutoSize = true;
+			chk_TimeTalent.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_TimeTalent.Location = new Point( 423, 209 );
+			chk_TimeTalent.Name = "chk_TimeTalent";
+			chk_TimeTalent.Size = new Size( 118, 21 );
+			chk_TimeTalent.TabIndex = 130;
+			chk_TimeTalent.Text = "Time + Talent?";
+			chk_TimeTalent.UseVisualStyleBackColor = true;
+			// 
+			// chk_Export
+			// 
+			chk_Export.AutoSize = true;
+			chk_Export.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Export.Location = new Point( 423, 183 );
+			chk_Export.Name = "chk_Export";
+			chk_Export.Size = new Size( 72, 21 );
+			chk_Export.TabIndex = 129;
+			chk_Export.Text = "Export?";
+			chk_Export.UseVisualStyleBackColor = true;
+			// 
+			// chk_DefaultRow
+			// 
+			chk_DefaultRow.AutoSize = true;
+			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_DefaultRow.Location = new Point( 423, 157 );
+			chk_DefaultRow.Name = "chk_DefaultRow";
+			chk_DefaultRow.Size = new Size( 109, 21 );
+			chk_DefaultRow.TabIndex = 128;
+			chk_DefaultRow.Text = "Default Row?";
+			chk_DefaultRow.UseVisualStyleBackColor = true;
+			// 
+			// chk_NoRightPerson
+			// 
+			chk_NoRightPerson.AutoSize = true;
+			chk_NoRightPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_NoRightPerson.Location = new Point( 423, 131 );
+			chk_NoRightPerson.Name = "chk_NoRightPerson";
+			chk_NoRightPerson.Size = new Size( 134, 21 );
+			chk_NoRightPerson.TabIndex = 127;
+			chk_NoRightPerson.Text = "No Right-Person?";
+			chk_NoRightPerson.UseVisualStyleBackColor = true;
+			// 
+			// chk_NewLeftPerson
+			// 
+			chk_NewLeftPerson.AutoSize = true;
+			chk_NewLeftPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_NewLeftPerson.Location = new Point( 423, 105 );
+			chk_NewLeftPerson.Name = "chk_NewLeftPerson";
+			chk_NewLeftPerson.Size = new Size( 134, 21 );
+			chk_NewLeftPerson.TabIndex = 126;
+			chk_NewLeftPerson.Text = "New Left-Person?";
+			chk_NewLeftPerson.UseVisualStyleBackColor = true;
+			// 
+			// chk_HolySomething
+			// 
+			chk_HolySomething.AutoSize = true;
+			chk_HolySomething.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_HolySomething.Location = new Point( 423, 79 );
+			chk_HolySomething.Name = "chk_HolySomething";
+			chk_HolySomething.Size = new Size( 133, 21 );
+			chk_HolySomething.TabIndex = 125;
+			chk_HolySomething.Text = "Holy Something?";
+			chk_HolySomething.UseVisualStyleBackColor = true;
+			// 
+			// chk_Enlightened
+			// 
+			chk_Enlightened.AutoSize = true;
+			chk_Enlightened.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Enlightened.Location = new Point( 423, 53 );
+			chk_Enlightened.Name = "chk_Enlightened";
+			chk_Enlightened.Size = new Size( 107, 21 );
+			chk_Enlightened.TabIndex = 124;
+			chk_Enlightened.Text = "Enlightened?";
+			chk_Enlightened.UseVisualStyleBackColor = true;
+			// 
+			// chk_Selected
+			// 
+			chk_Selected.AutoSize = true;
+			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Selected.Location = new Point( 423, 27 );
+			chk_Selected.Name = "chk_Selected";
+			chk_Selected.Size = new Size( 84, 21 );
+			chk_Selected.TabIndex = 123;
+			chk_Selected.Text = "Selected?";
+			chk_Selected.UseVisualStyleBackColor = true;
 			// 
 			// tbx_Messages
 			// 
@@ -888,138 +1020,6 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
-			// checkBox1
-			// 
-			checkBox1.AutoSize = true;
-			checkBox1.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox1.Location = new Point( 423, 27 );
-			checkBox1.Name = "checkBox1";
-			checkBox1.Size = new Size( 84, 21 );
-			checkBox1.TabIndex = 123;
-			checkBox1.Text = "Selected?";
-			checkBox1.UseVisualStyleBackColor = true;
-			// 
-			// checkBox2
-			// 
-			checkBox2.AutoSize = true;
-			checkBox2.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox2.Location = new Point( 423, 53 );
-			checkBox2.Name = "checkBox2";
-			checkBox2.Size = new Size( 107, 21 );
-			checkBox2.TabIndex = 124;
-			checkBox2.Text = "Enlightened?";
-			checkBox2.UseVisualStyleBackColor = true;
-			// 
-			// checkBox3
-			// 
-			checkBox3.AutoSize = true;
-			checkBox3.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox3.Location = new Point( 423, 79 );
-			checkBox3.Name = "checkBox3";
-			checkBox3.Size = new Size( 133, 21 );
-			checkBox3.TabIndex = 125;
-			checkBox3.Text = "Holy Something?";
-			checkBox3.UseVisualStyleBackColor = true;
-			// 
-			// checkBox4
-			// 
-			checkBox4.AutoSize = true;
-			checkBox4.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox4.Location = new Point( 423, 105 );
-			checkBox4.Name = "checkBox4";
-			checkBox4.Size = new Size( 134, 21 );
-			checkBox4.TabIndex = 126;
-			checkBox4.Text = "New Left-Person?";
-			checkBox4.UseVisualStyleBackColor = true;
-			// 
-			// checkBox5
-			// 
-			checkBox5.AutoSize = true;
-			checkBox5.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox5.Location = new Point( 423, 131 );
-			checkBox5.Name = "checkBox5";
-			checkBox5.Size = new Size( 134, 21 );
-			checkBox5.TabIndex = 127;
-			checkBox5.Text = "No Right-Person?";
-			checkBox5.UseVisualStyleBackColor = true;
-			// 
-			// checkBox6
-			// 
-			checkBox6.AutoSize = true;
-			checkBox6.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox6.Location = new Point( 423, 157 );
-			checkBox6.Name = "checkBox6";
-			checkBox6.Size = new Size( 109, 21 );
-			checkBox6.TabIndex = 128;
-			checkBox6.Text = "Default Row?";
-			checkBox6.UseVisualStyleBackColor = true;
-			// 
-			// checkBox7
-			// 
-			checkBox7.AutoSize = true;
-			checkBox7.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox7.Location = new Point( 423, 183 );
-			checkBox7.Name = "checkBox7";
-			checkBox7.Size = new Size( 72, 21 );
-			checkBox7.TabIndex = 129;
-			checkBox7.Text = "Export?";
-			checkBox7.UseVisualStyleBackColor = true;
-			// 
-			// checkBox8
-			// 
-			checkBox8.AutoSize = true;
-			checkBox8.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox8.Location = new Point( 423, 209 );
-			checkBox8.Name = "checkBox8";
-			checkBox8.Size = new Size( 118, 21 );
-			checkBox8.TabIndex = 130;
-			checkBox8.Text = "Time + Talent?";
-			checkBox8.UseVisualStyleBackColor = true;
-			// 
-			// checkBox9
-			// 
-			checkBox9.AutoSize = true;
-			checkBox9.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox9.Location = new Point( 423, 235 );
-			checkBox9.Name = "checkBox9";
-			checkBox9.Size = new Size( 84, 21 );
-			checkBox9.TabIndex = 131;
-			checkBox9.Text = "Minister?";
-			checkBox9.UseVisualStyleBackColor = true;
-			// 
-			// checkBox10
-			// 
-			checkBox10.AutoSize = true;
-			checkBox10.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox10.Location = new Point( 423, 261 );
-			checkBox10.Name = "checkBox10";
-			checkBox10.Size = new Size( 88, 21 );
-			checkBox10.TabIndex = 132;
-			checkBox10.Text = "Sacristan?";
-			checkBox10.UseVisualStyleBackColor = true;
-			// 
-			// checkBox11
-			// 
-			checkBox11.AutoSize = true;
-			checkBox11.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox11.Location = new Point( 423, 287 );
-			checkBox11.Name = "checkBox11";
-			checkBox11.Size = new Size( 62, 21 );
-			checkBox11.TabIndex = 133;
-			checkBox11.Text = "Vigil?";
-			checkBox11.UseVisualStyleBackColor = true;
-			// 
-			// checkBox12
-			// 
-			checkBox12.AutoSize = true;
-			checkBox12.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox12.Location = new Point( 423, 313 );
-			checkBox12.Name = "checkBox12";
-			checkBox12.Size = new Size( 113, 21 );
-			checkBox12.TabIndex = 134;
-			checkBox12.Text = "Sunday Mass?";
-			checkBox12.UseVisualStyleBackColor = true;
-			// 
 			// FrmPerson
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -1102,17 +1102,17 @@
 		private Label label3;
 		private TextBox tbx_Matches;
 		private TextBox tbx_Messages;
-		private CheckBox checkBox1;
-		private CheckBox checkBox12;
-		private CheckBox checkBox11;
-		private CheckBox checkBox10;
-		private CheckBox checkBox9;
-		private CheckBox checkBox8;
-		private CheckBox checkBox7;
-		private CheckBox checkBox6;
-		private CheckBox checkBox5;
-		private CheckBox checkBox4;
-		private CheckBox checkBox3;
-		private CheckBox checkBox2;
+		private CheckBox chk_Selected;
+		private CheckBox chk_SundayMass;
+		private CheckBox chk_Vigil;
+		private CheckBox chk_Sacristan;
+		private CheckBox chk_Minister;
+		private CheckBox chk_TimeTalent;
+		private CheckBox chk_Export;
+		private CheckBox chk_DefaultRow;
+		private CheckBox chk_NoRightPerson;
+		private CheckBox chk_NewLeftPerson;
+		private CheckBox chk_HolySomething;
+		private CheckBox chk_Enlightened;
 	}
 }
