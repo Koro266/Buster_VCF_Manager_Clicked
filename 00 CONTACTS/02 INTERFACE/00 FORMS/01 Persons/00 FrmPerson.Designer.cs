@@ -750,7 +750,6 @@
 			tbx_Messages.Size = new Size( 447, 23 );
 			tbx_Messages.TabIndex = 122;
 			tbx_Messages.TabStop = false;
-			tbx_Messages.Text = "xxx";
 			// 
 			// label3
 			// 
