@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
+using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Notes : SHORT_TXT
+		public partial class PK_Person : INT_32
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Notes];
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.PkPerson];
+			private NULL_INT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Notes( string value ) : base( value )
+			public PK_Person( int pk_person ) : base( pk_person )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Notes( NULL_TEXT tnp ) : base( tnp )
+			public PK_Person( NULL_INT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -50,7 +50,31 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			//_______________________________________________________________________________________________________________________________________
 			override public string ToString()
 			{
-				return base.Value;
+				return base.Value.ToString();
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed in a TextBox.
+			/// </summary>
+			override public string TextboxValue
+			{
+				get { return base.AsString; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns PkPerson.AsString.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.AsString; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true because this field is a primary key.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return true; }
 			}
 			#endregion
 
@@ -64,7 +88,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}

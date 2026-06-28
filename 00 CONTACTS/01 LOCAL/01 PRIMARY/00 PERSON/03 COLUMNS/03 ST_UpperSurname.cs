@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using DATE_TIME	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
-using NULL_DATE  = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class DT_DeathDate : DATE_TIME
+		public partial class ST_UpperSurname : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.DeathDate];
-			private NULL_DATE type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.UpperSurname];
+			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public DT_DeathDate( DateTime value ) : base( value )
+			public ST_UpperSurname( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public DT_DeathDate( NULL_DATE tnp ) : base( tnp )
+			public ST_UpperSurname( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -50,7 +50,39 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			//_______________________________________________________________________________________________________________________________________
 			override public string ToString()
 			{
-				return base.As_ddd_d_MMM_yyyy;
+				return base.Value;
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public object DbWriteValue
+			{
+				get { return base.DbWriteValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed in a TextBox.
+			/// </summary>
+			override public string TextboxValue
+			{
+				get { return base.TextboxValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns String.Empty. UpperSurname is a derived value and VCF name fields are constructed at Person.Row level.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.AsIs; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns false because the UpperSurname value is not used in the VCF record.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return false; }
 			}
 			#endregion
 
@@ -64,7 +96,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = this.DbWriteValue;
+					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}

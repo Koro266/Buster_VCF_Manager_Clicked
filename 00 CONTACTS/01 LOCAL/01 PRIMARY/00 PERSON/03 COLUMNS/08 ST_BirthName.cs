@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Initials : SHORT_TXT
+		public partial class ST_BirthName : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Initials];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.BirthName];
 			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Initials( string value ) : base( value )
+			public ST_BirthName( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Initials( NULL_TEXT tnp ) : base( tnp )
+			public ST_BirthName( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -51,6 +51,38 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			override public string ToString()
 			{
 				return base.Value;
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public object DbWriteValue
+			{
+				get { return base.DbWriteValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed in a TextBox.
+			/// </summary>
+			override public string TextboxValue
+			{
+				get { return base.TextboxValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns BirthName as used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.AsIs; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true if person has a valid BirthName value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.IsNotAbsoluteNull; }
 			}
 			#endregion
 

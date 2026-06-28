@@ -1,7 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using System.Data.OleDb;
 //GLOBAL
-using PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset; 
-using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+//LOCAL
+using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
+using FACTORS	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON
@@ -10,16 +15,43 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// EXTENSIONS for ST_Prefix.
-		/// </summary>
 		public partial class ST_Prefix : SHORT_TXT
 		{
 			#region DECLARATIONS
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Prefix];
+			private NULL_TEXT type_null_pair;
+			#endregion
+
+
+			#region CONSTRUCTORS
+			//_______________________________________________________________________________________________________________________________________
+			public ST_Prefix( string value ) : base( value )
+			{
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public ST_Prefix( NULL_TEXT tnp ) : base( tnp )
+			{
+				type_null_pair = tnp;
+			}
 			#endregion
 
 
 			#region METHODS
+			//_______________________________________________________________________________________________________________________________________
+			public FACTORS Factors
+			{
+				get { return column_factors; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public int Ordinal
+			{
+				get { return Factors.Ordinal; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			override public string ToString()
+			{
+				return base.Value;
+			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns value that is sent to the database.
@@ -51,6 +83,22 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			override public bool IsVcfValue
 			{
 				get { return base.IsNotAbsoluteNull; }
+			}
+			#endregion
+
+
+			#region DB INTERFACE
+			//_______________________________________________________________________________________________________________________________________
+			override public OleDbParameter DbParameter
+			{
+				get
+				{
+					OleDbParameter parameter = base.DbParameter;
+					parameter.ParameterName = Factors.ParameterName;
+					parameter.Size = Factors.FieldWidth;
+					parameter.Value = base.DbWriteValue;
+					return parameter;
+				}
 			}
 			#endregion
 		}

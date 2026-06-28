@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using DATE_TIME	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using NULL_DATE  = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
@@ -15,22 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		partial class ST_Gender : SHORT_TXT
+		public partial class DT_DeathDate : DATE_TIME
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Gender];
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.DeathDate];
+			private NULL_DATE type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Gender( string value ) : base( value )
+			public DT_DeathDate( DateTime value ) : base( value )
 			{
-				type_Gender = GetGenderType;
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Gender( NULL_TEXT tnp ) : base( tnp )
+			public DT_DeathDate( NULL_DATE tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -51,7 +50,49 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			//_______________________________________________________________________________________________________________________________________
 			override public string ToString()
 			{
-				return this.Value;
+				return base.As_ddd_d_MMM_yyyy;
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns DeathDate value that is displayed in a TextBox in format "ddd, d MMM yyyy".
+			/// </summary>
+			override public string TextboxValue
+			{
+				get { return base.As_ddd_d_MMM_yyyy; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns DeathDate as used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.As_YYYY_MM_DD; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true if person has a valid DeathDate value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.IsNotAbsoluteNull; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			override public DateTime DatePickerValue
+			{
+				get { return base.IsNull ? DATE_TIME.MinControllableDate.Date : this.Value.Date; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			override public string DatePickerFormat
+			{
+				get { return base.IsNull ? DATE_TIME.NullDateFormat : DATE_TIME.DisplayedDateFormat; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public object DbWriteValue
+			{
+				get { return base.DbWriteDate( DATE_TIME.DatabaseDeathDateFormat ); }
 			}
 			#endregion
 

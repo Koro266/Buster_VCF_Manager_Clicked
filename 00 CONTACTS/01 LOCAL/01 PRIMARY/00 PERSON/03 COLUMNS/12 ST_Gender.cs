@@ -1,8 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using System.Data.OleDb;
 //GLOBAL
-using PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset; 
-using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
 using WORDS		= CONTACTS.GLOBAL.VALUES.CONSTANT.Words;
+//LOCAL
+using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
+using FACTORS	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.ColumnFactors;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON
@@ -11,23 +16,51 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// EXTENSIONS for ST_Gender.
-		/// </summary>
 		public partial class ST_Gender : SHORT_TXT
 		{
 			#region DECLARATIONS
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Gender];
+			private NULL_TEXT type_null_pair;
 			public enum Gender { Male, Female, Unknown };
 
-			private static SHORT_TXT Male		= WORDS.Male;
-			private static SHORT_TXT Female		= WORDS.Female;
-			private static SHORT_TXT Unknown	= WORDS.Unknown;
+			private static SHORT_TXT Male = WORDS.Male;
+			private static SHORT_TXT Female = WORDS.Female;
+			private static SHORT_TXT Unknown = WORDS.Unknown;
 
 			private Gender type_Gender = Gender.Female;
 			#endregion
 
 
-			#region
+			#region CONSTRUCTORS
+			//_______________________________________________________________________________________________________________________________________
+			public ST_Gender( string value ) : base( value )
+			{
+				type_Gender = GetGenderType;
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public ST_Gender( NULL_TEXT tnp ) : base( tnp )
+			{
+				type_null_pair = tnp;
+			}
+			#endregion
+
+
+			#region METHODS
+			//_______________________________________________________________________________________________________________________________________
+			public FACTORS Factors
+			{
+				get { return column_factors; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public int Ordinal
+			{
+				get { return Factors.Ordinal; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			override public string ToString()
+			{
+				return this.Value;
+			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Examines user input and determines the value of enum type_Gender.
@@ -164,9 +197,25 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 				get { return true; }
 			}
 			//___________________________________________________________________________________________________________________________________
-			public bool IsMale		{ get { return this.type_Gender == Gender.Male; } }
-			public bool IsFemale	{ get { return this.type_Gender == Gender.Female; } }
-			public bool IsUnknown	{ get { return this.type_Gender == Gender.Unknown; } }
+			public bool IsMale { get { return this.type_Gender == Gender.Male; } }
+			public bool IsFemale { get { return this.type_Gender == Gender.Female; } }
+			public bool IsUnknown { get { return this.type_Gender == Gender.Unknown; } }
+			#endregion
+
+
+			#region DB INTERFACE
+			//_______________________________________________________________________________________________________________________________________
+			override public OleDbParameter DbParameter
+			{
+				get
+				{
+					OleDbParameter parameter = base.DbParameter;
+					parameter.ParameterName = Factors.ParameterName;
+					parameter.Size = Factors.FieldWidth;
+					parameter.Value = this.DbWriteValue;
+					return parameter;
+				}
+			}
 			#endregion
 		}
 	}

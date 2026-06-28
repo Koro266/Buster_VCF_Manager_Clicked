@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Prefix : SHORT_TXT
+		public partial class ST_MiddleNames : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Prefix];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.MiddleNames];
 			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Prefix( string value ) : base( value )
+			public ST_MiddleNames( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Prefix( NULL_TEXT tnp ) : base( tnp )
+			public ST_MiddleNames( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -51,6 +51,38 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			override public string ToString()
 			{
 				return base.Value;
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public object DbWriteValue
+			{
+				get { return base.DbWriteValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed in a TextBox.
+			/// </summary>
+			override public string TextboxValue
+			{
+				get { return base.TextboxValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns MiddleNames as used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.VcfValue; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true if person has a valid MiddleNames value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.IsNotAbsoluteNull; }
 			}
 			#endregion
 
