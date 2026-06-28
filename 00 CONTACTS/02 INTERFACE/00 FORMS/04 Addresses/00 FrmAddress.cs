@@ -877,7 +877,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Filter_KeyUp( object sender, KeyEventArgs e )
 		{
-			if ( e.KeyCode != Keys.Enter )
+			if ( e.KeyCode == Keys.Enter )
 				return;
 
 			AddressPkAsText = this.tbx_Filter.Text;

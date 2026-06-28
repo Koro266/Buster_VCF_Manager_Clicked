@@ -229,4 +229,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CODE_Helpers\" />
+  </ItemGroup>
+
 </Project>

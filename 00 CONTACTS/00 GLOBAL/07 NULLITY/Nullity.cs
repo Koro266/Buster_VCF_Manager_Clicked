@@ -31,7 +31,7 @@ namespace CONTACTS.GLOBAL
 		///		DbNull must be applied after the value is assessed by type (value cf reference).
 		///		A value is only considered to be NULL (DbNull) if:
 		///			it is a reference type it is actual null,
-		///			it is a value type and the db reader has returned the signal ("Hey! Look at me! I'm really NULL!!") value,
+		///			it is a value type and the db reader has returned the signal ("Hey Look at me I'm really NULL") value,
 		///			it is a value type for which the intended, actual, non-null value == the signal value,
 		///			then you throw up your hands in horror and sue MS for life-deforming emotional stress bordering on lunacy ... .
 		///

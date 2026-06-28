@@ -1,0 +1,31 @@
+﻿pk_Person	0	4	4	Person	person	PK	Pk	pk	Primary Key, AutoNum, int.	|	
+st_SortableName	1	200	10	SortableName	sortablename	ST	St	st	SURNAME, Given Middle. Derived value.	|	
+st_NaturalName	2	200	10	NaturalName	naturalname	ST	St	st	Given Middle Surname. Derived value. [200].	|	
+st_UpperSurname	3	80	10	UpperSurname	uppersurname	ST	St	st	SURNAME. Complete surname if hyphenated. All CAPS. Derived value. [80].	|	
+st_ProperSurname	4	80	10	ProperSurname	propersurname	ST	St	st	Surname. Complete surname if hyphenated. Proper case. [80].	|	
+st_GivenName	5	80	10	GivenName	givenname	ST	St	st	Given name(s). [80].	|	
+st_MiddleNames	6	200	10	MiddleNames	middlenames	ST	St	st	Middle name(s). [200].	|	
+st_NickName	7	50	10	NickName	nickname	ST	St	st	Casual name. [50].	|	
+st_BirthName	8	100	10	BirthName	birthname	ST	St	st	Birth surname. [100].	|	
+st_Prefix	9	50	10	Prefix	prefix	ST	St	st	Honourific prefixes: Mr, Mrs, Dr, etc. [50].	|	
+st_Suffix	10	50	10	Suffix	suffix	ST	St	st	Honourific suffixes: Sr, Jr, III, CNZM etc. [50].	|	
+st_Initials	11	15	10	Initials	initials	ST	St	st	Conventional name initials in lower-case. Derived value. [15].	|	
+st_Gender	12	1	10	Gender	gender	ST	St	st	M, F, or U: Male, Female, or Unknown respectively. [1].	|	
+st_Notes	13	255	10	Notes	notes	ST	St	st	General-purpose notes about this person. [255].	|	
+dt_BirthDate	14	8	8	BirthDate	birthdate	DT	Dt	dt	Date of birth.	|	
+dt_DeathDate	15	8	8	DeathDate	deathdate	DT	Dt	dt	Date of death.	|	
+dt_WeddingDate	16	8	8	WeddingDate	weddingdate	DT	Dt	dt	Date of most recent wedding/anniversary. If Person has multiple wedding dates, they will appear in TDF_Person_X_Persons (provided earlier families are maintained).	|	
+dt_CurrencyDate	17	8	8	CurrencyDate	currencydate	DT	Dt	dt	Date of most-recent update. Person record, including its sub-entities, considered to be current as of this date.	|	
+li_EHS_Order	18	4	4	EHS_Order	ehs_order	LI	Li	li	HANDS-ON: Broadly reflects the order that EHS65 entries appear in the 65 Yearbook. People who do not appear in the yearbook are added at the high-numbered end.	|	
+is_Selected	19	1	1	Selected	selected	IS	Is	is	HANDS-ON: General-purpose selection flag. Default value = False.	|	
+is_Enlightened	20	1	1	Enlightened	enlightened	IS	Is	is	HANDS-ON: TRUE = Person is a character in Enlightened. Default value = False.	|	
+is_HolySomething	21	1	1	HolySomething	holysomething	IS	Is	is	HANDS-ON: TRUE = Person is a character in Holy Something. Default value = False.	|	
+is_NewLeftPerson	22	1	1	NewLeftPerson	newleftperson	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  NEW-LEFT PERSON row. Default value = False.	|	
+is_NoRightPerson	23	1	1	NoRightPerson	norightperson	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  NO-RIGHT PERSON row. Default value = False.	|	
+is_DefaultRow	24	1	1	DefaultRow	defaultrow	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  Person object. Default value = False.	|	
+is_Export	25	1	1	Export	export	IS	Is	is	HANDS-ON: TRUE = Person is to be exported as a VCF file. Default value = True. FALSE = Person may be passed over on export.	|	
+is_Time_Talent	26	1	1	Time_Talent	time_talent	IS	Is	is	HANDS-ON: TRUE = Person is included in St T's Time & Talent initiative. Default value = False.	|	
+is_Minister	27	1	1	Minister	minister	IS	Is	is	HANDS-ON: TRUE = Person is a St T's eucharistic minister. Default value = False.	|	
+is_Sacristan	28	1	1	Sacristan	sacristan	IS	Is	is	HANDS-ON: TRUE = Person is a St T's sacristan. Default value = False.	|	
+is_Vigil	29	1	1	Vigil	vigil	IS	Is	is	HANDS-ON: TRUE = Person is normally assigned to St T's Vigil Mass. Default value = False.	|	
+is_Mass	30	1	1	Mass	mass	IS	Is	is	HANDS-ON: TRUE = Person is normally assigned to St T's Sunday Mass. Default value = False.	|	

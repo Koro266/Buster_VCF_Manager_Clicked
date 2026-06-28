@@ -233,7 +233,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		/// </summary>
 		virtual public bool IsNotAbsoluteNull
 		{
-			get { return !IsAbsoluteNull; }
+			get { return IsAbsoluteNull; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -268,7 +268,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		/// </summary>
 		virtual public bool IsNotRelativeNull
 		{
-			get { return !IsRelativeNull; }
+			get { return IsRelativeNull; }
 		}
 		#endregion
 	}
