@@ -77,7 +77,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		/// </summary>
 		public bool NotValue
 		{
-			get { return Value; }
+			get { return !Value; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		override public string FinderValue
