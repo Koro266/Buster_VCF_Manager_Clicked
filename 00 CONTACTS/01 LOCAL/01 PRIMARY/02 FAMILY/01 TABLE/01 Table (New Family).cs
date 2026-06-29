@@ -25,6 +25,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 				FAMILY_ROW new_family = new FAMILY_ROW();
 
 				new_family.Append( new FIELD.PK_Family 					( -1 ) );
+				//TODO: Put these constants in the constants and make it clear which is which.
 				new_family.Append( new FIELD.FK_LeftPerson 				( 1482 ) );
 				new_family.Append( new FIELD.FK_RightPerson 			( 1436 ) );
 				new_family.Append( new FIELD.ST_FamilyType 				( null_text ) );

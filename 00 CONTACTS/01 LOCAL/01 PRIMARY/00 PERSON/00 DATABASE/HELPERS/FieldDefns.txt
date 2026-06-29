@@ -24,7 +24,7 @@ is_NewLeftPerson	22	1	1	NewLeftPerson	newleftperson	IS	Is	is	HANDS-ON: TRUE = Ro
 is_NoRightPerson	23	1	1	NoRightPerson	norightperson	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  NO-RIGHT PERSON row. Default value = False.	|	
 is_DefaultRow	24	1	1	DefaultRow	defaultrow	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  Person object. Default value = False.	|	
 is_Export	25	1	1	Export	export	IS	Is	is	HANDS-ON: TRUE = Person is to be exported as a VCF file. Default value = True. FALSE = Person may be passed over on export.	|	
-is_Time_Talent	26	1	1	Time_Talent	time_talent	IS	Is	is	HANDS-ON: TRUE = Person is included in St T's Time & Talent initiative. Default value = False.	|	
+is_TimeTalent	26	1	1	TimeTalent	timetalent	IS	Is	is	HANDS-ON: TRUE = Person is included in St T's Time & Talent initiative. Default value = False.	|	
 is_Minister	27	1	1	Minister	minister	IS	Is	is	HANDS-ON: TRUE = Person is a St T's eucharistic minister. Default value = False.	|	
 is_Sacristan	28	1	1	Sacristan	sacristan	IS	Is	is	HANDS-ON: TRUE = Person is a St T's sacristan. Default value = False.	|	
 is_Vigil	29	1	1	Vigil	vigil	IS	Is	is	HANDS-ON: TRUE = Person is normally assigned to St T's Vigil Mass. Default value = False.	|	
