@@ -1,0 +1,106 @@
+﻿//___________________________________________________________________________________________________________________________________________________
+using System.Data.OleDb;
+//GLOBAL
+using YES_NO	= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+//LOCAL
+using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
+using FACTORS	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.ColumnFactors;
+
+//___________________________________________________________________________________________________________________________________________________
+namespace CONTACTS.LOCAL.PRIMARY.PERSON
+{
+	//_______________________________________________________________________________________________________________________________________________
+	public partial class Column
+	{
+		//___________________________________________________________________________________________________________________________________________
+		public partial class IS_Selected : YES_NO
+		{
+			#region DECLARATIONS
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Selected];
+			private NULL_BOOL type_null_pair;
+			#endregion
+
+
+			#region CONSTRUCTORS
+			//_______________________________________________________________________________________________________________________________________
+			public IS_Selected( bool value ) : base( value )
+			{
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public IS_Selected( NULL_BOOL tnp ) : base( tnp )
+			{
+				type_null_pair = tnp;
+			}
+			#endregion
+
+
+			#region METHODS
+			//_______________________________________________________________________________________________________________________________________
+			public FACTORS Factors
+			{
+				get { return column_factors; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public int Ordinal
+			{
+				get { return Factors.Ordinal; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			override public string ToString()
+			{
+				return base.Value.ToString();
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public object DbWriteValue
+			{
+				get { return base.DbWriteValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed in a TextBox.
+			/// </summary>
+			override public string TextboxValue
+			{
+				get { return base.TextboxValue; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns Notes as used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.AsTF; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true if person has a valid Notes value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.IsNotAbsoluteNull; }
+			}
+			#endregion
+
+
+			#region DB INTERFACE
+			//_______________________________________________________________________________________________________________________________________
+			override public OleDbParameter DbParameter
+			{
+				get
+				{
+					OleDbParameter parameter = base.DbParameter;
+					parameter.ParameterName = Factors.ParameterName;
+					parameter.Size = Factors.FieldWidth;
+					parameter.Value = this.DbWriteValue;
+					return parameter;
+				}
+			}
+			#endregion
+		}
+	}
+}

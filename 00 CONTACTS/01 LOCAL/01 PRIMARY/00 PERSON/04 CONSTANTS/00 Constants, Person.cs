@@ -6,52 +6,78 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	//___________________________________________________________________________________________________________________________________________
 	public class Constants
 	{
-		public const int ColumnCount = 18;
+		public const int ColumnCount = 31;
 
 		#region LISTS
 		//_______________________________________________________________________________________________________________________________________
 		public class OrdinalByName
 		{
-			public const int PkPerson		= 0;
-			public const int SortableName	= 1;
-			public const int NaturalName	= 2;
-			public const int UpperSurname	= 3;
-			public const int ProperSurname	= 4;
-			public const int GivenName		= 5;
-			public const int MiddleNames	= 6;
-			public const int NickName		= 7;
-			public const int BirthName		= 8;
-			public const int Prefix			= 9;
-			public const int Suffix			= 10;
-			public const int Initials		= 11;
-			public const int Gender			= 12;
-			public const int Notes			= 13;
-			public const int BirthDate		= 14;
-			public const int DeathDate		= 15;
-			public const int WeddingDate	= 16;
-			public const int CurrencyDate	= 17;
+			public const int PkPerson			=  0;
+			public const int SortableName		=  1;
+			public const int NaturalName		=  2;
+			public const int UpperSurname		=  3;
+			public const int ProperSurname		=  4;
+			public const int GivenName			=  5;
+			public const int MiddleNames		=  6;
+			public const int NickName			=  7;
+			public const int BirthName			=  8;
+			public const int Prefix				=  9;
+			public const int Suffix				= 10;
+			public const int Initials			= 11;
+			public const int Gender				= 12;
+			public const int Notes				= 13;
+			public const int BirthDate			= 14;
+			public const int DeathDate			= 15;
+			public const int WeddingDate		= 16;
+			public const int CurrencyDate		= 17;
+			public const int EHS_Order			= 18;
+			public const int Selected			= 19;
+			public const int Enlightened		= 20;
+			public const int HolySomething		= 21;
+			public const int NewLeftPerson		= 22;
+			public const int NoRightPerson		= 23;
+			public const int DefaultRow			= 24;
+			public const int Export				= 25;
+			public const int TimeTalent			= 26;
+			public const int Minister			= 27;
+			public const int Sacristan			= 28;
+			public const int Vigil				= 29;
+			public const int Mass				= 30;
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public static int[] OrdinalByValue =
 		{
 			0,		//PkPerson
-			1,		//SortableName
-			2,		//NaturalName
-			3,		//UpperSurname
-			4,		//ProperSurname
-			5,		//GivenName
-			6,		//MiddleNames
-			7,		//NickName
-			8,		//BirthName
-			9,		//Prefix
-			10,		//Suffix
-			11,		//Initials
-			12,		//Gender
-			13,		//Notes
-			14,		//BirthDate
-			15,		//DeathDate
-			16,		//WeddingDate
-			17		//CurrencyDate
+			1,		//StSortableName
+			2,		//StNaturalName
+			3,		//StUpperSurname
+			4,		//StProperSurname
+			5,		//StGivenName
+			6,		//StMiddleNames
+			7,		//StNickName
+			8,		//StBirthName
+			9,		//StPrefix
+			10,		//StSuffix
+			11,		//StInitials
+			12,		//StGender
+			13,		//StNotes
+			14,		//DtBirthDate
+			15,		//DtDeathDate
+			16,		//DtWeddingDate
+			17,		//DtCurrencyDate
+			18,		//LiEHS_Order
+			19,		//IsSelected
+			20,		//IsEnlightened
+			21,		//IsHolySomething
+			22,		//IsNewLeftPerson
+			23,		//IsNoRightPerson
+			24,		//IsDefaultRow
+			25,		//IsExport
+			26,		//IsTimeTalent
+			27,		//IsMinister
+			28,		//IsSacristan
+			29,		//IsVigil
+			30		//IsMass
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public struct ColumnNames
