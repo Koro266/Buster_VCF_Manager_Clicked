@@ -31,10 +31,9 @@ namespace CONTACTS.GLOBAL
 		///		DbNull must be applied after the value is assessed by type (value cf reference).
 		///		A value is only considered to be NULL (DbNull) if:
 		///			it is a reference type it is actual null,
-		///			it is a value type and the db reader has returned the signal ("Hey Look at me I'm really NULL") value,
 		///			it is a value type for which the intended, actual, non-null value == the signal value,
+		///			it is a value type and the db reader has returned the signal ("Hey! Look at me! I'm really NULL!!") value,
 		///			then you throw up your hands in horror and sue MS for life-deforming emotional stress bordering on lunacy ... .
-		///
 		///		This should probably be something like: Value_Reference_Agnostic_Actual_Honest_To_Goodness_UNUSABLE_that_is_to_say_NULL_Value.
 		///		More seriously, "ActualNull" would be better. This name arose from what was misunderstood to be the close connection between
 		///		OleDbDateReader.IsDBNull and the null state of the value returned from the server.
