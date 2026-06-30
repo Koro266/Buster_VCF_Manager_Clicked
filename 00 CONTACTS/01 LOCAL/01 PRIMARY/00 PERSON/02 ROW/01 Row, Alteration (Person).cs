@@ -136,3 +136,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		#endregion
 	}
 }
+//TODO Need 'New' responders for these fields
+/*
+ * 
+		public FIELD.LI_EHS_Order EHS_Order				{ get { return ( FIELD.LI_EHS_Order )		base.GetField( CONST.OrdinalByName.EHS_Order ); } }
+		public FIELD.IS_Selected Selected				{ get { return ( FIELD.IS_Selected )		base.GetField( CONST.OrdinalByName.Selected ); } }
+		public FIELD.IS_Enlightened Enlightened			{ get { return ( FIELD.IS_Enlightened )		base.GetField( CONST.OrdinalByName.Enlightened ); } }
+		public FIELD.IS_HolySomething HolySomething		{ get { return ( FIELD.IS_HolySomething )	base.GetField( CONST.OrdinalByName.HolySomething ); } }
+		public FIELD.IS_NewLeftPerson NewLeftPerson		{ get { return ( FIELD.IS_NewLeftPerson )	base.GetField( CONST.OrdinalByName.NewLeftPerson ); } }
+		public FIELD.IS_NoRightPerson NoRightPerson		{ get { return ( FIELD.IS_NoRightPerson )	base.GetField( CONST.OrdinalByName.NoRightPerson ); } }
+		public FIELD.IS_DefaultRow DefaultRow			{ get { return ( FIELD.IS_DefaultRow )		base.GetField( CONST.OrdinalByName.DefaultRow ); } }
+		public FIELD.IS_Export Export					{ get { return ( FIELD.IS_Export )			base.GetField( CONST.OrdinalByName.Export ); } }
+		public FIELD.IS_TimeTalent TimeTalent			{ get { return ( FIELD.IS_TimeTalent )		base.GetField( CONST.OrdinalByName.TimeTalent ); } }
+		public FIELD.IS_Minister Minister				{ get { return ( FIELD.IS_Minister )		base.GetField( CONST.OrdinalByName.Minister ); } }
+		public FIELD.IS_Sacristan Sacristan				{ get { return ( FIELD.IS_Sacristan )		base.GetField( CONST.OrdinalByName.Sacristan ); } }
+		public FIELD.IS_Vigil Vigil						{ get { return ( FIELD.IS_Vigil )			base.GetField( CONST.OrdinalByName.Vigil ); } }
+		public FIELD.IS_Mass Mass						{ get { return ( FIELD.IS_Mass )			base.GetField( CONST.OrdinalByName.Mass ); } }
+
+ */

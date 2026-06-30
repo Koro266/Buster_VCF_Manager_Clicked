@@ -47,6 +47,5 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		public FIELD.IS_Sacristan Sacristan				{ get { return ( FIELD.IS_Sacristan )		base.GetField( CONST.OrdinalByName.Sacristan ); } }
 		public FIELD.IS_Vigil Vigil						{ get { return ( FIELD.IS_Vigil )			base.GetField( CONST.OrdinalByName.Vigil ); } }
 		public FIELD.IS_Mass Mass						{ get { return ( FIELD.IS_Mass )			base.GetField( CONST.OrdinalByName.Mass ); } }
-
 	}
 }
