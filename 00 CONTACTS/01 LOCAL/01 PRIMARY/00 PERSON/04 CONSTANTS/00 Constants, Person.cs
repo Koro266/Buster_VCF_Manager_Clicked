@@ -45,85 +45,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			public const int Mass				= 30;
 		}
 		//_______________________________________________________________________________________________________________________________________
-		public static int[] OrdinalByValue =
-		{
-			0,		//PkPerson
-			1,		//StSortableName
-			2,		//StNaturalName
-			3,		//StUpperSurname
-			4,		//StProperSurname
-			5,		//StGivenName
-			6,		//StMiddleNames
-			7,		//StNickName
-			8,		//StBirthName
-			9,		//StPrefix
-			10,		//StSuffix
-			11,		//StInitials
-			12,		//StGender
-			13,		//StNotes
-			14,		//DtBirthDate
-			15,		//DtDeathDate
-			16,		//DtWeddingDate
-			17,		//DtCurrencyDate
-			18,		//LiEHS_Order
-			19,		//IsSelected
-			20,		//IsEnlightened
-			21,		//IsHolySomething
-			22,		//IsNewLeftPerson
-			23,		//IsNoRightPerson
-			24,		//IsDefaultRow
-			25,		//IsExport
-			26,		//IsTimeTalent
-			27,		//IsMinister
-			28,		//IsSacristan
-			29,		//IsVigil
-			30		//IsMass
-		};
-		//_______________________________________________________________________________________________________________________________________
-		public struct ColumnNames
-		{
-			public const string PkPerson			= "PkPerson";
-			public const string SortableName		= "SortableName";
-			public const string NaturalName			= "NaturalName";
-			public const string UpperSurname		= "UpperSurname";
-			public const string ProperSurname		= "ProperSurname";
-			public const string GivenName			= "GivenName";
-			public const string MiddleNames			= "MiddleNames";
-			public const string NickName			= "NickName";
-			public const string BirthName			= "BirthName";
-			public const string Prefix				= "Prefix";
-			public const string Suffix				= "Suffix";
-			public const string Initials			= "Initials";
-			public const string Gender				= "Gender";
-			public const string Notes				= "Notes";
-			public const string BirthDate			= "BirthDate";
-			public const string DeathDate			= "DeathDate";
-			public const string WeddingDate			= "WeddingDate";
-			public const string CurrencyDate		= "CurrencyDate";
-		};
-		//_______________________________________________________________________________________________________________________________________
-		public static string[] Names =
-		{
-			"Person",
-			"SortableName",
-			"NaturalName",
-			"UpperSurname",
-			"ProperSurname",
-			"GivenName",
-			"MiddleNames",
-			"NickName",
-			"BirthName",
-			"Prefix",
-			"Suffix",
-			"Initials",
-			"Gender",
-			"Notes",
-			"BirthDate",
-			"DeathDate",
-			"WeddingDate",
-			"CurrencyDate"
-		};
-		//_______________________________________________________________________________________________________________________________________
 		public static string[] FieldNames =
 		{
 			"pk_Person",
@@ -143,7 +64,20 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			"dt_BirthDate",
 			"dt_DeathDate",
 			"dt_WeddingDate",
-			"dt_CurrencyDate"
+			"dt_CurrencyDate",
+			"li_EHS_Order",
+			"is_Selected",
+			"is_Enlightened",
+			"is_HolySomething",
+			"is_NewLeftPerson",
+			"is_NoRightPerson",
+			"is_DefaultRow",
+			"is_Export",
+			"is_TimeTalent",
+			"is_Minister",
+			"is_Sacristan",
+			"is_Vigil",
+			"is_Mass"
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] ParameterNames =
@@ -165,76 +99,56 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			"@dt_birthdate",
 			"@dt_deathdate",
 			"@dt_weddingdate",
-			"@dt_currencydate"
+			"@dt_currencydate",
+			"@li_ehs_order",
+			"@is_selected",
+			"@is_enlightened",
+			"@is_holysomething",
+			"@is_newleftperson",
+			"@is_norightperson",
+			"@is_defaultrow",
+			"@is_export",
+			"@is_timetalent",
+			"@is_minister",
+			"@is_sacristan",
+			"@is_vigil",
+			"@is_mass"
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public static int[] FieldWidths =
 		{
-			4,		//PkPerson		
-			200,	//SortableName	
-			200,	//NaturalName	
-			80,		//UpperSurname	
-			80,		//ProperSurname
-			80,		//GivenName	
-			200,	//MiddleNames	
-			50,		//NickName		
-			100,	//BirthName	
-			50,		//Prefix		
-			50,		//Suffix		
-			15,		//Initials		
-			1,		//Gender		
-			255,	//Notes		
-			8,		//BirthDate	
-			8,		//DeathDate	
-			8,		//WeddingDate	
-			8,		//CurrencyDate	
-		};
-		//_______________________________________________________________________________________________________________________________________
-		public static class Reconstruction
-		{
-			public const string PkPerson		= "/pk";
-			public const string SortableName	= "/sn";
-			public const string NaturalName		= "/nn";
-			public const string UpperSurname	= "/us";
-			public const string ProperSurname	= "/ps";
-			public const string GivenName		= "/gn";
-			public const string MiddleNames		= "/mn";
-			public const string NickName		= "/nn";
-			public const string BirthName		= "/bn";
-			public const string Prefix			= "/px";
-			public const string Suffix			= "/sx";
-			public const string Initials		= "/in";
-			public const string Gender			= "/gn";
-			public const string Notes			= "/nt";
-			public const string BirthDate		= "/bd";
-			public const string DeathDate		= "/dd";
-			public const string WeddingDate		= "/wd";
-			public const string CurrencyDate	= "/cd";
-
-			//^ UPPER,
-			//| Proper,
-			//* Initial
-			/// Patro part of patronymic
-
-			//public const string SortableName	=  "^sn, |gn |mn";
-			//public const string NaturalName	=  "|gn |mn |sn";
-			//public const string UpperSurname	=  "^sn";
-			//public const string ProperSurname	=  "|sn";
-			//public const string GivenName		=  "|gn";
-			//public const string MiddleNames	=  "|mn";
-			//public const string NickName		=  "|nk";
-			//public const string BirthName		=  "|bn";
-			//public const string Prefix		=  "|px";
-			//public const string Suffix		=  "|sx";
-			//public const string Initials		=  "*in";
-			//public const string Gender		=  "^gn";
-			//public const string BirthDate		=  " bd";
-			//public const string DeathDate		=  " dd";
-			//public const string WeddingDate	=  " wd";
-			//public const string CurrencyDate	=  " cd";
-			//public const string Archived		=  " ar";
-			//public const string Selected		=  " sl";
-		}
+			4,		//PkPerson
+			200,	//DVStSortableName
+			200,	//StNaturalName
+			80,		//StUpperSurname
+			80,		//StProperSurname
+			80,		//StGivenName
+			200,	//StMiddleNames
+			50,		//StNickName
+			100,	//StBirthName
+			50,		//StPrefix
+			50,		//StSuffix
+			15,		//StInitials
+			1,		//StGender
+			255,	//StNotes
+			8,		//DtBirthDate
+			8,		//DtDeathDate
+			8,		//DtWeddingDate
+			8,		//DtCurrencyDate
+			4,		//LiEHS_Order
+			1,		//IsSelected
+			1,		//IsEnlightened
+			1,		//IsHolySomething
+			1,		//IsNewLeftPerson
+			1,		//IsNoRightPerson
+			1,		//IsDefaultRow
+			1,		//IsExport
+			1,		//IsTimeTalent
+			1,		//IsMinister
+			1,		//IsSacristan
+			1,		//IsVigil
+			1		//IsMass
+			};
 		#endregion
 
 
@@ -242,24 +156,37 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		//_______________________________________________________________________________________________________________________________________
 		public static ColumnFactors[] Factors =
 		{
-			new ColumnFactors(  0 ),		//PkPerson
-			new ColumnFactors(  1 ),		//SortableName
-			new ColumnFactors(  2 ),		//NaturalName
-			new ColumnFactors(  3 ),		//UpperSurname
-			new ColumnFactors(  4 ),		//ProperSurnam
-			new ColumnFactors(  5 ),		//GivenName
-			new ColumnFactors(  6 ),		//MiddleNames
-			new ColumnFactors(  7 ),		//NickName
-			new ColumnFactors(  8 ),		//BirthName
-			new ColumnFactors(  9 ),		//Prefix
-			new ColumnFactors( 10 ),		//Suffix
-			new ColumnFactors( 11 ),		//Initials
-			new ColumnFactors( 12 ),		//Gender
-			new ColumnFactors( 13 ),		//Notes
-			new ColumnFactors( 14 ),		//BirthDate
-			new ColumnFactors( 15 ),		//DeathDate
-			new ColumnFactors( 16 ),		//WeddingDate
-			new ColumnFactors( 17 )			//CurrencyDate
+			new ColumnFactors( 0),	//PkPerson
+			new ColumnFactors( 1),	//StSortableName
+			new ColumnFactors( 2),	//StNaturalName
+			new ColumnFactors( 3),	//StUpperSurname
+			new ColumnFactors( 4),	//StProperSurname
+			new ColumnFactors( 5),	//StGivenName
+			new ColumnFactors( 6),	//StMiddleNames
+			new ColumnFactors( 7),	//StNickName
+			new ColumnFactors( 8),	//StBirthName
+			new ColumnFactors( 9),	//StPrefix
+			new ColumnFactors(10),	//StSuffix
+			new ColumnFactors(11),	//StInitials
+			new ColumnFactors(12),	//StGender
+			new ColumnFactors(13),	//StNotes
+			new ColumnFactors(14),	//DtBirthDate
+			new ColumnFactors(15),	//DtDeathDate
+			new ColumnFactors(16),	//DtWeddingDate
+			new ColumnFactors(17),	//DtCurrencyDate
+			new ColumnFactors(18),	//LiEHS_Order
+			new ColumnFactors(19),	//IsSelected
+			new ColumnFactors(20),	//IsEnlightened
+			new ColumnFactors(21),	//IsHolySomething
+			new ColumnFactors(22),	//IsNewLeftPerson
+			new ColumnFactors(23),	//IsNoRightPerson
+			new ColumnFactors(24),	//IsDefaultRow
+			new ColumnFactors(25),	//IsExport
+			new ColumnFactors(26),	//IsTimeTalent
+			new ColumnFactors(27),	//IsMinister
+			new ColumnFactors(28),	//IsSacristan
+			new ColumnFactors(29),	//IsVigil
+			new ColumnFactors(30)	//IsMass
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public class ColumnFactors
