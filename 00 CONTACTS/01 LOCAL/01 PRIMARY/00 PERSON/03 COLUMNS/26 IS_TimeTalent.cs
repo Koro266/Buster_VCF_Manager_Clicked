@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_Selected : BOOL
+		public partial class IS_TimeTalent : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Selected];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.TimeTalent];
 			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Selected( bool value ) : base( value )
+			public IS_TimeTalent( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Selected( NULL_BOOL tnp ) : base( tnp )
+			public IS_TimeTalent( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}

@@ -194,3 +194,19 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		#endregion
 	}
 }
+/*
+18 LI_EHS_Order
+19 IS_Selected
+20 IS_Enlightened
+21 IS_HolySomething
+22 IS_NewLeftPerson
+23 IS_NoRightPerson
+24 IS_DefaultRow
+25 IS_Export
+26 IS_TimeTalent
+27 IS_Minister
+28 IS_Sacristan
+29 IS_Vigil
+30 IS_Mass
+
+ */
