@@ -98,6 +98,21 @@ namespace CONTACTS.INTERFACE.FORMS
 			ValuateWeddingDatebox();
 			ValuateCurrencyDatebox();
 
+			this.chk_Selected.Checked = true;
+			this.chk_SundayMass.Checked = true;
+			this.chk_Vigil.Checked = true;
+			this.chk_Sacristan.Checked = true;
+			this.chk_Minister.Checked = true;
+			this.chk_TimeTalent.Checked = true;
+			this.chk_Export.Checked = true;
+			this.chk_DefaultRow.Checked = true;
+			this.chk_NoRightPerson.Checked = true;
+			this.chk_NewLeftPerson.Checked = true;
+			this.chk_HolySomething.Checked = true;
+			this.chk_Enlightened.Checked = true;
+
+			this.tbx_EhsOrder.Text = "111";
+
 			_EventState.EnableEvents();
 		}
 		#endregion
