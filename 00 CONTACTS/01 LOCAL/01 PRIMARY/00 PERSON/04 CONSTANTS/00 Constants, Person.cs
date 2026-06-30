@@ -1,4 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using FACTORS = CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON
@@ -108,6 +109,8 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			"@is_norightperson",
 			"@is_defaultrow",
 			"@is_export",
+
+
 			"@is_timetalent",
 			"@is_minister",
 			"@is_sacristan",
@@ -154,62 +157,40 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 
 		#region COLUMN FACTORS
 		//_______________________________________________________________________________________________________________________________________
-		public static ColumnFactors[] Factors =
+		public static FACTORS[] Factors =
 		{
-			new ColumnFactors( 0),	//PkPerson
-			new ColumnFactors( 1),	//StSortableName
-			new ColumnFactors( 2),	//StNaturalName
-			new ColumnFactors( 3),	//StUpperSurname
-			new ColumnFactors( 4),	//StProperSurname
-			new ColumnFactors( 5),	//StGivenName
-			new ColumnFactors( 6),	//StMiddleNames
-			new ColumnFactors( 7),	//StNickName
-			new ColumnFactors( 8),	//StBirthName
-			new ColumnFactors( 9),	//StPrefix
-			new ColumnFactors(10),	//StSuffix
-			new ColumnFactors(11),	//StInitials
-			new ColumnFactors(12),	//StGender
-			new ColumnFactors(13),	//StNotes
-			new ColumnFactors(14),	//DtBirthDate
-			new ColumnFactors(15),	//DtDeathDate
-			new ColumnFactors(16),	//DtWeddingDate
-			new ColumnFactors(17),	//DtCurrencyDate
-			new ColumnFactors(18),	//LiEHS_Order
-			new ColumnFactors(19),	//IsSelected
-			new ColumnFactors(20),	//IsEnlightened
-			new ColumnFactors(21),	//IsHolySomething
-			new ColumnFactors(22),	//IsNewLeftPerson
-			new ColumnFactors(23),	//IsNoRightPerson
-			new ColumnFactors(24),	//IsDefaultRow
-			new ColumnFactors(25),	//IsExport
-			new ColumnFactors(26),	//IsTimeTalent
-			new ColumnFactors(27),	//IsMinister
-			new ColumnFactors(28),	//IsSacristan
-			new ColumnFactors(29),	//IsVigil
-			new ColumnFactors(30)	//IsMass
+			new FACTORS(  0, FieldWidths[ 0], FieldNames[ 0], ParameterNames[ 0] ),	//PkPerson
+			new FACTORS(  1, FieldWidths[ 1], FieldNames[ 1], ParameterNames[ 1] ),	//StSortableName
+			new FACTORS(  2, FieldWidths[ 2], FieldNames[ 2], ParameterNames[ 2] ),	//StNaturalName
+			new FACTORS(  3, FieldWidths[ 3], FieldNames[ 3], ParameterNames[ 3] ),	//StUpperSurname
+			new FACTORS(  4, FieldWidths[ 4], FieldNames[ 4], ParameterNames[ 4] ),	//StProperSurname
+			new FACTORS(  5, FieldWidths[ 5], FieldNames[ 5], ParameterNames[ 5] ),	//StGivenName
+			new FACTORS(  6, FieldWidths[ 6], FieldNames[ 6], ParameterNames[ 6] ),	//StMiddleNames
+			new FACTORS(  7, FieldWidths[ 7], FieldNames[ 7], ParameterNames[ 7] ),	//StNickName
+			new FACTORS(  8, FieldWidths[ 8], FieldNames[ 8], ParameterNames[ 8] ),	//StBirthName
+			new FACTORS(  9, FieldWidths[ 9], FieldNames[ 9], ParameterNames[ 9] ),	//StPrefix
+			new FACTORS( 10, FieldWidths[10], FieldNames[10], ParameterNames[10] ),	//StSuffix
+			new FACTORS( 11, FieldWidths[11], FieldNames[11], ParameterNames[11] ),	//StInitials
+			new FACTORS( 12, FieldWidths[12], FieldNames[12], ParameterNames[12] ),	//StGender
+			new FACTORS( 13, FieldWidths[13], FieldNames[13], ParameterNames[13] ),	//StNotes
+			new FACTORS( 14, FieldWidths[14], FieldNames[14], ParameterNames[14] ),	//DtBirthDate
+			new FACTORS( 15, FieldWidths[15], FieldNames[15], ParameterNames[15] ),	//DtDeathDate
+			new FACTORS( 16, FieldWidths[16], FieldNames[16], ParameterNames[16] ),	//DtWeddingDate
+			new FACTORS( 17, FieldWidths[17], FieldNames[17], ParameterNames[17] ),	//DtCurrencyDate
+			new FACTORS( 18, FieldWidths[18], FieldNames[18], ParameterNames[18] ),	//LiEHS_Order
+			new FACTORS( 19, FieldWidths[19], FieldNames[19], ParameterNames[19] ),	//IsSelected
+			new FACTORS( 20, FieldWidths[20], FieldNames[20], ParameterNames[20] ),	//IsEnlightened
+			new FACTORS( 21, FieldWidths[21], FieldNames[21], ParameterNames[21] ),	//IsHolySomething
+			new FACTORS( 22, FieldWidths[22], FieldNames[22], ParameterNames[22] ),	//IsNewLeftPerson
+			new FACTORS( 23, FieldWidths[23], FieldNames[23], ParameterNames[23] ),	//IsNoRightPerson
+			new FACTORS( 24, FieldWidths[24], FieldNames[24], ParameterNames[24] ),	//IsDefaultRow
+			new FACTORS( 25, FieldWidths[25], FieldNames[25], ParameterNames[25] ),	//IsExport
+			new FACTORS( 26, FieldWidths[26], FieldNames[26], ParameterNames[26] ),	//IsTimeTalent
+			new FACTORS( 27, FieldWidths[27], FieldNames[27], ParameterNames[27] ),	//IsMinister
+			new FACTORS( 28, FieldWidths[28], FieldNames[28], ParameterNames[28] ),	//IsSacristan
+			new FACTORS( 29, FieldWidths[29], FieldNames[29], ParameterNames[29] ),	//IsVigil
+			new FACTORS( 30, FieldWidths[30], FieldNames[30], ParameterNames[30] )	//IsMass
 		};
-		//_______________________________________________________________________________________________________________________________________
-		public class ColumnFactors
-		{
-			private int		i_Ordinal;
-			private string	s_FieldName;
-			private string	s_ParameterName;
-			private int		i_FieldWidth;
-
-			//___________________________________________________________________________________________________________________________________
-			public ColumnFactors( int ordinal )
-			{
-				this.i_Ordinal			= ordinal;
-				this.s_FieldName		= FieldNames[ordinal];
-				this.s_ParameterName	= ParameterNames[ordinal];
-				this.i_FieldWidth		= FieldWidths[ordinal];
-			}
-			//___________________________________________________________________________________________________________________________________
-			public int Ordinal			{ get { return i_Ordinal; } }
-			public string FieldName		{ get { return s_FieldName; } }
-			public string ParameterName	{ get { return s_ParameterName; } }
-			public int FieldWidth		{ get { return i_FieldWidth; } }
-		}
 		#endregion
 	}
 }
