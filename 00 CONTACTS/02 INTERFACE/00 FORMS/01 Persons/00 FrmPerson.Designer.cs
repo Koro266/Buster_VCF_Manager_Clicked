@@ -79,6 +79,8 @@
 			tbx_Notes = new TextBox();
 			lbl_Notes = new Label();
 			grp_PersonData = new GroupBox();
+			label2 = new Label();
+			tbx_EhsOrder = new TextBox();
 			chk_SundayMass = new CheckBox();
 			chk_Vigil = new CheckBox();
 			chk_Sacristan = new CheckBox();
@@ -101,8 +103,6 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
-			tbx_EhsOrder = new TextBox();
-			label2 = new Label();
 			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -768,6 +768,26 @@
 			grp_PersonData.TabStop = false;
 			grp_PersonData.Text = "Person Data";
 			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.ForeColor = Color.FromArgb(     192,     0,     0 );
+			label2.Location = new Point( 420, 371 );
+			label2.Name = "label2";
+			label2.Size = new Size( 32, 17 );
+			label2.TabIndex = 136;
+			label2.Text = "EHS";
+			// 
+			// tbx_EhsOrder
+			// 
+			tbx_EhsOrder.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_EhsOrder.Location = new Point( 456, 368 );
+			tbx_EhsOrder.Name = "tbx_EhsOrder";
+			tbx_EhsOrder.ReadOnly = true;
+			tbx_EhsOrder.Size = new Size( 76, 25 );
+			tbx_EhsOrder.TabIndex = 135;
+			tbx_EhsOrder.TabStop = false;
+			// 
 			// chk_SundayMass
 			// 
 			chk_SundayMass.AutoSize = true;
@@ -1023,25 +1043,6 @@
 			btn_ClearBirthDate.TextAlign = ContentAlignment.TopCenter;
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
-			// 
-			// tbx_EhsOrder
-			// 
-			tbx_EhsOrder.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_EhsOrder.Location = new Point( 456, 368 );
-			tbx_EhsOrder.Name = "tbx_EhsOrder";
-			tbx_EhsOrder.Size = new Size( 76, 25 );
-			tbx_EhsOrder.TabIndex = 135;
-			tbx_EhsOrder.TabStop = false;
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label2.Location = new Point( 420, 371 );
-			label2.Name = "label2";
-			label2.Size = new Size( 32, 17 );
-			label2.TabIndex = 136;
-			label2.Text = "EHS";
 			// 
 			// FrmPerson
 			// 

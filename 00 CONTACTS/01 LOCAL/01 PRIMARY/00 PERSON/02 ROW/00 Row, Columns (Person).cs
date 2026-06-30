@@ -34,7 +34,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		public FIELD.DT_DeathDate DeathDate				{ get { return ( FIELD.DT_DeathDate )		base.GetField( CONST.OrdinalByName.DeathDate ); } }
 		public FIELD.DT_WeddingDate WeddingDate			{ get { return ( FIELD.DT_WeddingDate )		base.GetField( CONST.OrdinalByName.WeddingDate ); } }
 		public FIELD.DT_CurrencyDate CurrencyDate		{ get { return ( FIELD.DT_CurrencyDate )	base.GetField( CONST.OrdinalByName.CurrencyDate ); } }
-		public FIELD.LI_EHS_Order EHS_Order				{ get { return ( FIELD.LI_EHS_Order )		base.GetField( CONST.OrdinalByName.EHS_Order ); } }
+		public FIELD.LI_EHS_Order EhsOrder				{ get { return ( FIELD.LI_EHS_Order )		base.GetField( CONST.OrdinalByName.EHS_Order ); } }
 		public FIELD.IS_Selected Selected				{ get { return ( FIELD.IS_Selected )		base.GetField( CONST.OrdinalByName.Selected ); } }
 		public FIELD.IS_Enlightened Enlightened			{ get { return ( FIELD.IS_Enlightened )		base.GetField( CONST.OrdinalByName.Enlightened ); } }
 		public FIELD.IS_HolySomething HolySomething		{ get { return ( FIELD.IS_HolySomething )	base.GetField( CONST.OrdinalByName.HolySomething ); } }

@@ -98,20 +98,20 @@ namespace CONTACTS.INTERFACE.FORMS
 			ValuateWeddingDatebox();
 			ValuateCurrencyDatebox();
 
-			this.chk_Selected.Checked = true;
-			this.chk_SundayMass.Checked = true;
-			this.chk_Vigil.Checked = true;
-			this.chk_Sacristan.Checked = true;
-			this.chk_Minister.Checked = true;
-			this.chk_TimeTalent.Checked = true;
-			this.chk_Export.Checked = true;
-			this.chk_DefaultRow.Checked = true;
-			this.chk_NoRightPerson.Checked = true;
-			this.chk_NewLeftPerson.Checked = true;
-			this.chk_HolySomething.Checked = true;
-			this.chk_Enlightened.Checked = true;
+			this.chk_Selected.Checked = Selected;
+			this.chk_Enlightened.Checked = Enlightened;
+			this.chk_HolySomething.Checked = HolySomething;
+			this.chk_NewLeftPerson.Checked = NewLeftPerson;
+			this.chk_NoRightPerson.Checked = NoRightPerson;
+			this.chk_DefaultRow.Checked = DefaultRow;
+			this.chk_Export.Checked = Export;
+			this.chk_TimeTalent.Checked = TimeTalent;
+			this.chk_Minister.Checked = Minister;
+			this.chk_Sacristan.Checked = Sacristan;
+			this.chk_Vigil.Checked = Vigil;
+			this.chk_SundayMass.Checked = Mass;
 
-			this.tbx_EhsOrder.Text = "111";
+			this.tbx_EhsOrder.Text = EhsOrder;
 
 			_EventState.EnableEvents();
 		}
@@ -370,12 +370,78 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			get { return Person.CurrencyDate.Value; }
 			set
-
 			{
 				Person.NewCurrencyDate = value;
 				DisplayPerson();
 			}
 		}
+		//___________________________________________________________________________________________________________________________________________
+		private string EhsOrder
+		{
+			get { return Person.EhsOrder.AsString; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Selected
+		{
+			get { return Person.Selected.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Enlightened
+		{
+			get { return Person.Enlightened.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool HolySomething
+		{
+			get { return Person.HolySomething.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool NewLeftPerson
+		{
+			get { return Person.NewLeftPerson.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool NoRightPerson
+		{
+			get { return Person.NoRightPerson.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool DefaultRow
+		{
+			get { return Person.DefaultRow.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Export
+		{
+			get { return Person.Export.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool TimeTalent
+		{
+			get { return Person.TimeTalent.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Minister
+		{
+			get { return Person.Minister.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Sacristan
+		{
+			get { return Person.Sacristan.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Vigil
+		{
+			get { return Person.Vigil.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Mass
+		{
+			get { return Person.Mass.Value; }
+		}
+
+
 		//___________________________________________________________________________________________________________________________________________
 		private int PersonSelectedIndex
 		{
