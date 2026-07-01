@@ -13,17 +13,12 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 	//_______________________________________________________________________________________________________________________________________________
 	/// <summary>
 	/// Access database boolean values are always either true or false. No other value is possible.
-	/// Hence, this object does not have an underlying boolean value.
 	/// NULLITY.DbNull			==> Treated as false.
 	/// NULLITY.FunctionalNull	==> Treated as false.
 	/// NULLITY.NotNull			==> Treated as true.
 	/// </summary>
 	public class True_False : BASE_VAR
 	{
-		#region CONSTANTS
-		#endregion
-
-
 		#region STATIC VALUES
 		public static bool default_Bool = false;
 		#endregion
@@ -63,6 +58,11 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 
 
 		#region VALUE
+		//_______________________________________________________________________________________________________________________________________
+		override public string ToString()
+		{
+			return Value.ToString();
+		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns true or false -- no other values are possible.
@@ -73,11 +73,11 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns not Value.
+		/// Returns logical NOT of Value.
 		/// </summary>
 		public bool NotValue
 		{
-			get { return Value; }
+			get { return !Value; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		override public string FinderValue
@@ -90,11 +90,26 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 			get { return AsUpper; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns literal true because this type always has a value.
+		/// </summary>
+		override public bool IsVcfValue
+		{
+			get { return true; }
+		}
+
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns either "True" or "False".
+		/// </summary>
 		override public string TextboxValue
 		{
-			get { return AsUpper; }
+			get { return AsTrueFalse; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns value cast as an object, i.e., (object) Value.
+		/// </summary>
 		override public object DbWriteValue
 		{
 			get { return ( object )Value; }
@@ -105,7 +120,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		#region VALUE TRANSFORMATIONS.
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "True" or "False".
+		/// Returns either "True" or "False".
 		/// </summary>
 		virtual public string AsString
 		{

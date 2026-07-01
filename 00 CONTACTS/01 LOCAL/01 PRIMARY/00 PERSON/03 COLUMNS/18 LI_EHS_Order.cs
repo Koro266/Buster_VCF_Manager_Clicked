@@ -54,14 +54,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.TextboxValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
 			/// Returns EHS_Order as used in a VCF file.
 			/// </summary>
 			override public string VcfValue

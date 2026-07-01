@@ -47,27 +47,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			{
 				get { return Factors.Ordinal; }
 			}
-			//_______________________________________________________________________________________________________________________________________
-			override public string ToString()
-			{
-				return base.Value.ToString();
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns value that is sent to the database.
-			/// </summary>
-			override public object DbWriteValue
-			{
-				get { return base.DbWriteValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.TextboxValue; }
-			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns NewLeftPerson as used in a VCF file.
@@ -75,14 +54,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			override public string VcfValue
 			{
 				get { return base.AsTF; }
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns true if person has a valid NewLeftPerson value.
-			/// </summary>
-			override public bool IsVcfValue
-			{
-				get { return base.IsNotAbsoluteNull; }
 			}
 			#endregion
 
@@ -96,7 +67,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = this.DbWriteValue;
 					return parameter;
 				}
 			}
