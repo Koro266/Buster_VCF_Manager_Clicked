@@ -881,6 +881,66 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			this.Close();
 		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Selected_Click( object sender, EventArgs e )
+		{
+			Selected = chk_Selected.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Enlightened_Click( object sender, EventArgs e )
+		{
+			Enlightened = chk_Enlightened.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_HolySomething_Click( object sender, EventArgs e )
+		{
+			HolySomething = chk_HolySomething.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_NewLeftPerson_Click( object sender, EventArgs e )
+		{
+			NewLeftPerson = chk_NewLeftPerson.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_NoRightPerson_Click( object sender, EventArgs e )
+		{
+			NoRightPerson = chk_NoRightPerson.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_DefaultRow_Click( object sender, EventArgs e )
+		{
+			DefaultRow = chk_DefaultRow.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Export_Click( object sender, EventArgs e )
+		{
+			Export = chk_Export.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_TimeTalent_Click( object sender, EventArgs e )
+		{
+			TimeTalent = chk_TimeTalent.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Minister_Click( object sender, EventArgs e )
+		{
+			Minister = true;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Sacristan_Click( object sender, EventArgs e )
+		{
+			Sacristan = chk_Sacristan.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Vigil_Click( object sender, EventArgs e )
+		{
+			Vigil = chk_Vigil.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_SundayMass_Click( object sender, EventArgs e )
+		{
+			Mass = chk_SundayMass.Checked;
+		}
 		#endregion
 
 

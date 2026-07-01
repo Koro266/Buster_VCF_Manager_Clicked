@@ -24,7 +24,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					UPDATE					
 						TDF_Persons				
 					SET					
-						TDF_Persons.pk_Person			= @pk_person,	
 						TDF_Persons.st_SortableName		= @st_sortablename,	
 						TDF_Persons.st_NaturalName		= @st_naturalname,	
 						TDF_Persons.st_UpperSurname		= @st_uppersurname,	
@@ -53,8 +52,9 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 						TDF_Persons.is_Minister			= @is_minister,	
 						TDF_Persons.is_Sacristan		= @is_sacristan,	
 						TDF_Persons.is_Vigil			= @is_vigil,	
-						TDF_Persons.is_Mass				= @is_mass	
-						(((TDF_Persons.pk_Person		= @pk_person ));
+						TDF_Persons.is_Mass				= @is_mass
+					WHERE
+						(((TDF_Persons.pk_Person)		= @pk_person ));
 				";
 
 				//_______________________________________________________________________________________________________________________________

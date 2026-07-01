@@ -798,6 +798,7 @@
 			chk_SundayMass.TabIndex = 134;
 			chk_SundayMass.Text = "Sunday Mass?";
 			chk_SundayMass.UseVisualStyleBackColor = true;
+			chk_SundayMass.Click +=  chk_SundayMass_Click ;
 			// 
 			// chk_Vigil
 			// 
@@ -809,6 +810,7 @@
 			chk_Vigil.TabIndex = 133;
 			chk_Vigil.Text = "Vigil?";
 			chk_Vigil.UseVisualStyleBackColor = true;
+			chk_Vigil.Click +=  chk_Vigil_Click ;
 			// 
 			// chk_Sacristan
 			// 
@@ -820,6 +822,7 @@
 			chk_Sacristan.TabIndex = 132;
 			chk_Sacristan.Text = "Sacristan?";
 			chk_Sacristan.UseVisualStyleBackColor = true;
+			chk_Sacristan.Click +=  chk_Sacristan_Click ;
 			// 
 			// chk_Minister
 			// 
@@ -831,6 +834,7 @@
 			chk_Minister.TabIndex = 131;
 			chk_Minister.Text = "Minister?";
 			chk_Minister.UseVisualStyleBackColor = true;
+			chk_Minister.Click +=  chk_Minister_Click ;
 			// 
 			// chk_TimeTalent
 			// 
@@ -842,6 +846,7 @@
 			chk_TimeTalent.TabIndex = 130;
 			chk_TimeTalent.Text = "Time + Talent?";
 			chk_TimeTalent.UseVisualStyleBackColor = true;
+			chk_TimeTalent.Click +=  chk_TimeTalent_Click ;
 			// 
 			// chk_Export
 			// 
@@ -853,6 +858,7 @@
 			chk_Export.TabIndex = 129;
 			chk_Export.Text = "Export?";
 			chk_Export.UseVisualStyleBackColor = true;
+			chk_Export.Click +=  chk_Export_Click ;
 			// 
 			// chk_DefaultRow
 			// 
@@ -864,6 +870,7 @@
 			chk_DefaultRow.TabIndex = 128;
 			chk_DefaultRow.Text = "Default Row?";
 			chk_DefaultRow.UseVisualStyleBackColor = true;
+			chk_DefaultRow.Click +=  chk_DefaultRow_Click ;
 			// 
 			// chk_NoRightPerson
 			// 
@@ -875,6 +882,7 @@
 			chk_NoRightPerson.TabIndex = 127;
 			chk_NoRightPerson.Text = "No Right-Person?";
 			chk_NoRightPerson.UseVisualStyleBackColor = true;
+			chk_NoRightPerson.Click +=  chk_NoRightPerson_Click ;
 			// 
 			// chk_NewLeftPerson
 			// 
@@ -886,6 +894,7 @@
 			chk_NewLeftPerson.TabIndex = 126;
 			chk_NewLeftPerson.Text = "New Left-Person?";
 			chk_NewLeftPerson.UseVisualStyleBackColor = true;
+			chk_NewLeftPerson.Click +=  chk_NewLeftPerson_Click ;
 			// 
 			// chk_HolySomething
 			// 
@@ -897,6 +906,7 @@
 			chk_HolySomething.TabIndex = 125;
 			chk_HolySomething.Text = "Holy Something?";
 			chk_HolySomething.UseVisualStyleBackColor = true;
+			chk_HolySomething.Click +=  chk_HolySomething_Click ;
 			// 
 			// chk_Enlightened
 			// 
@@ -908,6 +918,7 @@
 			chk_Enlightened.TabIndex = 124;
 			chk_Enlightened.Text = "Enlightened?";
 			chk_Enlightened.UseVisualStyleBackColor = true;
+			chk_Enlightened.Click +=  chk_Enlightened_Click ;
 			// 
 			// chk_Selected
 			// 
@@ -919,6 +930,7 @@
 			chk_Selected.TabIndex = 123;
 			chk_Selected.Text = "Selected?";
 			chk_Selected.UseVisualStyleBackColor = true;
+			chk_Selected.Click +=  chk_Selected_Click ;
 			// 
 			// tbx_Messages
 			// 
