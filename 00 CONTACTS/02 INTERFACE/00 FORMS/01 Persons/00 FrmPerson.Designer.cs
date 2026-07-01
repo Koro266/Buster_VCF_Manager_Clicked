@@ -123,7 +123,7 @@
 			lbl_Gender.AutoSize = true;
 			lbl_Gender.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Gender.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_Gender.Location = new Point( 74, 275 );
+			lbl_Gender.Location = new Point( 74, 120 );
 			lbl_Gender.Name = "lbl_Gender";
 			lbl_Gender.Size = new Size( 58, 19 );
 			lbl_Gender.TabIndex = 101;
@@ -159,7 +159,7 @@
 			lbl_MiddleNames.AutoSize = true;
 			lbl_MiddleNames.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_MiddleNames.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_MiddleNames.Location = new Point( 16, 122 );
+			lbl_MiddleNames.Location = new Point( 16, 154 );
 			lbl_MiddleNames.Name = "lbl_MiddleNames";
 			lbl_MiddleNames.Size = new Size( 116, 19 );
 			lbl_MiddleNames.TabIndex = 4;
@@ -171,7 +171,7 @@
 			lbl_Nickname.AutoSize = true;
 			lbl_Nickname.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Nickname.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_Nickname.Location = new Point( 56, 153 );
+			lbl_Nickname.Location = new Point( 56, 185 );
 			lbl_Nickname.Name = "lbl_Nickname";
 			lbl_Nickname.Size = new Size( 76, 19 );
 			lbl_Nickname.TabIndex = 5;
@@ -183,7 +183,7 @@
 			lbl_BirthName.AutoSize = true;
 			lbl_BirthName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_BirthName.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_BirthName.Location = new Point( 47, 183 );
+			lbl_BirthName.Location = new Point( 47, 215 );
 			lbl_BirthName.Name = "lbl_BirthName";
 			lbl_BirthName.Size = new Size( 85, 19 );
 			lbl_BirthName.TabIndex = 6;
@@ -195,7 +195,7 @@
 			lbl_Prefixes.AutoSize = true;
 			lbl_Prefixes.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Prefixes.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_Prefixes.Location = new Point( 69, 215 );
+			lbl_Prefixes.Location = new Point( 69, 247 );
 			lbl_Prefixes.Name = "lbl_Prefixes";
 			lbl_Prefixes.Size = new Size( 63, 19 );
 			lbl_Prefixes.TabIndex = 7;
@@ -207,7 +207,7 @@
 			lbl_Suffixes.AutoSize = true;
 			lbl_Suffixes.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Suffixes.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_Suffixes.Location = new Point( 71, 247 );
+			lbl_Suffixes.Location = new Point( 71, 279 );
 			lbl_Suffixes.Name = "lbl_Suffixes";
 			lbl_Suffixes.Size = new Size( 61, 19 );
 			lbl_Suffixes.TabIndex = 8;
@@ -350,10 +350,10 @@
 			// tbx_Gender
 			// 
 			tbx_Gender.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Gender.Location = new Point( 142, 272 );
+			tbx_Gender.Location = new Point( 142, 117 );
 			tbx_Gender.MaxLength = 1;
 			tbx_Gender.Name = "tbx_Gender";
-			tbx_Gender.Size = new Size( 91, 25 );
+			tbx_Gender.Size = new Size( 116, 25 );
 			tbx_Gender.TabIndex = 1;
 			tbx_Gender.TextChanged +=  tbx_Gender_TextChanged ;
 			tbx_Gender.Enter +=  tbx_Gender_Enter ;
@@ -386,7 +386,7 @@
 			// 
 			tbx_MiddleNames.BackColor = Color.White;
 			tbx_MiddleNames.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_MiddleNames.Location = new Point( 142, 117 );
+			tbx_MiddleNames.Location = new Point( 142, 149 );
 			tbx_MiddleNames.Name = "tbx_MiddleNames";
 			tbx_MiddleNames.Size = new Size( 233, 25 );
 			tbx_MiddleNames.TabIndex = 3;
@@ -398,7 +398,7 @@
 			// 
 			tbx_NickName.BackColor = Color.White;
 			tbx_NickName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_NickName.Location = new Point( 142, 148 );
+			tbx_NickName.Location = new Point( 142, 180 );
 			tbx_NickName.Name = "tbx_NickName";
 			tbx_NickName.Size = new Size( 233, 25 );
 			tbx_NickName.TabIndex = 4;
@@ -409,7 +409,7 @@
 			// tbx_BirthName
 			// 
 			tbx_BirthName.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_BirthName.Location = new Point( 142, 179 );
+			tbx_BirthName.Location = new Point( 142, 211 );
 			tbx_BirthName.Name = "tbx_BirthName";
 			tbx_BirthName.Size = new Size( 233, 25 );
 			tbx_BirthName.TabIndex = 5;
@@ -420,7 +420,7 @@
 			// tbx_Prefixes
 			// 
 			tbx_Prefixes.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Prefixes.Location = new Point( 142, 210 );
+			tbx_Prefixes.Location = new Point( 142, 242 );
 			tbx_Prefixes.Name = "tbx_Prefixes";
 			tbx_Prefixes.Size = new Size( 233, 25 );
 			tbx_Prefixes.TabIndex = 6;
@@ -431,7 +431,7 @@
 			// tbx_Suffixes
 			// 
 			tbx_Suffixes.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Suffixes.Location = new Point( 142, 241 );
+			tbx_Suffixes.Location = new Point( 142, 273 );
 			tbx_Suffixes.Name = "tbx_Suffixes";
 			tbx_Suffixes.Size = new Size( 233, 25 );
 			tbx_Suffixes.TabIndex = 7;
