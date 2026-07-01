@@ -111,7 +111,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.chk_Vigil.Checked = Vigil;
 			this.chk_SundayMass.Checked = Mass;
 
-			this.tbx_EhsOrder.Text = EhsOrder;
+			this.tbx_EhsOrder.Text = EhsOrderAsText;
 
 			_EventState.EnableEvents();
 		}
@@ -376,72 +376,140 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private string EhsOrder
+		private int EhsOrder
 		{
-			get { return Person.EhsOrder.AsString; }
+			get { return Person.EhsOrder.Value; }
+			set
+			{
+				Person.NewEHSOrder = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private string EhsOrderAsText
+		{
+			get { return Person.EhsOrder.TextboxValue; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool Selected
 		{
 			get { return Person.Selected.Value; }
+			set
+			{
+				Person.NewSelected = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool Enlightened
 		{
 			get { return Person.Enlightened.Value; }
+			set
+			{
+				Person.NewEnlightened = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool HolySomething
 		{
 			get { return Person.HolySomething.Value; }
+			set
+			{
+				Person.NewHolySomething = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool NewLeftPerson
 		{
 			get { return Person.NewLeftPerson.Value; }
+			set
+			{
+				Person.New_NewLeftPerson = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool NoRightPerson
 		{
 			get { return Person.NoRightPerson.Value; }
+			set
+			{
+				Person.NewNoRightPerson = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool DefaultRow
 		{
 			get { return Person.DefaultRow.Value; }
+			set
+			{
+				Person.NewDefaultRow = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool Export
 		{
 			get { return Person.Export.Value; }
+			set
+			{
+				Person.NewExport = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool TimeTalent
 		{
 			get { return Person.TimeTalent.Value; }
+			set
+			{
+				Person.NewTimeTalent = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool Minister
 		{
 			get { return Person.Minister.Value; }
+			set
+			{
+				Person.NewMinister = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool Sacristan
 		{
 			get { return Person.Sacristan.Value; }
+			set
+			{
+				Person.NewSacristan = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool Vigil
 		{
 			get { return Person.Vigil.Value; }
+			set
+			{
+				Person.NewVigil = value;
+				DisplayPerson();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool Mass
 		{
 			get { return Person.Mass.Value; }
+			set
+			{
+				Person.NewMass = value;
+				DisplayPerson();
+			}
 		}
-
-
 		//___________________________________________________________________________________________________________________________________________
 		private int PersonSelectedIndex
 		{

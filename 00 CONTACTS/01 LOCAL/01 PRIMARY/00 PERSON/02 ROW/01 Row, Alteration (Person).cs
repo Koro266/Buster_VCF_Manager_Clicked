@@ -154,7 +154,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			set { Replace( ORDINAL.HolySomething, new FIELD.IS_HolySomething( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public bool NewNewLeftPerson
+		public bool New_NewLeftPerson
 		{
 			set { Replace( ORDINAL.NewLeftPerson, new FIELD.IS_NewLeftPerson( value ) ); }
 		}
