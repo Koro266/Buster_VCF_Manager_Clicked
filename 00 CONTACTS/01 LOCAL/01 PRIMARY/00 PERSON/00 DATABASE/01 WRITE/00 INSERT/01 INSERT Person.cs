@@ -72,7 +72,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 						@dt_birthdate, 
 						@dt_deathdate, 
 						@dt_weddingdate, 
-						@dt_currencydate 
+						@dt_currencydate, 
 						@is_selected,
 						@is_enlightened,
 						@is_holysomething,
