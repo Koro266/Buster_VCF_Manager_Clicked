@@ -42,7 +42,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 						TDF_Persons.dt_DeathDate		= @dt_deathdate,	
 						TDF_Persons.dt_WeddingDate		= @dt_weddingdate,	
 						TDF_Persons.dt_CurrencyDate		= @dt_currencydate,	
-						TDF_Persons.li_EHS_Order		= @li_ehs_order,	
 						TDF_Persons.is_Selected			= @is_selected,	
 						TDF_Persons.is_Enlightened		= @is_enlightened,	
 						TDF_Persons.is_HolySomething	= @is_holysomething,	
@@ -81,7 +80,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					base.DbCommand.Parameters.Add( person.DeathDate.DbParameter );
 					base.DbCommand.Parameters.Add( person.WeddingDate.DbParameter );
 					base.DbCommand.Parameters.Add( person.CurrencyDate.DbParameter );
-					base.DbCommand.Parameters.Add( person.EhsOrder.DbParameter );
 					base.DbCommand.Parameters.Add( person.Selected.DbParameter );
 					base.DbCommand.Parameters.Add( person.Enlightened.DbParameter );
 					base.DbCommand.Parameters.Add( person.HolySomething.DbParameter );
