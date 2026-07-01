@@ -133,24 +133,71 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		{
 			set { Replace( ORDINAL.CurrencyDate, new FIELD.DT_CurrencyDate( value ) ); }
 		}
+		//___________________________________________________________________________________________________________________________________________
+		public int NewEHSOrder
+		{
+			set { Replace( ORDINAL.EHS_Order, new FIELD.LI_EHS_Order( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewSelected
+		{
+			set { Replace( ORDINAL.Selected, new FIELD.IS_Selected( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewEnlightened
+		{
+			set { Replace( ORDINAL.Enlightened, new FIELD.IS_Enlightened( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewHolySomething
+		{
+			set { Replace( ORDINAL.HolySomething, new FIELD.IS_HolySomething( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewNewLeftPerson
+		{
+			set { Replace( ORDINAL.NewLeftPerson, new FIELD.IS_NewLeftPerson( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewNoRightPerson
+		{
+			set { Replace( ORDINAL.NoRightPerson, new FIELD.IS_NoRightPerson( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewDefaultRow
+		{
+			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewExport
+		{
+			set { Replace( ORDINAL.Export, new FIELD.IS_Export( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewTimeTalent
+		{
+			set { Replace( ORDINAL.TimeTalent, new FIELD.IS_TimeTalent( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewMinister
+		{
+			set { Replace( ORDINAL.Minister, new FIELD.IS_Minister( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewSacristan
+		{
+			set { Replace( ORDINAL.Sacristan, new FIELD.IS_Sacristan( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewVigil
+		{
+			set { Replace( ORDINAL.Vigil, new FIELD.IS_Vigil( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewMass
+		{
+			set { Replace( ORDINAL.Mass, new FIELD.IS_Mass( value ) ); }
+		}
 		#endregion
 	}
 }
-//TODO Need 'New' responders for these fields
-/*
- * 
-		public FIELD.LI_EHS_Order EHS_Order				{ get { return ( FIELD.LI_EHS_Order )		base.GetField( CONST.OrdinalByName.EHS_Order ); } }
-		public FIELD.IS_Selected Selected				{ get { return ( FIELD.IS_Selected )		base.GetField( CONST.OrdinalByName.Selected ); } }
-		public FIELD.IS_Enlightened Enlightened			{ get { return ( FIELD.IS_Enlightened )		base.GetField( CONST.OrdinalByName.Enlightened ); } }
-		public FIELD.IS_HolySomething HolySomething		{ get { return ( FIELD.IS_HolySomething )	base.GetField( CONST.OrdinalByName.HolySomething ); } }
-		public FIELD.IS_NewLeftPerson NewLeftPerson		{ get { return ( FIELD.IS_NewLeftPerson )	base.GetField( CONST.OrdinalByName.NewLeftPerson ); } }
-		public FIELD.IS_NoRightPerson NoRightPerson		{ get { return ( FIELD.IS_NoRightPerson )	base.GetField( CONST.OrdinalByName.NoRightPerson ); } }
-		public FIELD.IS_DefaultRow DefaultRow			{ get { return ( FIELD.IS_DefaultRow )		base.GetField( CONST.OrdinalByName.DefaultRow ); } }
-		public FIELD.IS_Export Export					{ get { return ( FIELD.IS_Export )			base.GetField( CONST.OrdinalByName.Export ); } }
-		public FIELD.IS_TimeTalent TimeTalent			{ get { return ( FIELD.IS_TimeTalent )		base.GetField( CONST.OrdinalByName.TimeTalent ); } }
-		public FIELD.IS_Minister Minister				{ get { return ( FIELD.IS_Minister )		base.GetField( CONST.OrdinalByName.Minister ); } }
-		public FIELD.IS_Sacristan Sacristan				{ get { return ( FIELD.IS_Sacristan )		base.GetField( CONST.OrdinalByName.Sacristan ); } }
-		public FIELD.IS_Vigil Vigil						{ get { return ( FIELD.IS_Vigil )			base.GetField( CONST.OrdinalByName.Vigil ); } }
-		public FIELD.IS_Mass Mass						{ get { return ( FIELD.IS_Mass )			base.GetField( CONST.OrdinalByName.Mass ); } }
-
- */
