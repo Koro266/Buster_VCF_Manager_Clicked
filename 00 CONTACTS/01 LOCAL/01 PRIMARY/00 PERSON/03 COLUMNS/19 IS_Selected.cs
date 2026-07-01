@@ -70,7 +70,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns Notes as used in a VCF file.
+			/// Returns Selected as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
@@ -78,7 +78,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true if person has a valid Notes value.
+			/// Returns true if person has a valid Selected value.
 			/// </summary>
 			override public bool IsVcfValue
 			{

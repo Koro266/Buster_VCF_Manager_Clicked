@@ -54,14 +54,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns value that is sent to the database.
-			/// </summary>
-			override public object DbWriteValue
-			{
-				get { return base.DbWriteValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
 			/// Returns the value that is displayed in a TextBox.
 			/// </summary>
 			override public string TextboxValue
@@ -70,15 +62,15 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns Notes as used in a VCF file.
+			/// Returns EHS_Order as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
-				get { return "base.AsTF"; }
+				get { return base.AsString; }
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true if person has a valid Notes value.
+			/// Returns true if person has a valid EHS_Order value.
 			/// </summary>
 			override public bool IsVcfValue
 			{
@@ -89,17 +81,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 
 			#region DB INTERFACE
 			//_______________________________________________________________________________________________________________________________________
-			override public OleDbParameter DbParameter
-			{
-				get
-				{
-					OleDbParameter parameter = base.DbParameter;
-					parameter.ParameterName = Factors.ParameterName;
-					parameter.Size = Factors.FieldWidth;
-					parameter.Value = this.DbWriteValue;
-					return parameter;
-				}
-			}
+			//Not required.
 			#endregion
 		}
 	}
