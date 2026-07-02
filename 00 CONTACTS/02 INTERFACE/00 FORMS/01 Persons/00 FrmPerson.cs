@@ -73,9 +73,9 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayPerson()
 		{
-			_EventState.DisableEvents();
+			_EventState.DisableEvents();//x
 
-			this.tbx_PersonId.Text		= PkPersonAsText;
+			this.tbx_PersonId.Text			= PkPersonAsText;
 			this.tbx_Gender.Text			= Gender;
 			this.tbx_ProperSurname.Text		= ProperSurname;
 			this.tbx_GivenName.Text			= GivenName;
