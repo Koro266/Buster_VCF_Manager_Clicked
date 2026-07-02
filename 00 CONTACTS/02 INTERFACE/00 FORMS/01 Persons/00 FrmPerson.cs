@@ -73,42 +73,42 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayPerson()
 		{
-			_EventState.DisableEvents();
+			_EventState.DisableEvents();//x
 
-			this.tbx_PersonId.Text = PkPersonAsText;
-			this.tbx_Gender.Text = Gender;
-			this.tbx_ProperSurname.Text = ProperSurname;
-			this.tbx_GivenName.Text = GivenName;
-			this.tbx_MiddleNames.Text = MiddleNames;
-			this.tbx_NickName.Text = NickName;
-			this.tbx_BirthName.Text = BirthName;
-			this.tbx_Prefixes.Text = Prefix;
-			this.tbx_Suffixes.Text = Suffix;
-			this.tbx_Notes.Text = Notes;
-			this.tbx_UpperSurname.Text = UpperSurname;
-			this.tbx_NaturalName.Text = NaturalName;
-			this.tbx_SortableName.Text = SortableName;
-			this.tbx_Initials.Text = Initials;
+			this.tbx_PersonId.Text		= PkPersonAsText;
+			this.tbx_Gender.Text			= Gender;
+			this.tbx_ProperSurname.Text		= ProperSurname;
+			this.tbx_GivenName.Text			= GivenName;
+			this.tbx_MiddleNames.Text		= MiddleNames;
+			this.tbx_NickName.Text			= NickName;
+			this.tbx_BirthName.Text			= BirthName;
+			this.tbx_Prefixes.Text			= Prefix;
+			this.tbx_Suffixes.Text			= Suffix;
+			this.tbx_Notes.Text				= Notes;
+			this.tbx_UpperSurname.Text		= UpperSurname;
+			this.tbx_NaturalName.Text		= NaturalName;
+			this.tbx_SortableName.Text		= SortableName;
+			this.tbx_Initials.Text			= Initials;
 
 			ValuateBirthdayDatebox();
 			ValuateDeathDatebox();
 			ValuateWeddingDatebox();
 			ValuateCurrencyDatebox();
 
-			this.chk_Selected.Checked = Selected;
-			this.chk_Enlightened.Checked = Enlightened;
-			this.chk_HolySomething.Checked = HolySomething;
-			this.chk_NewLeftPerson.Checked = NewLeftPerson;
-			this.chk_NoRightPerson.Checked = NoRightPerson;
-			this.chk_DefaultRow.Checked = DefaultRow;
-			this.chk_Export.Checked = Export;
-			this.chk_TimeTalent.Checked = TimeTalent;
-			this.chk_Minister.Checked = Minister;
-			this.chk_Sacristan.Checked = Sacristan;
-			this.chk_Vigil.Checked = Vigil;
-			this.chk_SundayMass.Checked = Mass;
+			this.chk_Selected.Checked		= Selected;
+			this.chk_Enlightened.Checked	= Enlightened;
+			this.chk_HolySomething.Checked	= HolySomething;
+			this.chk_NewLeftPerson.Checked	= NewLeftPerson;
+			this.chk_NoRightPerson.Checked	= NoRightPerson;
+			this.chk_DefaultRow.Checked		= DefaultRow;
+			this.chk_Export.Checked			= Export;
+			this.chk_TimeTalent.Checked		= TimeTalent;
+			this.chk_Minister.Checked		= Minister;
+			this.chk_Sacristan.Checked		= Sacristan;
+			this.chk_Vigil.Checked			= Vigil;
+			this.chk_SundayMass.Checked		= Mass;
 
-			this.tbx_EhsOrder.Text = EhsOrderAsText;
+			this.tbx_EhsOrder.Text			= EhsOrderAsText;
 
 			_EventState.EnableEvents();
 		}
