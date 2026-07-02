@@ -36,13 +36,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static MESSENGER _Messenger;
 		private TXT_GATHER txt_Accumulator;
 
-		//TODO: Consider moving these constants into Person constants file. 
-		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
-		private const string is_Valid_Selection = " is a valid selection.";
-		private const string Update_Succeeded = "Update was successful.";
-		private const string Update_Failed = "Update failed.";
-		private const string Insert_Succeeded = "Insert was successful.";
-		private const string Insert_Failed = "Insert failed.";
+		private const string no_Item_Selected	= "No item selected. Move to default Peerson.";
+		private const string is_Valid_Selection	= " is a valid selection.";
+		private const string Update_Succeeded	= "Update was successful.";
+		private const string Update_Failed		= "Update failed.";
+		private const string Insert_Succeeded	= "Insert was successful.";
+		private const string Insert_Failed		= "Insert failed.";
 		#endregion
 
 
