@@ -54,14 +54,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns value that is sent to the database.
-			/// </summary>
-			override public object DbWriteValue
-			{
-				get { return base.DbWriteValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
 			/// Returns the value that is displayed in a TextBox.
 			/// </summary>
 			override public string TextboxValue
@@ -96,7 +88,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = this.DbWriteValue;
+					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}
