@@ -935,7 +935,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Minister_Click( object sender, EventArgs e )
 		{
-			Minister = true;
+			Minister = chk_Minister.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Sacristan_Click( object sender, EventArgs e )
