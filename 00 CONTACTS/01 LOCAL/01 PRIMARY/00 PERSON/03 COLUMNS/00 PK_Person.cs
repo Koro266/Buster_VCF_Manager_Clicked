@@ -3,10 +3,10 @@ using System.Data.OleDb;
 //GLOBAL
 using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
 using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON
@@ -51,30 +51,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			override public string ToString()
 			{
 				return base.Value.ToString();
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns PkPerson.AsString.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns true because this field is a primary key.
-			/// </summary>
-			override public bool IsVcfValue
-			{
-				get { return true; }
 			}
 			#endregion
 

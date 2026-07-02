@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Initials : SHORT_TXT
+		public partial class IS_Mass : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Initials];
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Mass];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Initials( string value ) : base( value )
+			public IS_Mass( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Initials( NULL_TEXT tnp ) : base( tnp )
+			public IS_Mass( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -47,35 +47,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			{
 				get { return Factors.Ordinal; }
 			}
-			//_______________________________________________________________________________________________________________________________________
-			override public string ToString()
-			{
-				return base.Value;
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.TextboxValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns String.Empty. Initials is a derived value and VCF name fields are constructed at Person.Row level.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return String.Empty; }
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns false because the Initials value is not used in the VCF record.
-			/// </summary>
-			override public bool IsVcfValue
-			{
-				get { return false; }
-			}
 			#endregion
 
 
@@ -88,7 +59,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}

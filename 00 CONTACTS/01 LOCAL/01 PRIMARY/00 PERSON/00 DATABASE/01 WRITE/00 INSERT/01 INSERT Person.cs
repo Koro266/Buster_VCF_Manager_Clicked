@@ -40,7 +40,19 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 						dt_BirthDate, 
 						dt_DeathDate, 
 						dt_WeddingDate, 
-						dt_CurrencyDate 
+						dt_CurrencyDate,
+						is_Selected,
+						is_Enlightened,
+						is_HolySomething,
+						is_NewLeftPerson,
+						is_NoRightPerson,
+						is_DefaultRow,
+						is_Export,
+						is_TimeTalent,
+						is_Minister,
+						is_Sacristan,
+						is_Vigil,
+						is_Mass
 					) 
 					VALUES 
 					( 
@@ -60,7 +72,19 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 						@dt_birthdate, 
 						@dt_deathdate, 
 						@dt_weddingdate, 
-						@dt_currencydate 
+						@dt_currencydate, 
+						@is_selected,
+						@is_enlightened,
+						@is_holysomething,
+						@is_newleftperson,
+						@is_norightperson,
+						@is_defaultrow,
+						@is_export,
+						@is_timetalent,
+						@is_minister,
+						@is_sacristan,
+						@is_vigil,
+						@is_mass
 					);
 				";
 				//_______________________________________________________________________________________________________________________________
@@ -83,6 +107,18 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					base.DbCommand.Parameters.Add( person.DeathDate.DbParameter );
 					base.DbCommand.Parameters.Add( person.WeddingDate.DbParameter );
 					base.DbCommand.Parameters.Add( person.CurrencyDate.DbParameter );
+					base.DbCommand.Parameters.Add( person.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( person.Enlightened.DbParameter );
+					base.DbCommand.Parameters.Add( person.HolySomething.DbParameter );
+					base.DbCommand.Parameters.Add( person.NewLeftPerson.DbParameter );
+					base.DbCommand.Parameters.Add( person.NoRightPerson.DbParameter );
+					base.DbCommand.Parameters.Add( person.DefaultRow.DbParameter );
+					base.DbCommand.Parameters.Add( person.Export.DbParameter );
+					base.DbCommand.Parameters.Add( person.TimeTalent.DbParameter );
+					base.DbCommand.Parameters.Add( person.Minister.DbParameter );
+					base.DbCommand.Parameters.Add( person.Sacristan.DbParameter );
+					base.DbCommand.Parameters.Add( person.Vigil.DbParameter );
+					base.DbCommand.Parameters.Add( person.Mass.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>

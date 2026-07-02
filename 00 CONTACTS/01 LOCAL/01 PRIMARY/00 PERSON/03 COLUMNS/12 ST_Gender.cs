@@ -4,9 +4,9 @@ using System.Data.OleDb;
 using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
 using WORDS		= CONTACTS.GLOBAL.VALUES.CONSTANT.Words;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.ColumnFactors;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
 
 //___________________________________________________________________________________________________________________________________________________

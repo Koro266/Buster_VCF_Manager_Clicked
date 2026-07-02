@@ -133,6 +133,71 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		{
 			set { Replace( ORDINAL.CurrencyDate, new FIELD.DT_CurrencyDate( value ) ); }
 		}
+		//___________________________________________________________________________________________________________________________________________
+		public int NewEHSOrder
+		{
+			set { Replace( ORDINAL.EHS_Order, new FIELD.LI_EHS_Order( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewSelected
+		{
+			set { Replace( ORDINAL.Selected, new FIELD.IS_Selected( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewEnlightened
+		{
+			set { Replace( ORDINAL.Enlightened, new FIELD.IS_Enlightened( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewHolySomething
+		{
+			set { Replace( ORDINAL.HolySomething, new FIELD.IS_HolySomething( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool New_NewLeftPerson
+		{
+			set { Replace( ORDINAL.NewLeftPerson, new FIELD.IS_NewLeftPerson( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewNoRightPerson
+		{
+			set { Replace( ORDINAL.NoRightPerson, new FIELD.IS_NoRightPerson( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewDefaultRow
+		{
+			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewExport
+		{
+			set { Replace( ORDINAL.Export, new FIELD.IS_Export( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewTimeTalent
+		{
+			set { Replace( ORDINAL.TimeTalent, new FIELD.IS_TimeTalent( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewMinister
+		{
+			set { Replace( ORDINAL.Minister, new FIELD.IS_Minister( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewSacristan
+		{
+			set { Replace( ORDINAL.Sacristan, new FIELD.IS_Sacristan( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewVigil
+		{
+			set { Replace( ORDINAL.Vigil, new FIELD.IS_Vigil( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewMass
+		{
+			set { Replace( ORDINAL.Mass, new FIELD.IS_Mass( value ) ); }
+		}
 		#endregion
 	}
 }

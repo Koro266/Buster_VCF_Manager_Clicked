@@ -23,9 +23,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region 00 TODO / DECLARE / CONSTRUCT
 
 		#region TODO LIST
-		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
 		//TODO: Fix the record indexing and look again at the interaction with the database. (?)
-		// TODO: Move the Gender box up the form.
 		#endregion
 
 
@@ -38,13 +36,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static MESSENGER _Messenger;
 		private TXT_GATHER txt_Accumulator;
 
-		//TODO: Consider moving these constants into Person constants file. 
-		private const string no_Item_Selected = "No item selected. Move to default Peerson.";
-		private const string is_Valid_Selection = " is a valid selection.";
-		private const string Update_Succeeded = "Update was successful.";
-		private const string Update_Failed = "Update failed.";
-		private const string Insert_Succeeded = "Insert was successful.";
-		private const string Insert_Failed = "Insert failed.";
+		private const string no_Item_Selected	= "No item selected. Move to default Peerson.";
+		private const string is_Valid_Selection	= " is a valid selection.";
+		private const string Update_Succeeded	= "Update was successful.";
+		private const string Update_Failed		= "Update failed.";
+		private const string Insert_Succeeded	= "Insert was successful.";
+		private const string Insert_Failed		= "Insert failed.";
 		#endregion
 
 
@@ -78,25 +75,40 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			_EventState.DisableEvents();
 
-			this.tbx_PersonId.Text = PkPersonAsText;
-			this.tbx_Gender.Text = Gender;
-			this.tbx_ProperSurname.Text = ProperSurname;
-			this.tbx_GivenName.Text = GivenName;
-			this.tbx_MiddleNames.Text = MiddleNames;
-			this.tbx_NickName.Text = NickName;
-			this.tbx_BirthName.Text = BirthName;
-			this.tbx_Prefixes.Text = Prefix;
-			this.tbx_Suffixes.Text = Suffix;
-			this.tbx_Notes.Text = Notes;
-			this.tbx_UpperSurname.Text = UpperSurname;
-			this.tbx_NaturalName.Text = NaturalName;
-			this.tbx_SortableName.Text = SortableName;
-			this.tbx_Initials.Text = Initials;
+			this.tbx_PersonId.Text			= PkPersonAsText;
+			this.tbx_Gender.Text			= Gender;
+			this.tbx_ProperSurname.Text		= ProperSurname;
+			this.tbx_GivenName.Text			= GivenName;
+			this.tbx_MiddleNames.Text		= MiddleNames;
+			this.tbx_NickName.Text			= NickName;
+			this.tbx_BirthName.Text			= BirthName;
+			this.tbx_Prefixes.Text			= Prefix;
+			this.tbx_Suffixes.Text			= Suffix;
+			this.tbx_Notes.Text				= Notes;
+			this.tbx_UpperSurname.Text		= UpperSurname;
+			this.tbx_NaturalName.Text		= NaturalName;
+			this.tbx_SortableName.Text		= SortableName;
+			this.tbx_Initials.Text			= Initials;
 
 			ValuateBirthdayDatebox();
 			ValuateDeathDatebox();
 			ValuateWeddingDatebox();
 			ValuateCurrencyDatebox();
+
+			this.chk_Selected.Checked		= Selected;
+			this.chk_Enlightened.Checked	= Enlightened;
+			this.chk_HolySomething.Checked	= HolySomething;
+			this.chk_NewLeftPerson.Checked	= NewLeftPerson;
+			this.chk_NoRightPerson.Checked	= NoRightPerson;
+			this.chk_DefaultRow.Checked		= DefaultRow;
+			this.chk_Export.Checked			= Export;
+			this.chk_TimeTalent.Checked		= TimeTalent;
+			this.chk_Minister.Checked		= Minister;
+			this.chk_Sacristan.Checked		= Sacristan;
+			this.chk_Vigil.Checked			= Vigil;
+			this.chk_SundayMass.Checked		= Mass;
+
+			this.tbx_EhsOrder.Text			= EhsOrderAsText;
 
 			_EventState.EnableEvents();
 		}
@@ -147,36 +159,49 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex = 0;
-			tbx_ProperSurname.TabIndex = 1;
-			btn_ElaborateNames.TabIndex = 2;
-			tbx_GivenName.TabIndex = 3;
-			tbx_MiddleNames.TabIndex = 4;
-			tbx_NickName.TabIndex = 5;
-			tbx_BirthName.TabIndex = 6;
-			tbx_Prefixes.TabIndex = 7;
-			tbx_Suffixes.TabIndex = 8;
-			tbx_Gender.TabIndex = 9;
-			dbx_Birthday.TabIndex = 10;
-			btn_ClearBirthDate.TabIndex = 11;
-			dbx_DeathDate.TabIndex = 12;
-			btn_ClearDeathDate.TabIndex = 13;
-			dbx_WeddingDate.TabIndex = 14;
-			btn_ClearWeddingDate.TabIndex = 15;
-			dbx_CurrencyDate.TabIndex = 16;
-			btn_CurrencyNow.TabIndex = 18;
-			tbx_Notes.TabIndex = 19;
-			tbx_Filter.TabIndex = 20;
-			btn_FirstPerson.TabIndex = 21;
-			btn_PreviousPerson.TabIndex = 22;
-			btn_NextPerson.TabIndex = 23;
-			btn_LastPerson.TabIndex = 24;
-			btn_NewPerson.TabIndex = 25;
-			btn_InsertPerson.TabIndex = 26;
-			btn_UpdatePerson.TabIndex = 27;
-			btn_ExportPersonVcf.TabIndex = 28;
-			btn_FindPerson.TabIndex = 29;
-			btn_Close.TabIndex = 30;
+			tbx_Matches.TabIndex				=  0;
+			tbx_ProperSurname.TabIndex			=  1;
+			btn_ElaborateNames.TabIndex			=  2;
+			tbx_GivenName.TabIndex				=  3;
+			tbx_Gender.TabIndex					=  4;
+			tbx_MiddleNames.TabIndex			=  5;
+			tbx_NickName.TabIndex				=  6;
+			tbx_BirthName.TabIndex				=  7;
+			tbx_Prefixes.TabIndex				=  8;
+			tbx_Suffixes.TabIndex				=  9;
+			dbx_Birthday.TabIndex				= 10;
+			btn_ClearBirthDate.TabIndex			= 11;
+			dbx_DeathDate.TabIndex				= 12;
+			btn_ClearDeathDate.TabIndex			= 13;
+			dbx_WeddingDate.TabIndex			= 14;
+			btn_ClearWeddingDate.TabIndex		= 15;
+			dbx_CurrencyDate.TabIndex			= 16;
+			btn_CurrencyNow.TabIndex			= 17;
+			tbx_Notes.TabIndex					= 18;
+			chk_Selected.TabIndex				= 19;
+			chk_Enlightened.TabIndex			= 20;
+			chk_HolySomething.TabIndex			= 21;
+			chk_NewLeftPerson.TabIndex			= 22;
+			chk_NoRightPerson.TabIndex			= 23;
+			chk_SundayMass.TabIndex				= 24;
+			chk_DefaultRow.TabIndex				= 25;
+			chk_Export.TabIndex					= 26;
+			chk_TimeTalent.TabIndex				= 27;
+			chk_Minister.TabIndex				= 28;
+			chk_Sacristan.TabIndex				= 29;
+			chk_Vigil.TabIndex					= 30;
+			chk_SundayMass.TabIndex				= 31;
+			tbx_Filter.TabIndex					= 32;
+			btn_FirstPerson.TabIndex			= 33;
+			btn_PreviousPerson.TabIndex			= 34;
+			btn_NextPerson.TabIndex				= 35;
+			btn_LastPerson.TabIndex				= 36;
+			btn_NewPerson.TabIndex				= 37;
+			btn_InsertPerson.TabIndex			= 38;
+			btn_UpdatePerson.TabIndex			= 39;
+			btn_ExportPersonVcf.TabIndex		= 40;
+			btn_FindPerson.TabIndex				= 41;
+			btn_Close.TabIndex					= 42;
 		}
 		#endregion
 
@@ -355,9 +380,143 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			get { return Person.CurrencyDate.Value; }
 			set
-
 			{
 				Person.NewCurrencyDate = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private int EhsOrder
+		{
+			get { return Person.EhsOrder.Value; }
+			set
+			{
+				Person.NewEHSOrder = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private string EhsOrderAsText
+		{
+			get { return Person.EhsOrder.TextboxValue; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Selected
+		{
+			get { return Person.Selected.Value; }
+			set
+			{
+				Person.NewSelected = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Enlightened
+		{
+			get { return Person.Enlightened.Value; }
+			set
+			{
+				Person.NewEnlightened = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool HolySomething
+		{
+			get { return Person.HolySomething.Value; }
+			set
+			{
+				Person.NewHolySomething = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool NewLeftPerson
+		{
+			get { return Person.NewLeftPerson.Value; }
+			set
+			{
+				Person.New_NewLeftPerson = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool NoRightPerson
+		{
+			get { return Person.NoRightPerson.Value; }
+			set
+			{
+				Person.NewNoRightPerson = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool DefaultRow
+		{
+			get { return Person.DefaultRow.Value; }
+			set
+			{
+				Person.NewDefaultRow = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Export
+		{
+			get { return Person.Export.Value; }
+			set
+			{
+				Person.NewExport = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool TimeTalent
+		{
+			get { return Person.TimeTalent.Value; }
+			set
+			{
+				Person.NewTimeTalent = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Minister
+		{
+			get { return Person.Minister.Value; }
+			set
+			{
+				Person.NewMinister = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Sacristan
+		{
+			get { return Person.Sacristan.Value; }
+			set
+			{
+				Person.NewSacristan = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Vigil
+		{
+			get { return Person.Vigil.Value; }
+			set
+			{
+				Person.NewVigil = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Mass
+		{
+			get { return Person.Mass.Value; }
+			set
+			{
+				Person.NewMass = value;
 				DisplayPerson();
 			}
 		}
@@ -732,6 +891,66 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_Close_Click( object sender, EventArgs e )
 		{
 			this.Close();
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Selected_Click( object sender, EventArgs e )
+		{
+			Selected = chk_Selected.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Enlightened_Click( object sender, EventArgs e )
+		{
+			Enlightened = chk_Enlightened.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_HolySomething_Click( object sender, EventArgs e )
+		{
+			HolySomething = chk_HolySomething.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_NewLeftPerson_Click( object sender, EventArgs e )
+		{
+			NewLeftPerson = chk_NewLeftPerson.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_NoRightPerson_Click( object sender, EventArgs e )
+		{
+			NoRightPerson = chk_NoRightPerson.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_DefaultRow_Click( object sender, EventArgs e )
+		{
+			DefaultRow = chk_DefaultRow.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Export_Click( object sender, EventArgs e )
+		{
+			Export = chk_Export.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_TimeTalent_Click( object sender, EventArgs e )
+		{
+			TimeTalent = chk_TimeTalent.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Minister_Click( object sender, EventArgs e )
+		{
+			Minister = chk_Minister.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Sacristan_Click( object sender, EventArgs e )
+		{
+			Sacristan = chk_Sacristan.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Vigil_Click( object sender, EventArgs e )
+		{
+			Vigil = chk_Vigil.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_SundayMass_Click( object sender, EventArgs e )
+		{
+			Mass = chk_SundayMass.Checked;
 		}
 		#endregion
 

@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
+using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Initials : SHORT_TXT
+		public partial class LI_EHS_Order : INT_32
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Initials];
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.EHS_Order];
+			private NULL_INT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Initials( string value ) : base( value )
+			public LI_EHS_Order( int value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Initials( NULL_TEXT tnp ) : base( tnp )
+			public LI_EHS_Order( NULL_INT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -50,48 +50,30 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			//_______________________________________________________________________________________________________________________________________
 			override public string ToString()
 			{
-				return base.Value;
+				return base.Value.ToString();
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.TextboxValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns String.Empty. Initials is a derived value and VCF name fields are constructed at Person.Row level.
+			/// Returns EHS_Order as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
-				get { return String.Empty; }
+				get { return base.AsString; }
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns false because the Initials value is not used in the VCF record.
+			/// Returns true if person has a valid EHS_Order value.
 			/// </summary>
 			override public bool IsVcfValue
 			{
-				get { return false; }
+				get { return base.IsNotAbsoluteNull; }
 			}
 			#endregion
 
 
 			#region DB INTERFACE
 			//_______________________________________________________________________________________________________________________________________
-			override public OleDbParameter DbParameter
-			{
-				get
-				{
-					OleDbParameter parameter = base.DbParameter;
-					parameter.ParameterName = Factors.ParameterName;
-					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
-					return parameter;
-				}
-			}
+			//Not required.
 			#endregion
 		}
 	}

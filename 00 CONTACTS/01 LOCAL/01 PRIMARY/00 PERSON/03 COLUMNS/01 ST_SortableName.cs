@@ -3,10 +3,10 @@ using System.Data.OleDb;
 //GLOBAL
 using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON
@@ -54,14 +54,6 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns value that is sent to the database.
-			/// </summary>
-			override public object DbWriteValue
-			{
-				get { return base.DbWriteValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
 			/// Returns the value that is displayed in a TextBox.
 			/// </summary>
 			override public string TextboxValue
@@ -96,7 +88,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = this.DbWriteValue;
+					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}

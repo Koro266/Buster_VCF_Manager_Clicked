@@ -2,12 +2,12 @@
 //___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using BASE_READER	= CONTACTS.GLOBAL.DATABASE.READ.BaseReader;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL
-using PERSON_ROW	= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using FIELD			= CONTACTS.LOCAL.PRIMARY.PERSON.Column;
 using ORDINAL		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
+using PERSON_ROW	= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON
@@ -82,24 +82,37 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			{
 				PERSON_ROW person = new PERSON_ROW();
 
-				person.Append( new FIELD.PK_Person			( base.GetPrimaryKey	( ORDINAL.PkPerson)		 ) );
-				person.Append( new FIELD.ST_SortableName	( base.GetShortText		( ORDINAL.SortableName)	 ) );
-				person.Append( new FIELD.ST_NaturalName		( base.GetShortText		( ORDINAL.NaturalName)	 ) );
-				person.Append( new FIELD.ST_UpperSurname	( base.GetShortText		( ORDINAL.UpperSurname)	 ) );
-				person.Append( new FIELD.ST_ProperSurname	( base.GetShortText		( ORDINAL.ProperSurname) ) );
-				person.Append( new FIELD.ST_GivenName		( base.GetShortText		( ORDINAL.GivenName)	 ) );
-				person.Append( new FIELD.ST_MiddleNames		( base.GetShortText		( ORDINAL.MiddleNames)	 ) );
-				person.Append( new FIELD.ST_NickName		( base.GetShortText		( ORDINAL.NickName)		 ) );
-				person.Append( new FIELD.ST_BirthName		( base.GetShortText		( ORDINAL.BirthName)	 ) );
-				person.Append( new FIELD.ST_Prefix			( base.GetShortText		( ORDINAL.Prefix)		 ) );
-				person.Append( new FIELD.ST_Suffix			( base.GetShortText		( ORDINAL.Suffix)		 ) );
-				person.Append( new FIELD.ST_Initials		( base.GetShortText		( ORDINAL.Initials)		 ) );
-				person.Append( new FIELD.ST_Gender			( base.GetShortText		( ORDINAL.Gender)		 ) );
-				person.Append( new FIELD.ST_Notes			( base.GetShortText		( ORDINAL.Notes)		 ) );
-				person.Append( new FIELD.DT_BirthDate		( base.GetDateTime		( ORDINAL.BirthDate)	 ) );
-				person.Append( new FIELD.DT_DeathDate		( base.GetDateTime		( ORDINAL.DeathDate)	 ) );
-				person.Append( new FIELD.DT_WeddingDate		( base.GetDateTime		( ORDINAL.WeddingDate)	 ) );
-				person.Append( new FIELD.DT_CurrencyDate	( base.GetDateTime		( ORDINAL.CurrencyDate)	 ) );
+				person.Append( new FIELD.PK_Person			( base.GetPrimaryKey	( ORDINAL.PkPerson)			) );
+				person.Append( new FIELD.ST_SortableName	( base.GetText			( ORDINAL.SortableName)		) );
+				person.Append( new FIELD.ST_NaturalName		( base.GetText			( ORDINAL.NaturalName)		) );
+				person.Append( new FIELD.ST_UpperSurname	( base.GetText			( ORDINAL.UpperSurname)		) );
+				person.Append( new FIELD.ST_ProperSurname	( base.GetText			( ORDINAL.ProperSurname)	) );
+				person.Append( new FIELD.ST_GivenName		( base.GetText			( ORDINAL.GivenName)		) );
+				person.Append( new FIELD.ST_MiddleNames		( base.GetText			( ORDINAL.MiddleNames)		) );
+				person.Append( new FIELD.ST_NickName		( base.GetText			( ORDINAL.NickName)			) );
+				person.Append( new FIELD.ST_BirthName		( base.GetText			( ORDINAL.BirthName)		) );
+				person.Append( new FIELD.ST_Prefix			( base.GetText			( ORDINAL.Prefix)			) );
+				person.Append( new FIELD.ST_Suffix			( base.GetText			( ORDINAL.Suffix)			) );
+				person.Append( new FIELD.ST_Initials		( base.GetText			( ORDINAL.Initials)			) );
+				person.Append( new FIELD.ST_Gender			( base.GetText			( ORDINAL.Gender)			) );
+				person.Append( new FIELD.ST_Notes			( base.GetText			( ORDINAL.Notes)			) );
+				person.Append( new FIELD.DT_BirthDate		( base.GetDateTime		( ORDINAL.BirthDate)		) );
+				person.Append( new FIELD.DT_DeathDate		( base.GetDateTime		( ORDINAL.DeathDate)		) );
+				person.Append( new FIELD.DT_WeddingDate		( base.GetDateTime		( ORDINAL.WeddingDate)		) );
+				person.Append( new FIELD.DT_CurrencyDate	( base.GetDateTime		( ORDINAL.CurrencyDate)		) );
+				person.Append( new FIELD.LI_EHS_Order		( base.GetInt32			( ORDINAL.EHS_Order)		) );
+				person.Append( new FIELD.IS_Selected		( base.GetBoolean		( ORDINAL.Selected)			) );
+				person.Append( new FIELD.IS_Enlightened		( base.GetBoolean		( ORDINAL.Enlightened)		) );
+				person.Append( new FIELD.IS_HolySomething	( base.GetBoolean		( ORDINAL.HolySomething)	) );
+				person.Append( new FIELD.IS_NewLeftPerson	( base.GetBoolean		( ORDINAL.NewLeftPerson)	) );
+				person.Append( new FIELD.IS_NoRightPerson	( base.GetBoolean		( ORDINAL.NoRightPerson)	) );
+				person.Append( new FIELD.IS_DefaultRow		( base.GetBoolean		( ORDINAL.DefaultRow)		) );
+				person.Append( new FIELD.IS_Export			( base.GetBoolean		( ORDINAL.Export)			) );
+				person.Append( new FIELD.IS_TimeTalent		( base.GetBoolean		( ORDINAL.TimeTalent)		) );
+				person.Append( new FIELD.IS_Minister		( base.GetBoolean		( ORDINAL.Minister)			) );
+				person.Append( new FIELD.IS_Sacristan		( base.GetBoolean		( ORDINAL.Sacristan)		) );
+				person.Append( new FIELD.IS_Vigil			( base.GetBoolean		( ORDINAL.Vigil)			) );
+				person.Append( new FIELD.IS_Mass			( base.GetBoolean		( ORDINAL.Mass)				) );
 
 				return person;
 			}
