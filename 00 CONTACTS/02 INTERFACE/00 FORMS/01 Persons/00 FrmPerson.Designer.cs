@@ -103,6 +103,9 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
+			checkBox1 = new CheckBox();
+			checkBox2 = new CheckBox();
+			checkBox3 = new CheckBox();
 			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -686,6 +689,9 @@
 			// 
 			// grp_PersonData
 			// 
+			grp_PersonData.Controls.Add( checkBox3 );
+			grp_PersonData.Controls.Add( checkBox2 );
+			grp_PersonData.Controls.Add( checkBox1 );
 			grp_PersonData.Controls.Add( label2 );
 			grp_PersonData.Controls.Add( tbx_EhsOrder );
 			grp_PersonData.Controls.Add( chk_SundayMass );
@@ -772,7 +778,7 @@
 			// 
 			label2.AutoSize = true;
 			label2.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label2.Location = new Point( 420, 371 );
+			label2.Location = new Point( 414, 390 );
 			label2.Name = "label2";
 			label2.Size = new Size( 32, 17 );
 			label2.TabIndex = 136;
@@ -781,7 +787,7 @@
 			// tbx_EhsOrder
 			// 
 			tbx_EhsOrder.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_EhsOrder.Location = new Point( 456, 368 );
+			tbx_EhsOrder.Location = new Point( 450, 387 );
 			tbx_EhsOrder.Name = "tbx_EhsOrder";
 			tbx_EhsOrder.ReadOnly = true;
 			tbx_EhsOrder.Size = new Size( 76, 25 );
@@ -792,7 +798,7 @@
 			// 
 			chk_SundayMass.AutoSize = true;
 			chk_SundayMass.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_SundayMass.Location = new Point( 423, 341 );
+			chk_SundayMass.Location = new Point( 421, 360 );
 			chk_SundayMass.Name = "chk_SundayMass";
 			chk_SundayMass.Size = new Size( 113, 21 );
 			chk_SundayMass.TabIndex = 134;
@@ -804,7 +810,7 @@
 			// 
 			chk_Vigil.AutoSize = true;
 			chk_Vigil.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Vigil.Location = new Point( 423, 315 );
+			chk_Vigil.Location = new Point( 421, 336 );
 			chk_Vigil.Name = "chk_Vigil";
 			chk_Vigil.Size = new Size( 62, 21 );
 			chk_Vigil.TabIndex = 133;
@@ -816,7 +822,7 @@
 			// 
 			chk_Sacristan.AutoSize = true;
 			chk_Sacristan.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Sacristan.Location = new Point( 423, 289 );
+			chk_Sacristan.Location = new Point( 421, 312 );
 			chk_Sacristan.Name = "chk_Sacristan";
 			chk_Sacristan.Size = new Size( 88, 21 );
 			chk_Sacristan.TabIndex = 132;
@@ -828,7 +834,7 @@
 			// 
 			chk_Minister.AutoSize = true;
 			chk_Minister.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Minister.Location = new Point( 423, 263 );
+			chk_Minister.Location = new Point( 421, 288 );
 			chk_Minister.Name = "chk_Minister";
 			chk_Minister.Size = new Size( 84, 21 );
 			chk_Minister.TabIndex = 131;
@@ -840,7 +846,7 @@
 			// 
 			chk_TimeTalent.AutoSize = true;
 			chk_TimeTalent.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_TimeTalent.Location = new Point( 423, 237 );
+			chk_TimeTalent.Location = new Point( 421, 264 );
 			chk_TimeTalent.Name = "chk_TimeTalent";
 			chk_TimeTalent.Size = new Size( 118, 21 );
 			chk_TimeTalent.TabIndex = 130;
@@ -852,7 +858,7 @@
 			// 
 			chk_Export.AutoSize = true;
 			chk_Export.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Export.Location = new Point( 423, 211 );
+			chk_Export.Location = new Point( 421, 72 );
 			chk_Export.Name = "chk_Export";
 			chk_Export.Size = new Size( 72, 21 );
 			chk_Export.TabIndex = 129;
@@ -864,7 +870,7 @@
 			// 
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 423, 185 );
+			chk_DefaultRow.Location = new Point( 421, 48 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 128;
@@ -876,7 +882,7 @@
 			// 
 			chk_NoRightPerson.AutoSize = true;
 			chk_NoRightPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_NoRightPerson.Location = new Point( 423, 159 );
+			chk_NoRightPerson.Location = new Point( 421, 168 );
 			chk_NoRightPerson.Name = "chk_NoRightPerson";
 			chk_NoRightPerson.Size = new Size( 134, 21 );
 			chk_NoRightPerson.TabIndex = 127;
@@ -888,7 +894,7 @@
 			// 
 			chk_NewLeftPerson.AutoSize = true;
 			chk_NewLeftPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_NewLeftPerson.Location = new Point( 423, 133 );
+			chk_NewLeftPerson.Location = new Point( 421, 144 );
 			chk_NewLeftPerson.Name = "chk_NewLeftPerson";
 			chk_NewLeftPerson.Size = new Size( 134, 21 );
 			chk_NewLeftPerson.TabIndex = 126;
@@ -900,7 +906,7 @@
 			// 
 			chk_HolySomething.AutoSize = true;
 			chk_HolySomething.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_HolySomething.Location = new Point( 423, 107 );
+			chk_HolySomething.Location = new Point( 421, 216 );
 			chk_HolySomething.Name = "chk_HolySomething";
 			chk_HolySomething.Size = new Size( 133, 21 );
 			chk_HolySomething.TabIndex = 125;
@@ -912,7 +918,7 @@
 			// 
 			chk_Enlightened.AutoSize = true;
 			chk_Enlightened.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Enlightened.Location = new Point( 423, 81 );
+			chk_Enlightened.Location = new Point( 421, 192 );
 			chk_Enlightened.Name = "chk_Enlightened";
 			chk_Enlightened.Size = new Size( 107, 21 );
 			chk_Enlightened.TabIndex = 124;
@@ -924,7 +930,7 @@
 			// 
 			chk_Selected.AutoSize = true;
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 423, 55 );
+			chk_Selected.Location = new Point( 421, 24 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 123;
@@ -1056,6 +1062,39 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
+			// checkBox1
+			// 
+			checkBox1.AutoSize = true;
+			checkBox1.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox1.Location = new Point( 421, 96 );
+			checkBox1.Name = "checkBox1";
+			checkBox1.Size = new Size( 81, 21 );
+			checkBox1.TabIndex = 137;
+			checkBox1.Text = "Blocked?";
+			checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// checkBox2
+			// 
+			checkBox2.AutoSize = true;
+			checkBox2.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox2.Location = new Point( 421, 120 );
+			checkBox2.Name = "checkBox2";
+			checkBox2.Size = new Size( 81, 21 );
+			checkBox2.TabIndex = 138;
+			checkBox2.Text = "Inactive?";
+			checkBox2.UseVisualStyleBackColor = true;
+			// 
+			// checkBox3
+			// 
+			checkBox3.AutoSize = true;
+			checkBox3.ForeColor = Color.FromArgb(     192,     0,     0 );
+			checkBox3.Location = new Point( 421, 240 );
+			checkBox3.Name = "checkBox3";
+			checkBox3.Size = new Size( 106, 21 );
+			checkBox3.TabIndex = 139;
+			checkBox3.Text = "St Theresa's?";
+			checkBox3.UseVisualStyleBackColor = true;
+			// 
 			// FrmPerson
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -1152,5 +1191,8 @@
 		private CheckBox chk_Enlightened;
 		private Label label2;
 		private TextBox tbx_EhsOrder;
+		private CheckBox checkBox2;
+		private CheckBox checkBox1;
+		private CheckBox checkBox3;
 	}
 }
