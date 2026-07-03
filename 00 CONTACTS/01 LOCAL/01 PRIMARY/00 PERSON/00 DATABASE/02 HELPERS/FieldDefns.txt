@@ -16,16 +16,19 @@ dt_BirthDate	14	8	8	BirthDate	birthdate	DT	Dt	dt	Date of birth.	|
 dt_DeathDate	15	8	8	DeathDate	deathdate	DT	Dt	dt	Date of death.	|	
 dt_WeddingDate	16	8	8	WeddingDate	weddingdate	DT	Dt	dt	Date of most recent wedding/anniversary. If Person has multiple wedding dates, they will appear in TDF_Person_X_Persons (provided earlier families are maintained).	|	
 dt_CurrencyDate	17	8	8	CurrencyDate	currencydate	DT	Dt	dt	Date of most-recent update. Person record, including its sub-entities, considered to be current as of this date.	|	
-li_EHS_Order	18	4	4	EHS_Order	ehs_order	LI	Li	li	HANDS-ON: Broadly reflects the order that EHS65 entries appear in the 65 Yearbook. People who do not appear in the yearbook are added at the high-numbered end.	|	
-is_Selected	19	1	1	Selected	selected	IS	Is	is	HANDS-ON: General-purpose selection flag. Default value = False.	|	
-is_Enlightened	20	1	1	Enlightened	enlightened	IS	Is	is	HANDS-ON: TRUE = Person is a character in Enlightened. Default value = False.	|	
-is_HolySomething	21	1	1	HolySomething	holysomething	IS	Is	is	HANDS-ON: TRUE = Person is a character in Holy Something. Default value = False.	|	
-is_NewLeftPerson	22	1	1	NewLeftPerson	newleftperson	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  NEW-LEFT PERSON row. Default value = False.	|	
-is_NoRightPerson	23	1	1	NoRightPerson	norightperson	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  NO-RIGHT PERSON row. Default value = False.	|	
-is_DefaultRow	24	1	1	DefaultRow	defaultrow	IS	Is	is	HANDS-ON: TRUE = Row is used as the Contact Manager default  Person object. Default value = False.	|	
-is_Export	25	1	1	Export	export	IS	Is	is	HANDS-ON: TRUE = Person is to be exported as a VCF file. Default value = True. FALSE = Person may be passed over on export.	|	
-is_TimeTalent	26	1	1	TimeTalent	timetalent	IS	Is	is	HANDS-ON: TRUE = Person is included in St T's Time & Talent initiative. Default value = False.	|	
-is_Minister	27	1	1	Minister	minister	IS	Is	is	HANDS-ON: TRUE = Person is a St T's eucharistic minister. Default value = False.	|	
-is_Sacristan	28	1	1	Sacristan	sacristan	IS	Is	is	HANDS-ON: TRUE = Person is a St T's sacristan. Default value = False.	|	
-is_Vigil	29	1	1	Vigil	vigil	IS	Is	is	HANDS-ON: TRUE = Person is normally assigned to St T's Vigil Mass. Default value = False.	|	
-is_Mass	30	1	1	Mass	mass	IS	Is	is	HANDS-ON: TRUE = Person is normally assigned to St T's Sunday Mass. Default value = False.	|	
+li_EHS_Order	18	4	4	EHS_Order	ehs_order	LI	Li	li	Broadly reflects the order that EHS65 entries appear in the 65 Yearbook. People who do not appear in the yearbook are added at the high-numbered end.	|	
+is_Selected	19	1	1	Selected	selected	IS	Is	is	TRUE = Person is included in an arbitraily defined category. Dynamic field. Default value = False.	|	
+is_DefaultRow	20	1	1	DefaultRow	defaultrow	IS	Is	is	TRUE = Person is used as the Contact Manager default  person object. Static field. Default value = False.	|	
+is_Export	21	1	1	Export	export	IS	Is	is	TRUE = Person is to be exported as a VCF file. Static field. Default value = True	|	
+is_Blocked	22	1	1	Blocked	blocked	IS	Is	is	TRUE = Person should be ignored. Static field. Default value = False.	|	
+is_Inactive	23	1	1	Inactive	inactive	IS	Is	is	TRUE = Person is no longer of any particular relevance but should not to be deleted. Static field. Default value = False.	|	
+is_NewLeftPerson	24	1	1	NewLeftPerson	newleftperson	IS	Is	is	TRUE = Person is used as the Contact Manager default  NEW-LEFT PERSON row. Static field. Default value = False.	|	
+is_NoRightPerson	25	1	1	NoRightPerson	norightperson	IS	Is	is	TRUE = Person is used as the Contact Manager default  NO-RIGHT PERSON row. Static field. Default value = False.	|	
+is_Enlightened	26	1	1	Enlightened	enlightened	IS	Is	is	TRUE = Person is a character in Enlightened. Static field. Default value = False.	|	
+is_HolySomething	27	1	1	HolySomething	holysomething	IS	Is	is	TRUE = Person is a character in Holy Something. Static field. Default value = False.	|	
+is_StTheresa	28	1	1	StTheresa	sttheresa	IS	Is	is	TRUE = Person is in a parishioner of St Theresa's. Static field. Default value = False.	|	
+is_TimeTalent	29	1	1	TimeTalent	timetalent	IS	Is	is	TRUE = Person is included in St T's Time & Talent initiative. Static field. Default value = False.	|	
+is_Minister	30	1	1	Minister	minister	IS	Is	is	TRUE = Person is a St T's eucharistic minister. Static field. Default value = False.	|	
+is_Sacristan	31	1	1	Sacristan	sacristan	IS	Is	is	TRUE = Person is a St T's sacristan. Static field. Default value = False.	|	
+is_Vigil	32	1	1	Vigil	vigil	IS	Is	is	TRUE = Person is normally assigned to St T's Vigil Mass. Static field. Default value = False.	|	
+is_Mass	33	1	1	Mass	mass	IS	Is	is	TRUE = Person is normally assigned to St T's Sunday Mass. Static field. Default value = False.	|	
