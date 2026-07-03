@@ -42,18 +42,23 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 				new_person.Append( new FIELD.DT_WeddingDate		( null_date ) );
 				new_person.Append( new FIELD.DT_CurrencyDate	( DateTime.Now ) );
 				new_person.Append( new FIELD.LI_EHS_Order		( null_int ) );
+
 				new_person.Append( new FIELD.IS_Selected		( false ) );
-				new_person.Append( new FIELD.IS_Enlightened		( false ) );
-				new_person.Append( new FIELD.IS_HolySomething	( false ) );
-				new_person.Append( new FIELD.IS_NewLeftPerson	( false ) );
-				new_person.Append( new FIELD.IS_NoRightPerson	( false ) );
 				new_person.Append( new FIELD.IS_DefaultRow		( false ) );
 				new_person.Append( new FIELD.IS_Export			( false ) );
+				new_person.Append( new FIELD.IS_Blocked			( false ) );
+				new_person.Append( new FIELD.IS_Inactive		( false ) );
+				new_person.Append( new FIELD.IS_NewLeftPerson	( false ) );
+				new_person.Append( new FIELD.IS_NoRightPerson	( false ) );
+				new_person.Append( new FIELD.IS_Enlightened		( false ) );
+				new_person.Append( new FIELD.IS_HolySomething	( false ) );
+				new_person.Append( new FIELD.IS_StTheresa		( false ) );
 				new_person.Append( new FIELD.IS_TimeTalent		( false ) );
 				new_person.Append( new FIELD.IS_Minister		( false ) );
 				new_person.Append( new FIELD.IS_Sacristan		( false ) );
 				new_person.Append( new FIELD.IS_Vigil			( false ) );
 				new_person.Append( new FIELD.IS_Mass			( false ) );
+
 
 				return new_person;
 			}
