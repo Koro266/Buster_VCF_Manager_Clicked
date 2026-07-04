@@ -22,24 +22,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 				private const string sql_text =
 				@"
 					SELECT
-						TDF_Persons.pk_Person,
-						TDF_Persons.st_SortableName,
-						TDF_Persons.st_NaturalName,
-						TDF_Persons.st_UpperSurname,
-						TDF_Persons.st_ProperSurname,
-						TDF_Persons.st_GivenName,
-						TDF_Persons.st_MiddleNames,
-						TDF_Persons.st_NickName,
-						TDF_Persons.st_BirthName,
-						TDF_Persons.st_Prefix,
-						TDF_Persons.st_Suffix,
-						TDF_Persons.st_Initials,
-						TDF_Persons.st_Gender,
-						TDF_Persons.st_Notes,
-						TDF_Persons.dt_BirthDate,
-						TDF_Persons.dt_DeathDate,
-						TDF_Persons.dt_WeddingDate,
-						TDF_Persons.dt_CurrencyDate
+						TDF_Persons.*
 					FROM
 						TDF_Persons
 					WHERE

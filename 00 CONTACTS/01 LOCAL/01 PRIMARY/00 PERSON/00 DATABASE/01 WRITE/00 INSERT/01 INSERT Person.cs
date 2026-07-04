@@ -20,6 +20,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			/// </summary>
 			public class Person : DB_CONNECTION
 			{
+				//TODO INSERT fields are not listed in the 'correct' order (which seems not to matter). 
 				private const string sql_text =
 				@"		
 					INSERT INTO TDF_Persons	

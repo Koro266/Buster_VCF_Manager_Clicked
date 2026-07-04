@@ -19,6 +19,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			/// </summary>
 			public class Person : DbConnection
 			{
+				//TODO UPDATE fields are not listed in the 'correct' order (which seems not to matter). 
 				private const string sql_text =
 				@"
 					UPDATE					
