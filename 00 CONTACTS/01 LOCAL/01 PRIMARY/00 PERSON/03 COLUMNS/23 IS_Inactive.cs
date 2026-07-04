@@ -15,7 +15,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_Export : BOOL
+		public partial class IS_Inactive : BOOL
 		{
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.Export];
@@ -25,11 +25,11 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Export( bool value ) : base( value )
+			public IS_Inactive( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Export( NULL_BOOL tnp ) : base( tnp )
+			public IS_Inactive( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}

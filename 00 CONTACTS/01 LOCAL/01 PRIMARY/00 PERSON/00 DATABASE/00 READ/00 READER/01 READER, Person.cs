@@ -1,6 +1,8 @@
 ﻿
 //___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
+using static CONTACTS.LOCAL.PRIMARY.PERSON.Column;
+
 //GLOBAL
 using BASE_READER	= CONTACTS.GLOBAL.DATABASE.READ.BaseReader;
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
@@ -102,12 +104,15 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 				person.Append( new FIELD.DT_CurrencyDate	( base.GetDateTime		( ORDINAL.CurrencyDate)		) );
 				person.Append( new FIELD.LI_EHS_Order		( base.GetInt32			( ORDINAL.EHS_Order)		) );
 				person.Append( new FIELD.IS_Selected		( base.GetBoolean		( ORDINAL.Selected)			) );
-				person.Append( new FIELD.IS_Enlightened		( base.GetBoolean		( ORDINAL.Enlightened)		) );
-				person.Append( new FIELD.IS_HolySomething	( base.GetBoolean		( ORDINAL.HolySomething)	) );
-				person.Append( new FIELD.IS_NewLeftPerson	( base.GetBoolean		( ORDINAL.NewLeftPerson)	) );
-				person.Append( new FIELD.IS_NoRightPerson	( base.GetBoolean		( ORDINAL.NoRightPerson)	) );
 				person.Append( new FIELD.IS_DefaultRow		( base.GetBoolean		( ORDINAL.DefaultRow)		) );
 				person.Append( new FIELD.IS_Export			( base.GetBoolean		( ORDINAL.Export)			) );
+				person.Append( new FIELD.IS_Blocked			( base.GetBoolean		( ORDINAL.Blocked)			) );
+				person.Append( new FIELD.IS_Inactive		( base.GetBoolean		( ORDINAL.Inactive)			) );
+				person.Append( new FIELD.IS_NewLeftPerson	( base.GetBoolean		( ORDINAL.NewLeftPerson)	) );
+				person.Append( new FIELD.IS_NoRightPerson	( base.GetBoolean		( ORDINAL.NoRightPerson)	) );
+				person.Append( new FIELD.IS_Enlightened		( base.GetBoolean		( ORDINAL.Enlightened)		) );
+				person.Append( new FIELD.IS_HolySomething	( base.GetBoolean		( ORDINAL.HolySomething)	) );
+				person.Append( new FIELD.IS_StTheresa		( base.GetBoolean		( ORDINAL.StTheresa)		) );
 				person.Append( new FIELD.IS_TimeTalent		( base.GetBoolean		( ORDINAL.TimeTalent)		) );
 				person.Append( new FIELD.IS_Minister		( base.GetBoolean		( ORDINAL.Minister)			) );
 				person.Append( new FIELD.IS_Sacristan		( base.GetBoolean		( ORDINAL.Sacristan)		) );
