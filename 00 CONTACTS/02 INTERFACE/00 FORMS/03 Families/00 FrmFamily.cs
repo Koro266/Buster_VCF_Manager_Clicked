@@ -153,31 +153,31 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex = 0;
-			cbx_FamilyType.TabIndex = 1;
-			tbx_Notes.TabIndex = 2;
-			dbx_WeddingDate.TabIndex = 3;
-			btn_ClearWeddingDate.TabIndex = 4;
-			dbx_CurrencyDate.TabIndex = 5;
-			btn_CurrencyNow.TabIndex = 6;
-			chk_IsDissolved.TabIndex = 7;
-			chk_IsCorlettRd.TabIndex = 8;
-			chk_IsStTheresa.TabIndex = 9;
-			chk_IsChristmas.TabIndex = 10;
-			chk_IsDefaultFamily.TabIndex = 11;
-			btn_TriggerDerivation.TabIndex = 12;
-			tbx_Filter.TabIndex = 13;
-			btn_FirstFamily.TabIndex = 14;
-			btn_PreviousFamily.TabIndex = 15;
-			btn_NextFamily.TabIndex = 16;
-			btn_LastFamily.TabIndex = 17;
-			btn_NewFamily.TabIndex = 18;
-			btn_InsertFamily.TabIndex = 19;
-			btn_UpdateFamily.TabIndex = 20;
-			btn_ExportFamilyVcf.TabIndex = 21;
-			btn_FindFamily.TabIndex = 22;
-			lbx_MatchingFamilies.TabIndex = 23;
-			btn_CloseForm.TabIndex = 24;
+			tbx_Matches.TabIndex			=  0;
+			cbx_FamilyType.TabIndex			=  1;
+			tbx_Notes.TabIndex				=  2;
+			dbx_WeddingDate.TabIndex		=  3;
+			btn_ClearWeddingDate.TabIndex	=  4;
+			dbx_CurrencyDate.TabIndex		=  5;
+			btn_CurrencyNow.TabIndex		=  6;
+			chk_IsDissolved.TabIndex		=  7;
+			chk_IsCorlettRd.TabIndex		=  8;
+			chk_IsStTheresa.TabIndex		=  9;
+			chk_IsChristmas.TabIndex		= 10;
+			chk_IsDefaultFamily.TabIndex	= 11;
+			btn_TriggerDerivation.TabIndex	= 12;
+			tbx_Filter.TabIndex				= 13;
+			btn_FirstFamily.TabIndex		= 14;
+			btn_PreviousFamily.TabIndex		= 15;
+			btn_NextFamily.TabIndex			= 16;
+			btn_LastFamily.TabIndex			= 17;
+			btn_NewFamily.TabIndex			= 18;
+			btn_InsertFamily.TabIndex		= 19;
+			btn_UpdateFamily.TabIndex		= 20;
+			btn_ExportFamilyVcf.TabIndex	= 21;
+			btn_FindFamily.TabIndex			= 22;
+			lbx_MatchingFamilies.TabIndex	= 23;
+			btn_CloseForm.TabIndex			= 24;
 		}
 		#endregion
 
