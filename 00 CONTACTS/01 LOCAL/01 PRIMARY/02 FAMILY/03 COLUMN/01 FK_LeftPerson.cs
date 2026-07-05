@@ -52,22 +52,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed on a form.
-			/// </summary>
-			public string DisplayValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is used in a VCF file.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return base.VcfValue; }
-			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns true because Left_Person is never null.
@@ -88,7 +72,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}

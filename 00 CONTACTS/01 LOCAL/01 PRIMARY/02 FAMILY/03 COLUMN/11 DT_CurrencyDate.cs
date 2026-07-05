@@ -52,7 +52,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
-			/*
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns CurrencyDate value that is displayed in a TextBox in format "ddd, d MMM yyyy".
@@ -71,7 +70,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true because every person has a CurrencyDate.
+			/// Returns true because every family has a CurrencyDate.
 			/// </summary>
 			override public bool IsVcfValue
 			{
@@ -83,9 +82,14 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			/// </summary>
 			override public object DbWriteValue
 			{
-				get { return base.DbWriteDate( DATE_TIME.DatabaseCurrencyDateFormat ); }
+				get
+				{
+					if ( base.IsNull )
+						return ( object )System.DBNull.Value;
+					else
+						return base.DbWriteDate( DATE_TIME.DatabaseCurrencyDateFormat );
+				}
 			}
-			*/
 			#endregion
 
 

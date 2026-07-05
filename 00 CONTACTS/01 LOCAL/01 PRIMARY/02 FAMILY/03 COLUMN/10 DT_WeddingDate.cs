@@ -52,7 +52,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
-			/*
 			//___________________________________________________________________________________________________________________________________________
 			override public DateTime DatePickerValue
 			{
@@ -69,9 +68,14 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			/// </summary>
 			override public object DbWriteValue
 			{
-				get { return base.DbWriteDate( DATE_TIME.DatabaseCurrencyDateFormat ); }
+				get
+				{
+					if ( base.IsNull )
+						return ( object )System.DBNull.Value;
+					else
+						return base.DbWriteDate( DATE_TIME.DatabaseWeddingDateFormat );
+				}
 			}
-			*/
 			#endregion
 
 
@@ -84,7 +88,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
+					parameter.Value = this.DbWriteValue;
 					return parameter;
 				}
 			}

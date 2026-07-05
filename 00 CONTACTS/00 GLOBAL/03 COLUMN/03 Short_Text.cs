@@ -295,6 +295,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 			{
 				OleDbParameter parameter = new OleDbParameter();
 				parameter.DbType = DbType.String;
+				parameter.Value = this.DbWriteValue;
 				return parameter;
 			}
 		}

@@ -52,32 +52,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
-			/*
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the format used to display the value on a form.
-			/// </summary>
-			public string DisplayValue
-			{
-				get { return base.AsTRUEFALSE; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is used in a VCF file.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return base.AsTF; }
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns true iff family has a valid is_Christmas value.
-			/// </summary>
-			override public bool IsVcfValue
-			{
-				get { return base.NullState == NULLITY.NotNull; }
-			}
-			*/
 			#endregion
 
 
@@ -90,7 +64,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}

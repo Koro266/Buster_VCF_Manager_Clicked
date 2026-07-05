@@ -39,7 +39,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//___________________________________________________________________________________________________________________________________________
 		private void DeriveFamilyName()
 		{
-			switch ( this.FamilyType.FamilyType )
+			switch ( this.FamilyType )
 			{
 				case FAMILY_TYPE.L_EQ_R:
 					Replace( ORDINAL.FamilyName, new FIELD.ST_FamilyName( FamilyName_Left_EQ_Right ) );

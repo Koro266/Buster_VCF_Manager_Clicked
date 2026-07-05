@@ -3,9 +3,9 @@ using System.Data.OleDb;
 //GLOBAL
 using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
 using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
-using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
 using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -50,29 +50,13 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed on a form.
-			/// </summary>
-			public string DisplayValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is used in a VCF file.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return base.VcfValue; }
-			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true iff there is a right person.
+			/// Returns true because Right_Person is never null.
 			/// </summary>
 			override public bool IsVcfValue
 			{
-				get { return base.NullState == NULLITY.NotNull; }
+				get { return true; }
 			}
 			#endregion
 

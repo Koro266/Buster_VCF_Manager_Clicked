@@ -52,39 +52,14 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
-			////___________________________________________________________________________________________________________________________________
-			///// <summary>
-			///// Returns value that is sent to the database.
-			///// </summary>
-			//override public string DatabaseValue
-			//{
-			//	get { return base.Value; }
-			//}
-			////___________________________________________________________________________________________________________________________________
-			///// <summary>
-			///// Returns the value that is displayed on a form.
-			///// </summary>
-			//override public string DisplayValue
-			//{
-			//	get { return base.Value; }
-			//}
-			////___________________________________________________________________________________________________________________________________
-			///// <summary>
-			///// Returns the value that is used in a VCF file.
-			///// </summary>
-			//override public string VcfValue
-			//{
-			//	get { return base.Value; }
-			//}
-
-			////___________________________________________________________________________________________________________________________________________
-			///// <summary>
-			///// Returns true because a FamilyName is required.
-			///// </summary>
-			//override public bool IsVcfValue
-			//{
-			//	get { return true; }
-			//}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true because a FamilyType is required.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return true; }
+			}
 			#endregion
 
 
@@ -97,7 +72,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}
