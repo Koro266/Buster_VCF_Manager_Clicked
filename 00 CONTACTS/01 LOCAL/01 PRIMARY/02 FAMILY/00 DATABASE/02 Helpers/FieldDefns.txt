@@ -1,0 +1,22 @@
+﻿pk_Family!0!4!4!Family!family!PK!Pk!pk!Primary Key, AutoNum, int.!|!
+fk_LeftPerson!1!4!4!LeftPerson!leftperson!FK!Fk!fk!FK into TDF_Persons.pk_Person. A partner in a couple. Gender neutral. A LEFT PERSON is required (a family may comprise a single person).!|!
+fk_RightPerson!2!4!4!RightPerson!rightperson!FK!Fk!fk!FK into TDF_Persons.pk_Person. The other partner in the couple. Gender neutral. A RIGHT PERSON is optional.!|!
+st_FamilyType!3!15!10!FamilyType!familytype!ST!St!st!'LEFT=RIGHT': conventional (surname identical) family naming. 'LEFT<>RIGHT': surname 'retained' naming. 'NO_RIGHT': No RightPerson.!|!
+st_FamilyName!4!255!10!FamilyName!familyname!ST!St!st!DERIVED: Family name in CAPS. May be SURNAME 1/SURNAME 2.!|!
+st_SortableName!5!255!10!SortableName!sortablename!ST!St!st!DERIVED: Sortable conjoined name: 'FAMILY_NAME, Left & Right.'!|!
+st_JointName!6!255!10!JointName!jointname!ST!St!st!DERIVED: Surname, Left & Right.!|!
+st_NaturalName!7!255!10!NaturalName!naturalname!ST!St!st!DERIVED: Natural name: 'Left & Right Surname'.!|!
+st_PostalName!8!255!10!PostalName!postalname!ST!St!st!DERIVED: Name used in a conventional printed address, i.e., on the envelope ('outer' name).!|!
+st_Notes!9!255!10!Notes!notes!ST!St!st!General-purpose notes about this family.!|!
+dt_WeddingDate!10!8!8!WeddingDate!weddingdate!DT!Dt!dt!Wedding/'Attachment' date of Left and Right.!|!
+dt_CurrencyDate!11!8!8!CurrencyDate!currencydate!DT!Dt!dt!Family record, including its sub-entities, considered to be current as of this date.!|!
+is_Selected!12!1!1!Selected!selected!IS!Is!is!TRUE = Family is included in an arbitraily defined category. Dynamic field. Default value = False.!|!
+is_DefaultRow!13!1!1!DefaultRow!defaultrow!IS!Is!is!TRUE = Family is used as the Contact Manager default  Family object. Static field. Default value = False.!|!
+is_Export!14!1!1!Export!export!IS!Is!is!TRUE = Family is to be exported as a VCF file. Static field. Default value = True.!|!
+is_Blocked!15!1!1!Blocked!blocked!IS!Is!is!TRUE = Family should be ignored. Static field. Default value = False.!|!
+is_Inactive!16!1!1!Inactive!inactive!IS!Is!is!TRUE = Family is no longer of any particular relevance but should not to be deleted. Static field. Default value = False.!|!
+is_Christmas!17!1!1!Christmas!christmas!IS!Is!is!TRUE = Family receives Christmas letter. Inter-related with IsChristmas/WasChristmas of Family_X_Address. Static field. Default value = False.!|!
+is_ExChristmas!18!1!1!ExChristmas!exchristmas!IS!Is!is!TRUE = Family no longer receives Christmas letter. Inter-related with IsChristmas/WasChristmas of Family_X_Address. Static field. Default value = False.!|!
+is_Dissolved!19!1!1!Dissolved!dissolved!IS!Is!is!TRUE = Relationship no longer extant as a result of divorce, separation, death of a partner, etc. FALSE otherwise. Static field. Default value = False.!|!
+is_CorlettRd!20!1!1!CorlettRd!corlettrd!IS!Is!is!TRUE = Family lives on Corlett Road. Static field. Default value = False.!|!
+is_StTheresa!21!1!1!StTheresa!sttheresa!IS!Is!is!TRUE = Family is associated with St Theresa's. Static field. Default value = False.!|!

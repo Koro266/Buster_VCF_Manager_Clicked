@@ -29,12 +29,20 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			public const int Notes				= 9;
 			public const int WeddingDate		= 10;
 			public const int CurrencyDate		= 11;
+
 			public const int Christmas			= 12;
+
+			public const int Selected		= 19;
+			public const int DefaultRow		= 20;
+			public const int Export			= 21;
+			public const int Blocked		= 22;
+			public const int Inactive		= 23;
+			public const int IsChristmas	= 24;
+			public const int IsExChristmas	= 25;
 			public const int Dissolved			= 13;
 			public const int CorlettRd			= 14;
 			public const int StTheresa			= 15;
 
-			public const int DefaultRow			= 16;
 			public const int LeftUpperSurname	= 17;
 			public const int LeftProperSurname	= 18;
 			public const int LeftGivenName		= 19;
