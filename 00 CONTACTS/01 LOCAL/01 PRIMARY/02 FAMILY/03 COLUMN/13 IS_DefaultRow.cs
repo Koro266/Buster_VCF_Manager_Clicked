@@ -1,13 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________					
 using System.Data.OleDb;
-//GLOBAL
-using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+//GLOBAL					
+using YES_NO	= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL					
-using CONST = CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
-using FACTORS = CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.ColumnFactors;
-using ORDINAL = CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
-
+using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
+					
 //___________________________________________________________________________________________________________________________________________________					
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY					
 {					
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	public partial class Column				
 	{				
 		//___________________________________________________________________________________________________________________________________________			
-		public class ST_LeftUpperSurname : SHORT_TXT			
+		public class IS_DefaultRow : YES_NO
 		{			
 			#region DECLARATIONS		
-			private FACTORS column_factors = CONST.Factors[ORDINAL.LeftUpperSurname];
-			private NULL_TEXT type_null_pair;
+			private FACTORS column_factors = CONST.Factors[ORDINAL.DefaultRow];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS		
 			//_______________________________________________________________________________________________________________________________________		
-			public ST_LeftUpperSurname( string st_leftuppersurname ) : base( st_leftuppersurname )		
+			public IS_DefaultRow( bool is_defaultrow ) : base( is_defaultrow )		
 			{		
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_LeftUpperSurname( NULL_TEXT tnp ) : base( tnp )
+			public IS_DefaultRow( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -64,6 +64,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
+					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}	
 			}		

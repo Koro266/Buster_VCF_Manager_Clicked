@@ -1,12 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using YES_NO	= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
-using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+using DATE_TIME	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using NULL_DATE	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_Christmas : YES_NO
+		public partial class DT_WeddingDate : DATE_TIME
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Christmas];
-			private NULL_BOOL type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.WeddingDate];
+			private NULL_DATE type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Christmas( bool is_christmas ) : base( is_christmas )
+			public DT_WeddingDate( DateTime dt_weddingdate ) : base( dt_weddingdate )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Christmas( NULL_BOOL tnp ) : base( tnp )
+			public DT_WeddingDate( NULL_DATE tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -52,6 +52,26 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
+			/*
+			//___________________________________________________________________________________________________________________________________________
+			override public DateTime DatePickerValue
+			{
+				get { return base.IsNull ? DATE_TIME.MinControllableDate.Date : this.Value.Date; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			override public string DatePickerFormat
+			{
+				get { return base.IsNull ? DATE_TIME.NullDateFormat : DATE_TIME.DisplayedDateFormat; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public object DbWriteValue
+			{
+				get { return base.DbWriteDate( DATE_TIME.DatabaseCurrencyDateFormat ); }
+			}
+			*/
 			#endregion
 
 

@@ -1,36 +1,35 @@
 ﻿//___________________________________________________________________________________________________________________________________________________					
-using CONTACTS.GLOBAL.DATABASE.COLUMN;
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
-//LOCAL					
-using CONST = CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
-using FACTORS = CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.ColumnFactors;
-using ORDINAL = CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
+//LOCAL
+using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
 
 //___________________________________________________________________________________________________________________________________________________					
-namespace CONTACTS.LOCAL.PRIMARY.FAMILY
-{
+namespace CONTACTS.LOCAL.PRIMARY.FAMILY					
+{					
 	//_______________________________________________________________________________________________________________________________________________				
-	public partial class Column
-	{
+	public partial class Column				
+	{				
 		//___________________________________________________________________________________________________________________________________________			
-		public class ST_RightUpperSurname : SHORT_TXT
-		{
+		public class ST_LeftUpperSurname : SHORT_TXT			
+		{			
 			#region DECLARATIONS		
-			private FACTORS column_factors = CONST.Factors[ORDINAL.RightUpperSurname];
+			private FACTORS column_factors = CONST.Factors[ORDINAL.LeftUpperSurname];
 			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS		
 			//_______________________________________________________________________________________________________________________________________		
-			public ST_RightUpperSurname( string st_rightuppersurname ) : base( st_rightuppersurname )
-			{
+			public ST_LeftUpperSurname( string st_leftuppersurname ) : base( st_leftuppersurname )		
+			{		
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_RightUpperSurname( NULL_TEXT tnp ) : base( tnp )
+			public ST_LeftUpperSurname( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -39,36 +38,36 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 
 			#region METHODS		
 			//_______________________________________________________________________________________________________________________________________		
-			public FACTORS Factors
-			{
-				get { return column_factors; }
-			}
+			public FACTORS Factors		
+			{		
+				get { return column_factors; }	
+			}		
 			//_______________________________________________________________________________________________________________________________________		
-			public int Ordinal
-			{
-				get { return Factors.Ordinal; }
-			}
+			public int Ordinal		
+			{		
+				get { return Factors.Ordinal; }	
+			}		
 			//_______________________________________________________________________________________________________________________________________		
-			override public string ToString()
-			{
-				return base.Value.ToString();
-			}
-			#endregion
-
-
+			override public string ToString()		
+			{		
+				return base.Value.ToString();	
+			}		
+			#endregion		
+					
+					
 			#region DB INTERFACE		
 			//_______________________________________________________________________________________________________________________________________		
-			override public OleDbParameter DbParameter
-			{
-				get
-				{
+			override public OleDbParameter DbParameter		
+			{		
+				get	
+				{	
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
 					return parameter;
-				}
-			}
-			#endregion
-		}
-	}
-}
+				}	
+			}		
+			#endregion		
+		}			
+	}				
+}					

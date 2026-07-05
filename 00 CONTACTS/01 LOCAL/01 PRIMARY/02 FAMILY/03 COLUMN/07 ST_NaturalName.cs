@@ -1,12 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using YES_NO	= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
-using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_StTheresa : YES_NO
+		public partial class ST_NaturalName : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.StTheresa];
-			private NULL_BOOL type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.NaturalName];
+			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_StTheresa( bool is_sttheresa ) : base( is_sttheresa )
+			public ST_NaturalName( string st_naturalname ) : base( st_naturalname )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_StTheresa( NULL_BOOL tnp ) : base( tnp )
+			public ST_NaturalName( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -52,6 +52,43 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
+			/*
+			#region METHODS
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public string DatabaseValue
+			{
+				get { return base.Value; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed on a form.
+			/// </summary>
+			override public string DisplayValue
+			{
+				get { return base.Value; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.Value; }
+			}
+
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true iff SortableName is valid.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.NullState == NULLITY.NotNull; }
+			}
+			#endregion
+			*/
 			#endregion
 
 

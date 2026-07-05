@@ -1,12 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
+using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
-using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY
@@ -15,23 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Notes : SHORT_TXT
+		public partial class FK_RightPerson : INT_32
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Notes];
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.FkRightPerson];
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Notes( string st_notes ) : base( st_notes )
+			public FK_RightPerson( int fk_rightperson ) : base( fk_rightperson )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Notes( NULL_TEXT tnp ) : base( tnp )
+			public FK_RightPerson( NULL_INT fk_rightperson ) : base( fk_rightperson.Value )
 			{
-				type_null_pair = tnp;
 			}
 			#endregion
 
@@ -51,6 +49,30 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			override public string ToString()
 			{
 				return base.Value.ToString();
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed on a form.
+			/// </summary>
+			public string DisplayValue
+			{
+				get { return base.AsString; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.VcfValue; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true iff there is a right person.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.NullState == NULLITY.NotNull; }
 			}
 			#endregion
 

@@ -1,13 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
-//GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
-//LOCAL
+//GLOBAL					
+using YES_NO	= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
+//LOCAL					
 using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.ColumnFactors;
- 
+
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 {
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_FamilyType : SHORT_TXT
+		public partial class IS_Dissolved : YES_NO
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.FamilyType];
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Dissolved];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_FamilyType( string st_familytype ) : base( st_familytype )
+			public IS_Dissolved( bool is_dissolved ) : base( is_dissolved )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_FamilyType( NULL_TEXT tnp ) : base( tnp )
+			public IS_Dissolved( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -52,6 +52,34 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
+			/*
+			#region METHODS
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the format used to display the value on a form.
+			/// </summary>
+			public string DisplayValue
+			{
+				get { return base.AsTRUEFALSE; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.AsTF; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true iff family has a valid is_Dissolved value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.NullState == NULLITY.NotNull ; }
+			}
+			#endregion
+			*/
 			#endregion
 
 

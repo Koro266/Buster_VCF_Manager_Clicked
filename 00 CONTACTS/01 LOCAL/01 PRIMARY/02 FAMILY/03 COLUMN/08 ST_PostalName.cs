@@ -1,12 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using DATE_TIME	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
-using NULL_DATE  = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class DT_CurrencyDate : DATE_TIME
+		public partial class ST_PostalName : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.CurrencyDate];
-			private NULL_DATE type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.PostalName];
+			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public DT_CurrencyDate( DateTime dt_currencydate ) : base( dt_currencydate )
+			public ST_PostalName( string st_postalname ) : base( st_postalname )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public DT_CurrencyDate( NULL_DATE tnp ) : base( tnp )
+			public ST_PostalName( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -52,6 +52,43 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			{
 				return base.Value.ToString();
 			}
+			/*
+			#region METHODS
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public string DatabaseValue
+			{
+				get { return base.Value; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed on a form.
+			/// </summary>
+			override public string DisplayValue
+			{
+				get { return base.Value; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.Value; }
+			}
+
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true iff SortableName is valid.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.NullState == NULLITY.NotNull; }
+			}
+			#endregion
+			*/
 			#endregion
 
 
@@ -64,7 +101,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = this.DbWriteValue;
+					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}
