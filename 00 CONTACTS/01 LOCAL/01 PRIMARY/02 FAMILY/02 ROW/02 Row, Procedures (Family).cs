@@ -4,8 +4,8 @@ using SBLDR			= System.Text.StringBuilder;
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL 
-using ORDINAL		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
 using FIELD			= CONTACTS.LOCAL.PRIMARY.FAMILY.Column;
+using ORDINAL		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
 using FAMILY_TYPE	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.FamilyType;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -39,7 +39,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//___________________________________________________________________________________________________________________________________________
 		private void DeriveFamilyName()
 		{
-			switch ( this.FamilyType )
+			switch ( this.FamilyType.TypeAsEnum )
 			{
 				case FAMILY_TYPE.L_EQ_R:
 					Replace( ORDINAL.FamilyName, new FIELD.ST_FamilyName( FamilyName_Left_EQ_Right ) );
@@ -60,7 +60,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//___________________________________________________________________________________________________________________________________________
 		public void DeriveSortableName()
 		{
-			switch ( this.FamilyType.FamilyType )
+			switch ( this.FamilyType.TypeAsEnum )
 			{
 				case FAMILY_TYPE.L_EQ_R:
 					Replace( ORDINAL.SortableName, new FIELD.ST_SortableName( SortableName_Left_EQ_Right ) );
@@ -81,7 +81,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//___________________________________________________________________________________________________________________________________________
 		public void DeriveJointName()
 		{
-			switch ( this.FamilyType.FamilyType )
+			switch ( this.FamilyType.TypeAsEnum )
 			{
 				case FAMILY_TYPE.L_EQ_R:
 					Replace( ORDINAL.JointName, new FIELD.ST_JointName( JointName_Left_EQ_Right ) );
@@ -102,7 +102,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//___________________________________________________________________________________________________________________________________________
 		public void DeriveNaturalName()
 		{
-			switch ( this.FamilyType.FamilyType )
+			switch ( this.FamilyType.TypeAsEnum )
 			{
 				case FAMILY_TYPE.L_EQ_R:
 					Replace( ORDINAL.NaturalName, new FIELD.ST_NaturalName( NaturalName_Left_EQ_Right ) );
@@ -123,7 +123,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//___________________________________________________________________________________________________________________________________________
 		public void DerivePostalName()
 		{
-			switch ( this.FamilyType.FamilyType )
+			switch ( this.FamilyType.TypeAsEnum )
 			{
 				case FAMILY_TYPE.L_EQ_R:
 					Replace( ORDINAL.PostalName, new FIELD.ST_PostalName( PostalName_Left_EQ_Right ) );

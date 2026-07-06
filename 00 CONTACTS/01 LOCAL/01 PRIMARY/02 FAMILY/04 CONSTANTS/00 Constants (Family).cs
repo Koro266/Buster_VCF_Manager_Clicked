@@ -43,13 +43,12 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			public const int CorlettRd			= 20;
 			public const int StTheresa			= 21;
 
-			//?
-			//public const int LeftUpperSurname	= 22;
-			//public const int LeftProperSurname	= 23;
-			//public const int LeftGivenName		= 24;
-			//public const int RightUpperSurname	= 25;
-			//public const int RightProperSurname	= 26;
-			//public const int RightGivenName		= 27;
+			public const int LeftUpperSurname	= 22;
+			public const int LeftProperSurname	= 23;
+			public const int LeftGivenName		= 24;
+			public const int RightUpperSurname	= 25;
+			public const int RightProperSurname	= 26;
+			public const int RightGivenName		= 27;
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] FieldNames =
@@ -75,15 +74,14 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			"is_ExChristmas",
 			"is_Dissolved",
 			"is_CorlettRd",
-			"is_StTheresa"
+			"is_StTheresa",
 
-			//?
-			//"LeftUpperSurname,",
-			//"LeftProperSurname,",
-			//"LeftGivenName,",
-			//"RightUpperSurname,",
-			//"RightProperSurname,",
-			//"RightGivenName"
+			"LeftUpperSurname",
+			"LeftProperSurname",
+			"LeftGivenName",
+			"RightUpperSurname",
+			"RightProperSurname",
+			"RightGivenName"
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] ParameterNames =
@@ -109,15 +107,14 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			"@is_exchristmas",
 			"@is_dissolved",
 			"@is_corlettrd",
-			"@is_sttheresa"
+			"@is_sttheresa",
 
-			//?
-			//"@st_leftuppersurname",
-			//"@st_leftpropersurname",
-			//"@st_leftgivenname",
-			//"@st_rightuppersurname",
-			//"@st_rightpropersurname",
-			//"@st_rightgivenname"
+			"@st_leftuppersurname",
+			"@st_leftpropersurname",
+			"@st_leftgivenname",
+			"@st_rightuppersurname",
+			"@st_rightpropersurname",
+			"@st_rightgivenname"
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public static int[] FieldWidths =
@@ -143,15 +140,14 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			1,		//IsExChristmas
 			1,		//IsDissolved
 			1,		//IsCorlettRd
-			1		//IsStTheresa
+			1,		//IsStTheresa
 
-			//?
-			//255,	//StLeftUpperSurname
-			//255,	//StLeftProperSurname
-			//255,	//StLeftGivenName
-			//255,	//StRightUpperSurname
-			//255,	//StRightProperSurname
-			//255		//StRightGivenName
+			255,	//StLeftUpperSurname
+			255,	//StLeftProperSurname
+			255,	//StLeftGivenName
+			255,	//StRightUpperSurname
+			255,	//StRightProperSurname
+			255		//StRightGivenName
 		};
 		#endregion
 
@@ -180,7 +176,13 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			new FACTORS( 18, FieldWidths[18], FieldNames[18], ParameterNames[18] ),		//IsExChristmas
 			new FACTORS( 19, FieldWidths[19], FieldNames[19], ParameterNames[19] ),		//IsDissolved
 			new FACTORS( 20, FieldWidths[20], FieldNames[20], ParameterNames[20] ),		//IsCorlettRd
-			new FACTORS( 21, FieldWidths[21], FieldNames[21], ParameterNames[21] )		//IsStTheresa
+			new FACTORS( 21, FieldWidths[21], FieldNames[21], ParameterNames[21] ),		//IsStTheresa
+			new FACTORS( 22, FieldWidths[22], FieldNames[22], ParameterNames[22] ),		//StLeftUpperSurname
+			new FACTORS( 23, FieldWidths[23], FieldNames[23], ParameterNames[23] ),		//StLeftProperSurname
+			new FACTORS( 24, FieldWidths[24], FieldNames[24], ParameterNames[24] ),		//StLeftGivenName
+			new FACTORS( 25, FieldWidths[25], FieldNames[25], ParameterNames[25] ),		//StRightUpperSurname
+			new FACTORS( 26, FieldWidths[26], FieldNames[26], ParameterNames[26] ),		//StRightProperSurname
+			new FACTORS( 27, FieldWidths[27], FieldNames[27], ParameterNames[27] )		//StRightGivenName
 		};
 		#endregion
 	}

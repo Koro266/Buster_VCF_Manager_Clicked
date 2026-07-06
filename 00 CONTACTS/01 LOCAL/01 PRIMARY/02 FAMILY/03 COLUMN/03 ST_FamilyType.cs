@@ -1,12 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
-using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
+using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using FACTORS		= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
-using CONST		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
-using ORDINAL	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
+using CONST			= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants;
+using ORDINAL		= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.OrdinalByName;
+using FAMILY_TYPE	= CONTACTS.LOCAL.PRIMARY.FAMILY.Constants.FamilyType;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY
@@ -59,6 +60,27 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			override public bool IsVcfValue
 			{
 				get { return true; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public FAMILY_TYPE TypeAsEnum
+			{
+				get
+				{
+					switch ( this.Value )
+					{
+						case CONST.L_EQ_R:
+							return FAMILY_TYPE.L_EQ_R;
+
+						case CONST.L_NE_R:
+							return FAMILY_TYPE.L_NE_R;
+
+						case CONST.NO_R:
+							return FAMILY_TYPE.NO_R;
+
+						default:
+							return FAMILY_TYPE.NO_TYPE;
+					}
+				}
 			}
 			#endregion
 
