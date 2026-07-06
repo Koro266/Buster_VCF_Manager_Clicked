@@ -6,6 +6,14 @@ namespace CONTACTS.GLOBAL.TOOLS
 	{
 		private bool are_EventsEnabled;
 
+		//___________________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// EnabledState is initialised to true.
+		/// </summary>
+		public EventState()
+		{
+			EnableEvents();
+		}
 		//___________________________________________________________________________________________________________________________________________
 		public void DisableButton( Button button )
 		{
@@ -15,14 +23,6 @@ namespace CONTACTS.GLOBAL.TOOLS
 		public void EnableButton( Button button )
 		{
 			button.Enabled = true;
-		}
-		//___________________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// EnabledState is initialised to true.
-		/// </summary>
-		public EventState()
-		{
-			EnableEvents();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
