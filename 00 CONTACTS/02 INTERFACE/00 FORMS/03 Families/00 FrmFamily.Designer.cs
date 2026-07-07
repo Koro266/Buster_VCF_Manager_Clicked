@@ -29,6 +29,11 @@
 		private void InitializeComponent()
 		{
 			box_FamilyData = new GroupBox();
+			chk_IsExChristmas = new CheckBox();
+			chk_IsInactive = new CheckBox();
+			chk_IsBlocked = new CheckBox();
+			chk_IsExport = new CheckBox();
+			chk_IsSelected = new CheckBox();
 			tbx_Messages = new TextBox();
 			label3 = new Label();
 			btn_TriggerDerivation = new Button();
@@ -80,21 +85,16 @@
 			btn_CurrencyNow = new Button();
 			lbl_CurrencyDate = new Label();
 			lbl_WeddingDate = new Label();
-			checkBox1 = new CheckBox();
-			checkBox2 = new CheckBox();
-			checkBox3 = new CheckBox();
-			checkBox4 = new CheckBox();
-			checkBox5 = new CheckBox();
 			box_FamilyData.SuspendLayout();
 			SuspendLayout();
 			// 
 			// box_FamilyData
 			// 
-			box_FamilyData.Controls.Add( checkBox5 );
-			box_FamilyData.Controls.Add( checkBox4 );
-			box_FamilyData.Controls.Add( checkBox3 );
-			box_FamilyData.Controls.Add( checkBox2 );
-			box_FamilyData.Controls.Add( checkBox1 );
+			box_FamilyData.Controls.Add( chk_IsExChristmas );
+			box_FamilyData.Controls.Add( chk_IsInactive );
+			box_FamilyData.Controls.Add( chk_IsBlocked );
+			box_FamilyData.Controls.Add( chk_IsExport );
+			box_FamilyData.Controls.Add( chk_IsSelected );
 			box_FamilyData.Controls.Add( tbx_Messages );
 			box_FamilyData.Controls.Add( label3 );
 			box_FamilyData.Controls.Add( btn_TriggerDerivation );
@@ -150,10 +150,75 @@
 			box_FamilyData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			box_FamilyData.Location = new Point( 12, 9 );
 			box_FamilyData.Name = "box_FamilyData";
-			box_FamilyData.Size = new Size( 1082, 508 );
+			box_FamilyData.Size = new Size( 1062, 505 );
 			box_FamilyData.TabIndex = 0;
 			box_FamilyData.TabStop = false;
 			box_FamilyData.Text = "Family Data";
+			// 
+			// chk_IsExChristmas
+			// 
+			chk_IsExChristmas.AutoSize = true;
+			chk_IsExChristmas.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsExChristmas.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsExChristmas.Location = new Point( 316, 249 );
+			chk_IsExChristmas.Name = "chk_IsExChristmas";
+			chk_IsExChristmas.Size = new Size( 121, 23 );
+			chk_IsExChristmas.TabIndex = 128;
+			chk_IsExChristmas.Text = "ex-Christmas?";
+			chk_IsExChristmas.UseVisualStyleBackColor = true;
+			chk_IsExChristmas.CheckedChanged +=  chk_IsExChristmas_CheckedChanged ;
+			// 
+			// chk_IsInactive
+			// 
+			chk_IsInactive.AutoSize = true;
+			chk_IsInactive.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsInactive.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsInactive.Location = new Point( 172, 306 );
+			chk_IsInactive.Name = "chk_IsInactive";
+			chk_IsInactive.Size = new Size( 86, 23 );
+			chk_IsInactive.TabIndex = 127;
+			chk_IsInactive.Text = "Inactive?";
+			chk_IsInactive.UseVisualStyleBackColor = true;
+			chk_IsInactive.CheckedChanged +=  chk_IsInactive_CheckedChanged ;
+			// 
+			// chk_IsBlocked
+			// 
+			chk_IsBlocked.AutoSize = true;
+			chk_IsBlocked.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsBlocked.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsBlocked.Location = new Point( 172, 287 );
+			chk_IsBlocked.Name = "chk_IsBlocked";
+			chk_IsBlocked.Size = new Size( 88, 23 );
+			chk_IsBlocked.TabIndex = 126;
+			chk_IsBlocked.Text = "Blocked?";
+			chk_IsBlocked.UseVisualStyleBackColor = true;
+			chk_IsBlocked.CheckedChanged +=  chk_IsBlocked_CheckedChanged ;
+			// 
+			// chk_IsExport
+			// 
+			chk_IsExport.AutoSize = true;
+			chk_IsExport.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsExport.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsExport.Location = new Point( 172, 268 );
+			chk_IsExport.Name = "chk_IsExport";
+			chk_IsExport.Size = new Size( 77, 23 );
+			chk_IsExport.TabIndex = 125;
+			chk_IsExport.Text = "Export?";
+			chk_IsExport.UseVisualStyleBackColor = true;
+			chk_IsExport.CheckedChanged +=  chk_IsExport_CheckedChanged ;
+			// 
+			// chk_IsSelected
+			// 
+			chk_IsSelected.AutoSize = true;
+			chk_IsSelected.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsSelected.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsSelected.Location = new Point( 172, 230 );
+			chk_IsSelected.Name = "chk_IsSelected";
+			chk_IsSelected.Size = new Size( 91, 23 );
+			chk_IsSelected.TabIndex = 124;
+			chk_IsSelected.Text = "Selected?";
+			chk_IsSelected.UseVisualStyleBackColor = true;
+			chk_IsSelected.CheckedChanged +=  chk_IsSelected_CheckedChanged ;
 			// 
 			// tbx_Messages
 			// 
@@ -161,7 +226,7 @@
 			tbx_Messages.Enabled = false;
 			tbx_Messages.Font = new Font( "Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 644, 469 );
+			tbx_Messages.Location = new Point( 619, 469 );
 			tbx_Messages.Name = "tbx_Messages";
 			tbx_Messages.Size = new Size( 432, 25 );
 			tbx_Messages.TabIndex = 123;
@@ -184,7 +249,7 @@
 			btn_TriggerDerivation.FlatStyle = FlatStyle.Popup;
 			btn_TriggerDerivation.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_TriggerDerivation.ForeColor = Color.Maroon;
-			btn_TriggerDerivation.Location = new Point( 615, 359 );
+			btn_TriggerDerivation.Location = new Point( 589, 359 );
 			btn_TriggerDerivation.Name = "btn_TriggerDerivation";
 			btn_TriggerDerivation.Size = new Size( 20, 20 );
 			btn_TriggerDerivation.TabIndex = 115;
@@ -197,7 +262,7 @@
 			btn_FindFamily.Enabled = false;
 			btn_FindFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindFamily.ForeColor = Color.Maroon;
-			btn_FindFamily.Location = new Point( 943, 213 );
+			btn_FindFamily.Location = new Point( 918, 213 );
 			btn_FindFamily.Name = "btn_FindFamily";
 			btn_FindFamily.Size = new Size( 133, 32 );
 			btn_FindFamily.TabIndex = 114;
@@ -220,7 +285,7 @@
 			// 
 			btn_NewFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_NewFamily.ForeColor = Color.Maroon;
-			btn_NewFamily.Location = new Point( 943, 296 );
+			btn_NewFamily.Location = new Point( 918, 296 );
 			btn_NewFamily.Name = "btn_NewFamily";
 			btn_NewFamily.Size = new Size( 133, 32 );
 			btn_NewFamily.TabIndex = 112;
@@ -262,7 +327,7 @@
 			// 
 			btn_ExportFamilyVcf.Font = new Font( "Rockwell", 11.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_ExportFamilyVcf.ForeColor = Color.Maroon;
-			btn_ExportFamilyVcf.Location = new Point( 943, 178 );
+			btn_ExportFamilyVcf.Location = new Point( 918, 178 );
 			btn_ExportFamilyVcf.Name = "btn_ExportFamilyVcf";
 			btn_ExportFamilyVcf.Size = new Size( 133, 32 );
 			btn_ExportFamilyVcf.TabIndex = 106;
@@ -275,12 +340,13 @@
 			chk_IsDefaultFamily.AutoSize = true;
 			chk_IsDefaultFamily.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_IsDefaultFamily.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsDefaultFamily.Location = new Point( 172, 303 );
+			chk_IsDefaultFamily.Location = new Point( 172, 249 );
 			chk_IsDefaultFamily.Name = "chk_IsDefaultFamily";
 			chk_IsDefaultFamily.Size = new Size( 130, 23 );
 			chk_IsDefaultFamily.TabIndex = 91;
 			chk_IsDefaultFamily.Text = "Default Family?";
 			chk_IsDefaultFamily.UseVisualStyleBackColor = true;
+			chk_IsDefaultFamily.CheckedChanged +=  chk_IsDefaultFamily_CheckedChanged ;
 			// 
 			// tbx_Matches
 			// 
@@ -299,7 +365,7 @@
 			lbx_MatchingFamilies.ForeColor = Color.Blue;
 			lbx_MatchingFamilies.FormattingEnabled = true;
 			lbx_MatchingFamilies.ItemHeight = 15;
-			lbx_MatchingFamilies.Location = new Point( 644, 24 );
+			lbx_MatchingFamilies.Location = new Point( 619, 24 );
 			lbx_MatchingFamilies.Name = "lbx_MatchingFamilies";
 			lbx_MatchingFamilies.Size = new Size( 283, 439 );
 			lbx_MatchingFamilies.TabIndex = 75;
@@ -309,7 +375,7 @@
 			// lbl_Last
 			// 
 			lbl_Last.AutoSize = true;
-			lbl_Last.Location = new Point( 1047, 115 );
+			lbl_Last.Location = new Point( 1022, 115 );
 			lbl_Last.Name = "lbl_Last";
 			lbl_Last.Size = new Size( 16, 17 );
 			lbl_Last.TabIndex = 13;
@@ -332,7 +398,7 @@
 			// lbl_First
 			// 
 			lbl_First.AutoSize = true;
-			lbl_First.Location = new Point( 955, 115 );
+			lbl_First.Location = new Point( 930, 115 );
 			lbl_First.Name = "lbl_First";
 			lbl_First.Size = new Size( 15, 17 );
 			lbl_First.TabIndex = 12;
@@ -343,7 +409,7 @@
 			chk_IsDissolved.AutoSize = true;
 			chk_IsDissolved.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_IsDissolved.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsDissolved.Location = new Point( 172, 227 );
+			chk_IsDissolved.Location = new Point( 316, 268 );
 			chk_IsDissolved.Name = "chk_IsDissolved";
 			chk_IsDissolved.Size = new Size( 98, 23 );
 			chk_IsDissolved.TabIndex = 6;
@@ -386,7 +452,7 @@
 			// btn_FirstFamily
 			// 
 			btn_FirstFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FirstFamily.Location = new Point( 949, 87 );
+			btn_FirstFamily.Location = new Point( 924, 87 );
 			btn_FirstFamily.Name = "btn_FirstFamily";
 			btn_FirstFamily.Size = new Size( 27, 23 );
 			btn_FirstFamily.TabIndex = 1;
@@ -400,7 +466,7 @@
 			tbx_FamilyName.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_FamilyName.Location = new Point( 172, 358 );
 			tbx_FamilyName.Name = "tbx_FamilyName";
-			tbx_FamilyName.Size = new Size( 437, 23 );
+			tbx_FamilyName.Size = new Size( 414, 23 );
 			tbx_FamilyName.TabIndex = 2;
 			tbx_FamilyName.TabStop = false;
 			// 
@@ -408,7 +474,7 @@
 			// 
 			btn_InsertFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertFamily.ForeColor = Color.Maroon;
-			btn_InsertFamily.Location = new Point( 943, 331 );
+			btn_InsertFamily.Location = new Point( 918, 331 );
 			btn_InsertFamily.Name = "btn_InsertFamily";
 			btn_InsertFamily.Size = new Size( 133, 32 );
 			btn_InsertFamily.TabIndex = 6;
@@ -433,7 +499,7 @@
 			tbx_PkFamily.AcceptsReturn = true;
 			tbx_PkFamily.BackColor = Color.FromArgb(     192,     192,     255 );
 			tbx_PkFamily.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_PkFamily.Location = new Point( 980, 21 );
+			tbx_PkFamily.Location = new Point( 955, 21 );
 			tbx_PkFamily.Name = "tbx_PkFamily";
 			tbx_PkFamily.PlaceholderText = "PK";
 			tbx_PkFamily.ReadOnly = true;
@@ -455,7 +521,7 @@
 			// btn_PreviousFamily
 			// 
 			btn_PreviousFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_PreviousFamily.Location = new Point( 979, 87 );
+			btn_PreviousFamily.Location = new Point( 954, 87 );
 			btn_PreviousFamily.Name = "btn_PreviousFamily";
 			btn_PreviousFamily.Size = new Size( 27, 23 );
 			btn_PreviousFamily.TabIndex = 2;
@@ -469,7 +535,7 @@
 			lbl_Find.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Find.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbl_Find.ImageAlign = ContentAlignment.MiddleRight;
-			lbl_Find.Location = new Point( 933, 55 );
+			lbl_Find.Location = new Point( 908, 55 );
 			lbl_Find.Name = "lbl_Find";
 			lbl_Find.Size = new Size( 43, 21 );
 			lbl_Find.TabIndex = 0;
@@ -491,7 +557,7 @@
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 940, 431 );
+			btn_CloseForm.Location = new Point( 915, 431 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 136, 32 );
 			btn_CloseForm.TabIndex = 8;
@@ -513,7 +579,7 @@
 			// 
 			tbx_Filter.BackColor = Color.FromArgb(     255,     192,     192 );
 			tbx_Filter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Filter.Location = new Point( 980, 53 );
+			tbx_Filter.Location = new Point( 955, 53 );
 			tbx_Filter.MaxLength = 6;
 			tbx_Filter.Name = "tbx_Filter";
 			tbx_Filter.Size = new Size( 73, 25 );
@@ -524,7 +590,7 @@
 			// btn_LastFamily
 			// 
 			btn_LastFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_LastFamily.Location = new Point( 1039, 87 );
+			btn_LastFamily.Location = new Point( 1014, 87 );
 			btn_LastFamily.Name = "btn_LastFamily";
 			btn_LastFamily.Size = new Size( 27, 23 );
 			btn_LastFamily.TabIndex = 4;
@@ -537,7 +603,7 @@
 			lbl_Pk.AutoSize = true;
 			lbl_Pk.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_Pk.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_Pk.Location = new Point( 947, 23 );
+			lbl_Pk.Location = new Point( 922, 23 );
 			lbl_Pk.Name = "lbl_Pk";
 			lbl_Pk.Size = new Size( 30, 21 );
 			lbl_Pk.TabIndex = 4;
@@ -558,7 +624,7 @@
 			// 
 			btn_UpdateFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateFamily.ForeColor = Color.Maroon;
-			btn_UpdateFamily.Location = new Point( 943, 143 );
+			btn_UpdateFamily.Location = new Point( 918, 143 );
 			btn_UpdateFamily.Name = "btn_UpdateFamily";
 			btn_UpdateFamily.Size = new Size( 133, 32 );
 			btn_UpdateFamily.TabIndex = 7;
@@ -571,18 +637,18 @@
 			chk_IsChristmas.AutoSize = true;
 			chk_IsChristmas.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_IsChristmas.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsChristmas.Location = new Point( 172, 284 );
+			chk_IsChristmas.Location = new Point( 316, 230 );
 			chk_IsChristmas.Name = "chk_IsChristmas";
-			chk_IsChristmas.Size = new Size( 84, 23 );
+			chk_IsChristmas.Size = new Size( 99, 23 );
 			chk_IsChristmas.TabIndex = 9;
-			chk_IsChristmas.Text = "Is Xmas?";
+			chk_IsChristmas.Text = "Christmas?";
 			chk_IsChristmas.UseVisualStyleBackColor = true;
 			chk_IsChristmas.CheckedChanged +=  chk_IsChristmas_CheckedChanged ;
 			// 
 			// btn_NextFamily
 			// 
 			btn_NextFamily.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NextFamily.Location = new Point( 1009, 87 );
+			btn_NextFamily.Location = new Point( 984, 87 );
 			btn_NextFamily.Name = "btn_NextFamily";
 			btn_NextFamily.Size = new Size( 27, 23 );
 			btn_NextFamily.TabIndex = 3;
@@ -605,7 +671,7 @@
 			chk_IsStTheresa.AutoSize = true;
 			chk_IsStTheresa.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_IsStTheresa.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsStTheresa.Location = new Point( 172, 265 );
+			chk_IsStTheresa.Location = new Point( 316, 306 );
 			chk_IsStTheresa.Name = "chk_IsStTheresa";
 			chk_IsStTheresa.Size = new Size( 112, 23 );
 			chk_IsStTheresa.TabIndex = 8;
@@ -629,7 +695,7 @@
 			chk_IsCorlettRd.AutoSize = true;
 			chk_IsCorlettRd.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_IsCorlettRd.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsCorlettRd.Location = new Point( 172, 246 );
+			chk_IsCorlettRd.Location = new Point( 316, 287 );
 			chk_IsCorlettRd.Name = "chk_IsCorlettRd";
 			chk_IsCorlettRd.Size = new Size( 102, 23 );
 			chk_IsCorlettRd.TabIndex = 7;
@@ -737,73 +803,13 @@
 			lbl_WeddingDate.Text = "Wedding Date";
 			lbl_WeddingDate.TextAlign = ContentAlignment.MiddleRight;
 			// 
-			// checkBox1
-			// 
-			checkBox1.AutoSize = true;
-			checkBox1.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			checkBox1.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox1.Location = new Point( 370, 230 );
-			checkBox1.Name = "checkBox1";
-			checkBox1.Size = new Size( 91, 23 );
-			checkBox1.TabIndex = 124;
-			checkBox1.Text = "Selected?";
-			checkBox1.UseVisualStyleBackColor = true;
-			// 
-			// checkBox2
-			// 
-			checkBox2.AutoSize = true;
-			checkBox2.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			checkBox2.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox2.Location = new Point( 370, 246 );
-			checkBox2.Name = "checkBox2";
-			checkBox2.Size = new Size( 77, 23 );
-			checkBox2.TabIndex = 125;
-			checkBox2.Text = "Export?";
-			checkBox2.UseVisualStyleBackColor = true;
-			// 
-			// checkBox3
-			// 
-			checkBox3.AutoSize = true;
-			checkBox3.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			checkBox3.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox3.Location = new Point( 370, 265 );
-			checkBox3.Name = "checkBox3";
-			checkBox3.Size = new Size( 88, 23 );
-			checkBox3.TabIndex = 126;
-			checkBox3.Text = "Blocked?";
-			checkBox3.UseVisualStyleBackColor = true;
-			// 
-			// checkBox4
-			// 
-			checkBox4.AutoSize = true;
-			checkBox4.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			checkBox4.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox4.Location = new Point( 370, 284 );
-			checkBox4.Name = "checkBox4";
-			checkBox4.Size = new Size( 86, 23 );
-			checkBox4.TabIndex = 127;
-			checkBox4.Text = "Inactive?";
-			checkBox4.UseVisualStyleBackColor = true;
-			// 
-			// checkBox5
-			// 
-			checkBox5.AutoSize = true;
-			checkBox5.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			checkBox5.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox5.Location = new Point( 370, 305 );
-			checkBox5.Name = "checkBox5";
-			checkBox5.Size = new Size( 121, 23 );
-			checkBox5.TabIndex = 128;
-			checkBox5.Text = "ex-Christmas?";
-			checkBox5.UseVisualStyleBackColor = true;
-			// 
 			// FrmFamily
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 1107, 524 );
+			ClientSize = new Size( 1083, 519 );
 			Controls.Add( box_FamilyData );
 			Name = "FrmFamily";
 			StartPosition = FormStartPosition.CenterScreen;
@@ -868,10 +874,10 @@
 		private Button btn_NewFamily;
 		private Button btn_InsertFamily;
 		private TextBox tbx_Messages;
-		private CheckBox checkBox5;
-		private CheckBox checkBox4;
-		private CheckBox checkBox3;
-		private CheckBox checkBox2;
-		private CheckBox checkBox1;
+		private CheckBox chk_IsExChristmas;
+		private CheckBox chk_IsInactive;
+		private CheckBox chk_IsBlocked;
+		private CheckBox chk_IsExport;
+		private CheckBox chk_IsSelected;
 	}
 }

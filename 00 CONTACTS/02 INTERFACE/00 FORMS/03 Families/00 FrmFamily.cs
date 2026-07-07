@@ -45,6 +45,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmFamily()
 		{
 			InitializeComponent();
+
 			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
@@ -151,31 +152,31 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex			=  0;
-			cbx_FamilyType.TabIndex			=  1;
-			tbx_Notes.TabIndex				=  2;
-			dbx_WeddingDate.TabIndex		=  3;
-			btn_ClearWeddingDate.TabIndex	=  4;
-			dbx_CurrencyDate.TabIndex		=  5;
-			btn_CurrencyNow.TabIndex		=  6;
-			chk_IsDissolved.TabIndex		=  7;
-			chk_IsCorlettRd.TabIndex		=  8;
-			chk_IsStTheresa.TabIndex		=  9;
-			chk_IsChristmas.TabIndex		= 10;
-			chk_IsDefaultFamily.TabIndex	= 11;
-			btn_TriggerDerivation.TabIndex	= 12;
-			tbx_Filter.TabIndex				= 13;
-			btn_FirstFamily.TabIndex		= 14;
-			btn_PreviousFamily.TabIndex		= 15;
-			btn_NextFamily.TabIndex			= 16;
-			btn_LastFamily.TabIndex			= 17;
-			btn_NewFamily.TabIndex			= 18;
-			btn_InsertFamily.TabIndex		= 19;
-			btn_UpdateFamily.TabIndex		= 20;
-			btn_ExportFamilyVcf.TabIndex	= 21;
-			btn_FindFamily.TabIndex			= 22;
-			lbx_MatchingFamilies.TabIndex	= 23;
-			btn_CloseForm.TabIndex			= 24;
+			tbx_Matches.TabIndex = 0;
+			cbx_FamilyType.TabIndex = 1;
+			tbx_Notes.TabIndex = 2;
+			dbx_WeddingDate.TabIndex = 3;
+			btn_ClearWeddingDate.TabIndex = 4;
+			dbx_CurrencyDate.TabIndex = 5;
+			btn_CurrencyNow.TabIndex = 6;
+			chk_IsDissolved.TabIndex = 7;
+			chk_IsCorlettRd.TabIndex = 8;
+			chk_IsStTheresa.TabIndex = 9;
+			chk_IsChristmas.TabIndex = 10;
+			chk_IsDefaultFamily.TabIndex = 11;
+			btn_TriggerDerivation.TabIndex = 12;
+			tbx_Filter.TabIndex = 13;
+			btn_FirstFamily.TabIndex = 14;
+			btn_PreviousFamily.TabIndex = 15;
+			btn_NextFamily.TabIndex = 16;
+			btn_LastFamily.TabIndex = 17;
+			btn_NewFamily.TabIndex = 18;
+			btn_InsertFamily.TabIndex = 19;
+			btn_UpdateFamily.TabIndex = 20;
+			btn_ExportFamilyVcf.TabIndex = 21;
+			btn_FindFamily.TabIndex = 22;
+			lbx_MatchingFamilies.TabIndex = 23;
+			btn_CloseForm.TabIndex = 24;
 		}
 		#endregion
 
@@ -366,12 +367,12 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool Christmas
+		private bool Selected
 		{
-			get { return Family.Christmas.Value; }
+			get { return Family.Selected.Value; }
 			set
 			{
-				Family.NewIsChristmas = value;
+				Family.NewIsSelected = value;
 				DisplayFamily();
 			}
 		}
@@ -382,6 +383,56 @@ namespace CONTACTS.INTERFACE.FORMS
 			set
 			{
 				Family.NewIsDefaultRow = value;
+				DisplayFamily();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Export
+		{
+			get { return Family.Export.Value; }
+			set
+			{
+				Family.NewIsExport = value;
+				DisplayFamily();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Blocked
+		{
+			get { return Family.Blocked.Value; }
+			set
+			{
+				Family.NewIsBlocked = value;
+				DisplayFamily();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Inactive
+		{
+			get { return Family.Inactive.Value; }
+			set
+			{
+				Family.NewIsInactive = value;
+				DisplayFamily();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Christmas
+		{
+			get { return Family.Christmas.Value; }
+			set
+			{
+				Family.NewIsChristmas = value;
+				DisplayFamily();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool ExChristmas
+		{
+			get { return Family.ExChristmas.Value; }
+			set
+			{
+				Family.NewIsExChristmas = value;
 				DisplayFamily();
 			}
 		}
@@ -486,37 +537,61 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 
 
-		#region 09 IS CHRISTMAS
+		#region CHECK_CHANGED IS_SELECTED (12) thru IS_ST_THERESA (21)
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsSelected_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				Selected = chk_IsSelected.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsDefaultFamily_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				DefaultFamily = chk_IsDefaultFamily.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsExport_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				Export = chk_IsExport.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsBlocked_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				Blocked = chk_IsBlocked.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsInactive_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				Inactive = chk_IsInactive.Checked;
+		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsChristmas_CheckedChanged( object sender, EventArgs e )
 		{
 			if ( _EventState.IsEnabled )
 				Christmas = chk_IsChristmas.Checked;
 		}
-		#endregion
-
-
-		#region 11 IS DISSOLVED
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsExChristmas_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				ExChristmas = chk_IsExChristmas.Checked;
+		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsDissolved_CheckedChanged( object sender, EventArgs e )
 		{
 			if ( _EventState.IsEnabled )
 				Dissolved = chk_IsDissolved.Checked;
 		}
-		#endregion
-
-
-		#region 12 IS CORLETT RD
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsCorlettRd_CheckedChanged( object sender, EventArgs e )
 		{
 			if ( _EventState.IsEnabled )
 				CorlettRd = chk_IsCorlettRd.Checked;
 		}
-		#endregion
-
-
-		#region 13 IS ST THERESA
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_IsStTheresa_CheckedChanged( object sender, EventArgs e )
 		{

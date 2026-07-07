@@ -33,11 +33,18 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		public FIELD.ST_Notes Notes								{ get { return ( FIELD.ST_Notes )				base.GetField( CONST.OrdinalByName.Notes ); } }
 		public FIELD.DT_WeddingDate WeddingDate					{ get { return ( FIELD.DT_WeddingDate )			base.GetField( CONST.OrdinalByName.WeddingDate ); } }
 		public FIELD.DT_CurrencyDate CurrencyDate				{ get { return ( FIELD.DT_CurrencyDate )		base.GetField( CONST.OrdinalByName.CurrencyDate ); } }
+
+		public FIELD.IS_Selected Selected						{ get { return ( FIELD.IS_Selected )			base.GetField( CONST.OrdinalByName.Selected ); } }
+		public FIELD.IS_DefaultRow DefaultRow					{ get { return ( FIELD.IS_DefaultRow )			base.GetField( CONST.OrdinalByName.DefaultRow ); } }
+		public FIELD.IS_Export Export							{ get { return ( FIELD.IS_Export )				base.GetField( CONST.OrdinalByName.Export ); } }
+		public FIELD.IS_Blocked Blocked							{ get { return ( FIELD.IS_Blocked )				base.GetField( CONST.OrdinalByName.Blocked ); } }
+		public FIELD.IS_Inactive Inactive						{ get { return ( FIELD.IS_Inactive )			base.GetField( CONST.OrdinalByName.Inactive ); } }
 		public FIELD.IS_Christmas Christmas						{ get { return ( FIELD.IS_Christmas )			base.GetField( CONST.OrdinalByName.Christmas ); } }
+		public FIELD.IS_ExChristmas ExChristmas					{ get { return ( FIELD.IS_ExChristmas )			base.GetField( CONST.OrdinalByName.ExChristmas ); } }
 		public FIELD.IS_Dissolved Dissolved						{ get { return ( FIELD.IS_Dissolved )			base.GetField( CONST.OrdinalByName.Dissolved ); } }
 		public FIELD.IS_CorlettRd CorlettRd						{ get { return ( FIELD.IS_CorlettRd )			base.GetField( CONST.OrdinalByName.CorlettRd ); } }
 		public FIELD.IS_StTheresa StTheresa						{ get { return ( FIELD.IS_StTheresa )			base.GetField( CONST.OrdinalByName.StTheresa ); } }
-		public FIELD.IS_DefaultRow DefaultRow					{ get { return ( FIELD.IS_DefaultRow )			base.GetField( CONST.OrdinalByName.DefaultRow ); } }
+		
 		public FIELD.ST_LeftUpperSurname LeftUpperSurname		{ get { return ( FIELD.ST_LeftUpperSurname )	base.GetField( CONST.OrdinalByName.LeftUpperSurname ); } }
 		public FIELD.ST_LeftProperSurname LeftProperSurname		{ get { return ( FIELD.ST_LeftProperSurname )	base.GetField( CONST.OrdinalByName.LeftProperSurname ); } }
 		public FIELD.ST_LeftGivenName LeftGivenName				{ get { return ( FIELD.ST_LeftGivenName )		base.GetField( CONST.OrdinalByName.LeftGivenName ); } }

@@ -65,9 +65,39 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			set { Replace( ORDINAL.CurrencyDate, new FIELD.DT_CurrencyDate( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsSelected
+		{
+			set { Replace( ORDINAL.Selected, new FIELD.IS_Selected( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsDefaultRow
+		{
+			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsExport
+		{
+			set { Replace( ORDINAL.Export, new FIELD.IS_Export( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsBlocked
+		{
+			set { Replace( ORDINAL.Blocked, new FIELD.IS_Blocked( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsInactive
+		{
+			set { Replace( ORDINAL.Inactive, new FIELD.IS_Inactive( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
 		public bool NewIsChristmas
 		{
 			set { Replace( ORDINAL.Christmas, new FIELD.IS_Christmas( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsExChristmas
+		{
+			set { Replace( ORDINAL.ExChristmas, new FIELD.IS_ExChristmas( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public bool NewIsDissolved
@@ -83,11 +113,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		public bool NewIsStTheresa
 		{
 			set { Replace( ORDINAL.StTheresa, new FIELD.IS_StTheresa( value ) ); }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		public bool NewIsDefaultRow
-		{
-			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
 		}
 		#endregion
 	}
