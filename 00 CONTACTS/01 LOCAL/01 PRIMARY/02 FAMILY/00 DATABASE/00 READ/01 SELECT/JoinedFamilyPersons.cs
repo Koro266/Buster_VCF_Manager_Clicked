@@ -39,6 +39,18 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 						TDF_Families.is_CorlettRd,
 						TDF_Families.is_StTheresa,
 						TDF_Families.is_DefaultRow,
+
+						TDF_Families.is_Selected,
+						TDF_Families.is_DefaultRow,
+						TDF_Families.is_Export,
+						TDF_Families.is_Blocked,
+						TDF_Families.is_Inactive,
+						TDF_Families.is_Christmas,
+						TDF_Families.is_ExChristmas,
+						TDF_Families.is_Dissolved,
+						TDF_Families.is_CorlettRd,
+						TDF_Families.is_StTheresa,
+
 						TDF_Person_Left.st_UpperSurname AS LeftUpperSurname,
 						TDF_Person_Left.st_ProperSurname AS LeftProperSurname,
 						TDF_Person_Left.st_GivenName AS LeftGivenName,
