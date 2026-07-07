@@ -8,7 +8,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 	//___________________________________________________________________________________________________________________________________________
 	public class Constants
 	{
-		public const int ColumnCount = 22;
+		public const int ColumnCount = 28;
 
 		public enum FamilyType { NO_TYPE, L_EQ_R, L_NE_R, NO_R };
 		public const string L_EQ_R	= "LEFT=RIGHT";		//Left and Right share a surname.
@@ -53,35 +53,36 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] FieldNames =
 		{
-			"pk_Family",
-			"fk_LeftPerson",
-			"fk_RightPerson",
-			"st_FamilyType",
-			"st_FamilyName",
-			"st_SortableName",
-			"st_JointName",
-			"st_NaturalName",
-			"st_PostalName",
-			"st_Notes",
-			"dt_WeddingDate",
-			"dt_CurrencyDate",
-			"is_Selected",
-			"is_DefaultRow",
-			"is_Export",
-			"is_Blocked",
-			"is_Inactive",
-			"is_Christmas",
-			"is_ExChristmas",
-			"is_Dissolved",
-			"is_CorlettRd",
-			"is_StTheresa",
+			"pk_Family",                // 0
+			"fk_LeftPerson",			// 1
+			"fk_RightPerson",			// 2
+			"st_FamilyType",			// 3
+			"st_FamilyName",			// 4
+			"st_SortableName",			// 5
+			"st_JointName",				// 6
+			"st_NaturalName",			// 7
+			"st_PostalName",			// 8
+			"st_Notes",					// 9
+			"dt_WeddingDate",			//10
+			"dt_CurrencyDate",			//11
 
-			"LeftUpperSurname",
-			"LeftProperSurname",
-			"LeftGivenName",
-			"RightUpperSurname",
-			"RightProperSurname",
-			"RightGivenName"
+			"is_Selected",				//12
+			"is_DefaultRow",			//13
+			"is_Export",				//14
+			"is_Blocked",				//15
+			"is_Inactive",				//16
+			"is_Christmas",				//17
+			"is_ExChristmas",			//18
+			"is_Dissolved",				//19
+			"is_CorlettRd",				//20
+			"is_StTheresa",				//21
+
+			"LeftUpperSurname",			//22
+			"LeftProperSurname",		//23
+			"LeftGivenName",			//24
+			"RightUpperSurname",		//25
+			"RightProperSurname",		//26
+			"RightGivenName"			//27
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] ParameterNames =
@@ -108,7 +109,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			"@is_dissolved",
 			"@is_corlettrd",
 			"@is_sttheresa",
-
 			"@st_leftuppersurname",
 			"@st_leftpropersurname",
 			"@st_leftgivenname",
@@ -119,35 +119,34 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 		//_______________________________________________________________________________________________________________________________________
 		public static int[] FieldWidths =
 		{
-			4,		//PkFamily
-			4,		//FkLeftPerson
-			4,		//FkRightPerson
-			15,		//StFamilyType
-			255,	//StFamilyName
-			255,	//StSortableName
-			255,	//StJointName
-			255,	//StNaturalName
-			255,	//StPostalName
-			255,	//StNotes
-			8,		//DtWeddingDate
-			8,		//DtCurrencyDate
-			1,		//IsSelected
-			1,		//IsDefaultRow
-			1,		//IsExport
-			1,		//IsBlocked
-			1,		//IsInactive
-			1,		//IsChristmas
-			1,		//IsExChristmas
-			1,		//IsDissolved
-			1,		//IsCorlettRd
-			1,		//IsStTheresa
-
-			255,	//StLeftUpperSurname
-			255,	//StLeftProperSurname
-			255,	//StLeftGivenName
-			255,	//StRightUpperSurname
-			255,	//StRightProperSurname
-			255		//StRightGivenName
+			4,		//  0 PkFamily
+			4,		//  1 FkLeftPerson
+			4,		//  2 FkRightPerson
+			15,		//  3 StFamilyType
+			255,	//  4 StFamilyName
+			255,	//  5 StSortableName
+			255,	//  6 StJointName
+			255,	//  7 StNaturalName
+			255,	//  8 StPostalName
+			255,	//  9 StNotes
+			8,		// 10 DtWeddingDate
+			8,		// 11 DtCurrencyDate
+			1,		// 12 IsSelected
+			1,		// 13 IsDefaultRow
+			1,		// 14 IsExport
+			1,		// 15 IsBlocked
+			1,		// 16 IsInactive
+			1,		// 17 IsChristmas
+			1,		// 18 IsExChristmas
+			1,		// 19 IsDissolved
+			1,		// 20 IsCorlettRd
+			1,		// 21 IsStTheresa
+			255,	// 22 StLeftUpperSurname
+			255,	// 23 StLeftProperSurname
+			255,	// 24 StLeftGivenName
+			255,	// 25 StRightUpperSurname
+			255,	// 26 StRightProperSurname
+			255		// 27 StRightGivenName
 		};
 		#endregion
 

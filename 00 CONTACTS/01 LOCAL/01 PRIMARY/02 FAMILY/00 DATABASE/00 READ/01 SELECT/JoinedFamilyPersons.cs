@@ -34,11 +34,6 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 						TDF_Families.st_Notes,
 						TDF_Families.dt_WeddingDate,
 						TDF_Families.dt_CurrencyDate,
-						TDF_Families.is_Christmas,
-						TDF_Families.is_Dissolved,
-						TDF_Families.is_CorlettRd,
-						TDF_Families.is_StTheresa,
-						TDF_Families.is_DefaultRow,
 
 						TDF_Families.is_Selected,
 						TDF_Families.is_DefaultRow,

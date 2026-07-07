@@ -22,7 +22,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region 00 TODO / DECLARE / CONSTRUCT
 
 		#region TODO LIST
-		//TODO: Add boolean fields to form: is_DefaultRow, is_Export. (?)
 		#endregion
 
 		#region DECLARATIONS
@@ -46,7 +45,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		public FrmFamily()
 		{
 			InitializeComponent();
-
 			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
