@@ -632,6 +632,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			Family.ExportFamily();
 		}
 		//___________________________________________________________________________________________________________________________________________
+		private void btn_FindFamily_Click( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
 		private void btn_CurrencyNow_Click( object sender, EventArgs e )
 		{
 			Currency_DateTime = DateTime.Now;

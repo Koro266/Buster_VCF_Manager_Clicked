@@ -30,6 +30,8 @@
 		{
 			box_FamilyData = new GroupBox();
 			chk_IsExChristmas = new CheckBox();
+			btn_InsertFamily = new Button();
+			btn_NewFamily = new Button();
 			chk_IsInactive = new CheckBox();
 			chk_IsBlocked = new CheckBox();
 			chk_IsExport = new CheckBox();
@@ -39,7 +41,6 @@
 			btn_TriggerDerivation = new Button();
 			btn_FindFamily = new Button();
 			label2 = new Label();
-			btn_NewFamily = new Button();
 			tbx_LeftPersonName = new TextBox();
 			tbx_RightPersonName = new TextBox();
 			label1 = new Label();
@@ -56,7 +57,6 @@
 			lbl_FamilyType = new Label();
 			btn_FirstFamily = new Button();
 			tbx_FamilyName = new TextBox();
-			btn_InsertFamily = new Button();
 			cbx_FamilyType = new ComboBox();
 			tbx_PkFamily = new TextBox();
 			lbl_SortableName = new Label();
@@ -91,6 +91,8 @@
 			// box_FamilyData
 			// 
 			box_FamilyData.Controls.Add( chk_IsExChristmas );
+			box_FamilyData.Controls.Add( btn_InsertFamily );
+			box_FamilyData.Controls.Add( btn_NewFamily );
 			box_FamilyData.Controls.Add( chk_IsInactive );
 			box_FamilyData.Controls.Add( chk_IsBlocked );
 			box_FamilyData.Controls.Add( chk_IsExport );
@@ -100,7 +102,6 @@
 			box_FamilyData.Controls.Add( btn_TriggerDerivation );
 			box_FamilyData.Controls.Add( btn_FindFamily );
 			box_FamilyData.Controls.Add( label2 );
-			box_FamilyData.Controls.Add( btn_NewFamily );
 			box_FamilyData.Controls.Add( tbx_LeftPersonName );
 			box_FamilyData.Controls.Add( tbx_RightPersonName );
 			box_FamilyData.Controls.Add( label1 );
@@ -117,7 +118,6 @@
 			box_FamilyData.Controls.Add( lbl_FamilyType );
 			box_FamilyData.Controls.Add( btn_FirstFamily );
 			box_FamilyData.Controls.Add( tbx_FamilyName );
-			box_FamilyData.Controls.Add( btn_InsertFamily );
 			box_FamilyData.Controls.Add( cbx_FamilyType );
 			box_FamilyData.Controls.Add( tbx_PkFamily );
 			box_FamilyData.Controls.Add( lbl_SortableName );
@@ -150,7 +150,7 @@
 			box_FamilyData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			box_FamilyData.Location = new Point( 12, 9 );
 			box_FamilyData.Name = "box_FamilyData";
-			box_FamilyData.Size = new Size( 1062, 505 );
+			box_FamilyData.Size = new Size( 1069, 505 );
 			box_FamilyData.TabIndex = 0;
 			box_FamilyData.TabStop = false;
 			box_FamilyData.Text = "Family Data";
@@ -167,6 +167,31 @@
 			chk_IsExChristmas.Text = "ex-Christmas?";
 			chk_IsExChristmas.UseVisualStyleBackColor = true;
 			chk_IsExChristmas.CheckedChanged +=  chk_IsExChristmas_CheckedChanged ;
+			// 
+			// btn_InsertFamily
+			// 
+			btn_InsertFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_InsertFamily.ForeColor = Color.Maroon;
+			btn_InsertFamily.Location = new Point( 924, 184 );
+			btn_InsertFamily.Name = "btn_InsertFamily";
+			btn_InsertFamily.Size = new Size( 133, 32 );
+			btn_InsertFamily.TabIndex = 6;
+			btn_InsertFamily.Text = "Insert Family";
+			btn_InsertFamily.UseVisualStyleBackColor = true;
+			btn_InsertFamily.Click +=  btn_InsertFamily_Click ;
+			// 
+			// btn_NewFamily
+			// 
+			btn_NewFamily.Enabled = false;
+			btn_NewFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_NewFamily.ForeColor = Color.Maroon;
+			btn_NewFamily.Location = new Point( 924, 146 );
+			btn_NewFamily.Name = "btn_NewFamily";
+			btn_NewFamily.Size = new Size( 133, 32 );
+			btn_NewFamily.TabIndex = 112;
+			btn_NewFamily.Text = "New Family";
+			btn_NewFamily.UseVisualStyleBackColor = true;
+			btn_NewFamily.Click +=  btn_NewFamily_Click ;
 			// 
 			// chk_IsInactive
 			// 
@@ -226,9 +251,9 @@
 			tbx_Messages.Enabled = false;
 			tbx_Messages.Font = new Font( "Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 619, 469 );
+			tbx_Messages.Location = new Point( 619, 471 );
 			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 432, 25 );
+			tbx_Messages.Size = new Size( 438, 25 );
 			tbx_Messages.TabIndex = 123;
 			tbx_Messages.TabStop = false;
 			// 
@@ -249,9 +274,9 @@
 			btn_TriggerDerivation.FlatStyle = FlatStyle.Popup;
 			btn_TriggerDerivation.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_TriggerDerivation.ForeColor = Color.Maroon;
-			btn_TriggerDerivation.Location = new Point( 589, 359 );
+			btn_TriggerDerivation.Location = new Point( 589, 358 );
 			btn_TriggerDerivation.Name = "btn_TriggerDerivation";
-			btn_TriggerDerivation.Size = new Size( 20, 20 );
+			btn_TriggerDerivation.Size = new Size( 20, 23 );
 			btn_TriggerDerivation.TabIndex = 115;
 			btn_TriggerDerivation.TextAlign = ContentAlignment.TopCenter;
 			btn_TriggerDerivation.UseVisualStyleBackColor = false;
@@ -262,13 +287,13 @@
 			btn_FindFamily.Enabled = false;
 			btn_FindFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindFamily.ForeColor = Color.Maroon;
-			btn_FindFamily.Location = new Point( 918, 213 );
+			btn_FindFamily.Location = new Point( 924, 320 );
 			btn_FindFamily.Name = "btn_FindFamily";
 			btn_FindFamily.Size = new Size( 133, 32 );
 			btn_FindFamily.TabIndex = 114;
 			btn_FindFamily.Text = "Find Family";
 			btn_FindFamily.UseVisualStyleBackColor = true;
-			btn_FindFamily.Visible = false;
+			btn_FindFamily.Click +=  btn_FindFamily_Click ;
 			// 
 			// label2
 			// 
@@ -280,19 +305,6 @@
 			label2.Size = new Size( 127, 21 );
 			label2.TabIndex = 113;
 			label2.Text = "Derived Names";
-			// 
-			// btn_NewFamily
-			// 
-			btn_NewFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NewFamily.ForeColor = Color.Maroon;
-			btn_NewFamily.Location = new Point( 918, 296 );
-			btn_NewFamily.Name = "btn_NewFamily";
-			btn_NewFamily.Size = new Size( 133, 32 );
-			btn_NewFamily.TabIndex = 112;
-			btn_NewFamily.Text = "New Family";
-			btn_NewFamily.UseVisualStyleBackColor = true;
-			btn_NewFamily.Visible = false;
-			btn_NewFamily.Click +=  btn_NewFamily_Click ;
 			// 
 			// tbx_LeftPersonName
 			// 
@@ -327,7 +339,7 @@
 			// 
 			btn_ExportFamilyVcf.Font = new Font( "Rockwell", 11.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_ExportFamilyVcf.ForeColor = Color.Maroon;
-			btn_ExportFamilyVcf.Location = new Point( 918, 178 );
+			btn_ExportFamilyVcf.Location = new Point( 924, 282 );
 			btn_ExportFamilyVcf.Name = "btn_ExportFamilyVcf";
 			btn_ExportFamilyVcf.Size = new Size( 133, 32 );
 			btn_ExportFamilyVcf.TabIndex = 106;
@@ -470,19 +482,6 @@
 			tbx_FamilyName.TabIndex = 2;
 			tbx_FamilyName.TabStop = false;
 			// 
-			// btn_InsertFamily
-			// 
-			btn_InsertFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_InsertFamily.ForeColor = Color.Maroon;
-			btn_InsertFamily.Location = new Point( 918, 331 );
-			btn_InsertFamily.Name = "btn_InsertFamily";
-			btn_InsertFamily.Size = new Size( 133, 32 );
-			btn_InsertFamily.TabIndex = 6;
-			btn_InsertFamily.Text = "Insert Family";
-			btn_InsertFamily.UseVisualStyleBackColor = true;
-			btn_InsertFamily.Visible = false;
-			btn_InsertFamily.Click +=  btn_InsertFamily_Click ;
-			// 
 			// cbx_FamilyType
 			// 
 			cbx_FamilyType.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
@@ -557,9 +556,9 @@
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 915, 431 );
+			btn_CloseForm.Location = new Point( 924, 431 );
 			btn_CloseForm.Name = "btn_CloseForm";
-			btn_CloseForm.Size = new Size( 136, 32 );
+			btn_CloseForm.Size = new Size( 133, 32 );
 			btn_CloseForm.TabIndex = 8;
 			btn_CloseForm.Text = "Close";
 			btn_CloseForm.UseVisualStyleBackColor = true;
@@ -624,7 +623,7 @@
 			// 
 			btn_UpdateFamily.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateFamily.ForeColor = Color.Maroon;
-			btn_UpdateFamily.Location = new Point( 918, 143 );
+			btn_UpdateFamily.Location = new Point( 924, 225 );
 			btn_UpdateFamily.Name = "btn_UpdateFamily";
 			btn_UpdateFamily.Size = new Size( 133, 32 );
 			btn_UpdateFamily.TabIndex = 7;
@@ -809,7 +808,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 1083, 519 );
+			ClientSize = new Size( 1090, 520 );
 			Controls.Add( box_FamilyData );
 			Name = "FrmFamily";
 			StartPosition = FormStartPosition.CenterScreen;
