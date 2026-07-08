@@ -13,7 +13,6 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 		//_______________________________________________________________________________________________________________________________________
 		public class OrdinalByName
 		{
-<<<<<<< HEAD
 			public const int PkGroup = 0;
 			public const int GroupName = 1;
 			public const int GroupType = 2;
@@ -28,22 +27,6 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 			public const int Tradesman = 11;
 			public const int Supplier = 12;
 			public const int Writer = 13;
-=======
-			public const int PkGroup		= 0;
-			public const int GroupName		= 1;
-			public const int GroupType		= 2;
-			public const int Notes			= 3;
-			public const int CurrencyDate	= 4;
-			public const int Selected		= 5;
-			public const int DefaultRow		= 6;
-			public const int Export			= 7;
-			public const int Blocked		= 8;
-			public const int Inactive		= 9;
-			public const int StTheresa		= 10;
-			public const int Tradesman		= 11;
-			public const int Supplier		= 12;
-			public const int Writer			= 13;
->>>>>>> frm_group
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] FieldNames =
