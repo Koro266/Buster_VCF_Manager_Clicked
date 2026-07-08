@@ -2,11 +2,11 @@
 using System.Data.OleDb;
 //GLOBAL
 using DATE_TIME	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
-using NULL_DATE  = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
+using NULL_DATE	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.GROUP

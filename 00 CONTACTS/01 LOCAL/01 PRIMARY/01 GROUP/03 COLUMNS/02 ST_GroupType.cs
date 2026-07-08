@@ -1,13 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using CONTACTS.GLOBAL;
 using System.Data.OleDb;
-//LOCAL
-using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.ColumnFactors;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
-using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
 //GLOBAL
 using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
+//LOCAL
+using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.GROUP
