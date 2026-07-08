@@ -1,9 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using			  CONTACTS.GLOBAL.DATABASE.COLUMN;
-using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using DATE_TIME	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using NULL_DATE  = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
@@ -16,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_GroupName : SHORT_TXT
+		public partial class DT_CurrencyDate : DATE_TIME
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.GroupName];
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.CurrencyDate];
+			private NULL_DATE type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_GroupName( string value ) : base( value )
+			public DT_CurrencyDate( DateTime value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_GroupName( NULL_TEXT tnp ) : base( tnp )
+			public DT_CurrencyDate( NULL_DATE tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -51,7 +50,17 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 			//_______________________________________________________________________________________________________________________________________
 			override public string ToString()
 			{
-				return base.Value;
+				return base.As_ddd_d_MMM_yyyy;
+			}
+			//___________________________________________________________________________________________________________________________________________
+			override public DateTime DatePickerValue
+			{
+				get { return base.DatePickerValue; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			override public string DatePickerFormat
+			{
+				get { return base.DatePickerFormat; }
 			}
 			#endregion
 
@@ -65,7 +74,7 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
+					parameter.Value = base.DbWriteDate( DATE_TIME.DatabaseCurrencyDateFormat );
 					return parameter;
 				}
 			}

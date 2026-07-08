@@ -1,12 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using CONTACTS.GLOBAL;
 using System.Data.OleDb;
-//GLOBAL
-using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
-using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
 using FACTORS	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.ColumnFactors;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
+//GLOBAL
+using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.GROUP
@@ -15,21 +16,21 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_GroupType : SHORT_TXT
+		public partial class ST_Notes : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.GroupType];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Notes];
 			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_GroupType( string value ) : base( value )
+			public ST_Notes( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_GroupType( NULL_TEXT tnp ) : base( tnp )
+			public ST_Notes( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -51,6 +52,38 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 			override public string ToString()
 			{
 				return base.Value;
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns value that is sent to the database.
+			/// </summary>
+			override public string DatabaseValue
+			{
+				get { return base.Value; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is displayed on a form.
+			/// </summary>
+			override public string DisplayValue
+			{
+				get { return base.Value; }
+			}
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns the value that is used in a VCF file.
+			/// </summary>
+			override public string VcfValue
+			{
+				get { return base.Value; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true iff group has a valid Notes value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return base.NullState == NULLITY.NotNull; }
 			}
 			#endregion
 

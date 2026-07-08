@@ -1,6 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using CONTACTS.GLOBAL;
 //GLOBAL
-using NULLITY	= CONTACTS.GLOBAL.Nullity;
+using			  CONTACTS.GLOBAL.DATABASE.COLUMN;
+using System.Data.OleDb;
+//LOCAL
+using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
+using FACTORS	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.ColumnFactors;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
 using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -10,17 +17,43 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// EXTENSIONS for ST_GroupName.
-		/// </summary>
 		public partial class ST_GroupName : SHORT_TXT
 		{
 			#region DECLARATIONS
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.GroupName];
+			private NULL_TEXT type_null_pair;
 			#endregion
 
 
-			/*
+			#region CONSTRUCTORS
+			//_______________________________________________________________________________________________________________________________________
+			public ST_GroupName( string value ) : base( value )
+			{
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public ST_GroupName( NULL_TEXT tnp ) : base( tnp )
+			{
+				type_null_pair = tnp;
+			}
+			#endregion
+
+
 			#region METHODS
+			//_______________________________________________________________________________________________________________________________________
+			public FACTORS Factors
+			{
+				get { return column_factors; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			public int Ordinal
+			{
+				get { return Factors.Ordinal; }
+			}
+			//_______________________________________________________________________________________________________________________________________
+			override public string ToString()
+			{
+				return base.Value;
+			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns value that is sent to the database.
@@ -55,7 +88,22 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 				get { return base.NullState == NULLITY.NotNull; }
 			}
 			#endregion
-			*/
+
+
+			#region DB INTERFACE
+			//_______________________________________________________________________________________________________________________________________
+			override public OleDbParameter DbParameter
+			{
+				get
+				{
+					OleDbParameter parameter = base.DbParameter;
+					parameter.ParameterName = Factors.ParameterName;
+					parameter.Size = Factors.FieldWidth;
+					parameter.Value = base.DbWriteValue;
+					return parameter;
+				}
+			}
+			#endregion
 		}
 	}
 }
