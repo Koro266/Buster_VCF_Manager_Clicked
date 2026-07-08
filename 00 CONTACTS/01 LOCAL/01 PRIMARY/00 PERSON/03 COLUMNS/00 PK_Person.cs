@@ -18,6 +18,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		public partial class PK_Person : INT_32
 		{
 			#region DECLARATIONS
+			//TODO: Check all Person columns: check all FACTORS assignments -- some of them are incorrect. 
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.PkPerson];
 			private NULL_INT type_null_pair;
 			#endregion
