@@ -5,11 +5,11 @@ using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
 using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
-using CONST		= CONTACTS.LOCAL.PRIMARY.PERSON.Constants;
-using ORDINAL	= CONTACTS.LOCAL.PRIMARY.PERSON.Constants.OrdinalByName;
+using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
+using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.PRIMARY.PERSON
+namespace CONTACTS.LOCAL.PRIMARY.GROUP
 {
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class Column
@@ -18,7 +18,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		public partial class IS_Enlightened : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Enlightened];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Writer];
 			private NULL_BOOL type_null_pair;
 			#endregion
 
