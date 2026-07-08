@@ -1,12 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using DATE_TIME	= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
-using NULL_DATE  = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
+using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.GROUP
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class DT_CurrencyDate : DATE_TIME
+		public partial class IS_DefaultRow : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.CurrencyDate];
-			private NULL_DATE type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.DefaultRow];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public DT_CurrencyDate( DateTime value ) : base( value )
+			public IS_DefaultRow( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public DT_CurrencyDate( NULL_DATE tnp ) : base( tnp )
+			public IS_DefaultRow( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -47,10 +47,13 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 			{
 				get { return Factors.Ordinal; }
 			}
-			//_______________________________________________________________________________________________________________________________________
-			override public string ToString()
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns DefaultRow as used in a VCF file.
+			/// </summary>
+			override public string VcfValue
 			{
-				return base.As_ddd_d_MMM_yyyy;
+				get { return base.AsTF; }
 			}
 			#endregion
 
@@ -64,7 +67,6 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteDate( DATE_TIME.DatabaseCurrencyDateFormat );
 					return parameter;
 				}
 			}

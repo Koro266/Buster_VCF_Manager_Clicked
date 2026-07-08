@@ -1,12 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
-using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
+using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.PRIMARY.GROUP.Constants;
 using ORDINAL	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.PRIMARY.GROUP.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.GROUP
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class PK_Group : INT_32
+		public partial class IS_NoRightPerson : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.PkGroup];
-			private NULL_INT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Supplier];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public PK_Group( int pk_group ) : base( pk_group )
+			public IS_NoRightPerson( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public PK_Group( NULL_INT tnp ) : base( tnp )
+			public IS_NoRightPerson( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -47,10 +47,13 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 			{
 				get { return Factors.Ordinal; }
 			}
-			//_______________________________________________________________________________________________________________________________________
-			override public string ToString()
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns NoRightPerson as used in a VCF file.
+			/// </summary>
+			override public string VcfValue
 			{
-				return base.Value.ToString();
+				get { return base.AsTF; }
 			}
 			#endregion
 
