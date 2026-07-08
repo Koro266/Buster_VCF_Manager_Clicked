@@ -57,6 +57,15 @@
 			tbx_PkGroup = new TextBox();
 			lbl_FindPk = new Label();
 			lbl_GroupType = new Label();
+			chk_IsSupplier = new CheckBox();
+			chk_IsInactive = new CheckBox();
+			chk_IsBlocked = new CheckBox();
+			chk_IsExport = new CheckBox();
+			chk_IsSelected = new CheckBox();
+			chk_IsDefaultGroup = new CheckBox();
+			chk_IsWriter = new CheckBox();
+			chk_IsTrade = new CheckBox();
+			chk_IsStTheresa = new CheckBox();
 			box_GroupData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -67,15 +76,24 @@
 			lbx_MatchingGroups.ForeColor = Color.Blue;
 			lbx_MatchingGroups.FormattingEnabled = true;
 			lbx_MatchingGroups.ItemHeight = 15;
-			lbx_MatchingGroups.Location = new Point( 106, 178 );
+			lbx_MatchingGroups.Location = new Point( 551, 24 );
 			lbx_MatchingGroups.Name = "lbx_MatchingGroups";
-			lbx_MatchingGroups.Size = new Size( 421, 229 );
+			lbx_MatchingGroups.Size = new Size( 318, 319 );
 			lbx_MatchingGroups.TabIndex = 1;
 			lbx_MatchingGroups.TabStop = false;
 			lbx_MatchingGroups.SelectedIndexChanged +=  lbx_MatchingGroups_SelectedIndexChanged ;
 			// 
 			// box_GroupData
 			// 
+			box_GroupData.Controls.Add( chk_IsSupplier );
+			box_GroupData.Controls.Add( chk_IsInactive );
+			box_GroupData.Controls.Add( chk_IsBlocked );
+			box_GroupData.Controls.Add( chk_IsExport );
+			box_GroupData.Controls.Add( chk_IsSelected );
+			box_GroupData.Controls.Add( chk_IsDefaultGroup );
+			box_GroupData.Controls.Add( chk_IsWriter );
+			box_GroupData.Controls.Add( chk_IsTrade );
+			box_GroupData.Controls.Add( chk_IsStTheresa );
 			box_GroupData.Controls.Add( tbx_Messages );
 			box_GroupData.Controls.Add( label3 );
 			box_GroupData.Controls.Add( tbx_Matches );
@@ -107,7 +125,7 @@
 			box_GroupData.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			box_GroupData.Location = new Point( 12, 12 );
 			box_GroupData.Name = "box_GroupData";
-			box_GroupData.Size = new Size( 706, 444 );
+			box_GroupData.Size = new Size( 1033, 395 );
 			box_GroupData.TabIndex = 0;
 			box_GroupData.TabStop = false;
 			box_GroupData.Text = "Group Data";
@@ -117,9 +135,9 @@
 			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
 			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 106, 415 );
+			tbx_Messages.Location = new Point( 551, 352 );
 			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 585, 23 );
+			tbx_Messages.Size = new Size( 470, 23 );
 			tbx_Messages.TabIndex = 121;
 			tbx_Messages.TabStop = false;
 			// 
@@ -147,7 +165,7 @@
 			// 
 			btn_ExportGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_ExportGroup.ForeColor = Color.Maroon;
-			btn_ExportGroup.Location = new Point( 558, 289 );
+			btn_ExportGroup.Location = new Point( 888, 251 );
 			btn_ExportGroup.Name = "btn_ExportGroup";
 			btn_ExportGroup.Size = new Size( 133, 28 );
 			btn_ExportGroup.TabIndex = 13;
@@ -159,7 +177,7 @@
 			// 
 			btn_NewGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_NewGroup.ForeColor = Color.Maroon;
-			btn_NewGroup.Location = new Point( 558, 146 );
+			btn_NewGroup.Location = new Point( 888, 150 );
 			btn_NewGroup.Name = "btn_NewGroup";
 			btn_NewGroup.Size = new Size( 133, 28 );
 			btn_NewGroup.TabIndex = 10;
@@ -171,7 +189,7 @@
 			// lbl_Nth
 			// 
 			lbl_Nth.AutoSize = true;
-			lbl_Nth.Location = new Point( 669, 110 );
+			lbl_Nth.Location = new Point( 999, 114 );
 			lbl_Nth.Name = "lbl_Nth";
 			lbl_Nth.Size = new Size( 16, 17 );
 			lbl_Nth.TabIndex = 14;
@@ -180,7 +198,7 @@
 			// lbl_Zero
 			// 
 			lbl_Zero.AutoSize = true;
-			lbl_Zero.Location = new Point( 566, 110 );
+			lbl_Zero.Location = new Point( 896, 114 );
 			lbl_Zero.Name = "lbl_Zero";
 			lbl_Zero.Size = new Size( 15, 17 );
 			lbl_Zero.TabIndex = 13;
@@ -190,7 +208,7 @@
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 559, 364 );
+			btn_CloseForm.Location = new Point( 888, 315 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 133, 28 );
 			btn_CloseForm.TabIndex = 15;
@@ -201,7 +219,7 @@
 			// btn_FirstGroup
 			// 
 			btn_FirstGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FirstGroup.Location = new Point( 559, 85 );
+			btn_FirstGroup.Location = new Point( 889, 89 );
 			btn_FirstGroup.Name = "btn_FirstGroup";
 			btn_FirstGroup.Size = new Size( 27, 23 );
 			btn_FirstGroup.TabIndex = 6;
@@ -224,7 +242,7 @@
 			// 
 			btn_InsertGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertGroup.ForeColor = Color.Maroon;
-			btn_InsertGroup.Location = new Point( 558, 197 );
+			btn_InsertGroup.Location = new Point( 888, 184 );
 			btn_InsertGroup.Name = "btn_InsertGroup";
 			btn_InsertGroup.Size = new Size( 133, 28 );
 			btn_InsertGroup.TabIndex = 11;
@@ -246,7 +264,7 @@
 			// btn_PreviousGroup
 			// 
 			btn_PreviousGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_PreviousGroup.Location = new Point( 594, 85 );
+			btn_PreviousGroup.Location = new Point( 924, 89 );
 			btn_PreviousGroup.Name = "btn_PreviousGroup";
 			btn_PreviousGroup.Size = new Size( 27, 23 );
 			btn_PreviousGroup.TabIndex = 7;
@@ -267,7 +285,7 @@
 			// btn_LastGroup
 			// 
 			btn_LastGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_LastGroup.Location = new Point( 664, 85 );
+			btn_LastGroup.Location = new Point( 994, 89 );
 			btn_LastGroup.Name = "btn_LastGroup";
 			btn_LastGroup.Size = new Size( 27, 23 );
 			btn_LastGroup.TabIndex = 9;
@@ -290,7 +308,7 @@
 			// 
 			btn_UpdateGroup.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateGroup.ForeColor = Color.Maroon;
-			btn_UpdateGroup.Location = new Point( 558, 228 );
+			btn_UpdateGroup.Location = new Point( 888, 215 );
 			btn_UpdateGroup.Name = "btn_UpdateGroup";
 			btn_UpdateGroup.Size = new Size( 133, 28 );
 			btn_UpdateGroup.TabIndex = 12;
@@ -313,7 +331,7 @@
 			// btn_NextGroup
 			// 
 			btn_NextGroup.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NextGroup.Location = new Point( 629, 85 );
+			btn_NextGroup.Location = new Point( 959, 89 );
 			btn_NextGroup.Name = "btn_NextGroup";
 			btn_NextGroup.Size = new Size( 27, 23 );
 			btn_NextGroup.TabIndex = 8;
@@ -338,7 +356,7 @@
 			lbl_PK.AutoSize = true;
 			lbl_PK.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_PK.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_PK.Location = new Point( 582, 23 );
+			lbl_PK.Location = new Point( 912, 27 );
 			lbl_PK.Name = "lbl_PK";
 			lbl_PK.Size = new Size( 34, 21 );
 			lbl_PK.TabIndex = 4;
@@ -359,7 +377,7 @@
 			// 
 			tbx_Filter.BackColor = Color.FromArgb(     255,     192,     192 );
 			tbx_Filter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Filter.Location = new Point( 618, 52 );
+			tbx_Filter.Location = new Point( 948, 56 );
 			tbx_Filter.MaxLength = 6;
 			tbx_Filter.Name = "tbx_Filter";
 			tbx_Filter.Size = new Size( 73, 25 );
@@ -384,7 +402,7 @@
 			tbx_PkGroup.BackColor = Color.FromArgb(     192,     192,     255 );
 			tbx_PkGroup.Enabled = false;
 			tbx_PkGroup.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_PkGroup.Location = new Point( 618, 21 );
+			tbx_PkGroup.Location = new Point( 948, 25 );
 			tbx_PkGroup.Name = "tbx_PkGroup";
 			tbx_PkGroup.PlaceholderText = "PK";
 			tbx_PkGroup.ReadOnly = true;
@@ -399,7 +417,7 @@
 			lbl_FindPk.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_FindPk.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbl_FindPk.ImageAlign = ContentAlignment.MiddleRight;
-			lbl_FindPk.Location = new Point( 545, 54 );
+			lbl_FindPk.Location = new Point( 875, 58 );
 			lbl_FindPk.Name = "lbl_FindPk";
 			lbl_FindPk.Size = new Size( 71, 21 );
 			lbl_FindPk.TabIndex = 0;
@@ -417,13 +435,121 @@
 			lbl_GroupType.TabIndex = 5;
 			lbl_GroupType.Text = "Group Type";
 			// 
+			// chk_IsSupplier
+			// 
+			chk_IsSupplier.AutoSize = true;
+			chk_IsSupplier.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsSupplier.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsSupplier.Location = new Point( 105, 343 );
+			chk_IsSupplier.Name = "chk_IsSupplier";
+			chk_IsSupplier.Size = new Size( 90, 23 );
+			chk_IsSupplier.TabIndex = 138;
+			chk_IsSupplier.Text = "Supplier?";
+			chk_IsSupplier.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsInactive
+			// 
+			chk_IsInactive.AutoSize = true;
+			chk_IsInactive.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsInactive.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsInactive.Location = new Point( 105, 274 );
+			chk_IsInactive.Name = "chk_IsInactive";
+			chk_IsInactive.Size = new Size( 86, 23 );
+			chk_IsInactive.TabIndex = 137;
+			chk_IsInactive.Text = "Inactive?";
+			chk_IsInactive.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsBlocked
+			// 
+			chk_IsBlocked.AutoSize = true;
+			chk_IsBlocked.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsBlocked.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsBlocked.Location = new Point( 105, 251 );
+			chk_IsBlocked.Name = "chk_IsBlocked";
+			chk_IsBlocked.Size = new Size( 88, 23 );
+			chk_IsBlocked.TabIndex = 136;
+			chk_IsBlocked.Text = "Blocked?";
+			chk_IsBlocked.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsExport
+			// 
+			chk_IsExport.AutoSize = true;
+			chk_IsExport.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsExport.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsExport.Location = new Point( 105, 228 );
+			chk_IsExport.Name = "chk_IsExport";
+			chk_IsExport.Size = new Size( 77, 23 );
+			chk_IsExport.TabIndex = 135;
+			chk_IsExport.Text = "Export?";
+			chk_IsExport.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsSelected
+			// 
+			chk_IsSelected.AutoSize = true;
+			chk_IsSelected.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsSelected.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsSelected.Location = new Point( 105, 182 );
+			chk_IsSelected.Name = "chk_IsSelected";
+			chk_IsSelected.Size = new Size( 91, 23 );
+			chk_IsSelected.TabIndex = 134;
+			chk_IsSelected.Text = "Selected?";
+			chk_IsSelected.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsDefaultGroup
+			// 
+			chk_IsDefaultGroup.AutoSize = true;
+			chk_IsDefaultGroup.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsDefaultGroup.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsDefaultGroup.Location = new Point( 105, 205 );
+			chk_IsDefaultGroup.Name = "chk_IsDefaultGroup";
+			chk_IsDefaultGroup.Size = new Size( 128, 23 );
+			chk_IsDefaultGroup.TabIndex = 133;
+			chk_IsDefaultGroup.Text = "Default Group?";
+			chk_IsDefaultGroup.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsWriter
+			// 
+			chk_IsWriter.AutoSize = true;
+			chk_IsWriter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsWriter.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsWriter.Location = new Point( 105, 366 );
+			chk_IsWriter.Name = "chk_IsWriter";
+			chk_IsWriter.Size = new Size( 84, 23 );
+			chk_IsWriter.TabIndex = 129;
+			chk_IsWriter.Text = "Writing?";
+			chk_IsWriter.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsTrade
+			// 
+			chk_IsTrade.AutoSize = true;
+			chk_IsTrade.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsTrade.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsTrade.Location = new Point( 105, 320 );
+			chk_IsTrade.Name = "chk_IsTrade";
+			chk_IsTrade.Size = new Size( 72, 23 );
+			chk_IsTrade.TabIndex = 132;
+			chk_IsTrade.Text = "Trade?";
+			chk_IsTrade.UseVisualStyleBackColor = true;
+			// 
+			// chk_IsStTheresa
+			// 
+			chk_IsStTheresa.AutoSize = true;
+			chk_IsStTheresa.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsStTheresa.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsStTheresa.Location = new Point( 105, 297 );
+			chk_IsStTheresa.Name = "chk_IsStTheresa";
+			chk_IsStTheresa.Size = new Size( 112, 23 );
+			chk_IsStTheresa.TabIndex = 131;
+			chk_IsStTheresa.Text = "St Theresa's?";
+			chk_IsStTheresa.UseVisualStyleBackColor = true;
+			// 
 			// FrmGroup
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 730, 462 );
+			ClientSize = new Size( 1055, 416 );
 			Controls.Add( box_GroupData );
 			Name = "FrmGroup";
 			StartPosition = FormStartPosition.CenterScreen;
@@ -464,5 +590,14 @@
 		private Label label3;
 		private TextBox tbx_Matches;
 		private TextBox tbx_Messages;
+		private CheckBox chk_IsSupplier;
+		private CheckBox chk_IsInactive;
+		private CheckBox chk_IsBlocked;
+		private CheckBox chk_IsExport;
+		private CheckBox chk_IsSelected;
+		private CheckBox chk_IsDefaultGroup;
+		private CheckBox chk_IsWriter;
+		private CheckBox chk_IsTrade;
+		private CheckBox chk_IsStTheresa;
 	}
 }
