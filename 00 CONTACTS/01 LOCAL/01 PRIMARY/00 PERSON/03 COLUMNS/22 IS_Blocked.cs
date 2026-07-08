@@ -18,7 +18,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 		public partial class IS_Blocked : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Export];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Blocked];
 			private NULL_BOOL type_null_pair;
 			#endregion
 
