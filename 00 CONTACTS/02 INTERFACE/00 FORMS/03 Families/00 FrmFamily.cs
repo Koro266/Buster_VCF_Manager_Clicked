@@ -152,31 +152,38 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex = 0;
-			cbx_FamilyType.TabIndex = 1;
-			tbx_Notes.TabIndex = 2;
-			dbx_WeddingDate.TabIndex = 3;
-			btn_ClearWeddingDate.TabIndex = 4;
-			dbx_CurrencyDate.TabIndex = 5;
-			btn_CurrencyNow.TabIndex = 6;
-			chk_IsDissolved.TabIndex = 7;
-			chk_IsCorlettRd.TabIndex = 8;
-			chk_IsStTheresa.TabIndex = 9;
-			chk_IsChristmas.TabIndex = 10;
-			chk_IsDefaultFamily.TabIndex = 11;
-			btn_TriggerDerivation.TabIndex = 12;
-			tbx_Filter.TabIndex = 13;
-			btn_FirstFamily.TabIndex = 14;
-			btn_PreviousFamily.TabIndex = 15;
-			btn_NextFamily.TabIndex = 16;
-			btn_LastFamily.TabIndex = 17;
-			btn_NewFamily.TabIndex = 18;
-			btn_InsertFamily.TabIndex = 19;
-			btn_UpdateFamily.TabIndex = 20;
-			btn_ExportFamilyVcf.TabIndex = 21;
-			btn_FindFamily.TabIndex = 22;
-			lbx_MatchingFamilies.TabIndex = 23;
-			btn_CloseForm.TabIndex = 24;
+			tbx_Matches.TabIndex				=  0;
+			tbx_LeftPersonName.TabIndex			=  1; //LeftPersonName.TabStop = false
+			tbx_RightPersonName.TabIndex		=  2; //RightPersonName.TabStop = false
+			cbx_FamilyType.TabIndex				=  3;
+			tbx_Notes.TabIndex					=  4;
+			dbx_WeddingDate.TabIndex			=  5;
+			btn_ClearWeddingDate.TabIndex		=  6;
+			dbx_CurrencyDate.TabIndex			=  7;
+			btn_CurrencyNow.TabIndex			=  8;
+			chk_IsSelected.TabIndex				=  9;
+			chk_IsDefaultFamily.TabIndex		= 10;
+			chk_IsExport.TabIndex				= 11;
+			chk_IsBlocked.TabIndex				= 12;
+			chk_IsInactive.TabIndex				= 13;
+			chk_IsChristmas.TabIndex			= 14;
+			chk_IsExChristmas.TabIndex			= 15;
+			chk_IsDissolved.TabIndex			= 16;
+			chk_IsCorlettRd.TabIndex			= 17;
+			chk_IsStTheresa.TabIndex			= 18;
+			btn_TriggerDerivation.TabIndex		= 19;
+			tbx_Filter.TabIndex					= 20;
+			btn_FirstFamily.TabIndex			= 21;
+			btn_PreviousFamily.TabIndex			= 22;
+			btn_NextFamily.TabIndex				= 23;
+			btn_LastFamily.TabIndex				= 24;
+			btn_NewFamily.TabIndex				= 25;
+			btn_InsertFamily.TabIndex			= 26;
+			btn_UpdateFamily.TabIndex			= 27;
+			btn_ExportFamilyVcf.TabIndex		= 28;
+			btn_FindFamily.TabIndex				= 29;
+			btn_CloseForm.TabIndex				= 30;
+			
 		}
 		#endregion
 
@@ -634,7 +641,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_FindFamily_Click( object sender, EventArgs e )
 		{
-
+			//TODO Do we need this?
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_CurrencyNow_Click( object sender, EventArgs e )

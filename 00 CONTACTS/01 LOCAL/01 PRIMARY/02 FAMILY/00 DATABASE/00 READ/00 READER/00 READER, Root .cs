@@ -29,6 +29,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			//___________________________________________________________________________________________________________________________________________
 			private FAMILY_ROW ReadRow()
 			{
+				//TODO: Is FamilyReader being used?
 				FAMILY_ROW family = new FAMILY_ROW();
 
 				family.Append( new FIELD.PK_Family			( base.GetPrimaryKey	( ORDINAL.PkFamily )		) );
@@ -43,7 +44,14 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 				family.Append( new FIELD.ST_Notes			( base.GetShortText		( ORDINAL.Notes )			) );
 				family.Append( new FIELD.DT_WeddingDate		( base.GetDateTime		( ORDINAL.WeddingDate )		) );
 				family.Append( new FIELD.DT_CurrencyDate	( base.GetDateTime		( ORDINAL.CurrencyDate )	) );
+
+				family.Append( new FIELD.IS_Selected		( base.GetBoolean		( ORDINAL.Selected )		) );
+				family.Append( new FIELD.IS_DefaultRow		( base.GetBoolean		( ORDINAL.DefaultRow )		) );
+				family.Append( new FIELD.IS_Export			( base.GetBoolean		( ORDINAL.Export )			) );
+				family.Append( new FIELD.IS_Blocked			( base.GetBoolean		( ORDINAL.Blocked )			) );
+				family.Append( new FIELD.IS_Inactive		( base.GetBoolean		( ORDINAL.Inactive )		) );
 				family.Append( new FIELD.IS_Christmas		( base.GetBoolean		( ORDINAL.Christmas )		) );
+				family.Append( new FIELD.IS_ExChristmas		( base.GetBoolean		( ORDINAL.ExChristmas )		) );
 				family.Append( new FIELD.IS_Dissolved		( base.GetBoolean		( ORDINAL.Dissolved )		) );
 				family.Append( new FIELD.IS_CorlettRd		( base.GetBoolean		( ORDINAL.CorlettRd )		) );
 				family.Append( new FIELD.IS_StTheresa		( base.GetBoolean		( ORDINAL.StTheresa )		) );

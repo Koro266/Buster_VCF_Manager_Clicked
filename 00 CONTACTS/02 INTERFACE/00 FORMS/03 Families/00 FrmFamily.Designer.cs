@@ -381,6 +381,7 @@
 			lbx_MatchingFamilies.Name = "lbx_MatchingFamilies";
 			lbx_MatchingFamilies.Size = new Size( 283, 439 );
 			lbx_MatchingFamilies.TabIndex = 75;
+			lbx_MatchingFamilies.TabStop = false;
 			lbx_MatchingFamilies.Click +=  lbx_MatchingFamilies_Click ;
 			lbx_MatchingFamilies.DoubleClick +=  lbx_MatchingFamilies_DoubleClick ;
 			// 
