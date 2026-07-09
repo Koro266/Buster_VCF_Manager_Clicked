@@ -28,6 +28,15 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 						TDF_Groups.st_GroupType		= @st_grouptype,	
 						TDF_Groups.st_Notes			= @st_notes,	
 						TDF_Groups.dt_CurrencyDate	= @dt_currencydate	
+						TDF_Groups.is_Selected		= @is_selected,
+						TDF_Groups.is_DefaultRow	= @is_defaultrow,
+						TDF_Groups.is_Export		= @is_export,
+						TDF_Groups.is_Blocked		= @is_blocked,
+						TDF_Groups.is_Inactive		= @is_inactive,
+						TDF_Groups.is_StTheresa		= @is_sttheresa,
+						TDF_Groups.is_Tradesman		= @is_tradesman,
+						TDF_Groups.is_Supplier		= @is_supplier,
+						TDF_Groups.is_Writer		= @is_writer
 					WHERE					
 						(((TDF_Groups.pk_Group)		= @pk_group	));
 				";
@@ -42,6 +51,15 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 					base.DbCommand.Parameters.Add( group.GroupType.DbParameter );
 					base.DbCommand.Parameters.Add( group.Notes.DbParameter );
 					base.DbCommand.Parameters.Add( group.CurrencyDate.DbParameter );
+					base.DbCommand.Parameters.Add( group.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( group.DefaultRow.DbParameter );
+					base.DbCommand.Parameters.Add( group.Export.DbParameter );
+					base.DbCommand.Parameters.Add( group.Blocked.DbParameter );
+					base.DbCommand.Parameters.Add( group.Inactive.DbParameter );
+					base.DbCommand.Parameters.Add( group.StTheresa.DbParameter );
+					base.DbCommand.Parameters.Add( group.Tradesman.DbParameter );
+					base.DbCommand.Parameters.Add( group.Supplier.DbParameter );
+					base.DbCommand.Parameters.Add( group.Writer.DbParameter );
 					base.DbCommand.Parameters.Add( group.PkGroup.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
