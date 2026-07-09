@@ -1,5 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using CONTACTS.GLOBAL.DATABASE.ROW;
 using static CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
 //LOCAL
 using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
@@ -36,10 +37,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Groups;
 		private TXT_GATHER txt_Accumulator;
-
-		//TODO: Consider moving these constants into Tools.
-		private const string no_Item_Selected = "No item selected. Move to default Group.";
-		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
 
 
@@ -165,14 +162,23 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertGroup()
 		{
-			//TODO: update INSERT & UPDATE to match code in FrmPerson
-			all_Groups.InsertGroup( Group );
-			Group = all_Groups.CurrentGroup;
+			if ( all_Groups.InsertGroup( Group ) )
+			{
+				Group = all_Groups.CurrentGroup;
+				_Messenger.InsertSucceeded();
+			}
+			else
+			{
+				_Messenger.InsertFailed();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void UpdateGroup()
 		{
-			all_Groups.UpdateGroup( Group );
+			if ( all_Groups.UpdateGroup( Group ) )
+				_Messenger.UpdateSucceeded();
+			else
+				_Messenger.UpdateFailed();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string GroupName
@@ -226,23 +232,17 @@ namespace CONTACTS.INTERFACE.FORMS
 				if ( value == GLOBAL_PRESET.NoItemSelected )
 				{
 					Group = all_Groups.DefaultGroup;
-					AsyncMessage( no_Item_Selected );
+					_Messenger.NoItemSelected();
 				}
 				else
 				{
 					LIKE_ROW like_row = ( LIKE_ROW )( this.lbx_MatchingGroups.SelectedItem );
-					AsyncMessage( like_row.LikeValue + is_Valid_Selection );
+					_Messenger.ValidSelection( like_row.LikeValue );
 					this.GroupPk = like_row.PkRow;
 				}
 
 				this.tbx_GroupName.Focus();
 			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void AsyncMessage( string msg )
-		{
-			_Messenger.Message = msg;
-			this.tbx_Matches.Focus();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private DateTime CurrencyDate
@@ -528,13 +528,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_InsertGroup_Click( object sender, EventArgs e )
 		{
 			InsertGroup();
-			_Messenger.Message = "Insert Hi";
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_UpdateGroup_Click( object sender, EventArgs e )
 		{
 			UpdateGroup();
-			_Messenger.Message = "Update  Hi";
 		}
 		#endregion
 
