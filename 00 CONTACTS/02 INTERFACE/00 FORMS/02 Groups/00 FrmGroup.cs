@@ -30,7 +30,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private ONE_GROUP one_Group;
 		private static ALL_GROUPS all_Groups = new ALL_GROUPS();
-		
+
 		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 		private LIKE_ROW[] matching_Groups;
@@ -102,6 +102,17 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.dbx_CurrencyDate.CustomFormat = Group.CurrencyDate.DatePickerFormat;
 			this.dbx_CurrencyDate.Value = Group.CurrencyDate.DatePickerValue;
 			this.tbx_Notes.Text = Notes;
+
+			//this.chk_IsSelected
+			//this.chk_IsDefaultGroup
+			//this.chk_IsExport
+			//this.chk_IsBlocked
+			//this.chk_IsInactive
+			//this.chk_IsStTheresa
+			//this.chk_IsTrade
+			//this.chk_IsSupplier
+			//this.chk_IsWriter
+
 
 			_EventState.EnableEvents();
 		}
@@ -397,5 +408,50 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 
 		#endregion
+
+		private void chk_IsSelected_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsDefaultGroup_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsExport_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsBlocked_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsInactive_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsStTheresa_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsTrade_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsSupplier_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+
+		private void chk_IsWriter_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
 	}
 }

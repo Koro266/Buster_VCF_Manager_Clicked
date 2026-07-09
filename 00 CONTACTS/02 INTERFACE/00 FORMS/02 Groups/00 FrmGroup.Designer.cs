@@ -30,6 +30,15 @@
 		{
 			lbx_MatchingGroups = new ListBox();
 			box_GroupData = new GroupBox();
+			chk_IsSupplier = new CheckBox();
+			chk_IsInactive = new CheckBox();
+			chk_IsBlocked = new CheckBox();
+			chk_IsExport = new CheckBox();
+			chk_IsSelected = new CheckBox();
+			chk_IsDefaultGroup = new CheckBox();
+			chk_IsWriter = new CheckBox();
+			chk_IsTrade = new CheckBox();
+			chk_IsStTheresa = new CheckBox();
 			tbx_Messages = new TextBox();
 			label3 = new Label();
 			tbx_Matches = new TextBox();
@@ -57,15 +66,6 @@
 			tbx_PkGroup = new TextBox();
 			lbl_FindPk = new Label();
 			lbl_GroupType = new Label();
-			chk_IsSupplier = new CheckBox();
-			chk_IsInactive = new CheckBox();
-			chk_IsBlocked = new CheckBox();
-			chk_IsExport = new CheckBox();
-			chk_IsSelected = new CheckBox();
-			chk_IsDefaultGroup = new CheckBox();
-			chk_IsWriter = new CheckBox();
-			chk_IsTrade = new CheckBox();
-			chk_IsStTheresa = new CheckBox();
 			box_GroupData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -129,6 +129,123 @@
 			box_GroupData.TabIndex = 0;
 			box_GroupData.TabStop = false;
 			box_GroupData.Text = "Group Data";
+			// 
+			// chk_IsSupplier
+			// 
+			chk_IsSupplier.AutoSize = true;
+			chk_IsSupplier.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsSupplier.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsSupplier.Location = new Point( 105, 343 );
+			chk_IsSupplier.Name = "chk_IsSupplier";
+			chk_IsSupplier.Size = new Size( 90, 23 );
+			chk_IsSupplier.TabIndex = 138;
+			chk_IsSupplier.Text = "Supplier?";
+			chk_IsSupplier.UseVisualStyleBackColor = true;
+			chk_IsSupplier.CheckedChanged +=  chk_IsSupplier_CheckedChanged ;
+			// 
+			// chk_IsInactive
+			// 
+			chk_IsInactive.AutoSize = true;
+			chk_IsInactive.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsInactive.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsInactive.Location = new Point( 105, 274 );
+			chk_IsInactive.Name = "chk_IsInactive";
+			chk_IsInactive.Size = new Size( 86, 23 );
+			chk_IsInactive.TabIndex = 137;
+			chk_IsInactive.Text = "Inactive?";
+			chk_IsInactive.UseVisualStyleBackColor = true;
+			chk_IsInactive.CheckedChanged +=  chk_IsInactive_CheckedChanged ;
+			// 
+			// chk_IsBlocked
+			// 
+			chk_IsBlocked.AutoSize = true;
+			chk_IsBlocked.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsBlocked.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsBlocked.Location = new Point( 105, 251 );
+			chk_IsBlocked.Name = "chk_IsBlocked";
+			chk_IsBlocked.Size = new Size( 88, 23 );
+			chk_IsBlocked.TabIndex = 136;
+			chk_IsBlocked.Text = "Blocked?";
+			chk_IsBlocked.UseVisualStyleBackColor = true;
+			chk_IsBlocked.CheckedChanged +=  chk_IsBlocked_CheckedChanged ;
+			// 
+			// chk_IsExport
+			// 
+			chk_IsExport.AutoSize = true;
+			chk_IsExport.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsExport.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsExport.Location = new Point( 105, 228 );
+			chk_IsExport.Name = "chk_IsExport";
+			chk_IsExport.Size = new Size( 77, 23 );
+			chk_IsExport.TabIndex = 135;
+			chk_IsExport.Text = "Export?";
+			chk_IsExport.UseVisualStyleBackColor = true;
+			chk_IsExport.CheckedChanged +=  chk_IsExport_CheckedChanged ;
+			// 
+			// chk_IsSelected
+			// 
+			chk_IsSelected.AutoSize = true;
+			chk_IsSelected.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsSelected.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsSelected.Location = new Point( 105, 182 );
+			chk_IsSelected.Name = "chk_IsSelected";
+			chk_IsSelected.Size = new Size( 91, 23 );
+			chk_IsSelected.TabIndex = 134;
+			chk_IsSelected.Text = "Selected?";
+			chk_IsSelected.UseVisualStyleBackColor = true;
+			chk_IsSelected.CheckedChanged +=  chk_IsSelected_CheckedChanged ;
+			// 
+			// chk_IsDefaultGroup
+			// 
+			chk_IsDefaultGroup.AutoSize = true;
+			chk_IsDefaultGroup.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsDefaultGroup.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsDefaultGroup.Location = new Point( 105, 205 );
+			chk_IsDefaultGroup.Name = "chk_IsDefaultGroup";
+			chk_IsDefaultGroup.Size = new Size( 128, 23 );
+			chk_IsDefaultGroup.TabIndex = 133;
+			chk_IsDefaultGroup.Text = "Default Group?";
+			chk_IsDefaultGroup.UseVisualStyleBackColor = true;
+			chk_IsDefaultGroup.CheckedChanged +=  chk_IsDefaultGroup_CheckedChanged ;
+			// 
+			// chk_IsWriter
+			// 
+			chk_IsWriter.AutoSize = true;
+			chk_IsWriter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsWriter.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsWriter.Location = new Point( 105, 366 );
+			chk_IsWriter.Name = "chk_IsWriter";
+			chk_IsWriter.Size = new Size( 84, 23 );
+			chk_IsWriter.TabIndex = 129;
+			chk_IsWriter.Text = "Writing?";
+			chk_IsWriter.UseVisualStyleBackColor = true;
+			chk_IsWriter.CheckedChanged +=  chk_IsWriter_CheckedChanged ;
+			// 
+			// chk_IsTrade
+			// 
+			chk_IsTrade.AutoSize = true;
+			chk_IsTrade.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsTrade.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsTrade.Location = new Point( 105, 320 );
+			chk_IsTrade.Name = "chk_IsTrade";
+			chk_IsTrade.Size = new Size( 72, 23 );
+			chk_IsTrade.TabIndex = 132;
+			chk_IsTrade.Text = "Trade?";
+			chk_IsTrade.UseVisualStyleBackColor = true;
+			chk_IsTrade.CheckedChanged +=  chk_IsTrade_CheckedChanged ;
+			// 
+			// chk_IsStTheresa
+			// 
+			chk_IsStTheresa.AutoSize = true;
+			chk_IsStTheresa.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_IsStTheresa.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_IsStTheresa.Location = new Point( 105, 297 );
+			chk_IsStTheresa.Name = "chk_IsStTheresa";
+			chk_IsStTheresa.Size = new Size( 112, 23 );
+			chk_IsStTheresa.TabIndex = 131;
+			chk_IsStTheresa.Text = "St Theresa's?";
+			chk_IsStTheresa.UseVisualStyleBackColor = true;
+			chk_IsStTheresa.CheckedChanged +=  chk_IsStTheresa_CheckedChanged ;
 			// 
 			// tbx_Messages
 			// 
@@ -434,114 +551,6 @@
 			lbl_GroupType.Size = new Size( 87, 19 );
 			lbl_GroupType.TabIndex = 5;
 			lbl_GroupType.Text = "Group Type";
-			// 
-			// chk_IsSupplier
-			// 
-			chk_IsSupplier.AutoSize = true;
-			chk_IsSupplier.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsSupplier.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsSupplier.Location = new Point( 105, 343 );
-			chk_IsSupplier.Name = "chk_IsSupplier";
-			chk_IsSupplier.Size = new Size( 90, 23 );
-			chk_IsSupplier.TabIndex = 138;
-			chk_IsSupplier.Text = "Supplier?";
-			chk_IsSupplier.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsInactive
-			// 
-			chk_IsInactive.AutoSize = true;
-			chk_IsInactive.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsInactive.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsInactive.Location = new Point( 105, 274 );
-			chk_IsInactive.Name = "chk_IsInactive";
-			chk_IsInactive.Size = new Size( 86, 23 );
-			chk_IsInactive.TabIndex = 137;
-			chk_IsInactive.Text = "Inactive?";
-			chk_IsInactive.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsBlocked
-			// 
-			chk_IsBlocked.AutoSize = true;
-			chk_IsBlocked.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsBlocked.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsBlocked.Location = new Point( 105, 251 );
-			chk_IsBlocked.Name = "chk_IsBlocked";
-			chk_IsBlocked.Size = new Size( 88, 23 );
-			chk_IsBlocked.TabIndex = 136;
-			chk_IsBlocked.Text = "Blocked?";
-			chk_IsBlocked.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsExport
-			// 
-			chk_IsExport.AutoSize = true;
-			chk_IsExport.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsExport.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsExport.Location = new Point( 105, 228 );
-			chk_IsExport.Name = "chk_IsExport";
-			chk_IsExport.Size = new Size( 77, 23 );
-			chk_IsExport.TabIndex = 135;
-			chk_IsExport.Text = "Export?";
-			chk_IsExport.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsSelected
-			// 
-			chk_IsSelected.AutoSize = true;
-			chk_IsSelected.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsSelected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsSelected.Location = new Point( 105, 182 );
-			chk_IsSelected.Name = "chk_IsSelected";
-			chk_IsSelected.Size = new Size( 91, 23 );
-			chk_IsSelected.TabIndex = 134;
-			chk_IsSelected.Text = "Selected?";
-			chk_IsSelected.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsDefaultGroup
-			// 
-			chk_IsDefaultGroup.AutoSize = true;
-			chk_IsDefaultGroup.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsDefaultGroup.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsDefaultGroup.Location = new Point( 105, 205 );
-			chk_IsDefaultGroup.Name = "chk_IsDefaultGroup";
-			chk_IsDefaultGroup.Size = new Size( 128, 23 );
-			chk_IsDefaultGroup.TabIndex = 133;
-			chk_IsDefaultGroup.Text = "Default Group?";
-			chk_IsDefaultGroup.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsWriter
-			// 
-			chk_IsWriter.AutoSize = true;
-			chk_IsWriter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsWriter.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsWriter.Location = new Point( 105, 366 );
-			chk_IsWriter.Name = "chk_IsWriter";
-			chk_IsWriter.Size = new Size( 84, 23 );
-			chk_IsWriter.TabIndex = 129;
-			chk_IsWriter.Text = "Writing?";
-			chk_IsWriter.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsTrade
-			// 
-			chk_IsTrade.AutoSize = true;
-			chk_IsTrade.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsTrade.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsTrade.Location = new Point( 105, 320 );
-			chk_IsTrade.Name = "chk_IsTrade";
-			chk_IsTrade.Size = new Size( 72, 23 );
-			chk_IsTrade.TabIndex = 132;
-			chk_IsTrade.Text = "Trade?";
-			chk_IsTrade.UseVisualStyleBackColor = true;
-			// 
-			// chk_IsStTheresa
-			// 
-			chk_IsStTheresa.AutoSize = true;
-			chk_IsStTheresa.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			chk_IsStTheresa.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_IsStTheresa.Location = new Point( 105, 297 );
-			chk_IsStTheresa.Name = "chk_IsStTheresa";
-			chk_IsStTheresa.Size = new Size( 112, 23 );
-			chk_IsStTheresa.TabIndex = 131;
-			chk_IsStTheresa.Text = "St Theresa's?";
-			chk_IsStTheresa.UseVisualStyleBackColor = true;
 			// 
 			// FrmGroup
 			// 
