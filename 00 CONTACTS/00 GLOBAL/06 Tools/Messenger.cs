@@ -18,9 +18,15 @@ namespace CONTACTS.GLOBAL.TOOLS
 
 
 		//___________________________________________________________________________________________________________________________________________________
-		public Messenger( TextBox tbx_msg)
+		public Messenger( TextBox tbx_msg )
 		{
 			tbx_Messages = tbx_msg;
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		public Messenger( TextBox tbx_msg, int async_delay )
+		{
+			tbx_Messages = tbx_msg;
+			async_Delay = async_delay;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public string Message
@@ -46,9 +52,9 @@ namespace CONTACTS.GLOBAL.TOOLS
 		/// <summary>
 		/// Returns "No item selected..".
 		/// </summary>
-		public string NoItemSelected
+		public void NoItemSelected()
 		{
-			get { return no_Item_Selected; }
+			AsyncMessage( no_Item_Selected );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -62,33 +68,33 @@ namespace CONTACTS.GLOBAL.TOOLS
 		/// <summary>
 		/// Returns "INSERT failed.".
 		/// </summary>
-		public string InsertFailed
+		public void InsertFailed()
 		{
-			get { return Insert_Failed; }
+			AsyncMessage(Insert_Failed );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns "INSERT was successful.".
 		/// </summary>
-		public string InsertSucceeded
+		public void InsertSucceeded()
 		{
-			get { return Insert_Succeeded; }
+			AsyncMessage( Insert_Succeeded );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns "UPDATE failed.".
 		/// </summary>
-		public string UpdateFailed
+		public void UpdateFailed()
 		{
-			get { return Update_Failed; }
+			AsyncMessage( Update_Failed );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns "UPDATE was successful.".
 		/// </summary>
-		public string UpdateSucceeded
+		public void UpdateSucceeded()
 		{
-			get { return Update_Succeeded; }
+			AsyncMessage(Update_Succeeded );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
