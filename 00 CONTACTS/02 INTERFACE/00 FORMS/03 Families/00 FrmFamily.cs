@@ -1,17 +1,18 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
-using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using CONTACTS.GLOBAL.TOOLS;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using GLOBAL_LIKE	= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+using FAMILY		= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
 //LOCAL
 using FAMILYS		= CONTACTS.LOCAL.PRIMARY.FAMILY.Table;
-using FAMILY		= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
-using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using GLOBAL_LIKE	= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using MATCH_FAMILYS = CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Like.MatchingFamilies;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
+using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -74,24 +75,24 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			_EventState.DisableEvents();
 
-			tbx_LeftPersonName.Text = LeftPerson.SortableName.AsIs;
-			tbx_RightPersonName.Text = RightPerson.SortableName.AsIs;
-			tbx_PkFamily.Text = PkFamilyAsText;
-			cbx_FamilyType.Text = FamilyType;
-			tbx_Notes.Text = Notes;
+			tbx_LeftPersonName.Text		= LeftPerson.SortableName.AsIs;
+			tbx_RightPersonName.Text	= RightPerson.SortableName.AsIs;
+			tbx_PkFamily.Text			= PkFamilyAsText;
+			cbx_FamilyType.Text			= FamilyType;
+			tbx_Notes.Text				= Notes;
 
 			//Derived names
-			tbx_FamilyName.Text = FamilyName;
-			tbx_SortableName.Text = SortableName;
-			tbx_JointName.Text = JointName;
-			tbx_NaturalName.Text = NaturalName;
-			tbx_PostalName.Text = PostalName;
+			tbx_FamilyName.Text			= FamilyName;
+			tbx_SortableName.Text		= SortableName;
+			tbx_JointName.Text			= JointName;
+			tbx_NaturalName.Text		= NaturalName;
+			tbx_PostalName.Text			= PostalName;
 
-			chk_IsDissolved.Checked = Dissolved;
-			chk_IsCorlettRd.Checked = CorlettRd;
-			chk_IsStTheresa.Checked = StTheresa;
-			chk_IsChristmas.Checked = Christmas;
-			chk_IsDefaultFamily.Checked = DefaultFamily;
+			chk_IsDissolved.Checked		= Dissolved;
+			chk_IsCorlettRd.Checked		= CorlettRd;
+			chk_IsStTheresa.Checked		= StTheresa;
+			chk_IsChristmas.Checked		= Christmas;
+			chk_IsDefaultFamily.Checked	= DefaultFamily;
 
 			ValuateWeddingDateboxes();
 
@@ -270,23 +271,17 @@ namespace CONTACTS.INTERFACE.FORMS
 				if ( value == GLOBAL_PRESET.NoItemSelected )
 				{
 					Family = all_Familys.DefaultFamily;
-					AsyncMessage( no_Item_Selected );
+					_Messenger.NoItemSelected();
 				}
 				else
 				{
 					GLOBAL_LIKE like_row = ( GLOBAL_LIKE )( this.lbx_MatchingFamilies.SelectedItem );
-					AsyncMessage( like_row.LikeValue + is_Valid_Selection );
+					_Messenger.ValidSelection( like_row.LikeValue );
 					this.PkFamily = like_row.PkRow;
 				}
 
 				this.tbx_LeftPersonName.Focus();
 			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void AsyncMessage( string msg )
-		{
-			_Messenger.Message = msg;
-			this.tbx_Matches.Focus();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string FamilyType
@@ -474,15 +469,25 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private FAMILY InsertFamily
+		private void InsertFamily()
 		{
-			//TODO: update INSERT & UPDATE to match code in FrmPerson
-			set { all_Familys.InsertFamily( value ); }
+			if (all_Familys.InsertFamily( Family ) )
+			{
+				Family = all_Familys.CurrentFamily;
+				_Messenger.InsertSucceeded();
+			}
+			else
+			{
+				_Messenger.InsertFailed();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private FAMILY UpdateFamily
+		private void UpdateFamily()
 		{
-			set { all_Familys.UpdateFamily( value ); }
+			if ( all_Familys.UpdateFamily( Family ) )
+				_Messenger.UpdateSucceeded();
+			else
+				_Messenger.UpdateFailed();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void Accumulator( string s )
@@ -701,12 +706,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_InsertFamily_Click( object sender, EventArgs e )
 		{
-			InsertFamily = Family;
+			InsertFamily();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_UpdateFamily_Click( object sender, EventArgs e )
 		{
-			UpdateFamily = Family;
+			UpdateFamily();
 		}
 		#endregion
 	}
