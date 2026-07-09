@@ -28,14 +28,32 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 						st_GroupName,
 						st_GroupType,
 						st_Notes,
-						dt_CurrencyDate
+						dt_CurrencyDate,
+						is_Selected,
+						is_DefaultRow,
+						is_Export,
+						is_Blocked,
+						is_Inactive,
+						is_StTheresa,
+						is_Tradesman,
+						is_Supplier,
+						is_Writer 
 					) 	
 					VALUES	
 					(	
 						@st_groupname,
 						@st_grouptype,
 						@st_notes,
-						@dt_currencydate
+						@dt_currencydate,
+						@is_selected,
+						@is_defaultrow,
+						@is_export,
+						@is_blocked,
+						@is_inactive,
+						@is_sttheresa,
+						@is_tradesman,
+						@is_supplier,
+						@is_writer
 					);	
 				";
 				//_______________________________________________________________________________________________________________________________
@@ -45,6 +63,15 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 					base.DbCommand.Parameters.Add( group.GroupType.DbParameter );
 					base.DbCommand.Parameters.Add( group.Notes.DbParameter );
 					base.DbCommand.Parameters.Add( group.CurrencyDate.DbParameter );
+					base.DbCommand.Parameters.Add( group.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( group.DefaultRow.DbParameter );
+					base.DbCommand.Parameters.Add( group.Export.DbParameter );
+					base.DbCommand.Parameters.Add( group.Blocked.DbParameter );
+					base.DbCommand.Parameters.Add( group.Inactive.DbParameter );
+					base.DbCommand.Parameters.Add( group.StTheresa.DbParameter );
+					base.DbCommand.Parameters.Add( group.Tradesman.DbParameter );
+					base.DbCommand.Parameters.Add( group.Supplier.DbParameter );
+					base.DbCommand.Parameters.Add( group.Writer.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>
