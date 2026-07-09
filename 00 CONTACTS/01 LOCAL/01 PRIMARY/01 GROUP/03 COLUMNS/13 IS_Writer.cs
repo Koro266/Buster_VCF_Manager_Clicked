@@ -15,7 +15,7 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_Enlightened : BOOL
+		public partial class IS_Writer : BOOL
 		{
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.Writer];
@@ -25,11 +25,11 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Enlightened( bool value ) : base( value )
+			public IS_Writer( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Enlightened( NULL_BOOL tnp ) : base( tnp )
+			public IS_Writer( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}

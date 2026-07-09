@@ -15,7 +15,7 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_NewLeftPerson : BOOL
+		public partial class IS_Tradesman : BOOL
 		{
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.Tradesman];
@@ -25,11 +25,11 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_NewLeftPerson( bool value ) : base( value )
+			public IS_Tradesman( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_NewLeftPerson( NULL_BOOL tnp ) : base( tnp )
+			public IS_Tradesman( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
