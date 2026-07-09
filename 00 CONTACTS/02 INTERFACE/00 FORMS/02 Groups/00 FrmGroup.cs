@@ -528,11 +528,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_InsertGroup_Click( object sender, EventArgs e )
 		{
 			InsertGroup();
+			_Messenger.Message = "Insert Hi";
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_UpdateGroup_Click( object sender, EventArgs e )
 		{
 			UpdateGroup();
+			_Messenger.Message = "Update  Hi";
 		}
 		#endregion
 

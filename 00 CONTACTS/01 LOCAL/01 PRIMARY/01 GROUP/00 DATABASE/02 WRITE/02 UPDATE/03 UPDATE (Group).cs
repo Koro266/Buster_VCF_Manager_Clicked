@@ -27,7 +27,7 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 						TDF_Groups.st_GroupName		= @st_groupname,	
 						TDF_Groups.st_GroupType		= @st_grouptype,	
 						TDF_Groups.st_Notes			= @st_notes,	
-						TDF_Groups.dt_CurrencyDate	= @dt_currencydate	
+						TDF_Groups.dt_CurrencyDate	= @dt_currencydate,
 						TDF_Groups.is_Selected		= @is_selected,
 						TDF_Groups.is_DefaultRow	= @is_defaultrow,
 						TDF_Groups.is_Export		= @is_export,
