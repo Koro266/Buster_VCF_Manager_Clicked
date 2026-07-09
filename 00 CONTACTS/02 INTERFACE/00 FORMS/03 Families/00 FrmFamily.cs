@@ -81,7 +81,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_FamilyType.Text			= FamilyType;
 			tbx_Notes.Text				= Notes;
 
-			//Derived names
+			//Derived names.
 			tbx_FamilyName.Text			= FamilyName;
 			tbx_SortableName.Text		= SortableName;
 			tbx_JointName.Text			= JointName;
