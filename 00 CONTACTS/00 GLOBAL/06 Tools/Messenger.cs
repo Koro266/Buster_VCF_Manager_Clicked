@@ -1,22 +1,29 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using CONTACTS.GLOBAL.VALUES.CONSTANT;
+using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
+//___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.GLOBAL.TOOLS
 {
 	//___________________________________________________________________________________________________________________________________________________
 	public class Messenger
 	{
-		private TextBox tbx_Messages;
-		private int async_Delay = 2000;
+		#region DECLARATIONS
+		private TextBox tbx_Messages;	//User-supplied TextBox into which messages are placved.
+		private int async_Delay = 2000;	//Default delay (2 seconds)
+
+		//Stock messages
 		private const string no_Item_Selected	= "No item selected.";
-		private const string is_Valid_Selection	= "#0 is a valid selection.";
-		private const string Update_Succeeded	= "UPDATE was successful.";
+		private const string is_Valid_Selection	= PRESET.S0 + " is a valid selection.";
+		private const string Update_Succeeded	= "UPDATE successful.";
 		private const string Update_Failed		= "UPDATE failed.";
-		private const string Insert_Succeeded	= "INSERT was successful.";
+		private const string Insert_Succeeded	= "INSERT successful.";
 		private const string Insert_Failed		= "INSERT failed.";
 		private const string Finished			= "Done.";
+		private const string NoMessage			= "--";
+		#endregion
 
 
+		#region CONSTRUCTION
 		//___________________________________________________________________________________________________________________________________________________
 		public Messenger( TextBox tbx_msg )
 		{
@@ -28,17 +35,21 @@ namespace CONTACTS.GLOBAL.TOOLS
 			tbx_Messages = tbx_msg;
 			async_Delay = async_delay;
 		}
-		//___________________________________________________________________________________________________________________________________________
-		public string Message
-		{
-			set { AsyncMessage( value ); }
-		}
+		#endregion
+
+
+		#region MESSAGING
 		//___________________________________________________________________________________________________________________________________________
 		private async Task AsyncMessage( string msg )
 		{
 			this.tbx_Messages.Text = msg;
 			await Task.Delay( async_Delay );
-			this.tbx_Messages.Text = String.Empty;
+			this.tbx_Messages.Text = NoMessage;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string Message
+		{
+			set { AsyncMessage( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -50,7 +61,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "No item selected..".
+		/// Displays "No item selected.".
 		/// </summary>
 		public void NoItemSelected()
 		{
@@ -58,15 +69,15 @@ namespace CONTACTS.GLOBAL.TOOLS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "value is a valid selection.".
+		/// Inserts 'value' into "value is a valid selection." and displays the result.
 		/// </summary>
-		public string ValidSelection(string value)
+		public void ValidSelection(string value)
 		{
-			return is_Valid_Selection.Replace( "#0", value );
+			AsyncMessage( is_Valid_Selection.Replace( PRESET.S0, value ) );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "INSERT failed.".
+		/// Displays "INSERT failed.".
 		/// </summary>
 		public void InsertFailed()
 		{
@@ -74,7 +85,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "INSERT was successful.".
+		/// Displays "INSERT successful.".
 		/// </summary>
 		public void InsertSucceeded()
 		{
@@ -82,7 +93,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "UPDATE failed.".
+		/// Displays "UPDATE failed.".
 		/// </summary>
 		public void UpdateFailed()
 		{
@@ -90,7 +101,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "UPDATE was successful.".
+		/// Displays "UPDATE successful.".
 		/// </summary>
 		public void UpdateSucceeded()
 		{
@@ -98,11 +109,12 @@ namespace CONTACTS.GLOBAL.TOOLS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns "Done!".
+		/// Displays "Done.".
 		/// </summary>
 		public void Done()
 		{
 			AsyncMessage( Finished );
 		}
+		#endregion
 	}
 }
