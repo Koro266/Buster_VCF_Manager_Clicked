@@ -118,8 +118,8 @@ namespace CONTACTS.INTERFACE.FORMS
 							}
 						}
 					);
-
-			_Messenger.Done();
+			//TODO Fix this ...
+			//_Messenger.Done();
 
 			_EventState.EnableButton( _btn_Export_All_Groups );
 		}
