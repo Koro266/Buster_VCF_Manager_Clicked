@@ -37,7 +37,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private LIKE_ROW[] matching_Groups;
 		private TXT_GATHER txt_Accumulator;
 
-		//TODO: Consider moving these constants into Group constants file. 
+		//TODO: Consider moving these constants into Tools.
 		private const string no_Item_Selected = "No item selected. Move to default Group.";
 		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
