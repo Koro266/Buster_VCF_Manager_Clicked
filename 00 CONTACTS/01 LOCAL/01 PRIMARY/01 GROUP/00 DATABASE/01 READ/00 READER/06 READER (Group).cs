@@ -87,6 +87,22 @@ namespace CONTACTS.LOCAL.PRIMARY.GROUP
 				group.Append( new FIELD.ST_Notes		( base.GetShortText		( ORDINAL.Notes )			) );
 				group.Append( new FIELD.DT_CurrencyDate	( base.GetDateTime		( ORDINAL.CurrencyDate )	) );
 
+				group.Append( new FIELD.PK_Group		( base.GetPrimaryKey	( ORDINAL.PkGroup)			) );
+				group.Append( new FIELD.ST_GroupName	( base.GetText			( ORDINAL.GroupName)		) );
+				group.Append( new FIELD.ST_GroupType	( base.GetText			( ORDINAL.GroupType)		) );
+				group.Append( new FIELD.ST_Notes		( base.GetText			( ORDINAL.Notes)			) );
+				group.Append( new FIELD.DT_CurrencyDate	( base.GetDateTime		( ORDINAL.CurrencyDate)		) );
+				group.Append( new FIELD.IS_Selected		( base.GetBoolean		( ORDINAL.Selected)			) );
+				group.Append( new FIELD.IS_DefaultRow	( base.GetBoolean		( ORDINAL.DefaultRow)		) );
+				group.Append( new FIELD.IS_Export		( base.GetBoolean		( ORDINAL.Export)			) );
+				group.Append( new FIELD.IS_Blocked		( base.GetBoolean		( ORDINAL.Blocked)			) );
+				group.Append( new FIELD.IS_Inactive		( base.GetBoolean		( ORDINAL.Inactive)			) );
+				group.Append( new FIELD.IS_StTheresa	( base.GetBoolean		( ORDINAL.StTheresa)		) );
+				group.Append( new FIELD.IS_Tradesman	( base.GetBoolean		( ORDINAL.Tradesman)		) );
+				group.Append( new FIELD.IS_Supplier		( base.GetBoolean		( ORDINAL.Supplier)			) );
+				group.Append( new FIELD.IS_Writer		( base.GetBoolean		( ORDINAL.Writer)			) );
+
+
 				return group;
 			}
 		}
