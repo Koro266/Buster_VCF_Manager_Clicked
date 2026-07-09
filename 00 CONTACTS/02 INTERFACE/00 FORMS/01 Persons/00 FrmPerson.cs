@@ -1,18 +1,19 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
+using CONTACTS.GLOBAL.TOOLS;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+//FORMS
+using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL	
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
-using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
-//FORMS
-using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -528,12 +529,12 @@ namespace CONTACTS.INTERFACE.FORMS
 				if ( value == GLOBAL_PRESET.NoItemSelected )
 				{
 					Person = all_Persons.DefaultPerson;
-					AsyncMessage( no_Item_Selected );
+					_Messenger.NoItemSelected();
 				}
 				else
 				{
 					LIKE_ROW like_row = ( LIKE_ROW )( this.lbx_MatchingPersons.SelectedItem );
-					AsyncMessage( like_row.LikeValue + is_Valid_Selection );
+					_Messenger.ValidSelection( like_row.LikeValue );
 					this.PkPerson = like_row.PkRow;
 				}
 
@@ -541,32 +542,25 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void AsyncMessage( string msg )
+		private void InsertPerson()
 		{
-			_Messenger.Message = msg;
-			this.tbx_Matches.Focus();
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private PERSON Insert
-		{
-			set
+			if (all_Persons.InsertPerson( Person ) )
 			{
-				if ( all_Persons.InsertPerson( value ) )
-					AsyncMessage( Insert_Succeeded );
-				else
-					AsyncMessage( Insert_Failed );
+				Person = all_Persons.CurrentPerson;
+				_Messenger.InsertSucceeded();
+			}
+			else
+			{
+				_Messenger.InsertFailed();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private PERSON Update
+		private void UpdatePerson()
 		{
-			set
-			{
-				if ( all_Persons.UpdatePerson( value ) )
-					AsyncMessage( Update_Succeeded );
-				else
-					AsyncMessage( Update_Failed );
-			}
+			if ( all_Persons.UpdatePerson( Person ) )
+				_Messenger.UpdateSucceeded();
+			else
+				_Messenger.UpdateFailed();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void FindPerson()
@@ -875,12 +869,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_InsertPerson_Click( object sender, EventArgs e )
 		{
-			Insert = Person;
+			InsertPerson();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_UpdatePerson_Click( object sender, EventArgs e )
 		{
-			Update = Person;
+			UpdatePerson();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_ExportVcfPerson_Click( object sender, EventArgs e )
