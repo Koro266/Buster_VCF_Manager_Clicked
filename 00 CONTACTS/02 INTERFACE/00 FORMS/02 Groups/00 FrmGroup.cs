@@ -22,7 +22,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region 00 TODO / DECLARE / CONSTRUCT
 
 		#region TODO LIST
-		//TODO: Add boolean fields to form: is_DefaultRow, is_Export.
 		//TODO: Fix the record indexing and look again at the interaction with the database. (?)
 		#endregion
 
