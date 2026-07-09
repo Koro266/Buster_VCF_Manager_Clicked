@@ -1,19 +1,17 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using CONTACTS.GLOBAL.DATABASE.ROW;
-using static CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
 using COUNT			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
-using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using ONE_GROUP		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
 using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
