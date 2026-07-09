@@ -1,17 +1,18 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using static CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
 //LOCAL
 using ALL_GROUPS	= CONTACTS.LOCAL.PRIMARY.GROUP.Table;
-using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
 using COUNT			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Count;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Like;
+using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using ONE_GROUP		= CONTACTS.LOCAL.PRIMARY.GROUP.Row;
+using SELECT		= CONTACTS.LOCAL.PRIMARY.GROUP.Database.Select;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -96,23 +97,22 @@ namespace CONTACTS.INTERFACE.FORMS
 
 			this.tbx_Matches.Clear();
 
-			this.tbx_PkGroup.Text = GroupPkAsText;
-			this.tbx_GroupName.Text = GroupName;
-			this.cbx_GroupType.Text = GroupType;
-			this.dbx_CurrencyDate.CustomFormat = Group.CurrencyDate.DatePickerFormat;
-			this.dbx_CurrencyDate.Value = Group.CurrencyDate.DatePickerValue;
-			this.tbx_Notes.Text = Notes;
+			this.tbx_PkGroup.Text				= GroupPkAsText;
+			this.tbx_GroupName.Text				= GroupName;
+			this.cbx_GroupType.Text				= GroupType;
+			this.dbx_CurrencyDate.CustomFormat	= Group.CurrencyDate.DatePickerFormat;
+			this.dbx_CurrencyDate.Value			= Group.CurrencyDate.DatePickerValue;
+			this.tbx_Notes.Text					= Notes;
 
-			//this.chk_IsSelected
-			//this.chk_IsDefaultGroup
-			//this.chk_IsExport
-			//this.chk_IsBlocked
-			//this.chk_IsInactive
-			//this.chk_IsStTheresa
-			//this.chk_IsTrade
-			//this.chk_IsSupplier
-			//this.chk_IsWriter
-
+			this.chk_IsSelected.Checked			= Selected;
+			this.chk_IsDefaultGroup.Checked		= DefaultGroup;
+			this.chk_IsExport.Checked			= Export;
+			this.chk_IsBlocked.Checked			= Blocked;
+			this.chk_IsInactive.Checked			= Inactive;
+			this.chk_IsStTheresa.Checked		= StTheresa;
+			this.chk_IsTrade.Checked			= Trade;
+			this.chk_IsSupplier.Checked			= Supplier;
+			this.chk_IsWriter.Checked			= Writer;
 
 			_EventState.EnableEvents();
 		}
@@ -256,6 +256,96 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
+		private bool Selected
+		{
+			get { return Group.Selected.Value; }
+			set
+			{
+				Group.NewSelected = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool DefaultGroup
+		{
+			get { return Group.DefaultRow.Value; }
+			set
+			{
+				Group.NewDefaultGroup = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Export
+		{
+			get { return Group.Export.Value; }
+			set
+			{
+				Group.NewExport = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Blocked
+		{
+			get { return Group.Blocked.Value; }
+			set
+			{
+				Group.NewBlocked = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Inactive
+		{
+			get { return Group.Inactive.Value; }
+			set
+			{
+				Group.NewInactive = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool StTheresa
+		{
+			get { return Group.StTheresa.Value; }
+			set
+			{
+				Group.NewStTheresa = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Trade
+		{
+			get { return Group.Tradesman.Value; }
+			set
+			{
+				Group.NewTrade = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Supplier
+		{
+			get { return Group.Supplier.Value; }
+			set
+			{
+				Group.NewSupplier = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Writer
+		{
+			get { return Group.Writer.Value; }
+			set
+			{
+				Group.NewWriter = value;
+				DisplayGroup();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
 		private string Accumulate
 		{
 			set { txt_Accumulator = new TXT_GATHER( value ); }
@@ -321,6 +411,55 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
+
+
+		#region CHECK CHANGED
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsSelected_CheckedChanged( object sender, EventArgs e )
+		{
+			Selected = chk_IsSelected.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsDefaultGroup_CheckedChanged( object sender, EventArgs e )
+		{
+			DefaultGroup = chk_IsDefaultGroup.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsExport_CheckedChanged( object sender, EventArgs e )
+		{
+			Export = chk_IsExport.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsBlocked_CheckedChanged( object sender, EventArgs e )
+		{
+			Blocked = chk_IsBlocked.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsInactive_CheckedChanged( object sender, EventArgs e )
+		{
+			Inactive = chk_IsInactive.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsStTheresa_CheckedChanged( object sender, EventArgs e )
+		{
+			StTheresa = chk_IsStTheresa.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsTrade_CheckedChanged( object sender, EventArgs e )
+		{
+			Trade = chk_IsTrade.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsSupplier_CheckedChanged( object sender, EventArgs e )
+		{
+			Supplier = chk_IsSupplier.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_IsWriter_CheckedChanged( object sender, EventArgs e )
+		{
+			Writer = chk_IsWriter.Checked;
+		}
+		#endregion
 
 		#region MATCHING GROUPS
 		//___________________________________________________________________________________________________________________________________________
@@ -409,49 +548,5 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#endregion
 
-		private void chk_IsSelected_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsDefaultGroup_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsExport_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsBlocked_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsInactive_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsStTheresa_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsTrade_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsSupplier_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
-
-		private void chk_IsWriter_CheckedChanged( object sender, EventArgs e )
-		{
-
-		}
 	}
 }
