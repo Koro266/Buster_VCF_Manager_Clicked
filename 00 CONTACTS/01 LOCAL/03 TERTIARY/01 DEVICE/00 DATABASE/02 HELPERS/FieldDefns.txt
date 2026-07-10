@@ -1,0 +1,17 @@
+﻿pk_Device	0	4	4	Device	device	PK	Pk	pk	Primary Key, AutoNum, int.	|	
+fk_Country	1	4	4	Country	country	FK	Fk	fk	FK into TDF_Countries.pk_Country. Default value = 0 (i.e., New Zealand, country code: 64).	|	
+st_LongAreaCode	2	5	10	LongAreaCode	longareacode	ST	St	st	Long within-country, out-of-area code. Includes leading 0s, eg: 04.  Default value = '027'. Applied to NZ numbers only. [5].	|	
+st_ShortAreaCode	3	5	10	ShortAreaCode	shortareacode	ST	St	st	Short within-country, within-area code. Omits leading 0s, eg: '04' becomes '4'. Default value = '27'. Applied to NZ numbers only. [5].	|	
+st_LeadingDigits	4	5	10	LeadingDigits	leadingdigits	ST	St	st	Digits preceding the hyphen of an in-area telecom number. eg: 233 of '233-9777'. [5].	|	
+st_TrailingDigits	5	10	10	TrailingDigits	trailingdigits	ST	St	st	Digits following the hyphen of an in-area telecom number. eg: 9777 of '233-9777'. [10].	|	
+st_DeviceLocation	6	10	10	DeviceLocation	devicelocation	ST	St	st	Physical location. HOME; RECEPTION (primary dial-in of an organisation); DDI (Direct dial, by-passes RECEPTION); MOBILE; OTHER (everything else). Limit-to-List=Yes. Default value = 'MOBILE'. [10].	|	
+st_DeviceType	7	10	10	DeviceType	devicetype	ST	St	st	Device type: CELL (CELL & MOBILE are linked: CELL is the type and MOBILE is the behaviour); LANDLINE; TOLLFREE. Limit-to-List=Yes. Default value = 'CELL'. [10].	|	
+st_DialNumber	8	35	10	DialNumber	dialnumber	ST	St	st	Fully-decorated telecom number, e.g., +64 4 233 9777. Device is expected to interpret appropriate local dialling requirements. Indexed, no duplicates. [35].	|	
+st_PickerNumber	9	35	10	PickerNumber	pickernumber	ST	St	st	EG: 9777 233 04 64 NZ: Components reversed: TrailingDigits + LeadingDigits + AreaCode + CountryCode + Short ISO Code, to facilitate assignment selection. [35].	|	
+st_Notes	10	255	10	Notes	notes	ST	St	st	General-purpose text field. [255].	|	
+is_Selected	11	1	1	Selected	selected	IS	Is	is	General-purpose selection flag.  Dynamic field. Default value = False.	|	
+is_DefaultRow	12	1	1	DefaultRow	defaultrow	IS	Is	is	TRUE = Device is used as the Contact Manager default  Device object. Default value = False.	|	
+is_Blocked	13	1	1	Blocked	blocked	IS	Is	is	TRUE = Device should be ignored. Static field. Default value = False.	|	
+is_X_Person	14	1	1	X_Person	x_person	IS	Is	is	TRUE = Device is attached to at least one Person.  Default value = False.	|	
+is_X_Group	15	1	1	X_Group	x_group	IS	Is	is	TRUE = Device is attached to at least one Group.  Default value = False.	|	
+is_X_Family	16	1	1	X_Family	x_family	IS	Is	is	TRUE = Device is attached to at least one Family.  Default value = False.	|	
