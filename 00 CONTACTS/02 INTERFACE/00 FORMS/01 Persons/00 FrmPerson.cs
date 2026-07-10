@@ -1,19 +1,18 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using CONTACTS.GLOBAL.TOOLS;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-//FORMS
-using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL	
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
+//FORMS
+using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -36,13 +35,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 		private TXT_GATHER txt_Accumulator;
-
-		private const string no_Item_Selected	= "No item selected. Move to default Peerson.";
-		private const string is_Valid_Selection	= " is a valid selection.";
-		private const string Update_Succeeded	= "Update was successful.";
-		private const string Update_Failed		= "Update failed.";
-		private const string Insert_Succeeded	= "Insert was successful.";
-		private const string Insert_Failed		= "Insert failed.";
 		#endregion
 
 
@@ -880,6 +872,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_ExportVcfPerson_Click( object sender, EventArgs e )
 		{
 			Person.ExportPerson();
+			_Messenger.PersonExported( Person.SortableName.Value );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_Close_Click( object sender, EventArgs e )

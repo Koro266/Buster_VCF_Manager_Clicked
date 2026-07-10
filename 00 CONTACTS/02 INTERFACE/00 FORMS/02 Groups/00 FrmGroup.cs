@@ -505,6 +505,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_ExportGroup_Click( object sender, EventArgs e )
 		{
 			Group.ExportGroup();
+			_Messenger.GroupExported( Group.GroupName.Value );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_CloseForm_Click( object sender, EventArgs e )

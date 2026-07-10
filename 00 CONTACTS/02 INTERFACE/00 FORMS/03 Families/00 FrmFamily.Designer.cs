@@ -248,7 +248,6 @@
 			// tbx_Messages
 			// 
 			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
-			tbx_Messages.Enabled = false;
 			tbx_Messages.Font = new Font( "Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
 			tbx_Messages.Location = new Point( 619, 471 );

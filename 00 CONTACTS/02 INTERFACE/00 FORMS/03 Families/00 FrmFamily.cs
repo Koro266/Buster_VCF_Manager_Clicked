@@ -1,18 +1,17 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using CONTACTS.GLOBAL.TOOLS;
-using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-using FAMILY		= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
-//LOCAL
-using FAMILYS		= CONTACTS.LOCAL.PRIMARY.FAMILY.Table;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_LIKE	= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+//LOCAL
+using FAMILY		= CONTACTS.LOCAL.PRIMARY.FAMILY.Row;
+using FAMILYS		= CONTACTS.LOCAL.PRIMARY.FAMILY.Table;
 using MATCH_FAMILYS = CONTACTS.LOCAL.PRIMARY.FAMILY.Database.Like.MatchingFamilies;
-using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -34,10 +33,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private TXT_GATHER txt_Accumulator;
 		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
-
-		//TODO: Consider moving these constants into Family constants file. 
-		private const string no_Item_Selected = "No item selected. Move to default Family.";
-		private const string is_Valid_Selection = " is a valid selection.";
 		#endregion
 
 
@@ -642,6 +637,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_ExportFamilyVcf_Click( object sender, EventArgs e )
 		{
 			Family.ExportFamily();
+			_Messenger.FamilyExported( Family.SortableName.Value );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_FindFamily_Click( object sender, EventArgs e )
