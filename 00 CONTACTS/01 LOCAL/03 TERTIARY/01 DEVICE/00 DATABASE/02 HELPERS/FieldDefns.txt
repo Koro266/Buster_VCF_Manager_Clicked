@@ -15,3 +15,7 @@ is_Blocked	13	1	1	Blocked	blocked	IS	Is	is	TRUE = Device should be ignored. Stat
 is_X_Person	14	1	1	X_Person	x_person	IS	Is	is	TRUE = Device is attached to at least one Person.  Default value = False.	|	
 is_X_Group	15	1	1	X_Group	x_group	IS	Is	is	TRUE = Device is attached to at least one Group.  Default value = False.	|	
 is_X_Family	16	1	1	X_Family	x_family	IS	Is	is	TRUE = Device is attached to at least one Family.  Default value = False.	|	
+st_CountryName	
+st_CountryCode	
+st_ShortIsoCode	
+st_LongIsoCode	

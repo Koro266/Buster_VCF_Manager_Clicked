@@ -1,4 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using FACTORS = CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.DEVICE
@@ -6,50 +7,36 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 	//___________________________________________________________________________________________________________________________________________
 	public class Constants
 	{
-		public const int ColumnCount = 15;
+		public const int ColumnCount = 21;
 
 		#region LISTS
 		//_______________________________________________________________________________________________________________________________________
 		public class OrdinalByName
 		{
-			public const int PkDevice			= 0;
-			public const int FkCountry			= 1;
-			public const int LongAreaCode		= 2;
-			public const int ShortAreaCode		= 3;
-			public const int LeadingDigits		= 4;
-			public const int TrailingDigits		= 5;
-			public const int DeviceLocation		= 6;
-			public const int DeviceType			= 7;
-			public const int DialNumber			= 8;
-			public const int PickerNumber		= 9;
-			public const int Notes				= 10;
+			public const int PkDevice				=  0;
+			public const int Country				=  1;
+			public const int LongAreaCode			=  2;
+			public const int ShortAreaCode			=  3;
+			public const int LeadingDigits			=  4;
+			public const int TrailingDigits			=  5;
+			public const int DeviceLocation			=  6;
+			public const int DeviceType				=  7;
+			public const int DialNumber				=  8;
+			public const int PickerNumber			=  9;
+			public const int Notes					= 10;
+			public const int Selected				= 11;
+			public const int DefaultRow				= 12;
+			public const int Blocked				= 13;
+			public const int X_Person				= 14;
+			public const int X_Group				= 15;
+			public const int X_Family				= 16;
 
-			//Country 'qualifications'.
-			public const int CountryName		= 11;
-			public const int CountryCode		= 12;
-			public const int ShortIsoCode		= 13;
-			public const int LongIsoCode		= 14;
+			//Country contributions
+			public const int CountryName			= 17;
+			public const int CountryCode			= 18;
+			public const int ShortIsoCode			= 19;
+			public const int LongIsoCode			= 20;
 		}
-		//_______________________________________________________________________________________________________________________________________
-		public static int[] OrdinalByValue =
-		{
-			0,		//PkDevice
-			1,		//FkCountry
-			2,		//LongAreaCode
-			3,		//ShortAreaCode
-			4,		//LeadingDigits
-			5,		//TrailingDigits
-			6,		//DeviceLocation
-			7,		//DeviceType
-			8,		//DialNumber
-			9,		//PickerNumber
-			10,		//Notes
-
-			11,		//CountryName
-			12,		//CountryCode
-			13,		//ShortIsoCode
-			14		//LongIsoCode
-		};
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] FieldNames =
 		{
@@ -64,7 +51,14 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			"st_DialNumber",
 			"st_PickerNumber",
 			"st_Notes",
+			"is_Selected",
+			"is_DefaultRow",
+			"is_Blocked",
+			"is_X_Person",
+			"is_X_Group",
+			"is_X_Family",
 
+			//Country contributions
 			"st_CountryName",
 			"st_CountryCode",
 			"st_ShortIsoCode",
@@ -84,7 +78,14 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			"@st_dialnumber",
 			"@st_pickernumber",
 			"@st_notes",
+			"@is_selected",
+			"@is_defaultrow",
+			"@is_blocked",
+			"@is_x_person",
+			"@is_x_group",
+			"@is_x_family",
 
+			//Country contributions
 			"@st_countryname",
 			"@st_countrycode",
 			"@st_shortisocode",
@@ -93,129 +94,59 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		//_______________________________________________________________________________________________________________________________________
 		public static int[] FieldWidths =
 		{
-			4,		//PkDevice
-			4,		//FkCountry
-			5,		//LongAreaCode
-			5,		//ShortAreaCode
-			5,		//LeadingDigits
-			10,		//TrailingDigits
-			10,		//DeviceLocation
-			10,		//DeviceType
-			35,		//DialNumber
-			35,		//PickerNumber
-			255,	//Notes
+			4,			//PkDevice
+			4,			//FkCountry
+			5,			//StLongAreaCode
+			5,			//StShortAreaCode
+			5,			//StLeadingDigits
+			10,			//StTrailingDigits
+			10,			//StDeviceLocation
+			10,			//StDeviceType
+			35,			//StDialNumber
+			35,			//StPickerNumber
+			255,		//StNotes
+			1,			//IsSelected
+			1,			//IsDefaultRow
+			1,			//IsBlocked
+			1,			//IsX_Person
+			1,			//IsX_Group
+			1,			//IsX_Family
 
-			100,	//CountryName
-			5,		//CountryCode
-			2,		//ShortIsoCode
-			3		//LongIsoCode
+			//Country contributions
+			100,		//StCountryName
+			5,			//StCountryCode
+			2,			//StShortIsoCode
+			3			//StLongIsoCode
 		};
-		//_______________________________________________________________________________________________________________________________________
-		public static string[] Prompts =
-		{
-			"Primary Key, AutoNum, int.",
-			"FK into TDF_Countries.pk_Country. Default value = 0 (i.e., New Zealand, country code: 64).",
-			"Long within-country, out-of-area code. Includes leading 0s, eg: 04.  Default value = '027'. Applied to NZ numbers only. [5].",
-			"Short within-country, within-area code. Omits leading 0s, eg: '04' becomes '4'. Default value = '27'. Applied to NZ numbers only. [5].",
-			"Digits preceding the hyphen of an in-area telecom number. eg: 233 of '233-9777'. [5].",
-			"Digits following the hyphen of an in-area telecom number. eg: 9777 of '233-9777'. [10].",
-			"Physical location. HOME; RECEPTION (primary dial-in of an organisation); DDI (Direct dial, by-passes RECEPTION); MOBILE; OTHER (everything else). Limit-to-List=Yes. Default value = 'MOBILE'. [10].",
-			"Device type: CELL (CELL & MOBILE are linked: CELL is the type and MOBILE is the behaviour); LANDLINE; TOLLFREE. Limit-to-List=Yes. Default value = 'CELL'. [10].",
-			"Fully-decorated telecom number, e.g., +64 4 233 9777. Device is expected to interpret appropriate local dialling requirements. Indexed, no duplicates. [35].",
-			"EG: 9777 233 04 64 NZ: Components reversed: TrailingDigits + LeadingDigits + AreaCode + CountryCode + Short ISO Code, to facilitate assignment selection. [35].",
-			"General-purpose text field. [255].",
-			"CountryName",
-			"CountryCode",
-			"ShortIsoCode",
-			"LongIsoCode"
-		};
-		#endregion
-
-
-		#region NON-ORDINAL CONSTANTS
-		//_______________________________________________________________________________________________________________________________________
-		public static class Reconstruction
-		{
-			public const string PkDevice		= "/pk";
-			public const string FkCountry		= "/fk";
-			public const string LongAreaCode	= "/lc";
-			public const string ShortAreaCode	= "/sc";
-			public const string LeadingDigits	= "/ld";
-			public const string TrailingDigits	= "/td";
-			public const string DeviceLocation	= "/dl";
-			public const string DeviceType		= "/dt";
-			public const string DialNumber		= "/dn";
-			public const string PickerNumber	= "/pn";
-			public const string Notes			= "/nt";
-
-			public const string CountryName		= "/cy";
-			public const string CountryCode		= "/cd";
-			public const string ShortIsoCode	= "/si";
-			public const string LongIsoCode		= "/li";
-		}
-		//___________________________________________________________________________________________________________________________________________
-		public static class Reminders
-	{
-			public static readonly string[] Now				= { "Sets the Currency date to Now()." };
-			public static readonly string[] Filter			= { "Filter by PkDevice: enter integer value, hit RETURN." };
-			public static readonly string[] FirstDevice		= { "Moves the position of the row cursor to the first Device (MinPK) in TDF_Devices." };
-			public static readonly string[] NextDevice		= { "Moves the position of the row cursor to the row with the next higher PkDevice in TDF_Devices.", "Does not move beyond Max PK." };
-			public static readonly string[] PreviousDevice	= { "Moves the position of the row cursor to the row with the next lower TDF_Device in TDF_Devices.", "Does not move beyond Min PK." };
-			public static readonly string[] LastDevice		= { "Moves the position of the row cursor to the last (Max PK) Device in TDF_Devices." };
-			public static readonly string[] UpdateDevice	= { "Overwrites entire TDF_Devices row with values displayed on the form." };
-			public static readonly string[] InsertDevice	= { "Adds (copies) a row to TDF_Devices and populates the row with values currently displayed on the form." };
-			public static readonly string[] FindDevice		= { "Opens the Find Device form. Form makes available additional search options." };
-			public static readonly string[] MatchesDevice	= { "Searches for devices based on the trailing digits." };
-			public static readonly string[] CloseForm		= { "Closes form.", "Unsaved changes are lost." };
-		}
 		#endregion
 
 
 		#region COLUMN FACTORS
 		//_______________________________________________________________________________________________________________________________________
-		public static ColumnFactors[] Factors =
+		public static FACTORS[] Factors =
 		{
-			new ColumnFactors( 0),	//PkDevice
-			new ColumnFactors( 1),	//FkCountry
-			new ColumnFactors( 2),	//LongAreaCode
-			new ColumnFactors( 3),	//ShortAreaCode
-			new ColumnFactors( 4),	//LeadingDigits
-			new ColumnFactors( 5),	//TrailingDigits
-			new ColumnFactors( 6),	//DeviceLocation
-			new ColumnFactors( 7),	//DeviceType
-			new ColumnFactors( 8),	//DialNumber
-			new ColumnFactors( 9),	//PickerNumber
-			new ColumnFactors(10),	//Notes
-			new ColumnFactors(11),	//CountryName
-			new ColumnFactors(12),	//CountryCode
-			new ColumnFactors(13),	//ShortIsoCode
-			new ColumnFactors(14)	//LongIsoCode
-			};
-		//_______________________________________________________________________________________________________________________________________
-		public class ColumnFactors
-		{
-			private int		i_Ordinal;
-			private string	s_FieldName;
-			private string	s_ParameterName;
-			private int		i_FieldWidth;
-			private string	s_Prompt;
-
-			//___________________________________________________________________________________________________________________________________
-			public ColumnFactors( int ordinal )
-			{
-				this.i_Ordinal			= ordinal;
-				this.s_FieldName		= FieldNames[ordinal];
-				this.s_ParameterName	= ParameterNames[ordinal];
-				this.i_FieldWidth		= FieldWidths[ordinal];
-				this.s_Prompt			= Prompts[ordinal];
-			}
-			//___________________________________________________________________________________________________________________________________
-			public int Ordinal			{ get { return i_Ordinal; } }
-			public string FieldName		{ get { return s_FieldName; } }
-			public string ParameterName	{ get { return s_ParameterName; } }
-			public int FieldWidth		{ get { return i_FieldWidth; } }
-			public string Prompt		{ get { return s_Prompt; } }
-		}
+			new FACTORS(  0, FieldWidths[ 0], FieldNames[ 0], ParameterNames[ 0] ),	//PkDevice
+			new FACTORS(  1, FieldWidths[ 1], FieldNames[ 1], ParameterNames[ 1] ),	//FkCountry
+			new FACTORS(  2, FieldWidths[ 2], FieldNames[ 2], ParameterNames[ 2] ),	//StLongAreaCode
+			new FACTORS(  3, FieldWidths[ 3], FieldNames[ 3], ParameterNames[ 3] ),	//StShortAreaCode
+			new FACTORS(  4, FieldWidths[ 4], FieldNames[ 4], ParameterNames[ 4] ),	//StLeadingDigits
+			new FACTORS(  5, FieldWidths[ 5], FieldNames[ 5], ParameterNames[ 5] ),	//StTrailingDigits
+			new FACTORS(  6, FieldWidths[ 6], FieldNames[ 6], ParameterNames[ 6] ),	//StDeviceLocation
+			new FACTORS(  7, FieldWidths[ 7], FieldNames[ 7], ParameterNames[ 7] ),	//StDeviceType
+			new FACTORS(  8, FieldWidths[ 8], FieldNames[ 8], ParameterNames[ 8] ),	//StDialNumber
+			new FACTORS(  9, FieldWidths[ 9], FieldNames[ 9], ParameterNames[ 9] ),	//StPickerNumber
+			new FACTORS( 10, FieldWidths[10], FieldNames[10], ParameterNames[10] ),	//StNotes
+			new FACTORS( 11, FieldWidths[11], FieldNames[11], ParameterNames[11] ),	//IsSelected
+			new FACTORS( 12, FieldWidths[12], FieldNames[12], ParameterNames[12] ),	//IsDefaultRow
+			new FACTORS( 13, FieldWidths[13], FieldNames[13], ParameterNames[13] ),	//IsBlocked
+			new FACTORS( 14, FieldWidths[14], FieldNames[14], ParameterNames[14] ),	//IsX_Person
+			new FACTORS( 15, FieldWidths[15], FieldNames[15], ParameterNames[15] ),	//IsX_Group
+			new FACTORS( 16, FieldWidths[16], FieldNames[16], ParameterNames[16] ),	//IsX_Family
+			new FACTORS( 17, FieldWidths[17], FieldNames[17], ParameterNames[17] ),	//StCountryName
+			new FACTORS( 18, FieldWidths[18], FieldNames[18], ParameterNames[18] ),	//StCountryCode
+			new FACTORS( 19, FieldWidths[19], FieldNames[19], ParameterNames[19] ),	//StShortIsoCode
+			new FACTORS( 20, FieldWidths[20], FieldNames[20], ParameterNames[20] )  //StLongIsoCode
+		};
 		#endregion
 	}
 }
