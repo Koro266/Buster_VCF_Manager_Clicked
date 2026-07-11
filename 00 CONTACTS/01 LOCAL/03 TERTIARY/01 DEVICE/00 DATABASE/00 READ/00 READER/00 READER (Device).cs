@@ -81,21 +81,27 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			{
 				DEVICE_ROW device = new DEVICE_ROW();
 
-				device.Append( new FIELD.PK_Device			( base.GetPrimaryKey	( ORDINAL.PkDevice )		) );
-				device.Append( new FIELD.FK_Country			( base.GetForeignKey	( ORDINAL.FkCountry )		) );
-				device.Append( new FIELD.ST_LongAreaCode	( base.GetShortText		( ORDINAL.LongAreaCode )	) );
-				device.Append( new FIELD.ST_ShortAreaCode	( base.GetShortText		( ORDINAL.ShortAreaCode )	) );
-				device.Append( new FIELD.ST_LeadingDigits	( base.GetShortText		( ORDINAL.LeadingDigits )	) );
-				device.Append( new FIELD.ST_TrailingDigits	( base.GetShortText		( ORDINAL.TrailingDigits )	) );
-				device.Append( new FIELD.ST_DeviceLocation	( base.GetShortText		( ORDINAL.DeviceLocation )	) );
-				device.Append( new FIELD.ST_DeviceType		( base.GetShortText		( ORDINAL.DeviceType )		) );
-				device.Append( new FIELD.ST_DialNumber		( base.GetShortText		( ORDINAL.DialNumber )		) );
-				device.Append( new FIELD.ST_PickerNumber	( base.GetShortText		( ORDINAL.PickerNumber )	) );
-				device.Append( new FIELD.ST_Notes			( base.GetShortText		( ORDINAL.Notes )			) );
-				device.Append( new FIELD.ST_CountryName		( base.GetShortText		( ORDINAL.CountryName)		) );
-				device.Append( new FIELD.ST_CountryCode		( base.GetShortText		( ORDINAL.CountryCode)		) );
-				device.Append( new FIELD.ST_ShortIsoCode	( base.GetShortText		( ORDINAL.ShortIsoCode)		) );
-				device.Append( new FIELD.ST_LongIsoCode		( base.GetShortText		( ORDINAL.LongIsoCode)		) );
+				device.Append( new FIELD.PK_Device				( base.GetPrimaryKey	( ORDINAL.PkDevice )		) );
+				device.Append( new FIELD.FK_Country				( base.GetForeignKey	( ORDINAL.FkCountry )		) );
+				device.Append( new FIELD.ST_LongAreaCode		( base.GetText			( ORDINAL.LongAreaCode)		) );
+				device.Append( new FIELD.ST_ShortAreaCode		( base.GetText			( ORDINAL.ShortAreaCode)	) );
+				device.Append( new FIELD.ST_LeadingDigits		( base.GetText			( ORDINAL.LeadingDigits)	) );
+				device.Append( new FIELD.ST_TrailingDigits		( base.GetText			( ORDINAL.TrailingDigits)	) );
+				device.Append( new FIELD.ST_DeviceLocation		( base.GetText			( ORDINAL.DeviceLocation)	) );
+				device.Append( new FIELD.ST_DeviceType			( base.GetText			( ORDINAL.DeviceType)		) );
+				device.Append( new FIELD.ST_DialNumber			( base.GetText			( ORDINAL.DialNumber)		) );
+				device.Append( new FIELD.ST_PickerNumber		( base.GetText			( ORDINAL.PickerNumber)		) );
+				device.Append( new FIELD.ST_Notes				( base.GetText			( ORDINAL.Notes)			) );
+				device.Append( new FIELD.IS_Selected			( base.GetBoolean		( ORDINAL.Selected)			) );
+				device.Append( new FIELD.IS_DefaultRow			( base.GetBoolean		( ORDINAL.DefaultRow)		) );
+				device.Append( new FIELD.IS_Blocked				( base.GetBoolean		( ORDINAL.Blocked)			) );
+				device.Append( new FIELD.IS_X_Person			( base.GetBoolean		( ORDINAL.X_Person)			) );
+				device.Append( new FIELD.IS_X_Group				( base.GetBoolean		( ORDINAL.X_Group)			) );
+				device.Append( new FIELD.IS_X_Family			( base.GetBoolean		( ORDINAL.X_Family)			) );
+				device.Append( new FIELD.ST_CountryName			( base.GetText			( ORDINAL.CountryName)		) );
+				device.Append( new FIELD.ST_CountryCode			( base.GetText			( ORDINAL.CountryCode)		) );
+				device.Append( new FIELD.ST_ShortIsoCode		( base.GetText			( ORDINAL.ShortIsoCode)		) );
+				device.Append( new FIELD.ST_LongIsoCode			( base.GetText			( ORDINAL.LongIsoCode)		) );
 
 				return device;
 			}

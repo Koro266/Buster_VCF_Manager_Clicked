@@ -14,7 +14,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		public class OrdinalByName
 		{
 			public const int PkDevice				=  0;
-			public const int Country				=  1;
+			public const int FkCountry				=  1;
 			public const int LongAreaCode			=  2;
 			public const int ShortAreaCode			=  3;
 			public const int LeadingDigits			=  4;
