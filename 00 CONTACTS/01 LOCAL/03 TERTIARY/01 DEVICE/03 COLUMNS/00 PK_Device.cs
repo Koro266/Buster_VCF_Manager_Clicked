@@ -52,10 +52,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			{
 				return base.Value.ToString();
 			}
-			#endregion
-
-
-			#region EXTENSIONS
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns the value that is displayed in a TextBox.

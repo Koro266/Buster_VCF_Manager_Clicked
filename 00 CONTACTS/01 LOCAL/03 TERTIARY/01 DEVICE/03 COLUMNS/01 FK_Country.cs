@@ -52,10 +52,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			{
 				return base.Value.ToString();
 			}
-			#endregion
-
-
-			#region EXTENSIONS
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns the value that is displayed in a TextBox.
@@ -74,7 +70,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true because this field is a primary key.
+			/// Returns true because this field is a foreign key.
 			/// </summary>
 			override public bool IsVcfValue
 			{

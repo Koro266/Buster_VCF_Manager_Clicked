@@ -20,16 +20,16 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.LongAreaCode];
 			private NULL_TEXT type_null_pair;
-		#endregion
+			#endregion
 
 
-		#region CONSTRUCTORS
-		//_______________________________________________________________________________________________________________________________________
-		public ST_LongAreaCode( string value ) : base( value )
+			#region CONSTRUCTORS
+			//_______________________________________________________________________________________________________________________________________
+			public ST_LongAreaCode( string value ) : base( value )
 			{
 			}
-		//_______________________________________________________________________________________________________________________________________
-		public ST_LongAreaCode( NULL_TEXT tnp ) : base( tnp )
+			//_______________________________________________________________________________________________________________________________________
+			public ST_LongAreaCode( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -52,10 +52,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			{
 				return base.Value;
 			}
-			#endregion
-
-
-			#region EXTENSIONS
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns value that is sent to the database.

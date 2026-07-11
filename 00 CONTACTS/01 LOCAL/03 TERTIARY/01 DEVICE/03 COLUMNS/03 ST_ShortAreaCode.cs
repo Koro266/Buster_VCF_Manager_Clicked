@@ -52,10 +52,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			{
 				return base.Value;
 			}
-			#endregion
-
-
-			#region EXTENSIONS
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns value that is sent to the database.
