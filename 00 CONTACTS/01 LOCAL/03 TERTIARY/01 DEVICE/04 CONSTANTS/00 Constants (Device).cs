@@ -121,7 +121,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		#endregion
 
 
-		#region COLUMN FACTORS
+		#region COLUMN FACTORSx
 		//_______________________________________________________________________________________________________________________________________
 		public static FACTORS[] Factors =
 		{
