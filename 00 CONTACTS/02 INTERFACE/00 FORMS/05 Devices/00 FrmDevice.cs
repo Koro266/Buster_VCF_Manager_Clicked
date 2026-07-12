@@ -23,11 +23,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
-		private DEVICE one_Device;						  //One device.
-		private DEVICES all_Devices = new DEVICES();		//Device table: manages collective devices.
+		private DEVICE one_Device;						//One device.
+		private DEVICES all_Devices = new DEVICES();	//Device table: manages collective devices.
 
-		private NATION one_Nation;						  //One country.
-		private NATIONS all_Nations = new NATIONS();		//Many countries.
+		private NATION one_Nation;						//One country.
+		private NATIONS all_Nations = new NATIONS();	//Many countries.
 
 		private LIKE_ROW[] matching_Devices;
 		private bool is_event_Disabled = true;
@@ -436,84 +436,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
-		/*
-		#region ENTER / PROMPTS / REMINDERS
-		//___________________________________________________________________________________________________________________________________________
-		private void UpdatePrompt( string reminder_text )
-		{
-			tbx_Prompt.Text = reminder_text;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void UpdatePrompt( string[] reminder_text )
-		{
-			tbx_Prompt.Lines = reminder_text;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_Countries_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.FkCountry.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_LongAreaCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.LongAreaCode.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_ShortAreaCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.ShortAreaCode.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_LeadingDigits_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.LeadingDigits.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_TrailingDigits_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.TrailingDigits.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_DialNumber_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.DialNumber.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_PickerNumber_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.PickerNumber.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void grp_DeviceType_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.DeviceType.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void grp_DeviceLocation_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.DeviceLocation.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_DeviceId_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.PkDevice.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Filter_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.Filter ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_FirstDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.FirstDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_PreviousDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.PreviousDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_NextDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.NextDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_LastDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.LastDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_FindDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.FindDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_Insert_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.InsertDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_UpdateDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.UpdateDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_Close_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CloseForm ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Matches_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.MatchesDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void lbx_MatchingDevices_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.MatchesDevice ); }
-		#endregion
-		*/
-
 		#endregion
 
 
@@ -524,7 +446,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			Initialise( all_Devices.DefaultDevice );
 			SetTabIndices();
 			SetTabStops();
-			SetEnabled();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm( int device_pk )
@@ -532,7 +453,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			Initialise( all_Devices.DeviceByKey( device_pk ) );
 			SetTabIndices();
 			SetTabStops();
-			SetEnabled();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void Initialise( DEVICE device )
@@ -571,7 +491,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_CloseForm.TabIndex = 17;
 			grp_DeviceData.TabIndex = 100;
 			lbx_MatchingDevices.TabIndex = 101;
-			tbx_Prompt.TabIndex = 102;
 			tbx_DialNumber.TabIndex = 103;
 			tbx_PickerNumber.TabIndex = 104;
 			tbx_DeviceId.TabIndex = 105;
@@ -614,7 +533,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_CloseForm.TabStop = true;
 			grp_DeviceData.TabStop = false;
 			lbx_MatchingDevices.TabStop = false;
-			tbx_Prompt.TabStop = false;
 			tbx_DialNumber.TabStop = false;
 			tbx_PickerNumber.TabStop = false;
 			tbx_DeviceId.TabStop = false;
@@ -633,49 +551,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_FindPk.TabStop = false;
 			lbl_ButtonFirst.TabStop = false;
 			lbl_ButtonLast.TabStop = false;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void SetEnabled()
-		{
-			cbx_Countries.Enabled = true;
-			tbx_LongAreaCode.Enabled = true;
-			tbx_ShortAreaCode.Enabled = true;
-			tbx_LeadingDigits.Enabled = true;
-			tbx_TrailingDigits.Enabled = true;
-			cbx_DeviceLocation.Enabled = true;
-			cbx_DeviceType.Enabled = true;
-			tbx_Notes.Enabled = true;
-			tbx_Filter.Enabled = true;
-			btn_FirstDevice.Enabled = true;
-			btn_PreviousDevice.Enabled = true;
-			btn_NextDevice.Enabled = true;
-			btn_LastDevice.Enabled = true;
-			btn_FindDevice.Enabled = true;
-			tbx_Matches.Enabled = true;
-			btn_InsertDevice.Enabled = true;
-			btn_UpdateDevice.Enabled = true;
-			btn_CloseForm.Enabled = true;
-			grp_DeviceData.Enabled = true;
-			lbx_MatchingDevices.Enabled = true;
-			tbx_Prompt.Enabled = true;
-			tbx_DialNumber.Enabled = true;
-			tbx_PickerNumber.Enabled = true;
-			tbx_DeviceId.Enabled = true;
-			lbl_PK.Enabled = true;
-			lbl_CountryId.Enabled = true;
-			lbl_LongAreaCode.Enabled = true;
-			lbl_ShortAreaCode.Enabled = true;
-			lbl_LeadingDigits.Enabled = true;
-			lbl_TrailingDigits.Enabled = true;
-			lbl_DeviceType.Enabled = true;
-			lbl_DialNumber.Enabled = true;
-			lbl_PickerNumber.Enabled = true;
-			lbl_Note.Enabled = true;
-			lbl_Search.Enabled = true;
-			lbl_DeviceLocation.Enabled = true;
-			lbl_FindPk.Enabled = true;
-			lbl_ButtonFirst.Enabled = true;
-			lbl_ButtonLast.Enabled = true;
 		}
 		#endregion
 	}
