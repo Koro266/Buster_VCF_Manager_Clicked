@@ -13,6 +13,8 @@ namespace CONTACTS.LOCAL.TERTIARY.NATION
 	//___________________________________________________________________________________________________________________________________________
 	public partial class Table : BASE_TABLE
 	{
+		//TODO: Indexing does not work correctly after pk_Country = 4 (USA). 
+
 		#region DECLARATIONS
 		private Dictionary<int, NATION_ROW> nation_Rows;
 		#endregion

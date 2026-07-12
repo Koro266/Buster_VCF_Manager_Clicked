@@ -64,19 +64,20 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_Note = new Label();
 			lbl_Search = new Label();
 			grp_DeviceData = new GroupBox();
-			cbx_DeviceType = new ComboBox();
-			lbl_DeviceLocation = new Label();
-			lbl_DeviceType = new Label();
-			cbx_DeviceLocation = new ComboBox();
+			btn_NewDevice = new Button();
+			tbx_Messages = new TextBox();
+			label1 = new Label();
 			checkBox2 = new CheckBox();
 			checkBox1 = new CheckBox();
 			chk_DefaultRow = new CheckBox();
 			chk_NoRightPerson = new CheckBox();
 			chk_NewLeftPerson = new CheckBox();
 			chk_Selected = new CheckBox();
-			label1 = new Label();
-			tbx_Messages = new TextBox();
-			btn_NewDevice = new Button();
+			cbx_DeviceType = new ComboBox();
+			lbl_DeviceLocation = new Label();
+			lbl_DeviceType = new Label();
+			cbx_DeviceLocation = new ComboBox();
+			label2 = new Label();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -443,6 +444,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			// grp_DeviceData
 			// 
+			grp_DeviceData.Controls.Add( label2 );
 			grp_DeviceData.Controls.Add( btn_NewDevice );
 			grp_DeviceData.Controls.Add( tbx_Messages );
 			grp_DeviceData.Controls.Add( label1 );
@@ -498,49 +500,39 @@ namespace CONTACTS.INTERFACE.FORMS
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Data";
 			// 
-			// cbx_DeviceType
+			// btn_NewDevice
 			// 
-			cbx_DeviceType.DropDownStyle = ComboBoxStyle.DropDownList;
-			cbx_DeviceType.FormattingEnabled = true;
-			cbx_DeviceType.Location = new Point( 130, 243 );
-			cbx_DeviceType.Name = "cbx_DeviceType";
-			cbx_DeviceType.Size = new Size( 168, 25 );
-			cbx_DeviceType.TabIndex = 6;
-			cbx_DeviceType.SelectedIndexChanged +=  cbx_DeviceType_SelectedIndexChanged ;
+			btn_NewDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_NewDevice.ForeColor = Color.Maroon;
+			btn_NewDevice.Location = new Point( 628, 137 );
+			btn_NewDevice.Name = "btn_NewDevice";
+			btn_NewDevice.Size = new Size( 133, 32 );
+			btn_NewDevice.TabIndex = 147;
+			btn_NewDevice.Text = "New Device";
+			btn_NewDevice.UseVisualStyleBackColor = true;
+			btn_NewDevice.UseWaitCursor = true;
 			// 
-			// lbl_DeviceLocation
+			// tbx_Messages
 			// 
-			lbl_DeviceLocation.AutoSize = true;
-			lbl_DeviceLocation.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			lbl_DeviceLocation.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_DeviceLocation.Location = new Point( 9, 214 );
-			lbl_DeviceLocation.Name = "lbl_DeviceLocation";
-			lbl_DeviceLocation.Size = new Size( 115, 19 );
-			lbl_DeviceLocation.TabIndex = 86;
-			lbl_DeviceLocation.Text = "Device Location";
-			lbl_DeviceLocation.TextAlign = ContentAlignment.MiddleRight;
+			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.ForeColor = Color.ForestGreen;
+			tbx_Messages.Location = new Point( 438, 371 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 323, 23 );
+			tbx_Messages.TabIndex = 146;
+			tbx_Messages.TabStop = false;
 			// 
-			// lbl_DeviceType
+			// label1
 			// 
-			lbl_DeviceType.AutoSize = true;
-			lbl_DeviceType.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			lbl_DeviceType.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_DeviceType.Location = new Point( 34, 246 );
-			lbl_DeviceType.Name = "lbl_DeviceType";
-			lbl_DeviceType.Size = new Size( 90, 19 );
-			lbl_DeviceType.TabIndex = 85;
-			lbl_DeviceType.Text = "Device Type";
-			lbl_DeviceType.TextAlign = ContentAlignment.MiddleRight;
-			// 
-			// cbx_DeviceLocation
-			// 
-			cbx_DeviceLocation.DropDownStyle = ComboBoxStyle.DropDownList;
-			cbx_DeviceLocation.FormattingEnabled = true;
-			cbx_DeviceLocation.Location = new Point( 130, 211 );
-			cbx_DeviceLocation.Name = "cbx_DeviceLocation";
-			cbx_DeviceLocation.Size = new Size( 168, 25 );
-			cbx_DeviceLocation.TabIndex = 5;
-			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
+			label1.AutoSize = true;
+			label1.Font = new Font( "Segoe UI", 12.75F,    FontStyle.Bold  |  FontStyle.Underline , GraphicsUnit.Point );
+			label1.ForeColor = Color.Blue;
+			label1.Location = new Point( 5, 311 );
+			label1.Name = "label1";
+			label1.Size = new Size( 151, 23 );
+			label1.TabIndex = 145;
+			label1.Text = "Derived Numbers";
 			// 
 			// checkBox2
 			// 
@@ -608,39 +600,60 @@ namespace CONTACTS.INTERFACE.FORMS
 			chk_Selected.Text = "Selected?";
 			chk_Selected.UseVisualStyleBackColor = true;
 			// 
-			// label1
+			// cbx_DeviceType
 			// 
-			label1.AutoSize = true;
-			label1.Font = new Font( "Segoe UI", 12.75F,    FontStyle.Bold  |  FontStyle.Underline , GraphicsUnit.Point );
-			label1.ForeColor = Color.Blue;
-			label1.Location = new Point( 9, 312 );
-			label1.Name = "label1";
-			label1.Size = new Size( 151, 23 );
-			label1.TabIndex = 145;
-			label1.Text = "Derived Numbers";
+			cbx_DeviceType.DropDownStyle = ComboBoxStyle.DropDownList;
+			cbx_DeviceType.FormattingEnabled = true;
+			cbx_DeviceType.Location = new Point( 130, 243 );
+			cbx_DeviceType.Name = "cbx_DeviceType";
+			cbx_DeviceType.Size = new Size( 168, 25 );
+			cbx_DeviceType.TabIndex = 6;
+			cbx_DeviceType.SelectedIndexChanged +=  cbx_DeviceType_SelectedIndexChanged ;
 			// 
-			// tbx_Messages
+			// lbl_DeviceLocation
 			// 
-			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
-			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 438, 371 );
-			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 323, 23 );
-			tbx_Messages.TabIndex = 146;
-			tbx_Messages.TabStop = false;
+			lbl_DeviceLocation.AutoSize = true;
+			lbl_DeviceLocation.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			lbl_DeviceLocation.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lbl_DeviceLocation.Location = new Point( 9, 214 );
+			lbl_DeviceLocation.Name = "lbl_DeviceLocation";
+			lbl_DeviceLocation.Size = new Size( 115, 19 );
+			lbl_DeviceLocation.TabIndex = 86;
+			lbl_DeviceLocation.Text = "Device Location";
+			lbl_DeviceLocation.TextAlign = ContentAlignment.MiddleRight;
 			// 
-			// btn_NewDevice
+			// lbl_DeviceType
 			// 
-			btn_NewDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NewDevice.ForeColor = Color.Maroon;
-			btn_NewDevice.Location = new Point( 628, 137 );
-			btn_NewDevice.Name = "btn_NewDevice";
-			btn_NewDevice.Size = new Size( 133, 32 );
-			btn_NewDevice.TabIndex = 147;
-			btn_NewDevice.Text = "New Device";
-			btn_NewDevice.UseVisualStyleBackColor = true;
-			btn_NewDevice.UseWaitCursor = true;
+			lbl_DeviceType.AutoSize = true;
+			lbl_DeviceType.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			lbl_DeviceType.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lbl_DeviceType.Location = new Point( 34, 246 );
+			lbl_DeviceType.Name = "lbl_DeviceType";
+			lbl_DeviceType.Size = new Size( 90, 19 );
+			lbl_DeviceType.TabIndex = 85;
+			lbl_DeviceType.Text = "Device Type";
+			lbl_DeviceType.TextAlign = ContentAlignment.MiddleRight;
+			// 
+			// cbx_DeviceLocation
+			// 
+			cbx_DeviceLocation.DropDownStyle = ComboBoxStyle.DropDownList;
+			cbx_DeviceLocation.FormattingEnabled = true;
+			cbx_DeviceLocation.Location = new Point( 130, 211 );
+			cbx_DeviceLocation.Name = "cbx_DeviceLocation";
+			cbx_DeviceLocation.Size = new Size( 168, 25 );
+			cbx_DeviceLocation.TabIndex = 5;
+			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Font = new Font( "Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
+			label2.ForeColor = Color.Blue;
+			label2.Location = new Point( 227, 23 );
+			label2.Name = "label2";
+			label2.Size = new Size( 77, 13 );
+			label2.TabIndex = 148;
+			label2.Text = "Trailing digits";
 			// 
 			// FrmDevice
 			// 
@@ -710,5 +723,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private Label label1;
 		private TextBox tbx_Messages;
 		private Button btn_NewDevice;
+		private Label label2;
 	}
 }
