@@ -49,11 +49,19 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns DefaultRow as used in a VCF file.
+			/// Returns Selected as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
 				get { return base.AsTF; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true: Boolean columns always have a usable value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return true; }
 			}
 			#endregion
 
