@@ -21,7 +21,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 
 		#region CONSTRUCTION
 		//___________________________________________________________________________________________________________________________________________
-		public Table() : base( new SELECT.AllDevices().Execute )
+		public Table() : base( new SELECT.FullyQualifiedDevices().Execute )
 		{
 		}
 		#endregion

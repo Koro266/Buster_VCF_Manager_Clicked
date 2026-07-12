@@ -36,6 +36,14 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 						TDF_Devices.st_DialNumber,
 						TDF_Devices.st_PickerNumber,
 						TDF_Devices.st_Notes,
+
+						TDF_Devices.is_Selected,
+						TDF_Devices.is_DefaultRow,
+						TDF_Devices.is_Blocked,
+						TDF_Devices.is_X_Person,
+						TDF_Devices.is_X_Group,
+						TDF_Devices.is_X_Family,
+
 						TDF_Countries.st_CountryName,
 						TDF_Countries.st_CountryCode,
 						TDF_Countries.st_ShortIsoCode,
