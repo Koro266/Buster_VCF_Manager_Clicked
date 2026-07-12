@@ -7,7 +7,6 @@ using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //DEVICE
 using DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICES		= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
-//using REMINDER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Constants.Reminders;
 using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
 //COUNTRIES
 using NATION		= CONTACTS.LOCAL.TERTIARY.NATION.Row;
@@ -135,11 +134,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			if ( all_Devices.UpdateDevice( Device ) )
 			{
-				UpdatePrompt( "Update succeeded." );
+				//TODO mESSENGER
+				//UpdatePrompt( "Update succeeded." );
 			}
 			else
 			{
-				UpdatePrompt( "Update failed." );
+				//UpdatePrompt( "Update failed." );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -362,7 +362,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Notes_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Notes.Text );
-			UpdatePrompt( Device.Notes.Factors.Prompt );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
@@ -437,7 +436,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
-
+		/*
 		#region ENTER / PROMPTS / REMINDERS
 		//___________________________________________________________________________________________________________________________________________
 		private void UpdatePrompt( string reminder_text )
@@ -513,6 +512,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void lbx_MatchingDevices_Enter( object sender, EventArgs e )
 		{ UpdatePrompt( REMINDER.MatchesDevice ); }
 		#endregion
+		*/
 
 		#endregion
 

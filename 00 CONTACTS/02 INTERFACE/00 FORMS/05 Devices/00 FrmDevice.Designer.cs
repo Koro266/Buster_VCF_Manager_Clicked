@@ -80,7 +80,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_PickerNumber.Size = new Size( 236, 25 );
 			tbx_PickerNumber.TabIndex = 12;
 			tbx_PickerNumber.TabStop = false;
-			tbx_PickerNumber.Enter +=  tbx_PickerNumber_Enter ;
 			// 
 			// tbx_DialNumber
 			// 
@@ -90,7 +89,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_DialNumber.Size = new Size( 236, 25 );
 			tbx_DialNumber.TabIndex = 11;
 			tbx_DialNumber.TabStop = false;
-			tbx_DialNumber.Enter +=  tbx_DialNumber_Enter ;
 			// 
 			// btn_UpdateDevice
 			// 
@@ -103,7 +101,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_UpdateDevice.Text = "Update Device";
 			btn_UpdateDevice.UseVisualStyleBackColor = true;
 			btn_UpdateDevice.Click +=  btn_UpdateDevice_Click ;
-			btn_UpdateDevice.Enter +=  btn_UpdateDevice_Enter ;
 			// 
 			// tbx_TrailingDigits
 			// 
@@ -113,7 +110,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_TrailingDigits.Size = new Size( 91, 25 );
 			tbx_TrailingDigits.TabIndex = 4;
 			tbx_TrailingDigits.TextChanged +=  tbx_TrailingDigits_TextChanged ;
-			tbx_TrailingDigits.Enter +=  tbx_TrailingDigits_Enter ;
 			// 
 			// tbx_LeadingDigits
 			// 
@@ -123,7 +119,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_LeadingDigits.Size = new Size( 91, 25 );
 			tbx_LeadingDigits.TabIndex = 3;
 			tbx_LeadingDigits.TextChanged +=  tbx_LeadingDigits_TextChanged ;
-			tbx_LeadingDigits.Enter +=  tbx_LeadingDigits_Enter ;
 			// 
 			// tbx_ShortAreaCode
 			// 
@@ -133,7 +128,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_ShortAreaCode.Size = new Size( 91, 25 );
 			tbx_ShortAreaCode.TabIndex = 2;
 			tbx_ShortAreaCode.TextChanged +=  tbx_ShortAreaCode_TextChanged ;
-			tbx_ShortAreaCode.Enter +=  tbx_ShortAreaCode_Enter ;
 			// 
 			// tbx_LongAreaCode
 			// 
@@ -144,7 +138,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_LongAreaCode.Size = new Size( 91, 25 );
 			tbx_LongAreaCode.TabIndex = 1;
 			tbx_LongAreaCode.TextChanged +=  tbx_LongAreaCode_TextChanged ;
-			tbx_LongAreaCode.Enter +=  tbx_LongAreaCode_Enter ;
 			// 
 			// lbl_PickerNumber
 			// 
@@ -255,7 +248,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_CloseForm.Text = "Close";
 			btn_CloseForm.UseVisualStyleBackColor = true;
 			btn_CloseForm.Click +=  btn_Close_Click ;
-			btn_CloseForm.Enter +=  btn_Close_Enter ;
 			// 
 			// btn_InsertDevice
 			// 
@@ -268,7 +260,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_InsertDevice.Text = "Insert Device";
 			btn_InsertDevice.UseVisualStyleBackColor = true;
 			btn_InsertDevice.Click +=  btn_Insert_Click ;
-			btn_InsertDevice.Enter +=  btn_Insert_Enter ;
 			// 
 			// lbl_ButtonLast
 			// 
@@ -299,7 +290,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_FindDevice.Text = "Find Device";
 			btn_FindDevice.UseVisualStyleBackColor = true;
 			btn_FindDevice.Click +=  btn_FindDevice_Click ;
-			btn_FindDevice.Enter +=  btn_FindDevice_Enter ;
 			// 
 			// btn_FirstDevice
 			// 
@@ -311,7 +301,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_FirstDevice.Text = "|<";
 			btn_FirstDevice.UseVisualStyleBackColor = true;
 			btn_FirstDevice.Click +=  btn_FirstDevice_Click ;
-			btn_FirstDevice.Enter +=  btn_FirstDevice_Enter ;
 			// 
 			// btn_PreviousDevice
 			// 
@@ -323,7 +312,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_PreviousDevice.Text = "<";
 			btn_PreviousDevice.UseVisualStyleBackColor = true;
 			btn_PreviousDevice.Click +=  btn_PreviousDevice_Click ;
-			btn_PreviousDevice.Enter +=  btn_PreviousDevice_Enter ;
 			// 
 			// btn_LastDevice
 			// 
@@ -335,7 +323,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_LastDevice.Text = ">|";
 			btn_LastDevice.UseVisualStyleBackColor = true;
 			btn_LastDevice.Click +=  btn_LastDevice_Click ;
-			btn_LastDevice.Enter +=  btn_LastDevice_Enter ;
 			// 
 			// btn_NextDevice
 			// 
@@ -347,7 +334,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_NextDevice.Text = ">";
 			btn_NextDevice.UseVisualStyleBackColor = true;
 			btn_NextDevice.Click +=  btn_NextDevice_Click ;
-			btn_NextDevice.Enter +=  btn_NextDevice_Enter ;
 			// 
 			// lbl_FindPk
 			// 
@@ -371,7 +357,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Filter.TabIndex = 8;
 			tbx_Filter.TabStop = false;
 			tbx_Filter.TextAlign = HorizontalAlignment.Right;
-			tbx_Filter.Enter +=  tbx_Filter_Enter ;
 			tbx_Filter.KeyUp +=  tbx_Filter_KeyUp ;
 			// 
 			// tbx_DeviceId
@@ -387,7 +372,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_DeviceId.Size = new Size( 60, 25 );
 			tbx_DeviceId.TabIndex = 0;
 			tbx_DeviceId.TabStop = false;
-			tbx_DeviceId.Enter +=  tbx_DeviceId_Enter ;
 			// 
 			// lbl_PK
 			// 
@@ -409,7 +393,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_Countries.Size = new Size( 227, 25 );
 			cbx_Countries.TabIndex = 0;
 			cbx_Countries.SelectedIndexChanged +=  cbx_Countries_SelectedIndexChanged ;
-			cbx_Countries.Enter +=  cbx_Countries_Enter ;
 			// 
 			// lbx_MatchingDevices
 			// 
@@ -423,7 +406,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.Size = new Size( 158, 304 );
 			lbx_MatchingDevices.TabIndex = 73;
 			lbx_MatchingDevices.SelectedIndexChanged +=  lbx_MatchingDevices_SelectedIndexChanged ;
-			lbx_MatchingDevices.Enter +=  lbx_MatchingDevices_Enter ;
 			// 
 			// tbx_Matches
 			// 
@@ -432,7 +414,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Matches.Size = new Size( 158, 25 );
 			tbx_Matches.TabIndex = 14;
 			tbx_Matches.TextChanged +=  tbx_Matches_TextChanged ;
-			tbx_Matches.Enter +=  tbx_Matches_Enter ;
 			// 
 			// tbx_Notes
 			// 
@@ -442,7 +423,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Notes.Size = new Size( 388, 25 );
 			tbx_Notes.TabIndex = 7;
 			tbx_Notes.TextChanged +=  tbx_Notes_TextChanged ;
-			tbx_Notes.Enter +=  tbx_Notes_Enter ;
 			tbx_Notes.Leave +=  tbx_Notes_Leave ;
 			// 
 			// lbl_Note
