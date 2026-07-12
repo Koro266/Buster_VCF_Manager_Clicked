@@ -141,41 +141,65 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 
 		#region OUTPUT VALUES
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns String.Empty.
+		/// </summary>
 		virtual public string FinderValue
 		{
 			get { return string.Empty; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns String.Empty.
+		/// </summary>
 		virtual public string VcfValue
 		{
 			get { return string.Empty; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns false.
+		/// </summary>
 		virtual public bool IsVcfValue
 		{
 			get { return false; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns true.
+		/// </summary>
 		virtual public bool IsDatePickerDisplayable
 		{
 			get { return true; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns DateTime.Now.
+		/// </summary>
 		virtual public DateTime DatePickerValue
 		{
 			get { return DateTime.Now; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns String.Empty.
+		/// </summary>
 		virtual public string DatePickerFormat
 		{
 			get { return string.Empty; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns String.Empty.
+		/// </summary>
 		virtual public string TextboxValue
 		{
 			get { return string.Empty; }
 		}
 		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns System.DBNull.Value.
+		/// </summary>
 		virtual public object DbWriteValue
 		{
 			get { return ( object )System.DBNull.Value; }

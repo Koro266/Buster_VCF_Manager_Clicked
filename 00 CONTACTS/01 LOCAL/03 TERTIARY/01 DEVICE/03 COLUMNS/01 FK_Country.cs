@@ -70,7 +70,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true because this field is a foreign key.
+			/// Returns true because this every device is associated with a country foreign key.
 			/// </summary>
 			override public bool IsVcfValue
 			{

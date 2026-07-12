@@ -54,14 +54,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns value that is sent to the database.
-			/// </summary>
-			override public object DbWriteValue
-			{
-				get { return base.DbWriteValue; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
 			/// Returns a value that is displayed in a TextBox.
 			/// </summary>
 			override public string TextboxValue
@@ -78,7 +70,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true if address has a valid Assemblage value.
+			/// Returns true if address has a valid LongAreaCode value.
 			/// </summary>
 			override public bool IsVcfValue
 			{
@@ -96,7 +88,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}
