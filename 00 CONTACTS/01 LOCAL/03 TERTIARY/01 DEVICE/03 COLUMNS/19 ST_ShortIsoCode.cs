@@ -54,30 +54,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			{
 				return base.Value;
 			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns value formatted for use in a Find this-or-that context.
-			/// </summary>
-			override public string FinderValue
-			{
-				get { return base.FinderValue == String.Empty ? no_FINDER_Value : base.AsUpper; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns ExcelPattern as used in a VCF file.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return base.VcfValue == String.Empty ? no_VCF_Value : base.AsIs; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns a value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.TextboxValue == String.Empty ? String.Empty : base.AsIs; }
-			}
 			#endregion
 
 
