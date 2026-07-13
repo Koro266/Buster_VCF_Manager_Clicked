@@ -43,9 +43,6 @@ namespace CONTACTS.INTERFACE.FORMS
 
 			InitialiseForm();
 			DisplayDevice();
-
-			this.matching_Devices = new LIKE.NzAreaCodesPaired().Execute;
-
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmDevice( int device_pk )

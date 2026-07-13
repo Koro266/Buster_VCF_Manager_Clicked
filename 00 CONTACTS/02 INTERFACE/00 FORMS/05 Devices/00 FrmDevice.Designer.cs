@@ -78,7 +78,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_DeviceLocation = new Label();
 			lbl_DeviceType = new Label();
 			cbx_DeviceLocation = new ComboBox();
-			cbx_AreaCodes = new ComboBox();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -445,7 +444,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			// grp_DeviceData
 			// 
-			grp_DeviceData.Controls.Add( cbx_AreaCodes );
 			grp_DeviceData.Controls.Add( label2 );
 			grp_DeviceData.Controls.Add( btn_NewDevice );
 			grp_DeviceData.Controls.Add( tbx_Messages );
@@ -663,14 +661,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceLocation.TabIndex = 5;
 			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
 			// 
-			// cbx_AreaCodes
-			// 
-			cbx_AreaCodes.FormattingEnabled = true;
-			cbx_AreaCodes.Location = new Point( 227, 82 );
-			cbx_AreaCodes.Name = "cbx_AreaCodes";
-			cbx_AreaCodes.Size = new Size( 93, 25 );
-			cbx_AreaCodes.TabIndex = 149;
-			// 
 			// FrmDevice
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -740,6 +730,5 @@ namespace CONTACTS.INTERFACE.FORMS
 		private TextBox tbx_Messages;
 		private Button btn_NewDevice;
 		private Label label2;
-		private ComboBox cbx_AreaCodes;
 	}
 }
