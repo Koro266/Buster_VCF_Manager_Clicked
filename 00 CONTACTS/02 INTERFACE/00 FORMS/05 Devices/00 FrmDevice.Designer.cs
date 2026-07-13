@@ -64,20 +64,20 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_Note = new Label();
 			lbl_Search = new Label();
 			grp_DeviceData = new GroupBox();
+			label2 = new Label();
 			btn_NewDevice = new Button();
 			tbx_Messages = new TextBox();
 			label1 = new Label();
-			checkBox2 = new CheckBox();
-			checkBox1 = new CheckBox();
+			chk_X_Person = new CheckBox();
+			chk_Blocked = new CheckBox();
 			chk_DefaultRow = new CheckBox();
-			chk_NoRightPerson = new CheckBox();
-			chk_NewLeftPerson = new CheckBox();
+			chk_X_Family = new CheckBox();
+			chk_X_Group = new CheckBox();
 			chk_Selected = new CheckBox();
 			cbx_DeviceType = new ComboBox();
 			lbl_DeviceLocation = new Label();
 			lbl_DeviceType = new Label();
 			cbx_DeviceLocation = new ComboBox();
-			label2 = new Label();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -448,11 +448,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			grp_DeviceData.Controls.Add( btn_NewDevice );
 			grp_DeviceData.Controls.Add( tbx_Messages );
 			grp_DeviceData.Controls.Add( label1 );
-			grp_DeviceData.Controls.Add( checkBox2 );
-			grp_DeviceData.Controls.Add( checkBox1 );
+			grp_DeviceData.Controls.Add( chk_X_Person );
+			grp_DeviceData.Controls.Add( chk_Blocked );
 			grp_DeviceData.Controls.Add( chk_DefaultRow );
-			grp_DeviceData.Controls.Add( chk_NoRightPerson );
-			grp_DeviceData.Controls.Add( chk_NewLeftPerson );
+			grp_DeviceData.Controls.Add( chk_X_Family );
+			grp_DeviceData.Controls.Add( chk_X_Group );
 			grp_DeviceData.Controls.Add( chk_Selected );
 			grp_DeviceData.Controls.Add( lbl_Search );
 			grp_DeviceData.Controls.Add( lbx_MatchingDevices );
@@ -500,6 +500,17 @@ namespace CONTACTS.INTERFACE.FORMS
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Data";
 			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Font = new Font( "Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
+			label2.ForeColor = Color.Blue;
+			label2.Location = new Point( 227, 23 );
+			label2.Name = "label2";
+			label2.Size = new Size( 77, 13 );
+			label2.TabIndex = 148;
+			label2.Text = "Trailing digits";
+			// 
 			// btn_NewDevice
 			// 
 			btn_NewDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
@@ -534,27 +545,29 @@ namespace CONTACTS.INTERFACE.FORMS
 			label1.TabIndex = 145;
 			label1.Text = "Derived Numbers";
 			// 
-			// checkBox2
+			// chk_X_Person
 			// 
-			checkBox2.AutoSize = true;
-			checkBox2.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox2.Location = new Point( 323, 141 );
-			checkBox2.Name = "checkBox2";
-			checkBox2.Size = new Size( 89, 21 );
-			checkBox2.TabIndex = 144;
-			checkBox2.Text = "X_Person?";
-			checkBox2.UseVisualStyleBackColor = true;
+			chk_X_Person.AutoSize = true;
+			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Person.Location = new Point( 323, 141 );
+			chk_X_Person.Name = "chk_X_Person";
+			chk_X_Person.Size = new Size( 89, 21 );
+			chk_X_Person.TabIndex = 144;
+			chk_X_Person.Text = "X_Person?";
+			chk_X_Person.UseVisualStyleBackColor = true;
+			chk_X_Person.CheckedChanged +=  chk_X_Person_CheckedChanged ;
 			// 
-			// checkBox1
+			// chk_Blocked
 			// 
-			checkBox1.AutoSize = true;
-			checkBox1.ForeColor = Color.FromArgb(     192,     0,     0 );
-			checkBox1.Location = new Point( 323, 123 );
-			checkBox1.Name = "checkBox1";
-			checkBox1.Size = new Size( 81, 21 );
-			checkBox1.TabIndex = 143;
-			checkBox1.Text = "Blocked?";
-			checkBox1.UseVisualStyleBackColor = true;
+			chk_Blocked.AutoSize = true;
+			chk_Blocked.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Blocked.Location = new Point( 323, 123 );
+			chk_Blocked.Name = "chk_Blocked";
+			chk_Blocked.Size = new Size( 81, 21 );
+			chk_Blocked.TabIndex = 143;
+			chk_Blocked.Text = "Blocked?";
+			chk_Blocked.UseVisualStyleBackColor = true;
+			chk_Blocked.CheckedChanged +=  chk_Blocked_CheckedChanged ;
 			// 
 			// chk_DefaultRow
 			// 
@@ -566,28 +579,31 @@ namespace CONTACTS.INTERFACE.FORMS
 			chk_DefaultRow.TabIndex = 142;
 			chk_DefaultRow.Text = "Default Row?";
 			chk_DefaultRow.UseVisualStyleBackColor = true;
+			chk_DefaultRow.CheckedChanged +=  chk_DefaultRow_CheckedChanged ;
 			// 
-			// chk_NoRightPerson
+			// chk_X_Family
 			// 
-			chk_NoRightPerson.AutoSize = true;
-			chk_NoRightPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_NoRightPerson.Location = new Point( 323, 177 );
-			chk_NoRightPerson.Name = "chk_NoRightPerson";
-			chk_NoRightPerson.Size = new Size( 88, 21 );
-			chk_NoRightPerson.TabIndex = 141;
-			chk_NoRightPerson.Text = "X_Family?";
-			chk_NoRightPerson.UseVisualStyleBackColor = true;
+			chk_X_Family.AutoSize = true;
+			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Family.Location = new Point( 323, 177 );
+			chk_X_Family.Name = "chk_X_Family";
+			chk_X_Family.Size = new Size( 88, 21 );
+			chk_X_Family.TabIndex = 141;
+			chk_X_Family.Text = "X_Family?";
+			chk_X_Family.UseVisualStyleBackColor = true;
+			chk_X_Family.CheckedChanged +=  chk_X_Family_CheckedChanged ;
 			// 
-			// chk_NewLeftPerson
+			// chk_X_Group
 			// 
-			chk_NewLeftPerson.AutoSize = true;
-			chk_NewLeftPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_NewLeftPerson.Location = new Point( 323, 159 );
-			chk_NewLeftPerson.Name = "chk_NewLeftPerson";
-			chk_NewLeftPerson.Size = new Size( 85, 21 );
-			chk_NewLeftPerson.TabIndex = 140;
-			chk_NewLeftPerson.Text = "X_Group?";
-			chk_NewLeftPerson.UseVisualStyleBackColor = true;
+			chk_X_Group.AutoSize = true;
+			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Group.Location = new Point( 323, 159 );
+			chk_X_Group.Name = "chk_X_Group";
+			chk_X_Group.Size = new Size( 85, 21 );
+			chk_X_Group.TabIndex = 140;
+			chk_X_Group.Text = "X_Group?";
+			chk_X_Group.UseVisualStyleBackColor = true;
+			chk_X_Group.CheckedChanged +=  chk_X_Group_CheckedChanged ;
 			// 
 			// chk_Selected
 			// 
@@ -599,6 +615,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			chk_Selected.TabIndex = 139;
 			chk_Selected.Text = "Selected?";
 			chk_Selected.UseVisualStyleBackColor = true;
+			chk_Selected.CheckedChanged +=  chk_Selected_CheckedChanged ;
 			// 
 			// cbx_DeviceType
 			// 
@@ -643,17 +660,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceLocation.Size = new Size( 168, 25 );
 			cbx_DeviceLocation.TabIndex = 5;
 			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Font = new Font( "Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
-			label2.ForeColor = Color.Blue;
-			label2.Location = new Point( 227, 23 );
-			label2.Name = "label2";
-			label2.Size = new Size( 77, 13 );
-			label2.TabIndex = 148;
-			label2.Text = "Trailing digits";
 			// 
 			// FrmDevice
 			// 
@@ -714,11 +720,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		private TextBox tbx_PickerNumber;
 		private TextBox tbx_ShortAreaCode;
 		private TextBox tbx_TrailingDigits;
-		private CheckBox checkBox2;
-		private CheckBox checkBox1;
+		private CheckBox chk_X_Person;
+		private CheckBox chk_Blocked;
 		private CheckBox chk_DefaultRow;
-		private CheckBox chk_NoRightPerson;
-		private CheckBox chk_NewLeftPerson;
+		private CheckBox chk_X_Family;
+		private CheckBox chk_X_Group;
 		private CheckBox chk_Selected;
 		private Label label1;
 		private TextBox tbx_Messages;

@@ -23,11 +23,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
-		private DEVICE one_Device;						//One device.
-		private DEVICES all_Devices = new DEVICES();	//Device table: manages collective devices.
+		private DEVICE one_Device;                      //One device.
+		private DEVICES all_Devices = new DEVICES();    //Device table: manages collective devices.
 
-		private NATION one_Nation;						//One country.
-		private NATIONS all_Nations = new NATIONS();	//Many countries.
+		private NATION one_Nation;                      //One country.
+		private NATIONS all_Nations = new NATIONS();    //Many countries.
 
 		private LIKE_ROW[] matching_Devices;
 		private bool is_event_Disabled = true;
@@ -61,23 +61,23 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			IsEventDisabled = true;
 
-			tbx_DeviceId.Text			= DevicePkAsText;
-			cbx_Countries.SelectedIndex	= FkCountry;
-			tbx_LongAreaCode.Text		= LongAreaCode;
-			tbx_ShortAreaCode.Text		= ShortAreaCode;
-			tbx_LeadingDigits.Text		= LeadingDigits;
-			tbx_TrailingDigits.Text		= TrailingDigits;
-			cbx_DeviceLocation.Text		= DeviceLocation;
-			cbx_DeviceType.Text			= DeviceType;
-			tbx_DialNumber.Text			= DialNumber;
-			tbx_PickerNumber.Text		= PickerNumber;
-			tbx_Notes.Text				= Notes;
+			tbx_DeviceId.Text = DevicePkAsText;
+			cbx_Countries.SelectedIndex = FkCountry;
+			tbx_LongAreaCode.Text = LongAreaCode;
+			tbx_ShortAreaCode.Text = ShortAreaCode;
+			tbx_LeadingDigits.Text = LeadingDigits;
+			tbx_TrailingDigits.Text = TrailingDigits;
+			cbx_DeviceLocation.Text = DeviceLocation;
+			cbx_DeviceType.Text = DeviceType;
+			tbx_DialNumber.Text = DialNumber;
+			tbx_PickerNumber.Text = PickerNumber;
+			tbx_Notes.Text = Notes;
 
 			IsEventDisabled = false;
 		}
 		#endregion
 
-
+		//TODO: Responder for booleans + New... methods in Row. 
 		#region RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
 		private DEVICE Device
@@ -309,6 +309,41 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region EVENT HANDLERS
 
 		#region VALUE CHANGED
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Selected_CheckedChanged( object sender, EventArgs e )
+		{
+			get { return Device.Selected.Value; }
+			set
+			{
+				Person.NewSelected = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_DefaultRow_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Person_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Group_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Family_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
 		{
