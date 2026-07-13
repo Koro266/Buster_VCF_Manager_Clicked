@@ -23,11 +23,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
-		private DEVICE one_Device;                      //One device.
-		private DEVICES all_Devices = new DEVICES();    //Device table: manages collective devices.
+		private DEVICE one_Device;						//One device.
+		private DEVICES all_Devices = new DEVICES();    //Device table (all devices).
 
-		private NATION one_Nation;                      //One country.
-		private NATIONS all_Nations = new NATIONS();    //Many countries.
+		private NATION one_Nation;						//One country.
+		private NATIONS all_Nations = new NATIONS();	//All countries.
 
 		private LIKE_ROW[] matching_Devices;
 		private bool is_event_Disabled = true;
@@ -77,7 +77,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
-		//TODO: Responder for booleans + New... methods in Row. 
 		#region RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
 		private DEVICE Device
@@ -223,6 +222,66 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
+		private bool Selected
+		{
+			get { return Device.Selected.Value; }
+			set
+			{
+				Device.NewSelected = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool DefaultRow
+		{
+			get { return Device.DefaultRow.Value; }
+			set
+			{
+				Device.NewDefaultRow = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Blocked
+		{
+			get { return Device.Blocked.Value; }
+			set
+			{
+				Device.NewBlocked = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool XPerson
+		{
+			get { return Device.X_Person.Value; }
+			set
+			{
+				Device.New_X_Person = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool XGroup
+		{
+			get { return Device.X_Group.Value; }
+			set
+			{
+				Device.New_X_Group = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool XFamily
+		{
+			get { return Device.X_Family.Value; }
+			set
+			{
+				Device.New_X_Family = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
 		private string MatchesText
 		{
 			set
@@ -312,37 +371,38 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Selected_CheckedChanged( object sender, EventArgs e )
 		{
-			get { return Device.Selected.Value; }
-			set
-			{
-				Person.NewSelected = value;
-				DisplayPerson();
-			}
+			if ( IsEventEnabled )
+				Selected = chk_Selected.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_DefaultRow_CheckedChanged( object sender, EventArgs e )
 		{
-
+			if ( IsEventEnabled )
+				DefaultRow = chk_DefaultRow.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
 		{
-
+			if ( IsEventEnabled )
+				Blocked = chk_Blocked.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_X_Person_CheckedChanged( object sender, EventArgs e )
 		{
-
+			if ( IsEventEnabled )
+				XPerson = chk_X_Person.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_X_Group_CheckedChanged( object sender, EventArgs e )
 		{
-
+			if ( IsEventEnabled )
+				XGroup = chk_X_Group.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_X_Family_CheckedChanged( object sender, EventArgs e )
 		{
-
+			if ( IsEventEnabled )
+				XFamily = chk_X_Family.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
