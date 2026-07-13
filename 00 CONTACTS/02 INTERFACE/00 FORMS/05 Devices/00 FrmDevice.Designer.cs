@@ -78,6 +78,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_DeviceLocation = new Label();
 			lbl_DeviceType = new Label();
 			cbx_DeviceLocation = new ComboBox();
+			cbx_AreaCodes = new ComboBox();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -103,7 +104,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_UpdateDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateDevice.ForeColor = Color.Maroon;
-			btn_UpdateDevice.Location = new Point( 628, 218 );
+			btn_UpdateDevice.Location = new Point( 792, 214 );
 			btn_UpdateDevice.Name = "btn_UpdateDevice";
 			btn_UpdateDevice.Size = new Size( 133, 35 );
 			btn_UpdateDevice.TabIndex = 16;
@@ -236,7 +237,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 627, 322 );
+			btn_CloseForm.Location = new Point( 791, 318 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 133, 35 );
 			btn_CloseForm.TabIndex = 17;
@@ -248,7 +249,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_InsertDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertDevice.ForeColor = Color.Maroon;
-			btn_InsertDevice.Location = new Point( 628, 176 );
+			btn_InsertDevice.Location = new Point( 792, 172 );
 			btn_InsertDevice.Name = "btn_InsertDevice";
 			btn_InsertDevice.Size = new Size( 133, 35 );
 			btn_InsertDevice.TabIndex = 15;
@@ -259,7 +260,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// lbl_ButtonLast
 			// 
 			lbl_ButtonLast.AutoSize = true;
-			lbl_ButtonLast.Location = new Point( 739, 110 );
+			lbl_ButtonLast.Location = new Point( 903, 106 );
 			lbl_ButtonLast.Name = "lbl_ButtonLast";
 			lbl_ButtonLast.Size = new Size( 16, 17 );
 			lbl_ButtonLast.TabIndex = 49;
@@ -268,7 +269,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// lbl_ButtonFirst
 			// 
 			lbl_ButtonFirst.AutoSize = true;
-			lbl_ButtonFirst.Location = new Point( 635, 110 );
+			lbl_ButtonFirst.Location = new Point( 799, 106 );
 			lbl_ButtonFirst.Name = "lbl_ButtonFirst";
 			lbl_ButtonFirst.Size = new Size( 15, 17 );
 			lbl_ButtonFirst.TabIndex = 48;
@@ -278,7 +279,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_FindDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindDevice.ForeColor = Color.Maroon;
-			btn_FindDevice.Location = new Point( 628, 271 );
+			btn_FindDevice.Location = new Point( 792, 267 );
 			btn_FindDevice.Name = "btn_FindDevice";
 			btn_FindDevice.Size = new Size( 133, 35 );
 			btn_FindDevice.TabIndex = 13;
@@ -289,7 +290,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// btn_FirstDevice
 			// 
 			btn_FirstDevice.Font = new Font( "Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_FirstDevice.Location = new Point( 628, 85 );
+			btn_FirstDevice.Location = new Point( 792, 81 );
 			btn_FirstDevice.Name = "btn_FirstDevice";
 			btn_FirstDevice.Size = new Size( 27, 23 );
 			btn_FirstDevice.TabIndex = 9;
@@ -300,7 +301,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// btn_PreviousDevice
 			// 
 			btn_PreviousDevice.Font = new Font( "Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_PreviousDevice.Location = new Point( 662, 85 );
+			btn_PreviousDevice.Location = new Point( 826, 81 );
 			btn_PreviousDevice.Name = "btn_PreviousDevice";
 			btn_PreviousDevice.Size = new Size( 27, 23 );
 			btn_PreviousDevice.TabIndex = 10;
@@ -311,7 +312,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// btn_LastDevice
 			// 
 			btn_LastDevice.Font = new Font( "Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_LastDevice.Location = new Point( 733, 85 );
+			btn_LastDevice.Location = new Point( 897, 81 );
 			btn_LastDevice.Name = "btn_LastDevice";
 			btn_LastDevice.Size = new Size( 27, 23 );
 			btn_LastDevice.TabIndex = 12;
@@ -322,7 +323,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// btn_NextDevice
 			// 
 			btn_NextDevice.Font = new Font( "Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_NextDevice.Location = new Point( 699, 85 );
+			btn_NextDevice.Location = new Point( 863, 81 );
 			btn_NextDevice.Name = "btn_NextDevice";
 			btn_NextDevice.Size = new Size( 27, 23 );
 			btn_NextDevice.TabIndex = 11;
@@ -335,7 +336,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_FindPk.AutoSize = true;
 			lbl_FindPk.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_FindPk.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_FindPk.Location = new Point( 626, 57 );
+			lbl_FindPk.Location = new Point( 790, 53 );
 			lbl_FindPk.Name = "lbl_FindPk";
 			lbl_FindPk.Size = new Size( 71, 21 );
 			lbl_FindPk.TabIndex = 47;
@@ -345,7 +346,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			tbx_Filter.BackColor = Color.FromArgb(     255,     192,     192 );
 			tbx_Filter.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Filter.Location = new Point( 699, 55 );
+			tbx_Filter.Location = new Point( 863, 51 );
 			tbx_Filter.MaxLength = 6;
 			tbx_Filter.Name = "tbx_Filter";
 			tbx_Filter.Size = new Size( 60, 25 );
@@ -360,7 +361,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_DeviceId.BackColor = Color.FromArgb(     192,     192,     255 );
 			tbx_DeviceId.Enabled = false;
 			tbx_DeviceId.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_DeviceId.Location = new Point( 699, 23 );
+			tbx_DeviceId.Location = new Point( 863, 19 );
 			tbx_DeviceId.Name = "tbx_DeviceId";
 			tbx_DeviceId.PlaceholderText = "PK";
 			tbx_DeviceId.ReadOnly = true;
@@ -373,7 +374,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_PK.AutoSize = true;
 			lbl_PK.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			lbl_PK.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbl_PK.Location = new Point( 663, 25 );
+			lbl_PK.Location = new Point( 827, 21 );
 			lbl_PK.Name = "lbl_PK";
 			lbl_PK.Size = new Size( 34, 21 );
 			lbl_PK.TabIndex = 0;
@@ -396,7 +397,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.ForeColor = Color.Blue;
 			lbx_MatchingDevices.FormattingEnabled = true;
 			lbx_MatchingDevices.ItemHeight = 15;
-			lbx_MatchingDevices.Location = new Point( 438, 23 );
+			lbx_MatchingDevices.Location = new Point( 602, 19 );
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
 			lbx_MatchingDevices.Size = new Size( 173, 334 );
 			lbx_MatchingDevices.TabIndex = 73;
@@ -444,6 +445,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			// grp_DeviceData
 			// 
+			grp_DeviceData.Controls.Add( cbx_AreaCodes );
 			grp_DeviceData.Controls.Add( label2 );
 			grp_DeviceData.Controls.Add( btn_NewDevice );
 			grp_DeviceData.Controls.Add( tbx_Messages );
@@ -495,7 +497,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			grp_DeviceData.Location = new Point( 12, 8 );
 			grp_DeviceData.Name = "grp_DeviceData";
 			grp_DeviceData.Padding = new Padding( 2 );
-			grp_DeviceData.Size = new Size( 781, 409 );
+			grp_DeviceData.Size = new Size( 989, 409 );
 			grp_DeviceData.TabIndex = 0;
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Data";
@@ -515,7 +517,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_NewDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_NewDevice.ForeColor = Color.Maroon;
-			btn_NewDevice.Location = new Point( 628, 137 );
+			btn_NewDevice.Location = new Point( 792, 133 );
 			btn_NewDevice.Name = "btn_NewDevice";
 			btn_NewDevice.Size = new Size( 133, 32 );
 			btn_NewDevice.TabIndex = 147;
@@ -528,7 +530,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
 			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 438, 371 );
+			tbx_Messages.Location = new Point( 602, 367 );
 			tbx_Messages.Name = "tbx_Messages";
 			tbx_Messages.Size = new Size( 323, 23 );
 			tbx_Messages.TabIndex = 146;
@@ -549,7 +551,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Person.AutoSize = true;
 			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Person.Location = new Point( 323, 141 );
+			chk_X_Person.Location = new Point( 391, 156 );
 			chk_X_Person.Name = "chk_X_Person";
 			chk_X_Person.Size = new Size( 89, 21 );
 			chk_X_Person.TabIndex = 144;
@@ -561,7 +563,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Blocked.AutoSize = true;
 			chk_Blocked.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Blocked.Location = new Point( 323, 123 );
+			chk_Blocked.Location = new Point( 391, 138 );
 			chk_Blocked.Name = "chk_Blocked";
 			chk_Blocked.Size = new Size( 81, 21 );
 			chk_Blocked.TabIndex = 143;
@@ -573,7 +575,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 323, 105 );
+			chk_DefaultRow.Location = new Point( 391, 120 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 142;
@@ -585,7 +587,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Family.AutoSize = true;
 			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Family.Location = new Point( 323, 177 );
+			chk_X_Family.Location = new Point( 391, 192 );
 			chk_X_Family.Name = "chk_X_Family";
 			chk_X_Family.Size = new Size( 88, 21 );
 			chk_X_Family.TabIndex = 141;
@@ -597,7 +599,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Group.AutoSize = true;
 			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Group.Location = new Point( 323, 159 );
+			chk_X_Group.Location = new Point( 391, 174 );
 			chk_X_Group.Name = "chk_X_Group";
 			chk_X_Group.Size = new Size( 85, 21 );
 			chk_X_Group.TabIndex = 140;
@@ -609,7 +611,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Selected.AutoSize = true;
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 323, 87 );
+			chk_Selected.Location = new Point( 391, 102 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 139;
@@ -661,13 +663,21 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceLocation.TabIndex = 5;
 			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
 			// 
+			// cbx_AreaCodes
+			// 
+			cbx_AreaCodes.FormattingEnabled = true;
+			cbx_AreaCodes.Location = new Point( 227, 82 );
+			cbx_AreaCodes.Name = "cbx_AreaCodes";
+			cbx_AreaCodes.Size = new Size( 93, 25 );
+			cbx_AreaCodes.TabIndex = 149;
+			// 
 			// FrmDevice
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 815, 428 );
+			ClientSize = new Size( 1052, 428 );
 			Controls.Add( grp_DeviceData );
 			Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -730,5 +740,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private TextBox tbx_Messages;
 		private Button btn_NewDevice;
 		private Label label2;
+		private ComboBox cbx_AreaCodes;
 	}
 }
