@@ -549,7 +549,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Person.AutoSize = true;
 			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Person.Location = new Point( 236, 138 );
+			chk_X_Person.Location = new Point( 298, 138 );
 			chk_X_Person.Name = "chk_X_Person";
 			chk_X_Person.Size = new Size( 89, 21 );
 			chk_X_Person.TabIndex = 144;
@@ -561,19 +561,19 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Blocked.AutoSize = true;
 			chk_Blocked.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Blocked.Location = new Point( 236, 120 );
+			chk_Blocked.Location = new Point( 298, 120 );
 			chk_Blocked.Name = "chk_Blocked";
 			chk_Blocked.Size = new Size( 81, 21 );
 			chk_Blocked.TabIndex = 143;
 			chk_Blocked.Text = "Blocked?";
 			chk_Blocked.UseVisualStyleBackColor = true;
-			chk_Blocked.CheckedChanged += chk_Blocked_CheckedChanged;
+			chk_Blocked.CheckedChanged +=  chk_Blocked_CheckedChanged ;
 			// 
 			// chk_DefaultRow
 			// 
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 236, 102 );
+			chk_DefaultRow.Location = new Point( 298, 102 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 142;
@@ -585,7 +585,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Family.AutoSize = true;
 			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Family.Location = new Point( 236, 174 );
+			chk_X_Family.Location = new Point( 298, 174 );
 			chk_X_Family.Name = "chk_X_Family";
 			chk_X_Family.Size = new Size( 88, 21 );
 			chk_X_Family.TabIndex = 141;
@@ -597,7 +597,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Group.AutoSize = true;
 			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Group.Location = new Point( 236, 156 );
+			chk_X_Group.Location = new Point( 298, 156 );
 			chk_X_Group.Name = "chk_X_Group";
 			chk_X_Group.Size = new Size( 85, 21 );
 			chk_X_Group.TabIndex = 140;
@@ -609,7 +609,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Selected.AutoSize = true;
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 236, 84 );
+			chk_Selected.Location = new Point( 298, 84 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 139;
