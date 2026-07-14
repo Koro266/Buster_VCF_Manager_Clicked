@@ -68,40 +68,40 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			_EventState.DisableEvents();
 
-			this.tbx_PersonId.Text			= PkPersonAsText;
-			this.tbx_Gender.Text			= Gender;
-			this.tbx_ProperSurname.Text		= ProperSurname;
-			this.tbx_GivenName.Text			= GivenName;
-			this.tbx_MiddleNames.Text		= MiddleNames;
-			this.tbx_NickName.Text			= NickName;
-			this.tbx_BirthName.Text			= BirthName;
-			this.tbx_Prefixes.Text			= Prefix;
-			this.tbx_Suffixes.Text			= Suffix;
-			this.tbx_Notes.Text				= Notes;
-			this.tbx_UpperSurname.Text		= UpperSurname;
-			this.tbx_NaturalName.Text		= NaturalName;
-			this.tbx_SortableName.Text		= SortableName;
-			this.tbx_Initials.Text			= Initials;
+			this.tbx_PersonId.Text = PkPersonAsText;
+			this.tbx_Gender.Text = Gender;
+			this.tbx_ProperSurname.Text = ProperSurname;
+			this.tbx_GivenName.Text = GivenName;
+			this.tbx_MiddleNames.Text = MiddleNames;
+			this.tbx_NickName.Text = NickName;
+			this.tbx_BirthName.Text = BirthName;
+			this.tbx_Prefixes.Text = Prefix;
+			this.tbx_Suffixes.Text = Suffix;
+			this.tbx_Notes.Text = Notes;
+			this.tbx_UpperSurname.Text = UpperSurname;
+			this.tbx_NaturalName.Text = NaturalName;
+			this.tbx_SortableName.Text = SortableName;
+			this.tbx_Initials.Text = Initials;
 
 			ValuateBirthdayDatebox();
 			ValuateDeathDatebox();
 			ValuateWeddingDatebox();
 			ValuateCurrencyDatebox();
 
-			this.chk_Selected.Checked		= Selected;
-			this.chk_Enlightened.Checked	= Enlightened;
-			this.chk_HolySomething.Checked	= HolySomething;
-			this.chk_NewLeftPerson.Checked	= NewLeftPerson;
-			this.chk_NoRightPerson.Checked	= NoRightPerson;
-			this.chk_DefaultRow.Checked		= DefaultRow;
-			this.chk_Export.Checked			= Export;
-			this.chk_TimeTalent.Checked		= TimeTalent;
-			this.chk_Minister.Checked		= Minister;
-			this.chk_Sacristan.Checked		= Sacristan;
-			this.chk_Vigil.Checked			= Vigil;
-			this.chk_SundayMass.Checked		= Mass;
+			this.chk_Selected.Checked = Selected;
+			this.chk_Enlightened.Checked = Enlightened;
+			this.chk_HolySomething.Checked = HolySomething;
+			this.chk_NewLeftPerson.Checked = NewLeftPerson;
+			this.chk_NoRightPerson.Checked = NoRightPerson;
+			this.chk_DefaultRow.Checked = DefaultRow;
+			this.chk_Export.Checked = Export;
+			this.chk_TimeTalent.Checked = TimeTalent;
+			this.chk_Minister.Checked = Minister;
+			this.chk_Sacristan.Checked = Sacristan;
+			this.chk_Vigil.Checked = Vigil;
+			this.chk_SundayMass.Checked = Mass;
 
-			this.tbx_EhsOrder.Text			= EhsOrderAsText;
+			this.tbx_EhsOrder.Text = EhsOrderAsText;
 
 			_EventState.EnableEvents();
 		}
@@ -152,49 +152,49 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex				=  0;
-			tbx_ProperSurname.TabIndex			=  1;
-			btn_ElaborateNames.TabIndex			=  2;
-			tbx_GivenName.TabIndex				=  3;
-			tbx_Gender.TabIndex					=  4;
-			tbx_MiddleNames.TabIndex			=  5;
-			tbx_NickName.TabIndex				=  6;
-			tbx_BirthName.TabIndex				=  7;
-			tbx_Prefixes.TabIndex				=  8;
-			tbx_Suffixes.TabIndex				=  9;
-			dbx_Birthday.TabIndex				= 10;
-			btn_ClearBirthDate.TabIndex			= 11;
-			dbx_DeathDate.TabIndex				= 12;
-			btn_ClearDeathDate.TabIndex			= 13;
-			dbx_WeddingDate.TabIndex			= 14;
-			btn_ClearWeddingDate.TabIndex		= 15;
-			dbx_CurrencyDate.TabIndex			= 16;
-			btn_CurrencyNow.TabIndex			= 17;
-			tbx_Notes.TabIndex					= 18;
-			chk_Selected.TabIndex				= 19;
-			chk_Enlightened.TabIndex			= 20;
-			chk_HolySomething.TabIndex			= 21;
-			chk_NewLeftPerson.TabIndex			= 22;
-			chk_NoRightPerson.TabIndex			= 23;
-			chk_SundayMass.TabIndex				= 24;
-			chk_DefaultRow.TabIndex				= 25;
-			chk_Export.TabIndex					= 26;
-			chk_TimeTalent.TabIndex				= 27;
-			chk_Minister.TabIndex				= 28;
-			chk_Sacristan.TabIndex				= 29;
-			chk_Vigil.TabIndex					= 30;
-			chk_SundayMass.TabIndex				= 31;
-			tbx_Filter.TabIndex					= 32;
-			btn_FirstPerson.TabIndex			= 33;
-			btn_PreviousPerson.TabIndex			= 34;
-			btn_NextPerson.TabIndex				= 35;
-			btn_LastPerson.TabIndex				= 36;
-			btn_NewPerson.TabIndex				= 37;
-			btn_InsertPerson.TabIndex			= 38;
-			btn_UpdatePerson.TabIndex			= 39;
-			btn_ExportPersonVcf.TabIndex		= 40;
-			btn_FindPerson.TabIndex				= 41;
-			btn_Close.TabIndex					= 42;
+			tbx_Matches.TabIndex = 0;
+			tbx_ProperSurname.TabIndex = 1;
+			btn_ElaborateNames.TabIndex = 2;
+			tbx_GivenName.TabIndex = 3;
+			tbx_Gender.TabIndex = 4;
+			tbx_MiddleNames.TabIndex = 5;
+			tbx_NickName.TabIndex = 6;
+			tbx_BirthName.TabIndex = 7;
+			tbx_Prefixes.TabIndex = 8;
+			tbx_Suffixes.TabIndex = 9;
+			dbx_Birthday.TabIndex = 10;
+			btn_ClearBirthDate.TabIndex = 11;
+			dbx_DeathDate.TabIndex = 12;
+			btn_ClearDeathDate.TabIndex = 13;
+			dbx_WeddingDate.TabIndex = 14;
+			btn_ClearWeddingDate.TabIndex = 15;
+			dbx_CurrencyDate.TabIndex = 16;
+			btn_CurrencyNow.TabIndex = 17;
+			tbx_Notes.TabIndex = 18;
+			chk_Selected.TabIndex = 19;
+			chk_Enlightened.TabIndex = 20;
+			chk_HolySomething.TabIndex = 21;
+			chk_NewLeftPerson.TabIndex = 22;
+			chk_NoRightPerson.TabIndex = 23;
+			chk_SundayMass.TabIndex = 24;
+			chk_DefaultRow.TabIndex = 25;
+			chk_Export.TabIndex = 26;
+			chk_TimeTalent.TabIndex = 27;
+			chk_Minister.TabIndex = 28;
+			chk_Sacristan.TabIndex = 29;
+			chk_Vigil.TabIndex = 30;
+			chk_SundayMass.TabIndex = 31;
+			tbx_Filter.TabIndex = 32;
+			btn_FirstPerson.TabIndex = 33;
+			btn_PreviousPerson.TabIndex = 34;
+			btn_NextPerson.TabIndex = 35;
+			btn_LastPerson.TabIndex = 36;
+			btn_NewPerson.TabIndex = 37;
+			btn_InsertPerson.TabIndex = 38;
+			btn_UpdatePerson.TabIndex = 39;
+			btn_ExportPersonVcf.TabIndex = 40;
+			btn_FindPerson.TabIndex = 41;
+			btn_Close.TabIndex = 42;
 		}
 		#endregion
 
@@ -536,7 +536,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertPerson()
 		{
-			if (all_Persons.InsertPerson( Person ) )
+			if ( all_Persons.InsertPerson( Person ) )
 			{
 				Person = all_Persons.CurrentPerson;
 				_Messenger.InsertSucceeded();
@@ -818,6 +818,84 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 
 
+		#region CHECKED CHANGED
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Selected_CheckedChanged( object sender, EventArgs e )
+		{
+			Selected = chk_Selected.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_DefaultRow_CheckedChanged( object sender, EventArgs e )
+		{
+			DefaultRow = chk_DefaultRow.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Export_CheckedChanged( object sender, EventArgs e )
+		{
+			Export = chk_Export.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Inactive_CheckedChanged( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_NewLeftPerson_CheckedChanged( object sender, EventArgs e )
+		{
+			NewLeftPerson = chk_NewLeftPerson.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_NoRightPerson_CheckedChanged( object sender, EventArgs e )
+		{
+			NoRightPerson = chk_NoRightPerson.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Enlightened_CheckedChanged( object sender, EventArgs e )
+		{
+			Enlightened = chk_Enlightened.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_HolySomething_CheckedChanged( object sender, EventArgs e )
+		{
+			HolySomething = chk_HolySomething.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_StTheresa_CheckedChanged( object sender, EventArgs e )
+		{
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_TimeTalent_CheckedChanged( object sender, EventArgs e )
+		{
+			TimeTalent = chk_TimeTalent.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Minister_CheckedChanged( object sender, EventArgs e )
+		{
+			Minister = chk_Minister.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Sacristan_CheckedChanged( object sender, EventArgs e )
+		{
+			Sacristan = chk_Sacristan.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Vigil_CheckedChanged( object sender, EventArgs e )
+		{
+			Vigil = chk_Vigil.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_SundayMass_CheckedChanged( object sender, EventArgs e )
+		{
+			Mass = chk_SundayMass.Checked;
+		}
+		#endregion
+
+
 		#region BUTTON CLICKS
 		//___________________________________________________________________________________________________________________________________________
 		private void lbx_MatchingPersons_Click( object sender, EventArgs e )
@@ -878,66 +956,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_Close_Click( object sender, EventArgs e )
 		{
 			this.Close();
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_Selected_Click( object sender, EventArgs e )
-		{
-			Selected = chk_Selected.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_Enlightened_Click( object sender, EventArgs e )
-		{
-			Enlightened = chk_Enlightened.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_HolySomething_Click( object sender, EventArgs e )
-		{
-			HolySomething = chk_HolySomething.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_NewLeftPerson_Click( object sender, EventArgs e )
-		{
-			NewLeftPerson = chk_NewLeftPerson.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_NoRightPerson_Click( object sender, EventArgs e )
-		{
-			NoRightPerson = chk_NoRightPerson.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_DefaultRow_Click( object sender, EventArgs e )
-		{
-			DefaultRow = chk_DefaultRow.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_Export_Click( object sender, EventArgs e )
-		{
-			Export = chk_Export.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_TimeTalent_Click( object sender, EventArgs e )
-		{
-			TimeTalent = chk_TimeTalent.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_Minister_Click( object sender, EventArgs e )
-		{
-			Minister = chk_Minister.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_Sacristan_Click( object sender, EventArgs e )
-		{
-			Sacristan = chk_Sacristan.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_Vigil_Click( object sender, EventArgs e )
-		{
-			Vigil = chk_Vigil.Checked;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_SundayMass_Click( object sender, EventArgs e )
-		{
-			Mass = chk_SundayMass.Checked;
 		}
 		#endregion
 
