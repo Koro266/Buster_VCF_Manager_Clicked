@@ -21,7 +21,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		};
 
 		#if DEBUG
-		private static StartupForm startup_Interface = StartupForm.Address;
+		private static StartupForm startup_Interface = StartupForm.Overseer;
 		#else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
 		#endif
