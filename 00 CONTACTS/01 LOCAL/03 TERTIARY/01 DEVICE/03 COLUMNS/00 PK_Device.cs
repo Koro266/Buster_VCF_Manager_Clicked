@@ -17,7 +17,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		//___________________________________________________________________________________________________________________________________________
 		public class PK_Device : INT_32
 		{
-			#region DECLARATIONS
+			#region DECLARATIONSX
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.PkDevice];
 			private NULL_INT type_null_pair;
 			#endregion

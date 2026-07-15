@@ -86,7 +86,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_PickerNumber.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_PickerNumber.Location = new Point( 123, 370 );
 			tbx_PickerNumber.Name = "tbx_PickerNumber";
-			tbx_PickerNumber.Size = new Size( 236, 25 );
+			tbx_PickerNumber.Size = new Size( 309, 25 );
 			tbx_PickerNumber.TabIndex = 12;
 			tbx_PickerNumber.TabStop = false;
 			// 
@@ -95,7 +95,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_DialNumber.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_DialNumber.Location = new Point( 123, 338 );
 			tbx_DialNumber.Name = "tbx_DialNumber";
-			tbx_DialNumber.Size = new Size( 236, 25 );
+			tbx_DialNumber.Size = new Size( 309, 25 );
 			tbx_DialNumber.TabIndex = 11;
 			tbx_DialNumber.TabStop = false;
 			// 
@@ -396,7 +396,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.ForeColor = Color.Blue;
 			lbx_MatchingDevices.FormattingEnabled = true;
 			lbx_MatchingDevices.ItemHeight = 15;
-			lbx_MatchingDevices.Location = new Point( 438, 19 );
+			lbx_MatchingDevices.Location = new Point( 445, 19 );
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
 			lbx_MatchingDevices.Size = new Size( 173, 334 );
 			lbx_MatchingDevices.TabIndex = 73;
@@ -528,9 +528,9 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
 			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 438, 367 );
+			tbx_Messages.Location = new Point( 445, 371 );
 			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 323, 23 );
+			tbx_Messages.Size = new Size( 316, 23 );
 			tbx_Messages.TabIndex = 146;
 			tbx_Messages.TabStop = false;
 			// 
@@ -549,7 +549,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Person.AutoSize = true;
 			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Person.Location = new Point( 236, 138 );
+			chk_X_Person.Location = new Point( 298, 138 );
 			chk_X_Person.Name = "chk_X_Person";
 			chk_X_Person.Size = new Size( 89, 21 );
 			chk_X_Person.TabIndex = 144;
@@ -561,19 +561,19 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Blocked.AutoSize = true;
 			chk_Blocked.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Blocked.Location = new Point( 236, 120 );
+			chk_Blocked.Location = new Point( 298, 120 );
 			chk_Blocked.Name = "chk_Blocked";
 			chk_Blocked.Size = new Size( 81, 21 );
 			chk_Blocked.TabIndex = 143;
 			chk_Blocked.Text = "Blocked?";
 			chk_Blocked.UseVisualStyleBackColor = true;
-			chk_Blocked.CheckedChanged += chk_Blocked_CheckedChanged;
+			chk_Blocked.CheckedChanged +=  chk_Blocked_CheckedChanged ;
 			// 
 			// chk_DefaultRow
 			// 
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 236, 102 );
+			chk_DefaultRow.Location = new Point( 298, 102 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 142;
@@ -585,7 +585,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Family.AutoSize = true;
 			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Family.Location = new Point( 236, 174 );
+			chk_X_Family.Location = new Point( 298, 174 );
 			chk_X_Family.Name = "chk_X_Family";
 			chk_X_Family.Size = new Size( 88, 21 );
 			chk_X_Family.TabIndex = 141;
@@ -597,7 +597,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Group.AutoSize = true;
 			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Group.Location = new Point( 236, 156 );
+			chk_X_Group.Location = new Point( 298, 156 );
 			chk_X_Group.Name = "chk_X_Group";
 			chk_X_Group.Size = new Size( 85, 21 );
 			chk_X_Group.TabIndex = 140;
@@ -609,7 +609,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Selected.AutoSize = true;
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 236, 84 );
+			chk_Selected.Location = new Point( 298, 84 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 139;
