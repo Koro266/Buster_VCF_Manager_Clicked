@@ -86,7 +86,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_PickerNumber.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_PickerNumber.Location = new Point( 123, 370 );
 			tbx_PickerNumber.Name = "tbx_PickerNumber";
-			tbx_PickerNumber.Size = new Size( 236, 25 );
+			tbx_PickerNumber.Size = new Size( 309, 25 );
 			tbx_PickerNumber.TabIndex = 12;
 			tbx_PickerNumber.TabStop = false;
 			// 
@@ -95,7 +95,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_DialNumber.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_DialNumber.Location = new Point( 123, 338 );
 			tbx_DialNumber.Name = "tbx_DialNumber";
-			tbx_DialNumber.Size = new Size( 236, 25 );
+			tbx_DialNumber.Size = new Size( 309, 25 );
 			tbx_DialNumber.TabIndex = 11;
 			tbx_DialNumber.TabStop = false;
 			// 
@@ -396,7 +396,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.ForeColor = Color.Blue;
 			lbx_MatchingDevices.FormattingEnabled = true;
 			lbx_MatchingDevices.ItemHeight = 15;
-			lbx_MatchingDevices.Location = new Point( 438, 19 );
+			lbx_MatchingDevices.Location = new Point( 445, 19 );
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
 			lbx_MatchingDevices.Size = new Size( 173, 334 );
 			lbx_MatchingDevices.TabIndex = 73;
@@ -528,9 +528,9 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
 			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 438, 367 );
+			tbx_Messages.Location = new Point( 445, 371 );
 			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 323, 23 );
+			tbx_Messages.Size = new Size( 316, 23 );
 			tbx_Messages.TabIndex = 146;
 			tbx_Messages.TabStop = false;
 			// 
