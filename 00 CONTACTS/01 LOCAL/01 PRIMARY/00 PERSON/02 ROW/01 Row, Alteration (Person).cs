@@ -144,14 +144,24 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			set { Replace( ORDINAL.Selected, new FIELD.IS_Selected( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public bool NewEnlightened
+		public bool NewDefaultRow
 		{
-			set { Replace( ORDINAL.Enlightened, new FIELD.IS_Enlightened( value ) ); }
+			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public bool NewHolySomething
+		public bool NewExport
 		{
-			set { Replace( ORDINAL.HolySomething, new FIELD.IS_HolySomething( value ) ); }
+			set { Replace( ORDINAL.Export, new FIELD.IS_Export( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewBlocked
+		{
+			set { Replace( ORDINAL.Blocked, new FIELD.IS_Blocked( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewInactive
+		{
+			set { Replace( ORDINAL.Inactive, new FIELD.IS_Inactive( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public bool New_NewLeftPerson
@@ -164,14 +174,19 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON
 			set { Replace( ORDINAL.NoRightPerson, new FIELD.IS_NoRightPerson( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public bool NewDefaultRow
+		public bool NewEnlightened
 		{
-			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
+			set { Replace( ORDINAL.Enlightened, new FIELD.IS_Enlightened( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public bool NewExport
+		public bool NewHolySomething
 		{
-			set { Replace( ORDINAL.Export, new FIELD.IS_Export( value ) ); }
+			set { Replace( ORDINAL.HolySomething, new FIELD.IS_HolySomething( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewStTheresa
+		{
+			set { Replace( ORDINAL.StTheresa, new FIELD.IS_StTheresa( value ) ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public bool NewTimeTalent

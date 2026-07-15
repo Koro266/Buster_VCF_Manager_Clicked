@@ -404,22 +404,42 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool Enlightened
+		private bool DefaultRow
 		{
-			get { return Person.Enlightened.Value; }
+			get { return Person.DefaultRow.Value; }
 			set
 			{
-				Person.NewEnlightened = value;
+				Person.NewDefaultRow = value;
 				DisplayPerson();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool HolySomething
+		private bool Export
 		{
-			get { return Person.HolySomething.Value; }
+			get { return Person.Export.Value; }
 			set
 			{
-				Person.NewHolySomething = value;
+				Person.NewExport = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Blocked
+		{
+			get { return Person.Blocked.Value; }
+			set
+			{
+				Person.NewBlocked = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Inactive
+		{
+			get { return Person.Inactive.Value; }
+			set
+			{
+				Person.NewInactive = value;
 				DisplayPerson();
 			}
 		}
@@ -444,22 +464,32 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool DefaultRow
+		private bool Enlightened
 		{
-			get { return Person.DefaultRow.Value; }
+			get { return Person.Enlightened.Value; }
 			set
 			{
-				Person.NewDefaultRow = value;
+				Person.NewEnlightened = value;
 				DisplayPerson();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool Export
+		private bool HolySomething
 		{
-			get { return Person.Export.Value; }
+			get { return Person.HolySomething.Value; }
 			set
 			{
-				Person.NewExport = value;
+				Person.NewHolySomething = value;
+				DisplayPerson();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool StTheresa
+		{
+			get { return Person.StTheresa.Value; }
+			set
+			{
+				Person.NewStTheresa = value;
 				DisplayPerson();
 			}
 		}
@@ -837,6 +867,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
 		{
+			Blocked = chk_Blocked.Checked;
 			//TODO
 		}
 		//___________________________________________________________________________________________________________________________________________

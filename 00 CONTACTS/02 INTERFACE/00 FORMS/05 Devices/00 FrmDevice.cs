@@ -32,7 +32,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATIONS all_Nations = new NATIONS();	//All countries.
 
 		private LIKE_ROW[] matching_Devices;
-		private bool is_event_Disabled = true;
 		private MESSENGER _Messenger;
 		private EVENT_STATE _EventState;
 		private TXT_GATHER txt_Accumulator;
