@@ -868,12 +868,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
 		{
 			Blocked = chk_Blocked.Checked;
-			//TODO
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Inactive_CheckedChanged( object sender, EventArgs e )
 		{
-			//TODO
+			Inactive =chk_Inactive.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_NewLeftPerson_CheckedChanged( object sender, EventArgs e )
@@ -898,7 +897,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_StTheresa_CheckedChanged( object sender, EventArgs e )
 		{
-			//TODO
+			StTheresa = chk_StTheresa.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_TimeTalent_CheckedChanged( object sender, EventArgs e )
