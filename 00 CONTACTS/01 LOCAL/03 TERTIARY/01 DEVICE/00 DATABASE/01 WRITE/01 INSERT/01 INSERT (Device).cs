@@ -33,7 +33,13 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 						st_DeviceType,
 						st_DialNumber,
 						st_PickerNumber,
-						st_Notes
+						st_Notes,
+						is_Selected,
+						is_DefaultRow,
+						is_Blocked,
+						is_X_Person,
+						is_X_Group,
+						is_X_Family
 					)
 					VALUES
 					(
@@ -46,7 +52,13 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 						@st_devicetype,
 						@st_dialnumber,
 						@st_pickernumber,
-						@st_notes
+						@st_notes,
+						@is_selected,
+						@is_defaultrow,
+						@is_blocked,
+						@is_x_person,
+						@is_x_group,
+						@is_x_family
 					);
 				";
 				//_______________________________________________________________________________________________________________________________
@@ -62,6 +74,12 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 					base.DbCommand.Parameters.Add( device.DialNumber.DbParameter );
 					base.DbCommand.Parameters.Add( device.PickerNumber.DbParameter );
 					base.DbCommand.Parameters.Add( device.Notes.DbParameter );
+					base.DbCommand.Parameters.Add( device.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( device.DefaultRow.DbParameter );
+					base.DbCommand.Parameters.Add( device.Blocked.DbParameter );
+					base.DbCommand.Parameters.Add( device.X_Person.DbParameter );
+					base.DbCommand.Parameters.Add( device.X_Group.DbParameter );
+					base.DbCommand.Parameters.Add( device.X_Family.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>

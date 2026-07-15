@@ -28,6 +28,12 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		public FIELD.ST_DialNumber		DialNumber		{ get { return ( FIELD.ST_DialNumber )		base.GetField( ORDINAL.DialNumber ); } }
 		public FIELD.ST_PickerNumber	PickerNumber	{ get { return ( FIELD.ST_PickerNumber )	base.GetField( ORDINAL.PickerNumber ); } }
 		public FIELD.ST_Notes			Notes			{ get { return ( FIELD.ST_Notes )			base.GetField( ORDINAL.Notes ); } }
+		public FIELD.IS_Selected		Selected		{ get { return ( FIELD.IS_Selected )		base.GetField( ORDINAL.Selected ); } }
+		public FIELD.IS_DefaultRow		DefaultRow		{ get { return ( FIELD.IS_DefaultRow )		base.GetField( ORDINAL.DefaultRow ); } }
+		public FIELD.IS_Blocked			Blocked			{ get { return ( FIELD.IS_Blocked )			base.GetField( ORDINAL.Blocked ); } }
+		public FIELD.IS_X_Person		X_Person		{ get { return ( FIELD.IS_X_Person )		base.GetField( ORDINAL.X_Person ); } }
+		public FIELD.IS_X_Group			X_Group			{ get { return ( FIELD.IS_X_Group )			base.GetField( ORDINAL.X_Group ); } }
+		public FIELD.IS_X_Family		X_Family		{ get { return ( FIELD.IS_X_Family )		base.GetField( ORDINAL.X_Family ); } }
 		public FIELD.ST_CountryName	 	CountryName		{ get { return ( FIELD.ST_CountryName )		base.GetField( ORDINAL.CountryName ); } }
 		public FIELD.ST_CountryCode	 	CountryCode		{ get { return ( FIELD.ST_CountryCode )		base.GetField( ORDINAL.CountryCode ); } }
 		public FIELD.ST_ShortIsoCode 	ShortIsoCode	{ get { return ( FIELD.ST_ShortIsoCode )	base.GetField( ORDINAL.ShortIsoCode ); } }

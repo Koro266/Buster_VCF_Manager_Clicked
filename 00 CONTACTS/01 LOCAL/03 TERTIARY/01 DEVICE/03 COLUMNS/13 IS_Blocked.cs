@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
-using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
+using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.TERTIARY.DEVICE.Constants;
@@ -11,25 +11,25 @@ using ORDINAL	= CONTACTS.LOCAL.TERTIARY.DEVICE.Constants.OrdinalByName;
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 {
-	//___________________________________________________________________________________________________________________________________________
+	//_______________________________________________________________________________________________________________________________________________
 	public partial class Column
 	{
-		//_______________________________________________________________________________________________________________________________________
-		public class FK_Country : INT_32
+		//___________________________________________________________________________________________________________________________________________
+		public partial class IS_Blocked : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.FkCountry];
-			private NULL_INT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Blocked];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public FK_Country( int value ) : base( value )
+			public IS_Blocked( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public FK_Country( NULL_INT tnp ) : base( tnp )
+			public IS_Blocked( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -47,30 +47,17 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			{
 				get { return Factors.Ordinal; }
 			}
-			//_______________________________________________________________________________________________________________________________________
-			override public string ToString()
-			{
-				return base.Value.ToString();
-			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns PkPerson.AsString.
+			/// Returns Selected as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
-				get { return base.AsString; }
+				get { return base.AsTF; }
 			}
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns true because this every device is associated with a country foreign key.
+			/// Returns true: Boolean columns always have a usable value.
 			/// </summary>
 			override public bool IsVcfValue
 			{

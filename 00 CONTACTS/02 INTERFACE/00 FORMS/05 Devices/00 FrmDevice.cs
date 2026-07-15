@@ -1,19 +1,19 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using static CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
 //DEVICE
 using DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICES		= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
-using REMINDER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Constants.Reminders;
+//FORMS
+using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
+using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //COUNTRIES
 using NATION		= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATIONS		= CONTACTS.LOCAL.TERTIARY.NATION.Table;
-//FORMS
-using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -24,11 +24,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
-		private DEVICE one_Device;						  //One device.
-		private DEVICES all_Devices = new DEVICES();		//Device table: manages collective devices.
+		private DEVICE one_Device;						//One device.
+		private DEVICES all_Devices = new DEVICES();    //Device table (all devices).
 
-		private NATION one_Nation;						  //One country.
-		private NATIONS all_Nations = new NATIONS();		//Many countries.
+		private NATION one_Nation;						//One country.
+		private NATIONS all_Nations = new NATIONS();	//All countries.
 
 		private LIKE_ROW[] matching_Devices;
 		private bool is_event_Disabled = true;
@@ -62,22 +62,28 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			IsEventDisabled = true;
 
-			tbx_DeviceId.Text			= DevicePkAsText;
-			cbx_Countries.SelectedIndex	= FkCountry;
-			tbx_LongAreaCode.Text		= LongAreaCode;
-			tbx_ShortAreaCode.Text		= ShortAreaCode;
-			tbx_LeadingDigits.Text		= LeadingDigits;
-			tbx_TrailingDigits.Text		= TrailingDigits;
-			cbx_DeviceLocation.Text		= DeviceLocation;
-			cbx_DeviceType.Text			= DeviceType;
-			tbx_DialNumber.Text			= DialNumber;
-			tbx_PickerNumber.Text		= PickerNumber;
-			tbx_Notes.Text				= Notes;
+			tbx_DeviceId.Text				= DevicePkAsText;
+			cbx_Countries.SelectedIndex		= FkCountry;
+			tbx_LongAreaCode.Text			= LongAreaCode;
+			tbx_ShortAreaCode.Text			= ShortAreaCode;
+			tbx_LeadingDigits.Text			= LeadingDigits;
+			tbx_TrailingDigits.Text			= TrailingDigits;
+			cbx_DeviceLocation.Text			= DeviceLocation;
+			cbx_DeviceType.Text				= DeviceType;
+			tbx_DialNumber.Text				= DialNumber;
+			tbx_PickerNumber.Text			= PickerNumber;
+			tbx_Notes.Text					= Notes;
+
+			chk_Selected.Checked			= Selected;
+			chk_DefaultRow.Checked			= DefaultRow;
+			chk_Blocked.Checked				= Blocked;
+			chk_X_Person.Checked			= XPerson;
+			chk_X_Group.Checked				= XGroup;
+			chk_X_Family.Checked			= XFamily;
 
 			IsEventDisabled = false;
 		}
 		#endregion
-
 
 		#region RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
@@ -135,11 +141,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			if ( all_Devices.UpdateDevice( Device ) )
 			{
-				UpdatePrompt( "Update succeeded." );
+				//TODO mESSENGER
+				//UpdatePrompt( "Update succeeded." );
 			}
 			else
 			{
-				UpdatePrompt( "Update failed." );
+				//UpdatePrompt( "Update failed." );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -219,6 +226,66 @@ namespace CONTACTS.INTERFACE.FORMS
 			set
 			{
 				Device.NotesAltered( value );
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Selected
+		{
+			get { return Device.Selected.Value; }
+			set
+			{
+				Device.NewSelected = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool DefaultRow
+		{
+			get { return Device.DefaultRow.Value; }
+			set
+			{
+				Device.NewDefaultRow = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool Blocked
+		{
+			get { return Device.Blocked.Value; }
+			set
+			{
+				Device.NewBlocked = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool XPerson
+		{
+			get { return Device.X_Person.Value; }
+			set
+			{
+				Device.New_X_Person = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool XGroup
+		{
+			get { return Device.X_Group.Value; }
+			set
+			{
+				Device.New_X_Group = value;
+				DisplayDevice();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool XFamily
+		{
+			get { return Device.X_Family.Value; }
+			set
+			{
+				Device.New_X_Family = value;
 				DisplayDevice();
 			}
 		}
@@ -310,6 +377,42 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region VALUE CHANGED
 		//___________________________________________________________________________________________________________________________________________
+		private void chk_Selected_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( IsEventEnabled )
+				Selected = chk_Selected.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_DefaultRow_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( IsEventEnabled )
+				DefaultRow = chk_DefaultRow.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( IsEventEnabled )
+				Blocked = chk_Blocked.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Person_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( IsEventEnabled )
+				XPerson = chk_X_Person.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Group_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( IsEventEnabled )
+				XGroup = chk_X_Group.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Family_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( IsEventEnabled )
+				XFamily = chk_X_Family.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
 		{
 			if ( IsEventEnabled )
@@ -362,7 +465,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Notes_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Notes.Text );
-			UpdatePrompt( Device.Notes.Factors.Prompt );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
@@ -437,83 +539,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
-
-		#region ENTER / PROMPTS / REMINDERS
-		//___________________________________________________________________________________________________________________________________________
-		private void UpdatePrompt( string reminder_text )
-		{
-			tbx_Prompt.Text = reminder_text;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void UpdatePrompt( string[] reminder_text )
-		{
-			tbx_Prompt.Lines = reminder_text;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_Countries_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.FkCountry.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_LongAreaCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.LongAreaCode.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_ShortAreaCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.ShortAreaCode.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_LeadingDigits_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.LeadingDigits.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_TrailingDigits_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.TrailingDigits.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_DialNumber_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.DialNumber.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_PickerNumber_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.PickerNumber.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void grp_DeviceType_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.DeviceType.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void grp_DeviceLocation_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.DeviceLocation.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_DeviceId_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Device.PkDevice.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Filter_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.Filter ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_FirstDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.FirstDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_PreviousDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.PreviousDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_NextDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.NextDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_LastDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.LastDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_FindDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.FindDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_Insert_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.InsertDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_UpdateDevice_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.UpdateDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_Close_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CloseForm ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Matches_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.MatchesDevice ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void lbx_MatchingDevices_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.MatchesDevice ); }
-		#endregion
-
 		#endregion
 
 
@@ -524,7 +549,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			Initialise( all_Devices.DefaultDevice );
 			SetTabIndices();
 			SetTabStops();
-			SetEnabled();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm( int device_pk )
@@ -532,7 +556,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			Initialise( all_Devices.DeviceByKey( device_pk ) );
 			SetTabIndices();
 			SetTabStops();
-			SetEnabled();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void Initialise( DEVICE device )
@@ -551,131 +574,86 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			cbx_Countries.TabIndex = 0;
-			tbx_LongAreaCode.TabIndex = 1;
-			tbx_ShortAreaCode.TabIndex = 2;
-			tbx_LeadingDigits.TabIndex = 3;
-			tbx_TrailingDigits.TabIndex = 4;
-			cbx_DeviceLocation.TabIndex = 5;
-			cbx_DeviceType.TabIndex = 6;
-			tbx_Notes.TabIndex = 7;
-			tbx_Filter.TabIndex = 8;
-			btn_FirstDevice.TabIndex = 9;
-			btn_PreviousDevice.TabIndex = 10;
-			btn_NextDevice.TabIndex = 11;
-			btn_LastDevice.TabIndex = 12;
-			btn_FindDevice.TabIndex = 13;
-			tbx_Matches.TabIndex = 14;
-			btn_InsertDevice.TabIndex = 15;
-			btn_UpdateDevice.TabIndex = 16;
-			btn_CloseForm.TabIndex = 17;
-			grp_DeviceData.TabIndex = 100;
-			lbx_MatchingDevices.TabIndex = 101;
-			tbx_Prompt.TabIndex = 102;
-			tbx_DialNumber.TabIndex = 103;
-			tbx_PickerNumber.TabIndex = 104;
-			tbx_DeviceId.TabIndex = 105;
-			lbl_PK.TabIndex = 106;
-			lbl_CountryId.TabIndex = 107;
-			lbl_LongAreaCode.TabIndex = 108;
-			lbl_ShortAreaCode.TabIndex = 109;
-			lbl_LeadingDigits.TabIndex = 110;
-			lbl_TrailingDigits.TabIndex = 111;
-			lbl_DeviceType.TabIndex = 112;
-			lbl_DialNumber.TabIndex = 113;
-			lbl_PickerNumber.TabIndex = 114;
-			lbl_Note.TabIndex = 115;
-			lbl_Search.TabIndex = 116;
-			lbl_DeviceLocation.TabIndex = 117;
-			lbl_FindPk.TabIndex = 118;
-			lbl_ButtonFirst.TabIndex = 119;
-			lbl_ButtonLast.TabIndex = 120;
+			cbx_Countries.TabIndex				=  0;
+			tbx_LongAreaCode.TabIndex			=  1;
+			tbx_ShortAreaCode.TabIndex			=  2;
+			tbx_LeadingDigits.TabIndex			=  3;
+			tbx_TrailingDigits.TabIndex			=  4;
+			cbx_DeviceLocation.TabIndex			=  5;
+			cbx_DeviceType.TabIndex				=  6;
+			tbx_Notes.TabIndex					=  7;
+			tbx_Filter.TabIndex					=  8;
+			btn_FirstDevice.TabIndex			=  9;
+			btn_PreviousDevice.TabIndex			= 10;
+			btn_NextDevice.TabIndex				= 11;
+			btn_LastDevice.TabIndex				= 12;
+			btn_FindDevice.TabIndex				= 13;
+			tbx_Matches.TabIndex				= 14;
+			btn_InsertDevice.TabIndex			= 15;
+			btn_UpdateDevice.TabIndex			= 16;
+			btn_CloseForm.TabIndex				= 17;
+			grp_DeviceData.TabIndex				= 100;
+			lbx_MatchingDevices.TabIndex		= 101;
+			tbx_DialNumber.TabIndex				= 103;
+			tbx_PickerNumber.TabIndex			= 104;
+			tbx_DeviceId.TabIndex				= 105;
+			lbl_PK.TabIndex						= 106;
+			lbl_CountryId.TabIndex				= 107;
+			lbl_LongAreaCode.TabIndex			= 108;
+			lbl_ShortAreaCode.TabIndex			= 109;
+			lbl_LeadingDigits.TabIndex			= 110;
+			lbl_TrailingDigits.TabIndex			= 111;
+			lbl_DeviceType.TabIndex				= 112;
+			lbl_DialNumber.TabIndex				= 113;
+			lbl_PickerNumber.TabIndex			= 114;
+			lbl_Note.TabIndex					= 115;
+			lbl_Search.TabIndex					= 116;
+			lbl_DeviceLocation.TabIndex			= 117;
+			lbl_FindPk.TabIndex					= 118;
+			lbl_ButtonFirst.TabIndex			= 119;
+			lbl_ButtonLast.TabIndex				= 120;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabStops()
 		{
-			cbx_Countries.TabStop = true;
-			tbx_LongAreaCode.TabStop = true;
-			tbx_ShortAreaCode.TabStop = true;
-			tbx_LeadingDigits.TabStop = true;
-			tbx_TrailingDigits.TabStop = true;
-			cbx_DeviceLocation.TabStop = true;
-			cbx_DeviceType.TabStop = true;
-			tbx_Notes.TabStop = true;
-			tbx_Filter.TabStop = true;
-			btn_FirstDevice.TabStop = true;
-			btn_PreviousDevice.TabStop = true;
-			btn_NextDevice.TabStop = true;
-			btn_LastDevice.TabStop = true;
-			btn_FindDevice.TabStop = true;
-			tbx_Matches.TabStop = true;
-			btn_InsertDevice.TabStop = true;
-			btn_UpdateDevice.TabStop = true;
-			btn_CloseForm.TabStop = true;
-			grp_DeviceData.TabStop = false;
-			lbx_MatchingDevices.TabStop = false;
-			tbx_Prompt.TabStop = false;
-			tbx_DialNumber.TabStop = false;
-			tbx_PickerNumber.TabStop = false;
-			tbx_DeviceId.TabStop = false;
-			lbl_PK.TabStop = false;
-			lbl_CountryId.TabStop = false;
-			lbl_LongAreaCode.TabStop = false;
-			lbl_ShortAreaCode.TabStop = false;
-			lbl_LeadingDigits.TabStop = false;
-			lbl_TrailingDigits.TabStop = false;
-			lbl_DeviceType.TabStop = false;
-			lbl_DialNumber.TabStop = false;
-			lbl_PickerNumber.TabStop = false;
-			lbl_Note.TabStop = false;
-			lbl_Search.TabStop = false;
-			lbl_DeviceLocation.TabStop = false;
-			lbl_FindPk.TabStop = false;
-			lbl_ButtonFirst.TabStop = false;
-			lbl_ButtonLast.TabStop = false;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void SetEnabled()
-		{
-			cbx_Countries.Enabled = true;
-			tbx_LongAreaCode.Enabled = true;
-			tbx_ShortAreaCode.Enabled = true;
-			tbx_LeadingDigits.Enabled = true;
-			tbx_TrailingDigits.Enabled = true;
-			cbx_DeviceLocation.Enabled = true;
-			cbx_DeviceType.Enabled = true;
-			tbx_Notes.Enabled = true;
-			tbx_Filter.Enabled = true;
-			btn_FirstDevice.Enabled = true;
-			btn_PreviousDevice.Enabled = true;
-			btn_NextDevice.Enabled = true;
-			btn_LastDevice.Enabled = true;
-			btn_FindDevice.Enabled = true;
-			tbx_Matches.Enabled = true;
-			btn_InsertDevice.Enabled = true;
-			btn_UpdateDevice.Enabled = true;
-			btn_CloseForm.Enabled = true;
-			grp_DeviceData.Enabled = true;
-			lbx_MatchingDevices.Enabled = true;
-			tbx_Prompt.Enabled = true;
-			tbx_DialNumber.Enabled = true;
-			tbx_PickerNumber.Enabled = true;
-			tbx_DeviceId.Enabled = true;
-			lbl_PK.Enabled = true;
-			lbl_CountryId.Enabled = true;
-			lbl_LongAreaCode.Enabled = true;
-			lbl_ShortAreaCode.Enabled = true;
-			lbl_LeadingDigits.Enabled = true;
-			lbl_TrailingDigits.Enabled = true;
-			lbl_DeviceType.Enabled = true;
-			lbl_DialNumber.Enabled = true;
-			lbl_PickerNumber.Enabled = true;
-			lbl_Note.Enabled = true;
-			lbl_Search.Enabled = true;
-			lbl_DeviceLocation.Enabled = true;
-			lbl_FindPk.Enabled = true;
-			lbl_ButtonFirst.Enabled = true;
-			lbl_ButtonLast.Enabled = true;
+			cbx_Countries.TabStop				= true;
+			tbx_LongAreaCode.TabStop				= true;
+			tbx_ShortAreaCode.TabStop				= true;
+			tbx_LeadingDigits.TabStop				= true;
+			tbx_TrailingDigits.TabStop				= true;
+			cbx_DeviceLocation.TabStop				= true;
+			cbx_DeviceType.TabStop				= true;
+			tbx_Notes.TabStop				= true;
+			tbx_Filter.TabStop				= true;
+			btn_FirstDevice.TabStop				= true;
+			btn_PreviousDevice.TabStop				= true;
+			btn_NextDevice.TabStop				= true;
+			btn_LastDevice.TabStop				= true;
+			btn_FindDevice.TabStop				= true;
+			tbx_Matches.TabStop				= true;
+			btn_InsertDevice.TabStop				= true;
+			btn_UpdateDevice.TabStop				= true;
+			btn_CloseForm.TabStop				= true;
+			grp_DeviceData.TabStop				= false;
+			lbx_MatchingDevices.TabStop				= false;
+			tbx_DialNumber.TabStop				= false;
+			tbx_PickerNumber.TabStop				= false;
+			tbx_DeviceId.TabStop				= false;
+			lbl_PK.TabStop				= false;
+			lbl_CountryId.TabStop				= false;
+			lbl_LongAreaCode.TabStop				= false;
+			lbl_ShortAreaCode.TabStop				= false;
+			lbl_LeadingDigits.TabStop				= false;
+			lbl_TrailingDigits.TabStop				= false;
+			lbl_DeviceType.TabStop				= false;
+			lbl_DialNumber.TabStop				= false;
+			lbl_PickerNumber.TabStop				= false;
+			lbl_Note.TabStop				= false;
+			lbl_Search.TabStop				= false;
+			lbl_DeviceLocation.TabStop				= false;
+			lbl_FindPk.TabStop				= false;
+			lbl_ButtonFirst.TabStop				= false;
+			lbl_ButtonLast.TabStop				= false;
 		}
 		#endregion
 	}

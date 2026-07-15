@@ -72,6 +72,36 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		{
 			Replace( ORDINAL.Notes, new FIELD.ST_Notes( new_value ) );
 		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewSelected
+		{
+			set { Replace( ORDINAL.Selected, new FIELD.IS_Selected( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewDefaultRow
+		{
+			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewBlocked
+		{
+			set { Replace( ORDINAL.Blocked, new FIELD.IS_Blocked( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool New_X_Person
+		{
+			set { Replace( ORDINAL.X_Person, new FIELD.IS_X_Person( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool New_X_Group
+		{
+			set { Replace( ORDINAL.X_Group, new FIELD.IS_X_Group( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool New_X_Family
+		{
+			set { Replace( ORDINAL.X_Family, new FIELD.IS_X_Family( value ) ); }
+		}
 		#endregion
 
 

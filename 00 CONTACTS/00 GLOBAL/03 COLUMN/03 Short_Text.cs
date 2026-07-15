@@ -216,7 +216,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		/// </summary>
 		override public object DbWriteValue
 		{
-			get { return base.IsNotNull ? ( object )Value : ( object )System.DBNull.Value; }
+			get { return base.IsNotNull ? ( object )Value : base.DbWriteValue; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>

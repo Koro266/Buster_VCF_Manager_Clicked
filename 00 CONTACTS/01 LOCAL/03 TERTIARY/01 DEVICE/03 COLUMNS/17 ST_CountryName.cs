@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
-using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.TERTIARY.DEVICE.Constants;
@@ -11,25 +11,27 @@ using ORDINAL	= CONTACTS.LOCAL.TERTIARY.DEVICE.Constants.OrdinalByName;
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 {
-	//___________________________________________________________________________________________________________________________________________
+	//_______________________________________________________________________________________________________________________________________________
 	public partial class Column
 	{
-		//_______________________________________________________________________________________________________________________________________
-		public class FK_Country : INT_32
+		//___________________________________________________________________________________________________________________________________________
+		public partial class ST_CountryName : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.FkCountry];
-			private NULL_INT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.CountryName];
+			private static string no_VCF_Value = "cn";
+			private static string no_FINDER_Value = "cn";
+			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public FK_Country( int value ) : base( value )
+			public ST_CountryName( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public FK_Country( NULL_INT tnp ) : base( tnp )
+			public ST_CountryName( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -50,31 +52,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			//_______________________________________________________________________________________________________________________________________
 			override public string ToString()
 			{
-				return base.Value.ToString();
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns PkPerson.AsString.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns true because this every device is associated with a country foreign key.
-			/// </summary>
-			override public bool IsVcfValue
-			{
-				get { return true; }
+				return base.Value;
 			}
 			#endregion
 

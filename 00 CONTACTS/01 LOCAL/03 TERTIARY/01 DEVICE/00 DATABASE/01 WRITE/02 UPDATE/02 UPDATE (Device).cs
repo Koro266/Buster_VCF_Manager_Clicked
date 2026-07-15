@@ -33,7 +33,13 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 						TDF_Devices.st_DeviceType		=	@st_devicetype,
 						TDF_Devices.st_DialNumber		=	@st_dialnumber,
 						TDF_Devices.st_PickerNumber		=	@st_pickernumber,
-						TDF_Devices.st_Notes			=	@st_notes
+						TDF_Devices.st_Notes			=	@st_notes,
+						TDF_Devices.is_Selected			=	@is_Selected,
+						TDF_Devices.is_DefaultRow		=	@is_DefaultRow,
+						TDF_Devices.is_Blocked			=	@is_Blocked,
+						TDF_Devices.is_X_Person			=	@is_X_Person,
+						TDF_Devices.is_X_Group			=	@is_X_Group,
+						TDF_Devices.is_X_Family			=	@is_X_Family
 					WHERE 
 						(((TDF_Devices.pk_Device)=@pk_device));
 				";
@@ -54,6 +60,12 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 					base.DbCommand.Parameters.Add( device.DialNumber.DbParameter );
 					base.DbCommand.Parameters.Add( device.PickerNumber.DbParameter );
 					base.DbCommand.Parameters.Add( device.Notes.DbParameter );
+					base.DbCommand.Parameters.Add( device.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( device.DefaultRow.DbParameter );
+					base.DbCommand.Parameters.Add( device.Blocked.DbParameter );
+					base.DbCommand.Parameters.Add( device.X_Person.DbParameter );
+					base.DbCommand.Parameters.Add( device.X_Group.DbParameter );
+					base.DbCommand.Parameters.Add( device.X_Family.DbParameter );
 					base.DbCommand.Parameters.Add( device.PkDevice.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
