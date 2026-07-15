@@ -1,19 +1,19 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using static CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 //DEVICE
 using DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICES		= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
-//FORMS
-using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
-using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //COUNTRIES
 using NATION		= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATIONS		= CONTACTS.LOCAL.TERTIARY.NATION.Table;
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+//FORMS
+using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -33,6 +33,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private LIKE_ROW[] matching_Devices;
 		private bool is_event_Disabled = true;
 		private TXT_GATHER txt_Accumulator;
+		private MESSENGER _Messenger;
 		#endregion
 
 
@@ -133,20 +134,26 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertDevice()
 		{
-			all_Devices.InsertDevice( Device );
-			Device = all_Devices.CurrentDevice;
+			if ( all_Devices.InsertDevice( Device ) )
+			{
+				_Messenger.InsertSucceeded();
+				Device = all_Devices.CurrentDevice;
+			}
+			else
+			{
+				_Messenger.InsertFailed();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void UpdateDevice()
 		{
 			if ( all_Devices.UpdateDevice( Device ) )
 			{
-				//TODO mESSENGER
-				//UpdatePrompt( "Update succeeded." );
+				_Messenger.UpdateSucceeded();
 			}
 			else
 			{
-				//UpdatePrompt( "Update failed." );
+				_Messenger.UpdateFailed();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -567,6 +574,8 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_Countries.Items.AddRange( all_Nations.NationsAsArray );
 			cbx_DeviceLocation.Items.AddRange( all_Devices.AllLocations.ToArray() );
 			cbx_DeviceType.Items.AddRange( all_Devices.AllTypes.ToArray() );
+
+			_Messenger = new MESSENGER( this.tbx_Messages );
 
 			Device = device;
 			Device.Country = Country;
