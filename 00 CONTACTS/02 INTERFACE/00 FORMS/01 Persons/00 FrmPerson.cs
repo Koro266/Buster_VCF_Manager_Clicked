@@ -837,12 +837,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
 		{
-
+			//TODO
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Inactive_CheckedChanged( object sender, EventArgs e )
 		{
-
+			//TODO
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_NewLeftPerson_CheckedChanged( object sender, EventArgs e )
@@ -867,6 +867,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_StTheresa_CheckedChanged( object sender, EventArgs e )
 		{
+			//TODO
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_TimeTalent_CheckedChanged( object sender, EventArgs e )

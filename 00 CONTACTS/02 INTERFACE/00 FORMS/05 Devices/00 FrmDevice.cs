@@ -5,6 +5,7 @@ using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
 //DEVICE
 using DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICES		= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
@@ -32,8 +33,9 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		private LIKE_ROW[] matching_Devices;
 		private bool is_event_Disabled = true;
-		private TXT_GATHER txt_Accumulator;
 		private MESSENGER _Messenger;
+		private EVENT_STATE _EventState;
+		private TXT_GATHER txt_Accumulator;
 		#endregion
 
 
@@ -61,7 +63,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayDevice()
 		{
-			IsEventDisabled = true;
+			_EventState.DisableEvents();
 
 			tbx_DeviceId.Text				= DevicePkAsText;
 			cbx_Countries.SelectedIndex		= FkCountry;
@@ -82,7 +84,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			chk_X_Group.Checked				= XGroup;
 			chk_X_Family.Checked			= XFamily;
 
-			IsEventDisabled = false;
+			_EventState.EnableEvents();
 		}
 		#endregion
 
@@ -362,17 +364,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventDisabled
-		{
-			get { return is_event_Disabled; }
-			set { is_event_Disabled = value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventEnabled
-		{
-			get { return is_event_Disabled == false; }
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void Accumulator( string s )
 		{
 			txt_Accumulator = new TXT_GATHER( s );
@@ -386,79 +377,79 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Selected_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Selected = chk_Selected.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_DefaultRow_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				DefaultRow = chk_DefaultRow.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Blocked_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Blocked = chk_Blocked.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_X_Person_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				XPerson = chk_X_Person.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_X_Group_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				XGroup = chk_X_Group.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_X_Family_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				XFamily = chk_X_Family.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				LongAreaCode = tbx_LongAreaCode.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ShortAreaCode_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				ShortAreaCode = tbx_ShortAreaCode.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LeadingDigits_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				LeadingDigits = tbx_LeadingDigits.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_TrailingDigits_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				TrailingDigits = tbx_TrailingDigits.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_DeviceLocation_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				DeviceLocation = cbx_DeviceLocation.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_DeviceType_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				DeviceType = cbx_DeviceType.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_Countries_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				CountrySelectedIndex = cbx_Countries.SelectedIndex;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -476,7 +467,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Notes_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Notes.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -575,6 +566,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceLocation.Items.AddRange( all_Devices.AllLocations.ToArray() );
 			cbx_DeviceType.Items.AddRange( all_Devices.AllTypes.ToArray() );
 
+			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
 			Device = device;
