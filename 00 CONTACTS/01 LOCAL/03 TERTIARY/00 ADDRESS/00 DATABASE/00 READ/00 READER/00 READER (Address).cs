@@ -83,29 +83,39 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				ADDRESS_ROW address = new ADDRESS_ROW();
 
-				address.Append( new FIELD.PK_Address			( base.GetPrimaryKey	( ORDINAL.PkAddress )		) );
-				address.Append( new FIELD.FK_Country			( base.GetForeignKey	( ORDINAL.FkCountry )		) );
-				address.Append( new FIELD.ST_Assemblage			( base.GetShortText		( ORDINAL.Assemblage )		) );
-				address.Append( new FIELD.ST_Level				( base.GetShortText		( ORDINAL.Level )			) );
-				address.Append( new FIELD.ST_Unit				( base.GetShortText		( ORDINAL.Unit )			) );
-				address.Append( new FIELD.ST_Extension			( base.GetShortText		( ORDINAL.Extension )		) );
-				address.Append( new FIELD.ST_RuralDelivery		( base.GetShortText		( ORDINAL.RuralDelivery )	) );
-				address.Append( new FIELD.ST_PostalCode			( base.GetShortText		( ORDINAL.PostalCode )		) );
-				address.Append( new FIELD.ST_BoxNumber			( base.GetShortText		( ORDINAL.BoxNumber )		) );
-				address.Append( new FIELD.ST_HouseNumber		( base.GetShortText		( ORDINAL.HouseNumber )		) );
-				address.Append( new FIELD.ST_StreetName			( base.GetShortText		( ORDINAL.StreetName )		) );
-				address.Append( new FIELD.ST_StreetType			( base.GetShortText		( ORDINAL.StreetType )		) );
-				address.Append( new FIELD.ST_Compass			( base.GetShortText		( ORDINAL.Compass )			) );
-				address.Append( new FIELD.ST_Suburb				( base.GetShortText		( ORDINAL.Suburb )			) );
-				address.Append( new FIELD.ST_City				( base.GetShortText		( ORDINAL.City )			) );
-				address.Append( new FIELD.ST_Metropolitan		( base.GetShortText		( ORDINAL.Metropolitan )	) );
-				address.Append( new FIELD.ST_ProvinceName		( base.GetShortText		( ORDINAL.ProvinceName )	) );
-				address.Append( new FIELD.ST_ProvinceCode		( base.GetShortText		( ORDINAL.ProvinceCode )	) );
-				address.Append( new FIELD.ST_VcfPostal			( base.GetShortText		( ORDINAL.VcfPostal )		) );
-				address.Append( new FIELD.ST_VcfPhysical		( base.GetShortText		( ORDINAL.VcfPhysical )		) );
-				address.Append( new FIELD.ST_VcfExtended		( base.GetShortText		( ORDINAL.VcfExtended )		) );
-				address.Append( new FIELD.ST_ExcelPattern		( base.GetShortText		( ORDINAL.ExcelPattern )	) );
-				address.Append( new FIELD.IS_Christmas			( base.GetBoolean		( ORDINAL.Christmas )		) );
+				address.Append( new FIELD.PK_Address			( base.GetPrimaryKey	( ORDINAL.PkAddress)		) );
+				address.Append( new FIELD.FK_Country			( base.GetForeignKey	( ORDINAL.FkCountry)		) );
+
+				address.Append( new FIELD.ST_Assemblage			( base.GetShortText		( ORDINAL.Assemblage)		) );
+				address.Append( new FIELD.ST_Level				( base.GetShortText		( ORDINAL.Level)			) );
+				address.Append( new FIELD.ST_Unit				( base.GetShortText		( ORDINAL.Unit)				) );
+				address.Append( new FIELD.ST_Extension			( base.GetShortText		( ORDINAL.Extension)		) );
+				address.Append( new FIELD.ST_RuralDelivery		( base.GetShortText		( ORDINAL.RuralDelivery)	) );
+				address.Append( new FIELD.ST_PostalCode			( base.GetShortText		( ORDINAL.PostalCode)		) );
+				address.Append( new FIELD.ST_BoxNumber			( base.GetShortText		( ORDINAL.BoxNumber)		) );
+				address.Append( new FIELD.ST_HouseNumber		( base.GetShortText		( ORDINAL.HouseNumber)		) );
+				address.Append( new FIELD.ST_StreetName			( base.GetShortText		( ORDINAL.StreetName)		) );
+				address.Append( new FIELD.ST_StreetType			( base.GetShortText		( ORDINAL.StreetType)		) );
+				address.Append( new FIELD.ST_Compass			( base.GetShortText		( ORDINAL.Compass)			) );
+				address.Append( new FIELD.ST_Suburb				( base.GetShortText		( ORDINAL.Suburb)			) );
+				address.Append( new FIELD.ST_City				( base.GetShortText		( ORDINAL.City)				) );
+				address.Append( new FIELD.ST_Metropolitan		( base.GetShortText		( ORDINAL.Metropolitan)		) );
+				address.Append( new FIELD.ST_ProvinceName		( base.GetShortText		( ORDINAL.ProvinceName)		) );
+				address.Append( new FIELD.ST_ProvinceCode		( base.GetShortText		( ORDINAL.ProvinceCode)		) );
+				address.Append( new FIELD.ST_VcfPostal			( base.GetShortText		( ORDINAL.VcfPostal)		) );
+				address.Append( new FIELD.ST_VcfPhysical		( base.GetShortText		( ORDINAL.VcfPhysical)		) );
+				address.Append( new FIELD.ST_VcfExtended		( base.GetShortText		( ORDINAL.VcfExtended)		) );
+				address.Append( new FIELD.ST_ExcelPattern		( base.GetShortText		( ORDINAL.ExcelPattern)		) );
+				address.Append( new FIELD.ST_Notes				( base.GetShortText		( ORDINAL.Notes)			) );
+
+				address.Append( new FIELD.IS_Selected			( base.GetBoolean		( ORDINAL.Selected)			) );
+				address.Append( new FIELD.IS_DefaultRow			( base.GetBoolean		( ORDINAL.DefaultRow)		) );
+				address.Append( new FIELD.IS_Unattached			( base.GetBoolean		( ORDINAL.Unattached)		) );
+				address.Append( new FIELD.IS_X_Person			( base.GetBoolean		( ORDINAL.X_Person)			) );
+				address.Append( new FIELD.IS_X_Group			( base.GetBoolean		( ORDINAL.X_Group)			) );
+				address.Append( new FIELD.IS_X_Family			( base.GetBoolean		( ORDINAL.X_Family)			) );
+				address.Append( new FIELD.IS_Christmas			( base.GetBoolean		( ORDINAL.Christmas)		) );
+
 				address.Append( new FIELD.ST_CountryName		( base.GetShortText		( ORDINAL.CountryName)		) );
 				address.Append( new FIELD.ST_CountryCode		( base.GetShortText		( ORDINAL.CountryCode)		) );
 				address.Append( new FIELD.ST_ShortIsoCode		( base.GetShortText		( ORDINAL.ShortIsoCode)		) );
