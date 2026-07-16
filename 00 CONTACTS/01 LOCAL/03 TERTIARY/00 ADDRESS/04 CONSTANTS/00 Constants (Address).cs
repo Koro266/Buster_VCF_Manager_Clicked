@@ -51,38 +51,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			public const int ShortIsoCode	= 32;
 			public const int LongIsoCode	= 33;
 		}
-		//___________________________________________________________________________________________________________________________________			
-		//public static int[] OrdinalByValue =
-		//{			
-		//	0,		//PkAddress
-		//	1,		//FkCountry
-		//	2,		//Assemblage
-		//	3,		//Level
-		//	4,		//Unit
-		//	5,		//Extension
-		//	6,		//RuralDelivery
-		//	7,		//PostalCode
-		//	8,		//BoxNumber
-		//	9,		//HouseNumber
-		//	10,		//StreetName
-		//	11,		//StreetType
-		//	12,		//Compass
-		//	13,		//Suburb
-		//	14,		//City
-		//	15,		//Metropolitan
-		//	16,		//ProvinceName
-		//	17,		//ProvinceCode
-		//	18,		//VcfPostal
-		//	19,		//VcfPhysical
-		//	20,		//VcfExtended
-		//	21,		//ExcelPattern
-		//	22,		//Christmas
-
-		//	23,		//CountryName
-		//	24,		//CountryCode
-		//	25,		//ShortIsoCode
-		//	26		//LongIsoCode
-		//};			
 		//___________________________________________________________________________________________________________________________________	
 		public static string[] FieldNames =	
 		{
@@ -643,7 +611,11 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			new FACTORS( 26, FieldWidths[26], FieldNames[26], ParameterNames[26] ), //IsX_Person
 			new FACTORS( 27, FieldWidths[27], FieldNames[27], ParameterNames[27] ), //IsX_Group
 			new FACTORS( 28, FieldWidths[28], FieldNames[28], ParameterNames[28] ), //IsX_Family
-			new FACTORS( 29, FieldWidths[29], FieldNames[29], ParameterNames[29] )  //IsChristmas
+			new FACTORS( 29, FieldWidths[29], FieldNames[29], ParameterNames[29] ), //IsChristmas
+			new FACTORS( 30, FieldWidths[30], FieldNames[30], ParameterNames[30] ),	//StCountryName
+			new FACTORS( 31, FieldWidths[31], FieldNames[31], ParameterNames[31] ),	//StCountryCode
+			new FACTORS( 32, FieldWidths[32], FieldNames[32], ParameterNames[32] ),	//StShortIsoCode
+			new FACTORS( 33, FieldWidths[33], FieldNames[33], ParameterNames[33] )  //StLongIsoCode
 		};
 		#endregion
 	}
