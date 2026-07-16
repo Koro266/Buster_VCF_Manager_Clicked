@@ -105,6 +105,7 @@
 			btn_DefaultExcelRule = new Button();
 			cbx_ProvinceCode = new ComboBox();
 			cbx_Metropolitan = new ComboBox();
+			tbx_Messages = new TextBox();
 			SuspendLayout();
 			// 
 			// cbx_PostalCode
@@ -980,6 +981,17 @@
 			cbx_Metropolitan.TabIndex = 0;
 			cbx_Metropolitan.SelectedValueChanged +=  cbx_Metropolitan_SelectedValueChanged ;
 			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.ForeColor = Color.ForestGreen;
+			tbx_Messages.Location = new Point( 491, 635 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 660, 23 );
+			tbx_Messages.TabIndex = 147;
+			tbx_Messages.TabStop = false;
+			// 
 			// FrmAddress
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -987,6 +999,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 1170, 692 );
+			Controls.Add( tbx_Messages );
 			Controls.Add( chk_Christmas );
 			Controls.Add( tbx_Assemblage );
 			Controls.Add( lbl_Unit );
@@ -1151,5 +1164,6 @@
 		private TextBox tbx_VcfPhysical;
 		private TextBox tbx_VcfPostal;
 		private TextBox tbx_XL_RowRealised;
+		private TextBox tbx_Messages;
 	}
 }
