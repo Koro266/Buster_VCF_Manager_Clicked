@@ -212,7 +212,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			"Floor number / level number where person/family lives or organisation resides.",
 			"Number / identifier of apartment, unit, suite, villa, flat, etc.",
 			"Non-regular information to supplement some portion of the address.",
-			"Rural delivery address / routing code. Max length=5, Format: "RD" followed by a one- or two-digit number, space between "RD" and number is allowed.",
+			"Rural delivery address / routing code. Max length=5, Format: 'RD' followed by a one- or two-digit number, space between 'RD' and number is allowed.",
 			"Physical location postal delivery code (zip code).",
 			"Post office box number / label.",
 			"'House' number (number identifier) portion of a conventional street address.",
