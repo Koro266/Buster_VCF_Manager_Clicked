@@ -136,26 +136,17 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void InsertDevice()
 		{
 			if ( all_Devices.InsertDevice( Device ) )
-			{
 				_Messenger.InsertSucceeded();
-				//Device = all_Devices.CurrentDevice;
-			}
 			else
-			{
 				_Messenger.InsertFailed();
-			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void UpdateDevice()
 		{
 			if ( all_Devices.UpdateDevice( Device ) )
-			{
 				_Messenger.UpdateSucceeded();
-			}
 			else
-			{
 				_Messenger.UpdateFailed();
-			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string LongAreaCode
