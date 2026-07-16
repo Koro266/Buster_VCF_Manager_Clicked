@@ -54,10 +54,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				return base.Value;
 			}
-			#endregion
-
-
-			#region EXTENSIONS
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns value formatted for use in a Find this-or-that context.

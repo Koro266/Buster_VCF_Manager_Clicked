@@ -54,10 +54,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				return base.Value;
 			}
-			#endregion
-
-
-			#region EXTENSIONS
 			//___________________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns value formatted for use in a Find this-or-that context.
@@ -74,14 +70,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get { return base.VcfValue == String.Empty ? no_VCF_Value : base.AsIs; }
 			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns a value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.TextboxValue == String.Empty ? String.Empty : base.AsIs; }
-			}
 			#endregion
 
 
@@ -94,7 +82,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					OleDbParameter parameter = base.DbParameter;
 					parameter.ParameterName = Factors.ParameterName;
 					parameter.Size = Factors.FieldWidth;
-					parameter.Value = base.DbWriteValue;
 					return parameter;
 				}
 			}

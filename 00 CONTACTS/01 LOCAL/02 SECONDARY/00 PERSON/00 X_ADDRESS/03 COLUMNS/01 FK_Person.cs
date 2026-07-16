@@ -52,18 +52,6 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 			{
 				return base.Value.ToString();
 			}
-			#endregion
-
-
-			#region EXTENSIONS
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.AsString; }
-			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
 			/// Returns PkPerson.AsString.
