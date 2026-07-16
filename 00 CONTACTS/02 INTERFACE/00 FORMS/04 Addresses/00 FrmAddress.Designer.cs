@@ -98,7 +98,6 @@
 			tbx_Filter = new TextBox();
 			tbx_PkAddress = new TextBox();
 			lbl_Move = new Label();
-			tbx_Prompt = new TextBox();
 			lbl_IsoCodes = new Label();
 			lbl_Country = new Label();
 			chk_Christmas = new CheckBox();
@@ -900,21 +899,6 @@
 			lbl_Move.Text = "Move";
 			lbl_Move.TextAlign = ContentAlignment.MiddleRight;
 			// 
-			// tbx_Prompt
-			// 
-			tbx_Prompt.BackColor = Color.FromArgb(     255,     224,     192 );
-			tbx_Prompt.BorderStyle = BorderStyle.FixedSingle;
-			tbx_Prompt.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Prompt.ForeColor = Color.Gray;
-			tbx_Prompt.Location = new Point( 1060, 436 );
-			tbx_Prompt.Multiline = true;
-			tbx_Prompt.Name = "tbx_Prompt";
-			tbx_Prompt.Size = new Size( 45, 56 );
-			tbx_Prompt.TabIndex = 9;
-			tbx_Prompt.TabStop = false;
-			tbx_Prompt.Text = "Prompt...";
-			tbx_Prompt.Visible = false;
-			// 
 			// lbl_IsoCodes
 			// 
 			lbl_IsoCodes.AutoSize = true;
@@ -1076,7 +1060,6 @@
 			Controls.Add( btn_LastAddress );
 			Controls.Add( btn_UpdateAddress );
 			Controls.Add( btn_NextAddress );
-			Controls.Add( tbx_Prompt );
 			Controls.Add( lbl_PkAddress );
 			Controls.Add( tbx_PkAddress );
 			Controls.Add( tbx_Filter );
@@ -1156,7 +1139,6 @@
 		private TextBox tbx_PkAddress;
 		private TextBox tbx_PostalCode;
 		private TextBox tbx_PostalRealised;
-		private TextBox tbx_Prompt;
 		private TextBox tbx_ProvinceCode;
 		private TextBox tbx_ProvinceName;
 		private TextBox tbx_RuralDelivery;
