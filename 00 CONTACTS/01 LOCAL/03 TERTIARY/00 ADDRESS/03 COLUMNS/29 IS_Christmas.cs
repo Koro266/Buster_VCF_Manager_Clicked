@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using YES_NO	= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants;
@@ -15,23 +15,21 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_PostalCode : SHORT_TXT
+		public partial class IS_Christmas : YES_NO
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.PostalCode];
-			private static string no_VCF_Value = "zip";
-			private static string no_FINDER_Value = "pc";
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Christmas];
 			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_PostalCode( string value ) : base( value )
+			public IS_Christmas( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_PostalCode( NULL_TEXT tnp ) : base( tnp )
+			public IS_Christmas( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -52,7 +50,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			//_______________________________________________________________________________________________________________________________________
 			override public string ToString()
 			{
-				return base.Value;
+				return base.AsTF;
 			}
 			#endregion
 
@@ -64,15 +62,15 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			/// </summary>
 			override public string FinderValue
 			{
-				get { return base.FinderValue == String.Empty ? no_FINDER_Value : base.AsIs; }
+				get { return base.AsTRUEFALSE; }
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns ExcelPattern as used in a VCF file.
+			/// Returns Assemblage as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
-				get { return base.VcfValue == String.Empty ? no_VCF_Value : base.AsIs; }
+				get { return base.AsTF; }
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
@@ -80,7 +78,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			/// </summary>
 			override public string TextboxValue
 			{
-				get { return base.TextboxValue == String.Empty ? String.Empty : base.AsIs; }
+				get { return base.TextboxValue; }
 			}
 			#endregion
 
