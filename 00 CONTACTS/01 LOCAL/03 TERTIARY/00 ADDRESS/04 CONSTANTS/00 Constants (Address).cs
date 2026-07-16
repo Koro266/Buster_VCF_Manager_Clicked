@@ -1,4 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using FACTORS = CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
@@ -6,22 +7,22 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	//___________________________________________________________________________________________________________________________________________
 	public class Constants
 	{
-		public const int ColumnCount = 27;
+		public const int ColumnCount = 34;
 
 		#region LISTS
 		//_______________________________________________________________________________________________________________________________________
 		public class OrdinalByName
 		{
-			public const int PkAddress		= 0;
-			public const int FkCountry		= 1;
-			public const int Assemblage		= 2;
-			public const int Level			= 3;
-			public const int Unit			= 4;
-			public const int Extension		= 5;
-			public const int RuralDelivery	= 6;
-			public const int PostalCode		= 7;
-			public const int BoxNumber		= 8;
-			public const int HouseNumber	= 9;
+			public const int PkAddress		=  0;
+			public const int Country		=  1;
+			public const int Assemblage		=  2;
+			public const int Level			=  3;
+			public const int Unit			=  4;
+			public const int Extension		=  5;
+			public const int RuralDelivery	=  6;
+			public const int PostalCode		=  7;
+			public const int BoxNumber		=  8;
+			public const int HouseNumber	=  9;
 			public const int StreetName		= 10;
 			public const int StreetType		= 11;
 			public const int Compass		= 12;
@@ -34,49 +35,57 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			public const int VcfPhysical	= 19;
 			public const int VcfExtended	= 20;
 			public const int ExcelPattern	= 21;
-			public const int Christmas		= 22;
+			public const int Notes			= 22;
+
+			public const int Selected		= 23;
+			public const int DefaultRow		= 24;
+			public const int Unattached		= 25;
+			public const int X_Person		= 26;
+			public const int X_Group		= 27;
+			public const int X_Family		= 28;
+			public const int Christmas		= 29;
 
 			//Country 'qualifications'.
-			public const int CountryName	= 23;
-			public const int CountryCode	= 24;
-			public const int ShortIsoCode	= 25;
-			public const int LongIsoCode	= 26;
+			public const int CountryName	= 30;
+			public const int CountryCode	= 31;
+			public const int ShortIsoCode	= 32;
+			public const int LongIsoCode	= 33;
 		}
 		//___________________________________________________________________________________________________________________________________			
-		public static int[] OrdinalByValue =
-		{			
-			0,		//PkAddress
-			1,		//FkCountry
-			2,		//Assemblage
-			3,		//Level
-			4,		//Unit
-			5,		//Extension
-			6,		//RuralDelivery
-			7,		//PostalCode
-			8,		//BoxNumber
-			9,		//HouseNumber
-			10,		//StreetName
-			11,		//StreetType
-			12,		//Compass
-			13,		//Suburb
-			14,		//City
-			15,		//Metropolitan
-			16,		//ProvinceName
-			17,		//ProvinceCode
-			18,		//VcfPostal
-			19,		//VcfPhysical
-			20,		//VcfExtended
-			21,		//ExcelPattern
-			22,		//Christmas
+		//public static int[] OrdinalByValue =
+		//{			
+		//	0,		//PkAddress
+		//	1,		//FkCountry
+		//	2,		//Assemblage
+		//	3,		//Level
+		//	4,		//Unit
+		//	5,		//Extension
+		//	6,		//RuralDelivery
+		//	7,		//PostalCode
+		//	8,		//BoxNumber
+		//	9,		//HouseNumber
+		//	10,		//StreetName
+		//	11,		//StreetType
+		//	12,		//Compass
+		//	13,		//Suburb
+		//	14,		//City
+		//	15,		//Metropolitan
+		//	16,		//ProvinceName
+		//	17,		//ProvinceCode
+		//	18,		//VcfPostal
+		//	19,		//VcfPhysical
+		//	20,		//VcfExtended
+		//	21,		//ExcelPattern
+		//	22,		//Christmas
 
-			23,		//CountryName
-			24,		//CountryCode
-			25,		//ShortIsoCode
-			26		//LongIsoCode
-		};			
+		//	23,		//CountryName
+		//	24,		//CountryCode
+		//	25,		//ShortIsoCode
+		//	26		//LongIsoCode
+		//};			
 		//___________________________________________________________________________________________________________________________________	
 		public static string[] FieldNames =	
-		{	
+		{
 			"pk_Address",
 			"fk_Country",
 			"st_Assemblage",
@@ -99,6 +108,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			"st_VcfPhysical",
 			"st_VcfExtended",
 			"st_ExcelPattern",
+			"st_Notes",
+
+			"is_Selected",
+			"is_DefaultRow",
+			"is_Unattached",
+			"is_X_Person",
+			"is_X_Group",
+			"is_X_Family",
 			"is_Christmas",
 
 			"st_CountryName",
@@ -131,6 +148,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			"@st_vcfphysical",
 			"@st_vcfextended",
 			"@st_excelpattern",
+			"@st_notes",
+
+			"@is_selected",
+			"@is_defaultrow",
+			"@is_unattached",
+			"@is_x_person",
+			"@is_x_group",
+			"@is_x_family",
 			"@is_christmas",
 
 			"@st_countryname",
@@ -143,27 +168,35 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			4,		//PkAddress
 			4,		//FkCountry
-			50,		//Assemblage
-			20,		//Level
-			20,		//Unit
-			30,		//Extension
-			5,		//RuralDelivery
-			15,		//PostalCode
-			15,		//BoxNumber
-			10,		//HouseNumber
-			25,		//StreetName
-			20,		//StreetType
-			20,		//Compass
-			50,		//Suburb
-			50,		//City
-			50,		//Metropolitan
-			50,		//ProvinceName
-			5,		//ProvinceCode
-			255,	//VcfPostal
-			255,	//VcfPhysical
-			255,	//VcfExtended
-			255,	//ExcelPattern
-			1,		//Christmas
+			50,		//StAssemblage
+			20,		//StLevel
+			20,		//StUnit
+			30,		//StExtension
+			5,		//StRuralDelivery
+			20,		//StPostalCode
+			30,		//StBoxNumber
+			10,		//StHouseNumber
+			25,		//StStreetName
+			20,		//StStreetType
+			20,		//StCompass
+			50,		//StSuburb
+			50,		//StCity
+			50,		//StMetropolitan
+			50,		//StProvinceName
+			5,		//StProvinceCode
+			255,	//StVcfPostal
+			255,	//StVcfPhysical
+			255,	//StVcfExtended
+			255,	//StExcelPattern
+			255,	//StNotes
+
+			1,		//IsSelected
+			1,		//IsDefaultRow
+			1,		//IsUnattached
+			1,		//IsX_Person
+			1,		//IsX_Group
+			1,		//IsX_Family
+			1,		//IsChristmas
 
 			100,	//CountryName
 			5,		//CountryCode
@@ -174,12 +207,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		public static string[] Prompts =
 		{
 			"Primary Key, AutoNum, int.",
-			"FK into TDF_Countries.pk_Country. Default value = 1 (i.e., New Zealand). Required = True.",
+			"FK into TDF_Countries.pk_Country. Default value = 0 (i.e., New Zealand). Required = True.",
 			"Name of resident building, over-arching  organisation, etc.",
-			"Floor number / level number where person lives or organisation resides.",
+			"Floor number / level number where person/family lives or organisation resides.",
 			"Number / identifier of apartment, unit, suite, villa, flat, etc.",
 			"Non-regular information to supplement some portion of the address.",
-			"Rural delivery address / routing code. Max length=5, Format: 'RD' followed by a one- or two-digit number, space between 'RD' and number is allowed.",
+			"Rural delivery address / routing code. Max length=5, Format: "RD" followed by a one- or two-digit number, space between "RD" and number is allowed.",
 			"Physical location postal delivery code (zip code).",
 			"Post office box number / label.",
 			"'House' number (number identifier) portion of a conventional street address.",
@@ -195,7 +228,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			"Pattern used to construct a physical VCF address (i.e., the ADR line) entry. Typically used for a 'street' addresses.",
 			"Pattern used to construct an extended VCF address (i.e., the ADR line) entry. Used for 'non-regular' address data (e.g., a building name, unit number, etc).",
 			"Pattern used to construct a line of address information intended to be imported into Excel (Christmas letters, see Families_X_Addresses).",
-			"TRUE: address is (or was) used for the Christmas letter. TDF_Families_X_Address.IsChristmas identifies familes that currently receive the letter.  Default value = False.",
+			"General-purpose text field. [255].",
+			"General-purpose selection flag. Default value = False.",
+			"TRUE = Address is used as the Contact Manager default  Address object. Default value = False.",
+			"TRUE = Address is not attached to any Person, Group, or Family. Default value = False.",
+			"TRUE = Address is attached to a Person. Default value = False.",
+			"TRUE = Address is attached to a Group. Default value = False.",
+			"TRUE = Address is attached to a Family. Default value = False.",
+			"TRUE = Address is (or was) used for the Christmas letter. TDF_Families_X_Address.IsChristmas identifies familes that currently receive the letter.  Default value = False.",
 			"CountryName",
 			"CountryCode",
 			"ShortIsoCode",
@@ -572,61 +612,39 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 
 		#region COLUMN FACTORS
 		//_______________________________________________________________________________________________________________________________________
-		public static ColumnFactors[] Factors =
+		public static FACTORS[] Factors =
 		{
-			new ColumnFactors(  0 ),	//PkAddress
-			new ColumnFactors(  1 ),	//FkCountry
-			new ColumnFactors(  2 ),	//Assemblage
-			new ColumnFactors(  3 ),	//Level
-			new ColumnFactors(  4 ),	//Unit
-			new ColumnFactors(  5 ),	//Extension
-			new ColumnFactors(  6 ),	//RuralDelivery
-			new ColumnFactors(  7 ),	//PostalCode
-			new ColumnFactors(  8 ),	//BoxNumber
-			new ColumnFactors(  9 ),	//HouseNumber
-			new ColumnFactors( 10 ),	//StreetName
-			new ColumnFactors( 11 ),	//StreetType
-			new ColumnFactors( 12 ),	//Compass
-			new ColumnFactors( 13 ),	//Suburb
-			new ColumnFactors( 14 ),	//City
-			new ColumnFactors( 15 ),	//Metropolitan
-			new ColumnFactors( 16 ),	//ProvinceName
-			new ColumnFactors( 17 ),	//ProvinceCode
-			new ColumnFactors( 18 ),	//VcfPostal
-			new ColumnFactors( 19 ),	//VcfPhysical
-			new ColumnFactors( 20 ),	//VcfExtended
-			new ColumnFactors( 21 ),	//ExcelPattern
-			new ColumnFactors( 22 ),	//Christmas
-			new ColumnFactors( 23 ),	//CountryName
-			new ColumnFactors( 24 ),	//CountryCode
-			new ColumnFactors( 25 ),	//ShortIsoCode
-			new ColumnFactors( 26 )		//LongIsoCode
+			new FACTORS(  0, FieldWidths[ 0], FieldNames[ 0], ParameterNames[ 0] ), //PkAddress
+			new FACTORS(  1, FieldWidths[ 1], FieldNames[ 1], ParameterNames[ 1] ), //FkCountry
+			new FACTORS(  2, FieldWidths[ 2], FieldNames[ 2], ParameterNames[ 2] ), //StAssemblage
+			new FACTORS(  3, FieldWidths[ 3], FieldNames[ 3], ParameterNames[ 3] ), //StLevel
+			new FACTORS(  4, FieldWidths[ 4], FieldNames[ 4], ParameterNames[ 4] ), //StUnit
+			new FACTORS(  5, FieldWidths[ 5], FieldNames[ 5], ParameterNames[ 5] ), //StExtension
+			new FACTORS(  6, FieldWidths[ 6], FieldNames[ 6], ParameterNames[ 6] ), //StRuralDelivery
+			new FACTORS(  7, FieldWidths[ 7], FieldNames[ 7], ParameterNames[ 7] ), //StPostalCode
+			new FACTORS(  8, FieldWidths[ 8], FieldNames[ 8], ParameterNames[ 8] ), //StBoxNumber
+			new FACTORS(  9, FieldWidths[ 9], FieldNames[ 9], ParameterNames[ 9] ), //StHouseNumber
+			new FACTORS( 10, FieldWidths[10], FieldNames[10], ParameterNames[10] ), //StStreetName
+			new FACTORS( 11, FieldWidths[11], FieldNames[11], ParameterNames[11] ), //StStreetType
+			new FACTORS( 12, FieldWidths[12], FieldNames[12], ParameterNames[12] ), //StCompass
+			new FACTORS( 13, FieldWidths[13], FieldNames[13], ParameterNames[13] ), //StSuburb
+			new FACTORS( 14, FieldWidths[14], FieldNames[14], ParameterNames[14] ), //StCity
+			new FACTORS( 15, FieldWidths[15], FieldNames[15], ParameterNames[15] ), //StMetropolitan
+			new FACTORS( 16, FieldWidths[16], FieldNames[16], ParameterNames[16] ), //StProvinceName
+			new FACTORS( 17, FieldWidths[17], FieldNames[17], ParameterNames[17] ), //StProvinceCode
+			new FACTORS( 18, FieldWidths[18], FieldNames[18], ParameterNames[18] ), //StVcfPostal
+			new FACTORS( 19, FieldWidths[19], FieldNames[19], ParameterNames[19] ), //StVcfPhysical
+			new FACTORS( 20, FieldWidths[20], FieldNames[20], ParameterNames[20] ), //StVcfExtended
+			new FACTORS( 21, FieldWidths[21], FieldNames[21], ParameterNames[21] ), //StExcelPattern
+			new FACTORS( 22, FieldWidths[22], FieldNames[22], ParameterNames[22] ), //StNotes
+			new FACTORS( 23, FieldWidths[23], FieldNames[23], ParameterNames[23] ), //IsSelected
+			new FACTORS( 24, FieldWidths[24], FieldNames[24], ParameterNames[24] ), //IsDefaultRow
+			new FACTORS( 25, FieldWidths[25], FieldNames[25], ParameterNames[25] ), //IsUnattached
+			new FACTORS( 26, FieldWidths[26], FieldNames[26], ParameterNames[26] ), //IsX_Person
+			new FACTORS( 27, FieldWidths[27], FieldNames[27], ParameterNames[27] ), //IsX_Group
+			new FACTORS( 28, FieldWidths[28], FieldNames[28], ParameterNames[28] ), //IsX_Family
+			new FACTORS( 29, FieldWidths[29], FieldNames[29], ParameterNames[29] )  //IsChristmas
 		};
-		//_______________________________________________________________________________________________________________________________________
-		public class ColumnFactors
-		{
-			private int		i_Ordinal;
-			private string	s_FieldName;
-			private string	s_ParameterName;
-			private int		i_FieldWidth;
-			private string	s_Prompt;
-
-			//___________________________________________________________________________________________________________________________________
-			public ColumnFactors( int ordinal )
-			{
-				this.i_Ordinal			= ordinal;
-				this.s_FieldName		= FieldNames[ordinal];
-				this.s_ParameterName	= ParameterNames[ordinal];
-				this.i_FieldWidth		= FieldWidths[ordinal];
-				this.s_Prompt			= Prompts[ordinal];
-			}
-			//___________________________________________________________________________________________________________________________________
-			public int Ordinal			{ get { return i_Ordinal; } }
-			public string FieldName		{ get { return s_FieldName; } }
-			public string ParameterName	{ get { return s_ParameterName; } }
-			public int FieldWidth		{ get { return i_FieldWidth; } }
-			public string Prompt		{ get { return s_Prompt; } }
-		}
 		#endregion
 	}
 }
