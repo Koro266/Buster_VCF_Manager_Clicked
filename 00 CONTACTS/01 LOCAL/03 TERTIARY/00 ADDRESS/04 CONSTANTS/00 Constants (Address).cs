@@ -14,7 +14,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		public class OrdinalByName
 		{
 			public const int PkAddress		=  0;
-			public const int Country		=  1;
+			public const int FkCountry		=  1;
 			public const int Assemblage		=  2;
 			public const int Level			=  3;
 			public const int Unit			=  4;

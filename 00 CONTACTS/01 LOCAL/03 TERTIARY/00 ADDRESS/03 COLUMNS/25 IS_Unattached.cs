@@ -15,7 +15,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_Blocked : BOOL
+		public partial class IS_Unattached : BOOL
 		{
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.Unattached];
@@ -25,11 +25,11 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Blocked( bool value ) : base( value )
+			public IS_Unattached( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Blocked( NULL_BOOL tnp ) : base( tnp )
+			public IS_Unattached( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}

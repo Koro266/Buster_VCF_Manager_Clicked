@@ -4,9 +4,9 @@ using System.Data.OleDb;
 using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
 using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
 //LOCAL
-using CONST		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants;
-using ORDINAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.ColumnFactors;
+using CONST		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants;
+using ORDINAL	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.OrdinalByName;
+using FACTORS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
@@ -18,7 +18,7 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 		public class FK_Person : INT_32
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.PkAddress];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.FkPerson];
 			private NULL_INT type_null_pair;
 			#endregion
 
