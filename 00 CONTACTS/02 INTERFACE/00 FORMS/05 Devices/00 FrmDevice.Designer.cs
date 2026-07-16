@@ -88,7 +88,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_PickerNumber.Name = "tbx_PickerNumber";
 			tbx_PickerNumber.Size = new Size( 309, 25 );
 			tbx_PickerNumber.TabIndex = 12;
-			tbx_PickerNumber.TabStop = false;
 			// 
 			// tbx_DialNumber
 			// 
@@ -97,7 +96,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_DialNumber.Name = "tbx_DialNumber";
 			tbx_DialNumber.Size = new Size( 309, 25 );
 			tbx_DialNumber.TabIndex = 11;
-			tbx_DialNumber.TabStop = false;
 			// 
 			// btn_UpdateDevice
 			// 
@@ -350,7 +348,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Filter.Name = "tbx_Filter";
 			tbx_Filter.Size = new Size( 60, 25 );
 			tbx_Filter.TabIndex = 8;
-			tbx_Filter.TabStop = false;
 			tbx_Filter.TextAlign = HorizontalAlignment.Right;
 			tbx_Filter.KeyUp +=  tbx_Filter_KeyUp ;
 			// 
@@ -549,7 +546,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Person.AutoSize = true;
 			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Person.Location = new Point( 298, 138 );
+			chk_X_Person.Location = new Point( 326, 145 );
 			chk_X_Person.Name = "chk_X_Person";
 			chk_X_Person.Size = new Size( 89, 21 );
 			chk_X_Person.TabIndex = 144;
@@ -561,7 +558,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Blocked.AutoSize = true;
 			chk_Blocked.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Blocked.Location = new Point( 298, 120 );
+			chk_Blocked.Location = new Point( 326, 124 );
 			chk_Blocked.Name = "chk_Blocked";
 			chk_Blocked.Size = new Size( 81, 21 );
 			chk_Blocked.TabIndex = 143;
@@ -573,7 +570,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 298, 102 );
+			chk_DefaultRow.Location = new Point( 326, 103 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 142;
@@ -585,7 +582,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Family.AutoSize = true;
 			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Family.Location = new Point( 298, 174 );
+			chk_X_Family.Location = new Point( 326, 187 );
 			chk_X_Family.Name = "chk_X_Family";
 			chk_X_Family.Size = new Size( 88, 21 );
 			chk_X_Family.TabIndex = 141;
@@ -597,7 +594,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Group.AutoSize = true;
 			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Group.Location = new Point( 298, 156 );
+			chk_X_Group.Location = new Point( 326, 166 );
 			chk_X_Group.Name = "chk_X_Group";
 			chk_X_Group.Size = new Size( 85, 21 );
 			chk_X_Group.TabIndex = 140;
@@ -609,7 +606,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Selected.AutoSize = true;
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 298, 84 );
+			chk_Selected.Location = new Point( 326, 82 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 139;
@@ -623,7 +620,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceType.FormattingEnabled = true;
 			cbx_DeviceType.Location = new Point( 130, 243 );
 			cbx_DeviceType.Name = "cbx_DeviceType";
-			cbx_DeviceType.Size = new Size( 168, 25 );
+			cbx_DeviceType.Size = new Size( 190, 25 );
 			cbx_DeviceType.TabIndex = 6;
 			cbx_DeviceType.SelectedIndexChanged +=  cbx_DeviceType_SelectedIndexChanged ;
 			// 
@@ -657,7 +654,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceLocation.FormattingEnabled = true;
 			cbx_DeviceLocation.Location = new Point( 130, 211 );
 			cbx_DeviceLocation.Name = "cbx_DeviceLocation";
-			cbx_DeviceLocation.Size = new Size( 168, 25 );
+			cbx_DeviceLocation.Size = new Size( 190, 25 );
 			cbx_DeviceLocation.TabIndex = 5;
 			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
 			// 

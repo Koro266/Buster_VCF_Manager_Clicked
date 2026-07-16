@@ -33,45 +33,46 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			RebuildNumbers();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void LongAreaCodeAltered( string new_value ) 
+		public void NewLongAreaCode( string new_value ) 
 		{
 			Replace( ORDINAL.LongAreaCode, new FIELD.ST_LongAreaCode( new_value ) );
 			RebuildNumbers();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void ShortAreaCodeAltered( string new_value )
+		public void NewShortAreaCode( string new_value )
 		{
 			Replace( ORDINAL.ShortAreaCode, new FIELD.ST_ShortAreaCode( new_value ) );
 			RebuildNumbers();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void LeadingDigitsAltered( string new_value )
+		public void NewLeadingDigits( string new_value )
 		{
 			Replace( ORDINAL.LeadingDigits, new FIELD.ST_LeadingDigits( new_value ) );
 			RebuildNumbers();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void TrailingDigitsAltered( string new_value )
+		public void NewTrailingDigits( string new_value )
 		{
 			Replace( ORDINAL.TrailingDigits, new FIELD.ST_TrailingDigits( new_value ) );
 			RebuildDialNumber();
 			RebuildPickerNumber();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void DeviceLocationAltered( string new_value )
+		public void NewDeviceLocation( string new_value )
 		{
 			Replace( ORDINAL.DeviceLocation, new FIELD.ST_DeviceLocation( new_value ) );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void DeviceTypeAltered( string new_value )
+		public void NewDeviceType( string new_value )
 		{
 			Replace( ORDINAL.DeviceType, new FIELD.ST_DeviceType( new_value ) );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void NotesAltered( string new_value )
+		public void NewNotes( string new_value )
 		{
 			Replace( ORDINAL.Notes, new FIELD.ST_Notes( new_value ) );
 		}
+
 		//___________________________________________________________________________________________________________________________________________
 		public bool NewSelected
 		{

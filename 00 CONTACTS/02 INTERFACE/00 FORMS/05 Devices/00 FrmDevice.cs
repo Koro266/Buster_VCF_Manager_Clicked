@@ -163,7 +163,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.LongAreaCode.Value; }
 			set
 			{
-				Device.LongAreaCodeAltered( value );
+				Device.NewLongAreaCode( value );
 				DisplayDevice();
 			}
 		}
@@ -173,7 +173,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.ShortAreaCode.Value; }
 			set
 			{
-				Device.ShortAreaCodeAltered( value );
+				Device.NewShortAreaCode( value );
 				DisplayDevice();
 			}
 		}
@@ -183,7 +183,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.LeadingDigits.Value; }
 			set
 			{
-				Device.LeadingDigitsAltered( value );
+				Device.NewLeadingDigits( value );
 				DisplayDevice();
 			}
 		}
@@ -193,7 +193,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.TrailingDigits.Value; }
 			set
 			{
-				Device.TrailingDigitsAltered( value );
+				Device.NewTrailingDigits( value );
 				DisplayDevice();
 			}
 		}
@@ -203,7 +203,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.DeviceLocation.Value; }
 			set
 			{
-				Device.DeviceLocationAltered( value );
+				Device.NewDeviceLocation( value );
 				DisplayDevice();
 			}
 		}
@@ -213,7 +213,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.DeviceType.Value; }
 			set
 			{
-				Device.DeviceTypeAltered( value );
+				Device.NewDeviceType( value );
 				DisplayDevice();
 			}
 		}
@@ -233,7 +233,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.Notes.Value; }
 			set
 			{
-				Device.NotesAltered( value );
+				Device.NewNotes( value );
 				DisplayDevice();
 			}
 		}
@@ -545,14 +545,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			Initialise( all_Devices.DefaultDevice );
 			SetTabIndices();
-			SetTabStops();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm( int device_pk )
 		{
 			Initialise( all_Devices.DeviceByKey( device_pk ) );
 			SetTabIndices();
-			SetTabStops();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void Initialise( DEVICE device )
@@ -574,86 +572,33 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			cbx_Countries.TabIndex				=  0;
-			tbx_LongAreaCode.TabIndex			=  1;
-			tbx_ShortAreaCode.TabIndex			=  2;
-			tbx_LeadingDigits.TabIndex			=  3;
-			tbx_TrailingDigits.TabIndex			=  4;
-			cbx_DeviceLocation.TabIndex			=  5;
-			cbx_DeviceType.TabIndex				=  6;
-			tbx_Notes.TabIndex					=  7;
-			tbx_Filter.TabIndex					=  8;
-			btn_FirstDevice.TabIndex			=  9;
-			btn_PreviousDevice.TabIndex			= 10;
-			btn_NextDevice.TabIndex				= 11;
-			btn_LastDevice.TabIndex				= 12;
-			btn_FindDevice.TabIndex				= 13;
-			tbx_Matches.TabIndex				= 14;
-			btn_InsertDevice.TabIndex			= 15;
-			btn_UpdateDevice.TabIndex			= 16;
-			btn_CloseForm.TabIndex				= 17;
-			grp_DeviceData.TabIndex				= 100;
-			lbx_MatchingDevices.TabIndex		= 101;
-			tbx_DialNumber.TabIndex				= 103;
-			tbx_PickerNumber.TabIndex			= 104;
-			tbx_DeviceId.TabIndex				= 105;
-			lbl_PK.TabIndex						= 106;
-			lbl_CountryId.TabIndex				= 107;
-			lbl_LongAreaCode.TabIndex			= 108;
-			lbl_ShortAreaCode.TabIndex			= 109;
-			lbl_LeadingDigits.TabIndex			= 110;
-			lbl_TrailingDigits.TabIndex			= 111;
-			lbl_DeviceType.TabIndex				= 112;
-			lbl_DialNumber.TabIndex				= 113;
-			lbl_PickerNumber.TabIndex			= 114;
-			lbl_Note.TabIndex					= 115;
-			lbl_Search.TabIndex					= 116;
-			lbl_DeviceLocation.TabIndex			= 117;
-			lbl_FindPk.TabIndex					= 118;
-			lbl_ButtonFirst.TabIndex			= 119;
-			lbl_ButtonLast.TabIndex				= 120;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void SetTabStops()
-		{
-			cbx_Countries.TabStop				= true;
-			tbx_LongAreaCode.TabStop				= true;
-			tbx_ShortAreaCode.TabStop				= true;
-			tbx_LeadingDigits.TabStop				= true;
-			tbx_TrailingDigits.TabStop				= true;
-			cbx_DeviceLocation.TabStop				= true;
-			cbx_DeviceType.TabStop				= true;
-			tbx_Notes.TabStop				= true;
-			tbx_Filter.TabStop				= true;
-			btn_FirstDevice.TabStop				= true;
-			btn_PreviousDevice.TabStop				= true;
-			btn_NextDevice.TabStop				= true;
-			btn_LastDevice.TabStop				= true;
-			btn_FindDevice.TabStop				= true;
-			tbx_Matches.TabStop				= true;
-			btn_InsertDevice.TabStop				= true;
-			btn_UpdateDevice.TabStop				= true;
-			btn_CloseForm.TabStop				= true;
-			grp_DeviceData.TabStop				= false;
-			lbx_MatchingDevices.TabStop				= false;
-			tbx_DialNumber.TabStop				= false;
-			tbx_PickerNumber.TabStop				= false;
-			tbx_DeviceId.TabStop				= false;
-			lbl_PK.TabStop				= false;
-			lbl_CountryId.TabStop				= false;
-			lbl_LongAreaCode.TabStop				= false;
-			lbl_ShortAreaCode.TabStop				= false;
-			lbl_LeadingDigits.TabStop				= false;
-			lbl_TrailingDigits.TabStop				= false;
-			lbl_DeviceType.TabStop				= false;
-			lbl_DialNumber.TabStop				= false;
-			lbl_PickerNumber.TabStop				= false;
-			lbl_Note.TabStop				= false;
-			lbl_Search.TabStop				= false;
-			lbl_DeviceLocation.TabStop				= false;
-			lbl_FindPk.TabStop				= false;
-			lbl_ButtonFirst.TabStop				= false;
-			lbl_ButtonLast.TabStop				= false;
+			tbx_Matches.TabIndex				=  0;
+			cbx_Countries.TabIndex				=  1;
+			tbx_LongAreaCode.TabIndex			=  2;
+			tbx_ShortAreaCode.TabIndex			=  3;
+			tbx_LeadingDigits.TabIndex			=  4;
+			tbx_TrailingDigits.TabIndex			=  5;
+			cbx_DeviceLocation.TabIndex			=  6;
+			cbx_DeviceType.TabIndex				=  7;
+			tbx_Notes.TabIndex					=  8;
+
+			chk_Selected.TabIndex				=  9;
+			chk_DefaultRow.TabIndex				= 10;
+			chk_Blocked.TabIndex				= 11;
+			chk_X_Person.TabIndex				= 12;
+			chk_X_Group.TabIndex				= 13;
+			chk_X_Family.TabIndex				= 14;
+
+			tbx_Filter.TabIndex					= 15;
+			btn_FirstDevice.TabIndex			= 16;
+			btn_PreviousDevice.TabIndex			= 17;
+			btn_NextDevice.TabIndex				= 18;
+			btn_LastDevice.TabIndex				= 19;
+			btn_NewDevice.TabIndex				= 20;
+			btn_InsertDevice.TabIndex			= 21;
+			btn_UpdateDevice.TabIndex			= 22;
+			btn_FindDevice.TabIndex				= 23;
+			btn_CloseForm.TabIndex				= 24;
 		}
 		#endregion
 	}
