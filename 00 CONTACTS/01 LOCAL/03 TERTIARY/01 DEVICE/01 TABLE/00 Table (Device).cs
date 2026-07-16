@@ -16,6 +16,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 	public partial class Table : BASE_TABLE
 	{
 		#region DECLARATIONS
+		//TODO: Insert "New Device".
 		#endregion
 
 

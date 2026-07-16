@@ -45,6 +45,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses.st_VcfExtended,
 						TDF_Addresses.st_ExcelPattern,
 						TDF_Addresses.is_Christmas,
+
 						TDF_Countries.st_CountryName,
 						TDF_Countries.st_CountryCode,
 						TDF_Countries.st_ShortIsoCode,
