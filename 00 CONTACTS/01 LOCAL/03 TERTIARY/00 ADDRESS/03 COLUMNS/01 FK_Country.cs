@@ -74,14 +74,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get { return base.VcfValue == String.Empty ? no_VCF_Value : base.AsString; }
 			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns a value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.TextboxValue == String.Empty ? String.Empty : base.AsString; }
-			}
 			#endregion
 
 

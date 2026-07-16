@@ -55,34 +55,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			#endregion
 
 
-			#region EXTENSIONS
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns value formatted for use in a Find this-or-that context.
-			/// </summary>
-			override public string FinderValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns PkPerson.AsString.
-			/// </summary>
-			override public string VcfValue
-			{
-				get { return base.AsString; }
-			}
-			#endregion
-
-
 			#region DB INTERFACE
 			//_______________________________________________________________________________________________________________________________________
 			override public OleDbParameter DbParameter
