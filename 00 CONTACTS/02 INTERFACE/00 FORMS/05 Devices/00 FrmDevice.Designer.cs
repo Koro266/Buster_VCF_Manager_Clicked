@@ -88,6 +88,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_PickerNumber.Name = "tbx_PickerNumber";
 			tbx_PickerNumber.Size = new Size( 309, 25 );
 			tbx_PickerNumber.TabIndex = 12;
+			tbx_PickerNumber.TabStop = false;
 			// 
 			// tbx_DialNumber
 			// 
@@ -96,6 +97,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_DialNumber.Name = "tbx_DialNumber";
 			tbx_DialNumber.Size = new Size( 309, 25 );
 			tbx_DialNumber.TabIndex = 11;
+			tbx_DialNumber.TabStop = false;
 			// 
 			// btn_UpdateDevice
 			// 
@@ -397,6 +399,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
 			lbx_MatchingDevices.Size = new Size( 173, 334 );
 			lbx_MatchingDevices.TabIndex = 73;
+			lbx_MatchingDevices.TabStop = false;
 			lbx_MatchingDevices.SelectedIndexChanged +=  lbx_MatchingDevices_SelectedIndexChanged ;
 			// 
 			// tbx_Matches
@@ -415,7 +418,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			tbx_Notes.Size = new Size( 302, 25 );
 			tbx_Notes.TabIndex = 7;
 			tbx_Notes.TextChanged +=  tbx_Notes_TextChanged ;
-			tbx_Notes.Leave +=  tbx_Notes_Leave ;
 			// 
 			// lbl_Note
 			// 

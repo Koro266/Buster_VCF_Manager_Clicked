@@ -34,7 +34,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private LIKE_ROW[] matching_Devices;
 		private MESSENGER _Messenger;
 		private EVENT_STATE _EventState;
-		private TXT_GATHER txt_Accumulator;
 		#endregion
 
 
@@ -87,6 +86,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
+
 		#region RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
 		private DEVICE Device
@@ -138,7 +138,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			if ( all_Devices.InsertDevice( Device ) )
 			{
 				_Messenger.InsertSucceeded();
-				Device = all_Devices.CurrentDevice;
+				//Device = all_Devices.CurrentDevice;
 			}
 			else
 			{
@@ -362,11 +362,6 @@ namespace CONTACTS.INTERFACE.FORMS
 					DevicePk = dlg_find_device.SelectedDevice;
 			}
 		}
-		//___________________________________________________________________________________________________________________________________________
-		private void Accumulator( string s )
-		{
-			txt_Accumulator = new TXT_GATHER( s );
-		}
 		#endregion
 
 
@@ -434,6 +429,12 @@ namespace CONTACTS.INTERFACE.FORMS
 				TrailingDigits = tbx_TrailingDigits.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
+		private void tbx_Notes_TextChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				Notes = tbx_Notes.Text;
+		}
+		//___________________________________________________________________________________________________________________________________________
 		private void cbx_DeviceLocation_SelectedIndexChanged( object sender, EventArgs e )
 		{
 			if ( _EventState.IsEnabled )
@@ -456,26 +457,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			DevicesSelectedIndex = this.lbx_MatchingDevices.SelectedIndex;
 		}
-
-		#region NOTES
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Notes_Enter( object sender, EventArgs e )
-		{
-			Accumulator( tbx_Notes.Text );
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Notes_TextChanged( object sender, EventArgs e )
-		{
-			if ( _EventState.IsEnabled )
-				Accumulator( tbx_Notes.Text );
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Notes_Leave( object sender, EventArgs e )
-		{
-			Notes = txt_Accumulator.AsIs;
-		}
-		#endregion
-
 		#endregion
 
 
@@ -572,7 +553,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex				=  0;
+			tbx_Matches.TabIndex				=  0;	//Pre-Find
 			cbx_Countries.TabIndex				=  1;
 			tbx_LongAreaCode.TabIndex			=  2;
 			tbx_ShortAreaCode.TabIndex			=  3;
