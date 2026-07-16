@@ -9,7 +9,7 @@ using CONST		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants;
 using ORDINAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.OrdinalByName;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.DEVICE
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 {
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class Column
@@ -18,7 +18,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		public partial class IS_Blocked : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Blocked];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Unattached];
 			private NULL_BOOL type_null_pair;
 			#endregion
 

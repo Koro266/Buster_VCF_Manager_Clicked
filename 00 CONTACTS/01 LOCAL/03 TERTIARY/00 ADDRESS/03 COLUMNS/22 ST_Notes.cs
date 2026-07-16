@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
-using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
+using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants;
@@ -15,21 +15,23 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class IS_Selected : BOOL
+		public partial class ST_Notes : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Selected];
-			private NULL_BOOL type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Notes];
+			private static string no_VCF_Value = "nt";
+			private static string no_FINDER_Value = "nts";
+			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Selected( bool value ) : base( value )
+			public ST_Notes( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public IS_Selected( NULL_BOOL tnp ) : base( tnp )
+			public ST_Notes( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -47,21 +49,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get { return Factors.Ordinal; }
 			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns Selected as used in a VCF file.
-			/// </summary>
-			override public string VcfValue
+			//_______________________________________________________________________________________________________________________________________
+			override public string ToString()
 			{
-				get { return base.AsTF; }
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns true: Boolean columns always have a usable value.
-			/// </summary>
-			override public bool IsVcfValue
-			{
-				get { return true; }
+				return base.Value;
 			}
 			#endregion
 

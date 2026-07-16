@@ -9,7 +9,7 @@ using CONST		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants;
 using ORDINAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.OrdinalByName;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.DEVICE
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 {
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class Column
