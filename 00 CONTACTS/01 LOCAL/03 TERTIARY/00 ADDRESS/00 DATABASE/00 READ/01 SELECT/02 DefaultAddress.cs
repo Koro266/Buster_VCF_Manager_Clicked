@@ -45,7 +45,15 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses.st_VcfPhysical,
 						TDF_Addresses.st_VcfExtended,
 						TDF_Addresses.st_ExcelPattern,
+
+						TDF_Addresses.is_Selected,
+						TDF_Addresses.is_DefaultRow,
+						TDF_Addresses.is_Unattached,
+						TDF_Addresses.is_X_Person,
+						TDF_Addresses.is_X_Group,
+						TDF_Addresses.is_X_Family,
 						TDF_Addresses.is_Christmas,
+
 						TDF_Countries.st_CountryName,
 						TDF_Countries.st_CountryCode,
 						TDF_Countries.st_ShortIsoCode,
