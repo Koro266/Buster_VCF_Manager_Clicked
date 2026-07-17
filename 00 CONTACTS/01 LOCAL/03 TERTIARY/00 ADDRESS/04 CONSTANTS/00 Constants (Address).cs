@@ -171,44 +171,44 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			2,		//ShortIsoCode
 			3		//LongIsoCode
 		};
-		//___________________________________________________________________________________________________________________________________	
-		public static string[] Prompts =
-		{
-			"Primary Key, AutoNum, int.",
-			"FK into TDF_Countries.pk_Country. Default value = 0 (i.e., New Zealand). Required = True.",
-			"Name of resident building, over-arching  organisation, etc.",
-			"Floor number / level number where person/family lives or organisation resides.",
-			"Number / identifier of apartment, unit, suite, villa, flat, etc.",
-			"Non-regular information to supplement some portion of the address.",
-			"Rural delivery address / routing code. Max length=5, Format: 'RD' followed by a one- or two-digit number, space between 'RD' and number is allowed.",
-			"Physical location postal delivery code (zip code).",
-			"Post office box number / label.",
-			"'House' number (number identifier) portion of a conventional street address.",
-			"Street name portion of a conventional street address.",
-			"Street type: 'Street', Avenue', 'Road', etc. Fully spelled out. No abbreviations.",
-			"'Compass' indication: 'N', 'W', 'SW', 'North', etc, as part of physical address.",
-			"Suburb name.",
-			"City name.",
-			"Name of over-arching entity of 'cities', e.g., Wellington, Porirua, Plimmerton, Upper & Lower Hutt, etc.",
-			"Full name of province, state, prefecture, etc.",
-			"Abbreviation (code) of province name.",
-			"Pattern used to construct a postal VCF address (i.e., the ADR line) entry. Used for addresses that include a PO Box or rural delivery",
-			"Pattern used to construct a physical VCF address (i.e., the ADR line) entry. Typically used for a 'street' addresses.",
-			"Pattern used to construct an extended VCF address (i.e., the ADR line) entry. Used for 'non-regular' address data (e.g., a building name, unit number, etc).",
-			"Pattern used to construct a line of address information intended to be imported into Excel (Christmas letters, see Families_X_Addresses).",
-			"General-purpose text field. [255].",
-			"General-purpose selection flag. Default value = False.",
-			"TRUE = Address is used as the Contact Manager default  Address object. Default value = False.",
-			"TRUE = Address is not attached to any Person, Group, or Family. Default value = False.",
-			"TRUE = Address is attached to a Person. Default value = False.",
-			"TRUE = Address is attached to a Group. Default value = False.",
-			"TRUE = Address is attached to a Family. Default value = False.",
-			"TRUE = Address is (or was) used for the Christmas letter. TDF_Families_X_Address.IsChristmas identifies familes that currently receive the letter.  Default value = False.",
-			"CountryName",
-			"CountryCode",
-			"ShortIsoCode",
-			"LongIsoCode"
-		};
+		////___________________________________________________________________________________________________________________________________	
+		//public static string[] Prompts =
+		//{
+		//	"Primary Key, AutoNum, int.",
+		//	"FK into TDF_Countries.pk_Country. Default value = 0 (i.e., New Zealand). Required = True.",
+		//	"Name of resident building, over-arching  organisation, etc.",
+		//	"Floor number / level number where person/family lives or organisation resides.",
+		//	"Number / identifier of apartment, unit, suite, villa, flat, etc.",
+		//	"Non-regular information to supplement some portion of the address.",
+		//	"Rural delivery address / routing code. Max length=5, Format: 'RD' followed by a one- or two-digit number, space between 'RD' and number is allowed.",
+		//	"Physical location postal delivery code (zip code).",
+		//	"Post office box number / label.",
+		//	"'House' number (number identifier) portion of a conventional street address.",
+		//	"Street name portion of a conventional street address.",
+		//	"Street type: 'Street', Avenue', 'Road', etc. Fully spelled out. No abbreviations.",
+		//	"'Compass' indication: 'N', 'W', 'SW', 'North', etc, as part of physical address.",
+		//	"Suburb name.",
+		//	"City name.",
+		//	"Name of over-arching entity of 'cities', e.g., Wellington, Porirua, Plimmerton, Upper & Lower Hutt, etc.",
+		//	"Full name of province, state, prefecture, etc.",
+		//	"Abbreviation (code) of province name.",
+		//	"Pattern used to construct a postal VCF address (i.e., the ADR line) entry. Used for addresses that include a PO Box or rural delivery",
+		//	"Pattern used to construct a physical VCF address (i.e., the ADR line) entry. Typically used for a 'street' addresses.",
+		//	"Pattern used to construct an extended VCF address (i.e., the ADR line) entry. Used for 'non-regular' address data (e.g., a building name, unit number, etc).",
+		//	"Pattern used to construct a line of address information intended to be imported into Excel (Christmas letters, see Families_X_Addresses).",
+		//	"General-purpose text field. [255].",
+		//	"General-purpose selection flag. Default value = False.",
+		//	"TRUE = Address is used as the Contact Manager default  Address object. Default value = False.",
+		//	"TRUE = Address is not attached to any Person, Group, or Family. Default value = False.",
+		//	"TRUE = Address is attached to a Person. Default value = False.",
+		//	"TRUE = Address is attached to a Group. Default value = False.",
+		//	"TRUE = Address is attached to a Family. Default value = False.",
+		//	"TRUE = Address is (or was) used for the Christmas letter. TDF_Families_X_Address.IsChristmas identifies familes that currently receive the letter.  Default value = False.",
+		//	"CountryName",
+		//	"CountryCode",
+		//	"ShortIsoCode",
+		//	"LongIsoCode"
+		//};
 		//___________________________________________________________________________________________________________________________________________
 		public static class Reconstruction
 		{
@@ -416,165 +416,165 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 
 
 		#region NON-ORDINAL CONSTANTS
-		//___________________________________________________________________________________________________________________________________________
-		public static class Reminders
-		{
-			public static string[] PkAddress = { "Primary Key, AutoNum, int." };
+		////___________________________________________________________________________________________________________________________________________
+		//public static class Reminders
+		//{
+		//	public static string[] PkAddress = { "Primary Key, AutoNum, int." };
 
-			public static string[] FkCountry = { "FK into TDF_Countries.pk_Country.",
-												 "Default value = 0 (i.e., NZ)"," Required = True." };
+		//	public static string[] FkCountry = { "FK into TDF_Countries.pk_Country.",
+		//										 "Default value = 0 (i.e., NZ)"," Required = True." };
 
-			public static string[] StAssemblage = { "'Assemblage': building name, 'enclosing' organisation, etc.",
-													"as   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-													"No default.",
-													"Max Length 50."};
+		//	public static string[] StAssemblage = { "'Assemblage': building name, 'enclosing' organisation, etc.",
+		//											"as   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//											"No default.",
+		//											"Max Length 50."};
 
-			public static string[] StLevel = { "Level/floor number portion of the address.",
-											   "lv   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-											   "No default.",
-											   "Max Length 20." };
+		//	public static string[] StLevel = { "Level/floor number portion of the address.",
+		//									   "lv   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//									   "No default.",
+		//									   "Max Length 20." };
 
-			public static string[] StUnit = { "Unit number/identifier of office, apartment, suite, villa, flat, etc.",
-																"un   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 20." };
-			public static string[] StExtension = { "'Extended', irregular information that supplements some portion of the address.",
-																"ex   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 30." };
-			public static string[] StRuralDelivery = { "Rural delivery / RDn routing designator.",
-																"rd   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 5." };
-			public static string[] StPostalCode = { "Postal delivery code (zip code).",
-																"pc   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 15." };
-			public static string[] StBoxNumber = { "Post office box number/label. Box number only.",
-																"bx   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 15." };
-			public static string[] StHouseNumber = { "House number portion of a conventional street address.",
-																"hn   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 10." };
-			public static string[] StStreetName = { "Street name portion of a conventional street address.",
-																"sn   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 25." };
-			public static string[] StStreetType = { "Street type: 'Street', Avenue', 'Road', etc. Unabbreviated.",
-																"st   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 20." };
-			public static string[] StCompass = { "'Compass' indication: 'N', 'W', 'SW', 'Northwest', etc. as part of an  address.",
-																"cp   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 20." };
-			public static string[] StSuburb = { "Suburb name. Unabbreviated.",
-																"sb   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 50." };
-			public static string[] StCity = { "City name. Unabbreviated.",
-																"ct   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 50." };
-			public static string[] StMetropolitan = { "Metropolitan name. Over-arching collection of 'cities', e.g., Wellington, Porirua, Plimmerton.",
-																"mt   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"Default: 'Wellington'",
-																"Max Length 50." };
-			public static string[] StProvinceName = { "Province, state, prefecture, etc. Unabbreviated.",
-																"pv   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"Default: 'WELLINGTON'",
-																"Max Length 50." };
-			public static string[] StProvinceCode = { "Abbreviated name of province, state, prefecture, etc.",
-																"pa   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
-																"No default.",
-																"Max Length 50." };
-			public static string[] StVcfPostal = { "Pattern used to construct a postal VCF address (i.e., the ADR line) entry. Used for addresses that include a PO Box or rural delivery" };
-			public static string[] StVcfPhysical = { "Pattern used to construct a physical VCF address (i.e., the ADR line) entry. Typically used for a 'street' addresses." };
-			public static string[] StVcfExtended = { "Pattern used to construct an extended VCF address (i.e., the ADR line) entry. Used for 'non-regular' address data (e.g., a building name, unit number, etc)." };
-			public static string[] StExcelPattern = { "Pattern used to construct a line of address information intended to be imported into Excel (Christmas letters, see Families_X_Addresses)." };
-			public static string[] IsChristmas = { "TRUE: address is (or was) used for the Christmas letter. TDF_Families_X_Address.IsChristmas identifies familes that currently receive the letter.  Default value = False." };
-			public static string[] IsSelected = { "General-purpose selection flag." };
-			public static string[] IsArchived = { "TRUE: Address not currently attached to an entity. Default value = False." };
-			public static string[] IsDeletable = { "TRUE: Address is a candidate for a real delete. Default value = False." };
-			public static string[] IsDataIssue = { "TRUE: Row is related to, has some connection with, a data problem or some generic issue. Default value = False." };
-			public static string[] CountryName = { "Country name.",
-																"cy   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)" };
-			public static string[] CountryCode = { "Country telecommunications code/identifier.",
-																"NZ: 64" };
-			public static string[] ShortIsoCode = { "Short ISO country codes/abbreviation.",
-																"si   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)" };
-			public static string[] LongIsoCode = { "Long ISO country codes/abbreviation.",
-																"li   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)" };
-			public static string[] VcfRealised = { "A VCF pattern realised or tokenised.",
-																"Replacement tokens replaced with actual data." };
-			public static string[] VcfPostal = { "VCF file postal ADR line.",
-																"Pattern used to construct a postal VCF address (ADR) entry.",
-																"Used for addresses that include a PO Box or rural delivery",
-																"ADR pattern for a postal address." };
-			public static string[] VcfPhysical = { "VCF file physical ADR line.",
-																"Pattern used to construct a physical VCF address (ADR) entry.",
-																"Typically used for a street addresses.",
-																"ADR pattern for a physical address." };
-			public static string[] VcfExtended = { "VCF file extended ADR line. ",
-																"Pattern used to construct an extended VCF address (ADR) entry.",
-																"Used for 'non-regular' address data (e.g., a building name, unit number, ...).",
-																"ADR pattern for a rural delivery address." };
-			public static string[] ExcelPattern = { "Excel-based address pattern.",
-																"Pattern used to construct a line of address information that may be imported into Excel.",
-																"Tab-separated values intended for an Excel-based address list." };
-			public static string[] ExcelRealised = { "Excel-based address line.",
-																"The realisation of the Excel pattern using actual data.",
-																"Tab-separated values intended for an Excel-based address list." };
-			public static string[] Christmas = { "Christmas? : Boolean.",
-																"is_Christmas = TRUE if address used for the Christmas letter." };
-			public static string[] Selected = { "Selected? : Boolean.",
-																"General-purpose selection flag." };
-			public static string[] Archived = { "Archived? : Boolean.",
-																"TRUE: Address not currently attached to an entity." };
-			public static string[] BtnDefPostalRule = { "Inserts default postal rule.",
-																@"Default: ';;/hn /sn /st\n/ct, /pc\n/cy;;;;'" };
-			public static string[] BtnDefPhysicalRule = { "Inserts default physical rule.",
-																@"Default:';;/hn /sn /st\n/sb, /ct\n/mt, /pv\n/cy;;;;'" };
-			public static string[] BtnDefExtendedRule = { "Inserts default extended rule.",
-																@"Default: ';;/as\n/lv\n/un\n/ex;;;;'" };
-			public static string[] BtnDefExcelRule = { "Inserts default Excel row rule.",
-																@"Default: 'SID*AID*FID*SRT*OUT*/hn /sn /st*/ct*/pc*/cy'",
-																"SID = Replaced with 'Sort ID', sequential standard sort integers.",
-																"AID = Replaced with PkAddress",
-																"FID = Replaced with PkFamily",
-																"SRT = Replaced with family sortable name.",
-																"OUT = Replaced with family name that appears on the envelope (postal name)."};
-			public static string[] BtnAddressFilter = { "Enter integer number (PkAddress), hit RETURN.",
-																"If PK is extant, displays that address.",
-																"Otherwise, a null address is displayed." };
-			public static string[] BtnMoveToFirst = { "Moves to address with the smallest PkAddress." };
-			public static string[] BtnMoveToPrevious = { "Moves to the previous (next lower) extant PkAddress.",
-																"Stops at minimum PkAddress.",
-																"Skips PK voids." };
-			public static string[] BtnMoveToNext = { "Moves to the next higher extant PkAddress.",
-																"Stops at current maximum PkAddress.",
-																"Skips PK voids." };
-			public static string[] BtnMoveToLast = { "Moves to address with the current largest PkAddress." };
-			public static string[] BtnNewAddress = { "Creates and displays a null address." };
-			public static string[] BtnInsertAddress = { "Inserts a new address row into the database." };
-			public static string[] BtnUpdateAddress = { "Updates an existing database address row." };
-			public static string[] BtnFindAddress = { "Opens address finder form." };
-			public static string[] BtnCloseForm = { "Closes form. NB: Does NOT check for unsaved work." };
-			public static string[] CbxStreetType = { "List of all street types currently in use.", "Selected item appears in Street Type control." };
-			public static string[] CbxPostalCode = { "List of commonly used 'local' postal codes.", "Selected item appears in Postal Code control." };
-			public static string[] CbxStreetName = { "List of all street names currently in use.", "Selected item appears in Street Name control." };
-			public static string[] CbxSuburb = { "List of all suburbs currently in use.", "Selected item appears in Suburb control." };
-			public static string[] CbxCity = { "List of all cities currently in use.", "Selected item appears in City control." };
-			public static string[] CbxProvince = { "List of all provinces currently in use.", "Selected item appears in Province control." };
-			public static string[] CbxCountry = { "List of all countries.", "Selected item appears in Country controls." };
-			public static string[] CbxAddressType = { "List of all address types currently in use.", "Selected item appears in realisation." };
-			public static string[] IsDefaultRow = { "TRUE: Row is the designated DEFAULT row. Default value = False." };
-			public static string[] IsNewRow = { "TRUE: Row is the designated NEW row. Default value = False." };
-			public static string[] IsNullRow = { "TRUE: Row is the designated NULL row. Default value = False." };
-			public static string[] Void = { "—" };
-		}
+		//	public static string[] StUnit = { "Unit number/identifier of office, apartment, suite, villa, flat, etc.",
+		//														"un   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 20." };
+		//	public static string[] StExtension = { "'Extended', irregular information that supplements some portion of the address.",
+		//														"ex   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 30." };
+		//	public static string[] StRuralDelivery = { "Rural delivery / RDn routing designator.",
+		//														"rd   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 5." };
+		//	public static string[] StPostalCode = { "Postal delivery code (zip code).",
+		//														"pc   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 15." };
+		//	public static string[] StBoxNumber = { "Post office box number/label. Box number only.",
+		//														"bx   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 15." };
+		//	public static string[] StHouseNumber = { "House number portion of a conventional street address.",
+		//														"hn   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 10." };
+		//	public static string[] StStreetName = { "Street name portion of a conventional street address.",
+		//														"sn   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 25." };
+		//	public static string[] StStreetType = { "Street type: 'Street', Avenue', 'Road', etc. Unabbreviated.",
+		//														"st   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 20." };
+		//	public static string[] StCompass = { "'Compass' indication: 'N', 'W', 'SW', 'Northwest', etc. as part of an  address.",
+		//														"cp   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 20." };
+		//	public static string[] StSuburb = { "Suburb name. Unabbreviated.",
+		//														"sb   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 50." };
+		//	public static string[] StCity = { "City name. Unabbreviated.",
+		//														"ct   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 50." };
+		//	public static string[] StMetropolitan = { "Metropolitan name. Over-arching collection of 'cities', e.g., Wellington, Porirua, Plimmerton.",
+		//														"mt   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"Default: 'Wellington'",
+		//														"Max Length 50." };
+		//	public static string[] StProvinceName = { "Province, state, prefecture, etc. Unabbreviated.",
+		//														"pv   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"Default: 'WELLINGTON'",
+		//														"Max Length 50." };
+		//	public static string[] StProvinceCode = { "Abbreviated name of province, state, prefecture, etc.",
+		//														"pa   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)",
+		//														"No default.",
+		//														"Max Length 50." };
+		//	public static string[] StVcfPostal = { "Pattern used to construct a postal VCF address (i.e., the ADR line) entry. Used for addresses that include a PO Box or rural delivery" };
+		//	public static string[] StVcfPhysical = { "Pattern used to construct a physical VCF address (i.e., the ADR line) entry. Typically used for a 'street' addresses." };
+		//	public static string[] StVcfExtended = { "Pattern used to construct an extended VCF address (i.e., the ADR line) entry. Used for 'non-regular' address data (e.g., a building name, unit number, etc)." };
+		//	public static string[] StExcelPattern = { "Pattern used to construct a line of address information intended to be imported into Excel (Christmas letters, see Families_X_Addresses)." };
+		//	public static string[] IsChristmas = { "TRUE: address is (or was) used for the Christmas letter. TDF_Families_X_Address.IsChristmas identifies familes that currently receive the letter.  Default value = False." };
+		//	public static string[] IsSelected = { "General-purpose selection flag." };
+		//	public static string[] IsArchived = { "TRUE: Address not currently attached to an entity. Default value = False." };
+		//	public static string[] IsDeletable = { "TRUE: Address is a candidate for a real delete. Default value = False." };
+		//	public static string[] IsDataIssue = { "TRUE: Row is related to, has some connection with, a data problem or some generic issue. Default value = False." };
+		//	public static string[] CountryName = { "Country name.",
+		//														"cy   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)" };
+		//	public static string[] CountryCode = { "Country telecommunications code/identifier.",
+		//														"NZ: 64" };
+		//	public static string[] ShortIsoCode = { "Short ISO country codes/abbreviation.",
+		//														"si   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)" };
+		//	public static string[] LongIsoCode = { "Long ISO country codes/abbreviation.",
+		//														"li   (/=As is,   ^=UPPER,   |=Proper,   ~=lower,   >=INIT,   <=init)" };
+		//	public static string[] VcfRealised = { "A VCF pattern realised or tokenised.",
+		//														"Replacement tokens replaced with actual data." };
+		//	public static string[] VcfPostal = { "VCF file postal ADR line.",
+		//														"Pattern used to construct a postal VCF address (ADR) entry.",
+		//														"Used for addresses that include a PO Box or rural delivery",
+		//														"ADR pattern for a postal address." };
+		//	public static string[] VcfPhysical = { "VCF file physical ADR line.",
+		//														"Pattern used to construct a physical VCF address (ADR) entry.",
+		//														"Typically used for a street addresses.",
+		//														"ADR pattern for a physical address." };
+		//	public static string[] VcfExtended = { "VCF file extended ADR line. ",
+		//														"Pattern used to construct an extended VCF address (ADR) entry.",
+		//														"Used for 'non-regular' address data (e.g., a building name, unit number, ...).",
+		//														"ADR pattern for a rural delivery address." };
+		//	public static string[] ExcelPattern = { "Excel-based address pattern.",
+		//														"Pattern used to construct a line of address information that may be imported into Excel.",
+		//														"Tab-separated values intended for an Excel-based address list." };
+		//	public static string[] ExcelRealised = { "Excel-based address line.",
+		//														"The realisation of the Excel pattern using actual data.",
+		//														"Tab-separated values intended for an Excel-based address list." };
+		//	public static string[] Christmas = { "Christmas? : Boolean.",
+		//														"is_Christmas = TRUE if address used for the Christmas letter." };
+		//	public static string[] Selected = { "Selected? : Boolean.",
+		//														"General-purpose selection flag." };
+		//	public static string[] Archived = { "Archived? : Boolean.",
+		//														"TRUE: Address not currently attached to an entity." };
+		//	public static string[] BtnDefPostalRule = { "Inserts default postal rule.",
+		//														@"Default: ';;/hn /sn /st\n/ct, /pc\n/cy;;;;'" };
+		//	public static string[] BtnDefPhysicalRule = { "Inserts default physical rule.",
+		//														@"Default:';;/hn /sn /st\n/sb, /ct\n/mt, /pv\n/cy;;;;'" };
+		//	public static string[] BtnDefExtendedRule = { "Inserts default extended rule.",
+		//														@"Default: ';;/as\n/lv\n/un\n/ex;;;;'" };
+		//	public static string[] BtnDefExcelRule = { "Inserts default Excel row rule.",
+		//														@"Default: 'SID*AID*FID*SRT*OUT*/hn /sn /st*/ct*/pc*/cy'",
+		//														"SID = Replaced with 'Sort ID', sequential standard sort integers.",
+		//														"AID = Replaced with PkAddress",
+		//														"FID = Replaced with PkFamily",
+		//														"SRT = Replaced with family sortable name.",
+		//														"OUT = Replaced with family name that appears on the envelope (postal name)."};
+		//	public static string[] BtnAddressFilter = { "Enter integer number (PkAddress), hit RETURN.",
+		//														"If PK is extant, displays that address.",
+		//														"Otherwise, a null address is displayed." };
+		//	public static string[] BtnMoveToFirst = { "Moves to address with the smallest PkAddress." };
+		//	public static string[] BtnMoveToPrevious = { "Moves to the previous (next lower) extant PkAddress.",
+		//														"Stops at minimum PkAddress.",
+		//														"Skips PK voids." };
+		//	public static string[] BtnMoveToNext = { "Moves to the next higher extant PkAddress.",
+		//														"Stops at current maximum PkAddress.",
+		//														"Skips PK voids." };
+		//	public static string[] BtnMoveToLast = { "Moves to address with the current largest PkAddress." };
+		//	public static string[] BtnNewAddress = { "Creates and displays a null address." };
+		//	public static string[] BtnInsertAddress = { "Inserts a new address row into the database." };
+		//	public static string[] BtnUpdateAddress = { "Updates an existing database address row." };
+		//	public static string[] BtnFindAddress = { "Opens address finder form." };
+		//	public static string[] BtnCloseForm = { "Closes form. NB: Does NOT check for unsaved work." };
+		//	public static string[] CbxStreetType = { "List of all street types currently in use.", "Selected item appears in Street Type control." };
+		//	public static string[] CbxPostalCode = { "List of commonly used 'local' postal codes.", "Selected item appears in Postal Code control." };
+		//	public static string[] CbxStreetName = { "List of all street names currently in use.", "Selected item appears in Street Name control." };
+		//	public static string[] CbxSuburb = { "List of all suburbs currently in use.", "Selected item appears in Suburb control." };
+		//	public static string[] CbxCity = { "List of all cities currently in use.", "Selected item appears in City control." };
+		//	public static string[] CbxProvince = { "List of all provinces currently in use.", "Selected item appears in Province control." };
+		//	public static string[] CbxCountry = { "List of all countries.", "Selected item appears in Country controls." };
+		//	public static string[] CbxAddressType = { "List of all address types currently in use.", "Selected item appears in realisation." };
+		//	public static string[] IsDefaultRow = { "TRUE: Row is the designated DEFAULT row. Default value = False." };
+		//	public static string[] IsNewRow = { "TRUE: Row is the designated NEW row. Default value = False." };
+		//	public static string[] IsNullRow = { "TRUE: Row is the designated NULL row. Default value = False." };
+		//	public static string[] Void = { "—" };
+		//}
 		#endregion
 
 
