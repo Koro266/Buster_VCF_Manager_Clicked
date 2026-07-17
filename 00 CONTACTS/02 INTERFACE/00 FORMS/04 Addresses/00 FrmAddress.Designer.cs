@@ -118,7 +118,6 @@
 			cbx_PostalCode.Size = new Size( 172, 24 );
 			cbx_PostalCode.TabIndex = 2;
 			cbx_PostalCode.SelectedValueChanged +=  cbx_PostalCode_SelectedValueChanged ;
-			cbx_PostalCode.Enter +=  cbx_PostalCode_Enter ;
 			// 
 			// tbx_LongIsoCode
 			// 
@@ -127,7 +126,6 @@
 			tbx_LongIsoCode.Name = "tbx_LongIsoCode";
 			tbx_LongIsoCode.Size = new Size( 60, 22 );
 			tbx_LongIsoCode.TabIndex = 5;
-			tbx_LongIsoCode.Enter +=  tbx_LongIsoCode_Enter ;
 			// 
 			// cbx_ProvinceName
 			// 
@@ -139,7 +137,6 @@
 			cbx_ProvinceName.Size = new Size( 172, 24 );
 			cbx_ProvinceName.TabIndex = 2;
 			cbx_ProvinceName.SelectedValueChanged +=  cbx_Province_SelectedValueChanged ;
-			cbx_ProvinceName.Enter +=  cbx_ProvinceName_Enter ;
 			// 
 			// cbx_Country
 			// 
@@ -153,7 +150,6 @@
 			cbx_Country.TabIndex = 0;
 			cbx_Country.ValueMember = "\"PkAddress\"";
 			cbx_Country.SelectedValueChanged +=  cbx_Country_SelectedValueChanged ;
-			cbx_Country.Enter +=  cbx_FkCountry_Enter ;
 			// 
 			// tbx_CountryCode
 			// 
@@ -162,7 +158,6 @@
 			tbx_CountryCode.Name = "tbx_CountryCode";
 			tbx_CountryCode.Size = new Size( 52, 22 );
 			tbx_CountryCode.TabIndex = 3;
-			tbx_CountryCode.Enter +=  tbx_CountryCode_Enter ;
 			// 
 			// lbl_CountryCode
 			// 
@@ -183,7 +178,6 @@
 			tbx_ExcelPattern.Size = new Size( 561, 22 );
 			tbx_ExcelPattern.TabIndex = 1;
 			tbx_ExcelPattern.TextChanged +=  tbx_XL_RowPattern_TextChanged ;
-			tbx_ExcelPattern.Enter +=  tbx_XL_RowAddress_Enter ;
 			// 
 			// lbl_Metropolitan
 			// 
@@ -205,7 +199,6 @@
 			tbx_VcfExtended.TabIndex = 5;
 			tbx_VcfExtended.Tag = "";
 			tbx_VcfExtended.TextChanged +=  tbx_ExtendedPattern_TextChanged ;
-			tbx_VcfExtended.Enter +=  tbx_ExtendedPattern_Enter ;
 			// 
 			// tbx_VcfPostal
 			// 
@@ -215,7 +208,6 @@
 			tbx_VcfPostal.Size = new Size( 385, 27 );
 			tbx_VcfPostal.TabIndex = 1;
 			tbx_VcfPostal.TextChanged +=  tbx_PostalPattern_TextChanged ;
-			tbx_VcfPostal.Enter +=  tbx_PostalAddress_Enter ;
 			// 
 			// lbl_PostalCode
 			// 
@@ -237,7 +229,6 @@
 			tbx_VcfPhysical.TabIndex = 3;
 			tbx_VcfPhysical.Tag = "";
 			tbx_VcfPhysical.TextChanged +=  tbx_PhysicalPattern_TextChanged ;
-			tbx_VcfPhysical.Enter +=  tbx_PhysicalAddress_Enter ;
 			// 
 			// tbx_ShortIsoCode
 			// 
@@ -246,7 +237,6 @@
 			tbx_ShortIsoCode.Name = "tbx_ShortIsoCode";
 			tbx_ShortIsoCode.Size = new Size( 60, 22 );
 			tbx_ShortIsoCode.TabIndex = 4;
-			tbx_ShortIsoCode.Enter +=  tbx_ShortIsoCode_Enter ;
 			// 
 			// tbx_ProvinceName
 			// 
@@ -277,7 +267,6 @@
 			tbx_CountryName.Name = "tbx_CountryName";
 			tbx_CountryName.Size = new Size( 316, 22 );
 			tbx_CountryName.TabIndex = 2;
-			tbx_CountryName.Enter +=  tbx_CountryName_Enter ;
 			// 
 			// lbl_ProvinceCode
 			// 
@@ -367,7 +356,6 @@
 			cbx_StreetName.Size = new Size( 172, 24 );
 			cbx_StreetName.TabIndex = 1;
 			cbx_StreetName.SelectedValueChanged +=  cbx_StreetName_SelectedValueChanged ;
-			cbx_StreetName.Enter +=  cbx_StreetName_Enter ;
 			// 
 			// tbx_Suburb
 			// 
@@ -390,7 +378,6 @@
 			cbx_City.Size = new Size( 172, 24 );
 			cbx_City.TabIndex = 8;
 			cbx_City.SelectedValueChanged +=  cbx_City_SelectedValueChanged ;
-			cbx_City.Enter +=  cbx_City_Enter ;
 			// 
 			// tbx_RuralDelivery
 			// 
@@ -468,7 +455,6 @@
 			cbx_Suburb.Size = new Size( 172, 24 );
 			cbx_Suburb.TabIndex = 6;
 			cbx_Suburb.SelectedValueChanged +=  cbx_Suburb_SelectedValueChanged ;
-			cbx_Suburb.Enter +=  cbx_Suburb_Enter ;
 			// 
 			// cbx_StreetType
 			// 
@@ -480,7 +466,6 @@
 			cbx_StreetType.Size = new Size( 172, 24 );
 			cbx_StreetType.TabIndex = 3;
 			cbx_StreetType.SelectedValueChanged +=  cbx_StreetType_SelectedValueChanged ;
-			cbx_StreetType.Enter +=  cbx_StreetType_Enter ;
 			// 
 			// tbx_Assemblage
 			// 
@@ -657,7 +642,6 @@
 			btn_DefaultExtendedRule.Text = "Extentions";
 			btn_DefaultExtendedRule.UseVisualStyleBackColor = true;
 			btn_DefaultExtendedRule.Click +=  btn_DefaultExtendedRule_Click ;
-			btn_DefaultExtendedRule.Enter +=  btn_DefaultExtendedRule_Enter ;
 			// 
 			// btn_DefaultPhysicalRule
 			// 
@@ -669,7 +653,6 @@
 			btn_DefaultPhysicalRule.Text = "Physical";
 			btn_DefaultPhysicalRule.UseVisualStyleBackColor = true;
 			btn_DefaultPhysicalRule.Click +=  btn_DefaultPhysicalRule_Click ;
-			btn_DefaultPhysicalRule.Enter +=  btn_DefaultPhysicalRule_Enter ;
 			// 
 			// btn_DefaultPostalRule
 			// 
@@ -681,7 +664,6 @@
 			btn_DefaultPostalRule.Text = "Postal";
 			btn_DefaultPostalRule.UseVisualStyleBackColor = true;
 			btn_DefaultPostalRule.Click +=  btn_DefaultPostalRule_Click ;
-			btn_DefaultPostalRule.Enter +=  btn_DefaultPostalRule_Enter ;
 			// 
 			// tbx_PhysicalRealised
 			// 
@@ -715,7 +697,6 @@
 			tbx_PostalRealised.Size = new Size( 385, 125 );
 			tbx_PostalRealised.TabIndex = 1;
 			tbx_PostalRealised.TabStop = false;
-			tbx_PostalRealised.Enter +=  tbx_AddressRealised_Enter ;
 			// 
 			// tbx_XL_RowRealised
 			// 
@@ -725,7 +706,6 @@
 			tbx_XL_RowRealised.Size = new Size( 660, 22 );
 			tbx_XL_RowRealised.TabIndex = 2;
 			tbx_XL_RowRealised.TabStop = false;
-			tbx_XL_RowRealised.Enter +=  tbx_XL_RowRealised_Enter ;
 			// 
 			// lbl_N
 			// 
@@ -769,7 +749,6 @@
 			btn_FirstAddress.Text = "|<";
 			btn_FirstAddress.UseVisualStyleBackColor = true;
 			btn_FirstAddress.Click +=  btn_FirstAddress_Click ;
-			btn_FirstAddress.Enter +=  btn_FirstAddress_Enter ;
 			// 
 			// btn_InsertAddress
 			// 
@@ -783,7 +762,6 @@
 			btn_InsertAddress.Text = "Insert Address";
 			btn_InsertAddress.UseVisualStyleBackColor = false;
 			btn_InsertAddress.Click +=  btn_InsertAddress_Click ;
-			btn_InsertAddress.Enter +=  btn_InsertAddress_Enter ;
 			// 
 			// btn_PreviousAddress
 			// 
@@ -795,7 +773,6 @@
 			btn_PreviousAddress.Text = "<";
 			btn_PreviousAddress.UseVisualStyleBackColor = true;
 			btn_PreviousAddress.Click +=  btn_PreviousAddress_Click ;
-			btn_PreviousAddress.Enter +=  btn_PreviousAddress_Enter ;
 			// 
 			// btn_CloseForm
 			// 
@@ -809,7 +786,6 @@
 			btn_CloseForm.Text = "Close";
 			btn_CloseForm.UseVisualStyleBackColor = false;
 			btn_CloseForm.Click +=  btn_CloseForm_Click ;
-			btn_CloseForm.Enter +=  btn_CloseForm_Enter ;
 			// 
 			// btn_LastAddress
 			// 
@@ -821,7 +797,6 @@
 			btn_LastAddress.Text = ">|";
 			btn_LastAddress.UseVisualStyleBackColor = true;
 			btn_LastAddress.Click +=  btn_LastAddress_Click ;
-			btn_LastAddress.Enter +=  btn_LastAddress_Enter ;
 			// 
 			// btn_UpdateAddress
 			// 
@@ -835,7 +810,6 @@
 			btn_UpdateAddress.Text = "Update Address";
 			btn_UpdateAddress.UseVisualStyleBackColor = false;
 			btn_UpdateAddress.Click +=  btn_Update_Click ;
-			btn_UpdateAddress.Enter +=  btn_UpdateAddress_Enter ;
 			// 
 			// btn_NextAddress
 			// 
@@ -847,7 +821,6 @@
 			btn_NextAddress.Text = ">";
 			btn_NextAddress.UseVisualStyleBackColor = true;
 			btn_NextAddress.Click +=  btn_NextAddress_Click ;
-			btn_NextAddress.Enter +=  btn_NextAddress_Enter ;
 			// 
 			// lbl_PkAddress
 			// 
@@ -870,7 +843,6 @@
 			tbx_Filter.Size = new Size( 73, 25 );
 			tbx_Filter.TabIndex = 0;
 			tbx_Filter.TextAlign = HorizontalAlignment.Right;
-			tbx_Filter.Enter +=  tbx_Filter_Enter ;
 			tbx_Filter.KeyUp +=  tbx_Filter_KeyUp ;
 			// 
 			// tbx_PkAddress
@@ -935,7 +907,6 @@
 			chk_Christmas.Text = "Christmas?";
 			chk_Christmas.UseVisualStyleBackColor = true;
 			chk_Christmas.CheckedChanged +=  chk_Christmas_CheckedChanged ;
-			chk_Christmas.Enter +=  chk_Christmas_Enter ;
 			// 
 			// tbx_FkCountry
 			// 
@@ -945,7 +916,6 @@
 			tbx_FkCountry.Size = new Size( 51, 22 );
 			tbx_FkCountry.TabIndex = 1;
 			tbx_FkCountry.TabStop = false;
-			tbx_FkCountry.Enter +=  tbx_FkCountry_Enter ;
 			// 
 			// btn_DefaultExcelRule
 			// 
@@ -957,7 +927,6 @@
 			btn_DefaultExcelRule.Text = "Excel";
 			btn_DefaultExcelRule.UseVisualStyleBackColor = true;
 			btn_DefaultExcelRule.Click +=  btn_DefaultExcelRule_Click ;
-			btn_DefaultExcelRule.Enter +=  btn_DefaultExcelRule_Enter ;
 			// 
 			// cbx_ProvinceCode
 			// 

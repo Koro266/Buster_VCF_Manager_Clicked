@@ -453,7 +453,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_HouseNumber_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_HouseNumber.Text );
-			UpdatePrompt( Address.HouseNumber.Factors.Prompt );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_HouseNumber_TextChanged( object sender, EventArgs e )
@@ -473,7 +472,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_StreetName_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_StreetName.Text );
-			UpdatePrompt( Address.StreetName.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_StreetName_TextChanged( object sender, EventArgs e )
@@ -493,7 +491,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_StreetType_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_StreetType.Text );
-			UpdatePrompt( Address.StreetType.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_StreetType_TextChanged( object sender, EventArgs e )
@@ -513,7 +510,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Compass_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Compass.Text );
-			UpdatePrompt( Address.Compass.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Compass_TextChanged( object sender, EventArgs e )
@@ -533,7 +529,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Suburb_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Suburb.Text );
-			UpdatePrompt( Address.Suburb.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Suburb_TextChanged( object sender, EventArgs e )
@@ -553,7 +548,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_City_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_City.Text );
-			UpdatePrompt( Address.City.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_City_TextChanged( object sender, EventArgs e )
@@ -573,7 +567,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Metropolitan_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Metropolitan.Text );
-			UpdatePrompt( Address.Metropolitan.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Metropolitan_TextChanged( object sender, EventArgs e )
@@ -593,7 +586,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_ProvinceName_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_ProvinceName.Text );
-			UpdatePrompt( Address.ProvinceName.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ProvinceName_TextChanged( object sender, EventArgs e )
@@ -613,7 +605,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_ProvinceCode_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_ProvinceCode.Text );
-			UpdatePrompt( Address.ProvinceCode.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ProvinceCode_TextChanged( object sender, EventArgs e )
@@ -633,7 +624,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_BoxNumber_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_BoxNumber.Text );
-			UpdatePrompt( Address.BoxNumber.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_BoxNumber_TextChanged( object sender, EventArgs e )
@@ -653,7 +643,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_RuralDelivery_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_RuralDelivery.Text );
-			UpdatePrompt( Address.RuralDelivery.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_RuralDelivery_TextChanged( object sender, EventArgs e )
@@ -673,7 +662,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_PostalCode_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_PostalCode.Text );
-			UpdatePrompt( Address.PostalCode.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_PostalCode_TextChanged( object sender, EventArgs e )
@@ -693,7 +681,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Assemblage_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Assemblage.Text );
-			UpdatePrompt( Address.Assemblage.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Assemblage_TextChanged( object sender, EventArgs e )
@@ -713,7 +700,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Level_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Level.Text );
-			UpdatePrompt( Address.Level.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Level_TextChanged( object sender, EventArgs e )
@@ -733,7 +719,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Unit_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Level.Text );
-			UpdatePrompt( Address.Unit.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Unit_TextChanged( object sender, EventArgs e )
@@ -753,7 +738,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void tbx_Extension_Enter( object sender, EventArgs e )
 		{
 			Accumulator( tbx_Extension.Text );
-			UpdatePrompt( Address.Extension.Factors.Prompt ); 
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Extension_TextChanged( object sender, EventArgs e )
@@ -951,122 +935,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
-
-		#region ENTER / PROMPT
-		//___________________________________________________________________________________________________________________________________________
-		private void UpdatePrompt( string reminder_text )
-		{
-			tbx_Prompt.Text = reminder_text;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void UpdatePrompt( string[] reminder_text )
-		{
-			tbx_Prompt.Lines = reminder_text;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_FkCountry_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.FkCountry ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_CountryName_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CountryName ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_CountryCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CountryCode ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_ShortIsoCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.ShortIsoCode ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_LongIsoCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.LongIsoCode ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void chk_Christmas_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( Address.Christmas.Factors.Prompt ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_StreetName_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CbxStreetName ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_StreetType_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CbxStreetType ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_Suburb_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CbxSuburb ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_City_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CbxCity ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_ProvinceName_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CbxProvince ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_PostalCode_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CbxPostalCode ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void cbx_FkCountry_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.CbxCountry ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_PkAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnAddressFilter ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Filter_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnAddressFilter ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_FirstAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnMoveToFirst ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_PreviousAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnMoveToPrevious ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_NextAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnMoveToNext ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_LastAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnMoveToLast ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_InsertAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnInsertAddress ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_UpdateAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnUpdateAddress ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_CloseForm_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnCloseForm ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_AddressRealised_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.VcfRealised ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_PostalAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.VcfPostal ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_ExtendedPattern_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.VcfExtended ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_PhysicalAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.VcfPhysical ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_XL_RowAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.ExcelPattern ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_XL_RowRealised_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.ExcelRealised ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_DefaultPostalRule_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnDefPostalRule ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_DefaultPhysicalRule_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnDefPhysicalRule ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_DefaultExtendedRule_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnDefExtendedRule ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_DefaultExcelRule_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnDefExcelRule ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void btn_FindAddress_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.BtnFindAddress ); }
-		//___________________________________________________________________________________________________________________________________________
-		private void ctl_Void_Enter( object sender, EventArgs e )
-		{ UpdatePrompt( REMINDER.Void ); }
-		#endregion
-
 		#endregion
 
 
@@ -1155,7 +1023,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_UpdateAddress.TabIndex = 50;
 			btn_CloseForm.TabIndex = 51;
 			tbx_PkAddress.TabIndex = 100;
-			tbx_Prompt.TabIndex = 101;
 			lbl_Unit.TabIndex = 102;
 			lbl_Assemblage.TabIndex = 103;
 			lbl_City.TabIndex = 104;
@@ -1237,7 +1104,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_UpdateAddress.TabStop = true;
 			btn_CloseForm.TabStop = true;
 			tbx_PkAddress.TabStop = false;
-			tbx_Prompt.TabStop = false;
 			lbl_Unit.TabStop = false;
 			lbl_Assemblage.TabStop = false;
 			lbl_City.TabStop = false;
@@ -1319,7 +1185,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_UpdateAddress.Enabled = true;
 			btn_CloseForm.Enabled = true;
 			tbx_PkAddress.Enabled = true;
-			tbx_Prompt.Enabled = true;
 			lbl_Unit.Enabled = true;
 			lbl_Assemblage.Enabled = true;
 			lbl_City.Enabled = true;
