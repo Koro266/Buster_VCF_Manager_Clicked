@@ -106,6 +106,12 @@
 			cbx_ProvinceCode = new ComboBox();
 			cbx_Metropolitan = new ComboBox();
 			tbx_Messages = new TextBox();
+			chk_X_Person = new CheckBox();
+			chk_Blocked = new CheckBox();
+			chk_DefaultRow = new CheckBox();
+			chk_X_Family = new CheckBox();
+			chk_X_Group = new CheckBox();
+			chk_Selected = new CheckBox();
 			SuspendLayout();
 			// 
 			// cbx_PostalCode
@@ -900,7 +906,7 @@
 			chk_Christmas.CheckAlign = ContentAlignment.MiddleRight;
 			chk_Christmas.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Christmas.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Christmas.Location = new Point( 1019, 385 );
+			chk_Christmas.Location = new Point( 1019, 206 );
 			chk_Christmas.Name = "chk_Christmas";
 			chk_Christmas.Size = new Size( 99, 23 );
 			chk_Christmas.TabIndex = 2;
@@ -961,6 +967,72 @@
 			tbx_Messages.TabIndex = 147;
 			tbx_Messages.TabStop = false;
 			// 
+			// chk_X_Person
+			// 
+			chk_X_Person.AutoSize = true;
+			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Person.Location = new Point( 1038, 413 );
+			chk_X_Person.Name = "chk_X_Person";
+			chk_X_Person.Size = new Size( 82, 19 );
+			chk_X_Person.TabIndex = 153;
+			chk_X_Person.Text = "X_Person?";
+			chk_X_Person.UseVisualStyleBackColor = true;
+			// 
+			// chk_Blocked
+			// 
+			chk_Blocked.AutoSize = true;
+			chk_Blocked.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Blocked.Location = new Point( 1038, 392 );
+			chk_Blocked.Name = "chk_Blocked";
+			chk_Blocked.Size = new Size( 76, 19 );
+			chk_Blocked.TabIndex = 152;
+			chk_Blocked.Text = "Blocked?";
+			chk_Blocked.UseVisualStyleBackColor = true;
+			// 
+			// chk_DefaultRow
+			// 
+			chk_DefaultRow.AutoSize = true;
+			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_DefaultRow.Location = new Point( 1038, 371 );
+			chk_DefaultRow.Name = "chk_DefaultRow";
+			chk_DefaultRow.Size = new Size( 101, 19 );
+			chk_DefaultRow.TabIndex = 151;
+			chk_DefaultRow.Text = "Default Row?";
+			chk_DefaultRow.UseVisualStyleBackColor = true;
+			// 
+			// chk_X_Family
+			// 
+			chk_X_Family.AutoSize = true;
+			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Family.Location = new Point( 1038, 455 );
+			chk_X_Family.Name = "chk_X_Family";
+			chk_X_Family.Size = new Size( 79, 19 );
+			chk_X_Family.TabIndex = 150;
+			chk_X_Family.Text = "X_Family?";
+			chk_X_Family.UseVisualStyleBackColor = true;
+			// 
+			// chk_X_Group
+			// 
+			chk_X_Group.AutoSize = true;
+			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Group.Location = new Point( 1038, 434 );
+			chk_X_Group.Name = "chk_X_Group";
+			chk_X_Group.Size = new Size( 79, 19 );
+			chk_X_Group.TabIndex = 149;
+			chk_X_Group.Text = "X_Group?";
+			chk_X_Group.UseVisualStyleBackColor = true;
+			// 
+			// chk_Selected
+			// 
+			chk_Selected.AutoSize = true;
+			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Selected.Location = new Point( 1038, 350 );
+			chk_Selected.Name = "chk_Selected";
+			chk_Selected.Size = new Size( 80, 19 );
+			chk_Selected.TabIndex = 148;
+			chk_Selected.Text = "Selected?";
+			chk_Selected.UseVisualStyleBackColor = true;
+			// 
 			// FrmAddress
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -968,6 +1040,12 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 1170, 692 );
+			Controls.Add( chk_X_Person );
+			Controls.Add( chk_Blocked );
+			Controls.Add( chk_DefaultRow );
+			Controls.Add( chk_X_Family );
+			Controls.Add( chk_X_Group );
+			Controls.Add( chk_Selected );
 			Controls.Add( tbx_Messages );
 			Controls.Add( chk_Christmas );
 			Controls.Add( tbx_Assemblage );
@@ -1050,6 +1128,7 @@
 			Name = "FrmAddress";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Addresses";
+			Load +=  FrmAddress_Load ;
 			ResumeLayout( false );
 			PerformLayout();
 
@@ -1134,5 +1213,11 @@
 		private TextBox tbx_VcfPostal;
 		private TextBox tbx_XL_RowRealised;
 		private TextBox tbx_Messages;
+		private CheckBox chk_X_Person;
+		private CheckBox chk_Blocked;
+		private CheckBox chk_DefaultRow;
+		private CheckBox chk_X_Family;
+		private CheckBox chk_X_Group;
+		private CheckBox chk_Selected;
 	}
 }

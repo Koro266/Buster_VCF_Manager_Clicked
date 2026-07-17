@@ -63,56 +63,56 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			IsEventDisabled = true;
 
-			this.tbx_PkAddress.Text			= AddressPkAsText;
-			this.tbx_FkCountry.Text			= CountryPkAsText;
-			this.tbx_Assemblage.Text		= Assemblage;
-			this.tbx_Level.Text				= Level;
-			this.tbx_Unit.Text				= Unit;
-			this.tbx_Extension.Text			= Extension;
-			this.tbx_RuralDelivery.Text		= RuralDelivery;
-			this.tbx_PostalCode.Text		= PostalCode;
-			this.tbx_BoxNumber.Text			= BoxNumber;
-			this.tbx_HouseNumber.Text		= HouseNumber;
-			this.tbx_StreetName.Text		= StreetName;
-			this.tbx_StreetType.Text		= StreetType;
-			this.tbx_Compass.Text			= Compass;
-			this.tbx_Suburb.Text			= Suburb;
-			this.tbx_City.Text				= City;
-			this.tbx_Metropolitan.Text		= Metropolitan;
-			this.tbx_ProvinceName.Text		= ProvinceName;
-			this.tbx_ProvinceCode.Text		= ProvinceCode;
-			this.tbx_VcfPostal.Text			= VcfPostal;
-			this.tbx_VcfPhysical.Text		= VcfPhysical;
-			this.tbx_VcfExtended.Text		= VcfExtended;
-			this.tbx_ExcelPattern.Text		= ExcelPattern;
-			this.chk_Christmas.Checked		= IsChristmas;
+			this.tbx_PkAddress.Text = AddressPkAsText;
+			this.tbx_FkCountry.Text = CountryPkAsText;
+			this.tbx_Assemblage.Text = Assemblage;
+			this.tbx_Level.Text = Level;
+			this.tbx_Unit.Text = Unit;
+			this.tbx_Extension.Text = Extension;
+			this.tbx_RuralDelivery.Text = RuralDelivery;
+			this.tbx_PostalCode.Text = PostalCode;
+			this.tbx_BoxNumber.Text = BoxNumber;
+			this.tbx_HouseNumber.Text = HouseNumber;
+			this.tbx_StreetName.Text = StreetName;
+			this.tbx_StreetType.Text = StreetType;
+			this.tbx_Compass.Text = Compass;
+			this.tbx_Suburb.Text = Suburb;
+			this.tbx_City.Text = City;
+			this.tbx_Metropolitan.Text = Metropolitan;
+			this.tbx_ProvinceName.Text = ProvinceName;
+			this.tbx_ProvinceCode.Text = ProvinceCode;
+			this.tbx_VcfPostal.Text = VcfPostal;
+			this.tbx_VcfPhysical.Text = VcfPhysical;
+			this.tbx_VcfExtended.Text = VcfExtended;
+			this.tbx_ExcelPattern.Text = ExcelPattern;
+			this.chk_Christmas.Checked = IsChristmas;
 
-			this.tbx_PostalRealised.Lines	= one_Address.RealisePostalRule();
-			this.tbx_PhysicalRealised.Lines	= one_Address.RealisePhysicalRule();
-			this.tbx_ExtendedRealised.Lines	= one_Address.RealiseExtendedRule();
-			this.tbx_XL_RowRealised.Lines	= one_Address.RealiseExcelRule();
+			this.tbx_PostalRealised.Lines = one_Address.RealisePostalRule();
+			this.tbx_PhysicalRealised.Lines = one_Address.RealisePhysicalRule();
+			this.tbx_ExtendedRealised.Lines = one_Address.RealiseExtendedRule();
+			this.tbx_XL_RowRealised.Lines = one_Address.RealiseExcelRule();
 
 			IsEventDisabled = false;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayInitialNation()
 		{
-			this.cbx_Country.Text		= initial_Nation.CountryName.Value;
-			this.tbx_FkCountry.Text		= initial_Nation.PkCountry.AsString;
-			this.tbx_CountryName.Text	= initial_Nation.CountryName.Value;
-			this.tbx_ShortIsoCode.Text	= initial_Nation.ShortIsoCode.Value;
-			this.tbx_LongIsoCode.Text	= initial_Nation.LongIsoCode.Value;
-			this.tbx_CountryCode.Text	= initial_Nation.CountryCode.Value;
+			this.cbx_Country.Text = initial_Nation.CountryName.Value;
+			this.tbx_FkCountry.Text = initial_Nation.PkCountry.AsString;
+			this.tbx_CountryName.Text = initial_Nation.CountryName.Value;
+			this.tbx_ShortIsoCode.Text = initial_Nation.ShortIsoCode.Value;
+			this.tbx_LongIsoCode.Text = initial_Nation.LongIsoCode.Value;
+			this.tbx_CountryCode.Text = initial_Nation.CountryCode.Value;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayCurrentNation()
 		{
-			this.cbx_Country.Text		= current_Nation.CountryName.Value;
-			this.tbx_FkCountry.Text		= current_Nation.PkCountry.AsString;
-			this.tbx_CountryName.Text	= current_Nation.CountryName.Value;
-			this.tbx_ShortIsoCode.Text	= current_Nation.ShortIsoCode.Value;
-			this.tbx_LongIsoCode.Text	= current_Nation.LongIsoCode.Value;
-			this.tbx_CountryCode.Text	= current_Nation.CountryCode.Value;
+			this.cbx_Country.Text = current_Nation.CountryName.Value;
+			this.tbx_FkCountry.Text = current_Nation.PkCountry.AsString;
+			this.tbx_CountryName.Text = current_Nation.CountryName.Value;
+			this.tbx_ShortIsoCode.Text = current_Nation.ShortIsoCode.Value;
+			this.tbx_LongIsoCode.Text = current_Nation.LongIsoCode.Value;
+			this.tbx_CountryCode.Text = current_Nation.CountryCode.Value;
 		}
 		#endregion
 
@@ -336,11 +336,11 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATION CurrentNation
 		{
 			get { return current_Nation; }
-			set 
+			set
 			{
 				current_Nation = value;
 				Address.NewNation = current_Nation;
-				DisplayCurrentNation();	
+				DisplayCurrentNation();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -784,7 +784,7 @@ namespace CONTACTS.INTERFACE.FORMS
 				IsChristmas = chk_Christmas.Checked;
 		}
 		#endregion
-		
+
 		#endregion
 
 
@@ -1209,6 +1209,12 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_StreetType.Enabled = true;
 			lbl_Suburb.Enabled = true;
 		}
+
 		#endregion
+
+		private void FrmAddress_Load( object sender, EventArgs e )
+		{
+			//TODO Use for initialisation?
+		}
 	}
 }
