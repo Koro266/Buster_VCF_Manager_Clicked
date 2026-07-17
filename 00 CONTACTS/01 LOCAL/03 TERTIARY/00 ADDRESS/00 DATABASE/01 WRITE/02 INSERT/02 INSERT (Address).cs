@@ -45,7 +45,13 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						st_VcfPhysical,
 						st_VcfExtended,
 						st_ExcelPattern,
-						is_Christmas
+						is_Selected,
+						is_DefaultRow,
+						is_Unattached,
+						is_X_Person,
+						is_X_Group,
+						is_X_Family,
+						is_Christmas 
 					) 	
 					VALUES	
 					(	
@@ -70,8 +76,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						@st_vcfphysical,
 						@st_vcfextended,
 						@st_excelpattern,
+						@is_selected,
+						@is_defaultrow,
+						@is_unattached,
+						@is_x_person,
+						@is_x_group,
+						@is_x_family,
 						@is_christmas
-					);	
+					);
 				";
 				//_______________________________________________________________________________________________________________________________
 				public Address( ADDRESS_ROW address ) : base( sql_text )
@@ -97,11 +109,17 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					base.DbCommand.Parameters.Add( address.VcfPhysical.DbParameter );
 					base.DbCommand.Parameters.Add( address.VcfExtended.DbParameter );
 					base.DbCommand.Parameters.Add( address.ExcelPattern.DbParameter );
+					base.DbCommand.Parameters.Add( address.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( address.DefaultRow.DbParameter );
+					base.DbCommand.Parameters.Add( address.Unattached.DbParameter );
+					base.DbCommand.Parameters.Add( address.X_Person.DbParameter );
+					base.DbCommand.Parameters.Add( address.X_Group.DbParameter );
+					base.DbCommand.Parameters.Add( address.X_Family.DbParameter );
 					base.DbCommand.Parameters.Add( address.Christmas.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>
-				/// Returns MaxPk if INSERT succeeds, -1 if INSERT fails.
+				/// Returns the PK of the INSERTed row if SQL succeeds, -1 if INSERT fails.
 				/// </summary>
 				public int Execute
 				{
