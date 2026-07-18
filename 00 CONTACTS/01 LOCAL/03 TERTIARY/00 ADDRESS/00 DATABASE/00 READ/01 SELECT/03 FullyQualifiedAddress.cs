@@ -44,6 +44,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses.st_VcfPhysical,
 						TDF_Addresses.st_VcfExtended,
 						TDF_Addresses.st_ExcelPattern,
+						TDF_Addresses.st_Notes,
 
 						TDF_Addresses.is_Selected,
 						TDF_Addresses.is_DefaultRow,
