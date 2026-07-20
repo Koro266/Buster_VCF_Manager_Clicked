@@ -112,6 +112,7 @@
 			chk_X_Group = new CheckBox();
 			chk_Selected = new CheckBox();
 			chk_Unattached = new CheckBox();
+			btn_NewAddress = new Button();
 			SuspendLayout();
 			// 
 			// cbx_PostalCode
@@ -737,7 +738,7 @@
 			btn_FindAddress.FlatStyle = FlatStyle.Popup;
 			btn_FindAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindAddress.ForeColor = Color.Maroon;
-			btn_FindAddress.Location = new Point( 1013, 153 );
+			btn_FindAddress.Location = new Point( 1013, 263 );
 			btn_FindAddress.Name = "btn_FindAddress";
 			btn_FindAddress.Size = new Size( 135, 35 );
 			btn_FindAddress.TabIndex = 5;
@@ -761,7 +762,7 @@
 			btn_InsertAddress.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_InsertAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertAddress.ForeColor = Color.Maroon;
-			btn_InsertAddress.Location = new Point( 1013, 198 );
+			btn_InsertAddress.Location = new Point( 1013, 185 );
 			btn_InsertAddress.Name = "btn_InsertAddress";
 			btn_InsertAddress.Size = new Size( 135, 35 );
 			btn_InsertAddress.TabIndex = 6;
@@ -809,7 +810,7 @@
 			btn_UpdateAddress.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_UpdateAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateAddress.ForeColor = Color.Maroon;
-			btn_UpdateAddress.Location = new Point( 1013, 243 );
+			btn_UpdateAddress.Location = new Point( 1013, 224 );
 			btn_UpdateAddress.Name = "btn_UpdateAddress";
 			btn_UpdateAddress.Size = new Size( 135, 35 );
 			btn_UpdateAddress.TabIndex = 7;
@@ -905,7 +906,7 @@
 			chk_Christmas.AutoSize = true;
 			chk_Christmas.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Christmas.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Christmas.Location = new Point( 1013, 459 );
+			chk_Christmas.Location = new Point( 1013, 477 );
 			chk_Christmas.Name = "chk_Christmas";
 			chk_Christmas.Size = new Size( 99, 23 );
 			chk_Christmas.TabIndex = 2;
@@ -971,7 +972,7 @@
 			chk_X_Person.AutoSize = true;
 			chk_X_Person.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Person.Location = new Point( 1013, 378 );
+			chk_X_Person.Location = new Point( 1013, 402 );
 			chk_X_Person.Name = "chk_X_Person";
 			chk_X_Person.Size = new Size( 89, 21 );
 			chk_X_Person.TabIndex = 153;
@@ -983,7 +984,7 @@
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 1013, 324 );
+			chk_DefaultRow.Location = new Point( 1013, 352 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 151;
@@ -995,7 +996,7 @@
 			chk_X_Family.AutoSize = true;
 			chk_X_Family.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Family.Location = new Point( 1013, 432 );
+			chk_X_Family.Location = new Point( 1013, 452 );
 			chk_X_Family.Name = "chk_X_Family";
 			chk_X_Family.Size = new Size( 88, 21 );
 			chk_X_Family.TabIndex = 150;
@@ -1007,7 +1008,7 @@
 			chk_X_Group.AutoSize = true;
 			chk_X_Group.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Group.Location = new Point( 1013, 405 );
+			chk_X_Group.Location = new Point( 1013, 427 );
 			chk_X_Group.Name = "chk_X_Group";
 			chk_X_Group.Size = new Size( 85, 21 );
 			chk_X_Group.TabIndex = 149;
@@ -1019,7 +1020,7 @@
 			chk_Selected.AutoSize = true;
 			chk_Selected.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 1013, 297 );
+			chk_Selected.Location = new Point( 1013, 327 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 148;
@@ -1031,12 +1032,25 @@
 			chk_Unattached.AutoSize = true;
 			chk_Unattached.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Unattached.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Unattached.Location = new Point( 1013, 351 );
+			chk_Unattached.Location = new Point( 1013, 377 );
 			chk_Unattached.Name = "chk_Unattached";
 			chk_Unattached.Size = new Size( 103, 21 );
 			chk_Unattached.TabIndex = 154;
 			chk_Unattached.Text = "Unattached?";
 			chk_Unattached.UseVisualStyleBackColor = true;
+			// 
+			// btn_NewAddress
+			// 
+			btn_NewAddress.BackColor = Color.FromArgb(     224,     224,     224 );
+			btn_NewAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_NewAddress.ForeColor = Color.Maroon;
+			btn_NewAddress.Location = new Point( 1013, 146 );
+			btn_NewAddress.Name = "btn_NewAddress";
+			btn_NewAddress.Size = new Size( 135, 35 );
+			btn_NewAddress.TabIndex = 155;
+			btn_NewAddress.Text = "New Address";
+			btn_NewAddress.UseVisualStyleBackColor = false;
+			btn_NewAddress.Click +=  btn_NewAddress_Click ;
 			// 
 			// FrmAddress
 			// 
@@ -1045,6 +1059,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 1170, 692 );
+			Controls.Add( btn_NewAddress );
 			Controls.Add( chk_Unattached );
 			Controls.Add( chk_X_Person );
 			Controls.Add( chk_DefaultRow );
@@ -1224,5 +1239,6 @@
 		private CheckBox chk_X_Group;
 		private CheckBox chk_X_Family;
 		private CheckBox chk_Christmas;
+		private Button btn_NewAddress;
 	}
 }

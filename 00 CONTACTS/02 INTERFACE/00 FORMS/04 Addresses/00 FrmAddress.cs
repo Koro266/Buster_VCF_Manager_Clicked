@@ -1,16 +1,18 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using TXT_GATHER		= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
-using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using static CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
 //LOCAL
 using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using ADDRESSES			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
-using NATION			= CONTACTS.LOCAL.TERTIARY.NATION.Row;
-using NATIONS			= CONTACTS.LOCAL.TERTIARY.NATION.Table;
-using COUNT				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Count;
-using RECON				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 //FORMS
 using ADDRESS_FINDER	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
+using ADDRESSES			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
+using COUNT				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Count;
+using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
+using NATION			= CONTACTS.LOCAL.TERTIARY.NATION.Row;
+using NATIONS			= CONTACTS.LOCAL.TERTIARY.NATION.Table;
+using RECON				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
+using TXT_GATHER		= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -28,6 +30,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATION current_Nation;
 
 		private bool is_event_Disabled = false;
+		private static MESSENGER _Messenger;
 		private TXT_GATHER txt_Accumulator;
 		#endregion
 
@@ -39,6 +42,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitializeComponent();
 			InitialiseForm();
 
+			_Messenger = new MESSENGER( this.tbx_Messages );
 			this.Address = all_Addresses.DefaultAddress;
 			initial_Nation = all_Nations.NationByKey( Address.FkCountry.Value );
 			current_Nation = initial_Nation;
@@ -50,6 +54,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitializeComponent();
 			InitialiseForm();
 
+			_Messenger = new MESSENGER( this.tbx_Messages );
 			AddressPk = pk_address;
 			initial_Nation = all_Nations.NationByKey( Address.FkCountry.Value );
 			current_Nation = initial_Nation;
@@ -334,7 +339,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		#endregion
-
 
 
 		#region COUNTRY/NATION
@@ -920,23 +924,35 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region BUTTON CLICKS
 		//___________________________________________________________________________________________________________________________________________
-		private void btn_CloseForm_Click( object sender, EventArgs e )
+		private void btn_NewAddress_Click( object sender, EventArgs e )
 		{
-			this.Close();
+			Address = all_Addresses.NewAddress;
 		}
-		#endregion
-
-
-		#region INSERT/UPDATE
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_InsertAddress_Click( object sender, EventArgs e )
 		{
-			all_Addresses.InsertAddress( Address );
+			if ( all_Addresses.InsertAddress( Address ) )
+			{
+				Address = all_Addresses.CurrentAddress;
+				_Messenger.InsertSucceeded();
+			}
+			else
+			{
+				_Messenger.InsertFailed();
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_Update_Click( object sender, EventArgs e )
 		{
-			all_Addresses.UpdateAddress( Address );
+			if ( all_Addresses.UpdateAddress( Address ) )
+				_Messenger.UpdateSucceeded();
+			else
+				_Messenger.UpdateFailed();
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void btn_CloseForm_Click( object sender, EventArgs e )
+		{
+			this.Close();
 		}
 		#endregion
 
@@ -973,76 +989,76 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_HouseNumber.TabIndex			=  0;
-			tbx_StreetName.TabIndex				=  1;
-			cbx_StreetName.TabIndex				=  2;
-			tbx_StreetType.TabIndex				=  3;
-			cbx_StreetType.TabIndex				=  4;
-			tbx_Compass.TabIndex				=  5;
-			tbx_Suburb.TabIndex					=  6;
-			cbx_Suburb.TabIndex					=  7;
-			tbx_City.TabIndex					=  8;
-			cbx_City.TabIndex					=  9;
+			tbx_HouseNumber.TabIndex = 0;
+			tbx_StreetName.TabIndex = 1;
+			cbx_StreetName.TabIndex = 2;
+			tbx_StreetType.TabIndex = 3;
+			cbx_StreetType.TabIndex = 4;
+			tbx_Compass.TabIndex = 5;
+			tbx_Suburb.TabIndex = 6;
+			cbx_Suburb.TabIndex = 7;
+			tbx_City.TabIndex = 8;
+			cbx_City.TabIndex = 9;
 
-			tbx_Metropolitan.TabIndex			= 10;
-			cbx_Metropolitan.TabIndex			= 11;
-			tbx_ProvinceName.TabIndex			= 12;
-			cbx_ProvinceName.TabIndex			= 13;
-			tbx_ProvinceCode.TabIndex			= 14;
-			cbx_ProvinceCode.TabIndex			= 15;
+			tbx_Metropolitan.TabIndex = 10;
+			cbx_Metropolitan.TabIndex = 11;
+			tbx_ProvinceName.TabIndex = 12;
+			cbx_ProvinceName.TabIndex = 13;
+			tbx_ProvinceCode.TabIndex = 14;
+			cbx_ProvinceCode.TabIndex = 15;
 
-			tbx_BoxNumber.TabIndex				= 16;
-			tbx_RuralDelivery.TabIndex			= 17;
-			tbx_PostalCode.TabIndex				= 18;
-			cbx_PostalCode.TabIndex				= 19;
+			tbx_BoxNumber.TabIndex = 16;
+			tbx_RuralDelivery.TabIndex = 17;
+			tbx_PostalCode.TabIndex = 18;
+			cbx_PostalCode.TabIndex = 19;
 
-			tbx_Assemblage.TabIndex				= 20;
-			tbx_Level.TabIndex					= 21;
-			tbx_Unit.TabIndex					= 22;
-			tbx_Extension.TabIndex				= 23;
+			tbx_Assemblage.TabIndex = 20;
+			tbx_Level.TabIndex = 21;
+			tbx_Unit.TabIndex = 22;
+			tbx_Extension.TabIndex = 23;
 
-			tbx_FkCountry.TabIndex				= 24;
-			cbx_Country.TabIndex				= 25;
-			tbx_CountryName.TabIndex			= 26;
-			tbx_CountryCode.TabIndex			= 27;
-			tbx_ShortIsoCode.TabIndex			= 28;
-			tbx_LongIsoCode.TabIndex			= 29;
+			tbx_FkCountry.TabIndex = 24;
+			cbx_Country.TabIndex = 25;
+			tbx_CountryName.TabIndex = 26;
+			tbx_CountryCode.TabIndex = 27;
+			tbx_ShortIsoCode.TabIndex = 28;
+			tbx_LongIsoCode.TabIndex = 29;
 
-			btn_DefaultPostalRule.TabIndex		= 30;
-			tbx_VcfPostal.TabIndex				= 31;
-			tbx_PostalRealised.TabIndex			= 32;
+			btn_DefaultPostalRule.TabIndex = 30;
+			tbx_VcfPostal.TabIndex = 31;
+			tbx_PostalRealised.TabIndex = 32;
 
-			btn_DefaultPhysicalRule.TabIndex	= 33;
-			tbx_VcfPhysical.TabIndex			= 34;
-			tbx_PhysicalRealised.TabIndex		= 35;
+			btn_DefaultPhysicalRule.TabIndex = 33;
+			tbx_VcfPhysical.TabIndex = 34;
+			tbx_PhysicalRealised.TabIndex = 35;
 
-			btn_DefaultExtendedRule.TabIndex	= 36;
-			tbx_VcfExtended.TabIndex			= 37;
-			tbx_ExtendedRealised.TabIndex		= 38;
+			btn_DefaultExtendedRule.TabIndex = 36;
+			tbx_VcfExtended.TabIndex = 37;
+			tbx_ExtendedRealised.TabIndex = 38;
 
-			btn_DefaultExcelRule.TabIndex		= 39;
-			tbx_ExcelPattern.TabIndex			= 40;
-			tbx_XL_RowRealised.TabIndex			= 41;
+			btn_DefaultExcelRule.TabIndex = 39;
+			tbx_ExcelPattern.TabIndex = 40;
+			tbx_XL_RowRealised.TabIndex = 41;
 
-			tbx_Filter.TabIndex					= 42;
-			btn_FirstAddress.TabIndex			= 43;
-			btn_PreviousAddress.TabIndex		= 44;
-			btn_NextAddress.TabIndex			= 45;
-			btn_LastAddress.TabIndex			= 46;
+			tbx_Filter.TabIndex = 42;
+			btn_FirstAddress.TabIndex = 43;
+			btn_PreviousAddress.TabIndex = 44;
+			btn_NextAddress.TabIndex = 45;
+			btn_LastAddress.TabIndex = 46;
 
-			btn_FindAddress.TabIndex			= 47;
-			btn_InsertAddress.TabIndex			= 48;
-			btn_UpdateAddress.TabIndex			= 49;
+			btn_FindAddress.TabIndex = 47;
+			btn_InsertAddress.TabIndex = 48;
+			btn_UpdateAddress.TabIndex = 49;
 
-			chk_Selected.TabIndex				= 50;
-			chk_DefaultRow.TabIndex				= 51;
-			chk_Unattached.TabIndex				= 52;
-			chk_X_Person.TabIndex				= 53;
-			chk_X_Group.TabIndex				= 54;
-			chk_X_Family.TabIndex				= 55;
-			chk_Christmas.TabIndex				= 56;
+			chk_Selected.TabIndex = 50;
+			chk_DefaultRow.TabIndex = 51;
+			chk_Unattached.TabIndex = 52;
+			chk_X_Person.TabIndex = 53;
+			chk_X_Group.TabIndex = 54;
+			chk_X_Family.TabIndex = 55;
+			chk_Christmas.TabIndex = 56;
 
-			btn_CloseForm.TabIndex				= 57;
+			btn_CloseForm.TabIndex = 57;
 		}
 		#endregion
 

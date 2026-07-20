@@ -45,6 +45,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses.st_VcfPhysical		= @st_vcfphysical,	
 						TDF_Addresses.st_VcfExtended		= @st_vcfextended,	
 						TDF_Addresses.st_ExcelPattern		= @st_excelpattern,	
+						TDF_Addresses.st_Notes				= @st_notes,	
 						TDF_Addresses.is_Selected			= @is_selected,
 						TDF_Addresses.is_DefaultRow			= @is_defaultrow,
 						TDF_Addresses.is_Unattached			= @is_unattached,
@@ -83,12 +84,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					base.DbCommand.Parameters.Add( address.VcfPhysical.DbParameter );
 					base.DbCommand.Parameters.Add( address.VcfExtended.DbParameter );
 					base.DbCommand.Parameters.Add( address.ExcelPattern.DbParameter );
+					base.DbCommand.Parameters.Add( address.Notes.DbParameter );
 					base.DbCommand.Parameters.Add( address.Selected.DbParameter );
 					base.DbCommand.Parameters.Add( address.DefaultRow.DbParameter );
 					base.DbCommand.Parameters.Add( address.Unattached.DbParameter );
 					base.DbCommand.Parameters.Add( address.X_Person.DbParameter );
 					base.DbCommand.Parameters.Add( address.X_Group.DbParameter );
 					base.DbCommand.Parameters.Add( address.X_Family.DbParameter );
+					base.DbCommand.Parameters.Add( address.Christmas.DbParameter );
 					base.DbCommand.Parameters.Add( address.PkAddress.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________

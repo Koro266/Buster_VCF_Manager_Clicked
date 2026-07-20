@@ -1,8 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using NULL_DATE		= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<System.DateTime>;
 using NULL_TEXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
-using NULL_INT		= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using FIELD			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Column;
@@ -40,9 +38,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 				new_address.Append( new FIELD.ST_Metropolitan		( "Wellington" ) );
 				new_address.Append( new FIELD.ST_ProvinceName		( "WELLINGTON" ) );
 				new_address.Append( new FIELD.ST_ProvinceCode		( "WGTN" ) );
-				new_address.Append( new FIELD.ST_VcfPostal			( "/hn /sn /st\n/ct, /pc\n/cy" ) );
-				new_address.Append( new FIELD.ST_VcfPhysical		( "/hn /sn /st\n/sb, /ct\n/mt, /pv\n/cy" ) );
-				new_address.Append( new FIELD.ST_VcfExtended		( "/as\n/lv\n/un\n/ex" ) );
+				new_address.Append( new FIELD.ST_VcfPostal			( "/hn /sn /st\\n/ct, /pc\\n/cy" ) );
+				new_address.Append( new FIELD.ST_VcfPhysical		( "/hn /sn /st\\n/sb, /ct\\n/mt, /pv\\n/cy" ) );
+				new_address.Append( new FIELD.ST_VcfExtended		( "/as\\n/lv\\n/un\\n/ex" ) );
 				new_address.Append( new FIELD.ST_ExcelPattern		( null_text ) );
 				new_address.Append( new FIELD.ST_Notes				( null_text ) );
 

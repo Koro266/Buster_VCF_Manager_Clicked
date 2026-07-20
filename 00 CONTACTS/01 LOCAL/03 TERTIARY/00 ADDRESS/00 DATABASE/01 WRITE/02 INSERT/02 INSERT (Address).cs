@@ -45,6 +45,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						st_VcfPhysical,
 						st_VcfExtended,
 						st_ExcelPattern,
+						st_Notes,
 						is_Selected,
 						is_DefaultRow,
 						is_Unattached,
@@ -76,6 +77,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						@st_vcfphysical,
 						@st_vcfextended,
 						@st_excelpattern,
+						@st_notes,
 						@is_selected,
 						@is_defaultrow,
 						@is_unattached,
@@ -109,6 +111,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					base.DbCommand.Parameters.Add( address.VcfPhysical.DbParameter );
 					base.DbCommand.Parameters.Add( address.VcfExtended.DbParameter );
 					base.DbCommand.Parameters.Add( address.ExcelPattern.DbParameter );
+					base.DbCommand.Parameters.Add( address.Notes.DbParameter );
 					base.DbCommand.Parameters.Add( address.Selected.DbParameter );
 					base.DbCommand.Parameters.Add( address.DefaultRow.DbParameter );
 					base.DbCommand.Parameters.Add( address.Unattached.DbParameter );
