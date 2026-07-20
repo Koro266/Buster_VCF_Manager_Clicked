@@ -7,6 +7,7 @@ using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using ADDRESSES			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
 using NATION			= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATIONS			= CONTACTS.LOCAL.TERTIARY.NATION.Table;
+using COUNT				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Count;
 using RECON				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 //FORMS
 using ADDRESS_FINDER	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
@@ -138,7 +139,12 @@ namespace CONTACTS.INTERFACE.FORMS
 		private string AddressPkAsText
 		{
 			get { return AddressPk.ToString(); }
-			set { AddressPk = Convert.ToInt32( value ); }
+			set
+			{
+				if ( int.TryParse( value, out int result ) )
+					if ( new COUNT.IsPkExtant( result ).Execute )
+						AddressPk = result;
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private int CountryPk
@@ -944,8 +950,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			PopulateComboBoxes();
 			PutHeader();
 			SetTabIndices();
-			SetTabStops();
-			SetEnabled();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void PopulateComboBoxes()
@@ -969,252 +973,82 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_HouseNumber.TabIndex = 0;
-			tbx_StreetName.TabIndex = 1;
-			cbx_StreetName.TabIndex = 2;
-			tbx_StreetType.TabIndex = 3;
-			cbx_StreetType.TabIndex = 4;
-			tbx_Compass.TabIndex = 5;
-			tbx_Suburb.TabIndex = 6;
-			cbx_Suburb.TabIndex = 7;
-			tbx_City.TabIndex = 8;
-			cbx_City.TabIndex = 9;
-			tbx_Metropolitan.TabIndex = 10;
-			cbx_Metropolitan.TabIndex = 11;
-			tbx_ProvinceName.TabIndex = 12;
-			cbx_ProvinceName.TabIndex = 13;
-			tbx_ProvinceCode.TabIndex = 14;
-			cbx_ProvinceCode.TabIndex = 15;
-			tbx_BoxNumber.TabIndex = 16;
-			tbx_RuralDelivery.TabIndex = 17;
-			tbx_PostalCode.TabIndex = 18;
-			cbx_PostalCode.TabIndex = 19;
-			tbx_Assemblage.TabIndex = 20;
-			tbx_Level.TabIndex = 21;
-			tbx_Unit.TabIndex = 22;
-			tbx_Extension.TabIndex = 23;
-			tbx_FkCountry.TabIndex = 24;
-			cbx_Country.TabIndex = 25;
-			tbx_CountryName.TabIndex = 26;
-			tbx_CountryCode.TabIndex = 27;
-			tbx_ShortIsoCode.TabIndex = 28;
-			tbx_LongIsoCode.TabIndex = 29;
-			chk_Christmas.TabIndex = 30;
-			btn_DefaultPostalRule.TabIndex = 31;
-			tbx_VcfPostal.TabIndex = 32;
-			tbx_PostalRealised.TabIndex = 33;
-			btn_DefaultPhysicalRule.TabIndex = 34;
-			tbx_VcfPhysical.TabIndex = 35;
-			tbx_PhysicalRealised.TabIndex = 36;
-			btn_DefaultExtendedRule.TabIndex = 37;
-			tbx_VcfExtended.TabIndex = 38;
-			tbx_ExtendedRealised.TabIndex = 39;
-			btn_DefaultExcelRule.TabIndex = 40;
-			tbx_ExcelPattern.TabIndex = 41;
-			tbx_XL_RowRealised.TabIndex = 42;
-			tbx_Filter.TabIndex = 43;
-			btn_FirstAddress.TabIndex = 44;
-			btn_PreviousAddress.TabIndex = 45;
-			btn_NextAddress.TabIndex = 46;
-			btn_LastAddress.TabIndex = 47;
-			btn_FindAddress.TabIndex = 48;
-			btn_InsertAddress.TabIndex = 49;
-			btn_UpdateAddress.TabIndex = 50;
-			btn_CloseForm.TabIndex = 51;
-			tbx_PkAddress.TabIndex = 100;
-			lbl_Unit.TabIndex = 102;
-			lbl_Assemblage.TabIndex = 103;
-			lbl_City.TabIndex = 104;
-			lbl_Compass.TabIndex = 105;
-			lbl_Country.TabIndex = 106;
-			lbl_CountryCode.TabIndex = 107;
-			lbl_CountryName.TabIndex = 108;
-			lbl_Extention.TabIndex = 109;
-			lbl_HouseNumber.TabIndex = 110;
-			lbl_IsoCodes.TabIndex = 111;
-			lbl_Level.TabIndex = 112;
-			lbl_Metropolitan.TabIndex = 113;
-			lbl_Move.TabIndex = 114;
-			lbl_N.TabIndex = 115;
-			lbl_One.TabIndex = 116;
-			lbl_PkAddress.TabIndex = 117;
-			lbl_POBox.TabIndex = 118;
-			lbl_PostalCode.TabIndex = 119;
-			lbl_Province.TabIndex = 120;
-			lbl_ProvinceCode.TabIndex = 121;
-			lbl_RuralDelivery.TabIndex = 122;
-			lbl_StreetName.TabIndex = 123;
-			lbl_StreetType.TabIndex = 124;
-			lbl_Suburb.TabIndex = 125;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void SetTabStops()
-		{
-			tbx_HouseNumber.TabStop = true;
-			tbx_StreetName.TabStop = true;
-			cbx_StreetName.TabStop = true;
-			tbx_StreetType.TabStop = true;
-			cbx_StreetType.TabStop = true;
-			tbx_Compass.TabStop = true;
-			tbx_Suburb.TabStop = true;
-			cbx_Suburb.TabStop = true;
-			tbx_City.TabStop = true;
-			cbx_City.TabStop = true;
-			tbx_Metropolitan.TabStop = true;
-			cbx_Metropolitan.TabStop = true;
-			tbx_ProvinceName.TabStop = true;
-			cbx_ProvinceName.TabStop = true;
-			tbx_ProvinceCode.TabStop = true;
-			cbx_ProvinceCode.TabStop = true;
-			tbx_BoxNumber.TabStop = true;
-			tbx_RuralDelivery.TabStop = true;
-			tbx_PostalCode.TabStop = true;
-			cbx_PostalCode.TabStop = true;
-			tbx_Assemblage.TabStop = true;
-			tbx_Level.TabStop = true;
-			tbx_Unit.TabStop = true;
-			tbx_Extension.TabStop = true;
-			tbx_FkCountry.TabStop = true;
-			cbx_Country.TabStop = true;
-			tbx_CountryName.TabStop = true;
-			tbx_CountryCode.TabStop = true;
-			tbx_ShortIsoCode.TabStop = true;
-			tbx_LongIsoCode.TabStop = true;
-			chk_Christmas.TabStop = true;
-			btn_DefaultPostalRule.TabStop = true;
-			tbx_VcfPostal.TabStop = true;
-			tbx_PostalRealised.TabStop = true;
-			btn_DefaultPhysicalRule.TabStop = true;
-			tbx_VcfPhysical.TabStop = true;
-			tbx_PhysicalRealised.TabStop = true;
-			btn_DefaultExtendedRule.TabStop = true;
-			tbx_VcfExtended.TabStop = true;
-			tbx_ExtendedRealised.TabStop = true;
-			btn_DefaultExcelRule.TabStop = true;
-			tbx_ExcelPattern.TabStop = true;
-			tbx_XL_RowRealised.TabStop = true;
-			tbx_Filter.TabStop = true;
-			btn_FirstAddress.TabStop = true;
-			btn_PreviousAddress.TabStop = true;
-			btn_NextAddress.TabStop = true;
-			btn_LastAddress.TabStop = true;
-			btn_FindAddress.TabStop = true;
-			btn_InsertAddress.TabStop = true;
-			btn_UpdateAddress.TabStop = true;
-			btn_CloseForm.TabStop = true;
-			tbx_PkAddress.TabStop = false;
-			lbl_Unit.TabStop = false;
-			lbl_Assemblage.TabStop = false;
-			lbl_City.TabStop = false;
-			lbl_Compass.TabStop = false;
-			lbl_Country.TabStop = false;
-			lbl_CountryCode.TabStop = false;
-			lbl_CountryName.TabStop = false;
-			lbl_Extention.TabStop = false;
-			lbl_HouseNumber.TabStop = false;
-			lbl_IsoCodes.TabStop = false;
-			lbl_Level.TabStop = false;
-			lbl_Metropolitan.TabStop = false;
-			lbl_Move.TabStop = false;
-			lbl_N.TabStop = false;
-			lbl_One.TabStop = false;
-			lbl_PkAddress.TabStop = false;
-			lbl_POBox.TabStop = false;
-			lbl_PostalCode.TabStop = false;
-			lbl_Province.TabStop = false;
-			lbl_ProvinceCode.TabStop = false;
-			lbl_RuralDelivery.TabStop = false;
-			lbl_StreetName.TabStop = false;
-			lbl_StreetType.TabStop = false;
-			lbl_Suburb.TabStop = false;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void SetEnabled()
-		{
-			tbx_HouseNumber.Enabled = true;
-			tbx_StreetName.Enabled = true;
-			cbx_StreetName.Enabled = true;
-			tbx_StreetType.Enabled = true;
-			cbx_StreetType.Enabled = true;
-			tbx_Compass.Enabled = true;
-			tbx_Suburb.Enabled = true;
-			cbx_Suburb.Enabled = true;
-			tbx_City.Enabled = true;
-			cbx_City.Enabled = true;
-			tbx_Metropolitan.Enabled = true;
-			cbx_Metropolitan.Enabled = true;
-			tbx_ProvinceName.Enabled = true;
-			cbx_ProvinceName.Enabled = true;
-			tbx_ProvinceCode.Enabled = true;
-			cbx_ProvinceCode.Enabled = true;
-			tbx_BoxNumber.Enabled = true;
-			tbx_RuralDelivery.Enabled = true;
-			tbx_PostalCode.Enabled = true;
-			cbx_PostalCode.Enabled = true;
-			tbx_Assemblage.Enabled = true;
-			tbx_Level.Enabled = true;
-			tbx_Unit.Enabled = true;
-			tbx_Extension.Enabled = true;
-			tbx_FkCountry.Enabled = true;
-			cbx_Country.Enabled = true;
-			tbx_CountryName.Enabled = true;
-			tbx_CountryCode.Enabled = true;
-			tbx_ShortIsoCode.Enabled = true;
-			tbx_LongIsoCode.Enabled = true;
-			chk_Christmas.Enabled = true;
-			btn_DefaultPostalRule.Enabled = true;
-			tbx_VcfPostal.Enabled = true;
-			tbx_PostalRealised.Enabled = true;
-			btn_DefaultPhysicalRule.Enabled = true;
-			tbx_VcfPhysical.Enabled = true;
-			tbx_PhysicalRealised.Enabled = true;
-			btn_DefaultExtendedRule.Enabled = true;
-			tbx_VcfExtended.Enabled = true;
-			tbx_ExtendedRealised.Enabled = true;
-			btn_DefaultExcelRule.Enabled = true;
-			tbx_ExcelPattern.Enabled = true;
-			tbx_XL_RowRealised.Enabled = true;
-			tbx_Filter.Enabled = true;
-			btn_FirstAddress.Enabled = true;
-			btn_PreviousAddress.Enabled = true;
-			btn_NextAddress.Enabled = true;
-			btn_LastAddress.Enabled = true;
-			btn_FindAddress.Enabled = true;
-			btn_InsertAddress.Enabled = true;
-			btn_UpdateAddress.Enabled = true;
-			btn_CloseForm.Enabled = true;
-			tbx_PkAddress.Enabled = true;
-			lbl_Unit.Enabled = true;
-			lbl_Assemblage.Enabled = true;
-			lbl_City.Enabled = true;
-			lbl_Compass.Enabled = true;
-			lbl_Country.Enabled = true;
-			lbl_CountryCode.Enabled = true;
-			lbl_CountryName.Enabled = true;
-			lbl_Extention.Enabled = true;
-			lbl_HouseNumber.Enabled = true;
-			lbl_IsoCodes.Enabled = true;
-			lbl_Level.Enabled = true;
-			lbl_Metropolitan.Enabled = true;
-			lbl_Move.Enabled = true;
-			lbl_N.Enabled = true;
-			lbl_One.Enabled = true;
-			lbl_PkAddress.Enabled = true;
-			lbl_POBox.Enabled = true;
-			lbl_PostalCode.Enabled = true;
-			lbl_Province.Enabled = true;
-			lbl_ProvinceCode.Enabled = true;
-			lbl_RuralDelivery.Enabled = true;
-			lbl_StreetName.Enabled = true;
-			lbl_StreetType.Enabled = true;
-			lbl_Suburb.Enabled = true;
-		}
+			tbx_HouseNumber.TabIndex			=  0;
+			tbx_StreetName.TabIndex				=  1;
+			cbx_StreetName.TabIndex				=  2;
+			tbx_StreetType.TabIndex				=  3;
+			cbx_StreetType.TabIndex				=  4;
+			tbx_Compass.TabIndex				=  5;
+			tbx_Suburb.TabIndex					=  6;
+			cbx_Suburb.TabIndex					=  7;
+			tbx_City.TabIndex					=  8;
+			cbx_City.TabIndex					=  9;
 
+			tbx_Metropolitan.TabIndex			= 10;
+			cbx_Metropolitan.TabIndex			= 11;
+			tbx_ProvinceName.TabIndex			= 12;
+			cbx_ProvinceName.TabIndex			= 13;
+			tbx_ProvinceCode.TabIndex			= 14;
+			cbx_ProvinceCode.TabIndex			= 15;
+
+			tbx_BoxNumber.TabIndex				= 16;
+			tbx_RuralDelivery.TabIndex			= 17;
+			tbx_PostalCode.TabIndex				= 18;
+			cbx_PostalCode.TabIndex				= 19;
+
+			tbx_Assemblage.TabIndex				= 20;
+			tbx_Level.TabIndex					= 21;
+			tbx_Unit.TabIndex					= 22;
+			tbx_Extension.TabIndex				= 23;
+
+			tbx_FkCountry.TabIndex				= 24;
+			cbx_Country.TabIndex				= 25;
+			tbx_CountryName.TabIndex			= 26;
+			tbx_CountryCode.TabIndex			= 27;
+			tbx_ShortIsoCode.TabIndex			= 28;
+			tbx_LongIsoCode.TabIndex			= 29;
+
+			btn_DefaultPostalRule.TabIndex		= 30;
+			tbx_VcfPostal.TabIndex				= 31;
+			tbx_PostalRealised.TabIndex			= 32;
+
+			btn_DefaultPhysicalRule.TabIndex	= 33;
+			tbx_VcfPhysical.TabIndex			= 34;
+			tbx_PhysicalRealised.TabIndex		= 35;
+
+			btn_DefaultExtendedRule.TabIndex	= 36;
+			tbx_VcfExtended.TabIndex			= 37;
+			tbx_ExtendedRealised.TabIndex		= 38;
+
+			btn_DefaultExcelRule.TabIndex		= 39;
+			tbx_ExcelPattern.TabIndex			= 40;
+			tbx_XL_RowRealised.TabIndex			= 41;
+
+			tbx_Filter.TabIndex					= 42;
+			btn_FirstAddress.TabIndex			= 43;
+			btn_PreviousAddress.TabIndex		= 44;
+			btn_NextAddress.TabIndex			= 45;
+			btn_LastAddress.TabIndex			= 46;
+
+			btn_FindAddress.TabIndex			= 47;
+			btn_InsertAddress.TabIndex			= 48;
+			btn_UpdateAddress.TabIndex			= 49;
+
+			chk_Selected.TabIndex				= 50;
+			chk_DefaultRow.TabIndex				= 51;
+			chk_Unattached.TabIndex				= 52;
+			chk_X_Person.TabIndex				= 53;
+			chk_X_Group.TabIndex				= 54;
+			chk_X_Family.TabIndex				= 55;
+			chk_Christmas.TabIndex				= 56;
+
+			btn_CloseForm.TabIndex				= 57;
+		}
 		#endregion
 
 		private void FrmAddress_Load( object sender, EventArgs e )
 		{
-			//TODO Use for initialisation?
+			//TODO Use for initialisation? Yes, but do this as the next phase of work.
 		}
 	}
 }

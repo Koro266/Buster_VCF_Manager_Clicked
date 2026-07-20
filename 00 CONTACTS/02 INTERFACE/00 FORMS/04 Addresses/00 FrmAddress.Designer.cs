@@ -403,7 +403,7 @@
 			lbl_Suburb.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbl_Suburb.Location = new Point( 60, 132 );
 			lbl_Suburb.Name = "lbl_Suburb";
-			lbl_Suburb.Size = new Size( 84, 19 );
+			lbl_Suburb.Size = new Size( 80, 19 );
 			lbl_Suburb.TabIndex = 33;
 			lbl_Suburb.Text = "Suburb: sb";
 			// 
@@ -761,7 +761,7 @@
 			btn_InsertAddress.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_InsertAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertAddress.ForeColor = Color.Maroon;
-			btn_InsertAddress.Location = new Point( 1013, 240 );
+			btn_InsertAddress.Location = new Point( 1013, 198 );
 			btn_InsertAddress.Name = "btn_InsertAddress";
 			btn_InsertAddress.Size = new Size( 135, 35 );
 			btn_InsertAddress.TabIndex = 6;
@@ -809,7 +809,7 @@
 			btn_UpdateAddress.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_UpdateAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateAddress.ForeColor = Color.Maroon;
-			btn_UpdateAddress.Location = new Point( 1013, 199 );
+			btn_UpdateAddress.Location = new Point( 1013, 243 );
 			btn_UpdateAddress.Name = "btn_UpdateAddress";
 			btn_UpdateAddress.Size = new Size( 135, 35 );
 			btn_UpdateAddress.TabIndex = 7;
