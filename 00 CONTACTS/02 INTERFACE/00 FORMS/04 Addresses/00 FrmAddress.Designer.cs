@@ -978,6 +978,7 @@
 			chk_X_Person.TabIndex = 153;
 			chk_X_Person.Text = "X_Person?";
 			chk_X_Person.UseVisualStyleBackColor = true;
+			chk_X_Person.CheckedChanged +=  chk_X_Person_CheckedChanged ;
 			// 
 			// chk_DefaultRow
 			// 
@@ -990,6 +991,7 @@
 			chk_DefaultRow.TabIndex = 151;
 			chk_DefaultRow.Text = "Default Row?";
 			chk_DefaultRow.UseVisualStyleBackColor = true;
+			chk_DefaultRow.CheckedChanged +=  chk_DefaultRow_CheckedChanged ;
 			// 
 			// chk_X_Family
 			// 
@@ -1002,6 +1004,7 @@
 			chk_X_Family.TabIndex = 150;
 			chk_X_Family.Text = "X_Family?";
 			chk_X_Family.UseVisualStyleBackColor = true;
+			chk_X_Family.CheckedChanged +=  chk_X_Family_CheckedChanged ;
 			// 
 			// chk_X_Group
 			// 
@@ -1014,6 +1017,7 @@
 			chk_X_Group.TabIndex = 149;
 			chk_X_Group.Text = "X_Group?";
 			chk_X_Group.UseVisualStyleBackColor = true;
+			chk_X_Group.CheckedChanged +=  chk_X_Group_CheckedChanged ;
 			// 
 			// chk_Selected
 			// 
@@ -1026,6 +1030,7 @@
 			chk_Selected.TabIndex = 148;
 			chk_Selected.Text = "Selected?";
 			chk_Selected.UseVisualStyleBackColor = true;
+			chk_Selected.CheckedChanged +=  chk_Selected_CheckedChanged ;
 			// 
 			// chk_Unattached
 			// 
@@ -1038,6 +1043,7 @@
 			chk_Unattached.TabIndex = 154;
 			chk_Unattached.Text = "Unattached?";
 			chk_Unattached.UseVisualStyleBackColor = true;
+			chk_Unattached.CheckedChanged +=  chk_Unattached_CheckedChanged ;
 			// 
 			// btn_NewAddress
 			// 

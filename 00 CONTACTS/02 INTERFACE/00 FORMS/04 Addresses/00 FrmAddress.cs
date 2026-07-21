@@ -419,6 +419,70 @@ namespace CONTACTS.INTERFACE.FORMS
 				DisplayAddress();
 			}
 		}
+		#endregion
+
+
+		#region BOOLEANS 
+		//___________________________________________________________________________________________________________________________________________
+		private bool IsSelected
+		{
+			get { return Address.Selected.Value; }
+			set
+			{
+				Address.NewIsChristmas = value;
+				DisplayAddress();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool IsDefaultRow
+		{
+			get { return Address.DefaultRow.Value; }
+			set
+			{
+				Address.NewIsChristmas = value;
+				DisplayAddress();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool IsUnattached
+		{
+			get { return Address.Unattached.Value; }
+			set
+			{
+				Address.NewIsChristmas = value;
+				DisplayAddress();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool IsXPerson
+		{
+			get { return Address.X_Person.Value; }
+			set
+			{
+				Address.NewIsChristmas = value;
+				DisplayAddress();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool IsXGroup
+		{
+			get { return Address.X_Group.Value; }
+			set
+			{
+				Address.NewIsChristmas = value;
+				DisplayAddress();
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private bool IsXFamily
+		{
+			get { return Address.X_Family.Value; }
+			set
+			{
+				Address.NewIsChristmas = value;
+				DisplayAddress();
+			}
+		}
 		//___________________________________________________________________________________________________________________________________________
 		private bool IsChristmas
 		{
@@ -430,7 +494,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		#endregion
-
 
 		#region THE OTHERS...
 		//___________________________________________________________________________________________________________________________________________
@@ -752,7 +815,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
-
 		#region ADDRESS PATTERNS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_PostalPattern_TextChanged( object sender, EventArgs e )
@@ -777,6 +839,45 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			if ( _EventState.IsEnabled )
 				ExcelPattern = tbx_ExcelPattern.Text;
+		}
+		#endregion
+
+		#region CHECK STATE CHANGED
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Selected_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				IsSelected = chk_Selected.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_DefaultRow_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				IsDefaultRow = chk_DefaultRow.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_Unattached_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				IsUnattached = chk_Unattached.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Person_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				IsXPerson = chk_X_Person.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Group_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				IsXGroup = chk_X_Group.Checked;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void chk_X_Family_CheckedChanged( object sender, EventArgs e )
+		{
+			if ( _EventState.IsEnabled )
+				IsXFamily = chk_X_Family.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Christmas_CheckedChanged( object sender, EventArgs e )
