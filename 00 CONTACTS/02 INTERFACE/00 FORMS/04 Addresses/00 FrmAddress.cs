@@ -429,7 +429,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Address.Selected.Value; }
 			set
 			{
-				Address.NewIsChristmas = value;
+				Address.NewIsSelected = value;
 				DisplayAddress();
 			}
 		}
@@ -439,7 +439,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Address.DefaultRow.Value; }
 			set
 			{
-				Address.NewIsChristmas = value;
+				Address.NewIsDefaultRow = value;
 				DisplayAddress();
 			}
 		}
@@ -449,7 +449,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Address.Unattached.Value; }
 			set
 			{
-				Address.NewIsChristmas = value;
+				Address.NewIsUnattached = value;
 				DisplayAddress();
 			}
 		}
@@ -459,7 +459,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Address.X_Person.Value; }
 			set
 			{
-				Address.NewIsChristmas = value;
+				Address.NewIsXPerson = value;
 				DisplayAddress();
 			}
 		}
@@ -469,7 +469,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Address.X_Group.Value; }
 			set
 			{
-				Address.NewIsChristmas = value;
+				Address.NewIsXGroup = value;
 				DisplayAddress();
 			}
 		}
@@ -479,7 +479,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Address.X_Family.Value; }
 			set
 			{
-				Address.NewIsChristmas = value;
+				Address.NewIsXFamily = value;
 				DisplayAddress();
 			}
 		}
@@ -494,6 +494,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		#endregion
+
 
 		#region THE OTHERS...
 		//___________________________________________________________________________________________________________________________________________
