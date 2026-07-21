@@ -1,18 +1,18 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using static CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
-//LOCAL
-using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-//FORMS
-using ADDRESS_FINDER	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
-using ADDRESSES			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
-using COUNT				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Count;
 using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
+using TXT_GATHER		= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+using EVENT_STATE		= CONTACTS.GLOBAL.TOOLS.EventState;
+//LOCAL
+using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using ADDRESSES			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
+using RECON				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
+using COUNT				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Count;
 using NATION			= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATIONS			= CONTACTS.LOCAL.TERTIARY.NATION.Table;
-using RECON				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
-using TXT_GATHER		= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+//FORMS
+using ADDRESS_FINDER	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -29,7 +29,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATION initial_Nation;
 		private NATION current_Nation;
 
-		private bool is_event_Disabled = false;
+		private static EVENT_STATE _EventState;
 		private static MESSENGER _Messenger;
 		private TXT_GATHER txt_Accumulator;
 		#endregion
@@ -42,6 +42,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitializeComponent();
 			InitialiseForm();
 
+			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 			this.Address = all_Addresses.DefaultAddress;
 			initial_Nation = all_Nations.NationByKey( Address.FkCountry.Value );
@@ -54,6 +55,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			InitializeComponent();
 			InitialiseForm();
 
+			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 			AddressPk = pk_address;
 			initial_Nation = all_Nations.NationByKey( Address.FkCountry.Value );
@@ -67,7 +69,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayAddress()
 		{
-			IsEventDisabled = true;
+			_EventState.DisableEvents();
 
 			this.tbx_PkAddress.Text = AddressPkAsText;
 			this.tbx_FkCountry.Text = CountryPkAsText;
@@ -98,7 +100,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.tbx_ExtendedRealised.Lines = one_Address.RealiseExtendedRule();
 			this.tbx_XL_RowRealised.Lines = one_Address.RealiseExcelRule();
 
-			IsEventDisabled = false;
+			_EventState.EnableEvents();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayInitialNation()
@@ -432,17 +434,6 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region THE OTHERS...
 		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventDisabled
-		{
-			get { return is_event_Disabled; }
-			set { is_event_Disabled = value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private bool IsEventEnabled
-		{
-			get { return is_event_Disabled == false; }
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void Accumulator( string s )
 		{
 			txt_Accumulator = new TXT_GATHER( s );
@@ -466,7 +457,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_HouseNumber_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_HouseNumber.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -485,7 +476,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_StreetName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_StreetName.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -504,7 +495,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_StreetType_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_StreetType.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -523,7 +514,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Compass_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Compass.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -542,7 +533,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Suburb_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Suburb.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -561,7 +552,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_City_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_City.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -580,7 +571,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Metropolitan_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Metropolitan.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -599,7 +590,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ProvinceName_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_ProvinceName.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -618,7 +609,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ProvinceCode_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_ProvinceCode.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -637,7 +628,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_BoxNumber_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_BoxNumber.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -656,7 +647,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_RuralDelivery_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_RuralDelivery.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -675,7 +666,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_PostalCode_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_PostalCode.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -694,7 +685,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Assemblage_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Assemblage.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -713,7 +704,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Level_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Level.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -732,7 +723,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Unit_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Level.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -751,7 +742,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Extension_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Accumulator( tbx_Extension.Text );
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -766,31 +757,31 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_PostalPattern_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				VcfPostal = tbx_VcfPostal.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_PhysicalPattern_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				VcfPhysical = tbx_VcfPhysical.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ExtendedPattern_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				VcfExtended = tbx_VcfExtended.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_XL_RowPattern_TextChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				ExcelPattern = tbx_ExcelPattern.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Christmas_CheckedChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				IsChristmas = chk_Christmas.Checked;
 		}
 		#endregion
@@ -802,55 +793,55 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_StreetName_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				StreetName = ( string )cbx_StreetName.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_StreetType_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				StreetType = ( string )cbx_StreetType.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_Suburb_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Suburb = ( string )cbx_Suburb.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_City_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				City = ( string )cbx_City.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_Country_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				CurrentNation = ( NATION )cbx_Country.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_PostalCode_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				PostalCode = ( string )cbx_PostalCode.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_Province_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				ProvinceName = ( string )cbx_ProvinceName.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_Metropolitan_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				Metropolitan = ( string )cbx_Metropolitan.SelectedItem;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void cbx_ProvinceCode_SelectedValueChanged( object sender, EventArgs e )
 		{
-			if ( IsEventEnabled )
+			if ( _EventState.IsEnabled )
 				ProvinceCode = ( string )cbx_ProvinceCode.SelectedItem;
 		}
 		#endregion
