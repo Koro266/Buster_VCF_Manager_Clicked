@@ -735,6 +735,7 @@
 			// btn_FindAddress
 			// 
 			btn_FindAddress.BackColor = Color.FromArgb(     224,     224,     224 );
+			btn_FindAddress.Enabled = false;
 			btn_FindAddress.FlatStyle = FlatStyle.Popup;
 			btn_FindAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindAddress.ForeColor = Color.Maroon;
