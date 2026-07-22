@@ -644,7 +644,7 @@
 			btn_DefaultExtendedRule.Font = new Font( "Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_DefaultExtendedRule.Location = new Point( 490, 391 );
 			btn_DefaultExtendedRule.Name = "btn_DefaultExtendedRule";
-			btn_DefaultExtendedRule.Size = new Size( 97, 23 );
+			btn_DefaultExtendedRule.Size = new Size( 97, 27 );
 			btn_DefaultExtendedRule.TabIndex = 4;
 			btn_DefaultExtendedRule.Text = "Extentions";
 			btn_DefaultExtendedRule.UseVisualStyleBackColor = true;
@@ -666,7 +666,7 @@
 			btn_DefaultPostalRule.Font = new Font( "Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_DefaultPostalRule.Location = new Point( 490, 20 );
 			btn_DefaultPostalRule.Name = "btn_DefaultPostalRule";
-			btn_DefaultPostalRule.Size = new Size( 94, 23 );
+			btn_DefaultPostalRule.Size = new Size( 94, 27 );
 			btn_DefaultPostalRule.TabIndex = 0;
 			btn_DefaultPostalRule.Text = "Postal";
 			btn_DefaultPostalRule.UseVisualStyleBackColor = true;
@@ -906,7 +906,7 @@
 			chk_Christmas.AutoSize = true;
 			chk_Christmas.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Christmas.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Christmas.Location = new Point( 1013, 477 );
+			chk_Christmas.Location = new Point( 1013, 466 );
 			chk_Christmas.Name = "chk_Christmas";
 			chk_Christmas.Size = new Size( 99, 23 );
 			chk_Christmas.TabIndex = 2;
@@ -972,7 +972,7 @@
 			chk_X_Person.AutoSize = true;
 			chk_X_Person.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Person.Location = new Point( 1013, 402 );
+			chk_X_Person.Location = new Point( 1013, 391 );
 			chk_X_Person.Name = "chk_X_Person";
 			chk_X_Person.Size = new Size( 89, 21 );
 			chk_X_Person.TabIndex = 153;
@@ -985,7 +985,7 @@
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 1013, 352 );
+			chk_DefaultRow.Location = new Point( 1013, 341 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 151;
@@ -998,7 +998,7 @@
 			chk_X_Family.AutoSize = true;
 			chk_X_Family.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Family.Location = new Point( 1013, 452 );
+			chk_X_Family.Location = new Point( 1013, 441 );
 			chk_X_Family.Name = "chk_X_Family";
 			chk_X_Family.Size = new Size( 88, 21 );
 			chk_X_Family.TabIndex = 150;
@@ -1011,7 +1011,7 @@
 			chk_X_Group.AutoSize = true;
 			chk_X_Group.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Group.Location = new Point( 1013, 427 );
+			chk_X_Group.Location = new Point( 1013, 416 );
 			chk_X_Group.Name = "chk_X_Group";
 			chk_X_Group.Size = new Size( 85, 21 );
 			chk_X_Group.TabIndex = 149;
@@ -1024,7 +1024,7 @@
 			chk_Selected.AutoSize = true;
 			chk_Selected.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 1013, 327 );
+			chk_Selected.Location = new Point( 1013, 316 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 148;
@@ -1037,7 +1037,7 @@
 			chk_Unattached.AutoSize = true;
 			chk_Unattached.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Unattached.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Unattached.Location = new Point( 1013, 377 );
+			chk_Unattached.Location = new Point( 1013, 366 );
 			chk_Unattached.Name = "chk_Unattached";
 			chk_Unattached.Size = new Size( 103, 21 );
 			chk_Unattached.TabIndex = 154;

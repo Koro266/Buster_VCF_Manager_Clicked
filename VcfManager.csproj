@@ -164,6 +164,7 @@
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\00 X_ADDRESS\02 ROW\01 Row, Exporter %28Group_X_Address%29.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\00 X_ADDRESS\03 COLUMNS\03 ST_AddressType.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\02 X_EDDRESS\00 DATABASE\01 READ\01 SELECT\DefaultPersonEddress.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\00 DATABASE\00 READ\03 COUNT\02 MinPk.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\03 WEBSITE\00 DATABASE\01 SELECT\DefaultWebsite.cs" />
     <Compile Remove="00 CONTACTS\02 FrmPerson.Respond.cs" />
     <Compile Remove="00 CONTACTS\02 INTERFACE\00 FORMS\01 Persons\04 FrmPerson.Constants.cs" />

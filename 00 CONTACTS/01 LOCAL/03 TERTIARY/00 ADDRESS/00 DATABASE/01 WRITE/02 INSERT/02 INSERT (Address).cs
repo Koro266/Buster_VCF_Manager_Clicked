@@ -122,9 +122,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>
-				/// Returns the PK of the INSERTed row if SQL succeeds, -1 if INSERT fails.
+				/// Returns true if SQL succeeds, false otherwise.
 				/// </summary>
-				public int Execute
+				public bool Execute
 				{
 					get
 					{
@@ -133,13 +133,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 							base.Connection.Open();
 							base.DbCommand.ExecuteNonQuery();
 							base.Connection.Close();
-							return new Count.MaxPk().Execute;
+							return true;
 						}
 						catch ( Exception e )
 						{
-							//exception
 							Connection.Close();
-							return PRESET.MINUS_ONE;
+							return false;
 						}
 					}
 				}

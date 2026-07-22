@@ -149,9 +149,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		/// </summary>
 		public bool InsertAddress( ADDRESS_ROW address_row )
 		{
-			//Insert address into DB...
-			int insert_result = new INSERT( address_row ).Execute;
-			if ( insert_result > 1 )
+			if ( new INSERT( address_row ).Execute )
 			{
 				//...get the new max PK...
 				int key = new MAX_PK().Execute;

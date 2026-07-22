@@ -12,7 +12,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns the largest current pk_Address.
+			/// Returns the largest (i.e., most-recently added) pk_Address.
 			/// </summary>
 			public class MaxPk : COUNT
 			{
@@ -21,7 +21,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					SELECT 
 						Max(TDF_Addresses.pk_Address) AS MaxPk  
 					FROM 
-						TDF_Devices;
+						TDF_Addresses;
 				";
 				//_______________________________________________________________________________________________________________________________
 				public MaxPk() : base( sql_text ) { }

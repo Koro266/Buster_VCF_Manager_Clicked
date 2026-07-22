@@ -21,7 +21,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					SELECT 
 						Min(TDF_Addresses.pk_Address) AS MinPk  
 					FROM 
-						TDF_Devices 
+						TDF_Addresses 
 				";
 				//_______________________________________________________________________________________________________________________________
 				public MinPk() : base( sql_text ) { }
