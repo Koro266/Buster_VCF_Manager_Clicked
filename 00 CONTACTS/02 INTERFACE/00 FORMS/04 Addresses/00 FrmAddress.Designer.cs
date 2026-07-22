@@ -13,7 +13,7 @@
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
-			if (disposing && (components == null))
+			if (disposing && (components != null))
 			{
 				components.Dispose();
 			}
@@ -98,7 +98,6 @@
 			tbx_Filter = new TextBox();
 			tbx_PkAddress = new TextBox();
 			lbl_Move = new Label();
-			tbx_Prompt = new TextBox();
 			lbl_IsoCodes = new Label();
 			lbl_Country = new Label();
 			chk_Christmas = new CheckBox();
@@ -106,6 +105,14 @@
 			btn_DefaultExcelRule = new Button();
 			cbx_ProvinceCode = new ComboBox();
 			cbx_Metropolitan = new ComboBox();
+			tbx_Messages = new TextBox();
+			chk_X_Person = new CheckBox();
+			chk_DefaultRow = new CheckBox();
+			chk_X_Family = new CheckBox();
+			chk_X_Group = new CheckBox();
+			chk_Selected = new CheckBox();
+			chk_Unattached = new CheckBox();
+			btn_NewAddress = new Button();
 			SuspendLayout();
 			// 
 			// cbx_PostalCode
@@ -118,7 +125,6 @@
 			cbx_PostalCode.Size = new Size( 172, 24 );
 			cbx_PostalCode.TabIndex = 2;
 			cbx_PostalCode.SelectedValueChanged +=  cbx_PostalCode_SelectedValueChanged ;
-			cbx_PostalCode.Enter +=  cbx_PostalCode_Enter ;
 			// 
 			// tbx_LongIsoCode
 			// 
@@ -127,7 +133,6 @@
 			tbx_LongIsoCode.Name = "tbx_LongIsoCode";
 			tbx_LongIsoCode.Size = new Size( 60, 22 );
 			tbx_LongIsoCode.TabIndex = 5;
-			tbx_LongIsoCode.Enter +=  tbx_LongIsoCode_Enter ;
 			// 
 			// cbx_ProvinceName
 			// 
@@ -139,7 +144,6 @@
 			cbx_ProvinceName.Size = new Size( 172, 24 );
 			cbx_ProvinceName.TabIndex = 2;
 			cbx_ProvinceName.SelectedValueChanged +=  cbx_Province_SelectedValueChanged ;
-			cbx_ProvinceName.Enter +=  cbx_ProvinceName_Enter ;
 			// 
 			// cbx_Country
 			// 
@@ -153,7 +157,6 @@
 			cbx_Country.TabIndex = 0;
 			cbx_Country.ValueMember = "\"PkAddress\"";
 			cbx_Country.SelectedValueChanged +=  cbx_Country_SelectedValueChanged ;
-			cbx_Country.Enter +=  cbx_FkCountry_Enter ;
 			// 
 			// tbx_CountryCode
 			// 
@@ -162,7 +165,6 @@
 			tbx_CountryCode.Name = "tbx_CountryCode";
 			tbx_CountryCode.Size = new Size( 52, 22 );
 			tbx_CountryCode.TabIndex = 3;
-			tbx_CountryCode.Enter +=  tbx_CountryCode_Enter ;
 			// 
 			// lbl_CountryCode
 			// 
@@ -183,7 +185,6 @@
 			tbx_ExcelPattern.Size = new Size( 561, 22 );
 			tbx_ExcelPattern.TabIndex = 1;
 			tbx_ExcelPattern.TextChanged +=  tbx_XL_RowPattern_TextChanged ;
-			tbx_ExcelPattern.Enter +=  tbx_XL_RowAddress_Enter ;
 			// 
 			// lbl_Metropolitan
 			// 
@@ -205,7 +206,6 @@
 			tbx_VcfExtended.TabIndex = 5;
 			tbx_VcfExtended.Tag = "";
 			tbx_VcfExtended.TextChanged +=  tbx_ExtendedPattern_TextChanged ;
-			tbx_VcfExtended.Enter +=  tbx_ExtendedPattern_Enter ;
 			// 
 			// tbx_VcfPostal
 			// 
@@ -215,7 +215,6 @@
 			tbx_VcfPostal.Size = new Size( 385, 27 );
 			tbx_VcfPostal.TabIndex = 1;
 			tbx_VcfPostal.TextChanged +=  tbx_PostalPattern_TextChanged ;
-			tbx_VcfPostal.Enter +=  tbx_PostalAddress_Enter ;
 			// 
 			// lbl_PostalCode
 			// 
@@ -237,7 +236,6 @@
 			tbx_VcfPhysical.TabIndex = 3;
 			tbx_VcfPhysical.Tag = "";
 			tbx_VcfPhysical.TextChanged +=  tbx_PhysicalPattern_TextChanged ;
-			tbx_VcfPhysical.Enter +=  tbx_PhysicalAddress_Enter ;
 			// 
 			// tbx_ShortIsoCode
 			// 
@@ -246,7 +244,6 @@
 			tbx_ShortIsoCode.Name = "tbx_ShortIsoCode";
 			tbx_ShortIsoCode.Size = new Size( 60, 22 );
 			tbx_ShortIsoCode.TabIndex = 4;
-			tbx_ShortIsoCode.Enter +=  tbx_ShortIsoCode_Enter ;
 			// 
 			// tbx_ProvinceName
 			// 
@@ -277,7 +274,6 @@
 			tbx_CountryName.Name = "tbx_CountryName";
 			tbx_CountryName.Size = new Size( 316, 22 );
 			tbx_CountryName.TabIndex = 2;
-			tbx_CountryName.Enter +=  tbx_CountryName_Enter ;
 			// 
 			// lbl_ProvinceCode
 			// 
@@ -367,7 +363,6 @@
 			cbx_StreetName.Size = new Size( 172, 24 );
 			cbx_StreetName.TabIndex = 1;
 			cbx_StreetName.SelectedValueChanged +=  cbx_StreetName_SelectedValueChanged ;
-			cbx_StreetName.Enter +=  cbx_StreetName_Enter ;
 			// 
 			// tbx_Suburb
 			// 
@@ -390,7 +385,6 @@
 			cbx_City.Size = new Size( 172, 24 );
 			cbx_City.TabIndex = 8;
 			cbx_City.SelectedValueChanged +=  cbx_City_SelectedValueChanged ;
-			cbx_City.Enter +=  cbx_City_Enter ;
 			// 
 			// tbx_RuralDelivery
 			// 
@@ -410,9 +404,9 @@
 			lbl_Suburb.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbl_Suburb.Location = new Point( 60, 132 );
 			lbl_Suburb.Name = "lbl_Suburb";
-			lbl_Suburb.Size = new Size( 84, 19 );
+			lbl_Suburb.Size = new Size( 80, 19 );
 			lbl_Suburb.TabIndex = 33;
-			lbl_Suburb.Text = "Suburb : sb";
+			lbl_Suburb.Text = "Suburb: sb";
 			// 
 			// lbl_City
 			// 
@@ -468,7 +462,6 @@
 			cbx_Suburb.Size = new Size( 172, 24 );
 			cbx_Suburb.TabIndex = 6;
 			cbx_Suburb.SelectedValueChanged +=  cbx_Suburb_SelectedValueChanged ;
-			cbx_Suburb.Enter +=  cbx_Suburb_Enter ;
 			// 
 			// cbx_StreetType
 			// 
@@ -480,7 +473,6 @@
 			cbx_StreetType.Size = new Size( 172, 24 );
 			cbx_StreetType.TabIndex = 3;
 			cbx_StreetType.SelectedValueChanged +=  cbx_StreetType_SelectedValueChanged ;
-			cbx_StreetType.Enter +=  cbx_StreetType_Enter ;
 			// 
 			// tbx_Assemblage
 			// 
@@ -652,12 +644,11 @@
 			btn_DefaultExtendedRule.Font = new Font( "Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_DefaultExtendedRule.Location = new Point( 490, 391 );
 			btn_DefaultExtendedRule.Name = "btn_DefaultExtendedRule";
-			btn_DefaultExtendedRule.Size = new Size( 97, 23 );
+			btn_DefaultExtendedRule.Size = new Size( 97, 27 );
 			btn_DefaultExtendedRule.TabIndex = 4;
 			btn_DefaultExtendedRule.Text = "Extentions";
 			btn_DefaultExtendedRule.UseVisualStyleBackColor = true;
 			btn_DefaultExtendedRule.Click +=  btn_DefaultExtendedRule_Click ;
-			btn_DefaultExtendedRule.Enter +=  btn_DefaultExtendedRule_Enter ;
 			// 
 			// btn_DefaultPhysicalRule
 			// 
@@ -669,19 +660,17 @@
 			btn_DefaultPhysicalRule.Text = "Physical";
 			btn_DefaultPhysicalRule.UseVisualStyleBackColor = true;
 			btn_DefaultPhysicalRule.Click +=  btn_DefaultPhysicalRule_Click ;
-			btn_DefaultPhysicalRule.Enter +=  btn_DefaultPhysicalRule_Enter ;
 			// 
 			// btn_DefaultPostalRule
 			// 
 			btn_DefaultPostalRule.Font = new Font( "Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_DefaultPostalRule.Location = new Point( 490, 20 );
 			btn_DefaultPostalRule.Name = "btn_DefaultPostalRule";
-			btn_DefaultPostalRule.Size = new Size( 94, 23 );
+			btn_DefaultPostalRule.Size = new Size( 94, 27 );
 			btn_DefaultPostalRule.TabIndex = 0;
 			btn_DefaultPostalRule.Text = "Postal";
 			btn_DefaultPostalRule.UseVisualStyleBackColor = true;
 			btn_DefaultPostalRule.Click +=  btn_DefaultPostalRule_Click ;
-			btn_DefaultPostalRule.Enter +=  btn_DefaultPostalRule_Enter ;
 			// 
 			// tbx_PhysicalRealised
 			// 
@@ -715,7 +704,6 @@
 			tbx_PostalRealised.Size = new Size( 385, 125 );
 			tbx_PostalRealised.TabIndex = 1;
 			tbx_PostalRealised.TabStop = false;
-			tbx_PostalRealised.Enter +=  tbx_AddressRealised_Enter ;
 			// 
 			// tbx_XL_RowRealised
 			// 
@@ -725,7 +713,6 @@
 			tbx_XL_RowRealised.Size = new Size( 660, 22 );
 			tbx_XL_RowRealised.TabIndex = 2;
 			tbx_XL_RowRealised.TabStop = false;
-			tbx_XL_RowRealised.Enter +=  tbx_XL_RowRealised_Enter ;
 			// 
 			// lbl_N
 			// 
@@ -748,10 +735,11 @@
 			// btn_FindAddress
 			// 
 			btn_FindAddress.BackColor = Color.FromArgb(     224,     224,     224 );
+			btn_FindAddress.Enabled = false;
 			btn_FindAddress.FlatStyle = FlatStyle.Popup;
 			btn_FindAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindAddress.ForeColor = Color.Maroon;
-			btn_FindAddress.Location = new Point( 1013, 153 );
+			btn_FindAddress.Location = new Point( 1013, 263 );
 			btn_FindAddress.Name = "btn_FindAddress";
 			btn_FindAddress.Size = new Size( 135, 35 );
 			btn_FindAddress.TabIndex = 5;
@@ -769,21 +757,19 @@
 			btn_FirstAddress.Text = "|<";
 			btn_FirstAddress.UseVisualStyleBackColor = true;
 			btn_FirstAddress.Click +=  btn_FirstAddress_Click ;
-			btn_FirstAddress.Enter +=  btn_FirstAddress_Enter ;
 			// 
 			// btn_InsertAddress
 			// 
 			btn_InsertAddress.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_InsertAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertAddress.ForeColor = Color.Maroon;
-			btn_InsertAddress.Location = new Point( 1013, 284 );
+			btn_InsertAddress.Location = new Point( 1013, 185 );
 			btn_InsertAddress.Name = "btn_InsertAddress";
 			btn_InsertAddress.Size = new Size( 135, 35 );
 			btn_InsertAddress.TabIndex = 6;
 			btn_InsertAddress.Text = "Insert Address";
 			btn_InsertAddress.UseVisualStyleBackColor = false;
 			btn_InsertAddress.Click +=  btn_InsertAddress_Click ;
-			btn_InsertAddress.Enter +=  btn_InsertAddress_Enter ;
 			// 
 			// btn_PreviousAddress
 			// 
@@ -795,21 +781,19 @@
 			btn_PreviousAddress.Text = "<";
 			btn_PreviousAddress.UseVisualStyleBackColor = true;
 			btn_PreviousAddress.Click +=  btn_PreviousAddress_Click ;
-			btn_PreviousAddress.Enter +=  btn_PreviousAddress_Enter ;
 			// 
 			// btn_CloseForm
 			// 
 			btn_CloseForm.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 1009, 508 );
+			btn_CloseForm.Location = new Point( 1013, 508 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 135, 35 );
 			btn_CloseForm.TabIndex = 8;
 			btn_CloseForm.Text = "Close";
 			btn_CloseForm.UseVisualStyleBackColor = false;
 			btn_CloseForm.Click +=  btn_CloseForm_Click ;
-			btn_CloseForm.Enter +=  btn_CloseForm_Enter ;
 			// 
 			// btn_LastAddress
 			// 
@@ -821,21 +805,19 @@
 			btn_LastAddress.Text = ">|";
 			btn_LastAddress.UseVisualStyleBackColor = true;
 			btn_LastAddress.Click +=  btn_LastAddress_Click ;
-			btn_LastAddress.Enter +=  btn_LastAddress_Enter ;
 			// 
 			// btn_UpdateAddress
 			// 
 			btn_UpdateAddress.BackColor = Color.FromArgb(     224,     224,     224 );
 			btn_UpdateAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateAddress.ForeColor = Color.Maroon;
-			btn_UpdateAddress.Location = new Point( 1013, 243 );
+			btn_UpdateAddress.Location = new Point( 1013, 224 );
 			btn_UpdateAddress.Name = "btn_UpdateAddress";
 			btn_UpdateAddress.Size = new Size( 135, 35 );
 			btn_UpdateAddress.TabIndex = 7;
 			btn_UpdateAddress.Text = "Update Address";
 			btn_UpdateAddress.UseVisualStyleBackColor = false;
 			btn_UpdateAddress.Click +=  btn_Update_Click ;
-			btn_UpdateAddress.Enter +=  btn_UpdateAddress_Enter ;
 			// 
 			// btn_NextAddress
 			// 
@@ -847,7 +829,6 @@
 			btn_NextAddress.Text = ">";
 			btn_NextAddress.UseVisualStyleBackColor = true;
 			btn_NextAddress.Click +=  btn_NextAddress_Click ;
-			btn_NextAddress.Enter +=  btn_NextAddress_Enter ;
 			// 
 			// lbl_PkAddress
 			// 
@@ -870,7 +851,6 @@
 			tbx_Filter.Size = new Size( 73, 25 );
 			tbx_Filter.TabIndex = 0;
 			tbx_Filter.TextAlign = HorizontalAlignment.Right;
-			tbx_Filter.Enter +=  tbx_Filter_Enter ;
 			tbx_Filter.KeyUp +=  tbx_Filter_KeyUp ;
 			// 
 			// tbx_PkAddress
@@ -900,21 +880,6 @@
 			lbl_Move.Text = "Move";
 			lbl_Move.TextAlign = ContentAlignment.MiddleRight;
 			// 
-			// tbx_Prompt
-			// 
-			tbx_Prompt.BackColor = Color.FromArgb(     255,     224,     192 );
-			tbx_Prompt.BorderStyle = BorderStyle.FixedSingle;
-			tbx_Prompt.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Prompt.ForeColor = Color.Gray;
-			tbx_Prompt.Location = new Point( 1060, 436 );
-			tbx_Prompt.Multiline = true;
-			tbx_Prompt.Name = "tbx_Prompt";
-			tbx_Prompt.Size = new Size( 45, 56 );
-			tbx_Prompt.TabIndex = 9;
-			tbx_Prompt.TabStop = false;
-			tbx_Prompt.Text = "Prompt...";
-			tbx_Prompt.Visible = false;
-			// 
 			// lbl_IsoCodes
 			// 
 			lbl_IsoCodes.AutoSize = true;
@@ -940,17 +905,15 @@
 			// chk_Christmas
 			// 
 			chk_Christmas.AutoSize = true;
-			chk_Christmas.CheckAlign = ContentAlignment.MiddleRight;
 			chk_Christmas.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			chk_Christmas.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Christmas.Location = new Point( 1019, 385 );
+			chk_Christmas.Location = new Point( 1013, 466 );
 			chk_Christmas.Name = "chk_Christmas";
 			chk_Christmas.Size = new Size( 99, 23 );
 			chk_Christmas.TabIndex = 2;
 			chk_Christmas.Text = "Christmas?";
 			chk_Christmas.UseVisualStyleBackColor = true;
 			chk_Christmas.CheckedChanged +=  chk_Christmas_CheckedChanged ;
-			chk_Christmas.Enter +=  chk_Christmas_Enter ;
 			// 
 			// tbx_FkCountry
 			// 
@@ -960,7 +923,6 @@
 			tbx_FkCountry.Size = new Size( 51, 22 );
 			tbx_FkCountry.TabIndex = 1;
 			tbx_FkCountry.TabStop = false;
-			tbx_FkCountry.Enter +=  tbx_FkCountry_Enter ;
 			// 
 			// btn_DefaultExcelRule
 			// 
@@ -972,7 +934,6 @@
 			btn_DefaultExcelRule.Text = "Excel";
 			btn_DefaultExcelRule.UseVisualStyleBackColor = true;
 			btn_DefaultExcelRule.Click +=  btn_DefaultExcelRule_Click ;
-			btn_DefaultExcelRule.Enter +=  btn_DefaultExcelRule_Enter ;
 			// 
 			// cbx_ProvinceCode
 			// 
@@ -996,6 +957,108 @@
 			cbx_Metropolitan.TabIndex = 0;
 			cbx_Metropolitan.SelectedValueChanged +=  cbx_Metropolitan_SelectedValueChanged ;
 			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.ForeColor = Color.ForestGreen;
+			tbx_Messages.Location = new Point( 491, 635 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 660, 23 );
+			tbx_Messages.TabIndex = 147;
+			tbx_Messages.TabStop = false;
+			// 
+			// chk_X_Person
+			// 
+			chk_X_Person.AutoSize = true;
+			chk_X_Person.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Person.Location = new Point( 1013, 391 );
+			chk_X_Person.Name = "chk_X_Person";
+			chk_X_Person.Size = new Size( 89, 21 );
+			chk_X_Person.TabIndex = 153;
+			chk_X_Person.Text = "X_Person?";
+			chk_X_Person.UseVisualStyleBackColor = true;
+			chk_X_Person.CheckedChanged +=  chk_X_Person_CheckedChanged ;
+			// 
+			// chk_DefaultRow
+			// 
+			chk_DefaultRow.AutoSize = true;
+			chk_DefaultRow.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_DefaultRow.Location = new Point( 1013, 341 );
+			chk_DefaultRow.Name = "chk_DefaultRow";
+			chk_DefaultRow.Size = new Size( 109, 21 );
+			chk_DefaultRow.TabIndex = 151;
+			chk_DefaultRow.Text = "Default Row?";
+			chk_DefaultRow.UseVisualStyleBackColor = true;
+			chk_DefaultRow.CheckedChanged +=  chk_DefaultRow_CheckedChanged ;
+			// 
+			// chk_X_Family
+			// 
+			chk_X_Family.AutoSize = true;
+			chk_X_Family.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Family.Location = new Point( 1013, 441 );
+			chk_X_Family.Name = "chk_X_Family";
+			chk_X_Family.Size = new Size( 88, 21 );
+			chk_X_Family.TabIndex = 150;
+			chk_X_Family.Text = "X_Family?";
+			chk_X_Family.UseVisualStyleBackColor = true;
+			chk_X_Family.CheckedChanged +=  chk_X_Family_CheckedChanged ;
+			// 
+			// chk_X_Group
+			// 
+			chk_X_Group.AutoSize = true;
+			chk_X_Group.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_X_Group.Location = new Point( 1013, 416 );
+			chk_X_Group.Name = "chk_X_Group";
+			chk_X_Group.Size = new Size( 85, 21 );
+			chk_X_Group.TabIndex = 149;
+			chk_X_Group.Text = "X_Group?";
+			chk_X_Group.UseVisualStyleBackColor = true;
+			chk_X_Group.CheckedChanged +=  chk_X_Group_CheckedChanged ;
+			// 
+			// chk_Selected
+			// 
+			chk_Selected.AutoSize = true;
+			chk_Selected.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Selected.Location = new Point( 1013, 316 );
+			chk_Selected.Name = "chk_Selected";
+			chk_Selected.Size = new Size( 84, 21 );
+			chk_Selected.TabIndex = 148;
+			chk_Selected.Text = "Selected?";
+			chk_Selected.UseVisualStyleBackColor = true;
+			chk_Selected.CheckedChanged +=  chk_Selected_CheckedChanged ;
+			// 
+			// chk_Unattached
+			// 
+			chk_Unattached.AutoSize = true;
+			chk_Unattached.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			chk_Unattached.ForeColor = Color.FromArgb(     192,     0,     0 );
+			chk_Unattached.Location = new Point( 1013, 366 );
+			chk_Unattached.Name = "chk_Unattached";
+			chk_Unattached.Size = new Size( 103, 21 );
+			chk_Unattached.TabIndex = 154;
+			chk_Unattached.Text = "Unattached?";
+			chk_Unattached.UseVisualStyleBackColor = true;
+			chk_Unattached.CheckedChanged +=  chk_Unattached_CheckedChanged ;
+			// 
+			// btn_NewAddress
+			// 
+			btn_NewAddress.BackColor = Color.FromArgb(     224,     224,     224 );
+			btn_NewAddress.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_NewAddress.ForeColor = Color.Maroon;
+			btn_NewAddress.Location = new Point( 1013, 146 );
+			btn_NewAddress.Name = "btn_NewAddress";
+			btn_NewAddress.Size = new Size( 135, 35 );
+			btn_NewAddress.TabIndex = 155;
+			btn_NewAddress.Text = "New Address";
+			btn_NewAddress.UseVisualStyleBackColor = false;
+			btn_NewAddress.Click +=  btn_NewAddress_Click ;
+			// 
 			// FrmAddress
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -1003,6 +1066,14 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 1170, 692 );
+			Controls.Add( btn_NewAddress );
+			Controls.Add( chk_Unattached );
+			Controls.Add( chk_X_Person );
+			Controls.Add( chk_DefaultRow );
+			Controls.Add( chk_X_Family );
+			Controls.Add( chk_X_Group );
+			Controls.Add( chk_Selected );
+			Controls.Add( tbx_Messages );
 			Controls.Add( chk_Christmas );
 			Controls.Add( tbx_Assemblage );
 			Controls.Add( lbl_Unit );
@@ -1076,7 +1147,6 @@
 			Controls.Add( btn_LastAddress );
 			Controls.Add( btn_UpdateAddress );
 			Controls.Add( btn_NextAddress );
-			Controls.Add( tbx_Prompt );
 			Controls.Add( lbl_PkAddress );
 			Controls.Add( tbx_PkAddress );
 			Controls.Add( tbx_Filter );
@@ -1085,6 +1155,7 @@
 			Name = "FrmAddress";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Addresses";
+			Load +=  FrmAddress_Load ;
 			ResumeLayout( false );
 			PerformLayout();
 
@@ -1103,7 +1174,6 @@
 		private Button btn_NextAddress;
 		private Button btn_PreviousAddress;
 		private Button btn_UpdateAddress;
-		private CheckBox chk_Christmas;
 		private ComboBox cbx_City;
 		private ComboBox cbx_Country;
 		private ComboBox cbx_Metropolitan;
@@ -1156,7 +1226,6 @@
 		private TextBox tbx_PkAddress;
 		private TextBox tbx_PostalCode;
 		private TextBox tbx_PostalRealised;
-		private TextBox tbx_Prompt;
 		private TextBox tbx_ProvinceCode;
 		private TextBox tbx_ProvinceName;
 		private TextBox tbx_RuralDelivery;
@@ -1169,5 +1238,14 @@
 		private TextBox tbx_VcfPhysical;
 		private TextBox tbx_VcfPostal;
 		private TextBox tbx_XL_RowRealised;
+		private TextBox tbx_Messages;
+		private CheckBox chk_Selected;
+		private CheckBox chk_DefaultRow;
+		private CheckBox chk_Unattached;
+		private CheckBox chk_X_Person;
+		private CheckBox chk_X_Group;
+		private CheckBox chk_X_Family;
+		private CheckBox chk_Christmas;
+		private Button btn_NewAddress;
 	}
 }

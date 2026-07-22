@@ -149,17 +149,15 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		/// </summary>
 		public bool InsertAddress( ADDRESS_ROW address_row )
 		{
-			//Insert address into DB...
-			int insert_result = new INSERT( address_row ).Execute;
-			if ( insert_result > 1 )
+			if ( new INSERT( address_row ).Execute )
 			{
-				//...get the new max PK...
+				//Retrieve the new max PK.
 				int key = new MAX_PK().Execute;
 
-				//...retrieve the row that goes with the new max PK...
+				//Retrieve the row that goes with the new max PK...
 				ADDRESS_ROW inserted_row = new SELECT.ByPkAddress( key ).Execute;
 
-				//...add the new row to the base row collection...
+				//Add the new row to the base row collection...
 				base.AppendRow( key, inserted_row );
 
 				return true;
@@ -172,6 +170,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// UPDATEs group_row.
+		/// Returns true if UPDATE SQL succeeds, false otherwise.
 		/// </summary>
 		public bool UpdateAddress( ADDRESS_ROW group_row )
 		{

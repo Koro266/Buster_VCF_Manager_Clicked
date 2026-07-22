@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using SHORT_TXT	= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
+using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants;
@@ -15,23 +15,21 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Unit : SHORT_TXT
+		public partial class IS_Unattached : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Unit];
-			private static string no_VCF_Value = "unt,";
-			private static string no_FINDER_Value = "un";
-			private NULL_TEXT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Unattached];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Unit( string value ) : base( value )
+			public IS_Unattached( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Unit( NULL_TEXT tnp ) : base( tnp )
+			public IS_Unattached( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -49,26 +47,21 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get { return Factors.Ordinal; }
 			}
-			//_______________________________________________________________________________________________________________________________________
-			override public string ToString()
-			{
-				return base.Value;
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns value formatted for use in a Find this-or-that context.
-			/// </summary>
-			override public string FinderValue
-			{
-				get { return base.FinderValue == String.Empty ? no_FINDER_Value : base.AsIs; }
-			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns ExcelPattern as used in a VCF file.
+			/// Returns Selected as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
-				get { return base.VcfValue == String.Empty ? no_VCF_Value : base.AsIs; }
+				get { return base.AsTF; }
+			}
+			//___________________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// Returns true: Boolean columns always have a usable value.
+			/// </summary>
+			override public bool IsVcfValue
+			{
+				get { return true; }
 			}
 			#endregion
 

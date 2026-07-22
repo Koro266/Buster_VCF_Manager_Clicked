@@ -15,9 +15,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns singleton TDF_Address constrained by PkAddress.
+			/// Returns singleton TDF_Address constrained by isDefaultRow = True.
 			/// </summary>
-			public class ByPkAddress
+			public class DefaultAddress
 			{
 				private AddressReader address_Reader;
 				private const string sql_text =
@@ -45,7 +45,16 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses.st_VcfPhysical,
 						TDF_Addresses.st_VcfExtended,
 						TDF_Addresses.st_ExcelPattern,
+						TDF_Addresses.st_Notes,
+
+						TDF_Addresses.is_Selected,
+						TDF_Addresses.is_DefaultRow,
+						TDF_Addresses.is_Unattached,
+						TDF_Addresses.is_X_Person,
+						TDF_Addresses.is_X_Group,
+						TDF_Addresses.is_X_Family,
 						TDF_Addresses.is_Christmas,
+
 						TDF_Countries.st_CountryName,
 						TDF_Countries.st_CountryCode,
 						TDF_Countries.st_ShortIsoCode,
@@ -54,14 +63,13 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses
 						INNER JOIN TDF_Countries ON TDF_Addresses.fk_Country = TDF_Countries.pk_Country
 					WHERE
-						(((TDF_Addresses.pk_Address) = @pk_address ));
+						(((TDF_Addresses.is_DefaultRow) = True ));
 				";
 
 				//_______________________________________________________________________________________________________________________________
-				public ByPkAddress( int pk_address )
+				public DefaultAddress()
 				{
-					COLUMNS.PK_Address pk = new COLUMNS.PK_Address( pk_address );
-					address_Reader = new AddressReader( sql_text, pk.DbParameter );
+					address_Reader = new AddressReader( sql_text );
 				}
 				//_______________________________________________________________________________________________________________________________
 				public ADDRESS_ROW Execute

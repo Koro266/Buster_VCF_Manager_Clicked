@@ -1,6 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using CONTACTS.GLOBAL.DATABASE.CONNECTION;
+using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using ADDRESS_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
@@ -10,50 +11,83 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	//___________________________________________________________________________________________________________________________________________
 	public partial class Database
 	{
-		//___________________________________________________________________________________________________________________________________________
-		public class Update
+		//_______________________________________________________________________________________________________________________________________
+		public class Insert
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// UPDATEs existing TDF_Addresses row specified by PkAddress.
+			/// INSERTs new, fully-qualified TDF_Address. Returns the PK of the INSERTed row.
 			/// </summary>
 			public class Address : DbConnection
 			{
 				private const string sql_text =
-				@"						
-					UPDATE					
-						TDF_Addresses				
-					SET					
-						TDF_Addresses.fk_Country			= @fk_country,	
-						TDF_Addresses.st_Assemblage			= @st_assemblage,	
-						TDF_Addresses.st_Level				= @st_level,	
-						TDF_Addresses.st_Unit				= @st_unit,	
-						TDF_Addresses.st_Extension			= @st_extension,	
-						TDF_Addresses.st_RuralDelivery		= @st_ruraldelivery,	
-						TDF_Addresses.st_PostalCode			= @st_postalcode,	
-						TDF_Addresses.st_BoxNumber			= @st_boxnumber,	
-						TDF_Addresses.st_HouseNumber		= @st_housenumber,	
-						TDF_Addresses.st_StreetName			= @st_streetname,	
-						TDF_Addresses.st_StreetType			= @st_streettype,	
-						TDF_Addresses.st_Compass			= @st_compass,	
-						TDF_Addresses.st_Suburb				= @st_suburb,	
-						TDF_Addresses.st_City				= @st_city,	
-						TDF_Addresses.st_Metropolitan		= @st_metropolitan,	
-						TDF_Addresses.st_ProvinceName		= @st_provincename,	
-						TDF_Addresses.st_ProvinceCode		= @st_provincecode,	
-						TDF_Addresses.st_VcfPostal			= @st_vcfpostal,	
-						TDF_Addresses.st_VcfPhysical		= @st_vcfphysical,	
-						TDF_Addresses.st_VcfExtended		= @st_vcfextended,	
-						TDF_Addresses.st_ExcelPattern		= @st_excelpattern,	
-						TDF_Addresses.is_Christmas			= @is_christmas
-					WHERE					
-						(((TDF_Addresses.pk_Address			= @pk_address)))
+				@"		
+					INSERT INTO TDF_Addresses	
+					( 	
+						fk_Country,
+						st_Assemblage,
+						st_Level,
+						st_Unit,
+						st_Extension,
+						st_RuralDelivery,
+						st_PostalCode,
+						st_BoxNumber,
+						st_HouseNumber,
+						st_StreetName,
+						st_StreetType,
+						st_Compass,
+						st_Suburb,
+						st_City,
+						st_Metropolitan,
+						st_ProvinceName,
+						st_ProvinceCode,
+						st_VcfPostal,
+						st_VcfPhysical,
+						st_VcfExtended,
+						st_ExcelPattern,
+						st_Notes,
+						is_Selected,
+						is_DefaultRow,
+						is_Unattached,
+						is_X_Person,
+						is_X_Group,
+						is_X_Family,
+						is_Christmas 
+					) 	
+					VALUES	
+					(	
+						@fk_country,
+						@st_assemblage,
+						@st_level,
+						@st_unit,
+						@st_extension,
+						@st_ruraldelivery,
+						@st_postalcode,
+						@st_boxnumber,
+						@st_housenumber,
+						@st_streetname,
+						@st_streettype,
+						@st_compass,
+						@st_suburb,
+						@st_city,
+						@st_metropolitan,
+						@st_provincename,
+						@st_provincecode,
+						@st_vcfpostal,
+						@st_vcfphysical,
+						@st_vcfextended,
+						@st_excelpattern,
+						@st_notes,
+						@is_selected,
+						@is_defaultrow,
+						@is_unattached,
+						@is_x_person,
+						@is_x_group,
+						@is_x_family,
+						@is_christmas
+					);
 				";
-
 				//_______________________________________________________________________________________________________________________________
-				/// <summary>
-				/// Updates all columns of a single, existing, TDF_Addresses row specified by PkAddress.
-				/// </summary>
 				public Address( ADDRESS_ROW address ) : base( sql_text )
 				{
 					base.DbCommand.Parameters.Add( address.FkCountry.DbParameter );
@@ -77,10 +111,19 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					base.DbCommand.Parameters.Add( address.VcfPhysical.DbParameter );
 					base.DbCommand.Parameters.Add( address.VcfExtended.DbParameter );
 					base.DbCommand.Parameters.Add( address.ExcelPattern.DbParameter );
+					base.DbCommand.Parameters.Add( address.Notes.DbParameter );
+					base.DbCommand.Parameters.Add( address.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( address.DefaultRow.DbParameter );
+					base.DbCommand.Parameters.Add( address.Unattached.DbParameter );
+					base.DbCommand.Parameters.Add( address.X_Person.DbParameter );
+					base.DbCommand.Parameters.Add( address.X_Group.DbParameter );
+					base.DbCommand.Parameters.Add( address.X_Family.DbParameter );
 					base.DbCommand.Parameters.Add( address.Christmas.DbParameter );
-					base.DbCommand.Parameters.Add( address.PkAddress.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
+				/// <summary>
+				/// Returns true if SQL succeeds, false otherwise.
+				/// </summary>
 				public bool Execute
 				{
 					get

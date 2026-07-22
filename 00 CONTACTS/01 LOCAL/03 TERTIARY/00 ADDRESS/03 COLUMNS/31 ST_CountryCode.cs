@@ -15,23 +15,23 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Unit : SHORT_TXT
+		public partial class ST_CountryCode : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Unit];
-			private static string no_VCF_Value = "unt,";
-			private static string no_FINDER_Value = "un";
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.CountryCode];
+			private static string no_VCF_Value = "cd";
+			private static string no_FINDER_Value = "cd";
 			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Unit( string value ) : base( value )
+			public ST_CountryCode( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Unit( NULL_TEXT tnp ) : base( tnp )
+			public ST_CountryCode( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}

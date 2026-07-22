@@ -1,7 +1,11 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+//GLOBAL
+using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL
+using ORDINAL = CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.OrdinalByName;
 using ADDRESS_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using COLUMNS = CONTACTS.LOCAL.TERTIARY.ADDRESS.Column;
+using COUNT = CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Count;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
@@ -14,9 +18,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns singleton TDF_Address constrained by isDefaultRow = True.
+			/// Returns all TDF_Address rows currently held in TDF_Addresses.
 			/// </summary>
-			public class FullyQualifiedAddress
+			public class AllAddresses
 			{
 				private AddressReader address_Reader;
 				private const string sql_text =
@@ -44,28 +48,33 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses.st_VcfPhysical,
 						TDF_Addresses.st_VcfExtended,
 						TDF_Addresses.st_ExcelPattern,
+						TDF_Addresses.st_Notes,
+
+						TDF_Addresses.is_Selected,
+						TDF_Addresses.is_DefaultRow,
+						TDF_Addresses.is_Unattached,
+						TDF_Addresses.is_X_Person,
+						TDF_Addresses.is_X_Group,
+						TDF_Addresses.is_X_Family,
 						TDF_Addresses.is_Christmas,
+
 						TDF_Countries.st_CountryName,
 						TDF_Countries.st_CountryCode,
 						TDF_Countries.st_ShortIsoCode,
 						TDF_Countries.st_LongIsoCode 
 					FROM
 						TDF_Addresses
-						INNER JOIN TDF_Countries ON TDF_Addresses.fk_Country = TDF_Countries.pk_Country
-					WHERE
-						(((TDF_Addresses.pk_Address) = @pk_address));
+						INNER JOIN TDF_Countries ON TDF_Addresses.fk_Country = TDF_Countries.pk_Country;
 				";
-
 				//_______________________________________________________________________________________________________________________________
-				public FullyQualifiedAddress( int pk_address )
+				public AllAddresses()
 				{
-					COLUMNS.PK_Address pk = new COLUMNS.PK_Address( pk_address );
-					address_Reader = new AddressReader( sql_text, pk.DbParameter );
+					address_Reader = new AddressReader( sql_text );
 				}
 				//_______________________________________________________________________________________________________________________________
-				public ADDRESS_ROW Execute
+				public Dictionary<int, BASE_ROW> Execute
 				{
-					get { return address_Reader.ReadAddress(); }
+					get { return address_Reader.ReadAddresses(); }
 				}
 			}
 		}

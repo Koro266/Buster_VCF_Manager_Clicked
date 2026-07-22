@@ -4,9 +4,9 @@ using System.Data.OleDb;
 using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
 using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
 //LOCAL
-using CONST		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants;
-using ORDINAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.ColumnFactors;
+using CONST		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants;
+using ORDINAL	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.OrdinalByName;
+using FACTORS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
@@ -18,7 +18,7 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 		public class FK_Person : INT_32
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.PkAddress];
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.FkPerson];
 			private NULL_INT type_null_pair;
 			#endregion
 
@@ -51,18 +51,6 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 			override public string ToString()
 			{
 				return base.Value.ToString();
-			}
-			#endregion
-
-
-			#region EXTENSIONS
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.AsString; }
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>

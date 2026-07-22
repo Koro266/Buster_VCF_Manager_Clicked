@@ -12,20 +12,20 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns the largest current pk_Address.
+			/// Returns the smallest current pk_Address.
 			/// </summary>
-			public class MaxPk : COUNT
+			public class MinPk : COUNT
 			{
 				private const string sql_text =
 				@"
 					SELECT 
-						Max(TDF_Addresses.pk_Address) AS MaxPk  
+						Min(TDF_Addresses.pk_Address) AS MinPk  
 					FROM 
-						TDF_Devices;
+						TDF_Addresses 
 				";
 				//_______________________________________________________________________________________________________________________________
-				public MaxPk() : base( sql_text ) { }
-				public int Execute { get { return base.MaxPk; } }
+				public MinPk() : base( sql_text ) { }
+				public int Execute { get { return base.MinPk; } }
 			}
 		}
 	}

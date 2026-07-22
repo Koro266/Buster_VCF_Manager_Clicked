@@ -143,6 +143,40 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			set { Replace( ORDINAL.ExcelPattern, new FIELD.ST_ExcelPattern( value ) ); }
 		}
+		#endregion
+
+
+		#region BOOLEANS
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsSelected
+		{
+			set { Replace( ORDINAL.Selected, new FIELD.IS_Selected( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsDefaultRow
+		{
+			set { Replace( ORDINAL.DefaultRow, new FIELD.IS_DefaultRow( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsUnattached
+		{
+			set { Replace( ORDINAL.Unattached, new FIELD.IS_Unattached( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsXPerson
+		{
+			set { Replace( ORDINAL.X_Person, new FIELD.IS_X_Person( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsXGroup
+		{
+			set { Replace( ORDINAL.X_Group, new FIELD.IS_X_Group( value ) ); }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public bool NewIsXFamily
+		{
+			set { Replace( ORDINAL.X_Family, new FIELD.IS_X_Family( value ) ); }
+		}
 		//___________________________________________________________________________________________________________________________________________
 		public bool NewIsChristmas
 		{

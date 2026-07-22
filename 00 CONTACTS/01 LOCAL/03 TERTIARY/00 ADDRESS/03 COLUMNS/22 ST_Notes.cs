@@ -15,23 +15,23 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class ST_Unit : SHORT_TXT
+		public partial class ST_Notes : SHORT_TXT
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.Unit];
-			private static string no_VCF_Value = "unt,";
-			private static string no_FINDER_Value = "un";
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Notes];
+			private static string no_VCF_Value = "nt";
+			private static string no_FINDER_Value = "nts";
 			private NULL_TEXT type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Unit( string value ) : base( value )
+			public ST_Notes( string value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public ST_Unit( NULL_TEXT tnp ) : base( tnp )
+			public ST_Notes( NULL_TEXT tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -60,11 +60,11 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			/// </summary>
 			override public string FinderValue
 			{
-				get { return base.FinderValue == String.Empty ? no_FINDER_Value : base.AsIs; }
+				get { return base.FinderValue == String.Empty ? no_FINDER_Value : base.AsUpper; }
 			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns ExcelPattern as used in a VCF file.
+			/// Returns Note as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{

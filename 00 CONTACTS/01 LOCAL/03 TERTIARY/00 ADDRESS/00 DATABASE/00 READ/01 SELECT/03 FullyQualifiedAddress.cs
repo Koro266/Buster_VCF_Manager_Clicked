@@ -1,5 +1,4 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using System.Data.OleDb;
 //LOCAL
 using ADDRESS_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using COLUMNS = CONTACTS.LOCAL.TERTIARY.ADDRESS.Column;
@@ -17,7 +16,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			/// <summary>
 			/// Returns singleton TDF_Address constrained by isDefaultRow = True.
 			/// </summary>
-			public class DefaultAddress
+			public class FullyQualifiedAddress
 			{
 				private AddressReader address_Reader;
 				private const string sql_text =
@@ -45,7 +44,16 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses.st_VcfPhysical,
 						TDF_Addresses.st_VcfExtended,
 						TDF_Addresses.st_ExcelPattern,
+						TDF_Addresses.st_Notes,
+
+						TDF_Addresses.is_Selected,
+						TDF_Addresses.is_DefaultRow,
+						TDF_Addresses.is_Unattached,
+						TDF_Addresses.is_X_Person,
+						TDF_Addresses.is_X_Group,
+						TDF_Addresses.is_X_Family,
 						TDF_Addresses.is_Christmas,
+
 						TDF_Countries.st_CountryName,
 						TDF_Countries.st_CountryCode,
 						TDF_Countries.st_ShortIsoCode,
@@ -54,13 +62,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						TDF_Addresses
 						INNER JOIN TDF_Countries ON TDF_Addresses.fk_Country = TDF_Countries.pk_Country
 					WHERE
-						(((TDF_Addresses.is_DefaultRow) = True ));
+						(((TDF_Addresses.pk_Address) = @pk_address));
 				";
 
 				//_______________________________________________________________________________________________________________________________
-				public DefaultAddress()
+				public FullyQualifiedAddress( int pk_address )
 				{
-					address_Reader = new AddressReader( sql_text );
+					COLUMNS.PK_Address pk = new COLUMNS.PK_Address( pk_address );
+					address_Reader = new AddressReader( sql_text, pk.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				public ADDRESS_ROW Execute

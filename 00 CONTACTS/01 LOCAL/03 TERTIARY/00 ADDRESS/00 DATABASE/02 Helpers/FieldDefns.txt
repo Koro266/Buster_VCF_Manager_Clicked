@@ -1,0 +1,30 @@
+﻿pk_Address	0	4	4	Address	address	PK	Pk	pk	Primary Key, AutoNum, int.	|	
+fk_Country	1	4	4	Country	country	FK	Fk	fk	FK into TDF_Countries.pk_Country. Default value = 0 (i.e., New Zealand). Required = True.	|	
+st_Assemblage	2	50	10	Assemblage	assemblage	ST	St	st	Name of resident building, over-arching  organisation, etc.	|	
+st_Level	3	20	10	Level	level	ST	St	st	Floor number / level number where person/family lives or organisation resides.	|	
+st_Unit	4	20	10	Unit	unit	ST	St	st	Number / identifier of apartment, unit, suite, villa, flat, etc.	|	
+st_Extension	5	30	10	Extension	extension	ST	St	st	Non-regular information to supplement some portion of the address.	|	
+st_RuralDelivery	6	5	10	RuralDelivery	ruraldelivery	ST	St	st	Rural delivery address / routing code. Max length=5, Format: "RD" followed by a one- or two-digit number, space between "RD" and number is allowed.	|	
+st_PostalCode	7	20	10	PostalCode	postalcode	ST	St	st	Physical location postal delivery code (zip code).	|	
+st_BoxNumber	8	30	10	BoxNumber	boxnumber	ST	St	st	Post office box number / label.	|	
+st_HouseNumber	9	10	10	HouseNumber	housenumber	ST	St	st	'House' number (number identifier) portion of a conventional street address.	|	
+st_StreetName	10	25	10	StreetName	streetname	ST	St	st	Street name portion of a conventional street address.	|	
+st_StreetType	11	20	10	StreetType	streettype	ST	St	st	Street type: 'Street', Avenue', 'Road', etc. Fully spelled out. No abbreviations.	|	
+st_Compass	12	20	10	Compass	compass	ST	St	st	'Compass' indication: 'N', 'W', 'SW', 'North', etc, as part of physical address.	|	
+st_Suburb	13	50	10	Suburb	suburb	ST	St	st	Suburb name.	|	
+st_City	14	50	10	City	city	ST	St	st	City name.	|	
+st_Metropolitan	15	50	10	Metropolitan	metropolitan	ST	St	st	Name of over-arching entity of 'cities', e.g., Wellington, Porirua, Plimmerton, Upper & Lower Hutt, etc.	|	
+st_ProvinceName	16	50	10	ProvinceName	provincename	ST	St	st	Full name of province, state, prefecture, etc.	|	
+st_ProvinceCode	17	5	10	ProvinceCode	provincecode	ST	St	st	Abbreviation (code) of province name.	|	
+st_VcfPostal	18	255	10	VcfPostal	vcfpostal	ST	St	st	Pattern used to construct a postal VCF address (i.e., the ADR line) entry. Used for addresses that include a PO Box or rural delivery	|	
+st_VcfPhysical	19	255	10	VcfPhysical	vcfphysical	ST	St	st	Pattern used to construct a physical VCF address (i.e., the ADR line) entry. Typically used for a 'street' addresses.	|	
+st_VcfExtended	20	255	10	VcfExtended	vcfextended	ST	St	st	Pattern used to construct an extended VCF address (i.e., the ADR line) entry. Used for 'non-regular' address data (e.g., a building name, unit number, etc).	|	
+st_ExcelPattern	21	255	10	ExcelPattern	excelpattern	ST	St	st	Pattern used to construct a line of address information intended to be imported into Excel (Christmas letters, see Families_X_Addresses).	|	
+st_Notes	22	255	10	Notes	notes	ST	St	st	General-purpose text field. [255].	|	
+is_Selected	23	1	1	Selected	selected	IS	Is	is	General-purpose selection flag. Default value = False.	|	
+is_DefaultRow	24	1	1	DefaultRow	defaultrow	IS	Is	is	TRUE = Address is used as the Contact Manager default  Address object. Default value = False.	|	
+is_Unattached	25	1	1	Unattached	unattached	IS	Is	is	TRUE = Address is not attached to any Person, Group, or Family. Default value = False.	|	
+is_X_Person	26	1	1	X_Person	x_person	IS	Is	is	TRUE = Address is attached to a Person. Default value = False.	|	
+is_X_Group	27	1	1	X_Group	x_group	IS	Is	is	TRUE = Address is attached to a Group. Default value = False.	|	
+is_X_Family	28	1	1	X_Family	x_family	IS	Is	is	TRUE = Address is attached to a Family. Default value = False.	|	
+is_Christmas	29	1	1	Christmas	christmas	IS	Is	is	TRUE = Address is (or was) used for the Christmas letter. TDF_Families_X_Address.IsChristmas identifies familes that currently receive the letter.  Default value = False.	|	
