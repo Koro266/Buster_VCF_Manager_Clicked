@@ -129,9 +129,9 @@
 			// 
 			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Cancel.ForeColor = Color.Maroon;
-			btn_Cancel.Location = new Point( 330, 564 );
+			btn_Cancel.Location = new Point( 408, 564 );
 			btn_Cancel.Name = "btn_Cancel";
-			btn_Cancel.Size = new Size( 210, 34 );
+			btn_Cancel.Size = new Size( 132, 34 );
 			btn_Cancel.TabIndex = 10;
 			btn_Cancel.Text = "Cancel";
 			btn_Cancel.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@
 			// 
 			btn_Close.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Close.ForeColor = Color.Maroon;
-			btn_Close.Location = new Point( 330, 524 );
+			btn_Close.Location = new Point( 408, 524 );
 			btn_Close.Name = "btn_Close";
-			btn_Close.Size = new Size( 210, 34 );
+			btn_Close.Size = new Size( 132, 34 );
 			btn_Close.TabIndex = 9;
 			btn_Close.Text = "Close";
 			btn_Close.UseVisualStyleBackColor = true;
