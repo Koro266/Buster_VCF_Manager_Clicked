@@ -66,7 +66,7 @@
 			grp_GroupData.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_GroupData.Location = new Point( 321, 9 );
 			grp_GroupData.Name = "grp_GroupData";
-			grp_GroupData.Size = new Size( 230, 509 );
+			grp_GroupData.Size = new Size( 230, 371 );
 			grp_GroupData.TabIndex = 0;
 			grp_GroupData.TabStop = false;
 			grp_GroupData.Text = "Family Filters";
