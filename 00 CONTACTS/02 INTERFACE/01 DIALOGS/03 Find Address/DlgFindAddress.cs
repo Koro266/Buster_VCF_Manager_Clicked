@@ -1,11 +1,11 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using static CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select.Unique;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+//LOCAL
 using ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using ADDRESSES		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
-using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using LIKE			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
-//LOCAL
+using UNIQUE		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select.Unique;
 using NATION		= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATIONS		= CONTACTS.LOCAL.TERTIARY.NATION.Table;
 

@@ -20,7 +20,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		};
 
 		#if DEBUG
-		private static StartupForm startup_Interface = StartupForm.Person;
+		private static StartupForm startup_Interface = StartupForm.FindAddress;
 		#else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
 		#endif
