@@ -5,7 +5,6 @@ using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using ADDRESSES		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
 using LIKE			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
-using UNIQUE		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select.Unique;
 using NATION		= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATIONS		= CONTACTS.LOCAL.TERTIARY.NATION.Table;
 
@@ -16,6 +15,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 	public partial class DlgFindAddress : Form
 	{
 		#region DECLARATION & CONSTRUCTION
+		//TODO: Review all_Addresses & all_Nations. Do we really need them?
 		private static ADDRESSES all_Addresses = new ADDRESSES();
 		private static NATIONS all_Nations = new NATIONS();
 
