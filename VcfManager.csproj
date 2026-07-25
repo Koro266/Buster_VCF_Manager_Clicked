@@ -29,7 +29,6 @@
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\05 TAGS\**" />
     <Compile Remove="00 CONTACTS\01 LOCAL\04 VCF\**" />
     <Compile Remove="00 CONTACTS\02 INTERFACE\00 FORMS\03 Families - Copy\**" />
-    <Compile Remove="00 CONTACTS\02 INTERFACE\01 DIALOGS\02 Find Family\**" />
     <Compile Remove="00 CONTACTS\02 INTERFACE\99 BUMPS\**" />
     <Compile Remove="00 CONTACTS\03 Code Workbooks\**" />
     <Compile Remove="00 CONTACTS\04 Garbage Pile\**" />
@@ -69,7 +68,6 @@
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\05 TAGS\**" />
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\04 VCF\**" />
     <EmbeddedResource Remove="00 CONTACTS\02 INTERFACE\00 FORMS\03 Families - Copy\**" />
-    <EmbeddedResource Remove="00 CONTACTS\02 INTERFACE\01 DIALOGS\02 Find Family\**" />
     <EmbeddedResource Remove="00 CONTACTS\02 INTERFACE\99 BUMPS\**" />
     <EmbeddedResource Remove="00 CONTACTS\03 Code Workbooks\**" />
     <EmbeddedResource Remove="00 CONTACTS\04 Garbage Pile\**" />
@@ -109,7 +107,6 @@
     <None Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\05 TAGS\**" />
     <None Remove="00 CONTACTS\01 LOCAL\04 VCF\**" />
     <None Remove="00 CONTACTS\02 INTERFACE\00 FORMS\03 Families - Copy\**" />
-    <None Remove="00 CONTACTS\02 INTERFACE\01 DIALOGS\02 Find Family\**" />
     <None Remove="00 CONTACTS\02 INTERFACE\99 BUMPS\**" />
     <None Remove="00 CONTACTS\03 Code Workbooks\**" />
     <None Remove="00 CONTACTS\04 Garbage Pile\**" />

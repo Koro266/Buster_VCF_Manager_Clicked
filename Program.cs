@@ -9,6 +9,7 @@ using ADDRESS		= CONTACTS.INTERFACE.FORMS.FrmAddress;
 
 using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using FIND_GROUP	= CONTACTS.INTERFACE.DIALOGS.DlgFindGroup;
+using FIND_FAMILY	= CONTACTS.INTERFACE.DIALOGS.DlgFindFamily;
 using FIND_ADDRESS	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
 
@@ -61,6 +62,10 @@ namespace VcfManager
 
 				case STARTUP_MAN.StartupForm.FindGroup:
 					Application.Run( new FIND_GROUP() );
+					break;
+
+				case STARTUP_MAN.StartupForm.FindFamily:
+					Application.Run( new FIND_FAMILY() );
 					break;
 
 				case STARTUP_MAN.StartupForm.FindAddress:

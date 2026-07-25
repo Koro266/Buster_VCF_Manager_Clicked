@@ -15,12 +15,13 @@ namespace CONTACTS.GLOBAL.TOOLS
 			Device,
 			FindPerson,
 			FindGroup,
+			FindFamily,
 			FindAddress,
 			FindDevice
 		};
 
 		#if DEBUG
-		private static StartupForm startup_Interface = StartupForm.Address;
+		private static StartupForm startup_Interface = StartupForm.FindFamily;
 		#else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
 		#endif
