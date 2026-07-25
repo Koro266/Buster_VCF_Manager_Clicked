@@ -1,7 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE = CONTACTS.GLOBAL.DATABASE.READ.Like;
+using PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using LIKE		= CONTACTS.GLOBAL.DATABASE.READ.Like;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.FAMILY
@@ -18,7 +18,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY
 			/// </summary>
 			public class FamilyName : LIKE
 			{
-				private readonly string target_field = "st_BirthName";
+				private readonly string target_field = "st_SortableName";
 				private const string sql_text =
 				@"
 					SELECT 

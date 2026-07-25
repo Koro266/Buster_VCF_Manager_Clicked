@@ -31,12 +31,12 @@
 			lbx_MatchingFamilies = new ListBox();
 			grp_GroupData = new GroupBox();
 			btn_GetPk = new Button();
+			btn_Cancel = new Button();
 			label16 = new Label();
+			btn_Close = new Button();
 			label5 = new Label();
 			tbx_FamilyName = new TextBox();
 			tbx_PkFamily = new TextBox();
-			btn_Cancel = new Button();
-			btn_Close = new Button();
 			grp_GroupData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -49,7 +49,7 @@
 			lbx_MatchingFamilies.ItemHeight = 15;
 			lbx_MatchingFamilies.Location = new Point( 12, 9 );
 			lbx_MatchingFamilies.Name = "lbx_MatchingFamilies";
-			lbx_MatchingFamilies.Size = new Size( 303, 589 );
+			lbx_MatchingFamilies.Size = new Size( 346, 379 );
 			lbx_MatchingFamilies.TabIndex = 1;
 			lbx_MatchingFamilies.TabStop = false;
 			lbx_MatchingFamilies.SelectedIndexChanged +=  lbx_MatchingFamilies_SelectedIndexChanged ;
@@ -59,14 +59,16 @@
 			// 
 			grp_GroupData.BackColor = Color.FromArgb(     255,     224,     192 );
 			grp_GroupData.Controls.Add( btn_GetPk );
+			grp_GroupData.Controls.Add( btn_Cancel );
 			grp_GroupData.Controls.Add( label16 );
+			grp_GroupData.Controls.Add( btn_Close );
 			grp_GroupData.Controls.Add( label5 );
 			grp_GroupData.Controls.Add( tbx_FamilyName );
 			grp_GroupData.Controls.Add( tbx_PkFamily );
 			grp_GroupData.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			grp_GroupData.Location = new Point( 321, 9 );
+			grp_GroupData.Location = new Point( 378, 9 );
 			grp_GroupData.Name = "grp_GroupData";
-			grp_GroupData.Size = new Size( 230, 371 );
+			grp_GroupData.Size = new Size( 230, 379 );
 			grp_GroupData.TabIndex = 0;
 			grp_GroupData.TabStop = false;
 			grp_GroupData.Text = "Family Filters";
@@ -85,6 +87,18 @@
 			btn_GetPk.UseVisualStyleBackColor = false;
 			btn_GetPk.Click +=  btn_GetPk_Click ;
 			// 
+			// btn_Cancel
+			// 
+			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Cancel.ForeColor = Color.Maroon;
+			btn_Cancel.Location = new Point( 87, 339 );
+			btn_Cancel.Name = "btn_Cancel";
+			btn_Cancel.Size = new Size( 132, 34 );
+			btn_Cancel.TabIndex = 10;
+			btn_Cancel.Text = "Cancel";
+			btn_Cancel.UseVisualStyleBackColor = true;
+			btn_Cancel.Click +=  btn_Cancel_Click ;
+			// 
 			// label16
 			// 
 			label16.AutoSize = true;
@@ -95,6 +109,18 @@
 			label16.Size = new Size( 70, 19 );
 			label16.TabIndex = 3;
 			label16.Text = "PkFamily";
+			// 
+			// btn_Close
+			// 
+			btn_Close.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Close.ForeColor = Color.Maroon;
+			btn_Close.Location = new Point( 87, 299 );
+			btn_Close.Name = "btn_Close";
+			btn_Close.Size = new Size( 132, 34 );
+			btn_Close.TabIndex = 9;
+			btn_Close.Text = "Close";
+			btn_Close.UseVisualStyleBackColor = true;
+			btn_Close.Click +=  btn_Close_Click ;
 			// 
 			// label5
 			// 
@@ -125,30 +151,6 @@
 			tbx_PkFamily.Size = new Size( 57, 23 );
 			tbx_PkFamily.TabIndex = 5;
 			// 
-			// btn_Cancel
-			// 
-			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_Cancel.ForeColor = Color.Maroon;
-			btn_Cancel.Location = new Point( 408, 564 );
-			btn_Cancel.Name = "btn_Cancel";
-			btn_Cancel.Size = new Size( 132, 34 );
-			btn_Cancel.TabIndex = 10;
-			btn_Cancel.Text = "Cancel";
-			btn_Cancel.UseVisualStyleBackColor = true;
-			btn_Cancel.Click +=  btn_Cancel_Click ;
-			// 
-			// btn_Close
-			// 
-			btn_Close.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_Close.ForeColor = Color.Maroon;
-			btn_Close.Location = new Point( 408, 524 );
-			btn_Close.Name = "btn_Close";
-			btn_Close.Size = new Size( 132, 34 );
-			btn_Close.TabIndex = 9;
-			btn_Close.Text = "Close";
-			btn_Close.UseVisualStyleBackColor = true;
-			btn_Close.Click +=  btn_Close_Click ;
-			// 
 			// DlgFindFamily
 			// 
 			AcceptButton = btn_Close;
@@ -156,10 +158,8 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Cancel;
-			ClientSize = new Size( 561, 610 );
+			ClientSize = new Size( 620, 404 );
 			Controls.Add( grp_GroupData );
-			Controls.Add( btn_Cancel );
-			Controls.Add( btn_Close );
 			Controls.Add( lbx_MatchingFamilies );
 			Name = "DlgFindFamily";
 			StartPosition = FormStartPosition.CenterParent;

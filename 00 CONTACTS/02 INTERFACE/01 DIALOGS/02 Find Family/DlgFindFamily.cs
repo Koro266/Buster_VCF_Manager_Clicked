@@ -41,9 +41,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
-				//matching_Familys = new MATCH_FAMILYS( value ).Execute;
-
-				//				this.matching_Families = new FAMILY_LIKE.FamilyName( value ).Execute;
+				this.matching_Families = new MATCH_FAMILYS( value ).Execute;
 				this.lbx_MatchingFamilies.Items.Clear();
 				this.lbx_MatchingFamilies.Items.AddRange( matching_Families.ToArray() );
 
