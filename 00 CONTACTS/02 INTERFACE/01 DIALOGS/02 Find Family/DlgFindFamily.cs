@@ -75,6 +75,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			get { return selected_Family; }
 			set { selected_Family = value; }
 		}
+
 		#endregion
 
 
@@ -121,13 +122,14 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_Cancel_Click( object sender, EventArgs e )
-		
-		
+
+
 		{
 			this.selected_Family = GLOBAL_PRESET.MINUS_ONE;
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
 		#endregion
+
 	}
 }
