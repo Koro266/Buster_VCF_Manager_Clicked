@@ -41,9 +41,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
-				//matching_Familys = new MATCH_FAMILYS( value ).Execute;
-
-				//				this.matching_Families = new FAMILY_LIKE.FamilyName( value ).Execute;
+				this.matching_Families = new MATCH_FAMILYS( value ).Execute;
 				this.lbx_MatchingFamilies.Items.Clear();
 				this.lbx_MatchingFamilies.Items.AddRange( matching_Families.ToArray() );
 
@@ -77,6 +75,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			get { return selected_Family; }
 			set { selected_Family = value; }
 		}
+
 		#endregion
 
 
@@ -123,13 +122,14 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_Cancel_Click( object sender, EventArgs e )
-		
-		
+
+
 		{
 			this.selected_Family = GLOBAL_PRESET.MINUS_ONE;
 			this.DialogResult = DialogResult.Cancel;
 			this.Close();
 		}
 		#endregion
+
 	}
 }

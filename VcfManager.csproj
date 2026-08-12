@@ -133,6 +133,7 @@
     <Compile Remove="00 CONTACTS\00 FrmPerson.cs" />
     <Compile Remove="00 CONTACTS\00 FrmPerson.Designer.cs" />
     <Compile Remove="00 CONTACTS\00 GLOBAL\05 VCF\01 VcfPatterns.cs" />
+    <Compile Remove="00 CONTACTS\00 GLOBAL\06 TOOLS\ExtractTextMessages.cs" />
     <Compile Remove="00 CONTACTS\00 GLOBAL\06 TOOLS\TextBetween.cs" />
     <Compile Remove="00 CONTACTS\01 FrmPerson.InitialiseDisplay.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\00 PERSON\00 DATABASE\00 PersonDatabase.cs" />
@@ -150,6 +151,7 @@
     <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\01 GROUP\04 CONSTANTS\00 Constants %28Group%29_BACKUP_1755.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\01 GROUP\04 CONSTANTS\00 Constants %28Group%29_BASE_1755.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\01 GROUP\04 CONSTANTS\00 Constants %28Group%29_LOCAL_1755.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\01 PRIMARY\02 FAMILY\00 DATABASE\00 READ\02 LIKE\FamilyName.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\00 DATABASE\00 READ\01 SELECT\DefaultPersonAddress.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\00 X_ADDRESS\02 ROW\01 Row, Exporter %28Person_X_Address%29.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\01 X_DEVICE\00 DATABASE\00 READ\01 SELECT\DefaultPersonDevice.cs" />
@@ -200,6 +202,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.11" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
   </ItemGroup>
 
