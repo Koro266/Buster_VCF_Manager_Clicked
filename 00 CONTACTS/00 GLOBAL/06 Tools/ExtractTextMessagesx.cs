@@ -32,7 +32,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		public void ExtractMessages()
+		public string  ExtractMessages()
 		{
 			string query = GetExtractionSql;
 
@@ -63,7 +63,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 							s += $"{date} | {text}" + new_Line;
  						}
 
-						s = "";
+						return s;
 					}
 				}
 			}

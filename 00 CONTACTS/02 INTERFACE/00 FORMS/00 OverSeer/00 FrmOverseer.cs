@@ -206,8 +206,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_Decode_Chat_Db_Click( object sender, EventArgs e )
 		{
 			EXTRACT_TXT extract_txt = new EXTRACT_TXT();
-			extract_txt.ExtractMessages();
+			string s = extract_txt.ExtractMessages();
 		}
-
 	}
 }
