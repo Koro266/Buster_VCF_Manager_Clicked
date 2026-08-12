@@ -90,6 +90,14 @@ namespace CONTACTS.GLOBAL.DATABASE.CONNECTION
 				return s.ToString();
 			}
 		}
+		//_______________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns: "C:\Users\Brusster\ContactsManager\Database\".
+		/// </summary>
+		public static string ChatDbPath
+		{
+			get { return @"C:\Users\Brusster\ContactsManager\Database\chat.db"; }
+		}
 
 #if DEBUG
 		//_______________________________________________________________________________________________________________________________________________

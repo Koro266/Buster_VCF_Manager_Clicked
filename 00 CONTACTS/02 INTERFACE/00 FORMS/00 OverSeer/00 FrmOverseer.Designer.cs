@@ -58,6 +58,7 @@
 			btn_Eddresses = new Button();
 			btn_Open_Group_Form = new Button();
 			btn_CloseForm = new Button();
+			btn_Decode_Chat_Db = new Button();
 			bx_Groups.SuspendLayout();
 			bx_Families.SuspendLayout();
 			bx_Persons.SuspendLayout();
@@ -454,6 +455,16 @@
 			btn_CloseForm.UseVisualStyleBackColor = true;
 			btn_CloseForm.Click +=  btn_CloseForm_Click ;
 			// 
+			// btn_Decode_Chat_Db
+			// 
+			btn_Decode_Chat_Db.Location = new Point( 74, 477 );
+			btn_Decode_Chat_Db.Name = "btn_Decode_Chat_Db";
+			btn_Decode_Chat_Db.Size = new Size( 183, 33 );
+			btn_Decode_Chat_Db.TabIndex = 7;
+			btn_Decode_Chat_Db.Text = "Decode Txt Messages";
+			btn_Decode_Chat_Db.UseVisualStyleBackColor = true;
+			btn_Decode_Chat_Db.Click +=  btn_Decode_Chat_Db_Click ;
+			// 
 			// FrmOverseer
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -461,6 +472,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 687, 520 );
+			Controls.Add( btn_Decode_Chat_Db );
 			Controls.Add( grp_Add_Mod_Del );
 			Controls.Add( btn_CloseForm );
 			Controls.Add( grp_Export );
@@ -513,5 +525,6 @@
 		private Button btn_Open_FamilyX_Form;
 		private TextBox tbx_Export_Status;
 		private Button btn_DoTheLot;
+		private Button btn_Decode_Chat_Db;
 	}
 }

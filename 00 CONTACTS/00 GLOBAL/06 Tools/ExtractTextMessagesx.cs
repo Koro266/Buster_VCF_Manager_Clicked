@@ -9,15 +9,6 @@ namespace CONTACTS.GLOBAL.TOOLS
 	//___________________________________________________________________________________________________________________________________________________
 	public class ExtractTextMessages
 	{
-		//#region DECODE MESSENGER FILE
-		////___________________________________________________________________________________________________________________________________________
-		//private void btn_Decode_Chat_Db_Click( object sender, EventArgs e )
-		//{
-		//	ExtractTextMessages extractor = new ExtractTextMessages();
-		//	extractor.ExtractMessages();
-		//}
-		//#endregion
-
 		private string target_Recipient		= "%+64272359777%";
 		private string recipient_Parm		= "@recipient";
 		private string connection_String	= @"Data Source=C:\Users\Brusster\ContactsManager\Database\chat.db";

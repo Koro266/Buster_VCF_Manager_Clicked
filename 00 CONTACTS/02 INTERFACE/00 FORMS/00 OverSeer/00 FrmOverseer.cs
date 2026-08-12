@@ -1,8 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using CONTACTS.GLOBAL.TOOLS;
-using Microsoft.Data.Sqlite;
-using System;
-using System.IO;
+using EXTRACT_TXT	= CONTACTS.GLOBAL.TOOLS.ExtractTextMessages;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL
@@ -205,5 +202,12 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.Close();
 		}
 		#endregion
+		//___________________________________________________________________________________________________________________________________________
+		private void btn_Decode_Chat_Db_Click( object sender, EventArgs e )
+		{
+			EXTRACT_TXT extract_txt = new EXTRACT_TXT();
+			extract_txt.ExtractMessages();
+		}
+
 	}
 }
