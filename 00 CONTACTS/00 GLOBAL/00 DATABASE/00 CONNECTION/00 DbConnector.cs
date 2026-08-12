@@ -1,8 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//SYSTEM
-using STRING = System.Text.StringBuilder;
 //GLOBAL
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using STRING = System.Text.StringBuilder;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.GLOBAL.DATABASE.CONNECTION
