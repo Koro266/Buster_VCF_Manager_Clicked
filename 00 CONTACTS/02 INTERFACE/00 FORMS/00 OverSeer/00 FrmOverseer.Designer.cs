@@ -457,12 +457,14 @@
 			// 
 			// btn_Decode_Chat_Db
 			// 
+			btn_Decode_Chat_Db.Enabled = false;
 			btn_Decode_Chat_Db.Location = new Point( 74, 477 );
 			btn_Decode_Chat_Db.Name = "btn_Decode_Chat_Db";
 			btn_Decode_Chat_Db.Size = new Size( 183, 33 );
 			btn_Decode_Chat_Db.TabIndex = 7;
 			btn_Decode_Chat_Db.Text = "Decode Txt Messages";
 			btn_Decode_Chat_Db.UseVisualStyleBackColor = true;
+			btn_Decode_Chat_Db.Visible = false;
 			btn_Decode_Chat_Db.Click +=  btn_Decode_Chat_Db_Click ;
 			// 
 			// FrmOverseer

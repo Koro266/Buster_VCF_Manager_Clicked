@@ -202,11 +202,15 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.Close();
 		}
 		#endregion
+
+
+		#region TXT_MESSENGER
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_Decode_Chat_Db_Click( object sender, EventArgs e )
 		{
 			EXTRACT_TXT extract_txt = new EXTRACT_TXT();
 			List<string> s = extract_txt.ExtractAllMessages();
 		}
+		#endregion
 	}
 }
