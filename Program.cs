@@ -13,6 +13,8 @@ using FIND_FAMILY	= CONTACTS.INTERFACE.DIALOGS.DlgFindFamily;
 using FIND_ADDRESS	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
 
+using PERSON_X_ADDRESS = CONTACTS.INTERFACE.CONNECTORS.Person_X_Address;
+
 
 //___________________________________________________________________________________________________________________________________________________
 namespace VcfManager
@@ -74,6 +76,10 @@ namespace VcfManager
 
 				case STARTUP_MAN.StartupForm.FindDevice:
 					Application.Run( new FIND_DEVICE() );
+					break;
+
+				case STARTUP_MAN.StartupForm.Person_X_Address:
+					Application.Run( new PERSON_X_ADDRESS() );
 					break;
 
 				default:

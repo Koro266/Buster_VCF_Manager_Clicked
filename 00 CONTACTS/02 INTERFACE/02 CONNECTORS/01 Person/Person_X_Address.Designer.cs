@@ -1,4 +1,4 @@
-﻿namespace VcfManager._00_CONTACTS._02_INTERFACE._02_CONNECTORS._01_Person
+﻿namespace CONTACTS.INTERFACE.CONNECTORS
 {
 	partial class Person_X_Address
 	{
