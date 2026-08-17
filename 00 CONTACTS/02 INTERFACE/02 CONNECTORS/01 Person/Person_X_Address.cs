@@ -1,5 +1,6 @@
-﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
+﻿//PERSON_X_ADDRESS: 
+//___________________________________________________________________________________________________________________________________________________
+//GLOBAL: 
 using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
