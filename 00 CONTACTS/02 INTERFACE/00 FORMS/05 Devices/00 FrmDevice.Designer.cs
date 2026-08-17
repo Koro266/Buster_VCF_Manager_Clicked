@@ -548,7 +548,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Person.AutoSize = true;
 			chk_X_Person.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Person.Location = new Point( 326, 145 );
+			chk_X_Person.Location = new Point( 242, 145 );
 			chk_X_Person.Name = "chk_X_Person";
 			chk_X_Person.Size = new Size( 89, 21 );
 			chk_X_Person.TabIndex = 144;
@@ -560,7 +560,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Blocked.AutoSize = true;
 			chk_Blocked.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Blocked.Location = new Point( 326, 124 );
+			chk_Blocked.Location = new Point( 242, 124 );
 			chk_Blocked.Name = "chk_Blocked";
 			chk_Blocked.Size = new Size( 81, 21 );
 			chk_Blocked.TabIndex = 143;
@@ -572,7 +572,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_DefaultRow.AutoSize = true;
 			chk_DefaultRow.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_DefaultRow.Location = new Point( 326, 103 );
+			chk_DefaultRow.Location = new Point( 242, 103 );
 			chk_DefaultRow.Name = "chk_DefaultRow";
 			chk_DefaultRow.Size = new Size( 109, 21 );
 			chk_DefaultRow.TabIndex = 142;
@@ -584,7 +584,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Family.AutoSize = true;
 			chk_X_Family.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Family.Location = new Point( 326, 187 );
+			chk_X_Family.Location = new Point( 242, 187 );
 			chk_X_Family.Name = "chk_X_Family";
 			chk_X_Family.Size = new Size( 88, 21 );
 			chk_X_Family.TabIndex = 141;
@@ -596,7 +596,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_X_Group.AutoSize = true;
 			chk_X_Group.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_X_Group.Location = new Point( 326, 166 );
+			chk_X_Group.Location = new Point( 242, 166 );
 			chk_X_Group.Name = "chk_X_Group";
 			chk_X_Group.Size = new Size( 85, 21 );
 			chk_X_Group.TabIndex = 140;
@@ -608,7 +608,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			chk_Selected.AutoSize = true;
 			chk_Selected.ForeColor = Color.FromArgb(     192,     0,     0 );
-			chk_Selected.Location = new Point( 326, 82 );
+			chk_Selected.Location = new Point( 242, 82 );
 			chk_Selected.Name = "chk_Selected";
 			chk_Selected.Size = new Size( 84, 21 );
 			chk_Selected.TabIndex = 139;
