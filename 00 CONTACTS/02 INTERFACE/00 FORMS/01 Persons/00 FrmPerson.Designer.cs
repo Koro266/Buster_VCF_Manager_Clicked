@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			lbl_PersonPK = new Label();
 			lbl_Gender = new Label();
 			lbl_ProperSurname = new Label();
@@ -79,6 +80,8 @@
 			tbx_Notes = new TextBox();
 			lbl_Notes = new Label();
 			grp_PersonData = new GroupBox();
+			tbx_Messages = new TextBox();
+			btn_Person_X_Options = new Button();
 			label2 = new Label();
 			tbx_EhsOrder = new TextBox();
 			chk_SundayMass = new CheckBox();
@@ -105,9 +108,11 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
-			tbx_Messages = new TextBox();
-			textBox1 = new TextBox();
+			ctx_X_Secondaries = new ContextMenuStrip( components );
+			xAddressMenuItem = new ToolStripMenuItem();
+			xDeviceMenuItem = new ToolStripMenuItem();
 			grp_PersonData.SuspendLayout();
+			ctx_X_Secondaries.SuspendLayout();
 			SuspendLayout();
 			// 
 			// lbl_PersonPK
@@ -659,7 +664,7 @@
 			lbx_MatchingPersons.ItemHeight = 15;
 			lbx_MatchingPersons.Location = new Point( 564, 24 );
 			lbx_MatchingPersons.Name = "lbx_MatchingPersons";
-			lbx_MatchingPersons.Size = new Size( 306, 544 );
+			lbx_MatchingPersons.Size = new Size( 306, 499 );
 			lbx_MatchingPersons.TabIndex = 1;
 			lbx_MatchingPersons.TabStop = false;
 			lbx_MatchingPersons.Click +=  lbx_MatchingPersons_Click ;
@@ -690,7 +695,8 @@
 			// 
 			// grp_PersonData
 			// 
-			grp_PersonData.Controls.Add( textBox1 );
+			grp_PersonData.Controls.Add( tbx_Messages );
+			grp_PersonData.Controls.Add( btn_Person_X_Options );
 			grp_PersonData.Controls.Add( label2 );
 			grp_PersonData.Controls.Add( tbx_EhsOrder );
 			grp_PersonData.Controls.Add( chk_SundayMass );
@@ -775,23 +781,47 @@
 			grp_PersonData.TabStop = false;
 			grp_PersonData.Text = "Person Data";
 			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.ForeColor = Color.ForestGreen;
+			tbx_Messages.Location = new Point( 566, 578 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 445, 23 );
+			tbx_Messages.TabIndex = 141;
+			tbx_Messages.TabStop = false;
+			// 
+			// btn_Person_X_Options
+			// 
+			btn_Person_X_Options.BackColor = Color.MistyRose;
+			btn_Person_X_Options.Font = new Font( "Rockwell", 11.25F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Person_X_Options.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_Person_X_Options.Location = new Point( 564, 531 );
+			btn_Person_X_Options.Name = "btn_Person_X_Options";
+			btn_Person_X_Options.Size = new Size( 306, 38 );
+			btn_Person_X_Options.TabIndex = 140;
+			btn_Person_X_Options.Text = "Person_X";
+			btn_Person_X_Options.UseVisualStyleBackColor = false;
+			btn_Person_X_Options.Click +=  btn_Person_X_Options_Click ;
+			// 
 			// label2
 			// 
 			label2.AutoSize = true;
 			label2.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label2.Location = new Point( 414, 390 );
+			label2.Location = new Point( 474, 391 );
 			label2.Name = "label2";
-			label2.Size = new Size( 32, 17 );
+			label2.Size = new Size( 71, 17 );
 			label2.TabIndex = 136;
-			label2.Text = "EHS";
+			label2.Text = "EHS Order";
 			// 
 			// tbx_EhsOrder
 			// 
 			tbx_EhsOrder.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_EhsOrder.Location = new Point( 450, 387 );
+			tbx_EhsOrder.Location = new Point( 421, 386 );
 			tbx_EhsOrder.Name = "tbx_EhsOrder";
 			tbx_EhsOrder.ReadOnly = true;
-			tbx_EhsOrder.Size = new Size( 76, 25 );
+			tbx_EhsOrder.Size = new Size( 50, 25 );
 			tbx_EhsOrder.TabIndex = 135;
 			tbx_EhsOrder.TabStop = false;
 			// 
@@ -1088,27 +1118,23 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
-			// tbx_Messages
+			// ctx_X_Secondaries
 			// 
-			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
-			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 564, 578 );
-			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 447, 23 );
-			tbx_Messages.TabIndex = 122;
-			tbx_Messages.TabStop = false;
+			ctx_X_Secondaries.Items.AddRange( new ToolStripItem[] { xAddressMenuItem, xDeviceMenuItem } );
+			ctx_X_Secondaries.Name = "ctx_MenuStrip";
+			ctx_X_Secondaries.Size = new Size( 129, 48 );
 			// 
-			// textBox1
+			// xAddressMenuItem
 			// 
-			textBox1.BackColor = Color.FromArgb(     255,     255,     192 );
-			textBox1.Font = new Font( "Segoe UI Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			textBox1.ForeColor = Color.ForestGreen;
-			textBox1.Location = new Point( 564, 577 );
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size( 447, 25 );
-			textBox1.TabIndex = 124;
-			textBox1.TabStop = false;
+			xAddressMenuItem.Name = "xAddressMenuItem";
+			xAddressMenuItem.Size = new Size( 128, 22 );
+			xAddressMenuItem.Text = "X_Address";
+			// 
+			// xDeviceMenuItem
+			// 
+			xDeviceMenuItem.Name = "xDeviceMenuItem";
+			xDeviceMenuItem.Size = new Size( 128, 22 );
+			xDeviceMenuItem.Text = "X_Device";
 			// 
 			// FrmPerson
 			// 
@@ -1125,6 +1151,7 @@
 			Text = "Person Manager";
 			grp_PersonData.ResumeLayout( false );
 			grp_PersonData.PerformLayout();
+			ctx_X_Secondaries.ResumeLayout( false );
 			ResumeLayout( false );
 
 		}
@@ -1209,6 +1236,9 @@
 		private CheckBox chk_Inactive;
 		private CheckBox chk_Blocked;
 		private CheckBox chk_StTheresa;
-		private TextBox textBox1;
+		private Button btn_Person_X_Options;
+		private ContextMenuStrip ctx_X_Secondaries;
+		private ToolStripMenuItem xAddressMenuItem;
+		private ToolStripMenuItem xDeviceMenuItem;
 	}
 }

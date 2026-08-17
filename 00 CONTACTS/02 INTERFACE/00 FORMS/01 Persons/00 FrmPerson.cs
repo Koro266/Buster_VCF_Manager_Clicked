@@ -7,6 +7,7 @@ using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using STARTUP_ENUM	= CONTACTS.GLOBAL.TOOLS.StartupManager.StartupForm;
 //LOCAL	
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
@@ -148,6 +149,9 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.Text = db_Connector.PartiallyQualifiedFileName;
 			SetTabIndices();
 			tbx_Matches.Focus();
+			xAddressMenuItem.Tag = STARTUP_ENUM.Person_X_Address;
+			xDeviceMenuItem.Tag =STARTUP_ENUM.Person_X_Address;
+
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
@@ -872,7 +876,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_Inactive_CheckedChanged( object sender, EventArgs e )
 		{
-			Inactive =chk_Inactive.Checked;
+			Inactive = chk_Inactive.Checked;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void chk_NewLeftPerson_CheckedChanged( object sender, EventArgs e )
@@ -1025,5 +1029,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			Person = all_Persons.LastPerson;
 		}
 		#endregion
+
+		//___________________________________________________________________________________________________________________________________________
+		private void btn_Person_X_Options_Click( object sender, EventArgs e )
+		{
+
+		}
 	}
 }

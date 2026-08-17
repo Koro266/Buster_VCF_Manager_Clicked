@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			grp_Person = new GroupBox();
-			grp_Address = new GroupBox();
 			btn_FindPerson = new Button();
+			grp_Address = new GroupBox();
 			btn_FindAddress = new Button();
 			grp_Connector = new GroupBox();
-			btn_Connect = new Button();
 			btn_Disconnect = new Button();
+			btn_Connect = new Button();
 			btn_Close = new Button();
 			grp_Person.SuspendLayout();
 			grp_Address.SuspendLayout();
@@ -52,6 +52,16 @@
 			grp_Person.TabStop = false;
 			grp_Person.Text = "Person";
 			// 
+			// btn_FindPerson
+			// 
+			btn_FindPerson.Location = new Point( 23, 22 );
+			btn_FindPerson.Name = "btn_FindPerson";
+			btn_FindPerson.Size = new Size( 109, 23 );
+			btn_FindPerson.TabIndex = 0;
+			btn_FindPerson.Text = "Find Person";
+			btn_FindPerson.UseVisualStyleBackColor = true;
+			btn_FindPerson.Click +=  btn_FindPerson_Click ;
+			// 
 			// grp_Address
 			// 
 			grp_Address.Controls.Add( btn_FindAddress );
@@ -63,18 +73,9 @@
 			grp_Address.TabStop = false;
 			grp_Address.Text = "Address";
 			// 
-			// btn_FindPerson
-			// 
-			btn_FindPerson.Location = new Point( 153, 41 );
-			btn_FindPerson.Name = "btn_FindPerson";
-			btn_FindPerson.Size = new Size( 109, 23 );
-			btn_FindPerson.TabIndex = 0;
-			btn_FindPerson.Text = "Find Person";
-			btn_FindPerson.UseVisualStyleBackColor = true;
-			// 
 			// btn_FindAddress
 			// 
-			btn_FindAddress.Location = new Point( 153, 49 );
+			btn_FindAddress.Location = new Point( 23, 22 );
 			btn_FindAddress.Name = "btn_FindAddress";
 			btn_FindAddress.Size = new Size( 109, 23 );
 			btn_FindAddress.TabIndex = 0;
@@ -93,15 +94,6 @@
 			grp_Connector.TabStop = false;
 			grp_Connector.Text = "Connect / Disconnect";
 			// 
-			// btn_Connect
-			// 
-			btn_Connect.Location = new Point( 49, 39 );
-			btn_Connect.Name = "btn_Connect";
-			btn_Connect.Size = new Size( 184, 23 );
-			btn_Connect.TabIndex = 0;
-			btn_Connect.Text = "Connect Person to Address";
-			btn_Connect.UseVisualStyleBackColor = true;
-			// 
 			// btn_Disconnect
 			// 
 			btn_Disconnect.Location = new Point( 308, 39 );
@@ -110,6 +102,15 @@
 			btn_Disconnect.TabIndex = 1;
 			btn_Disconnect.Text = "Disconnect Person from Address";
 			btn_Disconnect.UseVisualStyleBackColor = true;
+			// 
+			// btn_Connect
+			// 
+			btn_Connect.Location = new Point( 49, 39 );
+			btn_Connect.Name = "btn_Connect";
+			btn_Connect.Size = new Size( 184, 23 );
+			btn_Connect.TabIndex = 0;
+			btn_Connect.Text = "Connect Person to Address";
+			btn_Connect.UseVisualStyleBackColor = true;
 			// 
 			// btn_Close
 			// 

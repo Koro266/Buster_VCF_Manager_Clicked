@@ -20,6 +20,7 @@ namespace CONTACTS.INTERFACE.FORMS
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class FrmAddress : Form
 	{
+		//TODO: Need Address_X function in the form.
 		#region DECLARATIONS
 		private static ADDRESSES all_Addresses = new ADDRESSES();
 		private static NATIONS all_Nations = new NATIONS();
