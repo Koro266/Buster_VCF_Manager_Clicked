@@ -14,6 +14,7 @@ using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 //FORMS
 using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
+using CONNECT_ADDRESS	= CONTACTS.INTERFACE.CONNECTORS.Person_X_Address;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -150,8 +151,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			SetTabIndices();
 			tbx_Matches.Focus();
 			xAddressMenuItem.Tag = STARTUP_ENUM.Person_X_Address;
-			xDeviceMenuItem.Tag =STARTUP_ENUM.Person_X_Address;
-
+			xDeviceMenuItem.Tag = STARTUP_ENUM.Person_X_Device;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
@@ -1030,10 +1030,24 @@ namespace CONTACTS.INTERFACE.FORMS
 		}
 		#endregion
 
+
+		#region CONTEXT MENU RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_Person_X_Options_Click( object sender, EventArgs e )
 		{
+			ctx_X_Secondaries.Show( Cursor.Position );
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void xAddressMenuItem_Click( object sender, EventArgs e )
+		{
+			CONNECT_ADDRESS connect_address = new CONNECT_ADDRESS();
+			connect_address.Show();
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void xDeviceMenuItem_Click( object sender, EventArgs e )
+		{
 
 		}
+		#endregion
 	}
 }

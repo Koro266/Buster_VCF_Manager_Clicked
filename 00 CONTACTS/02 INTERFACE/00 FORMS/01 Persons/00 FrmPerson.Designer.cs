@@ -77,6 +77,9 @@
 			tbx_Initials = new TextBox();
 			lbl_Initials = new Label();
 			lbx_MatchingPersons = new ListBox();
+			ctx_X_Secondaries = new ContextMenuStrip( components );
+			xAddressMenuItem = new ToolStripMenuItem();
+			xDeviceMenuItem = new ToolStripMenuItem();
 			tbx_Notes = new TextBox();
 			lbl_Notes = new Label();
 			grp_PersonData = new GroupBox();
@@ -108,11 +111,8 @@
 			btn_ClearWeddingDate = new Button();
 			btn_ClearDeathDate = new Button();
 			btn_ClearBirthDate = new Button();
-			ctx_X_Secondaries = new ContextMenuStrip( components );
-			xAddressMenuItem = new ToolStripMenuItem();
-			xDeviceMenuItem = new ToolStripMenuItem();
-			grp_PersonData.SuspendLayout();
 			ctx_X_Secondaries.SuspendLayout();
+			grp_PersonData.SuspendLayout();
 			SuspendLayout();
 			// 
 			// lbl_PersonPK
@@ -569,7 +569,7 @@
 			// 
 			btn_FindPerson.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_FindPerson.ForeColor = Color.Maroon;
-			btn_FindPerson.Location = new Point( 878, 313 );
+			btn_FindPerson.Location = new Point( 878, 338 );
 			btn_FindPerson.Name = "btn_FindPerson";
 			btn_FindPerson.Size = new Size( 133, 28 );
 			btn_FindPerson.TabIndex = 4;
@@ -664,10 +664,30 @@
 			lbx_MatchingPersons.ItemHeight = 15;
 			lbx_MatchingPersons.Location = new Point( 564, 24 );
 			lbx_MatchingPersons.Name = "lbx_MatchingPersons";
-			lbx_MatchingPersons.Size = new Size( 306, 499 );
+			lbx_MatchingPersons.Size = new Size( 306, 544 );
 			lbx_MatchingPersons.TabIndex = 1;
 			lbx_MatchingPersons.TabStop = false;
 			lbx_MatchingPersons.Click +=  lbx_MatchingPersons_Click ;
+			// 
+			// ctx_X_Secondaries
+			// 
+			ctx_X_Secondaries.Items.AddRange( new ToolStripItem[] { xAddressMenuItem, xDeviceMenuItem } );
+			ctx_X_Secondaries.Name = "ctx_MenuStrip";
+			ctx_X_Secondaries.Size = new Size( 129, 48 );
+			// 
+			// xAddressMenuItem
+			// 
+			xAddressMenuItem.Name = "xAddressMenuItem";
+			xAddressMenuItem.Size = new Size( 128, 22 );
+			xAddressMenuItem.Text = "X_Address";
+			xAddressMenuItem.Click +=  xAddressMenuItem_Click ;
+			// 
+			// xDeviceMenuItem
+			// 
+			xDeviceMenuItem.Name = "xDeviceMenuItem";
+			xDeviceMenuItem.Size = new Size( 128, 22 );
+			xDeviceMenuItem.Text = "X_Device";
+			xDeviceMenuItem.Click +=  xDeviceMenuItem_Click ;
 			// 
 			// tbx_Notes
 			// 
@@ -797,9 +817,9 @@
 			btn_Person_X_Options.BackColor = Color.MistyRose;
 			btn_Person_X_Options.Font = new Font( "Rockwell", 11.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Person_X_Options.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Person_X_Options.Location = new Point( 564, 531 );
+			btn_Person_X_Options.Location = new Point( 878, 421 );
 			btn_Person_X_Options.Name = "btn_Person_X_Options";
-			btn_Person_X_Options.Size = new Size( 306, 38 );
+			btn_Person_X_Options.Size = new Size( 133, 38 );
 			btn_Person_X_Options.TabIndex = 140;
 			btn_Person_X_Options.Text = "Person_X";
 			btn_Person_X_Options.UseVisualStyleBackColor = false;
@@ -1054,7 +1074,7 @@
 			// 
 			btn_ExportPersonVcf.Font = new Font( "Rockwell", 11.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_ExportPersonVcf.ForeColor = Color.Maroon;
-			btn_ExportPersonVcf.Location = new Point( 878, 278 );
+			btn_ExportPersonVcf.Location = new Point( 878, 303 );
 			btn_ExportPersonVcf.Name = "btn_ExportPersonVcf";
 			btn_ExportPersonVcf.Size = new Size( 133, 32 );
 			btn_ExportPersonVcf.TabIndex = 103;
@@ -1118,24 +1138,6 @@
 			btn_ClearBirthDate.UseVisualStyleBackColor = false;
 			btn_ClearBirthDate.Click +=  btn_ClearBirthDate_Click ;
 			// 
-			// ctx_X_Secondaries
-			// 
-			ctx_X_Secondaries.Items.AddRange( new ToolStripItem[] { xAddressMenuItem, xDeviceMenuItem } );
-			ctx_X_Secondaries.Name = "ctx_MenuStrip";
-			ctx_X_Secondaries.Size = new Size( 129, 48 );
-			// 
-			// xAddressMenuItem
-			// 
-			xAddressMenuItem.Name = "xAddressMenuItem";
-			xAddressMenuItem.Size = new Size( 128, 22 );
-			xAddressMenuItem.Text = "X_Address";
-			// 
-			// xDeviceMenuItem
-			// 
-			xDeviceMenuItem.Name = "xDeviceMenuItem";
-			xDeviceMenuItem.Size = new Size( 128, 22 );
-			xDeviceMenuItem.Text = "X_Device";
-			// 
 			// FrmPerson
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -1149,9 +1151,9 @@
 			SizeGripStyle = SizeGripStyle.Hide;
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Person Manager";
+			ctx_X_Secondaries.ResumeLayout( false );
 			grp_PersonData.ResumeLayout( false );
 			grp_PersonData.PerformLayout();
-			ctx_X_Secondaries.ResumeLayout( false );
 			ResumeLayout( false );
 
 		}
@@ -1164,45 +1166,69 @@
 		private Button btn_Close;
 		private Button btn_CurrencyNow;
 		private Button btn_ElaborateNames;
+		private Button btn_ExportPersonVcf;
 		private Button btn_FindPerson;
 		private Button btn_FirstPerson;
 		private Button btn_InsertPerson;
 		private Button btn_LastPerson;
+		private Button btn_NewPerson;
 		private Button btn_NextPerson;
+		private Button btn_Person_X_Options;
 		private Button btn_PreviousPerson;
 		private Button btn_UpdatePerson;
+		private CheckBox chk_Blocked;
+		private CheckBox chk_DefaultRow;
+		private CheckBox chk_Enlightened;
+		private CheckBox chk_Export;
+		private CheckBox chk_HolySomething;
+		private CheckBox chk_Inactive;
+		private CheckBox chk_Minister;
+		private CheckBox chk_NewLeftPerson;
+		private CheckBox chk_NoRightPerson;
+		private CheckBox chk_Sacristan;
+		private CheckBox chk_Selected;
+		private CheckBox chk_StTheresa;
+		private CheckBox chk_SundayMass;
+		private CheckBox chk_TimeTalent;
+		private CheckBox chk_Vigil;
 		private DateTimePicker dbx_Birthday;
 		private DateTimePicker dbx_CurrencyDate;
 		private DateTimePicker dbx_DeathDate;
 		private DateTimePicker dbx_WeddingDate;
 		private GroupBox grp_PersonData;
-		private Label lbl_PersonPK;
+		private Label label1;
+		private Label label2;
+		private Label label3;
 		private Label lbl_BirthDate;
-		private Label lbl_DeathDate;
-		private Label lbl_WeddingDate;
-		private Label lbl_FindPK;
-		private Label lbl_SURNAME;
-		private Label lbl_NaturalName;
-		private Label lbl_SortableName;
-		private Label lbl_CurrencyDate;
-		private Label lbl_Initials;
-		private Label lbl_Notes;
-		private Label lbl_Gender;
-		private Label lbl_FirstRecord;
-		private Label lbl_LastRecord;
-		private Label lbl_ProperSurname;
-		private Label lbl_GivenName;
-		private Label lbl_MiddleNames;
-		private Label lbl_Nickname;
 		private Label lbl_BirthName;
+		private Label lbl_CurrencyDate;
+		private Label lbl_DeathDate;
+		private Label lbl_FindPK;
+		private Label lbl_FirstRecord;
+		private Label lbl_Gender;
+		private Label lbl_GivenName;
+		private Label lbl_Initials;
+		private Label lbl_LastRecord;
+		private Label lbl_MiddleNames;
+		private Label lbl_NaturalName;
+		private Label lbl_Nickname;
+		private Label lbl_Notes;
+		private Label lbl_PersonPK;
 		private Label lbl_Prefixes;
+		private Label lbl_ProperSurname;
+		private Label lbl_SortableName;
 		private Label lbl_Suffixes;
+		private Label lbl_SURNAME;
+		private Label lbl_WeddingDate;
 		private ListBox lbx_MatchingPersons;
 		private TextBox tbx_BirthName;
+		private TextBox tbx_EhsOrder;
 		private TextBox tbx_Filter;
 		private TextBox tbx_Gender;
 		private TextBox tbx_GivenName;
 		private TextBox tbx_Initials;
+		private TextBox tbx_Matches;
+		private TextBox tbx_Messages;
 		private TextBox tbx_MiddleNames;
 		private TextBox tbx_NaturalName;
 		private TextBox tbx_NickName;
@@ -1213,30 +1239,7 @@
 		private TextBox tbx_SortableName;
 		private TextBox tbx_Suffixes;
 		private TextBox tbx_UpperSurname;
-		private Button btn_ExportPersonVcf;
-		private Button btn_NewPerson;
-		private Label label1;
-		private Label label3;
-		private TextBox tbx_Matches;
-		private TextBox tbx_Messages;
-		private CheckBox chk_Selected;
-		private CheckBox chk_SundayMass;
-		private CheckBox chk_Vigil;
-		private CheckBox chk_Sacristan;
-		private CheckBox chk_Minister;
-		private CheckBox chk_TimeTalent;
-		private CheckBox chk_Export;
-		private CheckBox chk_DefaultRow;
-		private CheckBox chk_NoRightPerson;
-		private CheckBox chk_NewLeftPerson;
-		private CheckBox chk_HolySomething;
-		private CheckBox chk_Enlightened;
-		private Label label2;
-		private TextBox tbx_EhsOrder;
-		private CheckBox chk_Inactive;
-		private CheckBox chk_Blocked;
-		private CheckBox chk_StTheresa;
-		private Button btn_Person_X_Options;
+
 		private ContextMenuStrip ctx_X_Secondaries;
 		private ToolStripMenuItem xAddressMenuItem;
 		private ToolStripMenuItem xDeviceMenuItem;

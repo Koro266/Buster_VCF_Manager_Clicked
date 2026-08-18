@@ -18,7 +18,8 @@ namespace CONTACTS.GLOBAL.TOOLS
 			FindFamily,
 			FindAddress,
 			FindDevice,
-			Person_X_Address
+			Person_X_Address,
+			Person_X_Device
 		};
 
 		#if DEBUG
