@@ -14,6 +14,7 @@ using PERSONS		= CONTACTS.LOCAL.PRIMARY.PERSON.Table;
 using LIKE			= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Like;
 //FORMS
 using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
+//CONNECTIONS
 using CONNECT_ADDRESS	= CONTACTS.INTERFACE.CONNECTORS.Person_X_Address;
 
 //___________________________________________________________________________________________________________________________________________________
