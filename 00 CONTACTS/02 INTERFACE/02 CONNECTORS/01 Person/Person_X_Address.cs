@@ -11,6 +11,9 @@ using ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using FIND_ADDRESS	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 
+using INSERT_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
+using DELETE_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.Persons_X_Address;
+
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONNECTORS
@@ -20,6 +23,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 	{
 		private PERSON person = null;
 		private ADDRESS address = null;
+
 		//___________________________________________________________________________________________________________________________________________________
 		public Person_X_Address()
 		{
@@ -52,8 +56,18 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 				address = find_address.SelectedAddress;
 				string[] s = address.RealiseFinderPattern();
 				lbx_Address.Items.AddRange( s );
-				tbx_PkAddress.Text=address.PkAddress.AsString;
+				tbx_PkAddress.Text = address.PkAddress.AsString;
 			}
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void btn_Connect_Click( object sender, EventArgs e )
+		{
+			INSERT_ADDRESS insert_address = new INSERT_ADDRESS();
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void btn_Disconnect_Click( object sender, EventArgs e )
+		{
+
 		}
 	}
 }

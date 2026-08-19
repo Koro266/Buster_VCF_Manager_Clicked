@@ -11,36 +11,43 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 	public partial class Database
 	{
 		//_______________________________________________________________________________________________________________________________________
-		public class Delete
+		public class Insert
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// DELETEs a Person_X_Address row defined by fk_Person & fk_Address. Returns TRUE iff delete succeeds.
+			/// INSERTs fully-qualified TDF_Persons_X_Address. Returns true iff INSERT succeeds.
 			/// </summary>
-			public class Family : DB_CONNECTION
+			public class Persons_X_Address : DB_CONNECTION
 			{
 				private const string sql_text =
 				@"
-					DELETE
-						TDF_Persons_X_Addresses.fk_Person,
-						TDF_Persons_X_Addresses.fk_Address
-					FROM
+					INSERT INTO
 						TDF_Persons_X_Addresses
-					WHERE
-					(
-						((TDF_Persons_X_Addresses.fk_Person) = @fk_person)
-						AND ((TDF_Persons_X_Addresses.fk_Address) = @fk_address)
-					);
+						(
+							fk_Person,
+							fk_Address,
+							st_AddressType,
+							is_Selected
+						)
+						VALUES
+						(
+							= @fk_person,
+							= @fk_address,
+							= @st_addresstype,
+							= @is_selected
+						);	
 				";
 				//_______________________________________________________________________________________________________________________________
-				public Family( PERSON_X_ADDRESS person_x_address ) : base( sql_text )
+				public Persons_X_Address( PERSON_X_ADDRESS person_x_address ) : base( sql_text )
 				{
 					base.DbCommand.Parameters.Add( person_x_address.FkPerson.DbParameter );
 					base.DbCommand.Parameters.Add( person_x_address.FkAddress.DbParameter );
+					base.DbCommand.Parameters.Add( person_x_address.AddressType.DbParameter );
+					base.DbCommand.Parameters.Add( person_x_address.Selected.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>
-				/// Returns true if DELETE succeeds, false otherwise.
+				/// Returns true if INSERT succeeds, false otherwise.
 				/// </summary>
 				public bool Execute
 				{
