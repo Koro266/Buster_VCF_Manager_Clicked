@@ -3,7 +3,7 @@
 using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //___________________________________________________________________________________________________________________________________________________
 //LOCAL
-using COLUMNS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Column;
+using FK_PERSON = CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Column.FK_Person;
 using READER	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.PersonAddressReader;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -39,9 +39,9 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 					);
 				";
 				//___________________________________________________________________________________________________________________________________
-				public ByPkPerson( int pk_person )
+				public ByPkPerson( int fk_person )
 				{
-					COLUMNS.FK_Person fk_column = new COLUMNS.FK_Person( pk_person );
+					FK_PERSON fk_column = new FK_PERSON( fk_person );
 					person_address_reader = new READER( sql_text, fk_column.DbParameter );
 				}
 				//___________________________________________________________________________________________________________________________

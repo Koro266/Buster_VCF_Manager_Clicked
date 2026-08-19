@@ -1068,25 +1068,36 @@
 			// 
 			ctx_X_Primaries.Items.AddRange( new ToolStripItem[] { mnu_Person, mnu_Group, mnu_Family } );
 			ctx_X_Primaries.Name = "ctx_X_Primaries";
-			ctx_X_Primaries.Size = new Size( 111, 70 );
+			ctx_X_Primaries.Size = new Size( 181, 92 );
 			// 
 			// mnu_Person
 			// 
+			mnu_Person.Font = new Font( "Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			mnu_Person.ForeColor = Color.Maroon;
 			mnu_Person.Name = "mnu_Person";
 			mnu_Person.Size = new Size( 180, 22 );
 			mnu_Person.Text = "Person";
+			mnu_Person.Click +=  mnu_Person_Click ;
 			// 
 			// mnu_Group
 			// 
+			mnu_Group.Enabled = false;
+			mnu_Group.Font = new Font( "Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			mnu_Group.ForeColor = Color.Maroon;
 			mnu_Group.Name = "mnu_Group";
 			mnu_Group.Size = new Size( 180, 22 );
 			mnu_Group.Text = "Group";
+			mnu_Group.Click +=  mnu_Group_Click ;
 			// 
 			// mnu_Family
 			// 
+			mnu_Family.Enabled = false;
+			mnu_Family.Font = new Font( "Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			mnu_Family.ForeColor = Color.Maroon;
 			mnu_Family.Name = "mnu_Family";
 			mnu_Family.Size = new Size( 180, 22 );
 			mnu_Family.Text = "Family";
+			mnu_Family.Click +=  mnu_Family_Click ;
 			// 
 			// FrmAddress
 			// 

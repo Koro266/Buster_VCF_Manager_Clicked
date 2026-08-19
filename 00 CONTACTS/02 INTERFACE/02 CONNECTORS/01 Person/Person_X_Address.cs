@@ -1,18 +1,20 @@
 ﻿//PERSON_X_ADDRESS: 
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL: 
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
+using ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using DELETE_PERSON_X_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.Persons_X_Address;
+using FIND_ADDRESS	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
+using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using INSERT_PERSON_X_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL:
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
-using ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using SELECT_XADDRESS = CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
+using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
+using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
 using XADDRESS_ROW	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
-
-using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
-using FIND_ADDRESS	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
-
-using INSERT_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
-using DELETE_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.Persons_X_Address;
 
 
 //___________________________________________________________________________________________________________________________________________________
@@ -21,13 +23,43 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 	//___________________________________________________________________________________________________________________________________________________
 	public partial class Person_X_Address : Form
 	{
-		private PERSON person = null;
-		private ADDRESS address = null;
+		private PERSON person = new SELECT_PERSON.DefaultPerson().Execute;
+		private ADDRESS address = new SELECT_ADDRESS.DefaultAddress().Execute;
 
 		//___________________________________________________________________________________________________________________________________________________
 		public Person_X_Address()
 		{
 			InitializeComponent();
+
+			tbx_PkPerson.Text = person.PkPerson.AsString;
+			tbx_PersonName.Text = person.NaturalName.AsIs;
+
+			tbx_PkAddress.Text = address.PkAddress.AsString;
+			lbx_Address.Items.AddRange( address.RealiseFinderPattern() );
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		public Person_X_Address( PERSON inbound_person )
+		{
+			InitializeComponent();
+			person = inbound_person;
+
+			tbx_PkPerson.Text = person.PkPerson.AsString;
+			tbx_PersonName.Text = person.NaturalName.AsIs;
+
+			tbx_PkAddress.Text = address.PkAddress.AsString;
+			lbx_Address.Items.AddRange( address.RealiseFinderPattern() );
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		public Person_X_Address( ADDRESS inbound_address )
+		{
+			InitializeComponent();
+			address = inbound_address;
+
+			tbx_PkPerson.Text = person.PkPerson.AsString;
+			tbx_PersonName.Text = person.NaturalName.AsIs;
+
+			tbx_PkAddress.Text = address.PkAddress.AsString;
+			lbx_Address.Items.AddRange( address.RealiseFinderPattern() );
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void btn_Close_Click( object sender, EventArgs e )
@@ -45,19 +77,13 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 				tbx_PersonName.Text = person.NaturalName.Value;
 				tbx_PkPerson.Text = person.PkPerson.AsString;
 
-				//foreach ( var kvp in person_x_addresses )
-				//{
-				//	XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
-				//	_Address = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
+				Dictionary<int, BASE_ROW> person_x_addresses = new SELECT_XADDRESS.ByPkPerson( person.PkPerson.Value ).Execute;
 
-				//	AppendPostalLines();
-				//	AppendPhysicalLines();
-				//	AppendExtendedLines();
-				//	AppendExcelLines();
-				//	AppendAllDataLines();
-				//}
-
-
+				foreach ( var kvp in person_x_addresses )
+				{
+					XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
+					lbx_AttachedAddresses.Items.AddRange( address.RealiseFinderPattern() );
+				}
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________

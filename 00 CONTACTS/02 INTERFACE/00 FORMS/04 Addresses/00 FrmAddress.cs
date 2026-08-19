@@ -13,6 +13,8 @@ using NATION			= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATIONS			= CONTACTS.LOCAL.TERTIARY.NATION.Table;
 //FORMS
 using ADDRESS_FINDER	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
+//CONNECTIONS
+using CONNECT_PERSON	= CONTACTS.INTERFACE.CONNECTORS.Person_X_Address;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -47,7 +49,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			_Messenger = new MESSENGER( this.tbx_Messages );
 			this.Address = all_Addresses.DefaultAddress;
 
-			string   comp = one_Address.RealiseComprehensiveAddress();
+			string comp = one_Address.RealiseComprehensiveAddress();
 			string[] excl = one_Address.RealiseExcelRule();
 			string[] extd = one_Address.RealiseExtendedRule();
 			string[] find = one_Address.RealiseFinderPattern();
@@ -1059,6 +1061,26 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 
 		#endregion
+
+		#region CONTEXT MENU RESPONDERS
+		//___________________________________________________________________________________________________________________________________________
+		private void mnu_Person_Click( object sender, EventArgs e )
+		{
+			CONNECT_PERSON connect_person = new CONNECT_PERSON( Address );
+			connect_person.Show();
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void mnu_Group_Click( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void mnu_Family_Click( object sender, EventArgs e )
+		{
+
+		}
+		#endregion
+
 
 
 		#region INITIALISATION / FINALISATION

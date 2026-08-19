@@ -1034,14 +1034,9 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region CONTEXT MENU RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
-		private void btn_Person_X_Options_Click( object sender, EventArgs e )
-		{
-			ctx_X_Secondaries.Show( Cursor.Position );
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void mnu_X_Addresses_Click( object sender, EventArgs e )
 		{
-			CONNECT_ADDRESS connect_address = new CONNECT_ADDRESS();
+			CONNECT_ADDRESS connect_address = new CONNECT_ADDRESS( Person );
 			connect_address.Show();
 		}
 		//___________________________________________________________________________________________________________________________________________
