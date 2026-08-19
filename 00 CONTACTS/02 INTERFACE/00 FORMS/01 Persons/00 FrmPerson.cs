@@ -150,8 +150,8 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.Text = db_Connector.PartiallyQualifiedFileName;
 			SetTabIndices();
 			tbx_Matches.Focus();
-			xAddressMenuItem.Tag = STARTUP_ENUM.Person_X_Address;
-			xDeviceMenuItem.Tag = STARTUP_ENUM.Person_X_Device;
+			mnu_X_Addresses.Tag = STARTUP_ENUM.Person_X_Address;
+			mnu_X_Devices.Tag = STARTUP_ENUM.Person_X_Device;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
@@ -1038,13 +1038,33 @@ namespace CONTACTS.INTERFACE.FORMS
 			ctx_X_Secondaries.Show( Cursor.Position );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void xAddressMenuItem_Click( object sender, EventArgs e )
+		private void mnu_X_Addresses_Click( object sender, EventArgs e )
 		{
 			CONNECT_ADDRESS connect_address = new CONNECT_ADDRESS();
 			connect_address.Show();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void xDeviceMenuItem_Click( object sender, EventArgs e )
+		private void mnu_X_Devices_Click( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void mnu_X_Eddresses_Click( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void mnu_X_Tags_Click( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void mnu_X_Notes_Click( object sender, EventArgs e )
+		{
+
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void mnu_X_Websites_Click( object sender, EventArgs e )
 		{
 
 		}

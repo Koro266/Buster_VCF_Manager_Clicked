@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			cbx_PostalCode = new ComboBox();
 			tbx_LongIsoCode = new TextBox();
 			cbx_ProvinceName = new ComboBox();
@@ -113,6 +114,11 @@
 			chk_Selected = new CheckBox();
 			chk_Unattached = new CheckBox();
 			btn_NewAddress = new Button();
+			ctx_X_Primaries = new ContextMenuStrip( components );
+			mnu_Person = new ToolStripMenuItem();
+			mnu_Group = new ToolStripMenuItem();
+			mnu_Family = new ToolStripMenuItem();
+			ctx_X_Primaries.SuspendLayout();
 			SuspendLayout();
 			// 
 			// cbx_PostalCode
@@ -1058,6 +1064,30 @@
 			btn_NewAddress.UseVisualStyleBackColor = false;
 			btn_NewAddress.Click +=  btn_NewAddress_Click ;
 			// 
+			// ctx_X_Primaries
+			// 
+			ctx_X_Primaries.Items.AddRange( new ToolStripItem[] { mnu_Person, mnu_Group, mnu_Family } );
+			ctx_X_Primaries.Name = "ctx_X_Primaries";
+			ctx_X_Primaries.Size = new Size( 111, 70 );
+			// 
+			// mnu_Person
+			// 
+			mnu_Person.Name = "mnu_Person";
+			mnu_Person.Size = new Size( 180, 22 );
+			mnu_Person.Text = "Person";
+			// 
+			// mnu_Group
+			// 
+			mnu_Group.Name = "mnu_Group";
+			mnu_Group.Size = new Size( 180, 22 );
+			mnu_Group.Text = "Group";
+			// 
+			// mnu_Family
+			// 
+			mnu_Family.Name = "mnu_Family";
+			mnu_Family.Size = new Size( 180, 22 );
+			mnu_Family.Text = "Family";
+			// 
 			// FrmAddress
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -1065,6 +1095,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
 			ClientSize = new Size( 1170, 692 );
+			ContextMenuStrip = ctx_X_Primaries;
 			Controls.Add( btn_NewAddress );
 			Controls.Add( chk_Unattached );
 			Controls.Add( chk_X_Person );
@@ -1155,6 +1186,7 @@
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Addresses";
 			Load +=  FrmAddress_Load ;
+			ctx_X_Primaries.ResumeLayout( false );
 			ResumeLayout( false );
 			PerformLayout();
 
@@ -1246,5 +1278,9 @@
 		private CheckBox chk_X_Family;
 		private CheckBox chk_Christmas;
 		private Button btn_NewAddress;
+		private ContextMenuStrip ctx_X_Primaries;
+		private ToolStripMenuItem mnu_Person;
+		private ToolStripMenuItem mnu_Group;
+		private ToolStripMenuItem mnu_Family;
 	}
 }

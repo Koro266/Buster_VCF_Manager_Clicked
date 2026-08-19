@@ -78,13 +78,16 @@
 			lbl_Initials = new Label();
 			lbx_MatchingPersons = new ListBox();
 			ctx_X_Secondaries = new ContextMenuStrip( components );
-			xAddressMenuItem = new ToolStripMenuItem();
-			xDeviceMenuItem = new ToolStripMenuItem();
+			mnu_X_Addresses = new ToolStripMenuItem();
+			mnu_X_Devices = new ToolStripMenuItem();
+			mnu_X_Eddresses = new ToolStripMenuItem();
+			mnu_X_Tags = new ToolStripMenuItem();
+			mnu_X_Notes = new ToolStripMenuItem();
+			mnu_X_Websites = new ToolStripMenuItem();
 			tbx_Notes = new TextBox();
 			lbl_Notes = new Label();
 			grp_PersonData = new GroupBox();
 			tbx_Messages = new TextBox();
-			btn_Person_X_Options = new Button();
 			label2 = new Label();
 			tbx_EhsOrder = new TextBox();
 			chk_SundayMass = new CheckBox();
@@ -671,23 +674,56 @@
 			// 
 			// ctx_X_Secondaries
 			// 
-			ctx_X_Secondaries.Items.AddRange( new ToolStripItem[] { xAddressMenuItem, xDeviceMenuItem } );
+			ctx_X_Secondaries.Items.AddRange( new ToolStripItem[] { mnu_X_Addresses, mnu_X_Devices, mnu_X_Eddresses, mnu_X_Tags, mnu_X_Notes, mnu_X_Websites } );
 			ctx_X_Secondaries.Name = "ctx_MenuStrip";
-			ctx_X_Secondaries.Size = new Size( 129, 48 );
+			ctx_X_Secondaries.Size = new Size( 140, 136 );
 			// 
-			// xAddressMenuItem
+			// mnu_X_Addresses
 			// 
-			xAddressMenuItem.Name = "xAddressMenuItem";
-			xAddressMenuItem.Size = new Size( 128, 22 );
-			xAddressMenuItem.Text = "X_Address";
-			xAddressMenuItem.Click +=  xAddressMenuItem_Click ;
+			mnu_X_Addresses.Name = "mnu_X_Addresses";
+			mnu_X_Addresses.Size = new Size( 139, 22 );
+			mnu_X_Addresses.Text = "X_Addresses";
+			mnu_X_Addresses.Click +=  mnu_X_Addresses_Click ;
 			// 
-			// xDeviceMenuItem
+			// mnu_X_Devices
 			// 
-			xDeviceMenuItem.Name = "xDeviceMenuItem";
-			xDeviceMenuItem.Size = new Size( 128, 22 );
-			xDeviceMenuItem.Text = "X_Device";
-			xDeviceMenuItem.Click +=  xDeviceMenuItem_Click ;
+			mnu_X_Devices.Enabled = false;
+			mnu_X_Devices.Name = "mnu_X_Devices";
+			mnu_X_Devices.Size = new Size( 139, 22 );
+			mnu_X_Devices.Text = "X_Devices";
+			mnu_X_Devices.Click +=  mnu_X_Devices_Click ;
+			// 
+			// mnu_X_Eddresses
+			// 
+			mnu_X_Eddresses.Enabled = false;
+			mnu_X_Eddresses.Name = "mnu_X_Eddresses";
+			mnu_X_Eddresses.Size = new Size( 139, 22 );
+			mnu_X_Eddresses.Text = "X_Eddresses";
+			mnu_X_Eddresses.Click +=  mnu_X_Eddresses_Click ;
+			// 
+			// mnu_X_Tags
+			// 
+			mnu_X_Tags.Enabled = false;
+			mnu_X_Tags.Name = "mnu_X_Tags";
+			mnu_X_Tags.Size = new Size( 139, 22 );
+			mnu_X_Tags.Text = "X_Tags";
+			mnu_X_Tags.Click +=  mnu_X_Tags_Click ;
+			// 
+			// mnu_X_Notes
+			// 
+			mnu_X_Notes.Enabled = false;
+			mnu_X_Notes.Name = "mnu_X_Notes";
+			mnu_X_Notes.Size = new Size( 139, 22 );
+			mnu_X_Notes.Text = "X_Notes";
+			mnu_X_Notes.Click +=  mnu_X_Notes_Click ;
+			// 
+			// mnu_X_Websites
+			// 
+			mnu_X_Websites.Enabled = false;
+			mnu_X_Websites.Name = "mnu_X_Websites";
+			mnu_X_Websites.Size = new Size( 139, 22 );
+			mnu_X_Websites.Text = "X_Websites";
+			mnu_X_Websites.Click +=  mnu_X_Websites_Click ;
 			// 
 			// tbx_Notes
 			// 
@@ -716,7 +752,6 @@
 			// grp_PersonData
 			// 
 			grp_PersonData.Controls.Add( tbx_Messages );
-			grp_PersonData.Controls.Add( btn_Person_X_Options );
 			grp_PersonData.Controls.Add( label2 );
 			grp_PersonData.Controls.Add( tbx_EhsOrder );
 			grp_PersonData.Controls.Add( chk_SundayMass );
@@ -811,19 +846,6 @@
 			tbx_Messages.Size = new Size( 445, 23 );
 			tbx_Messages.TabIndex = 141;
 			tbx_Messages.TabStop = false;
-			// 
-			// btn_Person_X_Options
-			// 
-			btn_Person_X_Options.BackColor = Color.MistyRose;
-			btn_Person_X_Options.Font = new Font( "Rockwell", 11.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_Person_X_Options.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Person_X_Options.Location = new Point( 878, 421 );
-			btn_Person_X_Options.Name = "btn_Person_X_Options";
-			btn_Person_X_Options.Size = new Size( 133, 38 );
-			btn_Person_X_Options.TabIndex = 140;
-			btn_Person_X_Options.Text = "Person_X";
-			btn_Person_X_Options.UseVisualStyleBackColor = false;
-			btn_Person_X_Options.Click +=  btn_Person_X_Options_Click ;
 			// 
 			// label2
 			// 
@@ -1145,6 +1167,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
 			ClientSize = new Size( 1045, 635 );
+			ContextMenuStrip = ctx_X_Secondaries;
 			Controls.Add( grp_PersonData );
 			FormBorderStyle = FormBorderStyle.Fixed3D;
 			Name = "FrmPerson";
@@ -1173,7 +1196,6 @@
 		private Button btn_LastPerson;
 		private Button btn_NewPerson;
 		private Button btn_NextPerson;
-		private Button btn_Person_X_Options;
 		private Button btn_PreviousPerson;
 		private Button btn_UpdatePerson;
 		private CheckBox chk_Blocked;
@@ -1241,7 +1263,11 @@
 		private TextBox tbx_UpperSurname;
 
 		private ContextMenuStrip ctx_X_Secondaries;
-		private ToolStripMenuItem xAddressMenuItem;
-		private ToolStripMenuItem xDeviceMenuItem;
+		private ToolStripMenuItem mnu_X_Addresses;
+		private ToolStripMenuItem mnu_X_Devices;
+		private ToolStripMenuItem mnu_X_Eddresses;
+		private ToolStripMenuItem mnu_X_Tags;
+		private ToolStripMenuItem mnu_X_Notes;
+		private ToolStripMenuItem mnu_X_Websites;
 	}
 }

@@ -17,7 +17,7 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 		{
 			//_______________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns PERSON_X_Address constrained by fk_Person.
+			/// Returns Person_X_Address constrained by fk_Person.
 			/// </summary>
 			public class ByPkPerson
 			{

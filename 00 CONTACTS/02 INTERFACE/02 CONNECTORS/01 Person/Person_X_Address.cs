@@ -1,13 +1,13 @@
 ﻿//PERSON_X_ADDRESS: 
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL: 
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL:
 using PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using XADDRESS_ROW	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
+
 using FIND_PERSON	= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using FIND_ADDRESS	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 
@@ -44,6 +44,20 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 				person = find_person.SelectedPerson;
 				tbx_PersonName.Text = person.NaturalName.Value;
 				tbx_PkPerson.Text = person.PkPerson.AsString;
+
+				//foreach ( var kvp in person_x_addresses )
+				//{
+				//	XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
+				//	_Address = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
+
+				//	AppendPostalLines();
+				//	AppendPhysicalLines();
+				//	AppendExtendedLines();
+				//	AppendExcelLines();
+				//	AppendAllDataLines();
+				//}
+
+
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
@@ -62,7 +76,6 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void btn_Connect_Click( object sender, EventArgs e )
 		{
-			INSERT_ADDRESS insert_address = new INSERT_ADDRESS();
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void btn_Disconnect_Click( object sender, EventArgs e )
