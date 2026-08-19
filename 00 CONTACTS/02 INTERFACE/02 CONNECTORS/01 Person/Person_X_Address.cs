@@ -38,7 +38,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			if ( find_person.DialogResult == DialogResult.OK )
 			{
 				person = find_person.SelectedPerson;
-				tbx_PersonName.Text = person.SortableName.TextboxValue;
+				tbx_PersonName.Text = person.NaturalName.Value;
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
@@ -49,7 +49,8 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			if ( find_address.DialogResult == DialogResult.OK )
 			{
 				address = find_address.SelectedAddress;
-				tbx_Address.Text = address.CountryName.TextboxValue;
+				string[] s = address.RealiseFinderPattern();
+				lbx_Address.Items.AddRange( s );
 			}
 		}
 	}

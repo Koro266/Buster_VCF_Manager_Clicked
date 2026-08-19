@@ -228,7 +228,10 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		//___________________________________________________________________________________________________________________________________________
 		private void lbx_MatchingPersons_DoubleClick( object sender, EventArgs e )
 		{
-			PkSelectedPerson = ( ( LIKE_ROW )lbx_MatchingPersons.SelectedItem ).PkRow;
+			currently_selected_person = ( LIKE_ROW )lbx_MatchingPersons.SelectedItem;
+			PkSelectedPerson = currently_selected_person.PkRow;
+
+			this.DialogResult = pk_SelectedPerson > 0 ? DialogResult.OK : DialogResult.Cancel;
 			this.Close();
 		}
 		#endregion
