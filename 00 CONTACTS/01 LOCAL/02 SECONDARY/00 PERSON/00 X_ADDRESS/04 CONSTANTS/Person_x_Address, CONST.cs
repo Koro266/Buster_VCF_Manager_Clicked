@@ -1,4 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using FACTORS = CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
@@ -6,7 +7,7 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 	//___________________________________________________________________________________________________________________________________________
 	public class Constants
 	{
-		public const int ColumnCount = 4;
+		public const int ColumnCount = 5;
 
 		#region LISTS
 		//_______________________________________________________________________________________________________________________________________
@@ -16,30 +17,16 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 			public const int FkPerson			= 1;
 			public const int FkAddress			= 2;
 			public const int AddressType		= 3;
+			public const int Selected			= 4;
 		}
-		//___________________________________________________________________________________________________________________________________		
-		public static int[] OrdinalByValue =
-		{
-			0,	//PkPerson_X_Address
-			1,	//FkPerson
-			2,	//FkAddress
-			3	//StAddressType
-		};
-		//_______________________________________________________________________________________________________________________________________
-		public static string[] Names =
-		{
-			"Person_X_Address",
-			"Person",
-			"Address",
-			"AddressType"
-		};
 		//___________________________________________________________________________________________________________________________________	
 		public static string[] FieldNames =
 		{
 			"pk_Person_X_Address",
 			"fk_Person",
 			"fk_Address",
-			"st_AddressType"
+			"st_AddressType",
+			"is_Selected"
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public static string[] ParameterNames =
@@ -47,7 +34,8 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 			"@pk_person_x_address",
 			"@fk_person",
 			"@fk_address",
-			"@st_addresstype"
+			"@st_addresstype",
+			"@is_selected"
 		};
 		//_______________________________________________________________________________________________________________________________________
 		public static int[] FieldWidths =
@@ -55,61 +43,22 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 			4,	//PkPerson_X_Address
 			4,	//FkPerson
 			4,	//FkAddress
-			25	//StAddressType
+			25,	//StAddressType
+			1	//IsSelected
 		};
-		//_______________________________________________________________________________________________________________________________________
-		public static string[] Prompts =
-		{
-			"Primary Key, AutoNum, int.",
-			"FK into TDF_Persons. Required=Yes.",
-			"FK into TDF_Addresses. Required=Yes.",
-			"HOME, WORK, BOTH (home & work), HOLIDAY, OTHER. This field may not be retained."
-		};
-		//_______________________________________________________________________________________________________________________________________
-		public static class Reconstruction
-		{
-			public const string PkPerson_X_Address	="/pk";
-			public const string FkPerson			="/fp";
-			public const string FkAddress			="/fa";
-			public const string StAddressType		="/at";
-		}
 		#endregion
 
 
 		#region COLUMN FACTORS
 		//_______________________________________________________________________________________________________________________________________
-		public static ColumnFactors[] Factors =
+		public static FACTORS[] Factors =
 		{
-			new ColumnFactors( 0),	//PkPerson_X_Address
-			new ColumnFactors( 1),	//FkPerson
-			new ColumnFactors( 2),	//FkAddress
-			new ColumnFactors( 3)	//StAddressType
+			new FACTORS(  0, FieldWidths[ 0], FieldNames[ 0], ParameterNames[ 0] ), //PkPerson_X_Address
+			new FACTORS(  1, FieldWidths[ 1], FieldNames[ 1], ParameterNames[ 1] ), //FkPerson
+			new FACTORS(  2, FieldWidths[ 2], FieldNames[ 2], ParameterNames[ 2] ), //FkAddress
+			new FACTORS(  3, FieldWidths[ 3], FieldNames[ 3], ParameterNames[ 3] ), //StAddressType
+			new FACTORS(  4, FieldWidths[ 4], FieldNames[ 4], ParameterNames[ 4] ), //IsSelected
 		};
-		//_______________________________________________________________________________________________________________________________________
-		public class ColumnFactors
-		{
-			private int		i_Ordinal;
-			private	string	s_FieldName;
-			private	string	s_ParameterName;
-			private	int		i_FieldWidth;
-			private	string	s_Prompt;
-
-			//___________________________________________________________________________________________________________________________________
-			public ColumnFactors( int ordinal )
-			{
-				this.i_Ordinal		 = ordinal;
-				this.s_FieldName	 = FieldNames[ordinal];
-				this.s_ParameterName = ParameterNames[ordinal];
-				this.i_FieldWidth	 = FieldWidths[ordinal];
-				this.s_Prompt		 = Prompts[ordinal];
-			}
-			//___________________________________________________________________________________________________________________________________
-			public int Ordinal			{ get { return i_Ordinal; } }
-			public string FieldName		{ get { return s_FieldName; } }
-			public string ParameterName	{ get { return s_ParameterName; } }
-			public int FieldWidth		{ get { return i_FieldWidth; } }
-			public string Prompt		{ get { return s_Prompt; } }
-		}
 		#endregion
 	}
 }

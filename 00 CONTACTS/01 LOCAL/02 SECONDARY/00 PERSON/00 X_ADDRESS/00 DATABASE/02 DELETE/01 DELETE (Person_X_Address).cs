@@ -1,0 +1,73 @@
+﻿//___________________________________________________________________________________________________________________________________________________
+//GLOBAL
+using DB_CONNECTION		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnection;
+//LOCAL
+using PERSON_X_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
+
+//___________________________________________________________________________________________________________________________________________________
+namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
+{
+	//___________________________________________________________________________________________________________________________________________
+	public partial class Database
+	{
+		//_______________________________________________________________________________________________________________________________________
+		public class Insert
+		{
+			//___________________________________________________________________________________________________________________________________
+			/// <summary>
+			/// INSERTs new, fully-qualified TDF_Family. Returns the PK of the INSERTed row.
+			/// </summary>
+			public class Family : DB_CONNECTION
+			{
+				private const string sql_text =
+				@"
+				INSERT INTO
+					TDF_Persons_X_Addresses
+					(
+						fk_Person,
+						fk_Address,
+						st_AddressType,
+						is_Selected
+					)
+					VALUES
+					(
+						= @fk_person,
+						= @fk_address,
+						= @st_addresstype,
+						= @is_selected
+					);	
+				";
+				//_______________________________________________________________________________________________________________________________
+				public Family( PERSON_X_ADDRESS person_x_address ) : base( sql_text )
+				{
+					base.DbCommand.Parameters.Add( person_x_address.FkPerson.DbParameter );
+					base.DbCommand.Parameters.Add( person_x_address.FkAddress.DbParameter );
+					base.DbCommand.Parameters.Add( person_x_address.AddressType.DbParameter );
+					base.DbCommand.Parameters.Add( person_x_address.Selected.DbParameter );
+				}
+				//_______________________________________________________________________________________________________________________________
+				/// <summary>
+				/// Returns true if INSERT succeeds, false otherwise.
+				/// </summary>
+				public bool Execute
+				{
+					get
+					{
+						try
+						{
+							base.Connection.Open();
+							base.DbCommand.ExecuteNonQuery();
+							base.Connection.Close();
+							return true;
+						}
+						catch ( Exception e )
+						{
+							Connection.Close();
+							return false;
+						}
+					}
+				}
+			}
+		}
+	}
+}

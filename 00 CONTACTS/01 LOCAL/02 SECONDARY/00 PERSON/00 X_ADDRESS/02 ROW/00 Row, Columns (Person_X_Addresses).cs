@@ -21,5 +21,6 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 		public FIELD.FK_Person FkPerson						{ get { return ( FIELD.FK_Person )				base.GetField( ORDINAL.FkPerson ); } }
 		public FIELD.FK_Address FkAddress					{ get { return ( FIELD.FK_Address )				base.GetField( ORDINAL.FkAddress ); } }
 		public FIELD.ST_AddressType AddressType				{ get { return ( FIELD.ST_AddressType )			base.GetField( ORDINAL.AddressType ); } }
+		public FIELD.IS_Selected Selected					{ get { return ( FIELD.IS_Selected )			base.GetField( ORDINAL.Selected ); } }
 	}
 }

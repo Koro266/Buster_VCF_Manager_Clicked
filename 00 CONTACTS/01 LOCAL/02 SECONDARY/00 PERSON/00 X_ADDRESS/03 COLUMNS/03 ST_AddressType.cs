@@ -3,11 +3,10 @@ using System.Data.OleDb;
 //GLOBAL
 using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using NULL_TEXT = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<string>;
-using NULLITY	= CONTACTS.GLOBAL.Nullity;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants;
 using ORDINAL	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
@@ -63,24 +62,11 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 			}
 			//___________________________________________________________________________________________________________________________________________				
 			/// <summary>				
-			/// Returns true iff person has a valid AddressType value.				
+			/// Returns true iff AddressType has a valid value.				
 			/// </summary>				
 			override public bool IsVcfValue
 			{
-				get
-				{
-					switch ( base.NullState )
-					{
-						case NULLITY.DbNull:
-							return false;
-
-						case NULLITY.NotNull:
-							return true;
-
-						default:
-							return false;
-					}
-				}
+				get { return true; }
 			}
 			#endregion
 

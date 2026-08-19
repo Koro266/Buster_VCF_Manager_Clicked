@@ -38,6 +38,8 @@
 			btn_Disconnect = new Button();
 			btn_Connect = new Button();
 			btn_Close = new Button();
+			tbx_PkAddress = new TextBox();
+			tbx_PkPerson = new TextBox();
 			grp_Person.SuspendLayout();
 			grp_Address.SuspendLayout();
 			grp_Connector.SuspendLayout();
@@ -45,6 +47,7 @@
 			// 
 			// grp_Person
 			// 
+			grp_Person.Controls.Add( tbx_PkPerson );
 			grp_Person.Controls.Add( tbx_PersonName );
 			grp_Person.Controls.Add( btn_FindPerson );
 			grp_Person.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
@@ -57,13 +60,14 @@
 			// 
 			// tbx_PersonName
 			// 
-			tbx_PersonName.Location = new Point( 59, 51 );
+			tbx_PersonName.Location = new Point( 79, 51 );
 			tbx_PersonName.Name = "tbx_PersonName";
-			tbx_PersonName.Size = new Size( 284, 23 );
+			tbx_PersonName.Size = new Size( 264, 23 );
 			tbx_PersonName.TabIndex = 1;
 			// 
 			// btn_FindPerson
 			// 
+			btn_FindPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_FindPerson.Location = new Point( 23, 22 );
 			btn_FindPerson.Name = "btn_FindPerson";
 			btn_FindPerson.Size = new Size( 109, 23 );
@@ -74,6 +78,7 @@
 			// 
 			// grp_Address
 			// 
+			grp_Address.Controls.Add( tbx_PkAddress );
 			grp_Address.Controls.Add( lbx_Address );
 			grp_Address.Controls.Add( btn_FindAddress );
 			grp_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
@@ -88,13 +93,14 @@
 			// 
 			lbx_Address.FormattingEnabled = true;
 			lbx_Address.ItemHeight = 15;
-			lbx_Address.Location = new Point( 59, 51 );
+			lbx_Address.Location = new Point( 79, 51 );
 			lbx_Address.Name = "lbx_Address";
-			lbx_Address.Size = new Size( 284, 154 );
+			lbx_Address.Size = new Size( 264, 154 );
 			lbx_Address.TabIndex = 1;
 			// 
 			// btn_FindAddress
 			// 
+			btn_FindAddress.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_FindAddress.Location = new Point( 23, 22 );
 			btn_FindAddress.Name = "btn_FindAddress";
 			btn_FindAddress.Size = new Size( 109, 23 );
@@ -117,18 +123,20 @@
 			// 
 			// btn_Disconnect
 			// 
-			btn_Disconnect.Location = new Point( 59, 54 );
+			btn_Disconnect.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_Disconnect.Location = new Point( 79, 54 );
 			btn_Disconnect.Name = "btn_Disconnect";
-			btn_Disconnect.Size = new Size( 284, 23 );
+			btn_Disconnect.Size = new Size( 264, 23 );
 			btn_Disconnect.TabIndex = 1;
 			btn_Disconnect.Text = "Disconnect Person from Address";
 			btn_Disconnect.UseVisualStyleBackColor = true;
 			// 
 			// btn_Connect
 			// 
-			btn_Connect.Location = new Point( 59, 25 );
+			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_Connect.Location = new Point( 79, 25 );
 			btn_Connect.Name = "btn_Connect";
-			btn_Connect.Size = new Size( 284, 23 );
+			btn_Connect.Size = new Size( 264, 23 );
 			btn_Connect.TabIndex = 0;
 			btn_Connect.Text = "Connect Person to Address";
 			btn_Connect.UseVisualStyleBackColor = true;
@@ -145,6 +153,20 @@
 			btn_Close.UseVisualStyleBackColor = true;
 			btn_Close.Click +=  btn_Close_Click ;
 			// 
+			// tbx_PkAddress
+			// 
+			tbx_PkAddress.Location = new Point( 23, 51 );
+			tbx_PkAddress.Name = "tbx_PkAddress";
+			tbx_PkAddress.Size = new Size( 50, 23 );
+			tbx_PkAddress.TabIndex = 2;
+			// 
+			// tbx_PkPerson
+			// 
+			tbx_PkPerson.Location = new Point( 24, 51 );
+			tbx_PkPerson.Name = "tbx_PkPerson";
+			tbx_PkPerson.Size = new Size( 50, 23 );
+			tbx_PkPerson.TabIndex = 3;
+			// 
 			// Person_X_Address
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -160,6 +182,7 @@
 			grp_Person.ResumeLayout( false );
 			grp_Person.PerformLayout();
 			grp_Address.ResumeLayout( false );
+			grp_Address.PerformLayout();
 			grp_Connector.ResumeLayout( false );
 			ResumeLayout( false );
 		}
@@ -176,5 +199,7 @@
 		private Button btn_Close;
 		private TextBox tbx_PersonName;
 		private ListBox lbx_Address;
+		private TextBox tbx_PkPerson;
+		private TextBox tbx_PkAddress;
 	}
 }

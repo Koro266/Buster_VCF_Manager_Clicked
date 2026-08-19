@@ -1,8 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Data.OleDb;
 //GLOBAL
-using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
-using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
+using BOOL		= CONTACTS.GLOBAL.DATABASE.COLUMN.True_False;
+using NULL_BOOL = CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<bool>;
 using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants;
@@ -15,21 +15,21 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 	public partial class Column
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public class FK_Address : INT_32
+		public partial class IS_Selected : BOOL
 		{
 			#region DECLARATIONS
-			private static FACTORS column_factors = CONST.Factors[ORDINAL.FkAddress];
-			private NULL_INT type_null_pair;
+			private static FACTORS column_factors = CONST.Factors[ORDINAL.Selected];
+			private NULL_BOOL type_null_pair;
 			#endregion
 
 
 			#region CONSTRUCTORS
 			//_______________________________________________________________________________________________________________________________________
-			public FK_Address( int value ) : base( value )
+			public IS_Selected( bool value ) : base( value )
 			{
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public FK_Address( NULL_INT tnp ) : base( tnp )
+			public IS_Selected( NULL_BOOL tnp ) : base( tnp )
 			{
 				type_null_pair = tnp;
 			}
@@ -47,38 +47,13 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 			{
 				get { return Factors.Ordinal; }
 			}
-			//_______________________________________________________________________________________________________________________________________
-			override public string ToString()
-			{
-				return base.Value.ToString();
-			}
-			#endregion
-
-
-			#region EXTENSIONS
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns the value that is displayed in a TextBox.
-			/// </summary>
-			override public string TextboxValue
-			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns PkPerson.AsString.
+			/// Returns Selected as used in a VCF file.
 			/// </summary>
 			override public string VcfValue
 			{
-				get { return base.AsString; }
-			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns true because this field is a primary key.
-			/// </summary>
-			override public bool IsVcfValue
-			{
-				get { return true; }
+				get { return base.AsTF; }
 			}
 			#endregion
 

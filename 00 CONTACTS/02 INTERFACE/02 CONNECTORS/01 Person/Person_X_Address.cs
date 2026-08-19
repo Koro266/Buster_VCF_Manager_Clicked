@@ -39,6 +39,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			{
 				person = find_person.SelectedPerson;
 				tbx_PersonName.Text = person.NaturalName.Value;
+				tbx_PkPerson.Text = person.PkPerson.AsString;
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
@@ -51,6 +52,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 				address = find_address.SelectedAddress;
 				string[] s = address.RealiseFinderPattern();
 				lbx_Address.Items.AddRange( s );
+				tbx_PkAddress.Text=address.PkAddress.AsString;
 			}
 		}
 	}

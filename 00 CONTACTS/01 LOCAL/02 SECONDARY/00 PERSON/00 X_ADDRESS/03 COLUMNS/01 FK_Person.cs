@@ -3,10 +3,10 @@ using System.Data.OleDb;
 //GLOBAL
 using INT_32	= CONTACTS.GLOBAL.DATABASE.COLUMN.Integer_32;
 using NULL_INT	= CONTACTS.GLOBAL.DATABASE.COLUMN.TypeNullPair<int>;
+using FACTORS	= CONTACTS.GLOBAL.TOOLS.ColumnFactors;
 //LOCAL
 using CONST		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants;
 using ORDINAL	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.OrdinalByName;
-using FACTORS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Constants.ColumnFactors;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
