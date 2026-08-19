@@ -20,7 +20,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.Notes];
 			private static string no_VCF_Value = "nt";
-			private static string no_FINDER_Value = "nts";
+			private static string no_FINDER_Value = "nt";
 			private NULL_TEXT type_null_pair;
 			#endregion
 

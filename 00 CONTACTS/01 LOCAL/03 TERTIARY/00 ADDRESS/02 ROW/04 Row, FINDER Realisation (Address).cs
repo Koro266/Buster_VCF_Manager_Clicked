@@ -14,10 +14,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		private static string FinderPattern = 
 			"/pk"				+ "~" +
 			"/hn /sn /st /cp"	+ "~" +
-			"/sb /ct;"			+ "~" +
-			"/mt /pv (/pa);"	+ "~" +
-			"/bx /rd /pc;"		+ "~" +
-			"/as /ex /lv /un;"	+ "~" +
+			"/sb /ct"			+ "~" +
+			"/mt /pv (/pa)"		+ "~" +
+			"/bx /rd /pc"		+ "~" +
+			"/as /ex /lv /un"	+ "~" +
 			"/cy (/cd)";
 
 		#region REALISE ADDRESS RULES: THE GIANT SWITCH.
@@ -37,67 +37,67 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						break;
 
 					case RECON.Assemblage_AsIs:
-						s = s.Replace( RECON.Assemblage_AsIs, this.Assemblage.VcfValue );
+						s = s.Replace( RECON.Assemblage_AsIs, this.Assemblage.FinderValue );
 						break;
 
 					case RECON.Level_AsIs:
-						s = s.Replace( RECON.Level_AsIs, this.Level.VcfValue );
+						s = s.Replace( RECON.Level_AsIs, this.Level.FinderValue );
 						break;
 
 					case RECON.Unit_AsIs:
-						s = s.Replace( RECON.Unit_AsIs, this.Unit.VcfValue );
+						s = s.Replace( RECON.Unit_AsIs, this.Unit.FinderValue );
 						break;
 
 					case RECON.Extension_AsIs:
-						s = s.Replace( RECON.Extension_AsIs, this.Extension.VcfValue );
+						s = s.Replace( RECON.Extension_AsIs, this.Extension.FinderValue );
 						break;
 
 					case RECON.RuralDelivery_AsIs:
-						s = s.Replace( RECON.RuralDelivery_AsIs, this.RuralDelivery.VcfValue );
+						s = s.Replace( RECON.RuralDelivery_AsIs, this.RuralDelivery.FinderValue );
 						break;
 
 					case RECON.PostalCode_AsIs:
-						s = s.Replace( RECON.PostalCode_AsIs, this.PostalCode.VcfValue );
+						s = s.Replace( RECON.PostalCode_AsIs, this.PostalCode.FinderValue );
 						break;
 
 					case RECON.BoxNumber_AsIs:
-						s = s.Replace( RECON.BoxNumber_AsIs, this.BoxNumber.VcfValue );
+						s = s.Replace( RECON.BoxNumber_AsIs, this.BoxNumber.FinderValue );
 						break;
 
 					case RECON.HouseNumber_AsIs:
-						s = s.Replace( RECON.HouseNumber_AsIs, this.HouseNumber.VcfValue );
+						s = s.Replace( RECON.HouseNumber_AsIs, this.HouseNumber.FinderValue );
 						break;
 
 					case RECON.StreetName_AsIs:
-						s = s.Replace( RECON.StreetName_AsIs, this.StreetName.VcfValue );
+						s = s.Replace( RECON.StreetName_AsIs, this.StreetName.FinderValue );
 						break;
 
 					case RECON.StreetType_AsIs:
-						s = s.Replace( RECON.StreetType_AsIs, this.StreetType.VcfValue );
+						s = s.Replace( RECON.StreetType_AsIs, this.StreetType.FinderValue );
 						break;
 
 					case RECON.Compass_AsIs:
-						s = s.Replace( RECON.Compass_AsIs, this.Compass.VcfValue );
+						s = s.Replace( RECON.Compass_AsIs, this.Compass.FinderValue );
 						break;
 
 					case RECON.Suburb_AsIs:
-						s = s.Replace( RECON.Suburb_AsIs, this.Suburb.VcfValue );
+						s = s.Replace( RECON.Suburb_AsIs, this.Suburb.FinderValue );
 						break;
 
 					case RECON.City_AsIs:
-						s = s.Replace( RECON.City_AsIs, this.City.VcfValue );
+						s = s.Replace( RECON.City_AsIs, this.City.FinderValue );
 						break;
 
 					case RECON.Metropolitan_AsIs:
-						s = s.Replace( RECON.Metropolitan_AsIs, this.Metropolitan.VcfValue );
+						s = s.Replace( RECON.Metropolitan_AsIs, this.Metropolitan.FinderValue );
 						break;
 
 					case RECON.ProvinceName_AsIs:
-						s = s.Replace( RECON.ProvinceName_AsIs, this.ProvinceName.VcfValue );
+						s = s.Replace( RECON.ProvinceName_AsIs, this.ProvinceName.FinderValue );
 						break;
 
 					case RECON.ProvinceCode_AsIs:
-						s = s.Replace( RECON.ProvinceCode_AsIs, this.ProvinceCode.VcfValue );
+						s = s.Replace( RECON.ProvinceCode_AsIs, this.ProvinceCode.FinderValue );
 						break;
 
 

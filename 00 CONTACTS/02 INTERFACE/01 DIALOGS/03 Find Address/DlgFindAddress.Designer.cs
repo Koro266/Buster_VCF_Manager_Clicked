@@ -73,7 +73,7 @@
 			// 
 			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Cancel.ForeColor = Color.Maroon;
-			btn_Cancel.Location = new Point( 1124, 431 );
+			btn_Cancel.Location = new Point( 1151, 431 );
 			btn_Cancel.Name = "btn_Cancel";
 			btn_Cancel.Size = new Size( 93, 34 );
 			btn_Cancel.TabIndex = 15;
@@ -114,7 +114,7 @@
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 1223, 431 );
+			btn_CloseForm.Location = new Point( 1250, 431 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 93, 34 );
 			btn_CloseForm.TabIndex = 16;
@@ -327,7 +327,7 @@
 			lvw_MatchingAddresses.Location = new Point( 271, 12 );
 			lvw_MatchingAddresses.MultiSelect = false;
 			lvw_MatchingAddresses.Name = "lvw_MatchingAddresses";
-			lvw_MatchingAddresses.Size = new Size( 1045, 413 );
+			lvw_MatchingAddresses.Size = new Size( 1072, 413 );
 			lvw_MatchingAddresses.TabIndex = 14;
 			lvw_MatchingAddresses.UseCompatibleStateImageBehavior = false;
 			lvw_MatchingAddresses.View = View.Details;
@@ -339,32 +339,32 @@
 			// 
 			// hdr_StreetAddress
 			// 
-			hdr_StreetAddress.Text = "STREET ADDRESS";
+			hdr_StreetAddress.Text = "Num, Street, Type, Compass";
 			hdr_StreetAddress.Width = 180;
 			// 
 			// hdr_BurbCity
 			// 
-			hdr_BurbCity.Text = "'BURB, CITY";
-			hdr_BurbCity.Width = 150;
+			hdr_BurbCity.Text = "Suburb, City";
+			hdr_BurbCity.Width = 160;
 			// 
 			// hdr_Metropolitan
 			// 
-			hdr_Metropolitan.Text = "METROPOLITAN";
-			hdr_Metropolitan.Width = 150;
+			hdr_Metropolitan.Text = "Metro, Province, (Prov)";
+			hdr_Metropolitan.Width = 180;
 			// 
 			// hdr_Postal
 			// 
-			hdr_Postal.Text = "PO BOX, ETC";
+			hdr_Postal.Text = "PO Box, RD, Post Code";
 			hdr_Postal.Width = 150;
 			// 
 			// hdr_Extensions
 			// 
-			hdr_Extensions.Text = "EXTENSIONS";
+			hdr_Extensions.Text = "Assm, Ext, Level, Unit";
 			hdr_Extensions.Width = 180;
 			// 
 			// hdr_Country
 			// 
-			hdr_Country.Text = "COUNTRY";
+			hdr_Country.Text = "Country (Code)";
 			hdr_Country.Width = 150;
 			// 
 			// tbx_PRV_Abbreviation
@@ -435,7 +435,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Cancel;
-			ClientSize = new Size( 1337, 482 );
+			ClientSize = new Size( 1358, 482 );
 			Controls.Add( label3 );
 			Controls.Add( tbx_PRV_Name );
 			Controls.Add( label2 );

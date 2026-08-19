@@ -22,11 +22,11 @@ namespace CONTACTS.GLOBAL.TOOLS
 			Person_X_Device
 		};
 
-		#if DEBUG
-		private static StartupForm startup_Interface = StartupForm.Person_X_Address;
-		#else
+#if DEBUG
+		private static StartupForm startup_Interface = StartupForm.FindAddress;
+#else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
-		#endif
+#endif
 
 		//___________________________________________________________________________________________________________________________________________________
 		public static StartupForm StartUpInterface
