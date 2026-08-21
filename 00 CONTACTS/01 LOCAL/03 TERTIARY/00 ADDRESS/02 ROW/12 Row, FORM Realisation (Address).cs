@@ -5,7 +5,7 @@ using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL 
 using RECON		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
-using COUNTRY	= CONTACTS.LOCAL.TERTIARY.NATION.Row;
+using REALISE_FORM = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION.RealiseForm;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
@@ -17,6 +17,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		//_______________________________________________________________________________________________________________________________________
 		public string[] RealisePostalRule()
 		{
+			REALISE_FORM realise_form = new REALISE_FORM( this );
+			string[] s = realise_form.RealisePostalRule();
 			string realised_rule = RealiseAddressRule( this.VcfPostal.Value );
 			return SplitAddress( realised_rule );
 		}

@@ -48,14 +48,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 			this.Address = all_Addresses.DefaultAddress;
-
-			string comp = one_Address.RealiseComprehensiveAddress();
-			string[] excl = one_Address.RealiseExcelRule();
-			string[] extd = one_Address.RealiseExtendedRule();
-			string[] find = one_Address.RealiseFinderPattern();
-			string[] phys = one_Address.RealisePhysicalRule();
-			string[] post = one_Address.RealisePostalRule();
-
 			initial_Nation = all_Nations.NationByKey( Address.FkCountry.Value );
 			current_Nation = initial_Nation;
 			DisplayInitialNation();

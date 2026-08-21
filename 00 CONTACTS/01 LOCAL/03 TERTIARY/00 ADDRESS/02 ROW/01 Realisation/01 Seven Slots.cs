@@ -10,7 +10,7 @@ using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class SevenSlots : BASE_ROW
+	public partial class RealiseSevenSlots : BASE_ROW
 	{
 		private PARENT_ROW _ParentRow;
 
@@ -22,7 +22,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 		private const string country_Pattern	= "#0";             //Country name.
 
 		//___________________________________________________________________________________________________________________________________________
-		public SevenSlots( PARENT_ROW parent_row )
+		public RealiseSevenSlots( PARENT_ROW parent_row )
 		{
 			_ParentRow = parent_row;
 		}
