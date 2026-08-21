@@ -21,6 +21,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.Assemblage];
 			private static string no_VCF_Value = "asm,";
 			private static string no_FINDER_Value = "as";
+			private static string Address_Token = "/as ";
 			private NULL_TEXT type_null_pair;
 			#endregion
 

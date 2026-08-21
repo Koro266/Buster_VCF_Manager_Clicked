@@ -85,7 +85,7 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 				person_x_address.Append( new COLUMNS.PK_Person_X_Address	( base.GetPrimaryKey	( ORDINAL.PkPerson_X_Address )	) );
 				person_x_address.Append( new COLUMNS.FK_Person				( base.GetForeignKey	( ORDINAL.FkPerson )			) );
 				person_x_address.Append( new COLUMNS.FK_Address				( base.GetForeignKey	( ORDINAL.FkAddress )			) );
-				person_x_address.Append( new COLUMNS.ST_AddressType			( base.GetShortText		( ORDINAL.AddressType )			) );
+				person_x_address.Append( new COLUMNS.IS_Selected			( base.GetBoolean		( ORDINAL.Selected )			) );
 
 				return person_x_address;
 			}

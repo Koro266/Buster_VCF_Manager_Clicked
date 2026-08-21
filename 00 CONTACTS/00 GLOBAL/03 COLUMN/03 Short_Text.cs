@@ -187,6 +187,14 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		#region VALUE OVERRIDES
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
+		/// Returns an appropriate value in the contextvalue formatted for use in a Find this-or-that context.
+		/// </summary>
+		virtual public string ClarifiedValue( string result_string, string target_string, Short_Text place_holder_value )
+		{
+			return result_string.Replace( target_string, place_holder_value.AsIs );
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
 		/// Returns value formatted for use in a Find this-or-that context.
 		/// </summary>
 		override public string FinderValue

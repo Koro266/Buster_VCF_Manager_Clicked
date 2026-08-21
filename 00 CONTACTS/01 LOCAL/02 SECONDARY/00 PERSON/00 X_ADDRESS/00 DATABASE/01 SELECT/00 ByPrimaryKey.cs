@@ -26,7 +26,7 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 						TDF_Persons_X_Addresses.pk_Person_X_Address,
 						TDF_Persons_X_Addresses.fk_Person,
 						TDF_Persons_X_Addresses.fk_Address,
-						TDF_Persons_X_Addresses.st_AddressType
+						TDF_Persons_X_Addresses.is_Selected
 					FROM 
 						TDF_Persons_X_Addresses 
 					WHERE 

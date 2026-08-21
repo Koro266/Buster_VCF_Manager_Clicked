@@ -23,43 +23,65 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 	//___________________________________________________________________________________________________________________________________________________
 	public partial class Person_X_Address : Form
 	{
-		private PERSON person = new SELECT_PERSON.DefaultPerson().Execute;
-		private ADDRESS address = new SELECT_ADDRESS.DefaultAddress().Execute;
+		private PERSON person = null;
+		private ADDRESS address = null;
 
 		//___________________________________________________________________________________________________________________________________________________
 		public Person_X_Address()
 		{
 			InitializeComponent();
 
-			tbx_PkPerson.Text = person.PkPerson.AsString;
-			tbx_PersonName.Text = person.NaturalName.AsIs;
+			person = new SELECT_PERSON.DefaultPerson().Execute;
+			address = new SELECT_ADDRESS.DefaultAddress().Execute;
 
-			tbx_PkAddress.Text = address.PkAddress.AsString;
-			lbx_Address.Items.AddRange( address.RealiseFinderPattern() );
+			DisplayPerson();
+			DisplayAddress();
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		public Person_X_Address( PERSON inbound_person )
 		{
 			InitializeComponent();
+
 			person = inbound_person;
+			address = new SELECT_ADDRESS.DefaultAddress().Execute;
 
-			tbx_PkPerson.Text = person.PkPerson.AsString;
-			tbx_PersonName.Text = person.NaturalName.AsIs;
-
-			tbx_PkAddress.Text = address.PkAddress.AsString;
-			lbx_Address.Items.AddRange( address.RealiseFinderPattern() );
+			DisplayPerson();
+			DisplayAddress();
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		public Person_X_Address( ADDRESS inbound_address )
 		{
 			InitializeComponent();
+
+			person = new SELECT_PERSON.DefaultPerson().Execute;
 			address = inbound_address;
 
+			DisplayPerson();
+			DisplayAddress();
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void DisplayPerson()
+		{
 			tbx_PkPerson.Text = person.PkPerson.AsString;
 			tbx_PersonName.Text = person.NaturalName.AsIs;
-
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void DisplayAddress()
+		{
 			tbx_PkAddress.Text = address.PkAddress.AsString;
 			lbx_Address.Items.AddRange( address.RealiseFinderPattern() );
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void DisplayPeronsAddresses()
+		{
+			Dictionary<int, BASE_ROW> person_x_addresses = new SELECT_XADDRESS.ByPkPerson( person.PkPerson.Value ).Execute;
+
+			foreach ( var kvp in person_x_addresses )
+			{
+				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
+				string s = address.RealiseXAddressPattern();
+				lbx_AttachedAddresses.Items.Add( address.RealiseXAddressPattern() );
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void btn_Close_Click( object sender, EventArgs e )
@@ -74,16 +96,8 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			if ( find_person.DialogResult == DialogResult.OK )
 			{
 				person = find_person.SelectedPerson;
-				tbx_PersonName.Text = person.NaturalName.Value;
-				tbx_PkPerson.Text = person.PkPerson.AsString;
-
-				Dictionary<int, BASE_ROW> person_x_addresses = new SELECT_XADDRESS.ByPkPerson( person.PkPerson.Value ).Execute;
-
-				foreach ( var kvp in person_x_addresses )
-				{
-					XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
-					lbx_AttachedAddresses.Items.AddRange( address.RealiseFinderPattern() );
-				}
+				DisplayPerson();
+				DisplayPeronsAddresses();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________

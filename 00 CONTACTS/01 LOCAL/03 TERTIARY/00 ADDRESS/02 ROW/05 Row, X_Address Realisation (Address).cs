@@ -1,7 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using System.Text.RegularExpressions;
 //GLOBAL
 using BASE_ROW	= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL 
 using RECON		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 
@@ -11,13 +11,20 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	//___________________________________________________________________________________________________________________________________________
 	public partial class Row : BASE_ROW
 	{
-		private static string XAddressPattern = @"/hn /sn /st /cp, /sb /ct, /mt /pv (/pa), /bx /rd /pc, /as /ex /lv /un, /cy (/cd) /si /li";
+		private static string FinderPattern = 
+			"/pk"				+ "~" +
+			"/hn /sn /st /cp"	+ "~" +
+			"/sb /ct"			+ "~" +
+			"/mt /pv (/pa)"		+ "~" +
+			"/bx /rd /pc"		+ "~" +
+			"/as /ex /lv /un"	+ "~" +
+			"/cy (/cd)";
 
 		#region REALISE ADDRESS RULES: THE GIANT SWITCH.
 		//_______________________________________________________________________________________________________________________________________
-		public string RealiseXAddressPattern()
+		public string[] RealiseFinderPattern()
 		{
-			string s = XAddressPattern;
+			string s = FinderPattern;
 
 			foreach ( string code in RECON.Codes )
 			{
@@ -25,11 +32,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 				{
 					#region AsIs: Return entire token in the form in which it is stored.
 					//___________________________________________________________________________________________________________________________
+					case RECON.PkAddress:
+						s = s.Replace( RECON.PkAddress, this.PkAddress.AsString );
+						break;
+
 					case RECON.Assemblage_AsIs:
-						if ( this.Assemblage.IsNotNull )
-							s = s.Replace( "/as ", this.Assemblage.AsIs );
-						else
-							s = s.Replace( "/as ", String.Empty );
+						s = s.Replace( RECON.Assemblage_AsIs, this.Assemblage.FinderValue );
 						break;
 
 					case RECON.Level_AsIs:
@@ -116,29 +124,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					#endregion
 				}
 			}
-
-			s = s.Replace( "/as", String.Empty );
-			s = s.Replace( "/lv", String.Empty );
-			s = s.Replace( "/un", String.Empty );
-			s = s.Replace( "/ex", String.Empty );
-			s = s.Replace( "/rd", String.Empty );
-			s = s.Replace( "/pc", String.Empty );
-			s = s.Replace( "/bx", String.Empty );
-			s = s.Replace( "/hn", String.Empty );
-			s = s.Replace( "/sn", String.Empty );
-			s = s.Replace( "/st", String.Empty );
-			s = s.Replace( "/cp", String.Empty );
-			s = s.Replace( "/sb", String.Empty );
-			s = s.Replace( "/ct", String.Empty );
-			s = s.Replace( "/mt", String.Empty );
-			s = s.Replace( "/pv", String.Empty );
-			s = s.Replace( "/pa", String.Empty );
-			s = s.Replace( "/cy", String.Empty );
-			s = s.Replace( "/cd", String.Empty );
-			s = s.Replace( "/si", String.Empty );
-			s = s.Replace( "/li", String.Empty );
-
-			return s;
+			return s.Split( PRESET.Tilde, StringSplitOptions.None );
 		}
 		#endregion
 	}

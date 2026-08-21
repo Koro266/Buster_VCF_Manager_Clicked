@@ -26,14 +26,12 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 						(
 							fk_Person,
 							fk_Address,
-							st_AddressType,
 							is_Selected
 						)
 						VALUES
 						(
 							= @fk_person,
 							= @fk_address,
-							= @st_addresstype,
 							= @is_selected
 						);	
 				";
@@ -42,7 +40,6 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 				{
 					base.DbCommand.Parameters.Add( person_x_address.FkPerson.DbParameter );
 					base.DbCommand.Parameters.Add( person_x_address.FkAddress.DbParameter );
-					base.DbCommand.Parameters.Add( person_x_address.AddressType.DbParameter );
 					base.DbCommand.Parameters.Add( person_x_address.Selected.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
