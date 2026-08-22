@@ -317,6 +317,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				PkAddress,
 				FkCountry,
+				Notes,
 				Assemblage_AsIs,		Assemblage_UPPER,		Assemblage_Proper,		Assemblage_lower,		Assemblage_initial,			Assemblage_INITIAL,
 				Level_AsIs,				Level_UPPER,			Level_Proper,			Level_lower,			Level_initial,				Level_INITIAL,
 				Unit_AsIs,				Unit_UPPER,				Unit_Proper,			Unit_lower,				Unit_initial,				Unit_INITIAL,

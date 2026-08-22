@@ -12,14 +12,11 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 	public class TheGiantSwitch
 	{
 		private PARENT_ROW _ParentRow;
-		private string[] _AddressElements;
-		private const int _ElementCount = 22;
 
 		//___________________________________________________________________________________________________________________________________________
 		public TheGiantSwitch( PARENT_ROW parent_row )
 		{
 			_ParentRow = parent_row;
-			_AddressElements = new string[_ElementCount];
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public string RealiseAddressRule( string address_pattern )
@@ -45,83 +42,83 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 						break;
 
 					case RECON.Level_AsIs:
-						s = Regex.Replace( s, "/lv", _ParentRow.Level.AsIs );
+						s = Regex.Replace( s, RECON.Level_AsIs, _ParentRow.Level.AsIs );
 						break;
 
 					case RECON.Unit_AsIs:
-						s = Regex.Replace( s, "/un", _ParentRow.Unit.AsIs );
+						s = Regex.Replace( s, RECON.Unit_AsIs, _ParentRow.Unit.AsIs );
 						break;
 
 					case RECON.Extension_AsIs:
-						s = Regex.Replace( s, "/ex", _ParentRow.Extension.AsIs );
+						s = Regex.Replace( s, RECON.Extension_AsIs, _ParentRow.Extension.AsIs );
 						break;
 
 					case RECON.RuralDelivery_AsIs:
-						s = Regex.Replace( s, "/rd", _ParentRow.RuralDelivery.AsIs );
+						s = Regex.Replace( s, RECON.RuralDelivery_AsIs, _ParentRow.RuralDelivery.AsIs );
 						break;
 
 					case RECON.PostalCode_AsIs:
-						s = Regex.Replace( s, "/pc", _ParentRow.PostalCode.AsIs );
+						s = Regex.Replace( s, RECON.PostalCode_AsIs, _ParentRow.PostalCode.AsIs );
 						break;
 
 					case RECON.BoxNumber_AsIs:
-						s = Regex.Replace( s, "/bx", _ParentRow.BoxNumber.AsIs );
+						s = Regex.Replace( s, RECON.BoxNumber_AsIs, _ParentRow.BoxNumber.AsIs );
 						break;
 
 					case RECON.HouseNumber_AsIs:
-						s = Regex.Replace( s, "/hn", _ParentRow.HouseNumber.AsIs );
+						s = Regex.Replace( s, RECON.HouseNumber_AsIs, _ParentRow.HouseNumber.AsIs );
 						break;
 
 					case RECON.StreetName_AsIs:
-						s = Regex.Replace( s, "/sn", _ParentRow.StreetName.AsIs );
+						s = Regex.Replace( s, RECON.StreetName_AsIs, _ParentRow.StreetName.AsIs );
 						break;
 
 					case RECON.StreetType_AsIs:
-						s = Regex.Replace( s, "/st", _ParentRow.StreetType.AsIs );
+						s = Regex.Replace( s, RECON.StreetType_AsIs, _ParentRow.StreetType.AsIs );
 						break;
 
 					case RECON.Compass_AsIs:
-						s = Regex.Replace( s, "/cp", _ParentRow.Compass.AsIs );
+						s = Regex.Replace( s, RECON.Compass_AsIs, _ParentRow.Compass.AsIs );
 						break;
 
 					case RECON.Suburb_AsIs:
-						s = Regex.Replace( s, "/sb", _ParentRow.Suburb.AsIs );
+						s = Regex.Replace( s, RECON.Suburb_AsIs, _ParentRow.Suburb.AsIs );
 						break;
 
 					case RECON.City_AsIs:
-						s = Regex.Replace( s, "/ct", _ParentRow.City.AsIs );
+						s = Regex.Replace( s, RECON.City_AsIs, _ParentRow.City.AsIs );
 						break;
 
 					case RECON.Metropolitan_AsIs:
-						s = Regex.Replace( s, "/mt", _ParentRow.Metropolitan.AsIs );
+						s = Regex.Replace( s, RECON.Metropolitan_AsIs, _ParentRow.Metropolitan.AsIs );
 						break;
 
 					case RECON.ProvinceName_AsIs:
-						s = Regex.Replace( s, "/pv", _ParentRow.ProvinceName.AsIs );
+						s = Regex.Replace( s, RECON.ProvinceName_AsIs, _ParentRow.ProvinceName.AsIs );
 						break;
 
 					case RECON.ProvinceCode_AsIs:
-						s = Regex.Replace( s, "/pa", _ParentRow.ProvinceCode.AsIs );
+						s = Regex.Replace( s, RECON.ProvinceCode_AsIs, _ParentRow.ProvinceCode.AsIs );
 						break;
 
 					case RECON.CountryName_AsIs:
-						s = Regex.Replace( s, "/cy", _ParentRow.CountryName.AsIs );
+						s = Regex.Replace( s, RECON.CountryName_AsIs, _ParentRow.CountryName.AsIs );
 						break;
 
 					case RECON.CountryCode_AsIs:
-						s = Regex.Replace( s, "/cd", _ParentRow.CountryCode.AsIs );
+						s = Regex.Replace( s, RECON.CountryCode_AsIs, _ParentRow.CountryCode.AsIs );
 						break;
 
 					case RECON.ShortIsoCode_AsIs:
-						s = Regex.Replace( s, "/si", _ParentRow.ShortIsoCode.AsIs );
+						s = Regex.Replace( s, RECON.ShortIsoCode_AsIs, _ParentRow.ShortIsoCode.AsIs );
 						break;
 
 					case RECON.LongIsoCode_AsIs:
-						s = Regex.Replace( s, "/li", _ParentRow.LongIsoCode.AsIs );
+						s = Regex.Replace( s, RECON.LongIsoCode_AsIs, _ParentRow.LongIsoCode.AsIs );
 						break;
 
 					case RECON.Notes:
-						s = Regex.Replace( s, "/nt", _ParentRow.Notes.AsIs );
+						s = Regex.Replace( s, RECON.Notes, _ParentRow.Notes.AsIs );
 						break;
 					#endregion
 
@@ -557,12 +554,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 
 
 					#region Wrap it up...
-					//Replace the 'no value' code with two dashes.
-					case RECON.NoValue:
-						//						s = s.Replace( RECON.NoValue, PRESET.TwoDashes );
-						s = s.Replace( RECON.NoValue, String.Empty );
-						break;
-
 					//Do nothing... .
 					default:
 						break;

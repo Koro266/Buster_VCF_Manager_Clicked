@@ -66,29 +66,64 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		{
 			tbx_PkPerson.Text = person.PkPerson.AsString;
 			tbx_PersonName.Text = person.NaturalName.AsIs;
+			DisplayPersonsAddresses();
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayAddress()
 		{
-			FINDER_REALISATION finder_realisation = new FINDER_REALISATION( address );
-			string s = finder_realisation.GetStrings;
 			tbx_PkAddress.Text = address.PkAddress.AsString;
-			//lbx_AttachedAddresses.Items.Add( s );
+
+			FINDER_REALISATION finder_realisation = new FINDER_REALISATION( address );
+			string[] address_subparts = finder_realisation.GetStrings;
+			//lvw_PersonsAddresses.Items.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()
 		{
-			lbx_AttachedAddresses.Items.Clear();
+			lvw_PersonsAddresses.Items.Clear();
 			Dictionary<int, BASE_ROW> person_x_addresses = new SELECT_XADDRESS.ByPkPerson( person.PkPerson.Value ).Execute;
+			int index = 0;
 
 			foreach ( var kvp in person_x_addresses )
 			{
 				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
 				ADDRESS address = new SELECT_ADDRESS.ByPkAddress( pxa.FkAddress.Value ).Execute;
 				FINDER_REALISATION finder_realisation = new FINDER_REALISATION( address );
-				lbx_AttachedAddresses.Items.Add( finder_realisation.GetStrings );
+				string[] address_subparts = finder_realisation.GetStrings;
+
+
+				lvw_PersonsAddresses.Items.Add( address_subparts[0] );
+				lvw_PersonsAddresses.Items[index].SubItems.Add( address_subparts[1] );
+				lvw_PersonsAddresses.Items[index].SubItems.Add( address_subparts[2] );
+				lvw_PersonsAddresses.Items[index].SubItems.Add( address_subparts[3] );
+				lvw_PersonsAddresses.Items[index].SubItems.Add( address_subparts[4] );
+				lvw_PersonsAddresses.Items[index].SubItems.Add( address_subparts[5] );
+				lvw_PersonsAddresses.Items[index].SubItems.Add( address_subparts[6] );
+				lvw_PersonsAddresses.Items[index].SubItems.Add( address_subparts[7] );
+
+				index++;
 			}
 		}
+		////___________________________________________________________________________________________________________________________________________
+		//public void DisplayAddresses( Dictionary<int, BASE_ROW> address_rows )
+		//{
+		//	this.lvw_PersonsAddresses.Items.Clear();
+		//	int index = 0;
+
+		//	foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
+		//	{
+		//		ADDRESS address = ( ADDRESS )row.Value;
+		//		string[] columns = address.RealiseFinderPattern();
+
+		//		lvw_PersonsAddresses.Items.Add( columns[0] );
+		//		lvw_PersonsAddresses.Items[index]..SubItems.Add( columns[1] );
+		//		lvw_PersonsAddresses.Items[index].SubItems.Add( columns[2] );
+		//		lvw_PersonsAddresses.Items[index].SubItems.Add( columns[3] );
+		//		lvw_PersonsAddresses.Items[index].SubItems.Add( columns[4] );
+		//		lvw_PersonsAddresses.Items[index].SubItems.Add( columns[5] );
+		//		lvw_PersonsAddresses.Items[index++].SubItems.Add( columns[6] );
+		//	}
+		//}
 		//___________________________________________________________________________________________________________________________________________________
 		private void btn_Close_Click( object sender, EventArgs e )
 		{
