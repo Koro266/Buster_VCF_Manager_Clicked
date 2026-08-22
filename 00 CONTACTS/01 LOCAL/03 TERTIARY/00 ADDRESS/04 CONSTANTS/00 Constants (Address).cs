@@ -176,6 +176,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			public const string PkAddress					= "/pk";
 			public const string FkCountry					= "/fk";
+			public const string Notes						= "/nt";
 
 			//AsIs: Return entire token in the form in which it is stored.
 			public const string Assemblage_AsIs				= "/as";

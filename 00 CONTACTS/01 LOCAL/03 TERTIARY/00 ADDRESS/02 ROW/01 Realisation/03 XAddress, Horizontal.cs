@@ -10,28 +10,39 @@ using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class RealiseVcf : BASE_ROW
+	public partial class XAddressHorizontal : BASE_ROW
 	{
 		private PARENT_ROW _ParentRow;
 		private TheGiantSwitch _Switch;
-		private static string VcfAddressPattern = "/bx /rd;/sb /ct /mt /pc;/hn /sn /st /cp;/pv /pa;/as  /lv /un /ex;/cy";
+		private static string XAddressPattern = 
+			@"
+				/hn 
+				/sn 
+				/st 
+				/cp, 
+				/sb 
+				/ct, 
+				/mt 
+				/pv 
+				(/pa), 
+				/bx 
+				/rd 
+				/pc, 
+				/as 
+				/ex 
+				/lv 
+				/un, 
+				/cy 
+				(/cd) 
+				/si 
+				/li
+			";
 
 		//___________________________________________________________________________________________________________________________________________
-		public RealiseVcf( PARENT_ROW parent_row )
+		public XAddressHorizontal( PARENT_ROW parent_row )
 		{
 			_ParentRow = parent_row;
 			_Switch = new TheGiantSwitch( parent_row );
-		}
-		//_______________________________________________________________________________________________________________________________________
-		public string[] RealiseVcfRule()
-		{
-			string realised_rule = _Switch.RealiseAddressRule( VcfAddressPattern );
-			return SplitAddress( realised_rule );
-		}
-		//___________________________________________________________________________________________________________________________________________                                                                                                                                                   
-		private string[] SplitAddress( string in_line )
-		{
-			return in_line.Split( PRESET.Functional_LF, StringSplitOptions.None );
 		}
 	}
 }

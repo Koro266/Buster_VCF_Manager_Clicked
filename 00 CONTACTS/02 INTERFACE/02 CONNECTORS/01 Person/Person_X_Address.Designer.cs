@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			ListViewItem listViewItem1 = new ListViewItem( new string[] { "pk", "street", "burb", "metro", "postal", "extensions", "country", "notes" }, -1, Color.FromArgb(     192,     0,     0 ), Color.Empty, null );
 			grp_Person = new GroupBox();
 			lbx_AttachedAddresses = new ListBox();
 			tbx_PkPerson = new TextBox();
@@ -41,12 +42,22 @@
 			btn_Disconnect = new Button();
 			btn_Connect = new Button();
 			btn_Close = new Button();
+			lvw_MatchingAddresses = new ListView();
+			hdr_StreetAddress = new ColumnHeader();
+			hdr_BurbCity = new ColumnHeader();
+			hdr_Metropolitan = new ColumnHeader();
+			hdr_Postal = new ColumnHeader();
+			hdr_Extensions = new ColumnHeader();
+			hdr_Country = new ColumnHeader();
+			hdr_Notes = new ColumnHeader();
+			hdr_PkAddress = new ColumnHeader();
 			grp_Person.SuspendLayout();
 			grp_Address.SuspendLayout();
 			SuspendLayout();
 			// 
 			// grp_Person
 			// 
+			grp_Person.Controls.Add( lvw_MatchingAddresses );
 			grp_Person.Controls.Add( lbx_AttachedAddresses );
 			grp_Person.Controls.Add( tbx_PkPerson );
 			grp_Person.Controls.Add( tbx_PersonName );
@@ -54,7 +65,7 @@
 			grp_Person.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_Person.Location = new Point( 28, 25 );
 			grp_Person.Name = "grp_Person";
-			grp_Person.Size = new Size( 935, 227 );
+			grp_Person.Size = new Size( 1166, 227 );
 			grp_Person.TabIndex = 0;
 			grp_Person.TabStop = false;
 			grp_Person.Text = "Person";
@@ -63,9 +74,9 @@
 			// 
 			lbx_AttachedAddresses.FormattingEnabled = true;
 			lbx_AttachedAddresses.ItemHeight = 15;
-			lbx_AttachedAddresses.Location = new Point( 370, 22 );
+			lbx_AttachedAddresses.Location = new Point( 564, 22 );
 			lbx_AttachedAddresses.Name = "lbx_AttachedAddresses";
-			lbx_AttachedAddresses.Size = new Size( 553, 94 );
+			lbx_AttachedAddresses.Size = new Size( 485, 19 );
 			lbx_AttachedAddresses.TabIndex = 4;
 			// 
 			// tbx_PkPerson
@@ -179,6 +190,62 @@
 			btn_Close.UseVisualStyleBackColor = true;
 			btn_Close.Click +=  btn_Close_Click ;
 			// 
+			// lvw_MatchingAddresses
+			// 
+			lvw_MatchingAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PkAddress, hdr_StreetAddress, hdr_BurbCity, hdr_Metropolitan, hdr_Postal, hdr_Extensions, hdr_Country, hdr_Notes } );
+			lvw_MatchingAddresses.Cursor = Cursors.No;
+			lvw_MatchingAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			lvw_MatchingAddresses.FullRowSelect = true;
+			lvw_MatchingAddresses.GridLines = true;
+			lvw_MatchingAddresses.Items.AddRange( new ListViewItem[] { listViewItem1 } );
+			lvw_MatchingAddresses.Location = new Point( 23, 80 );
+			lvw_MatchingAddresses.MultiSelect = false;
+			lvw_MatchingAddresses.Name = "lvw_MatchingAddresses";
+			lvw_MatchingAddresses.Size = new Size( 1108, 121 );
+			lvw_MatchingAddresses.TabIndex = 15;
+			lvw_MatchingAddresses.UseCompatibleStateImageBehavior = false;
+			lvw_MatchingAddresses.View = View.Details;
+			// 
+			// hdr_StreetAddress
+			// 
+			hdr_StreetAddress.Text = "STREET";
+			hdr_StreetAddress.Width = 122;
+			// 
+			// hdr_BurbCity
+			// 
+			hdr_BurbCity.Text = "BURB";
+			hdr_BurbCity.Width = 122;
+			// 
+			// hdr_Metropolitan
+			// 
+			hdr_Metropolitan.Text = "METRO";
+			hdr_Metropolitan.Width = 122;
+			// 
+			// hdr_Postal
+			// 
+			hdr_Postal.Text = "POSTAL";
+			hdr_Postal.Width = 122;
+			// 
+			// hdr_Extensions
+			// 
+			hdr_Extensions.Text = "EXTENSIONS";
+			hdr_Extensions.Width = 122;
+			// 
+			// hdr_Country
+			// 
+			hdr_Country.Text = "COUNTRY";
+			hdr_Country.Width = 122;
+			// 
+			// hdr_Notes
+			// 
+			hdr_Notes.Text = "NOTES";
+			hdr_Notes.Width = 122;
+			// 
+			// hdr_PkAddress
+			// 
+			hdr_PkAddress.Text = "PK";
+			hdr_PkAddress.Width = 55;
+			// 
 			// Person_X_Address
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -215,5 +282,14 @@
 		private TextBox tbx_PkAddress;
 		private ListBox lbx_AttachedAddresses;
 		private ListBox lbx_AttachedPersons;
+		private ListView lvw_MatchingAddresses;
+		private ColumnHeader hdr_StreetAddress;
+		private ColumnHeader hdr_BurbCity;
+		private ColumnHeader hdr_Metropolitan;
+		private ColumnHeader hdr_Postal;
+		private ColumnHeader hdr_Extensions;
+		private ColumnHeader hdr_Country;
+		private ColumnHeader hdr_Notes;
+		private ColumnHeader hdr_PkAddress;
 	}
 }

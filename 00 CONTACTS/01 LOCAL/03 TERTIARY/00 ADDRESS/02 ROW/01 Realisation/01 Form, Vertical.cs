@@ -23,28 +23,32 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 		}
 		#region THESE CREATE A STRING[] WHICH IS USED BY FORMS.
 		//_______________________________________________________________________________________________________________________________________
-		public string[] RealisePostalRule()
+		public string RealisePostalRule()
 		{
-			string realised_rule = _Switch.RealiseAddressRule( _ParentRow.VcfPostal.Value );
-			return SplitAddress( realised_rule );
+			//TODO 'format' result ...
+			return _Switch.RealiseAddressRule( _ParentRow.VcfPostal.Value );
+			//return SplitAddress( realised_rule );
 		}
 		//_______________________________________________________________________________________________________________________________________
-		public string[] RealisePhysicalRule()
+		public string RealisePhysicalRule()
 		{
-			string realised_rule = _Switch.RealiseAddressRule( _ParentRow.VcfPhysical.Value );
-			return SplitAddress( realised_rule );
+			return _Switch.RealiseAddressRule( _ParentRow.VcfPhysical.Value );
+			//return realised_rule;
+			//return SplitAddress( realised_rule );
 		}
 		//_______________________________________________________________________________________________________________________________________
-		public string[] RealiseExtendedRule()
+		public string RealiseExtendedRule()
 		{
 			string realised_rule = _Switch.RealiseAddressRule( _ParentRow.VcfExtended.Value );
-			return SplitAddress( realised_rule );
+			return realised_rule;
+			//return SplitAddress( realised_rule );
 		}
 		//_______________________________________________________________________________________________________________________________________
-		public string[] RealiseExcelRule()
+		public string RealiseExcelRule()
 		{
 			string realised_rule = _Switch.RealiseAddressRule( _ParentRow.ExcelPattern.Value );
-			return SplitAddress( realised_rule );
+			return realised_rule;
+			//return SplitAddress( realised_rule );
 		}
 		//___________________________________________________________________________________________________________________________________________                                                                                                                                                   
 		private string[] SplitAddress( string in_line )

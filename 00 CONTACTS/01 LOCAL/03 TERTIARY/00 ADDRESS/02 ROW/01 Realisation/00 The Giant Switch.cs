@@ -1,23 +1,25 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using SBLDR = System.Text.StringBuilder;
-//GLOBAL
-using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL
-using RECON = CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
-using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using System;
+using System.Text.RegularExpressions;
+using PARENT_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class TheGiantSwitch : BASE_ROW
+	public class TheGiantSwitch
 	{
 		private PARENT_ROW _ParentRow;
+		private string[] _AddressElements;
+		private const int _ElementCount = 22;
 
 		//___________________________________________________________________________________________________________________________________________
 		public TheGiantSwitch( PARENT_ROW parent_row )
 		{
 			_ParentRow = parent_row;
+			_AddressElements = new string[_ElementCount];
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public string RealiseAddressRule( string address_pattern )
@@ -30,86 +32,96 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 				{
 					#region AsIs: Return entire token in the form in which it is stored.
 					//___________________________________________________________________________________________________________________________
+					case RECON.PkAddress:
+						s = Regex.Replace( s, RECON.PkAddress, _ParentRow.PkAddress.AsString);
+						break;
+
+					case RECON.FkCountry:
+						s = Regex.Replace( s, RECON.FkCountry, _ParentRow.FkCountry.AsString );
+						break;
+
 					case RECON.Assemblage_AsIs:
-						s = s.Replace( RECON.Assemblage_AsIs, _ParentRow.Assemblage.AsIs );
+						s = Regex.Replace( s, RECON.Assemblage_AsIs, _ParentRow.Assemblage.AsIs );
 						break;
 
 					case RECON.Level_AsIs:
-						s = s.Replace( RECON.Level_AsIs, _ParentRow.Level.AsIs );
+						s = Regex.Replace( s, "/lv", _ParentRow.Level.AsIs );
 						break;
 
 					case RECON.Unit_AsIs:
-						s = s.Replace( RECON.Unit_AsIs, _ParentRow.Unit.AsIs );
+						s = Regex.Replace( s, "/un", _ParentRow.Unit.AsIs );
 						break;
 
 					case RECON.Extension_AsIs:
-						s = s.Replace( RECON.Extension_AsIs, _ParentRow.Extension.AsIs );
+						s = Regex.Replace( s, "/ex", _ParentRow.Extension.AsIs );
 						break;
 
 					case RECON.RuralDelivery_AsIs:
-						s = s.Replace( RECON.RuralDelivery_AsIs, _ParentRow.RuralDelivery.AsIs );
+						s = Regex.Replace( s, "/rd", _ParentRow.RuralDelivery.AsIs );
 						break;
 
 					case RECON.PostalCode_AsIs:
-						s = s.Replace( RECON.PostalCode_AsIs, _ParentRow.PostalCode.AsIs );
+						s = Regex.Replace( s, "/pc", _ParentRow.PostalCode.AsIs );
 						break;
 
 					case RECON.BoxNumber_AsIs:
-						s = s.Replace( RECON.BoxNumber_AsIs, _ParentRow.BoxNumber.AsIs );
+						s = Regex.Replace( s, "/bx", _ParentRow.BoxNumber.AsIs );
 						break;
 
 					case RECON.HouseNumber_AsIs:
-						s = s.Replace( RECON.HouseNumber_AsIs, _ParentRow.HouseNumber.AsIs );
+						s = Regex.Replace( s, "/hn", _ParentRow.HouseNumber.AsIs );
 						break;
 
 					case RECON.StreetName_AsIs:
-						s = s.Replace( RECON.StreetName_AsIs, _ParentRow.StreetName.AsIs );
+						s = Regex.Replace( s, "/sn", _ParentRow.StreetName.AsIs );
 						break;
 
 					case RECON.StreetType_AsIs:
-						s = s.Replace( RECON.StreetType_AsIs, _ParentRow.StreetType.AsIs );
+						s = Regex.Replace( s, "/st", _ParentRow.StreetType.AsIs );
 						break;
 
 					case RECON.Compass_AsIs:
-						s = s.Replace( RECON.Compass_AsIs, _ParentRow.Compass.AsIs );
+						s = Regex.Replace( s, "/cp", _ParentRow.Compass.AsIs );
 						break;
 
 					case RECON.Suburb_AsIs:
-						s = s.Replace( RECON.Suburb_AsIs, _ParentRow.Suburb.AsIs );
+						s = Regex.Replace( s, "/sb", _ParentRow.Suburb.AsIs );
 						break;
 
 					case RECON.City_AsIs:
-						s = s.Replace( RECON.City_AsIs, _ParentRow.City.AsIs );
+						s = Regex.Replace( s, "/ct", _ParentRow.City.AsIs );
 						break;
 
 					case RECON.Metropolitan_AsIs:
-						s = s.Replace( RECON.Metropolitan_AsIs, _ParentRow.Metropolitan.AsIs );
+						s = Regex.Replace( s, "/mt", _ParentRow.Metropolitan.AsIs );
 						break;
 
 					case RECON.ProvinceName_AsIs:
-						s = s.Replace( RECON.ProvinceName_AsIs, _ParentRow.ProvinceName.AsIs );
+						s = Regex.Replace( s, "/pv", _ParentRow.ProvinceName.AsIs );
 						break;
 
 					case RECON.ProvinceCode_AsIs:
-						s = s.Replace( RECON.ProvinceCode_AsIs, _ParentRow.ProvinceCode.AsIs );
+						s = Regex.Replace( s, "/pa", _ParentRow.ProvinceCode.AsIs );
 						break;
 
-
-					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_AsIs:
-						s = s.Replace( RECON.CountryName_AsIs, _ParentRow.CountryName.AsIs );
+						s = Regex.Replace( s, "/cy", _ParentRow.CountryName.AsIs );
 						break;
 
 					case RECON.CountryCode_AsIs:
-						s = s.Replace( RECON.CountryCode_AsIs, _ParentRow.CountryCode.AsIs );
+						s = Regex.Replace( s, "/cd", _ParentRow.CountryCode.AsIs );
 						break;
 
 					case RECON.ShortIsoCode_AsIs:
-						s = s.Replace( RECON.ShortIsoCode_AsIs, _ParentRow.ShortIsoCode.AsIs );
+						s = Regex.Replace( s, "/si", _ParentRow.ShortIsoCode.AsIs );
 						break;
 
 					case RECON.LongIsoCode_AsIs:
-						s = s.Replace( RECON.LongIsoCode_AsIs, _ParentRow.LongIsoCode.AsIs );
+						s = Regex.Replace( s, "/li", _ParentRow.LongIsoCode.AsIs );
+						break;
+
+					case RECON.Notes:
+						s = Regex.Replace( s, "/nt", _ParentRow.Notes.AsIs );
 						break;
 					#endregion
 

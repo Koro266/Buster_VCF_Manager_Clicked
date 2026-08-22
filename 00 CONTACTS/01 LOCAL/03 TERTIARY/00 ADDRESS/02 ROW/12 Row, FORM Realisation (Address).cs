@@ -18,7 +18,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		public string[] RealisePostalRule()
 		{
 			REALISE_FORM realise_form = new REALISE_FORM( this );
-			string[] s = realise_form.RealisePostalRule();
+			string s = realise_form.RealisePostalRule();
 			string realised_rule = RealiseAddressRule( this.VcfPostal.Value );
 			return SplitAddress( realised_rule );
 		}

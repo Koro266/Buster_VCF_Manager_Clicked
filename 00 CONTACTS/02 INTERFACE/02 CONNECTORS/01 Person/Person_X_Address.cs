@@ -15,6 +15,7 @@ using SELECT_XADDRESS = CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select
 using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
 using XADDRESS_ROW	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
+using FINDER_REALISATION = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION.RealiseFinderAddress;
 
 
 //___________________________________________________________________________________________________________________________________________________
@@ -36,6 +37,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 
 			DisplayPerson();
 			DisplayAddress();
+			DisplayPersonsAddresses();
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		public Person_X_Address( PERSON inbound_person )
@@ -68,19 +70,23 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayAddress()
 		{
+			FINDER_REALISATION finder_realisation = new FINDER_REALISATION( address );
+			string s = finder_realisation.GetStrings;
 			tbx_PkAddress.Text = address.PkAddress.AsString;
-			lbx_Address.Items.AddRange( address.RealiseFinderPattern() );
+			//lbx_AttachedAddresses.Items.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		private void DisplayPeronsAddresses()
+		private void DisplayPersonsAddresses()
 		{
+			lbx_AttachedAddresses.Items.Clear();
 			Dictionary<int, BASE_ROW> person_x_addresses = new SELECT_XADDRESS.ByPkPerson( person.PkPerson.Value ).Execute;
 
 			foreach ( var kvp in person_x_addresses )
 			{
 				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
-				string s = address.RealiseXAddressPattern();
-				lbx_AttachedAddresses.Items.Add( address.RealiseXAddressPattern() );
+				ADDRESS address = new SELECT_ADDRESS.ByPkAddress( pxa.FkAddress.Value ).Execute;
+				FINDER_REALISATION finder_realisation = new FINDER_REALISATION( address );
+				lbx_AttachedAddresses.Items.Add( finder_realisation.GetStrings );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
@@ -97,7 +103,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			{
 				person = find_person.SelectedPerson;
 				DisplayPerson();
-				DisplayPeronsAddresses();
+				DisplayPersonsAddresses();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
