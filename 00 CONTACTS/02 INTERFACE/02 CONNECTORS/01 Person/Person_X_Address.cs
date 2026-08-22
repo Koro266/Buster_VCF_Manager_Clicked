@@ -2,7 +2,6 @@
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL: 
 using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
-using GLOBAL_PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL:PERSON
 using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;

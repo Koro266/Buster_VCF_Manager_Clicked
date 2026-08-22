@@ -50,6 +50,7 @@
 			btn_Disconnect = new Button();
 			btn_Connect = new Button();
 			btn_Close = new Button();
+			tbx_Messages = new TextBox();
 			grp_Person.SuspendLayout();
 			grp_Address.SuspendLayout();
 			SuspendLayout();
@@ -235,6 +236,17 @@
 			btn_Close.UseVisualStyleBackColor = true;
 			btn_Close.Click +=  btn_Close_Click ;
 			// 
+			// tbx_Messages
+			// 
+			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
+			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Messages.ForeColor = Color.ForestGreen;
+			tbx_Messages.Location = new Point( 31, 517 );
+			tbx_Messages.Name = "tbx_Messages";
+			tbx_Messages.Size = new Size( 718, 23 );
+			tbx_Messages.TabIndex = 142;
+			tbx_Messages.TabStop = false;
+			// 
 			// Person_X_Address
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
@@ -242,6 +254,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
 			ClientSize = new Size( 1206, 573 );
+			Controls.Add( tbx_Messages );
 			Controls.Add( btn_Disconnect );
 			Controls.Add( btn_Connect );
 			Controls.Add( btn_Close );
@@ -254,6 +267,7 @@
 			grp_Address.ResumeLayout( false );
 			grp_Address.PerformLayout();
 			ResumeLayout( false );
+			PerformLayout();
 		}
 
 		#endregion
@@ -279,5 +293,6 @@
 		private ColumnHeader hdr_Country;
 		private ColumnHeader hdr_Notes;
 		private ColumnHeader hdr_PkAddress;
+		private TextBox tbx_Messages;
 	}
 }
