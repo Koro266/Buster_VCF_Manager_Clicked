@@ -74,6 +74,7 @@
 			lvw_PersonsAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PkAddress, hdr_StreetAddress, hdr_BurbCity, hdr_Metropolitan, hdr_Postal, hdr_Extensions, hdr_Country, hdr_Notes } );
 			lvw_PersonsAddresses.Cursor = Cursors.No;
 			lvw_PersonsAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			lvw_PersonsAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lvw_PersonsAddresses.FullRowSelect = true;
 			lvw_PersonsAddresses.GridLines = true;
 			lvw_PersonsAddresses.Items.AddRange( new ListViewItem[] { listViewItem1 } );
@@ -97,17 +98,17 @@
 			// 
 			// hdr_BurbCity
 			// 
-			hdr_BurbCity.Text = "BURB";
+			hdr_BurbCity.Text = "BURB, CITY";
 			hdr_BurbCity.Width = 133;
 			// 
 			// hdr_Metropolitan
 			// 
-			hdr_Metropolitan.Text = "METRO";
+			hdr_Metropolitan.Text = "METRO, PROVINCE";
 			hdr_Metropolitan.Width = 133;
 			// 
 			// hdr_Postal
 			// 
-			hdr_Postal.Text = "POSTAL";
+			hdr_Postal.Text = "POSTAL, RD";
 			hdr_Postal.Width = 133;
 			// 
 			// hdr_Extensions
@@ -123,7 +124,7 @@
 			// hdr_Notes
 			// 
 			hdr_Notes.Text = "NOTES";
-			hdr_Notes.Width = 200;
+			hdr_Notes.Width = 225;
 			// 
 			// tbx_PkPerson
 			// 
@@ -166,6 +167,7 @@
 			// 
 			// lbx_AttachedPersons
 			// 
+			lbx_AttachedPersons.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbx_AttachedPersons.FormattingEnabled = true;
 			lbx_AttachedPersons.ItemHeight = 15;
 			lbx_AttachedPersons.Location = new Point( 370, 51 );
@@ -182,6 +184,7 @@
 			// 
 			// lbx_Address
 			// 
+			lbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbx_Address.FormattingEnabled = true;
 			lbx_Address.ItemHeight = 15;
 			lbx_Address.Location = new Point( 79, 51 );

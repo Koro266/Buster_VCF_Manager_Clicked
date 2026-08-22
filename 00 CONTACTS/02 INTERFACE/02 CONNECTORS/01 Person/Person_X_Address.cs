@@ -95,6 +95,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			if ( find_address.DialogResult == DialogResult.OK )
 			{
 				Address = find_address.SelectedAddress;
+				lbx_Address.Items.Clear();
 				lbx_Address.Items.AddRange( Address.RealiseFinderPattern() );
 				tbx_PkAddress.Text = Address.PkAddress.AsString;
 				return true;
@@ -133,10 +134,30 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayAddress()
 		{
+			lbx_Address.Items.Clear();
+
 			tbx_PkAddress.Text = Address.PkAddress.AsString;
 
 			ADDRESS_VERTICAL address_vertical = new ADDRESS_VERTICAL( Address );
 			lbx_Address.Items.AddRange( address_vertical.GetStrings );
+			DisplayAddressesPersons();
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void DisplayAddressesPersons()
+		{
+			lbx_AttachedPersons.Items.Clear();
+
+			Dictionary<int, BASE_ROW> address_x_persons = new SELECT_P_X_A.ByPkAddress( Address.PkAddress.Value ).Execute;
+
+			int index = 0;
+			foreach ( var kvp in address_x_persons )
+			{
+				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
+
+				PERSON_ROW person_row = new SELECT_PERSON.ByPkPerson( pxa.FkPerson.Value ).Execute;
+
+				lbx_AttachedPersons.Items.Add( person_row.SortableName.Value );
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()

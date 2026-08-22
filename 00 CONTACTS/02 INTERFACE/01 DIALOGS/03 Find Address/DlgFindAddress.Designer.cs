@@ -321,6 +321,7 @@
 			// 
 			lvw_MatchingAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PrimaryKey, hdr_StreetAddress, hdr_BurbCity, hdr_Metropolitan, hdr_Postal, hdr_Extensions, hdr_Country } );
 			lvw_MatchingAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			lvw_MatchingAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lvw_MatchingAddresses.FullRowSelect = true;
 			lvw_MatchingAddresses.GridLines = true;
 			lvw_MatchingAddresses.Items.AddRange( new ListViewItem[] { listViewItem1 } );
