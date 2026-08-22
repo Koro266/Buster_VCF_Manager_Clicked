@@ -16,6 +16,7 @@ using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
 using XADDRESS_ROW	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
 using FINDER_REALISATION = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION.RealiseFinderAddress;
+using ADDRESS_VERTICAL = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION.XAddressVertical;
 
 
 //___________________________________________________________________________________________________________________________________________________
@@ -24,16 +25,13 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 	//___________________________________________________________________________________________________________________________________________________
 	public partial class Person_X_Address : Form
 	{
-		private PERSON person = null;
-		private ADDRESS address = null;
+		private PERSON person = new SELECT_PERSON.DefaultPerson().Execute;
+		private ADDRESS address = new SELECT_ADDRESS.DefaultAddress().Execute;
 
 		//___________________________________________________________________________________________________________________________________________________
 		public Person_X_Address()
 		{
 			InitializeComponent();
-
-			person = new SELECT_PERSON.DefaultPerson().Execute;
-			address = new SELECT_ADDRESS.DefaultAddress().Execute;
 
 			DisplayPerson();
 			DisplayAddress();
@@ -73,9 +71,9 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		{
 			tbx_PkAddress.Text = address.PkAddress.AsString;
 
-			FINDER_REALISATION finder_realisation = new FINDER_REALISATION( address );
-			string[] address_subparts = finder_realisation.GetStrings;
-			//lvw_PersonsAddresses.Items.Add( s );
+			ADDRESS_VERTICAL address_vertical = new ADDRESS_VERTICAL( address );
+			string[] address_subparts = address_vertical.GetStrings;
+			lbx_Address.Items.AddRange( address_subparts );
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()

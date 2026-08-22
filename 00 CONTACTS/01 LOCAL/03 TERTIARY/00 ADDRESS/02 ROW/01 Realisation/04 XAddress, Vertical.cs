@@ -1,10 +1,9 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using SBLDR = System.Text.StringBuilder;
 //GLOBAL
-using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
-using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL
-using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
@@ -12,15 +11,27 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 	//___________________________________________________________________________________________________________________________________________
 	public partial class XAddressVertical : BASE_ROW
 	{
-		private PARENT_ROW _ParentRow;
 		private TheGiantSwitch _Switch;
-		private static string VcfAddressPattern = "/bx /rd;/sb /ct /mt /pc;/hn /sn /st /cp;/pv /pa;/as  /lv /un /ex;/cy";
+		private ADDRESS_ROW _AddressRow;
+		private static string AddressPattern = "/hn /sn /st /cp|/sb /ct|/bx /rd /pc|/mt/pv /pa|/cy";
 
 		//___________________________________________________________________________________________________________________________________________
-		public XAddressVertical( PARENT_ROW parent_row )
+		public XAddressVertical( ADDRESS_ROW address_row )
 		{
-			_ParentRow = parent_row;
-			_Switch = new TheGiantSwitch( parent_row );
+			_AddressRow = address_row;
+			_Switch = new TheGiantSwitch( _AddressRow );
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string[] GetStrings
+		{
+			get
+			{
+				string s = _Switch.RealiseAddressRule( AddressPattern );
+				SHORT_TXT short_txt = new SHORT_TXT( s );
+				short_txt.RectifyString( s );
+
+				return short_txt.Value.Split( "|", StringSplitOptions.None );
+			}
 		}
 	}
 }
