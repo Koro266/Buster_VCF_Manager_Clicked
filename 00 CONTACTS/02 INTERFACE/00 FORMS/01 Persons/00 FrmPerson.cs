@@ -1,11 +1,11 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
 using DATE_TIME		= CONTACTS.GLOBAL.DATABASE.COLUMN.Date_Time;
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using STARTUP_ENUM	= CONTACTS.GLOBAL.TOOLS.StartupManager.StartupForm;
 //LOCAL	

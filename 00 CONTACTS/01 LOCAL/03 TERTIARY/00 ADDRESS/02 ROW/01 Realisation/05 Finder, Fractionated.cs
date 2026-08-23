@@ -50,7 +50,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Removes un-necessary spaces and splits the string into a string[].
+		/// Removes splits the string into a string[] and rectifies each element of the array.
 		/// </summary>
 		private string[] RectifyResult(string s)
 		{

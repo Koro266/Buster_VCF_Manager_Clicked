@@ -31,14 +31,21 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 		public void RealiseAddress()
 		{
 			string s = _Switch.RealiseAddressRule( AddressPattern );
-
-			string[] result = s.Split( SplitCharacter, StringSplitOptions.None );
-			_Result = SHORT_TXT.RectifyStrings( result );
+			_Result = RectifyResult( s );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public string[] Result
 		{
 			get { return _Result; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Removes splits the string into a string[] and rectifies each element of the array.
+		/// </summary>
+		private string[] RectifyResult( string s )
+		{
+			string[] string_array = s.Split( SplitCharacter, StringSplitOptions.None );
+			return SHORT_TXT.RectifyStrings( string_array );
 		}
 	}
 }

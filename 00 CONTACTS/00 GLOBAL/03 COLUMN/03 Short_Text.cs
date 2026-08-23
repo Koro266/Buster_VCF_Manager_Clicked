@@ -24,8 +24,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		private const string BlackSpace				= @"\S";		//Finds not-whitespace (blackspace).
 		private const string LeadingWhitespace		= @"^\s{1,}";	//Finds leading whitespace.
 		private const string TrailingingWhitespace	= @"\s{1,}$";	//Finds trailing whitespace.
-//		private const string InterstitialWhitespace	= @"\s{2,}";    //Finds interstitial whitespace 2 or more characters long.
-		private const string InterstitialWhitespace = @"\s+";    //Finds interstitial whitespace 2 or more characters long.
+		private const string InterstitialWhitespace = @"\s+";		//Finds interstitial whitespace 2 or more characters long.
 		#endregion
 
 
@@ -265,10 +264,7 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Traverses a string[] and for each element in the array
-		/// 1. Removes all leading and trailing spaces and,
-		///	2. Replaces 2+ interstitial whitespsace with 1 space.
-		///	If string contains only whitespace it is converted to a ZLS.
+		/// Rectifies each element in a string array.
 		/// </summary>
 		public static string[] RectifyStrings( string[] string_array )
 		{
