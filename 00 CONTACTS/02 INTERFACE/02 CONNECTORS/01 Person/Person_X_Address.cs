@@ -139,7 +139,10 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			tbx_PkAddress.Text = Address.PkAddress.AsString;
 
 			ADDRESS_VERTICAL address_vertical = new ADDRESS_VERTICAL( Address );
-			lbx_Address.Items.AddRange( address_vertical.GetStrings );
+			address_vertical.RealiseAddress();
+
+			string[] result = address_vertical.Result;
+			lbx_Address.Items.AddRange( result );
 			DisplayAddressesPersons();
 		}
 		//___________________________________________________________________________________________________________________________________________________

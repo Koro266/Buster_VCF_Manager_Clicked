@@ -52,11 +52,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 		/// <summary>
 		/// Removes un-necessary spaces and splits the string into a string[].
 		/// </summary>
-		private string[] RectifyResult(string result)
+		private string[] RectifyResult(string s)
 		{
-			SHORT_TXT short_txt = new SHORT_TXT( result );
-			short_txt.RectifyString( result );
-			return short_txt.Value.Split( SplitCharacter, StringSplitOptions.None );
+			string[] string_array = s.Split( SplitCharacter, StringSplitOptions.None );
+			return SHORT_TXT.RectifyStrings( string_array );
 		}
 	}
 }

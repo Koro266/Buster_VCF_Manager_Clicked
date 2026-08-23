@@ -1,9 +1,10 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using CONTACTS.GLOBAL.DATABASE.COLUMN;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
@@ -13,7 +14,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 	{
 		private TheGiantSwitch _Switch;
 		private ADDRESS_ROW _AddressRow;
-		private static string AddressPattern = "/hn /sn /st /cp|/sb /ct|/bx /rd /pc|/mt/pv /pa|/cy";
+		private static string AddressPattern = "/hn /sn /st /cp|/sb /ct|/bx /rd /pc|/mt /pv /pa|/cy";
+		private static string SplitCharacter = "|";
+		private string[] _Result;
 
 		//___________________________________________________________________________________________________________________________________________
 		public XAddressVertical( ADDRESS_ROW address_row )
@@ -22,16 +25,20 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 			_Switch = new TheGiantSwitch( _AddressRow );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public string[] GetStrings
+		/// <summary>
+		/// Realises the defined address pattern.
+		/// </summary>
+		public void RealiseAddress()
 		{
-			get
-			{
-				string s = _Switch.RealiseAddressRule( AddressPattern );
-				SHORT_TXT short_txt = new SHORT_TXT( s );
-				short_txt.RectifyString( s );
+			string s = _Switch.RealiseAddressRule( AddressPattern );
 
-				return short_txt.Value.Split( "|", StringSplitOptions.None );
-			}
+			string[] result = s.Split( SplitCharacter, StringSplitOptions.None );
+			_Result = SHORT_TXT.RectifyStrings( result );
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string[] Result
+		{
+			get { return _Result; }
 		}
 	}
 }

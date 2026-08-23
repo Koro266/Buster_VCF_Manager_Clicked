@@ -24,7 +24,8 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		private const string BlackSpace				= @"\S";		//Finds not-whitespace (blackspace).
 		private const string LeadingWhitespace		= @"^\s{1,}";	//Finds leading whitespace.
 		private const string TrailingingWhitespace	= @"\s{1,}$";	//Finds trailing whitespace.
-		private const string InterstitialWhitespace	= @"\s{2,}";	//Finds interstitial whitespace 2 or more characters long.
+//		private const string InterstitialWhitespace	= @"\s{2,}";    //Finds interstitial whitespace 2 or more characters long.
+		private const string InterstitialWhitespace = @"\s+";    //Finds interstitial whitespace 2 or more characters long.
 		#endregion
 
 
@@ -249,21 +250,32 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// If string s contains blackspace, s is rectified.
-		/// That is:
-		///		1. Removes all leading and trailing spaces and,
+		/// 	1. Removes all leading and trailing spaces and,
 		///		2. Replaces 2+ interstitial spaces with 1 space.
+		///	If string contains only whitespace it is converted to a ZLS.
 		/// </summary>
-		public string RectifyString( string s )
+		public static string RectifyString( string s )
 		{
-			if ( this.IsNotAbsoluteNull )
-			{
-				//s has a least one char that is not whitespace, rectify that and send it back.
-				s = Regex.Replace( s, LeadingWhitespace, PRESET.ZLS );
-				s = Regex.Replace( s, TrailingingWhitespace, PRESET.ZLS );
-				s = Regex.Replace( s, InterstitialWhitespace, PRESET.OneSpace );
-			}
+			//Removes leading and trailing whitespace.
+			s = s.Trim();
+			//Convert interstitial whitespace to a single space character.
+			s = Regex.Replace( s, InterstitialWhitespace, PRESET.OneSpace );
 
 			return s;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Traverses a string[] and for each element in the array
+		/// 1. Removes all leading and trailing spaces and,
+		///	2. Replaces 2+ interstitial whitespsace with 1 space.
+		///	If string contains only whitespace it is converted to a ZLS.
+		/// </summary>
+		public static string[] RectifyStrings( string[] string_array )
+		{
+			for ( int i = 0; i < string_array.Length; i++ )
+				string_array[i] = RectifyString( string_array[i] );
+
+			return string_array;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
