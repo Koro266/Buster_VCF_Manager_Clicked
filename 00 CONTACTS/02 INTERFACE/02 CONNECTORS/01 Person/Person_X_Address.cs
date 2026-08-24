@@ -1,4 +1,5 @@
 ﻿//PERSON_X_ADDRESS: 
+using System;
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL: 
 using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
@@ -7,6 +8,7 @@ using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL:PERSON
 using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
+using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 //LOCAL:PERSON_X_ADDRESS
 using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
 using SELECT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
@@ -14,9 +16,8 @@ using DELETE_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.P
 using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
 //LOCAL:ADDRESS
 using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
-using ADDRESS_VERTICAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION.XAddressVertical;
-using FINDER_HORIZONTAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION.RealiseFinderAddress;
+using ADDRESS_VERTICAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.XAddressVertical;
+using ADDRESS_FRACTIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row.AddressFractions;
 //INTERFACE:
 using FIND_ADDRESS		= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 using FIND_PERSON		= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
@@ -33,6 +34,10 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 
 		private PERSON_ROW _PersonRow = new SELECT_PERSON.DefaultPerson().Execute;
 		private ADDRESS_ROW _AddressRow = new SELECT_ADDRESS.DefaultAddress().Execute;
+		private XADDRESS_ROW _PersonXAddressRow;
+
+		private string _MsgFindPersonDismissed = "Find Person dialog dismissed.";
+		private string _MsgFindAddressDismissed = "Find Address dialog dismissed.";
 		#endregion
 
 
@@ -44,17 +49,17 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			InitialiseForm();
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		public Person_X_Address( PERSON_ROW inbound_person )
+		public Person_X_Address( PERSON_ROW person_row )
 		{
 			InitializeComponent();
-			Person = inbound_person;
+			Person = person_row;
 			InitialiseForm();
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		public Person_X_Address( ADDRESS_ROW inbound_address )
+		public Person_X_Address( ADDRESS_ROW address_row )
 		{
 			InitializeComponent();
-			Address = inbound_address;
+			Address = address_row;
 			InitialiseForm();
 		}
 		#endregion
@@ -116,78 +121,107 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		{
 			get { return Address.PkAddress.AsString; }
 		}
-		#endregion
-
-
-		#region FINDERS
 		//___________________________________________________________________________________________________________________________________________
-		private bool FindPerson()
+		private XADDRESS_ROW PersonXAddressRow
 		{
-			FIND_PERSON find_person = new FIND_PERSON();
-			find_person.ShowDialog();
-			if ( find_person.DialogResult == DialogResult.OK )
+			get { return _PersonXAddressRow; }
+			set { _PersonXAddressRow = value;  }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private int PkPersonAddress
+		{
+			get { return PersonXAddressRow.PkPerson_X_Address.Value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private string PkPersonAddressText
+		{
+			get { return PersonXAddressRow.PkPerson_X_Address.AsString; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private string Message
+		{
+			set { _Messenger.Message = value; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void FindPerson()
+		{
+			FIND_PERSON dlg_find_person = new FIND_PERSON();
+
+			dlg_find_person.ShowDialog();
+			if ( dlg_find_person.DialogResult == DialogResult.OK )
 			{
-				Person = find_person.SelectedPerson;
-				return true;
+				Person = dlg_find_person.SelectedPerson;
+				return;
 			}
-			else
+
+			Message = _MsgFindPersonDismissed;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void FindAddress()
+		{
+			FIND_ADDRESS dlg_find_address = new FIND_ADDRESS();
+
+			dlg_find_address.ShowDialog();
+			if ( dlg_find_address.DialogResult == DialogResult.OK )
 			{
-				return false;
+				Address = dlg_find_address.SelectedAddress;
+				return;
+			}
+
+			Message = _MsgFindAddressDismissed;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns the addresses that are attached to a person.
+		/// </summary>
+		private ADDRESS_ROW[] GetPersonsAddresses
+		{
+			get 
+			{
+				Dictionary<int, BASE_ROW> base_rows = new SELECT_P_X_A.ByPkPerson( Person.PkPerson.Value ).Execute;
+				ADDRESS_ROW[] address_rows = new ADDRESS_ROW[base_rows.Count];
+
+				int index = 0;
+				foreach ( var kvp in base_rows )
+				{
+					XADDRESS_ROW x_address_row = ( XADDRESS_ROW )kvp.Value;
+					address_rows[index++] = new SELECT_ADDRESS.ByPkAddress( x_address_row.FkAddress.Value ).Execute;
+				}
+
+				return address_rows;
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private bool FindAddress()
+		/// <summary>
+		/// Returns the persons that are attached to an address.
+		/// </summary>
+		private PERSON_ROW[] GetAddressPersons
 		{
-			FIND_ADDRESS find_address = new FIND_ADDRESS();
-			find_address.ShowDialog();
-			if ( find_address.DialogResult == DialogResult.OK )
+			get
 			{
-				Address = find_address.SelectedAddress;
-				return true;
-			}
-			else
-			{
-				return false;
+				Dictionary<int, BASE_ROW> base_rows = new SELECT_P_X_A.ByPkAddress( Address.PkAddress.Value ).Execute;
+				PERSON_ROW[] person_rows = new PERSON_ROW[base_rows.Count];
+
+				int index = 0;
+				foreach ( var kvp in base_rows )
+				{
+					XADDRESS_ROW x_address_row = ( XADDRESS_ROW )kvp.Value;
+					person_rows[index++] = new SELECT_PERSON.ByPkPerson( x_address_row.FkPerson.Value ).Execute;
+				}
+
+				return person_rows;
 			}
 		}
 		#endregion
 
 
-		#region DISPLAY PERSON
+		#region DISPLAY PERSON, ADDRESS, PERSON'S ADDRESSES, & ADDRESS' PERSONS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPerson()
 		{
-			tbx_PkPerson.Text = this.PkPersonAsText;
+			tbx_PkPerson.Text = PkPersonAsText;
 			tbx_PersonName.Text = Person.NaturalName.AsIs;
 		}
-		//___________________________________________________________________________________________________________________________________________________
-		private void DisplayPersonsAddresses()
-		{
-			lvw_PersonsAddresses.Items.Clear();
-
-			Dictionary<int, BASE_ROW> person_x_addresses = new SELECT_P_X_A.ByPkPerson( Person.PkPerson.Value ).Execute;
-
-			int index = 0;
-			foreach ( var kvp in person_x_addresses )
-			{
-				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
-				ADDRESS_ROW address_row = new SELECT_ADDRESS.ByPkAddress( pxa.FkAddress.Value ).Execute;
-				FINDER_HORIZONTAL horizontal_realisation = new FINDER_HORIZONTAL( address_row );
-				horizontal_realisation.RealiseAddress();
-
-				string root_item = horizontal_realisation.RootItem;
-				string[] sub_items = horizontal_realisation.Subitems;
-
-				lvw_PersonsAddresses.Items.Add( root_item );
-				lvw_PersonsAddresses.Items[index].SubItems.AddRange( sub_items );
-
-				index++;
-			}
-		}
-		#endregion
-
-
-		#region DISPLAY ADDRESS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayAddress()
 		{
@@ -197,27 +231,38 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 
 			ADDRESS_VERTICAL address_vertical = new ADDRESS_VERTICAL( Address );
 			address_vertical.RealiseAddress();
+			lbx_Address.Items.AddRange( address_vertical.Result );
 
-			string[] result = address_vertical.Result;
-			
-			lbx_Address.Items.AddRange( result );
-			DisplayAddressesPersons();
+			DisplayAddressPersons();
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		private void DisplayAddressesPersons()
+		private void DisplayPersonsAddresses()
 		{
+			ADDRESS_ROW[] address_rows = GetPersonsAddresses;
+			int count = address_rows.Count();
+
+			lvw_PersonsAddresses.Items.Clear();
+
+			for ( int index = 0; index < count; index++ )
+			{
+				ADDRESS_FRACTIONS horizontal_realisation = new ADDRESS_FRACTIONS( address_rows[index] );
+				horizontal_realisation.RealiseAddress();
+
+				lvw_PersonsAddresses.Items.Add( horizontal_realisation.RootItem );
+				lvw_PersonsAddresses.Items[index].SubItems.AddRange( horizontal_realisation.Subitems );
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void DisplayAddressPersons()
+		{
+			PERSON_ROW[] person_rows = GetAddressPersons;
+			int count = person_rows.Count();
+
 			lbx_AttachedPersons.Items.Clear();
 
-			Dictionary<int, BASE_ROW> address_x_persons = new SELECT_P_X_A.ByPkAddress( Address.PkAddress.Value ).Execute;
-
-			int index = 0;
-			foreach ( var kvp in address_x_persons )
+			for ( int index = 0; index < count; index++ )
 			{
-				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
-
-				PERSON_ROW person_row = new SELECT_PERSON.ByPkPerson( pxa.FkPerson.Value ).Execute;
-
-				lbx_AttachedPersons.Items.Add( person_row.SortableName.Value );
+				lbx_AttachedPersons.Items.Add( person_rows[index].SortableName.Value );
 			}
 		}
 		#endregion
@@ -252,3 +297,30 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		#endregion
 	}
 }
+/* This here because VS thinks its ordering of alias declarations is superior to mine.
+ 
+//PERSON_X_ADDRESS: 
+using System;
+//___________________________________________________________________________________________________________________________________________________
+//GLOBAL: 
+using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
+using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
+//LOCAL:PERSON
+using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
+using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
+using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
+//LOCAL:PERSON_X_ADDRESS
+using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
+using SELECT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
+using DELETE_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.Persons_X_Address;
+using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
+//LOCAL:ADDRESS
+using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using ADDRESS_VERTICAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.XAddressVertical;
+using ADDRESS_FRACTIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row.AddressFractions;
+//INTERFACE:
+using FIND_ADDRESS		= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
+using FIND_PERSON		= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
+
+ */

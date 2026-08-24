@@ -5,7 +5,7 @@ using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL 
 using RECON		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
-using REALISE_FORM = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION.RealiseForm;
+using REALISE_FORM = CONTACTS.LOCAL.TERTIARY.ADDRESS.RealiseForm;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS

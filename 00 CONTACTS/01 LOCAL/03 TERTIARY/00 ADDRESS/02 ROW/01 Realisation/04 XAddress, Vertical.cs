@@ -1,18 +1,19 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using CONTACTS.GLOBAL.DATABASE.COLUMN;
-//LOCAL
-using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+//LOCAL
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using GIANT_SWITCH	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row.TheGiantSwitch;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 {
 	//___________________________________________________________________________________________________________________________________________
 	public partial class XAddressVertical : BASE_ROW
 	{
-		private TheGiantSwitch _Switch;
+		private GIANT_SWITCH _Switch;
 		private ADDRESS_ROW _AddressRow;
 		private static string AddressPattern = "/hn /sn /st /cp|/sb /ct|/bx /rd /pc|/mt /pv /pa|/cy";
 		private static string SplitCharacter = "|";
@@ -22,7 +23,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
 		public XAddressVertical( ADDRESS_ROW address_row )
 		{
 			_AddressRow = address_row;
-			_Switch = new TheGiantSwitch( _AddressRow );
+			_Switch = new GIANT_SWITCH( _AddressRow );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>

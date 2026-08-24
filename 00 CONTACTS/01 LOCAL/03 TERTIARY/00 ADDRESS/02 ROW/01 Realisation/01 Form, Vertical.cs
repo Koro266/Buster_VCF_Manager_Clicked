@@ -5,21 +5,22 @@ using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using GIANT_SWITCH = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row.TheGiantSwitch;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISATION
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 {
 	//___________________________________________________________________________________________________________________________________________
 	public partial class RealiseForm: BASE_ROW
 	{
 		private PARENT_ROW _ParentRow;
-		private TheGiantSwitch _Switch;
+		private GIANT_SWITCH _Switch;
 
 		//___________________________________________________________________________________________________________________________________________
 		public RealiseForm( PARENT_ROW parent_row )
 		{
 			_ParentRow = parent_row;
-			_Switch = new TheGiantSwitch( parent_row );
+			_Switch = new GIANT_SWITCH( parent_row );
 		}
 		#region THESE CREATE A STRING[] WHICH IS USED BY FORMS.
 		//_______________________________________________________________________________________________________________________________________
