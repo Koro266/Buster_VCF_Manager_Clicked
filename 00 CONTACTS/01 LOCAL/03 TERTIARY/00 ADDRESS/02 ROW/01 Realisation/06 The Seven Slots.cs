@@ -13,7 +13,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	public partial class Row : BASE_ROW
 	{
 		//___________________________________________________________________________________________________________________________________________
-		public partial class RealiseSevenSlots : BASE_ROW
+		public partial class TheSevenSlots : BASE_ROW
 		{
 			private PARENT_ROW _ParentRow;
 
@@ -25,12 +25,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			private const string country_Pattern = "#0";             //Country name.
 
 			//___________________________________________________________________________________________________________________________________________
-			public RealiseSevenSlots( PARENT_ROW parent_row )
+			public TheSevenSlots( PARENT_ROW parent_row )
 			{
 				_ParentRow = parent_row;
 			}
 			//_______________________________________________________________________________________________________________________________________
-			public string[] TheSevenSlots
+			public string[] SlotsAsArray
 			{
 				get
 				{

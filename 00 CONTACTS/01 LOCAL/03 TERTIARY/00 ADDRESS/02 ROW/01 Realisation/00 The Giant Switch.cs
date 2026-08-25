@@ -561,7 +561,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 						//Do nothing... .
 						default:
 							break;
-							#endregion
+						#endregion
 					}
 				}
 				return s;

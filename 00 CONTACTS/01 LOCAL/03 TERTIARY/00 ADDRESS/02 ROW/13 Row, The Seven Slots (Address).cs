@@ -19,7 +19,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		private const string country_Pattern	= "#0";				//Country name.
 
 		//_______________________________________________________________________________________________________________________________________
-		public string[] TheSevenSlots
+		public string[] TheSixPlusOneSlots
 		{
 			get
 			{

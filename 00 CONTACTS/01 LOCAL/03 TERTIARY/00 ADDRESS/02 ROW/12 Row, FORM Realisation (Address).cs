@@ -13,6 +13,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	//___________________________________________________________________________________________________________________________________________
 	public partial class Row : BASE_ROW
 	{
+		/*
 		#region THESE CREATE A STRING[] WHICH IS USED BY FORMS.
 		//_______________________________________________________________________________________________________________________________________
 		public string[] RealisePostalRule()
@@ -86,7 +87,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			}
 		}
 		#endregion
-
+		*/
 
 		#region REALISE ADDRESS RULES: THE GIANT SWITCH.
 		//_______________________________________________________________________________________________________________________________________
