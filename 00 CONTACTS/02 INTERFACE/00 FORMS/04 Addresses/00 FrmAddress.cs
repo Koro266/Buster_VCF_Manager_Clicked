@@ -98,10 +98,10 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.tbx_ExcelPattern.Text = ExcelPattern;
 			this.chk_Christmas.Checked = IsChristmas;
 
-			this.tbx_PostalRealised.Lines = one_Address.RealisePostalRule();
-			this.tbx_PhysicalRealised.Lines = one_Address.RealisePhysicalRule();
-			this.tbx_ExtendedRealised.Lines = one_Address.RealiseExtendedRule();
-			this.tbx_XL_RowRealised.Lines = one_Address.RealiseExcelRule();
+			//this.tbx_PostalRealised.Lines = one_Address.VcfPostal.;
+			//this.tbx_PhysicalRealised.Lines = one_Address.RealisePhysicalRule();
+			//this.tbx_ExtendedRealised.Lines = one_Address.RealiseExtendedRule();
+			//this.tbx_XL_RowRealised.Lines = one_Address.RealiseExcelRule();
 
 			_EventState.EnableEvents();
 		}

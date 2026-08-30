@@ -62,7 +62,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY.VCF
 		private void AppendPostalLines()
 		{
 			string s;
-			string vcf_realisation = _Address.VcfPostalRule;
+			string vcf_realisation = _Address.VcfPostal.VcfValue;
 
 			s = ADDRESS_Line;
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );
@@ -83,7 +83,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY.VCF
 		private void AppendPhysicalLines()
 		{
 			string s;
-			string vcf_realisation = _Address.VcfPhysicalRule;
+			string vcf_realisation = _Address.VcfPhysical.VcfValue;
 
 			s = ADDRESS_Line;
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );
@@ -103,7 +103,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY.VCF
 		private void AppendExtendedLines()
 		{
 			string s;
-			string vcf_realisation = _Address.VcfExtendedRule;
+			string vcf_realisation = _Address.VcfExtended.VcfValue;
 
 			s = ADDRESS_Line;
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );
@@ -123,7 +123,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY.VCF
 		private void AppendExcelLines()
 		{
 			string s;
-			string vcf_realisation = _Address.VcfExcelRule;
+			string vcf_realisation = _Address.ExcelPattern.VcfValue;
 
 			s = ADDRESS_Line;
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );
@@ -143,7 +143,7 @@ namespace CONTACTS.LOCAL.PRIMARY.FAMILY.VCF
 		private void AppendAllDataLines()
 		{
 			string s;
-			string vcf_realisation = _Address.RealiseComprehensiveAddress();
+			string vcf_realisation = "";// _Address.RealiseComprehensiveAddress();
 
 			s = ADDRESS_Line;
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );

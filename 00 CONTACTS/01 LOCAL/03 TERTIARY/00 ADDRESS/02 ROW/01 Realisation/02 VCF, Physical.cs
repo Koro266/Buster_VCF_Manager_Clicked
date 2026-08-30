@@ -42,33 +42,38 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			//_______________________________________________________________________________________________________________________________________
 			public string[] RealisePostalRule()
 			{
-				REALISE_FORM realise_form = new REALISE_FORM( this );
-				string s = realise_form.RealisePostalRule();
-				string realised_rule = RealiseAddressRule( this.VcfPostal.Value );
-				return SplitAddress( realised_rule );
+				//REALISE_FORM realise_form = new REALISE_FORM( this );
+				//string s = realise_form.RealisePostalRule();
+				//string realised_rule = RealiseAddressRule( _AddressRow.VcfPostal.Value );
+				//return SplitAddress( realised_rule );
+				return new string[0];
 			}
 			//_______________________________________________________________________________________________________________________________________
 			public string[] RealisePhysicalRule()
 			{
-				string realised_rule = RealiseAddressRule( this.VcfPhysical.Value );
-				return SplitAddress( realised_rule );
+				//string realised_rule = RealiseAddressRule( _AddressRow.VcfPhysical.Value );
+				//return SplitAddress( realised_rule );
+				return new string[0];
 			}
 			//_______________________________________________________________________________________________________________________________________
 			public string[] RealiseExtendedRule()
 			{
-				string realised_rule = RealiseAddressRule( this.VcfExtended.Value );
-				return SplitAddress( realised_rule );
+				//string realised_rule = RealiseAddressRule( _AddressRow.VcfExtended.Value );
+				//return SplitAddress( realised_rule );
+				return new string[0];
 			}
 			//_______________________________________________________________________________________________________________________________________
 			public string[] RealiseExcelRule()
 			{
-				string realised_rule = RealiseAddressRule( this.ExcelPattern.Value );
-				return SplitAddress( realised_rule );
+				//string realised_rule = RealiseAddressRule( _AddressRow.ExcelPattern.Value );
+				//return SplitAddress( realised_rule );
+				return new string[0];
 			}
-			//___________________________________________________________________________________________________________________________________________                                                                                                                                                   
+			////___________________________________________________________________________________________________________________________________________                                                                                                                                                   
 			//private string[] SplitAddress( string in_line )
 			//{
 			//	return in_line.Split( PRESET.Functional_LF, StringSplitOptions.None );
+			////	return new string[0];
 			//}
 			#endregion
 
@@ -79,8 +84,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get
 				{
-					string s = RealiseAddressRule( this.VcfPostal.Value );
-					return s.Replace( PRESET.Functional_LF, PRESET.CommaSpace );
+					//string[] s = RealisePostalRule();
+					//return s.Replace( PRESET.Functional_LF, PRESET.CommaSpace );
+					string s = "";
+					return s;
 				}
 			}
 			//_______________________________________________________________________________________________________________________________________
@@ -88,8 +95,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get
 				{
-					string s = RealiseAddressRule( this.VcfPhysical.Value );
-					return s.Replace( PRESET.Functional_LF, PRESET.CommaSpace );
+					//string s = RealiseAddressRule( this.VcfPhysicalRule );
+					//return s.Replace( PRESET.Functional_LF, PRESET.CommaSpace );
+					string s = "";
+					return s;
 				}
 			}
 			//_______________________________________________________________________________________________________________________________________
@@ -97,8 +106,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get
 				{
-					string s = RealiseAddressRule( this.VcfExtended.Value );
-					return s.Replace( PRESET.Functional_LF, PRESET.CommaSpace );
+					//string s = RealiseAddressRule( this.VcfExtendedRule );
+					//return s.Replace( PRESET.Functional_LF, PRESET.CommaSpace );
+					string s = "";
+					return s;
 				}
 			}
 			//_______________________________________________________________________________________________________________________________________
@@ -106,8 +117,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				get
 				{
-					string s = RealiseAddressRule( this.ExcelPattern.Value );
-					return s.Replace( PRESET.OneAster, PRESET.CommaSpace );
+					//string s = RealiseAddressRule( this.ExcelPattern.Value );
+					//return s.Replace( PRESET.OneAster, PRESET.CommaSpace );
+					string s = "";
+					return s;
 				}
 			}
 			#endregion

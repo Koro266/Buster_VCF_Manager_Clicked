@@ -358,19 +358,19 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			this.lvw_MatchingAddresses.Items.Clear();
 			int index = 0;
 
-			foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
-			{
-				ADDRESS address = ( ADDRESS )row.Value;
-				string[] columns = address.RealiseFinderPattern();
+			//foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
+			//{
+			//	ADDRESS address = ( ADDRESS )row.Value;
+			//	string[] columns = address.RealiseFinderPattern();
 
-				lvw_MatchingAddresses.Items.Add( columns[0] );
-				lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
-				lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
-				lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
-				lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
-				lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
-				lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
-			}
+			//	lvw_MatchingAddresses.Items.Add( columns[0] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
+			//	lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
+			//}
 		}
 		#endregion
 
