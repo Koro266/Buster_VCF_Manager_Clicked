@@ -10,7 +10,7 @@ using GIANT_SWITCH	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TheGiantSwitch;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class VcfPostalRealiser : BASE_ROW
+	public class VcfPostalRealiser : GIANT_SWITCH
 	{
 		private ADDRESS_ROW _AddressRow;
 		private GIANT_SWITCH _Switch;
@@ -19,7 +19,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Constructs a VCF Postal address using the postal definition in the database address row. 
 		/// </summary>
-		public VcfPostalRealiser( ADDRESS_ROW address_row )
+		public VcfPostalRealiser( ADDRESS_ROW address_row ) : base( address_row )
 		{
 			_AddressRow = address_row;
 			_Switch = new GIANT_SWITCH( address_row );
@@ -28,7 +28,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Returns a string[] intended to be assigned to a ListBox.Items property; i.e., a 'vertical' address format.
 		/// </summary>
-		public string[] ListBoxItems()
+		override public string[] ListBoxItems()
 		{
 			return new string[] { "", "" };
 		}
@@ -36,7 +36,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Returns a string[] intended to be assigned to the TextBox.Lines property; i.e., a 'vertical' address format.
 		/// </summary>
-		public string[] TextBoxLines()
+		override public string[] TextBoxLines()
 		{
 			return new string[] { "", "" };
 		}
@@ -44,7 +44,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Returns a string[] intended to be assigned to the ListView.Item property; i.e., a 'horizontal' address format.
 		/// </summary>
-		public string[] ListViewItem()
+		override public string[] ListViewItem()
 		{
 			return new string[] { "", "" };
 		}
@@ -52,7 +52,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Returns a string[] intended to be assigned to the ListView.SubItems property; i.e., a 'horizontal' address format.
 		/// </summary>
-		public string[] ListViewSubItems()
+		override public string[] ListViewSubItems()
 		{
 			return new string[] { "", "" };
 		}
@@ -60,7 +60,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Returns a string[] intended to be assigned to a VCF output file; i.e., a 'vertical' address format.
 		/// </summary>
-		public string[] VcfAddress()
+		override public string[] VcfAddress()
 		{
 			return new string[] { "", "" };
 		}

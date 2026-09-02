@@ -11,10 +11,9 @@ using GIANT_SWITCH = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TheGiantSwitch;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class VcfExtendedRealiser : BASE_ROW
+	public partial class VcfExtendedRealiser : GIANT_SWITCH
 	{
 		private ADDRESS_ROW _AddressRow;
-		private GIANT_SWITCH _Switch;
 		private static string XAddressPattern =
 			@"
 				/hn 
@@ -40,10 +39,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			";
 
 		//___________________________________________________________________________________________________________________________________________
-		public VcfExtendedRealiser( ADDRESS_ROW parent_row )
+		public VcfExtendedRealiser( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			_AddressRow = parent_row;
-			_Switch = new GIANT_SWITCH( parent_row );
+			_AddressRow = address_row;
 		}
 	}
 }

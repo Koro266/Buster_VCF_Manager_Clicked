@@ -19,9 +19,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			_AddressRow = parent_row;
 		}
 		//_______________________________________________________________________________________________________________________________________
-		public string RealiseAddressRule( string address_pattern )
+		public string RealiseAddressRule( string address_rule )
 		{
-			string s = address_pattern;
+			string s = address_rule;
 
 			foreach ( string code in RECON.Codes )
 			{
@@ -558,6 +558,46 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 				}
 			}
 			return s;
+		}
+		//_______________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns a string[] intended to be assigned to a ListBox.Items property; i.e., a 'vertical' address format.
+		/// </summary>
+		virtual public string[] ListBoxItems()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns a string[] intended to be assigned to the TextBox.Lines property; i.e., a 'vertical' address format.
+		/// </summary>
+		virtual public string[] TextBoxLines()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns a string[] intended to be assigned to the ListView.Item property; i.e., a 'horizontal' address format.
+		/// </summary>
+		virtual public string[] ListViewItem()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns a string[] intended to be assigned to the ListView.SubItems property; i.e., a 'horizontal' address format.
+		/// </summary>
+		virtual public string[] ListViewSubItems()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns a string[] intended to be assigned to a VCF output file; i.e., a 'vertical' address format.
+		/// </summary>
+		virtual public string[] VcfAddress()
+		{
+			return new string[] { "", "" };
 		}
 	}
 }

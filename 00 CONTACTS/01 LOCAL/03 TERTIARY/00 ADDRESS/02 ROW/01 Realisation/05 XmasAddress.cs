@@ -11,19 +11,16 @@ using GIANT_SWITCH	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TheGiantSwitch;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class XmasAddress : BASE_ROW
+	public partial class XmasAddress : GIANT_SWITCH
 	{
 		private GIANT_SWITCH _Switch;
-		private ADDRESS_ROW _AddressRow;
 		private static string AddressPattern = "/hn /sn /st /cp|/sb /ct|/bx /rd /pc|/mt /pv /pa|/cy";
 		private static string SplitCharacter = "|";
 		private string[] _Result;
 
 		//___________________________________________________________________________________________________________________________________________
-		public XmasAddress( ADDRESS_ROW address_row )
+		public XmasAddress( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			_AddressRow = address_row;
-			_Switch = new GIANT_SWITCH( _AddressRow );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>

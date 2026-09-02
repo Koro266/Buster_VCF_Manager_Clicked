@@ -10,7 +10,7 @@ using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class TheSevenSlots : BASE_ROW
+	public partial class TheSevenSlots : TheGiantSwitch
 	{
 		private ADDRESS_ROW _AddressRow;
 
@@ -22,9 +22,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		private const string country_Pattern = "#0";             //Country name.
 
 		//___________________________________________________________________________________________________________________________________________
-		public TheSevenSlots( ADDRESS_ROW parent_row )
+		public TheSevenSlots( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			_AddressRow = parent_row;
+			_AddressRow = address_row;
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public string[] SlotsAsArray

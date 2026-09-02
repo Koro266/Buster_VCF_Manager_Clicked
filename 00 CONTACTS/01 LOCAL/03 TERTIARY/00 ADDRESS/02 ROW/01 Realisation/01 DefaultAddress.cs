@@ -13,18 +13,18 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	/// Builds and returns a string[] in which every address token is specified in the pattern and hence all address fields are examined.
 	/// The result contains all the address data held in the database including the primary key. 
 	/// </summary>
-	public class DefaultAddress : BASE_ROW
+	public class DefaultAddress : TheGiantSwitch
 	{
-		private TheGiantSwitch _Switch;
+		//private TheGiantSwitch _Switch;
 		private ADDRESS_ROW _AddressRow;
 		private static string AddressPattern = @"/pk|/hn /sn /st /cp|/sb /ct|/mt /pv (/pa)|/bx /rd /pc|/as /ex /lv /un|/cy /cd /si /li FK=/fk|/nt";
 		private static string SplitCharacter = "|";
 		private string[] _Result;
 
 		//___________________________________________________________________________________________________________________________________________
-		public DefaultAddress( ADDRESS_ROW address_row )
+		public DefaultAddress( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			_Switch = new TheGiantSwitch( address_row );
+			//_Switch = new TheGiantSwitch( address_row );
 			_AddressRow = address_row;
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -33,7 +33,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// </summary>
 		public void RealiseAddress()
 		{
-			string s = _Switch.RealiseAddressRule( AddressPattern );
+			string s = base.RealiseAddressRule( AddressPattern );
 			_Result = RectifyResult( s );
 		}
 		//___________________________________________________________________________________________________________________________________________
