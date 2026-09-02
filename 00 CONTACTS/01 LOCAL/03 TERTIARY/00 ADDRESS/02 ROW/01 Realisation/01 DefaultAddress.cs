@@ -10,7 +10,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
 	/// <summary>
-	/// Builds and returns a string[] in which each element is a fraction (or component) of an address. 
+	/// Builds and returns a string[] in which every address token is specified in the pattern and hence all address fields are examined.
+	/// The result contains all the address data held in the database including the primary key. 
 	/// </summary>
 	public class DefaultAddress : BASE_ROW
 	{
@@ -45,7 +46,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns the first item (Item[0]) of the result array
+		/// Returns the first item (Item[0]) of the result array. In this case, the PK of the address.
 		/// </summary>
 		public string RootItem
 		{

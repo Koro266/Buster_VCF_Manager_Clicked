@@ -1,9 +1,8 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Text.RegularExpressions;
 //GLOBAL
-using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL
-using PARENT_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -12,12 +11,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	//___________________________________________________________________________________________________________________________________________
 	public class TheGiantSwitch
 	{
-		private PARENT_ROW _ParentRow;
+		private ADDRESS_ROW _AddressRow;
 
 		//___________________________________________________________________________________________________________________________________________
-		public TheGiantSwitch( PARENT_ROW parent_row )
+		public TheGiantSwitch( ADDRESS_ROW parent_row )
 		{
-			_ParentRow = parent_row;
+			_AddressRow = parent_row;
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public string RealiseAddressRule( string address_pattern )
@@ -31,95 +30,95 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region AsIs: Return entire token in the form in which it is stored.
 					//___________________________________________________________________________________________________________________________
 					case RECON.PkAddress:
-						s = Regex.Replace( s, RECON.PkAddress, _ParentRow.PkAddress.AsString );
+						s = Regex.Replace( s, RECON.PkAddress, _AddressRow.PkAddress.AsString );
 						break;
 
 					case RECON.FkCountry:
-						s = Regex.Replace( s, RECON.FkCountry, _ParentRow.FkCountry.AsString );
+						s = Regex.Replace( s, RECON.FkCountry, _AddressRow.FkCountry.AsString );
 						break;
 
 					case RECON.Assemblage_AsIs:
-						s = Regex.Replace( s, RECON.Assemblage_AsIs, _ParentRow.Assemblage.AsIs );
+						s = Regex.Replace( s, RECON.Assemblage_AsIs, _AddressRow.Assemblage.AsIs );
 						break;
 
 					case RECON.Level_AsIs:
-						s = Regex.Replace( s, RECON.Level_AsIs, _ParentRow.Level.AsIs );
+						s = Regex.Replace( s, RECON.Level_AsIs, _AddressRow.Level.AsIs );
 						break;
 
 					case RECON.Unit_AsIs:
-						s = Regex.Replace( s, RECON.Unit_AsIs, _ParentRow.Unit.AsIs );
+						s = Regex.Replace( s, RECON.Unit_AsIs, _AddressRow.Unit.AsIs );
 						break;
 
 					case RECON.Extension_AsIs:
-						s = Regex.Replace( s, RECON.Extension_AsIs, _ParentRow.Extension.AsIs );
+						s = Regex.Replace( s, RECON.Extension_AsIs, _AddressRow.Extension.AsIs );
 						break;
 
 					case RECON.RuralDelivery_AsIs:
-						s = Regex.Replace( s, RECON.RuralDelivery_AsIs, _ParentRow.RuralDelivery.AsIs );
+						s = Regex.Replace( s, RECON.RuralDelivery_AsIs, _AddressRow.RuralDelivery.AsIs );
 						break;
 
 					case RECON.PostalCode_AsIs:
-						s = Regex.Replace( s, RECON.PostalCode_AsIs, _ParentRow.PostalCode.AsIs );
+						s = Regex.Replace( s, RECON.PostalCode_AsIs, _AddressRow.PostalCode.AsIs );
 						break;
 
 					case RECON.BoxNumber_AsIs:
-						s = Regex.Replace( s, RECON.BoxNumber_AsIs, _ParentRow.BoxNumber.AsIs );
+						s = Regex.Replace( s, RECON.BoxNumber_AsIs, _AddressRow.BoxNumber.AsIs );
 						break;
 
 					case RECON.HouseNumber_AsIs:
-						s = Regex.Replace( s, RECON.HouseNumber_AsIs, _ParentRow.HouseNumber.AsIs );
+						s = Regex.Replace( s, RECON.HouseNumber_AsIs, _AddressRow.HouseNumber.AsIs );
 						break;
 
 					case RECON.StreetName_AsIs:
-						s = Regex.Replace( s, RECON.StreetName_AsIs, _ParentRow.StreetName.AsIs );
+						s = Regex.Replace( s, RECON.StreetName_AsIs, _AddressRow.StreetName.AsIs );
 						break;
 
 					case RECON.StreetType_AsIs:
-						s = Regex.Replace( s, RECON.StreetType_AsIs, _ParentRow.StreetType.AsIs );
+						s = Regex.Replace( s, RECON.StreetType_AsIs, _AddressRow.StreetType.AsIs );
 						break;
 
 					case RECON.Compass_AsIs:
-						s = Regex.Replace( s, RECON.Compass_AsIs, _ParentRow.Compass.AsIs );
+						s = Regex.Replace( s, RECON.Compass_AsIs, _AddressRow.Compass.AsIs );
 						break;
 
 					case RECON.Suburb_AsIs:
-						s = Regex.Replace( s, RECON.Suburb_AsIs, _ParentRow.Suburb.AsIs );
+						s = Regex.Replace( s, RECON.Suburb_AsIs, _AddressRow.Suburb.AsIs );
 						break;
 
 					case RECON.City_AsIs:
-						s = Regex.Replace( s, RECON.City_AsIs, _ParentRow.City.AsIs );
+						s = Regex.Replace( s, RECON.City_AsIs, _AddressRow.City.AsIs );
 						break;
 
 					case RECON.Metropolitan_AsIs:
-						s = Regex.Replace( s, RECON.Metropolitan_AsIs, _ParentRow.Metropolitan.AsIs );
+						s = Regex.Replace( s, RECON.Metropolitan_AsIs, _AddressRow.Metropolitan.AsIs );
 						break;
 
 					case RECON.ProvinceName_AsIs:
-						s = Regex.Replace( s, RECON.ProvinceName_AsIs, _ParentRow.ProvinceName.AsIs );
+						s = Regex.Replace( s, RECON.ProvinceName_AsIs, _AddressRow.ProvinceName.AsIs );
 						break;
 
 					case RECON.ProvinceCode_AsIs:
-						s = Regex.Replace( s, RECON.ProvinceCode_AsIs, _ParentRow.ProvinceCode.AsIs );
+						s = Regex.Replace( s, RECON.ProvinceCode_AsIs, _AddressRow.ProvinceCode.AsIs );
 						break;
 
 					case RECON.CountryName_AsIs:
-						s = Regex.Replace( s, RECON.CountryName_AsIs, _ParentRow.CountryName.AsIs );
+						s = Regex.Replace( s, RECON.CountryName_AsIs, _AddressRow.CountryName.AsIs );
 						break;
 
 					case RECON.CountryCode_AsIs:
-						s = Regex.Replace( s, RECON.CountryCode_AsIs, _ParentRow.CountryCode.AsIs );
+						s = Regex.Replace( s, RECON.CountryCode_AsIs, _AddressRow.CountryCode.AsIs );
 						break;
 
 					case RECON.ShortIsoCode_AsIs:
-						s = Regex.Replace( s, RECON.ShortIsoCode_AsIs, _ParentRow.ShortIsoCode.AsIs );
+						s = Regex.Replace( s, RECON.ShortIsoCode_AsIs, _AddressRow.ShortIsoCode.AsIs );
 						break;
 
 					case RECON.LongIsoCode_AsIs:
-						s = Regex.Replace( s, RECON.LongIsoCode_AsIs, _ParentRow.LongIsoCode.AsIs );
+						s = Regex.Replace( s, RECON.LongIsoCode_AsIs, _AddressRow.LongIsoCode.AsIs );
 						break;
 
 					case RECON.Notes:
-						s = Regex.Replace( s, RECON.Notes, _ParentRow.Notes.AsIs );
+						s = Regex.Replace( s, RECON.Notes, _AddressRow.Notes.AsIs );
 						break;
 					#endregion
 
@@ -127,85 +126,85 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region UPPER: Return entire token in UPPER case.
 					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_UPPER:
-						s = s.Replace( RECON.Assemblage_UPPER, _ParentRow.Assemblage.AsUpper );
+						s = s.Replace( RECON.Assemblage_UPPER, _AddressRow.Assemblage.AsUpper );
 						break;
 
 					case RECON.Level_UPPER:
-						s = s.Replace( RECON.Level_UPPER, _ParentRow.Level.AsUpper );
+						s = s.Replace( RECON.Level_UPPER, _AddressRow.Level.AsUpper );
 						break;
 
 					case RECON.Unit_UPPER:
-						s = s.Replace( RECON.Unit_UPPER, _ParentRow.Unit.AsUpper );
+						s = s.Replace( RECON.Unit_UPPER, _AddressRow.Unit.AsUpper );
 						break;
 
 					case RECON.Extension_UPPER:
-						s = s.Replace( RECON.Extension_UPPER, _ParentRow.Extension.AsUpper );
+						s = s.Replace( RECON.Extension_UPPER, _AddressRow.Extension.AsUpper );
 						break;
 
 					case RECON.RuralDelivery_UPPER:
-						s = s.Replace( RECON.RuralDelivery_UPPER, _ParentRow.RuralDelivery.AsUpper );
+						s = s.Replace( RECON.RuralDelivery_UPPER, _AddressRow.RuralDelivery.AsUpper );
 						break;
 
 					case RECON.PostalCode_UPPER:
-						s = s.Replace( RECON.PostalCode_UPPER, _ParentRow.PostalCode.AsUpper );
+						s = s.Replace( RECON.PostalCode_UPPER, _AddressRow.PostalCode.AsUpper );
 						break;
 
 					case RECON.BoxNumber_UPPER:
-						s = s.Replace( RECON.BoxNumber_UPPER, _ParentRow.BoxNumber.AsUpper );
+						s = s.Replace( RECON.BoxNumber_UPPER, _AddressRow.BoxNumber.AsUpper );
 						break;
 
 					case RECON.HouseNumber_UPPER:
-						s = s.Replace( RECON.HouseNumber_UPPER, _ParentRow.HouseNumber.AsUpper );
+						s = s.Replace( RECON.HouseNumber_UPPER, _AddressRow.HouseNumber.AsUpper );
 						break;
 
 					case RECON.StreetName_UPPER:
-						s = s.Replace( RECON.StreetName_UPPER, _ParentRow.StreetName.AsUpper );
+						s = s.Replace( RECON.StreetName_UPPER, _AddressRow.StreetName.AsUpper );
 						break;
 
 					case RECON.StreetType_UPPER:
-						s = s.Replace( RECON.StreetType_UPPER, _ParentRow.StreetType.AsUpper );
+						s = s.Replace( RECON.StreetType_UPPER, _AddressRow.StreetType.AsUpper );
 						break;
 
 					case RECON.Compass_UPPER:
-						s = s.Replace( RECON.Compass_UPPER, _ParentRow.Compass.AsUpper );
+						s = s.Replace( RECON.Compass_UPPER, _AddressRow.Compass.AsUpper );
 						break;
 
 					case RECON.Suburb_UPPER:
-						s = s.Replace( RECON.Suburb_UPPER, _ParentRow.Suburb.AsUpper );
+						s = s.Replace( RECON.Suburb_UPPER, _AddressRow.Suburb.AsUpper );
 						break;
 
 					case RECON.City_UPPER:
-						s = s.Replace( RECON.City_UPPER, _ParentRow.City.AsUpper );
+						s = s.Replace( RECON.City_UPPER, _AddressRow.City.AsUpper );
 						break;
 
 					case RECON.Metropolitan_UPPER:
-						s = s.Replace( RECON.Metropolitan_UPPER, _ParentRow.Metropolitan.AsUpper );
+						s = s.Replace( RECON.Metropolitan_UPPER, _AddressRow.Metropolitan.AsUpper );
 						break;
 
 					case RECON.ProvinceName_UPPER:
-						s = s.Replace( RECON.ProvinceName_UPPER, _ParentRow.ProvinceName.AsUpper );
+						s = s.Replace( RECON.ProvinceName_UPPER, _AddressRow.ProvinceName.AsUpper );
 						break;
 
 					case RECON.ProvinceCode_UPPER:
-						s = s.Replace( RECON.ProvinceCode_UPPER, _ParentRow.ProvinceCode.AsUpper );
+						s = s.Replace( RECON.ProvinceCode_UPPER, _AddressRow.ProvinceCode.AsUpper );
 						break;
 
 
 					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_UPPER:
-						s = s.Replace( RECON.CountryName_UPPER, _ParentRow.CountryName.AsUpper );
+						s = s.Replace( RECON.CountryName_UPPER, _AddressRow.CountryName.AsUpper );
 						break;
 
 					case RECON.CountryCode_UPPER:
-						s = s.Replace( RECON.CountryCode_UPPER, _ParentRow.CountryCode.AsUpper );
+						s = s.Replace( RECON.CountryCode_UPPER, _AddressRow.CountryCode.AsUpper );
 						break;
 
 					case RECON.ShortIsoCode_UPPER:
-						s = s.Replace( RECON.ShortIsoCode_UPPER, _ParentRow.ShortIsoCode.AsUpper );
+						s = s.Replace( RECON.ShortIsoCode_UPPER, _AddressRow.ShortIsoCode.AsUpper );
 						break;
 
 					case RECON.LongIsoCode_UPPER:
-						s = s.Replace( RECON.LongIsoCode_UPPER, _ParentRow.LongIsoCode.AsUpper );
+						s = s.Replace( RECON.LongIsoCode_UPPER, _AddressRow.LongIsoCode.AsUpper );
 						break;
 					#endregion
 
@@ -213,85 +212,85 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region Proper: Return entire token in Proper case.
 					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_Proper:
-						s = s.Replace( RECON.Assemblage_Proper, _ParentRow.Assemblage.AsProper );
+						s = s.Replace( RECON.Assemblage_Proper, _AddressRow.Assemblage.AsProper );
 						break;
 
 					case RECON.Level_Proper:
-						s = s.Replace( RECON.Level_Proper, _ParentRow.Level.AsProper );
+						s = s.Replace( RECON.Level_Proper, _AddressRow.Level.AsProper );
 						break;
 
 					case RECON.Unit_Proper:
-						s = s.Replace( RECON.Unit_Proper, _ParentRow.Unit.AsProper );
+						s = s.Replace( RECON.Unit_Proper, _AddressRow.Unit.AsProper );
 						break;
 
 					case RECON.Extension_Proper:
-						s = s.Replace( RECON.Extension_Proper, _ParentRow.Extension.AsProper );
+						s = s.Replace( RECON.Extension_Proper, _AddressRow.Extension.AsProper );
 						break;
 
 					case RECON.RuralDelivery_Proper:
-						s = s.Replace( RECON.RuralDelivery_Proper, _ParentRow.RuralDelivery.AsProper );
+						s = s.Replace( RECON.RuralDelivery_Proper, _AddressRow.RuralDelivery.AsProper );
 						break;
 
 					case RECON.PostalCode_Proper:
-						s = s.Replace( RECON.PostalCode_Proper, _ParentRow.PostalCode.AsProper );
+						s = s.Replace( RECON.PostalCode_Proper, _AddressRow.PostalCode.AsProper );
 						break;
 
 					case RECON.BoxNumber_Proper:
-						s = s.Replace( RECON.BoxNumber_Proper, _ParentRow.BoxNumber.AsProper );
+						s = s.Replace( RECON.BoxNumber_Proper, _AddressRow.BoxNumber.AsProper );
 						break;
 
 					case RECON.HouseNumber_Proper:
-						s = s.Replace( RECON.HouseNumber_Proper, _ParentRow.HouseNumber.AsProper );
+						s = s.Replace( RECON.HouseNumber_Proper, _AddressRow.HouseNumber.AsProper );
 						break;
 
 					case RECON.StreetName_Proper:
-						s = s.Replace( RECON.StreetName_Proper, _ParentRow.StreetName.AsProper );
+						s = s.Replace( RECON.StreetName_Proper, _AddressRow.StreetName.AsProper );
 						break;
 
 					case RECON.StreetType_Proper:
-						s = s.Replace( RECON.StreetType_Proper, _ParentRow.StreetType.AsProper );
+						s = s.Replace( RECON.StreetType_Proper, _AddressRow.StreetType.AsProper );
 						break;
 
 					case RECON.Compass_Proper:
-						s = s.Replace( RECON.Compass_Proper, _ParentRow.Compass.AsIs );
+						s = s.Replace( RECON.Compass_Proper, _AddressRow.Compass.AsIs );
 						break;
 
 					case RECON.Suburb_Proper:
-						s = s.Replace( RECON.Suburb_Proper, _ParentRow.Suburb.AsProper );
+						s = s.Replace( RECON.Suburb_Proper, _AddressRow.Suburb.AsProper );
 						break;
 
 					case RECON.City_Proper:
-						s = s.Replace( RECON.City_Proper, _ParentRow.City.AsProper );
+						s = s.Replace( RECON.City_Proper, _AddressRow.City.AsProper );
 						break;
 
 					case RECON.Metropolitan_Proper:
-						s = s.Replace( RECON.Metropolitan_Proper, _ParentRow.Metropolitan.AsProper );
+						s = s.Replace( RECON.Metropolitan_Proper, _AddressRow.Metropolitan.AsProper );
 						break;
 
 					case RECON.ProvinceName_Proper:
-						s = s.Replace( RECON.ProvinceName_Proper, _ParentRow.ProvinceName.AsProper );
+						s = s.Replace( RECON.ProvinceName_Proper, _AddressRow.ProvinceName.AsProper );
 						break;
 
 					case RECON.ProvinceCode_Proper:
-						s = s.Replace( RECON.ProvinceCode_Proper, _ParentRow.ProvinceCode.AsProper );
+						s = s.Replace( RECON.ProvinceCode_Proper, _AddressRow.ProvinceCode.AsProper );
 						break;
 
 
 					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_Proper:
-						s = s.Replace( RECON.CountryName_Proper, _ParentRow.CountryName.AsProper );
+						s = s.Replace( RECON.CountryName_Proper, _AddressRow.CountryName.AsProper );
 						break;
 
 					case RECON.CountryCode_Proper:
-						s = s.Replace( RECON.CountryCode_Proper, _ParentRow.CountryCode.AsIs );
+						s = s.Replace( RECON.CountryCode_Proper, _AddressRow.CountryCode.AsIs );
 						break;
 
 					case RECON.ShortIsoCode_Proper:
-						s = s.Replace( RECON.ShortIsoCode_Proper, _ParentRow.ShortIsoCode.AsIs );
+						s = s.Replace( RECON.ShortIsoCode_Proper, _AddressRow.ShortIsoCode.AsIs );
 						break;
 
 					case RECON.LongIsoCode_Proper:
-						s = s.Replace( RECON.LongIsoCode_Proper, _ParentRow.LongIsoCode.AsIs );
+						s = s.Replace( RECON.LongIsoCode_Proper, _AddressRow.LongIsoCode.AsIs );
 						break;
 					#endregion
 
@@ -299,85 +298,85 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region lower: Return entire token in lower case.
 					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_lower:
-						s = s.Replace( RECON.Assemblage_lower, _ParentRow.Assemblage.AsLower );
+						s = s.Replace( RECON.Assemblage_lower, _AddressRow.Assemblage.AsLower );
 						break;
 
 					case RECON.Level_lower:
-						s = s.Replace( RECON.Level_lower, _ParentRow.Level.AsLower );
+						s = s.Replace( RECON.Level_lower, _AddressRow.Level.AsLower );
 						break;
 
 					case RECON.Unit_lower:
-						s = s.Replace( RECON.Unit_lower, _ParentRow.Unit.AsLower );
+						s = s.Replace( RECON.Unit_lower, _AddressRow.Unit.AsLower );
 						break;
 
 					case RECON.Extension_lower:
-						s = s.Replace( RECON.Extension_lower, _ParentRow.Extension.AsLower );
+						s = s.Replace( RECON.Extension_lower, _AddressRow.Extension.AsLower );
 						break;
 
 					case RECON.RuralDelivery_lower:
-						s = s.Replace( RECON.RuralDelivery_lower, _ParentRow.RuralDelivery.AsLower );
+						s = s.Replace( RECON.RuralDelivery_lower, _AddressRow.RuralDelivery.AsLower );
 						break;
 
 					case RECON.PostalCode_lower:
-						s = s.Replace( RECON.PostalCode_lower, _ParentRow.PostalCode.AsLower );
+						s = s.Replace( RECON.PostalCode_lower, _AddressRow.PostalCode.AsLower );
 						break;
 
 					case RECON.BoxNumber_lower:
-						s = s.Replace( RECON.BoxNumber_lower, _ParentRow.BoxNumber.AsLower );
+						s = s.Replace( RECON.BoxNumber_lower, _AddressRow.BoxNumber.AsLower );
 						break;
 
 					case RECON.HouseNumber_lower:
-						s = s.Replace( RECON.HouseNumber_lower, _ParentRow.HouseNumber.AsLower );
+						s = s.Replace( RECON.HouseNumber_lower, _AddressRow.HouseNumber.AsLower );
 						break;
 
 					case RECON.StreetName_lower:
-						s = s.Replace( RECON.StreetName_lower, _ParentRow.StreetName.AsLower );
+						s = s.Replace( RECON.StreetName_lower, _AddressRow.StreetName.AsLower );
 						break;
 
 					case RECON.StreetType_lower:
-						s = s.Replace( RECON.StreetType_lower, _ParentRow.StreetType.AsLower );
+						s = s.Replace( RECON.StreetType_lower, _AddressRow.StreetType.AsLower );
 						break;
 
 					case RECON.Compass_lower:
-						s = s.Replace( RECON.Compass_lower, _ParentRow.Compass.AsLower );
+						s = s.Replace( RECON.Compass_lower, _AddressRow.Compass.AsLower );
 						break;
 
 					case RECON.Suburb_lower:
-						s = s.Replace( RECON.Suburb_lower, _ParentRow.Suburb.AsLower );
+						s = s.Replace( RECON.Suburb_lower, _AddressRow.Suburb.AsLower );
 						break;
 
 					case RECON.City_lower:
-						s = s.Replace( RECON.City_lower, _ParentRow.City.AsLower );
+						s = s.Replace( RECON.City_lower, _AddressRow.City.AsLower );
 						break;
 
 					case RECON.Metropolitan_lower:
-						s = s.Replace( RECON.Metropolitan_lower, _ParentRow.Metropolitan.AsLower );
+						s = s.Replace( RECON.Metropolitan_lower, _AddressRow.Metropolitan.AsLower );
 						break;
 
 					case RECON.ProvinceName_lower:
-						s = s.Replace( RECON.ProvinceName_lower, _ParentRow.ProvinceName.AsLower );
+						s = s.Replace( RECON.ProvinceName_lower, _AddressRow.ProvinceName.AsLower );
 						break;
 
 					case RECON.ProvinceCode_lower:
-						s = s.Replace( RECON.ProvinceCode_lower, _ParentRow.ProvinceCode.AsLower );
+						s = s.Replace( RECON.ProvinceCode_lower, _AddressRow.ProvinceCode.AsLower );
 						break;
 
 
 					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_lower:
-						s = s.Replace( RECON.CountryName_lower, _ParentRow.CountryName.AsLower );
+						s = s.Replace( RECON.CountryName_lower, _AddressRow.CountryName.AsLower );
 						break;
 
 					case RECON.CountryCode_lower:
-						s = s.Replace( RECON.CountryCode_lower, _ParentRow.CountryCode.AsIs );
+						s = s.Replace( RECON.CountryCode_lower, _AddressRow.CountryCode.AsIs );
 						break;
 
 					case RECON.ShortIsoCode_lower:
-						s = s.Replace( RECON.ShortIsoCode_lower, _ParentRow.ShortIsoCode.AsIs );
+						s = s.Replace( RECON.ShortIsoCode_lower, _AddressRow.ShortIsoCode.AsIs );
 						break;
 
 					case RECON.LongIsoCode_lower:
-						s = s.Replace( RECON.LongIsoCode_lower, _ParentRow.LongIsoCode.AsIs );
+						s = s.Replace( RECON.LongIsoCode_lower, _AddressRow.LongIsoCode.AsIs );
 						break;
 					#endregion
 
@@ -385,85 +384,85 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region Initial as lower: Return token's left-most character in lower case.
 					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_initial:
-						s = s.Replace( RECON.Assemblage_initial, _ParentRow.Assemblage.AsLowerInitial );
+						s = s.Replace( RECON.Assemblage_initial, _AddressRow.Assemblage.AsLowerInitial );
 						break;
 
 					case RECON.Level_initial:
-						s = s.Replace( RECON.Level_initial, _ParentRow.Level.AsLowerInitial );
+						s = s.Replace( RECON.Level_initial, _AddressRow.Level.AsLowerInitial );
 						break;
 
 					case RECON.Unit_initial:
-						s = s.Replace( RECON.Unit_initial, _ParentRow.Unit.AsLowerInitial );
+						s = s.Replace( RECON.Unit_initial, _AddressRow.Unit.AsLowerInitial );
 						break;
 
 					case RECON.Extension_initial:
-						s = s.Replace( RECON.Extension_initial, _ParentRow.Extension.AsLowerInitial );
+						s = s.Replace( RECON.Extension_initial, _AddressRow.Extension.AsLowerInitial );
 						break;
 
 					case RECON.RuralDelivery_initial:
-						s = s.Replace( RECON.RuralDelivery_initial, _ParentRow.RuralDelivery.AsLowerInitial );
+						s = s.Replace( RECON.RuralDelivery_initial, _AddressRow.RuralDelivery.AsLowerInitial );
 						break;
 
 					case RECON.PostalCode_initial:
-						s = s.Replace( RECON.PostalCode_initial, _ParentRow.PostalCode.AsLowerInitial );
+						s = s.Replace( RECON.PostalCode_initial, _AddressRow.PostalCode.AsLowerInitial );
 						break;
 
 					case RECON.BoxNumber_initial:
-						s = s.Replace( RECON.BoxNumber_initial, _ParentRow.BoxNumber.AsLowerInitial );
+						s = s.Replace( RECON.BoxNumber_initial, _AddressRow.BoxNumber.AsLowerInitial );
 						break;
 
 					case RECON.HouseNumber_initial:
-						s = s.Replace( RECON.HouseNumber_initial, _ParentRow.HouseNumber.AsLowerInitial );
+						s = s.Replace( RECON.HouseNumber_initial, _AddressRow.HouseNumber.AsLowerInitial );
 						break;
 
 					case RECON.StreetName_initial:
-						s = s.Replace( RECON.StreetName_initial, _ParentRow.StreetName.AsLowerInitial );
+						s = s.Replace( RECON.StreetName_initial, _AddressRow.StreetName.AsLowerInitial );
 						break;
 
 					case RECON.StreetType_initial:
-						s = s.Replace( RECON.StreetType_initial, _ParentRow.StreetType.AsLowerInitial );
+						s = s.Replace( RECON.StreetType_initial, _AddressRow.StreetType.AsLowerInitial );
 						break;
 
 					case RECON.Compass_initial:
-						s = s.Replace( RECON.Compass_initial, _ParentRow.Compass.AsLowerInitial );
+						s = s.Replace( RECON.Compass_initial, _AddressRow.Compass.AsLowerInitial );
 						break;
 
 					case RECON.Suburb_initial:
-						s = s.Replace( RECON.Suburb_initial, _ParentRow.Suburb.AsLowerInitial );
+						s = s.Replace( RECON.Suburb_initial, _AddressRow.Suburb.AsLowerInitial );
 						break;
 
 					case RECON.City_initial:
-						s = s.Replace( RECON.City_initial, _ParentRow.City.AsLowerInitial );
+						s = s.Replace( RECON.City_initial, _AddressRow.City.AsLowerInitial );
 						break;
 
 					case RECON.Metropolitan_initial:
-						s = s.Replace( RECON.Metropolitan_initial, _ParentRow.Metropolitan.AsLowerInitial );
+						s = s.Replace( RECON.Metropolitan_initial, _AddressRow.Metropolitan.AsLowerInitial );
 						break;
 
 					case RECON.ProvinceName_initial:
-						s = s.Replace( RECON.ProvinceName_initial, _ParentRow.ProvinceName.AsLowerInitial );
+						s = s.Replace( RECON.ProvinceName_initial, _AddressRow.ProvinceName.AsLowerInitial );
 						break;
 
 					case RECON.ProvinceCode_initial:
-						s = s.Replace( RECON.ProvinceCode_initial, _ParentRow.ProvinceCode.AsLowerInitial );
+						s = s.Replace( RECON.ProvinceCode_initial, _AddressRow.ProvinceCode.AsLowerInitial );
 						break;
 
 
 					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_initial:
-						s = s.Replace( RECON.CountryName_initial, _ParentRow.CountryName.AsLowerInitial );
+						s = s.Replace( RECON.CountryName_initial, _AddressRow.CountryName.AsLowerInitial );
 						break;
 
 					case RECON.CountryCode_initial:
-						s = s.Replace( RECON.CountryCode_initial, _ParentRow.CountryCode.AsLowerInitial );
+						s = s.Replace( RECON.CountryCode_initial, _AddressRow.CountryCode.AsLowerInitial );
 						break;
 
 					case RECON.ShortIsoCode_initial:
-						s = s.Replace( RECON.ShortIsoCode_initial, _ParentRow.ShortIsoCode.AsLowerInitial );
+						s = s.Replace( RECON.ShortIsoCode_initial, _AddressRow.ShortIsoCode.AsLowerInitial );
 						break;
 
 					case RECON.LongIsoCode_initial:
-						s = s.Replace( RECON.LongIsoCode_initial, _ParentRow.LongIsoCode.AsLowerInitial );
+						s = s.Replace( RECON.LongIsoCode_initial, _AddressRow.LongIsoCode.AsLowerInitial );
 						break;
 					#endregion
 
@@ -471,85 +470,85 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region Initial as upper: Return token's left-most character in UPPER case.
 					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_INITIAL:
-						s = s.Replace( RECON.Assemblage_INITIAL, _ParentRow.Assemblage.AsUpperInitial );
+						s = s.Replace( RECON.Assemblage_INITIAL, _AddressRow.Assemblage.AsUpperInitial );
 						break;
 
 					case RECON.Level_INITIAL:
-						s = s.Replace( RECON.Level_INITIAL, _ParentRow.Level.AsUpperInitial );
+						s = s.Replace( RECON.Level_INITIAL, _AddressRow.Level.AsUpperInitial );
 						break;
 
 					case RECON.Unit_INITIAL:
-						s = s.Replace( RECON.Unit_INITIAL, _ParentRow.Unit.AsUpperInitial );
+						s = s.Replace( RECON.Unit_INITIAL, _AddressRow.Unit.AsUpperInitial );
 						break;
 
 					case RECON.Extension_INITIAL:
-						s = s.Replace( RECON.Extension_INITIAL, _ParentRow.Extension.AsUpperInitial );
+						s = s.Replace( RECON.Extension_INITIAL, _AddressRow.Extension.AsUpperInitial );
 						break;
 
 					case RECON.RuralDelivery_INITIAL:
-						s = s.Replace( RECON.RuralDelivery_INITIAL, _ParentRow.RuralDelivery.AsUpperInitial );
+						s = s.Replace( RECON.RuralDelivery_INITIAL, _AddressRow.RuralDelivery.AsUpperInitial );
 						break;
 
 					case RECON.PostalCode_INITIAL:
-						s = s.Replace( RECON.PostalCode_INITIAL, _ParentRow.PostalCode.AsUpperInitial );
+						s = s.Replace( RECON.PostalCode_INITIAL, _AddressRow.PostalCode.AsUpperInitial );
 						break;
 
 					case RECON.BoxNumber_INITIAL:
-						s = s.Replace( RECON.BoxNumber_INITIAL, _ParentRow.BoxNumber.AsUpperInitial );
+						s = s.Replace( RECON.BoxNumber_INITIAL, _AddressRow.BoxNumber.AsUpperInitial );
 						break;
 
 					case RECON.HouseNumber_INITIAL:
-						s = s.Replace( RECON.HouseNumber_INITIAL, _ParentRow.HouseNumber.AsUpperInitial );
+						s = s.Replace( RECON.HouseNumber_INITIAL, _AddressRow.HouseNumber.AsUpperInitial );
 						break;
 
 					case RECON.StreetName_INITIAL:
-						s = s.Replace( RECON.StreetName_INITIAL, _ParentRow.StreetName.AsUpperInitial );
+						s = s.Replace( RECON.StreetName_INITIAL, _AddressRow.StreetName.AsUpperInitial );
 						break;
 
 					case RECON.StreetType_INITIAL:
-						s = s.Replace( RECON.StreetType_INITIAL, _ParentRow.StreetType.AsUpperInitial );
+						s = s.Replace( RECON.StreetType_INITIAL, _AddressRow.StreetType.AsUpperInitial );
 						break;
 
 					case RECON.Compass_INITIAL:
-						s = s.Replace( RECON.Compass_INITIAL, _ParentRow.Compass.AsUpperInitial );
+						s = s.Replace( RECON.Compass_INITIAL, _AddressRow.Compass.AsUpperInitial );
 						break;
 
 					case RECON.Suburb_INITIAL:
-						s = s.Replace( RECON.Suburb_INITIAL, _ParentRow.Suburb.AsUpperInitial );
+						s = s.Replace( RECON.Suburb_INITIAL, _AddressRow.Suburb.AsUpperInitial );
 						break;
 
 					case RECON.City_INITIAL:
-						s = s.Replace( RECON.City_INITIAL, _ParentRow.City.AsUpperInitial );
+						s = s.Replace( RECON.City_INITIAL, _AddressRow.City.AsUpperInitial );
 						break;
 
 					case RECON.Metropolitan_INITIAL:
-						s = s.Replace( RECON.Metropolitan_INITIAL, _ParentRow.Metropolitan.AsUpperInitial );
+						s = s.Replace( RECON.Metropolitan_INITIAL, _AddressRow.Metropolitan.AsUpperInitial );
 						break;
 
 					case RECON.ProvinceName_INITIAL:
-						s = s.Replace( RECON.ProvinceName_INITIAL, _ParentRow.ProvinceName.AsUpperInitial );
+						s = s.Replace( RECON.ProvinceName_INITIAL, _AddressRow.ProvinceName.AsUpperInitial );
 						break;
 
 					case RECON.ProvinceCode_INITIAL:
-						s = s.Replace( RECON.ProvinceCode_INITIAL, _ParentRow.ProvinceCode.AsUpperInitial );
+						s = s.Replace( RECON.ProvinceCode_INITIAL, _AddressRow.ProvinceCode.AsUpperInitial );
 						break;
 
 
 					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_INITIAL:
-						s = s.Replace( RECON.CountryName_INITIAL, _ParentRow.CountryName.AsUpperInitial );
+						s = s.Replace( RECON.CountryName_INITIAL, _AddressRow.CountryName.AsUpperInitial );
 						break;
 
 					case RECON.CountryCode_INITIAL:
-						s = s.Replace( RECON.CountryCode_INITIAL, _ParentRow.CountryCode.AsUpperInitial );
+						s = s.Replace( RECON.CountryCode_INITIAL, _AddressRow.CountryCode.AsUpperInitial );
 						break;
 
 					case RECON.ShortIsoCode_INITIAL:
-						s = s.Replace( RECON.ShortIsoCode_INITIAL, _ParentRow.ShortIsoCode.AsUpperInitial );
+						s = s.Replace( RECON.ShortIsoCode_INITIAL, _AddressRow.ShortIsoCode.AsUpperInitial );
 						break;
 
 					case RECON.LongIsoCode_INITIAL:
-						s = s.Replace( RECON.LongIsoCode_INITIAL, _ParentRow.LongIsoCode.AsUpperInitial );
+						s = s.Replace( RECON.LongIsoCode_INITIAL, _AddressRow.LongIsoCode.AsUpperInitial );
 						break;
 					#endregion
 
@@ -561,8 +560,4 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			return s;
 		}
 	}
-	////___________________________________________________________________________________________________________________________________________
-	//public partial class Row : BASE_ROW
-	//{
-	//}
 }

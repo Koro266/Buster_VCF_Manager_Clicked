@@ -4,7 +4,7 @@ using SBLDR = System.Text.StringBuilder;
 using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
-using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
@@ -12,7 +12,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	//___________________________________________________________________________________________________________________________________________
 	public partial class TheSevenSlots : BASE_ROW
 	{
-		private PARENT_ROW _ParentRow;
+		private ADDRESS_ROW _AddressRow;
 
 		private const string local_Pattern = "#0 #1 #2 #3"; //House number, street name, street type, compass.
 		private const string burbcity_Pattern = "#0, #1";           //Suburb, City.
@@ -22,9 +22,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		private const string country_Pattern = "#0";             //Country name.
 
 		//___________________________________________________________________________________________________________________________________________
-		public TheSevenSlots( PARENT_ROW parent_row )
+		public TheSevenSlots( ADDRESS_ROW parent_row )
 		{
-			_ParentRow = parent_row;
+			_AddressRow = parent_row;
 		}
 		//_______________________________________________________________________________________________________________________________________
 		public string[] SlotsAsArray
@@ -49,7 +49,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		{
 			get
 			{
-				return _ParentRow.PkAddress.AsString;
+				return _AddressRow.PkAddress.AsString;
 			}
 		}
 		//_______________________________________________________________________________________________________________________________________
@@ -59,10 +59,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			{
 				SBLDR s = new SBLDR( local_Pattern );
 
-				s.Replace( PRESET.S0, _ParentRow.HouseNumber.AsIs );
-				s.Replace( PRESET.S1, _ParentRow.StreetName.AsIs );
-				s.Replace( PRESET.S2, _ParentRow.StreetType.AsIs );
-				s.Replace( PRESET.S3, _ParentRow.Compass.AsIs );
+				s.Replace( PRESET.S0, _AddressRow.HouseNumber.AsIs );
+				s.Replace( PRESET.S1, _AddressRow.StreetName.AsIs );
+				s.Replace( PRESET.S2, _AddressRow.StreetType.AsIs );
+				s.Replace( PRESET.S3, _AddressRow.Compass.AsIs );
 
 				return s.ToString();
 			}
@@ -74,8 +74,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			{
 				SBLDR s = new SBLDR( burbcity_Pattern );
 
-				s.Replace( PRESET.S0, _ParentRow.Suburb.AsIs );
-				s.Replace( PRESET.S1, _ParentRow.City.AsIs );
+				s.Replace( PRESET.S0, _AddressRow.Suburb.AsIs );
+				s.Replace( PRESET.S1, _AddressRow.City.AsIs );
 
 				return s.ToString();
 			}
@@ -87,9 +87,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			{
 				SBLDR s = new SBLDR( metro_Pattern );
 
-				s.Replace( PRESET.S0, _ParentRow.Metropolitan.AsIs );
-				s.Replace( PRESET.S1, _ParentRow.ProvinceName.AsIs );
-				s.Replace( PRESET.S2, _ParentRow.ProvinceCode.AsIs );
+				s.Replace( PRESET.S0, _AddressRow.Metropolitan.AsIs );
+				s.Replace( PRESET.S1, _AddressRow.ProvinceName.AsIs );
+				s.Replace( PRESET.S2, _AddressRow.ProvinceCode.AsIs );
 
 				return s.ToString();
 			}
@@ -101,9 +101,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			{
 				SBLDR s = new SBLDR( post_Pattern );
 
-				s.Replace( PRESET.S0, _ParentRow.BoxNumber.AsIs );
-				s.Replace( PRESET.S1, _ParentRow.RuralDelivery.AsIs );
-				s.Replace( PRESET.S2, _ParentRow.PostalCode.AsIs );
+				s.Replace( PRESET.S0, _AddressRow.BoxNumber.AsIs );
+				s.Replace( PRESET.S1, _AddressRow.RuralDelivery.AsIs );
+				s.Replace( PRESET.S2, _AddressRow.PostalCode.AsIs );
 
 				return s.ToString();
 			}
@@ -115,10 +115,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			{
 				SBLDR s = new SBLDR( extend_Pattern );
 
-				s.Replace( PRESET.S0, _ParentRow.Assemblage.AsIs );
-				s.Replace( PRESET.S1, _ParentRow.Level.AsIs );
-				s.Replace( PRESET.S2, _ParentRow.Unit.AsIs );
-				s.Replace( PRESET.S3, _ParentRow.Extension.AsIs );
+				s.Replace( PRESET.S0, _AddressRow.Assemblage.AsIs );
+				s.Replace( PRESET.S1, _AddressRow.Level.AsIs );
+				s.Replace( PRESET.S2, _AddressRow.Unit.AsIs );
+				s.Replace( PRESET.S3, _AddressRow.Extension.AsIs );
 
 				return s.ToString();
 			}
@@ -130,7 +130,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			{
 				SBLDR s = new SBLDR( country_Pattern );
 
-				s.Replace( PRESET.S0, _ParentRow.CountryName.AsIs );
+				s.Replace( PRESET.S0, _AddressRow.CountryName.AsIs );
 
 				return s.ToString();
 			}
