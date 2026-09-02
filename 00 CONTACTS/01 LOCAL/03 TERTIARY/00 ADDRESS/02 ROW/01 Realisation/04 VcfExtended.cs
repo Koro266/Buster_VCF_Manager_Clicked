@@ -5,21 +5,18 @@ using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using GIANT_SWITCH = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row.TheGiantSwitch;
+using GIANT_SWITCH = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TheGiantSwitch;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class Row : BASE_ROW
+	public partial class VcfExtendedRealiser : BASE_ROW
 	{
-		//___________________________________________________________________________________________________________________________________________
-		public partial class XAddressHorizontal : BASE_ROW
-		{
-			private PARENT_ROW _ParentRow;
-			private GIANT_SWITCH _Switch;
-			private static string XAddressPattern =
-				@"
+		private PARENT_ROW _ParentRow;
+		private GIANT_SWITCH _Switch;
+		private static string XAddressPattern =
+			@"
 				/hn 
 				/sn 
 				/st 
@@ -42,12 +39,11 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 				/li
 			";
 
-			//___________________________________________________________________________________________________________________________________________
-			public XAddressHorizontal( PARENT_ROW parent_row )
-			{
-				_ParentRow = parent_row;
-				_Switch = new GIANT_SWITCH( parent_row );
-			}
+		//___________________________________________________________________________________________________________________________________________
+		public VcfExtendedRealiser( PARENT_ROW parent_row )
+		{
+			_ParentRow = parent_row;
+			_Switch = new GIANT_SWITCH( parent_row );
 		}
 	}
 }

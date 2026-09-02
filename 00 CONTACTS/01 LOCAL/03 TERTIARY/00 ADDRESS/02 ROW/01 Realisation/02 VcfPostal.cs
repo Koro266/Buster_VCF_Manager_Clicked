@@ -5,27 +5,54 @@ using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using PARENT_ROW = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using GIANT_SWITCH = CONTACTS.LOCAL.TERTIARY.ADDRESS.Row.TheGiantSwitch;
+using GIANT_SWITCH = CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TheGiantSwitch;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public partial class RealiseForm: BASE_ROW
+	public class VcfPostalRealiser : BASE_ROW
 	{
 		private PARENT_ROW _ParentRow;
 		private GIANT_SWITCH _Switch;
 
 		//___________________________________________________________________________________________________________________________________________
-		public RealiseForm( PARENT_ROW parent_row )
+		public VcfPostalRealiser( PARENT_ROW parent_row )
 		{
 			_ParentRow = parent_row;
 			_Switch = new GIANT_SWITCH( parent_row );
 		}
+		//_______________________________________________________________________________________________________________________________________
+		public string[] ListBoxItems()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		public string[] TextBoxLines()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		public string[] ListViewItem()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		public string[] ListViewSubItems()
+		{
+			return new string[] { "", "" };
+		}
+		//_______________________________________________________________________________________________________________________________________
+		public string[] VcfAddress()
+		{
+			return new string[] { "", "" };
+		}
+
 		#region THESE CREATE A STRING[] WHICH IS USED BY FORMS.
 		//_______________________________________________________________________________________________________________________________________
 		public string RealisePostalRule()
 		{
+			/// /hn /sn /st\n/ct, /pc\n/si
 			//TODO 'format' result ...
 			return _Switch.RealiseAddressRule( _ParentRow.VcfPostal.Value );
 			//return SplitAddress( realised_rule );
@@ -33,6 +60,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		//_______________________________________________________________________________________________________________________________________
 		public string RealisePhysicalRule()
 		{
+			/// /hn /sn /st\n/sb, /ct\n/mt, /pv\n/si
 			return _Switch.RealiseAddressRule( _ParentRow.VcfPhysical.Value );
 			//return realised_rule;
 			//return SplitAddress( realised_rule );
@@ -40,6 +68,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		//_______________________________________________________________________________________________________________________________________
 		public string RealiseExtendedRule()
 		{
+			/// /as\n/lv\n/un\n/ex
 			string realised_rule = _Switch.RealiseAddressRule( _ParentRow.VcfExtended.Value );
 			return realised_rule;
 			//return SplitAddress( realised_rule );
@@ -47,6 +76,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		//_______________________________________________________________________________________________________________________________________
 		public string RealiseExcelRule()
 		{
+			/// SID*AID*FID*SRT*OUT*/hn /sn /st*/ct*/pc*/cy
 			string realised_rule = _Switch.RealiseAddressRule( _ParentRow.ExcelPattern.Value );
 			return realised_rule;
 			//return SplitAddress( realised_rule );
