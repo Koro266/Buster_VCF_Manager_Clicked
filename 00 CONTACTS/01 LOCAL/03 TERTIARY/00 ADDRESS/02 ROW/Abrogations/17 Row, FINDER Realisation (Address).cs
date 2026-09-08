@@ -11,7 +11,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 	//___________________________________________________________________________________________________________________________________________
 	public partial class Row : BASE_ROW
 	{
-		private static string XAddressPattern = @"/hn /sn /st /cp, /sb /ct, /mt /pv (/pa), /bx /rd /pc, /as /ex /lv /un, /cy (/cd) /si /li";
+		private static string XAddressPattern = @"/hn /sn /st /cp,/sb /ct, /mt /pv (/pa,) /bx /rd /pc, /as /ex /lv /un, /cy (/cd) /si /li";
+		private static string _RegexRemove = @"\/.. ";
+		private static string _RegexReplace = @"";
+
 
 		#region REALISE ADDRESS RULES: THE GIANT SWITCH.
 		//_______________________________________________________________________________________________________________________________________
@@ -117,26 +120,26 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 				}
 			}
 
-			s = s.Replace( "/as", String.Empty );
-			s = s.Replace( "/lv", String.Empty );
-			s = s.Replace( "/un", String.Empty );
-			s = s.Replace( "/ex", String.Empty );
-			s = s.Replace( "/rd", String.Empty );
-			s = s.Replace( "/pc", String.Empty );
-			s = s.Replace( "/bx", String.Empty );
-			s = s.Replace( "/hn", String.Empty );
-			s = s.Replace( "/sn", String.Empty );
-			s = s.Replace( "/st", String.Empty );
-			s = s.Replace( "/cp", String.Empty );
-			s = s.Replace( "/sb", String.Empty );
-			s = s.Replace( "/ct", String.Empty );
-			s = s.Replace( "/mt", String.Empty );
-			s = s.Replace( "/pv", String.Empty );
-			s = s.Replace( "/pa", String.Empty );
-			s = s.Replace( "/cy", String.Empty );
-			s = s.Replace( "/cd", String.Empty );
-			s = s.Replace( "/si", String.Empty );
-			s = s.Replace( "/li", String.Empty );
+			s = s.Replace( "/as ", String.Empty );
+			s = s.Replace( "/lv ", String.Empty );
+			s = s.Replace( "/un ", String.Empty );
+			s = s.Replace( "/ex ", String.Empty );
+			s = s.Replace( "/rd ", String.Empty );
+			s = s.Replace( "/pc ", String.Empty );
+			s = s.Replace( "/bx ", String.Empty );
+			s = s.Replace( "/hn ", String.Empty );
+			s = s.Replace( "/sn ", String.Empty );
+			s = s.Replace( "/st ", String.Empty );
+			s = s.Replace( "/cp ", String.Empty );
+			s = s.Replace( "/sb ", String.Empty );
+			s = s.Replace( "/ct ", String.Empty );
+			s = s.Replace( "/mt ", String.Empty );
+			s = s.Replace( "/pv ", String.Empty );
+			s = s.Replace( "/pa ", String.Empty );
+			s = s.Replace( "/cy ", String.Empty );
+			s = s.Replace( "/cd ", String.Empty );
+			s = s.Replace( "/si ", String.Empty );
+			s = s.Replace( "/li ", String.Empty );
 
 			return s;
 		}
