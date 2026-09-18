@@ -170,9 +170,9 @@
 			lbx_AttachedPersons.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbx_AttachedPersons.FormattingEnabled = true;
 			lbx_AttachedPersons.ItemHeight = 15;
-			lbx_AttachedPersons.Location = new Point( 370, 51 );
+			lbx_AttachedPersons.Location = new Point( 480, 51 );
 			lbx_AttachedPersons.Name = "lbx_AttachedPersons";
-			lbx_AttachedPersons.Size = new Size( 501, 154 );
+			lbx_AttachedPersons.Size = new Size( 391, 154 );
 			lbx_AttachedPersons.TabIndex = 3;
 			// 
 			// tbx_PkAddress
@@ -187,9 +187,9 @@
 			lbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbx_Address.FormattingEnabled = true;
 			lbx_Address.ItemHeight = 15;
-			lbx_Address.Location = new Point( 79, 51 );
+			lbx_Address.Location = new Point( 162, 22 );
 			lbx_Address.Name = "lbx_Address";
-			lbx_Address.Size = new Size( 264, 154 );
+			lbx_Address.Size = new Size( 264, 199 );
 			lbx_Address.TabIndex = 1;
 			// 
 			// btn_FindAddress

@@ -16,7 +16,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	public class DefaultAddress : TheGiantSwitch
 	{
 		private ADDRESS_ROW _AddressRow;
-		private static string AddressPattern = @"/pk|%hn %sn %st %cp|%sb %ct|%mt %pv (%pa)|%bx %rd %pc|%as %ex %lv %un|%cy|%cd|%si|%li|FK=/fk|/nt";
+		private static string AddressPattern = @"PK=/pk|Street: %hn %sn %st %cp|Suburb: %sb %ct|Metro: %mt %pv (%pa)|MAIL: %bx %rd %pc|EXTENSIONS: %as %ex %lv %un|Country: %cy, %cd|%si, %li|FK=/fk|/nt";
 		private static string SplitCharacter = "|";
 		private string[] _Result;
 
@@ -64,7 +64,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// </summary>
 		private string[] RectifyResult( string s )
 		{
-			//558 | 69 Gordon Road % cp | Plimmerton Porirua | Wellington WELLINGTON(% pa ) |% bx % rd 5026 |%as % ex % lv % un | New Zealand 64 NZ NZL FK = 0 |
 			//s = s.Replace( "/pk",	 String.Empty );	//The address is guaranteed to have a PK.
 			s = s.Replace( "%hn ",	 String.Empty );
 			s = s.Replace( "%sn ",	 String.Empty );
