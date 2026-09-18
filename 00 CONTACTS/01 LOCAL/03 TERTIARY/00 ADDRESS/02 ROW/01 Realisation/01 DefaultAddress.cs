@@ -16,7 +16,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	public class DefaultAddress : TheGiantSwitch
 	{
 		private ADDRESS_ROW _AddressRow;
-		private static string AddressPattern = @"/pk|/hn /sn /st /cp|/sb /ct|/mt /pv (/pa)|/bx /rd /pc|/as /ex /lv /un|/cy /cd /si /li FK=/fk|/nt";
+		private static string AddressPattern = @"/pk|%hn %sn %st %cp|%sb %ct|%mt %pv (%pa)|%bx %rd %pc|%as %ex %lv %un|%cy|%cd|%si|%li|FK=/fk|/nt";
 		private static string SplitCharacter = "|";
 		private string[] _Result;
 
@@ -64,27 +64,28 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// </summary>
 		private string[] RectifyResult( string s )
 		{
+			//558 | 69 Gordon Road % cp | Plimmerton Porirua | Wellington WELLINGTON(% pa ) |% bx % rd 5026 |%as % ex % lv % un | New Zealand 64 NZ NZL FK = 0 |
 			//s = s.Replace( "/pk",	 String.Empty );	//The address is guaranteed to have a PK.
-			s = s.Replace( "/hn ",	 String.Empty );
-			s = s.Replace( "/sn ",	 String.Empty );
-			s = s.Replace( "/st ",	 String.Empty );
-			s = s.Replace( "/cp",	 String.Empty );
-			s = s.Replace( "/sb ",	 String.Empty );
-			s = s.Replace( "/ct",	 String.Empty );
-			s = s.Replace( "/mt ",	 String.Empty );
-			s = s.Replace( "/pv ",	 String.Empty );
-			s = s.Replace( "(/pa)",	 String.Empty );	//Remove the parentheses as well.
-			s = s.Replace( "/bx ",	 String.Empty );
-			s = s.Replace( "/rd ",	 String.Empty );
-			s = s.Replace( "/pc",	 String.Empty );
-			s = s.Replace( "/as ",	 String.Empty );
-			s = s.Replace( "/ex ",	 String.Empty );
-			s = s.Replace( "/lv ",	 String.Empty );
-			s = s.Replace( "/un",	 String.Empty );
-			s = s.Replace( "/cy ",	 String.Empty );
-			s = s.Replace( "/cd ",	 String.Empty );
-			s = s.Replace( "/si ",	 String.Empty );
-			s = s.Replace( "/li ",	 String.Empty );
+			s = s.Replace( "%hn ",	 String.Empty );
+			s = s.Replace( "%sn ",	 String.Empty );
+			s = s.Replace( "%st ",	 String.Empty );
+			s = s.Replace( "%cp",	 String.Empty );
+			s = s.Replace( "%sb ",	 String.Empty );
+			s = s.Replace( "%ct",	 String.Empty );
+			s = s.Replace( "%mt ",	 String.Empty );
+			s = s.Replace( "%pv ",	 String.Empty );
+			s = s.Replace( "(%pa)",	 String.Empty );	//Remove the parentheses as well.
+			s = s.Replace( "%bx ",	 String.Empty );
+			s = s.Replace( "%rd ",	 String.Empty );
+			s = s.Replace( "%pc",	 String.Empty );
+			s = s.Replace( "%as ",	 String.Empty );
+			s = s.Replace( "%ex ",	 String.Empty );
+			s = s.Replace( "%lv ",	 String.Empty );
+			s = s.Replace( "%un",	 String.Empty );
+			s = s.Replace( "%cy ",	 String.Empty );
+			s = s.Replace( "%cd ",	 String.Empty );
+			s = s.Replace( "%si ",	 String.Empty );
+			s = s.Replace( "%li ",	 String.Empty );
 			//s = s.Replace( "/fk",	 String.Empty );	//The country is guaranteed to have a PK (which is an FK here).
 			s = s.Replace( "|/nt",	 String.Empty );	//If there is no note, remove the split character as well.
 

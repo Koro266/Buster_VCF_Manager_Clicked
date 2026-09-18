@@ -27,6 +27,110 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			{
 				switch ( code )
 				{
+					#region Raw: Return entire token in the form in which it is stored.
+					//___________________________________________________________________________________________________________________________
+					case RECON.Assemblage_Raw:
+						if ( _AddressRow.Assemblage.IsNull ) break;
+						s = Regex.Replace( s, RECON.Assemblage_Raw, _AddressRow.Assemblage.AsIs );
+						break;
+
+					case RECON.Level_Raw:
+						if ( _AddressRow.Level.IsNull ) break;
+						s = Regex.Replace( s, RECON.Level_Raw, _AddressRow.Level.AsIs );
+						break;
+
+					case RECON.Unit_Raw:
+						if ( _AddressRow.Unit.IsNull ) break;
+						s = Regex.Replace( s, RECON.Unit_Raw, _AddressRow.Unit.AsIs );
+						break;
+
+					case RECON.Extension_Raw:
+						if ( _AddressRow.Extension.IsNull ) break;
+						s = Regex.Replace( s, RECON.Extension_Raw, _AddressRow.Extension.AsIs );
+						break;
+
+					case RECON.RuralDelivery_Raw:
+						if ( _AddressRow.RuralDelivery.IsNull ) break;
+						s = Regex.Replace( s, RECON.RuralDelivery_Raw, _AddressRow.RuralDelivery.AsIs );
+						break;
+
+					case RECON.PostalCode_Raw:
+						if ( _AddressRow.PostalCode.IsNull ) break;
+						s = Regex.Replace( s, RECON.PostalCode_Raw, _AddressRow.PostalCode.AsIs );
+						break;
+
+					case RECON.BoxNumber_Raw:
+						if ( _AddressRow.BoxNumber.IsNull ) break;
+						s = Regex.Replace( s, RECON.BoxNumber_Raw, _AddressRow.BoxNumber.AsIs );
+						break;
+
+					case RECON.HouseNumber_Raw:
+						if ( _AddressRow.HouseNumber.IsNull ) break;
+						s = Regex.Replace( s, RECON.HouseNumber_Raw, _AddressRow.HouseNumber.AsIs );
+						break;
+
+					case RECON.StreetName_Raw:
+						if ( _AddressRow.StreetName.IsNull ) break;
+						s = Regex.Replace( s, RECON.StreetName_Raw, _AddressRow.StreetName.AsIs );
+						break;
+
+					case RECON.StreetType_Raw:
+						if ( _AddressRow.StreetType.IsNull ) break;
+						s = Regex.Replace( s, RECON.StreetType_Raw, _AddressRow.StreetType.AsIs );
+						break;
+
+					case RECON.Compass_Raw:
+						if ( _AddressRow.Compass.IsNull ) break;
+						s = Regex.Replace( s, RECON.Compass_Raw, _AddressRow.Compass.AsIs );
+						break;
+
+					case RECON.Suburb_Raw:
+						if ( _AddressRow.Suburb.IsNull ) break;
+						s = Regex.Replace( s, RECON.Suburb_Raw, _AddressRow.Suburb.AsIs );
+						break;
+
+					case RECON.City_Raw:
+						if ( _AddressRow.City.IsNull ) break;
+						s = Regex.Replace( s, RECON.City_Raw, _AddressRow.City.AsIs );
+						break;
+
+					case RECON.Metropolitan_Raw:
+						if ( _AddressRow.Metropolitan.IsNull ) break;
+						s = Regex.Replace( s, RECON.Metropolitan_Raw, _AddressRow.Metropolitan.AsIs );
+						break;
+
+					case RECON.ProvinceName_Raw:
+						if ( _AddressRow.ProvinceName.IsNull ) break;
+						s = Regex.Replace( s, RECON.ProvinceName_Raw, _AddressRow.ProvinceName.AsIs );
+						break;
+
+					case RECON.ProvinceCode_Raw:
+						if ( _AddressRow.ProvinceCode.IsNull ) break;
+						s = Regex.Replace( s, RECON.ProvinceCode_Raw, _AddressRow.ProvinceCode.AsIs );
+						break;
+
+					case RECON.CountryName_Raw:
+						if ( _AddressRow.CountryName.IsNull ) break;
+						s = Regex.Replace( s, RECON.CountryName_Raw, _AddressRow.CountryName.AsIs );
+						break;
+
+					case RECON.CountryCode_Raw:
+						if ( _AddressRow.CountryCode.IsNull ) break;
+						s = Regex.Replace( s, RECON.CountryCode_Raw, _AddressRow.CountryCode.AsIs );
+						break;
+
+					case RECON.ShortIsoCode_Raw:
+						if ( _AddressRow.ShortIsoCode.IsNull ) break;
+						s = Regex.Replace( s, RECON.ShortIsoCode_Raw, _AddressRow.ShortIsoCode.AsIs );
+						break;
+
+					case RECON.LongIsoCode_Raw:
+						if ( _AddressRow.LongIsoCode.IsNull ) break;
+						s = Regex.Replace( s, RECON.LongIsoCode_Raw, _AddressRow.LongIsoCode.AsIs );
+						break;
+					#endregion
+
+
 					#region AsIs: Return entire token in the form in which it is stored.
 					//___________________________________________________________________________________________________________________________
 					case RECON.PkAddress:
