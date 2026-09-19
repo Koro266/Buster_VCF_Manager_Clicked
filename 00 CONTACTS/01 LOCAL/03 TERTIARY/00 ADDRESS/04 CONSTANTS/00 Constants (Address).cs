@@ -310,28 +310,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			public const string ShortIsoCode_INITIAL		= ">si";
 			public const string LongIsoCode_INITIAL			= ">li";
 
-			//
-			public const string Assemblage_Raw				= "%as";
-			public const string Level_Raw					= "%lv";
-			public const string Unit_Raw					= "%un";
-			public const string Extension_Raw				= "%ex";
-			public const string RuralDelivery_Raw			= "%rd";
-			public const string PostalCode_Raw				= "%pc";
-			public const string BoxNumber_Raw				= "%bx";
-			public const string HouseNumber_Raw				= "%hn";
-			public const string StreetName_Raw				= "%sn";
-			public const string StreetType_Raw				= "%st";
-			public const string Compass_Raw					= "%cp";
-			public const string Suburb_Raw					= "%sb";
-			public const string City_Raw					= "%ct";
-			public const string Metropolitan_Raw			= "%mt";
-			public const string ProvinceName_Raw			= "%pv";
-			public const string ProvinceCode_Raw			= "%pa";
-			public const string CountryName_Raw				= "%cy";
-			public const string CountryCode_Raw				= "%cd";
-			public const string ShortIsoCode_Raw			= "%si";
-			public const string LongIsoCode_Raw				= "%li";
-
 			public const string NoValue						= "/nv";//There is no value associated with the field. Placeholder. Usage not required.
 
 			//___________________________________________________________________________________________________________________________________________
@@ -341,27 +319,27 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 				FkCountry,
 				Notes,
 
-				Assemblage_AsIs,		Assemblage_UPPER,		Assemblage_Proper,		Assemblage_lower,		Assemblage_initial,			Assemblage_INITIAL,         Assemblage_Raw,
-				Level_AsIs,				Level_UPPER,			Level_Proper,			Level_lower,			Level_initial,				Level_INITIAL,              Level_Raw,
-				Unit_AsIs,				Unit_UPPER,				Unit_Proper,			Unit_lower,				Unit_initial,				Unit_INITIAL,               Unit_Raw,
-				Extension_AsIs,			Extension_UPPER,		Extension_Proper,		Extension_lower,		Extension_initial,			Extension_INITIAL,          Extension_Raw,
-				RuralDelivery_AsIs,		RuralDelivery_UPPER,	RuralDelivery_Proper,	RuralDelivery_lower,	RuralDelivery_initial,		RuralDelivery_INITIAL,      RuralDelivery_Raw,
-				PostalCode_AsIs,		PostalCode_UPPER,		PostalCode_Proper,		PostalCode_lower,		PostalCode_initial,			PostalCode_INITIAL,         PostalCode_Raw,
-				BoxNumber_AsIs,			BoxNumber_UPPER,		BoxNumber_Proper,		BoxNumber_lower,		BoxNumber_initial,			BoxNumber_INITIAL,          BoxNumber_Raw,
-				HouseNumber_AsIs,		HouseNumber_UPPER,		HouseNumber_Proper,		HouseNumber_lower,		HouseNumber_initial,		HouseNumber_INITIAL,        HouseNumber_Raw,
-				StreetName_AsIs,		StreetName_UPPER,		StreetName_Proper,		StreetName_lower,		StreetName_initial,			StreetName_INITIAL,         StreetName_Raw,
-				StreetType_AsIs,		StreetType_UPPER,		StreetType_Proper,		StreetType_lower,		StreetType_initial,			StreetType_INITIAL,         StreetType_Raw,
-				Compass_AsIs,			Compass_UPPER,			Compass_Proper,			Compass_lower,			Compass_initial,			Compass_INITIAL,            Compass_Raw,
-				Suburb_AsIs,			Suburb_UPPER,			Suburb_Proper,			Suburb_lower,			Suburb_initial,				Suburb_INITIAL,             Suburb_Raw,
-				City_AsIs,				City_UPPER,				City_Proper,			City_lower,				City_initial,				City_INITIAL,               City_Raw,
-				Metropolitan_AsIs,		Metropolitan_UPPER,		Metropolitan_Proper,	Metropolitan_lower,		Metropolitan_initial,		Metropolitan_INITIAL,       Metropolitan_Raw,
-				ProvinceName_AsIs,		ProvinceName_UPPER,		ProvinceName_Proper,	ProvinceName_lower,		ProvinceName_initial,		ProvinceName_INITIAL,       ProvinceName_Raw,
-				ProvinceCode_AsIs,		ProvinceCode_UPPER,		ProvinceCode_Proper,	ProvinceCode_lower,		ProvinceCode_initial,		ProvinceCode_INITIAL,       ProvinceCode_Raw,
+				Assemblage_AsIs,		Assemblage_UPPER,		Assemblage_Proper,		Assemblage_lower,		Assemblage_initial,			Assemblage_INITIAL,
+				Level_AsIs,				Level_UPPER,			Level_Proper,			Level_lower,			Level_initial,				Level_INITIAL,
+				Unit_AsIs,				Unit_UPPER,				Unit_Proper,			Unit_lower,				Unit_initial,				Unit_INITIAL,
+				Extension_AsIs,			Extension_UPPER,		Extension_Proper,		Extension_lower,		Extension_initial,			Extension_INITIAL,
+				RuralDelivery_AsIs,		RuralDelivery_UPPER,	RuralDelivery_Proper,	RuralDelivery_lower,	RuralDelivery_initial,		RuralDelivery_INITIAL,
+				PostalCode_AsIs,		PostalCode_UPPER,		PostalCode_Proper,		PostalCode_lower,		PostalCode_initial,			PostalCode_INITIAL,
+				BoxNumber_AsIs,			BoxNumber_UPPER,		BoxNumber_Proper,		BoxNumber_lower,		BoxNumber_initial,			BoxNumber_INITIAL,
+				HouseNumber_AsIs,		HouseNumber_UPPER,		HouseNumber_Proper,		HouseNumber_lower,		HouseNumber_initial,		HouseNumber_INITIAL,
+				StreetName_AsIs,		StreetName_UPPER,		StreetName_Proper,		StreetName_lower,		StreetName_initial,			StreetName_INITIAL,
+				StreetType_AsIs,		StreetType_UPPER,		StreetType_Proper,		StreetType_lower,		StreetType_initial,			StreetType_INITIAL,
+				Compass_AsIs,			Compass_UPPER,			Compass_Proper,			Compass_lower,			Compass_initial,			Compass_INITIAL,
+				Suburb_AsIs,			Suburb_UPPER,			Suburb_Proper,			Suburb_lower,			Suburb_initial,				Suburb_INITIAL,
+				City_AsIs,				City_UPPER,				City_Proper,			City_lower,				City_initial,				City_INITIAL,
+				Metropolitan_AsIs,		Metropolitan_UPPER,		Metropolitan_Proper,	Metropolitan_lower,		Metropolitan_initial,		Metropolitan_INITIAL,
+				ProvinceName_AsIs,		ProvinceName_UPPER,		ProvinceName_Proper,	ProvinceName_lower,		ProvinceName_initial,		ProvinceName_INITIAL,
+				ProvinceCode_AsIs,		ProvinceCode_UPPER,		ProvinceCode_Proper,	ProvinceCode_lower,		ProvinceCode_initial,		ProvinceCode_INITIAL,
 				
-				CountryName_AsIs,		CountryName_UPPER,		CountryName_Proper,		CountryName_lower,		CountryName_initial,		CountryName_INITIAL,        CountryName_Raw,
-				CountryCode_AsIs,		CountryCode_UPPER,		CountryCode_Proper,		CountryCode_lower,		CountryCode_initial,		CountryCode_INITIAL,        CountryCode_Raw,
-				ShortIsoCode_AsIs,		ShortIsoCode_UPPER,		ShortIsoCode_Proper,	ShortIsoCode_lower,		ShortIsoCode_initial,		ShortIsoCode_INITIAL,       ShortIsoCode_Raw,
-				LongIsoCode_AsIs,		LongIsoCode_UPPER,		LongIsoCode_Proper,		LongIsoCode_lower,		LongIsoCode_initial,		LongIsoCode_INITIAL,        LongIsoCode_Raw,
+				CountryName_AsIs,		CountryName_UPPER,		CountryName_Proper,		CountryName_lower,		CountryName_initial,		CountryName_INITIAL,
+				CountryCode_AsIs,		CountryCode_UPPER,		CountryCode_Proper,		CountryCode_lower,		CountryCode_initial,		CountryCode_INITIAL,
+				ShortIsoCode_AsIs,		ShortIsoCode_UPPER,		ShortIsoCode_Proper,	ShortIsoCode_lower,		ShortIsoCode_initial,		ShortIsoCode_INITIAL,
+				LongIsoCode_AsIs,		LongIsoCode_UPPER,		LongIsoCode_Proper,		LongIsoCode_lower,		LongIsoCode_initial,		LongIsoCode_INITIAL,
 
 				NoValue
 			};
