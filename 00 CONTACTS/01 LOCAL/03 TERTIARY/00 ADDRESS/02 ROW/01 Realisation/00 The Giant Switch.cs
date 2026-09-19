@@ -51,165 +51,201 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 						break;
 
 					case RECON.Level_AsIs:
-						s = Regex.Replace( s, RECON.Level_AsIs, _AddressRow.Level.AsIs );
+						if ( _AddressRow.Level.IsNotNull )
+							s = Regex.Replace( s, RECON.Level_AsIs, _AddressRow.Level.AsIs );
 						break;
 
 					case RECON.Unit_AsIs:
-						s = Regex.Replace( s, RECON.Unit_AsIs, _AddressRow.Unit.AsIs );
+						if ( _AddressRow.Unit.IsNotNull )
+							s = Regex.Replace( s, RECON.Unit_AsIs, _AddressRow.Unit.AsIs );
 						break;
 
 					case RECON.Extension_AsIs:
-						s = Regex.Replace( s, RECON.Extension_AsIs, _AddressRow.Extension.AsIs );
+						if ( _AddressRow.Extension.IsNotNull )
+							s = Regex.Replace( s, RECON.Extension_AsIs, _AddressRow.Extension.AsIs );
 						break;
 
 					case RECON.RuralDelivery_AsIs:
-						s = Regex.Replace( s, RECON.RuralDelivery_AsIs, _AddressRow.RuralDelivery.AsIs );
+						if ( _AddressRow.RuralDelivery.IsNotNull )
+							s = Regex.Replace( s, RECON.RuralDelivery_AsIs, _AddressRow.RuralDelivery.AsIs );
 						break;
 
 					case RECON.PostalCode_AsIs:
-						s = Regex.Replace( s, RECON.PostalCode_AsIs, _AddressRow.PostalCode.AsIs );
+						if ( _AddressRow.PostalCode.IsNotNull )
+							s = Regex.Replace( s, RECON.PostalCode_AsIs, _AddressRow.PostalCode.AsIs );
 						break;
 
 					case RECON.BoxNumber_AsIs:
-						s = Regex.Replace( s, RECON.BoxNumber_AsIs, _AddressRow.BoxNumber.AsIs );
+						if ( _AddressRow.BoxNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.BoxNumber_AsIs, _AddressRow.BoxNumber.AsIs );
 						break;
 
 					case RECON.HouseNumber_AsIs:
-						s = Regex.Replace( s, RECON.HouseNumber_AsIs, _AddressRow.HouseNumber.AsIs );
+						if ( _AddressRow.HouseNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.HouseNumber_AsIs, _AddressRow.HouseNumber.AsIs );
 						break;
 
 					case RECON.StreetName_AsIs:
-						s = Regex.Replace( s, RECON.StreetName_AsIs, _AddressRow.StreetName.AsIs );
+						if ( _AddressRow.StreetName.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetName_AsIs, _AddressRow.StreetName.AsIs );
 						break;
 
 					case RECON.StreetType_AsIs:
-						s = Regex.Replace( s, RECON.StreetType_AsIs, _AddressRow.StreetType.AsIs );
+						if ( _AddressRow.StreetType.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetType_AsIs, _AddressRow.StreetType.AsIs );
 						break;
 
 					case RECON.Compass_AsIs:
-						s = Regex.Replace( s, RECON.Compass_AsIs, _AddressRow.Compass.AsIs );
+						if ( _AddressRow.Compass.IsNotNull )
+							s = Regex.Replace( s, RECON.Compass_AsIs, _AddressRow.Compass.AsIs );
 						break;
 
 					case RECON.Suburb_AsIs:
-						s = Regex.Replace( s, RECON.Suburb_AsIs, _AddressRow.Suburb.AsIs );
+						if ( _AddressRow.Suburb.IsNotNull )
+							s = Regex.Replace( s, RECON.Suburb_AsIs, _AddressRow.Suburb.AsIs );
 						break;
 
 					case RECON.City_AsIs:
-						s = Regex.Replace( s, RECON.City_AsIs, _AddressRow.City.AsIs );
+						if ( _AddressRow.City.IsNotNull )
+							s = Regex.Replace( s, RECON.City_AsIs, _AddressRow.City.AsIs );
 						break;
 
 					case RECON.Metropolitan_AsIs:
-						s = Regex.Replace( s, RECON.Metropolitan_AsIs, _AddressRow.Metropolitan.AsIs );
+						if ( _AddressRow.Metropolitan.IsNotNull )
+							s = Regex.Replace( s, RECON.Metropolitan_AsIs, _AddressRow.Metropolitan.AsIs );
 						break;
 
 					case RECON.ProvinceName_AsIs:
-						s = Regex.Replace( s, RECON.ProvinceName_AsIs, _AddressRow.ProvinceName.AsIs );
+						if ( _AddressRow.ProvinceName.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceName_AsIs, _AddressRow.ProvinceName.AsIs );
 						break;
 
 					case RECON.ProvinceCode_AsIs:
-						s = Regex.Replace( s, RECON.ProvinceCode_AsIs, _AddressRow.ProvinceCode.AsIs );
+						if ( _AddressRow.ProvinceCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceCode_AsIs, _AddressRow.ProvinceCode.AsIs );
 						break;
 
 					case RECON.CountryName_AsIs:
-						s = Regex.Replace( s, RECON.CountryName_AsIs, _AddressRow.CountryName.AsIs );
+						if ( _AddressRow.CountryName.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryName_AsIs, _AddressRow.CountryName.AsIs );
 						break;
 
 					case RECON.CountryCode_AsIs:
-						s = Regex.Replace( s, RECON.CountryCode_AsIs, _AddressRow.CountryCode.AsIs );
+						if ( _AddressRow.CountryCode.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryCode_AsIs, _AddressRow.CountryCode.AsIs );
 						break;
 
 					case RECON.ShortIsoCode_AsIs:
-						s = Regex.Replace( s, RECON.ShortIsoCode_AsIs, _AddressRow.ShortIsoCode.AsIs );
+						if ( _AddressRow.ShortIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ShortIsoCode_AsIs, _AddressRow.ShortIsoCode.AsIs );
 						break;
 
 					case RECON.LongIsoCode_AsIs:
-						s = Regex.Replace( s, RECON.LongIsoCode_AsIs, _AddressRow.LongIsoCode.AsIs );
+						if ( _AddressRow.LongIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.LongIsoCode_AsIs, _AddressRow.LongIsoCode.AsIs );
 						break;
 					#endregion
 
 
 					#region UPPER: Return entire token in UPPER case.
-					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_UPPER:
-						s = s.Replace( RECON.Assemblage_UPPER, _AddressRow.Assemblage.AsUpper );
+						if ( _AddressRow.Assemblage.IsNotNull )
+							s = Regex.Replace( s, RECON.Assemblage_UPPER, _AddressRow.Assemblage.AsUpper );
 						break;
 
 					case RECON.Level_UPPER:
-						s = s.Replace( RECON.Level_UPPER, _AddressRow.Level.AsUpper );
+						if ( _AddressRow.Level.IsNotNull )
+							s = Regex.Replace( s, RECON.Level_UPPER, _AddressRow.Level.AsUpper );
 						break;
 
 					case RECON.Unit_UPPER:
-						s = s.Replace( RECON.Unit_UPPER, _AddressRow.Unit.AsUpper );
+						if ( _AddressRow.Unit.IsNotNull )
+							s = Regex.Replace( s, RECON.Unit_UPPER, _AddressRow.Unit.AsUpper );
 						break;
 
 					case RECON.Extension_UPPER:
-						s = s.Replace( RECON.Extension_UPPER, _AddressRow.Extension.AsUpper );
+						if ( _AddressRow.Extension.IsNotNull )
+							s = Regex.Replace( s, RECON.Extension_UPPER, _AddressRow.Extension.AsUpper );
 						break;
 
 					case RECON.RuralDelivery_UPPER:
-						s = s.Replace( RECON.RuralDelivery_UPPER, _AddressRow.RuralDelivery.AsUpper );
+						if ( _AddressRow.RuralDelivery.IsNotNull )
+							s = Regex.Replace( s, RECON.RuralDelivery_UPPER, _AddressRow.RuralDelivery.AsUpper );
 						break;
 
 					case RECON.PostalCode_UPPER:
-						s = s.Replace( RECON.PostalCode_UPPER, _AddressRow.PostalCode.AsUpper );
+						if ( _AddressRow.PostalCode.IsNotNull )
+							s = Regex.Replace( s, RECON.PostalCode_UPPER, _AddressRow.PostalCode.AsUpper );
 						break;
 
 					case RECON.BoxNumber_UPPER:
-						s = s.Replace( RECON.BoxNumber_UPPER, _AddressRow.BoxNumber.AsUpper );
+						if ( _AddressRow.BoxNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.BoxNumber_UPPER, _AddressRow.BoxNumber.AsUpper );
 						break;
 
 					case RECON.HouseNumber_UPPER:
-						s = s.Replace( RECON.HouseNumber_UPPER, _AddressRow.HouseNumber.AsUpper );
+						if ( _AddressRow.HouseNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.HouseNumber_UPPER, _AddressRow.HouseNumber.AsUpper );
 						break;
 
 					case RECON.StreetName_UPPER:
-						s = s.Replace( RECON.StreetName_UPPER, _AddressRow.StreetName.AsUpper );
+						if ( _AddressRow.StreetName.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetName_UPPER, _AddressRow.StreetName.AsUpper );
 						break;
 
 					case RECON.StreetType_UPPER:
-						s = s.Replace( RECON.StreetType_UPPER, _AddressRow.StreetType.AsUpper );
+						if ( _AddressRow.StreetType.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetType_UPPER, _AddressRow.StreetType.AsUpper );
 						break;
 
 					case RECON.Compass_UPPER:
-						s = s.Replace( RECON.Compass_UPPER, _AddressRow.Compass.AsUpper );
+						if ( _AddressRow.Compass.IsNotNull )
+							s = Regex.Replace( s, RECON.Compass_UPPER, _AddressRow.Compass.AsUpper );
 						break;
 
 					case RECON.Suburb_UPPER:
-						s = s.Replace( RECON.Suburb_UPPER, _AddressRow.Suburb.AsUpper );
+						if ( _AddressRow.Suburb.IsNotNull )
+							s = Regex.Replace( s, RECON.Suburb_UPPER, _AddressRow.Suburb.AsUpper );
 						break;
 
 					case RECON.City_UPPER:
-						s = s.Replace( RECON.City_UPPER, _AddressRow.City.AsUpper );
+						if ( _AddressRow.City.IsNotNull )
+							s = Regex.Replace( s, RECON.City_UPPER, _AddressRow.City.AsUpper );
 						break;
 
 					case RECON.Metropolitan_UPPER:
-						s = s.Replace( RECON.Metropolitan_UPPER, _AddressRow.Metropolitan.AsUpper );
+						if ( _AddressRow.Metropolitan.IsNotNull )
+							s = Regex.Replace( s, RECON.Metropolitan_UPPER, _AddressRow.Metropolitan.AsUpper );
 						break;
 
 					case RECON.ProvinceName_UPPER:
-						s = s.Replace( RECON.ProvinceName_UPPER, _AddressRow.ProvinceName.AsUpper );
+						if ( _AddressRow.ProvinceName.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceName_UPPER, _AddressRow.ProvinceName.AsUpper );
 						break;
 
 					case RECON.ProvinceCode_UPPER:
-						s = s.Replace( RECON.ProvinceCode_UPPER, _AddressRow.ProvinceCode.AsUpper );
+						if ( _AddressRow.ProvinceCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceCode_UPPER, _AddressRow.ProvinceCode.AsUpper );
 						break;
 
-
-					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_UPPER:
-						s = s.Replace( RECON.CountryName_UPPER, _AddressRow.CountryName.AsUpper );
+						if ( _AddressRow.CountryName.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryName_UPPER, _AddressRow.CountryName.AsUpper );
 						break;
 
 					case RECON.CountryCode_UPPER:
-						s = s.Replace( RECON.CountryCode_UPPER, _AddressRow.CountryCode.AsUpper );
+						if ( _AddressRow.CountryCode.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryCode_UPPER, _AddressRow.CountryCode.AsUpper );
 						break;
 
 					case RECON.ShortIsoCode_UPPER:
-						s = s.Replace( RECON.ShortIsoCode_UPPER, _AddressRow.ShortIsoCode.AsUpper );
+						if ( _AddressRow.ShortIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ShortIsoCode_UPPER, _AddressRow.ShortIsoCode.AsUpper );
 						break;
 
 					case RECON.LongIsoCode_UPPER:
-						s = s.Replace( RECON.LongIsoCode_UPPER, _AddressRow.LongIsoCode.AsUpper );
+						if ( _AddressRow.LongIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.LongIsoCode_UPPER, _AddressRow.LongIsoCode.AsUpper );
 						break;
 					#endregion
 
@@ -217,85 +253,103 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region Proper: Return entire token in Proper case.
 					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_Proper:
-						s = s.Replace( RECON.Assemblage_Proper, _AddressRow.Assemblage.AsProper );
+						if ( _AddressRow.Assemblage.IsNotNull )
+							s = Regex.Replace( s, RECON.Assemblage_Proper, _AddressRow.Assemblage.AsProper );
 						break;
 
 					case RECON.Level_Proper:
-						s = s.Replace( RECON.Level_Proper, _AddressRow.Level.AsProper );
+						if ( _AddressRow.Level.IsNotNull )
+							s = Regex.Replace( s, RECON.Level_Proper, _AddressRow.Level.AsProper );
 						break;
 
 					case RECON.Unit_Proper:
-						s = s.Replace( RECON.Unit_Proper, _AddressRow.Unit.AsProper );
+						if ( _AddressRow.Unit.IsNotNull )
+							s = Regex.Replace( s, RECON.Unit_Proper, _AddressRow.Unit.AsProper );
 						break;
 
 					case RECON.Extension_Proper:
-						s = s.Replace( RECON.Extension_Proper, _AddressRow.Extension.AsProper );
+						if ( _AddressRow.Extension.IsNotNull )
+							s = Regex.Replace( s, RECON.Extension_Proper, _AddressRow.Extension.AsProper );
 						break;
 
 					case RECON.RuralDelivery_Proper:
-						s = s.Replace( RECON.RuralDelivery_Proper, _AddressRow.RuralDelivery.AsProper );
+						if ( _AddressRow.RuralDelivery.IsNotNull )
+							s = Regex.Replace( s, RECON.RuralDelivery_Proper, _AddressRow.RuralDelivery.AsProper );
 						break;
 
 					case RECON.PostalCode_Proper:
-						s = s.Replace( RECON.PostalCode_Proper, _AddressRow.PostalCode.AsProper );
+						if ( _AddressRow.PostalCode.IsNotNull )
+							s = Regex.Replace( s, RECON.PostalCode_Proper, _AddressRow.PostalCode.AsProper );
 						break;
 
 					case RECON.BoxNumber_Proper:
-						s = s.Replace( RECON.BoxNumber_Proper, _AddressRow.BoxNumber.AsProper );
+						if ( _AddressRow.BoxNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.BoxNumber_Proper, _AddressRow.BoxNumber.AsProper );
 						break;
 
 					case RECON.HouseNumber_Proper:
-						s = s.Replace( RECON.HouseNumber_Proper, _AddressRow.HouseNumber.AsProper );
+						if ( _AddressRow.HouseNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.HouseNumber_Proper, _AddressRow.HouseNumber.AsProper );
 						break;
 
 					case RECON.StreetName_Proper:
-						s = s.Replace( RECON.StreetName_Proper, _AddressRow.StreetName.AsProper );
+						if ( _AddressRow.StreetName.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetName_Proper, _AddressRow.StreetName.AsProper );
 						break;
 
 					case RECON.StreetType_Proper:
-						s = s.Replace( RECON.StreetType_Proper, _AddressRow.StreetType.AsProper );
+						if ( _AddressRow.StreetType.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetType_Proper, _AddressRow.StreetType.AsProper );
 						break;
 
 					case RECON.Compass_Proper:
-						s = s.Replace( RECON.Compass_Proper, _AddressRow.Compass.AsIs );
+						if ( _AddressRow.Compass.IsNotNull )
+							s = Regex.Replace( s, RECON.Compass_Proper, _AddressRow.Compass.AsProper );
 						break;
 
 					case RECON.Suburb_Proper:
-						s = s.Replace( RECON.Suburb_Proper, _AddressRow.Suburb.AsProper );
+						if ( _AddressRow.Suburb.IsNotNull )
+							s = Regex.Replace( s, RECON.Suburb_Proper, _AddressRow.Suburb.AsProper );
 						break;
 
 					case RECON.City_Proper:
-						s = s.Replace( RECON.City_Proper, _AddressRow.City.AsProper );
+						if ( _AddressRow.City.IsNotNull )
+							s = Regex.Replace( s, RECON.City_Proper, _AddressRow.City.AsProper );
 						break;
 
 					case RECON.Metropolitan_Proper:
-						s = s.Replace( RECON.Metropolitan_Proper, _AddressRow.Metropolitan.AsProper );
+						if ( _AddressRow.Metropolitan.IsNotNull )
+							s = Regex.Replace( s, RECON.Metropolitan_Proper, _AddressRow.Metropolitan.AsProper );
 						break;
 
 					case RECON.ProvinceName_Proper:
-						s = s.Replace( RECON.ProvinceName_Proper, _AddressRow.ProvinceName.AsProper );
+						if ( _AddressRow.ProvinceName.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceName_Proper, _AddressRow.ProvinceName.AsProper );
 						break;
 
 					case RECON.ProvinceCode_Proper:
-						s = s.Replace( RECON.ProvinceCode_Proper, _AddressRow.ProvinceCode.AsProper );
+						if ( _AddressRow.ProvinceCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceCode_Proper, _AddressRow.ProvinceCode.AsProper );
 						break;
 
-
-					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_Proper:
-						s = s.Replace( RECON.CountryName_Proper, _AddressRow.CountryName.AsProper );
+						if ( _AddressRow.CountryName.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryName_Proper, _AddressRow.CountryName.AsProper );
 						break;
 
 					case RECON.CountryCode_Proper:
-						s = s.Replace( RECON.CountryCode_Proper, _AddressRow.CountryCode.AsIs );
+						if ( _AddressRow.CountryCode.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryCode_Proper, _AddressRow.CountryCode.AsProper );
 						break;
 
 					case RECON.ShortIsoCode_Proper:
-						s = s.Replace( RECON.ShortIsoCode_Proper, _AddressRow.ShortIsoCode.AsIs );
+						if ( _AddressRow.ShortIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ShortIsoCode_Proper, _AddressRow.ShortIsoCode.AsProper );
 						break;
 
 					case RECON.LongIsoCode_Proper:
-						s = s.Replace( RECON.LongIsoCode_Proper, _AddressRow.LongIsoCode.AsIs );
+						if ( _AddressRow.LongIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.LongIsoCode_Proper, _AddressRow.LongIsoCode.AsProper );
 						break;
 					#endregion
 
@@ -303,257 +357,309 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 					#region lower: Return entire token in lower case.
 					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_lower:
-						s = s.Replace( RECON.Assemblage_lower, _AddressRow.Assemblage.AsLower );
+						if ( _AddressRow.Assemblage.IsNotNull )
+							s = Regex.Replace( s, RECON.Assemblage_lower, _AddressRow.Assemblage.AsLower );
 						break;
 
 					case RECON.Level_lower:
-						s = s.Replace( RECON.Level_lower, _AddressRow.Level.AsLower );
+						if ( _AddressRow.Level.IsNotNull )
+							s = Regex.Replace( s, RECON.Level_lower, _AddressRow.Level.AsLower );
 						break;
 
 					case RECON.Unit_lower:
-						s = s.Replace( RECON.Unit_lower, _AddressRow.Unit.AsLower );
+						if ( _AddressRow.Unit.IsNotNull )
+							s = Regex.Replace( s, RECON.Unit_lower, _AddressRow.Unit.AsLower );
 						break;
 
 					case RECON.Extension_lower:
-						s = s.Replace( RECON.Extension_lower, _AddressRow.Extension.AsLower );
+						if ( _AddressRow.Extension.IsNotNull )
+							s = Regex.Replace( s, RECON.Extension_lower, _AddressRow.Extension.AsLower );
 						break;
 
 					case RECON.RuralDelivery_lower:
-						s = s.Replace( RECON.RuralDelivery_lower, _AddressRow.RuralDelivery.AsLower );
+						if ( _AddressRow.RuralDelivery.IsNotNull )
+							s = Regex.Replace( s, RECON.RuralDelivery_lower, _AddressRow.RuralDelivery.AsLower );
 						break;
 
 					case RECON.PostalCode_lower:
-						s = s.Replace( RECON.PostalCode_lower, _AddressRow.PostalCode.AsLower );
+						if ( _AddressRow.PostalCode.IsNotNull )
+							s = Regex.Replace( s, RECON.PostalCode_lower, _AddressRow.PostalCode.AsLower );
 						break;
 
 					case RECON.BoxNumber_lower:
-						s = s.Replace( RECON.BoxNumber_lower, _AddressRow.BoxNumber.AsLower );
+						if ( _AddressRow.BoxNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.BoxNumber_lower, _AddressRow.BoxNumber.AsLower );
 						break;
 
 					case RECON.HouseNumber_lower:
-						s = s.Replace( RECON.HouseNumber_lower, _AddressRow.HouseNumber.AsLower );
+						if ( _AddressRow.HouseNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.HouseNumber_lower, _AddressRow.HouseNumber.AsLower );
 						break;
 
 					case RECON.StreetName_lower:
-						s = s.Replace( RECON.StreetName_lower, _AddressRow.StreetName.AsLower );
+						if ( _AddressRow.StreetName.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetName_lower, _AddressRow.StreetName.AsLower );
 						break;
 
 					case RECON.StreetType_lower:
-						s = s.Replace( RECON.StreetType_lower, _AddressRow.StreetType.AsLower );
+						if ( _AddressRow.StreetType.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetType_lower, _AddressRow.StreetType.AsLower );
 						break;
 
 					case RECON.Compass_lower:
-						s = s.Replace( RECON.Compass_lower, _AddressRow.Compass.AsLower );
+						if ( _AddressRow.Compass.IsNotNull )
+							s = Regex.Replace( s, RECON.Compass_lower, _AddressRow.Compass.AsLower );
 						break;
 
 					case RECON.Suburb_lower:
-						s = s.Replace( RECON.Suburb_lower, _AddressRow.Suburb.AsLower );
+						if ( _AddressRow.Suburb.IsNotNull )
+							s = Regex.Replace( s, RECON.Suburb_lower, _AddressRow.Suburb.AsLower );
 						break;
 
 					case RECON.City_lower:
-						s = s.Replace( RECON.City_lower, _AddressRow.City.AsLower );
+						if ( _AddressRow.City.IsNotNull )
+							s = Regex.Replace( s, RECON.City_lower, _AddressRow.City.AsLower );
 						break;
 
 					case RECON.Metropolitan_lower:
-						s = s.Replace( RECON.Metropolitan_lower, _AddressRow.Metropolitan.AsLower );
+						if ( _AddressRow.Metropolitan.IsNotNull )
+							s = Regex.Replace( s, RECON.Metropolitan_lower, _AddressRow.Metropolitan.AsLower );
 						break;
 
 					case RECON.ProvinceName_lower:
-						s = s.Replace( RECON.ProvinceName_lower, _AddressRow.ProvinceName.AsLower );
+						if ( _AddressRow.ProvinceName.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceName_lower, _AddressRow.ProvinceName.AsLower );
 						break;
 
 					case RECON.ProvinceCode_lower:
-						s = s.Replace( RECON.ProvinceCode_lower, _AddressRow.ProvinceCode.AsLower );
+						if ( _AddressRow.ProvinceCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceCode_lower, _AddressRow.ProvinceCode.AsLower );
 						break;
 
-
-					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_lower:
-						s = s.Replace( RECON.CountryName_lower, _AddressRow.CountryName.AsLower );
+						if ( _AddressRow.CountryName.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryName_lower, _AddressRow.CountryName.AsLower );
 						break;
 
 					case RECON.CountryCode_lower:
-						s = s.Replace( RECON.CountryCode_lower, _AddressRow.CountryCode.AsIs );
+						if ( _AddressRow.CountryCode.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryCode_lower, _AddressRow.CountryCode.AsLower );
 						break;
 
 					case RECON.ShortIsoCode_lower:
-						s = s.Replace( RECON.ShortIsoCode_lower, _AddressRow.ShortIsoCode.AsIs );
+						if ( _AddressRow.ShortIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ShortIsoCode_lower, _AddressRow.ShortIsoCode.AsLower );
 						break;
 
 					case RECON.LongIsoCode_lower:
-						s = s.Replace( RECON.LongIsoCode_lower, _AddressRow.LongIsoCode.AsIs );
+						if ( _AddressRow.LongIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.LongIsoCode_lower, _AddressRow.LongIsoCode.AsLower );
 						break;
 					#endregion
 
 
 					#region Initial as lower: Return token's left-most character in lower case.
-					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_initial:
-						s = s.Replace( RECON.Assemblage_initial, _AddressRow.Assemblage.AsLowerInitial );
+						if ( _AddressRow.Assemblage.IsNotNull )
+							s = Regex.Replace( s, RECON.Assemblage_initial, _AddressRow.Assemblage.AsLowerInitial );
 						break;
 
 					case RECON.Level_initial:
-						s = s.Replace( RECON.Level_initial, _AddressRow.Level.AsLowerInitial );
+						if ( _AddressRow.Level.IsNotNull )
+							s = Regex.Replace( s, RECON.Level_initial, _AddressRow.Level.AsLowerInitial );
 						break;
 
 					case RECON.Unit_initial:
-						s = s.Replace( RECON.Unit_initial, _AddressRow.Unit.AsLowerInitial );
+						if ( _AddressRow.Unit.IsNotNull )
+							s = Regex.Replace( s, RECON.Unit_initial, _AddressRow.Unit.AsLowerInitial );
 						break;
 
 					case RECON.Extension_initial:
-						s = s.Replace( RECON.Extension_initial, _AddressRow.Extension.AsLowerInitial );
+						if ( _AddressRow.Extension.IsNotNull )
+							s = Regex.Replace( s, RECON.Extension_initial, _AddressRow.Extension.AsLowerInitial );
 						break;
 
 					case RECON.RuralDelivery_initial:
-						s = s.Replace( RECON.RuralDelivery_initial, _AddressRow.RuralDelivery.AsLowerInitial );
+						if ( _AddressRow.RuralDelivery.IsNotNull )
+							s = Regex.Replace( s, RECON.RuralDelivery_initial, _AddressRow.RuralDelivery.AsLowerInitial );
 						break;
 
 					case RECON.PostalCode_initial:
-						s = s.Replace( RECON.PostalCode_initial, _AddressRow.PostalCode.AsLowerInitial );
+						if ( _AddressRow.PostalCode.IsNotNull )
+							s = Regex.Replace( s, RECON.PostalCode_initial, _AddressRow.PostalCode.AsLowerInitial );
 						break;
 
 					case RECON.BoxNumber_initial:
-						s = s.Replace( RECON.BoxNumber_initial, _AddressRow.BoxNumber.AsLowerInitial );
+						if ( _AddressRow.BoxNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.BoxNumber_initial, _AddressRow.BoxNumber.AsLowerInitial );
 						break;
 
 					case RECON.HouseNumber_initial:
-						s = s.Replace( RECON.HouseNumber_initial, _AddressRow.HouseNumber.AsLowerInitial );
+						if ( _AddressRow.HouseNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.HouseNumber_initial, _AddressRow.HouseNumber.AsLowerInitial );
 						break;
 
 					case RECON.StreetName_initial:
-						s = s.Replace( RECON.StreetName_initial, _AddressRow.StreetName.AsLowerInitial );
+						if ( _AddressRow.StreetName.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetName_initial, _AddressRow.StreetName.AsLowerInitial );
 						break;
 
 					case RECON.StreetType_initial:
-						s = s.Replace( RECON.StreetType_initial, _AddressRow.StreetType.AsLowerInitial );
+						if ( _AddressRow.StreetType.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetType_initial, _AddressRow.StreetType.AsLowerInitial );
 						break;
 
 					case RECON.Compass_initial:
-						s = s.Replace( RECON.Compass_initial, _AddressRow.Compass.AsLowerInitial );
+						if ( _AddressRow.Compass.IsNotNull )
+							s = Regex.Replace( s, RECON.Compass_initial, _AddressRow.Compass.AsLowerInitial );
 						break;
 
 					case RECON.Suburb_initial:
-						s = s.Replace( RECON.Suburb_initial, _AddressRow.Suburb.AsLowerInitial );
+						if ( _AddressRow.Suburb.IsNotNull )
+							s = Regex.Replace( s, RECON.Suburb_initial, _AddressRow.Suburb.AsLowerInitial );
 						break;
 
 					case RECON.City_initial:
-						s = s.Replace( RECON.City_initial, _AddressRow.City.AsLowerInitial );
+						if ( _AddressRow.City.IsNotNull )
+							s = Regex.Replace( s, RECON.City_initial, _AddressRow.City.AsLowerInitial );
 						break;
 
 					case RECON.Metropolitan_initial:
-						s = s.Replace( RECON.Metropolitan_initial, _AddressRow.Metropolitan.AsLowerInitial );
+						if ( _AddressRow.Metropolitan.IsNotNull )
+							s = Regex.Replace( s, RECON.Metropolitan_initial, _AddressRow.Metropolitan.AsLowerInitial );
 						break;
 
 					case RECON.ProvinceName_initial:
-						s = s.Replace( RECON.ProvinceName_initial, _AddressRow.ProvinceName.AsLowerInitial );
+						if ( _AddressRow.ProvinceName.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceName_initial, _AddressRow.ProvinceName.AsLowerInitial );
 						break;
 
 					case RECON.ProvinceCode_initial:
-						s = s.Replace( RECON.ProvinceCode_initial, _AddressRow.ProvinceCode.AsLowerInitial );
+						if ( _AddressRow.ProvinceCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceCode_initial, _AddressRow.ProvinceCode.AsLowerInitial );
 						break;
 
-
-					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_initial:
-						s = s.Replace( RECON.CountryName_initial, _AddressRow.CountryName.AsLowerInitial );
+						if ( _AddressRow.CountryName.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryName_initial, _AddressRow.CountryName.AsLowerInitial );
 						break;
 
 					case RECON.CountryCode_initial:
-						s = s.Replace( RECON.CountryCode_initial, _AddressRow.CountryCode.AsLowerInitial );
+						if ( _AddressRow.CountryCode.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryCode_initial, _AddressRow.CountryCode.AsLowerInitial );
 						break;
 
 					case RECON.ShortIsoCode_initial:
-						s = s.Replace( RECON.ShortIsoCode_initial, _AddressRow.ShortIsoCode.AsLowerInitial );
+						if ( _AddressRow.ShortIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ShortIsoCode_initial, _AddressRow.ShortIsoCode.AsLowerInitial );
 						break;
 
 					case RECON.LongIsoCode_initial:
-						s = s.Replace( RECON.LongIsoCode_initial, _AddressRow.LongIsoCode.AsLowerInitial );
+						if ( _AddressRow.LongIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.LongIsoCode_initial, _AddressRow.LongIsoCode.AsLowerInitial );
 						break;
 					#endregion
 
 
 					#region Initial as upper: Return token's left-most character in UPPER case.
-					//___________________________________________________________________________________________________________________________
 					case RECON.Assemblage_INITIAL:
-						s = s.Replace( RECON.Assemblage_INITIAL, _AddressRow.Assemblage.AsUpperInitial );
+						if ( _AddressRow.Assemblage.IsNotNull )
+							s = Regex.Replace( s, RECON.Assemblage_INITIAL, _AddressRow.Assemblage.AsUpperInitial );
 						break;
 
 					case RECON.Level_INITIAL:
-						s = s.Replace( RECON.Level_INITIAL, _AddressRow.Level.AsUpperInitial );
+						if ( _AddressRow.Level.IsNotNull )
+							s = Regex.Replace( s, RECON.Level_INITIAL, _AddressRow.Level.AsUpperInitial );
 						break;
 
 					case RECON.Unit_INITIAL:
-						s = s.Replace( RECON.Unit_INITIAL, _AddressRow.Unit.AsUpperInitial );
+						if ( _AddressRow.Unit.IsNotNull )
+							s = Regex.Replace( s, RECON.Unit_INITIAL, _AddressRow.Unit.AsUpperInitial );
 						break;
 
 					case RECON.Extension_INITIAL:
-						s = s.Replace( RECON.Extension_INITIAL, _AddressRow.Extension.AsUpperInitial );
+						if ( _AddressRow.Extension.IsNotNull )
+							s = Regex.Replace( s, RECON.Extension_INITIAL, _AddressRow.Extension.AsUpperInitial );
 						break;
 
 					case RECON.RuralDelivery_INITIAL:
-						s = s.Replace( RECON.RuralDelivery_INITIAL, _AddressRow.RuralDelivery.AsUpperInitial );
+						if ( _AddressRow.RuralDelivery.IsNotNull )
+							s = Regex.Replace( s, RECON.RuralDelivery_INITIAL, _AddressRow.RuralDelivery.AsUpperInitial );
 						break;
 
 					case RECON.PostalCode_INITIAL:
-						s = s.Replace( RECON.PostalCode_INITIAL, _AddressRow.PostalCode.AsUpperInitial );
+						if ( _AddressRow.PostalCode.IsNotNull )
+							s = Regex.Replace( s, RECON.PostalCode_INITIAL, _AddressRow.PostalCode.AsUpperInitial );
 						break;
 
 					case RECON.BoxNumber_INITIAL:
-						s = s.Replace( RECON.BoxNumber_INITIAL, _AddressRow.BoxNumber.AsUpperInitial );
+						if ( _AddressRow.BoxNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.BoxNumber_INITIAL, _AddressRow.BoxNumber.AsUpperInitial );
 						break;
 
 					case RECON.HouseNumber_INITIAL:
-						s = s.Replace( RECON.HouseNumber_INITIAL, _AddressRow.HouseNumber.AsUpperInitial );
+						if ( _AddressRow.HouseNumber.IsNotNull )
+							s = Regex.Replace( s, RECON.HouseNumber_INITIAL, _AddressRow.HouseNumber.AsUpperInitial );
 						break;
 
 					case RECON.StreetName_INITIAL:
-						s = s.Replace( RECON.StreetName_INITIAL, _AddressRow.StreetName.AsUpperInitial );
+						if ( _AddressRow.StreetName.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetName_INITIAL, _AddressRow.StreetName.AsUpperInitial );
 						break;
 
 					case RECON.StreetType_INITIAL:
-						s = s.Replace( RECON.StreetType_INITIAL, _AddressRow.StreetType.AsUpperInitial );
+						if ( _AddressRow.StreetType.IsNotNull )
+							s = Regex.Replace( s, RECON.StreetType_INITIAL, _AddressRow.StreetType.AsUpperInitial );
 						break;
 
 					case RECON.Compass_INITIAL:
-						s = s.Replace( RECON.Compass_INITIAL, _AddressRow.Compass.AsUpperInitial );
+						if ( _AddressRow.Compass.IsNotNull )
+							s = Regex.Replace( s, RECON.Compass_INITIAL, _AddressRow.Compass.AsUpperInitial );
 						break;
 
 					case RECON.Suburb_INITIAL:
-						s = s.Replace( RECON.Suburb_INITIAL, _AddressRow.Suburb.AsUpperInitial );
+						if ( _AddressRow.Suburb.IsNotNull )
+							s = Regex.Replace( s, RECON.Suburb_INITIAL, _AddressRow.Suburb.AsUpperInitial );
 						break;
 
 					case RECON.City_INITIAL:
-						s = s.Replace( RECON.City_INITIAL, _AddressRow.City.AsUpperInitial );
+						if ( _AddressRow.City.IsNotNull )
+							s = Regex.Replace( s, RECON.City_INITIAL, _AddressRow.City.AsUpperInitial );
 						break;
 
 					case RECON.Metropolitan_INITIAL:
-						s = s.Replace( RECON.Metropolitan_INITIAL, _AddressRow.Metropolitan.AsUpperInitial );
+						if ( _AddressRow.Metropolitan.IsNotNull )
+							s = Regex.Replace( s, RECON.Metropolitan_INITIAL, _AddressRow.Metropolitan.AsUpperInitial );
 						break;
 
 					case RECON.ProvinceName_INITIAL:
-						s = s.Replace( RECON.ProvinceName_INITIAL, _AddressRow.ProvinceName.AsUpperInitial );
+						if ( _AddressRow.ProvinceName.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceName_INITIAL, _AddressRow.ProvinceName.AsUpperInitial );
 						break;
 
 					case RECON.ProvinceCode_INITIAL:
-						s = s.Replace( RECON.ProvinceCode_INITIAL, _AddressRow.ProvinceCode.AsUpperInitial );
+						if ( _AddressRow.ProvinceCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ProvinceCode_INITIAL, _AddressRow.ProvinceCode.AsUpperInitial );
 						break;
 
-
-					//Country________________________________________________________________________________________________________________________
 					case RECON.CountryName_INITIAL:
-						s = s.Replace( RECON.CountryName_INITIAL, _AddressRow.CountryName.AsUpperInitial );
+						if ( _AddressRow.CountryName.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryName_INITIAL, _AddressRow.CountryName.AsUpperInitial );
 						break;
 
 					case RECON.CountryCode_INITIAL:
-						s = s.Replace( RECON.CountryCode_INITIAL, _AddressRow.CountryCode.AsUpperInitial );
+						if ( _AddressRow.CountryCode.IsNotNull )
+							s = Regex.Replace( s, RECON.CountryCode_INITIAL, _AddressRow.CountryCode.AsUpperInitial );
 						break;
 
 					case RECON.ShortIsoCode_INITIAL:
-						s = s.Replace( RECON.ShortIsoCode_INITIAL, _AddressRow.ShortIsoCode.AsUpperInitial );
+						if ( _AddressRow.ShortIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.ShortIsoCode_INITIAL, _AddressRow.ShortIsoCode.AsUpperInitial );
 						break;
 
 					case RECON.LongIsoCode_INITIAL:
-						s = s.Replace( RECON.LongIsoCode_INITIAL, _AddressRow.LongIsoCode.AsUpperInitial );
+						if ( _AddressRow.LongIsoCode.IsNotNull )
+							s = Regex.Replace( s, RECON.LongIsoCode_INITIAL, _AddressRow.LongIsoCode.AsUpperInitial );
 						break;
 					#endregion
 
