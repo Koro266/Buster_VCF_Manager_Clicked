@@ -1,7 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Text.RegularExpressions;
 //GLOBAL
-using SHORT_TXT = CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
@@ -19,6 +19,30 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		{
 			_AddressRow = parent_row;
 		}
+		//___________________________________________________________________________________________________________________________________________
+		virtual public string PkAddress		{ get { return RECON.PkAddress; } }
+		virtual public string HouseNumber	{ get { return RECON.HouseNumber_AsIs; } }
+		virtual public string StreetName	{ get { return RECON.StreetName_AsIs; } }
+		virtual public string StreetType	{ get { return RECON.StreetType_AsIs; } }
+		virtual public string Compass		{ get { return RECON.Compass_AsIs; } }
+		virtual public string Suburb		{ get { return RECON.Suburb_AsIs; } }
+		virtual public string City			{ get { return RECON.City_AsIs; } }
+		virtual public string Metropolitan	{ get { return RECON.Metropolitan_AsIs; } }
+		virtual public string Province		{ get { return RECON.ProvinceName_AsIs; } }
+		virtual public string ProvCode		{ get { return RECON.ProvinceCode_AsIs; } }
+		virtual public string BoxNumber		{ get { return RECON.BoxNumber_AsIs; } }
+		virtual public string RuralDelivery	{ get { return RECON.RuralDelivery_AsIs; } }
+		virtual public string PostalCode	{ get { return RECON.PostalCode_AsIs; } }
+		virtual public string Assemblage	{ get { return RECON.Assemblage_AsIs; } }
+		virtual public string Extensions	{ get { return RECON.Extension_AsIs; } }
+		virtual public string Level			{ get { return RECON.Level_AsIs; } }
+		virtual public string Unit			{ get { return RECON.Unit_AsIs; } }
+		virtual public string PkCountry		{ get { return RECON.FkCountry; } }
+		virtual public string Country		{ get { return RECON.CountryName_AsIs; } }
+		virtual public string TeleCode		{ get { return RECON.CountryCode_AsIs; } }
+		virtual public string IsoShort		{ get { return RECON.ShortIsoCode_AsIs; } }
+		virtual public string IsoLong		{ get { return RECON.LongIsoCode_AsIs; } }
+		virtual public string Notes			{ get { return RECON.Notes; } }
 		//_______________________________________________________________________________________________________________________________________
 		public string RealiseAddressRule( string address_rule )
 		{

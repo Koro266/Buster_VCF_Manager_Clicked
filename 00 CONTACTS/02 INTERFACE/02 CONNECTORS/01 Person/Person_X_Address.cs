@@ -15,8 +15,8 @@ using DELETE_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.P
 using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
 //LOCAL:ADDRESS
 using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using ADDRESS_VERTICAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.DefaultAddress;
-using ADDRESS_FRACTIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.DefaultAddress;
+using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.ListViewAddress;
+//using ADDRESS_FRACTIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.DefaultAddress;
 //INTERFACE:
 using FIND_ADDRESS		= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 using FIND_PERSON		= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
@@ -228,8 +228,8 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 
 			tbx_PkAddress.Text = this.PkAddressAsText;
 
-			ADDRESS_VERTICAL address_vertical = new ADDRESS_VERTICAL( Address );
-			lbx_Address.Items.AddRange( address_vertical.Result );
+			//LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address );
+			//lbx_Address.Items.AddRange( listview_address.Result );
 
 			DisplayAddressPersons();
 		}
@@ -243,9 +243,20 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 
 			for ( int index = 0; index < count; index++ )
 			{
-				ADDRESS_FRACTIONS horizontal_realisation = new ADDRESS_FRACTIONS( address_rows[index] );
-				lvw_PersonsAddresses.Items.Add( horizontal_realisation.RootItem );
-				lvw_PersonsAddresses.Items[index].SubItems.AddRange( horizontal_realisation.Subitems );
+//				/pk<:>				PK
+//				/hn /sn /st /cp<:>	Street
+//				/sb /ct<:>			Suburb City
+//				/mt /pv (%pa)<:>	Metro Province
+//				/bx /rd /pc<:>		Mail
+//				/as /ex /lv /un<:>	Extensions
+//				/cy, /cd<:>			Country name & code
+//				/si, /li<:>			ISO codes
+//				FK=/fk<:>			FK
+//				/nt					Notes
+
+				LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( address_rows[index] );
+				lvw_PersonsAddresses.Items.Add( listview_address.RootItem );
+				lvw_PersonsAddresses.Items[index].SubItems.AddRange( listview_address.Subitems );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________________
