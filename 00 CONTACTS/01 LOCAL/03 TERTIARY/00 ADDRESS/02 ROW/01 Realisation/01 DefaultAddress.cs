@@ -10,13 +10,8 @@ using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	/// <summary>
-	/// Builds and returns a string[] in which every address token is specified in the pattern and hence all address fields are examined.
-	/// The result contains all the address data held in the database including the primary key. 
-	/// </summary>
 	public class DefaultAddress : TheGiantSwitch
 	{
-		private ADDRESS_ROW _AddressRow;
 		private static string AddressPattern = "/pk<:>/hn /sn /st /cp<:>/sb /ct<:>/mt /pv (`pa)<:>/bx /rd /pc<:>/as /ex /lv /un<:>/cy, /cd<:>/si, /li<:>FK=/fk<:>/nt";
 		private static string SplitPattern = "<:>";
 		private string[] _Result;
@@ -24,44 +19,32 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		//___________________________________________________________________________________________________________________________________________
 		public DefaultAddress( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			_AddressRow = address_row;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Realises the defined address pattern and returns the first item (Item[0]) of the result array.
-		/// </summary>
-		public void RealiseAddress()
-		{
 			string s;
-			string[] result;
-			
 			s = base.RealiseAddressRule( AddressPattern );
 			s = RemoveUnusedReconCodes( s );
-
-			result = Regex.Split( s, SplitPattern );
-			_Result = SHORT_TXT.RectifyStrings( result );
+			_Result = SHORT_TXT.RectifyStrings( Regex.Split( s, SplitPattern ) );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns the first item (Item[0]) of the result array
+		/// Returns the entire string array that derives from the default address-rule. 
 		/// </summary>
-		public string[] Result
+		override public string[] Result
 		{
 			get { return _Result; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns the first item (Item[0]) of the result array. In this case, the PK of the address.
+		/// Return the 1st item (index=0) of the result array.
 		/// </summary>
-		public string RootItem
+		override public string RootItem
 		{
-			get { return Result[0]; }
+			get { return _Result[0]; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns everything that follows the first item of the result array (Items[1 to n])
+		/// Returns items from index=1 to n of the result array.
 		/// </summary>
-		public string[] Subitems
+		override public string[] Subitems
 		{
 			get { return Result[1..]; }
 		}

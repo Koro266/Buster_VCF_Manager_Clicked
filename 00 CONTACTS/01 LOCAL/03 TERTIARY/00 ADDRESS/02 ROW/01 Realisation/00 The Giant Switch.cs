@@ -670,37 +670,45 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			}
 			return s;
 		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns an empty string array
+		/// </summary>
+		virtual public string[] Result
+		{
+			get { return new string[] { }; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns a string intended to be assigned to the ListView.Item property.
+		/// </summary>
+		virtual public string RootItem
+		{
+			get { return String.Empty; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns a string[] intended to be assigned to the ListView.SubItems property.
+		/// </summary>
+		virtual public string[] Subitems
+		{
+			get { return Result[1..]; }
+		}
 		//_______________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns a string[] intended to be assigned to a ListBox.Items property; i.e., a 'vertical' address format.
+		/// Returns a string[] intended to be assigned to a ListBox.Items property.
 		/// </summary>
 		virtual public string[] ListBoxItems()
 		{
-			return new string[] { };
+			return Result;
 		}
 		//_______________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns a string[] intended to be assigned to the TextBox.Lines property; i.e., a 'vertical' address format.
+		/// Returns a string[] intended to be assigned to the TextBox.Lines property.
 		/// </summary>
 		virtual public string[] TextBoxLines()
 		{
-			return new string[] { "", "" };
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to the ListView.Item property; i.e., a 'horizontal' address format.
-		/// </summary>
-		virtual public string[] ListViewItem()
-		{
-			return new string[] { "", "" };
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to the ListView.SubItems property; i.e., a 'horizontal' address format.
-		/// </summary>
-		virtual public string[] ListViewSubItems()
-		{
-			return new string[] { "", "" };
+			return Result;
 		}
 		//_______________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -708,7 +716,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// </summary>
 		virtual public string[] VcfAddress()
 		{
-			return new string[] { "", "" };
+			return Result;
 		}
 	}
 }

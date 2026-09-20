@@ -1,5 +1,4 @@
 ﻿//PERSON_X_ADDRESS: 
-using System;
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL: 
 using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
@@ -230,7 +229,6 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			tbx_PkAddress.Text = this.PkAddressAsText;
 
 			ADDRESS_VERTICAL address_vertical = new ADDRESS_VERTICAL( Address );
-			address_vertical.RealiseAddress();
 			lbx_Address.Items.AddRange( address_vertical.Result );
 
 			DisplayAddressPersons();
@@ -246,8 +244,6 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			for ( int index = 0; index < count; index++ )
 			{
 				ADDRESS_FRACTIONS horizontal_realisation = new ADDRESS_FRACTIONS( address_rows[index] );
-				horizontal_realisation.RealiseAddress();
-
 				lvw_PersonsAddresses.Items.Add( horizontal_realisation.RootItem );
 				lvw_PersonsAddresses.Items[index].SubItems.AddRange( horizontal_realisation.Subitems );
 			}
