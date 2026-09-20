@@ -1,4 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using System.Text.RegularExpressions;
 //GLOBAL
 using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
@@ -16,8 +17,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	public class DefaultAddress : TheGiantSwitch
 	{
 		private ADDRESS_ROW _AddressRow;
-		private static string AddressPattern = @"PK=/pk|Street: %hn %sn %st %cp|Suburb: %sb %ct|Metro: %mt %pv (%pa)|MAIL: %bx %rd %pc|EXTENSIONS: %as %ex %lv %un|Country: %cy, %cd|%si, %li|FK=/fk|/nt";
-		private static string SplitCharacter = "|";
+		private static string AddressPattern = "/pk<:>/hn /sn /st /cp<:>/sb /ct<:>/mt /pv (`pa)<:>/bx /rd /pc<:>/as /ex /lv /un<:>/cy, /cd<:>/si, /li<:>FK=/fk<:>/nt";
+		private static string SplitPattern = "<:>";
 		private string[] _Result;
 
 		//___________________________________________________________________________________________________________________________________________
@@ -31,8 +32,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// </summary>
 		public void RealiseAddress()
 		{
-			string s = base.RealiseAddressRule( AddressPattern );
-			_Result = RectifyResult( s );
+			string s;
+			string[] result;
+			
+			s = base.RealiseAddressRule( AddressPattern );
+			s = RemoveUnusedReconCodes( s );
+
+			result = Regex.Split( s, SplitPattern );
+			_Result = SHORT_TXT.RectifyStrings( result );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -62,35 +69,33 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Splits the string into a string[] and rectifies each element of the array.
 		/// </summary>
-		private string[] RectifyResult( string s )
+		private string RemoveUnusedReconCodes( string s )
 		{
 			//s = s.Replace( "/pk",	 String.Empty );	//The address is guaranteed to have a PK.
-			s = s.Replace( "%hn ",	 String.Empty );
-			s = s.Replace( "%sn ",	 String.Empty );
-			s = s.Replace( "%st ",	 String.Empty );
-			s = s.Replace( "%cp",	 String.Empty );
-			s = s.Replace( "%sb ",	 String.Empty );
-			s = s.Replace( "%ct",	 String.Empty );
-			s = s.Replace( "%mt ",	 String.Empty );
-			s = s.Replace( "%pv ",	 String.Empty );
-			s = s.Replace( "(%pa)",	 String.Empty );	//Remove the parentheses as well.
-			s = s.Replace( "%bx ",	 String.Empty );
-			s = s.Replace( "%rd ",	 String.Empty );
-			s = s.Replace( "%pc",	 String.Empty );
-			s = s.Replace( "%as ",	 String.Empty );
-			s = s.Replace( "%ex ",	 String.Empty );
-			s = s.Replace( "%lv ",	 String.Empty );
-			s = s.Replace( "%un",	 String.Empty );
-			s = s.Replace( "%cy ",	 String.Empty );
-			s = s.Replace( "%cd ",	 String.Empty );
-			s = s.Replace( "%si ",	 String.Empty );
-			s = s.Replace( "%li ",	 String.Empty );
+			s = s.Replace( "/hn ",	 String.Empty );
+			s = s.Replace( "/sn ",	 String.Empty );
+			s = s.Replace( "/st ",	 String.Empty );
+			s = s.Replace( "/cp",	 String.Empty );
+			s = s.Replace( "/sb ",	 String.Empty );
+			s = s.Replace( "/ct",	 String.Empty );
+			s = s.Replace( "/mt ",	 String.Empty );
+			s = s.Replace( "/pv ",	 String.Empty );
+			s = s.Replace( "(`pa)",	 String.Empty );	//Remove the parentheses as well.
+			s = s.Replace( "/bx ",	 String.Empty );
+			s = s.Replace( "/rd ",	 String.Empty );
+			s = s.Replace( "/pc",	 String.Empty );
+			s = s.Replace( "/as ",	 String.Empty );
+			s = s.Replace( "/ex ",	 String.Empty );
+			s = s.Replace( "/lv ",	 String.Empty );
+			s = s.Replace( "/un",	 String.Empty );
+			s = s.Replace( "/cy ",	 String.Empty );
+			s = s.Replace( "/cd ",	 String.Empty );
+			s = s.Replace( "/si ",	 String.Empty );
+			s = s.Replace( "/li ",	 String.Empty );
 			//s = s.Replace( "/fk",	 String.Empty );	//The country is guaranteed to have a PK (which is an FK here).
-			s = s.Replace( "|/nt",	 String.Empty );	//If there is no note, remove the split character as well.
+			s = s.Replace( "/nt",	 String.Empty );
 
-			string[] string_array = s.Split( SplitCharacter, StringSplitOptions.None );
-
-			return SHORT_TXT.RectifyStrings( string_array );
+			return s;
 		}
 	}
 }

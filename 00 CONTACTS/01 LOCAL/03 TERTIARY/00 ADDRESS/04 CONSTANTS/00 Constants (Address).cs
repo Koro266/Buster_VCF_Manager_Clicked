@@ -201,48 +201,48 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			public const string LongIsoCode_AsIs			= "/li";
 
 			//UPPER: Return entire token in UPPER case.
-			public const string Assemblage_UPPER			= "^as";
-			public const string Level_UPPER					= "^lv";
-			public const string Unit_UPPER					= "^un";
-			public const string Extension_UPPER				= "^ex";
-			public const string RuralDelivery_UPPER			= "^rd";
-			public const string PostalCode_UPPER			= "^pc";
-			public const string BoxNumber_UPPER				= "^bx";
-			public const string HouseNumber_UPPER			= "^hn";
-			public const string StreetName_UPPER			= "^sn";
-			public const string StreetType_UPPER			= "^st";
-			public const string Compass_UPPER				= "^cp";
-			public const string Suburb_UPPER				= "^sb";
-			public const string City_UPPER					= "^ct";
-			public const string Metropolitan_UPPER			= "^mt";
-			public const string ProvinceName_UPPER			= "^pv";
-			public const string ProvinceCode_UPPER			= "^pa";
-			public const string CountryName_UPPER			= "^cy";
-			public const string CountryCode_UPPER			= "^cd";
-			public const string ShortIsoCode_UPPER			= "^si";
-			public const string LongIsoCode_UPPER			= "^li";
+			public const string Assemblage_UPPER			= "%as";
+			public const string Level_UPPER					= "%lv";
+			public const string Unit_UPPER					= "%un";
+			public const string Extension_UPPER				= "%ex";
+			public const string RuralDelivery_UPPER			= "%rd";
+			public const string PostalCode_UPPER			= "%pc";
+			public const string BoxNumber_UPPER				= "%bx";
+			public const string HouseNumber_UPPER			= "%hn";
+			public const string StreetName_UPPER			= "%sn";
+			public const string StreetType_UPPER			= "%st";
+			public const string Compass_UPPER				= "%cp";
+			public const string Suburb_UPPER				= "%sb";
+			public const string City_UPPER					= "%ct";
+			public const string Metropolitan_UPPER			= "%mt";
+			public const string ProvinceName_UPPER			= "%pv";
+			public const string ProvinceCode_UPPER			= "%pa";
+			public const string CountryName_UPPER			= "%cy";
+			public const string CountryCode_UPPER			= "%cd";
+			public const string ShortIsoCode_UPPER			= "%si";
+			public const string LongIsoCode_UPPER			= "%li";
 
 			//Proper: Return entire token in Proper case.
-			public const string Assemblage_Proper			= "|as";
-			public const string Level_Proper				= "|lv";
-			public const string Unit_Proper					= "|un";
-			public const string Extension_Proper			= "|ex";
-			public const string RuralDelivery_Proper		= "|rd";
-			public const string PostalCode_Proper			= "|pc";
-			public const string BoxNumber_Proper			= "|bx";
-			public const string HouseNumber_Proper			= "|hn";
-			public const string StreetName_Proper			= "|sn";
-			public const string StreetType_Proper			= "|st";
-			public const string Compass_Proper				= "|cp";
-			public const string Suburb_Proper				= "|sb";
-			public const string City_Proper					= "|ct";
-			public const string Metropolitan_Proper			= "|mt";
-			public const string ProvinceName_Proper			= "|pv";
-			public const string ProvinceCode_Proper			= "|pa";
-			public const string CountryName_Proper			= "|cy";
-			public const string CountryCode_Proper			= "|cd";
-			public const string ShortIsoCode_Proper			= "|si";
-			public const string LongIsoCode_Proper			= "|li";
+			public const string Assemblage_Proper			= "`as";
+			public const string Level_Proper				= "`lv";
+			public const string Unit_Proper					= "`un";
+			public const string Extension_Proper			= "`ex";
+			public const string RuralDelivery_Proper		= "`rd";
+			public const string PostalCode_Proper			= "`pc";
+			public const string BoxNumber_Proper			= "`bx";
+			public const string HouseNumber_Proper			= "`hn";
+			public const string StreetName_Proper			= "`sn";
+			public const string StreetType_Proper			= "`st";
+			public const string Compass_Proper				= "`cp";
+			public const string Suburb_Proper				= "`sb";
+			public const string City_Proper					= "`ct";
+			public const string Metropolitan_Proper			= "`mt";
+			public const string ProvinceName_Proper			= "`pv";
+			public const string ProvinceCode_Proper			= "`pa";
+			public const string CountryName_Proper			= "`cy";
+			public const string CountryCode_Proper			= "`cd";
+			public const string ShortIsoCode_Proper			= "`si";
+			public const string LongIsoCode_Proper			= "`li";
 
 			//lower: Return entire token in lower case.
 			public const string Assemblage_lower			= "~as";
@@ -335,7 +335,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 				Metropolitan_AsIs,		Metropolitan_UPPER,		Metropolitan_Proper,	Metropolitan_lower,		Metropolitan_initial,		Metropolitan_INITIAL,
 				ProvinceName_AsIs,		ProvinceName_UPPER,		ProvinceName_Proper,	ProvinceName_lower,		ProvinceName_initial,		ProvinceName_INITIAL,
 				ProvinceCode_AsIs,		ProvinceCode_UPPER,		ProvinceCode_Proper,	ProvinceCode_lower,		ProvinceCode_initial,		ProvinceCode_INITIAL,
-				
+																						
 				CountryName_AsIs,		CountryName_UPPER,		CountryName_Proper,		CountryName_lower,		CountryName_initial,		CountryName_INITIAL,
 				CountryCode_AsIs,		CountryCode_UPPER,		CountryCode_Proper,		CountryCode_lower,		CountryCode_initial,		CountryCode_INITIAL,
 				ShortIsoCode_AsIs,		ShortIsoCode_UPPER,		ShortIsoCode_Proper,	ShortIsoCode_lower,		ShortIsoCode_initial,		ShortIsoCode_INITIAL,
@@ -370,13 +370,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			public const string OuterName			= "OUT";	//Replaced with family 'outside' postal name, i.e., name used on the envelope.
 
 			//Token-level formatting instructions.
-			public const string UPPER				= "^";	  //Return entire token in UPPER case.
-			public const string Proper				= "|";	  //Return entire token in Proper case.
+			public const string UPPER				= "%";	  //Return entire token in UPPER case.
+			public const string Proper				= "`";	  //Return entire token in Proper case.
 			public const string lower				= "~";	  //Return entire token in lower case.
 			public const string initial				= "<";	  //Return token's left-most character in lower case.
 			public const string INITIAL				= ">";	  //Return token's left-most character in upper case.
 			public const string AsIs				= "/";	  //Return token as is.
-			public const string Raw					= "%";	  //If The value is null, don't do anything.
 		}
 		#endregion
 
