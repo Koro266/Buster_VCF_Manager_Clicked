@@ -28,18 +28,18 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Returns a string[] intended to be assigned to a ListBox.Items property; i.e., a 'vertical' address format.
 		/// </summary>
-		override public string[] ListBoxItems()
-		{
-			return new string[] { "", "" };
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to the TextBox.Lines property; i.e., a 'vertical' address format.
-		/// </summary>
-		override public string[] TextBoxLines()
-		{
-			return new string[] { "", "" };
-		}
+		//override public string[] ListBoxItems()
+		//{
+		//	return new string[] { "", "" };
+		//}
+		////_______________________________________________________________________________________________________________________________________
+		///// <summary>
+		///// Returns a string[] intended to be assigned to the TextBox.Lines property; i.e., a 'vertical' address format.
+		///// </summary>
+		//override public string[] TextBoxLines()
+		//{
+		//	return new string[] { "", "" };
+		//}
 		//_______________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns a string[] intended to be assigned to the ListView.Item property; i.e., a 'horizontal' address format.
@@ -60,10 +60,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Returns a string[] intended to be assigned to a VCF output file; i.e., a 'vertical' address format.
 		/// </summary>
-		override public string[] VcfAddress()
-		{
-			return new string[] { "", "" };
-		}
+		//override public string[] VcfAddress()
+		//{
+		//	return new string[] { "", "" };
+		//}
 
 		#region THESE CREATE A STRING[] WHICH IS USED BY FORMS.
 		//_______________________________________________________________________________________________________________________________________

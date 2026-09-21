@@ -37,9 +37,9 @@
 			hdr_Metropolitan = new ColumnHeader();
 			hdr_Postal = new ColumnHeader();
 			hdr_Extensions = new ColumnHeader();
+			hdr_FkCountry = new ColumnHeader();
 			hdr_Country = new ColumnHeader();
 			hdr_IsoCodes = new ColumnHeader();
-			hdr_FkCountry = new ColumnHeader();
 			hdr_Notes = new ColumnHeader();
 			tbx_PkPerson = new TextBox();
 			tbx_PersonName = new TextBox();
@@ -62,6 +62,7 @@
 			// 
 			grp_Person.Controls.Add( lvw_PersonsAddresses );
 			grp_Person.Controls.Add( tbx_PkPerson );
+			grp_Person.Controls.Add( btn_Connect );
 			grp_Person.Controls.Add( tbx_PersonName );
 			grp_Person.Controls.Add( btn_FindPerson );
 			grp_Person.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
@@ -119,6 +120,11 @@
 			hdr_Extensions.Text = "EXTENSIONS";
 			hdr_Extensions.Width = 133;
 			// 
+			// hdr_FkCountry
+			// 
+			hdr_FkCountry.Text = "FK";
+			hdr_FkCountry.Width = 40;
+			// 
 			// hdr_Country
 			// 
 			hdr_Country.Text = "COUNTRY NAME";
@@ -128,11 +134,6 @@
 			// 
 			hdr_IsoCodes.Text = "ISO CODES";
 			hdr_IsoCodes.Width = 80;
-			// 
-			// hdr_FkCountry
-			// 
-			hdr_FkCountry.Text = "FK";
-			hdr_FkCountry.Width = 40;
 			// 
 			// hdr_Notes
 			// 
@@ -166,7 +167,6 @@
 			// 
 			// grp_Address
 			// 
-			grp_Address.Controls.Add( tbx_Address );
 			grp_Address.Controls.Add( lbx_AttachedPersons );
 			grp_Address.Controls.Add( tbx_PkAddress );
 			grp_Address.Controls.Add( lbx_Address );
@@ -174,18 +174,19 @@
 			grp_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_Address.Location = new Point( 31, 258 );
 			grp_Address.Name = "grp_Address";
-			grp_Address.Size = new Size( 935, 226 );
+			grp_Address.Size = new Size( 672, 226 );
 			grp_Address.TabIndex = 1;
 			grp_Address.TabStop = false;
 			grp_Address.Text = "Address";
 			// 
 			// tbx_Address
 			// 
+			tbx_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
-			tbx_Address.Location = new Point( 654, 23 );
+			tbx_Address.Location = new Point( 749, 268 );
 			tbx_Address.Multiline = true;
 			tbx_Address.Name = "tbx_Address";
-			tbx_Address.Size = new Size( 196, 153 );
+			tbx_Address.Size = new Size( 454, 216 );
 			tbx_Address.TabIndex = 4;
 			tbx_Address.Text = "tbx_Address";
 			// 
@@ -231,7 +232,7 @@
 			// 
 			btn_Disconnect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Disconnect.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Disconnect.Location = new Point( 982, 413 );
+			btn_Disconnect.Location = new Point( 898, -84 );
 			btn_Disconnect.Name = "btn_Disconnect";
 			btn_Disconnect.Size = new Size( 121, 32 );
 			btn_Disconnect.TabIndex = 1;
@@ -243,7 +244,7 @@
 			// 
 			btn_Connect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Connect.Location = new Point( 982, 375 );
+			btn_Connect.Location = new Point( 427, 22 );
 			btn_Connect.Name = "btn_Connect";
 			btn_Connect.Size = new Size( 121, 32 );
 			btn_Connect.TabIndex = 0;
@@ -281,9 +282,9 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
 			ClientSize = new Size( 1299, 573 );
+			Controls.Add( tbx_Address );
 			Controls.Add( tbx_Messages );
 			Controls.Add( btn_Disconnect );
-			Controls.Add( btn_Connect );
 			Controls.Add( btn_Close );
 			Controls.Add( grp_Address );
 			Controls.Add( grp_Person );

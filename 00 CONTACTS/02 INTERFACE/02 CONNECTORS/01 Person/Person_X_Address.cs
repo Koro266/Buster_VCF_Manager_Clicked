@@ -16,6 +16,7 @@ using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.P
 //LOCAL:ADDRESS
 using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.ListViewAddress;
+using TEXTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TextBoxAddress;
 //using ADDRESS_FRACTIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.DefaultAddress;
 //INTERFACE:
 using FIND_ADDRESS		= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
@@ -73,7 +74,8 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 
 			DisplayPerson();
 			DisplayAddress();
-			DisplayPersonsAddresses();
+			DisplayAddressByTextBox();
+			//DisplayPersonsAddresses();
 		}
 		#endregion
 
@@ -232,6 +234,13 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			//lbx_Address.Items.AddRange( listview_address.Result );
 
 			DisplayAddressPersons();
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void DisplayAddressByTextBox()
+		{
+			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address );
+			//TEXTBOX_ADDRESS textbox_address = new TEXTBOX_ADDRESS( _AddressRow );
+			//tbx_Address.Lines = listview_address.PostalAddressLines;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()

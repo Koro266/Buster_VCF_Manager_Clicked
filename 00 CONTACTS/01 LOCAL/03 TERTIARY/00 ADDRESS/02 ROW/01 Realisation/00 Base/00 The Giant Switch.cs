@@ -15,36 +15,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		private ADDRESS_ROW _AddressRow;
 
 		//___________________________________________________________________________________________________________________________________________
-		public TheGiantSwitch( ADDRESS_ROW parent_row )
+		public TheGiantSwitch( ADDRESS_ROW address_row )
 		{
-			_AddressRow = parent_row;
+			_AddressRow = address_row;
 		}
-		//___________________________________________________________________________________________________________________________________________
-		virtual public string PkAddress		{ get { return RECON.PkAddress; } }
-		virtual public string HouseNumber	{ get { return RECON.HouseNumber_AsIs; } }
-		virtual public string StreetName	{ get { return RECON.StreetName_AsIs; } }
-		virtual public string StreetType	{ get { return RECON.StreetType_AsIs; } }
-		virtual public string Compass		{ get { return RECON.Compass_AsIs; } }
-		virtual public string Suburb		{ get { return RECON.Suburb_AsIs; } }
-		virtual public string City			{ get { return RECON.City_AsIs; } }
-		virtual public string Metropolitan	{ get { return RECON.Metropolitan_AsIs; } }
-		virtual public string Province		{ get { return RECON.ProvinceName_AsIs; } }
-		virtual public string ProvCode		{ get { return RECON.ProvinceCode_AsIs; } }
-		virtual public string BoxNumber		{ get { return RECON.BoxNumber_AsIs; } }
-		virtual public string RuralDelivery	{ get { return RECON.RuralDelivery_AsIs; } }
-		virtual public string PostalCode	{ get { return RECON.PostalCode_AsIs; } }
-		virtual public string Assemblage	{ get { return RECON.Assemblage_AsIs; } }
-		virtual public string Extensions	{ get { return RECON.Extension_AsIs; } }
-		virtual public string Level			{ get { return RECON.Level_AsIs; } }
-		virtual public string Unit			{ get { return RECON.Unit_AsIs; } }
-		virtual public string PkCountry		{ get { return RECON.FkCountry; } }
-		virtual public string Country		{ get { return RECON.CountryName_AsIs; } }
-		virtual public string TeleCode		{ get { return RECON.CountryCode_AsIs; } }
-		virtual public string IsoShort		{ get { return RECON.ShortIsoCode_AsIs; } }
-		virtual public string IsoLong		{ get { return RECON.LongIsoCode_AsIs; } }
-		virtual public string Notes			{ get { return RECON.Notes; } }
 		//_______________________________________________________________________________________________________________________________________
-		public string RealiseAddressRule( string address_rule )
+		virtual public string RealiseAddressRule( string address_rule )
 		{
 			string s = address_rule;
 
@@ -693,54 +669,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 				}
 			}
 			return s;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns an empty string array
-		/// </summary>
-		virtual public string[] Result
-		{
-			get { return new string[] { }; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string intended to be assigned to the ListView.Item property.
-		/// </summary>
-		virtual public string RootItem
-		{
-			get { return String.Empty; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to the ListView.SubItems property.
-		/// </summary>
-		virtual public string[] Subitems
-		{
-			get { return Result[1..]; }
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to a ListBox.Items property.
-		/// </summary>
-		virtual public string[] ListBoxItems()
-		{
-			return Result;
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to the TextBox.Lines property.
-		/// </summary>
-		virtual public string[] TextBoxLines()
-		{
-			return Result;
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to a VCF output file; i.e., a 'vertical' address format.
-		/// </summary>
-		virtual public string[] VcfAddress()
-		{
-			return Result;
 		}
 	}
 }
