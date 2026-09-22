@@ -4,7 +4,6 @@ using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL 
 using ORDINAL	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.OrdinalByName;
 using FIELD		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Column;
-using COUNTRY	= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
@@ -106,30 +105,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 					Unit.IsNotNull &&
 					Extension.IsNotNull;
 			}
-		}
-		#endregion
-
-
-		#region  VCF LINES
-		//___________________________________________________________________________________________________________________________________________
-		public string VcfLine_Postal
-		{
-			set { Replace( ORDINAL.VcfPostal, new FIELD.ST_VcfPostal( value ) ); }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		public string VcfLine_Physical
-		{
-			set { Replace( ORDINAL.VcfPhysical, new FIELD.ST_VcfPhysical( value ) ); }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		public string VcfLine_Extended
-		{
-			set { Replace( ORDINAL.VcfExtended, new FIELD.ST_VcfExtended( value ) ); }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		public string ExcelLine_Pattern
-		{
-			set { Replace( ORDINAL.ExcelPattern, new FIELD.ST_ExcelPattern( value ) ); }
 		}
 		#endregion
 	}
