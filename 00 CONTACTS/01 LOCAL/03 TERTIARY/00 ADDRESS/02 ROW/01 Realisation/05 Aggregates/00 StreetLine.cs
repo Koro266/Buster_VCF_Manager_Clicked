@@ -9,12 +9,12 @@ using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class ListViewAddress : BaseAddress
+	public class StreetLine : BaseAddress
 	{
 		private string[] _Result;
 
 		//___________________________________________________________________________________________________________________________________________
-		public ListViewAddress( ADDRESS_ROW address_row ) : base( address_row )
+		public StreetLine( ADDRESS_ROW address_row ) : base( address_row )
 		{
 			string s = BuildAddressRule;
 			_Result = base.RealiseRule( s );

@@ -1,26 +1,26 @@
 ﻿//PERSON_X_ADDRESS: 
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL: 
-using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
-using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
-//LOCAL:PERSON
-using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
-using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
-using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
-//LOCAL:PERSON_X_ADDRESS
-using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
-using SELECT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
-using DELETE_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.Persons_X_Address;
-using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
+using System;
 //LOCAL:ADDRESS
 using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.ListViewAddress;
-using TEXTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TextBoxAddress;
-//using ADDRESS_FRACTIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.DefaultAddress;
+using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
+using DELETE_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Delete.Persons_X_Address;
 //INTERFACE:
 using FIND_ADDRESS		= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 using FIND_PERSON		= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
+using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
+using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.ListViewAddress;
+using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
+//LOCAL:PERSON
+using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
+using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
+using SELECT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
+using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
+using TEXTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TextBoxAddress;
+//LOCAL:PERSON_X_ADDRESS
+using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONNECTORS
@@ -73,9 +73,9 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
 			DisplayPerson();
-			DisplayAddress();
-			DisplayAddressByTextBox();
-			//DisplayPersonsAddresses();
+			DisplayListViewAddress();
+			DisplayTextBoxAddress();
+			DisplayPersonsAddresses();
 		}
 		#endregion
 
@@ -109,7 +109,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			set
 			{
 				_AddressRow = value;
-				DisplayAddress();
+				DisplayTextBoxAddress();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -224,45 +224,33 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			tbx_PersonName.Text = Person.NaturalName.AsIs;
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		private void DisplayAddress()
+		private void DisplayListViewAddress()
 		{
-			lbx_Address.Items.Clear();
+			//lbx_Address.Items.Clear();
 
-			tbx_PkAddress.Text = this.PkAddressAsText;
+			//tbx_PkAddress.Text = this.PkAddressAsText;
 
-			//LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address );
-			//lbx_Address.Items.AddRange( listview_address.Result );
-
-			DisplayAddressPersons();
+			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address );
+			lvw_PersonsAddresses.Items.Clear();
+			lvw_PersonsAddresses.Items.Add( listview_address.RootItem );
+			lvw_PersonsAddresses.Items[0].SubItems.AddRange( listview_address.Subitems );
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		private void DisplayAddressByTextBox()
+		private void DisplayTextBoxAddress()
 		{
-			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address );
-			//TEXTBOX_ADDRESS textbox_address = new TEXTBOX_ADDRESS( _AddressRow );
-			//tbx_Address.Lines = listview_address.PostalAddressLines;
+			TEXTBOX_ADDRESS textbox_address = new TEXTBOX_ADDRESS( _AddressRow );
+			
+			tbx_Address.Clear();
+			tbx_Address.Lines = textbox_address.Lines;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()
 		{
 			ADDRESS_ROW[] address_rows = GetPersonsAddresses;
-			int count = address_rows.Count();
 
 			lvw_PersonsAddresses.Items.Clear();
-
-			for ( int index = 0; index < count; index++ )
+			for ( int index = 0; index < address_rows.Count(); index++ )
 			{
-//				/pk<:>				PK
-//				/hn /sn /st /cp<:>	Street
-//				/sb /ct<:>			Suburb City
-//				/mt /pv (%pa)<:>	Metro Province
-//				/bx /rd /pc<:>		Mail
-//				/as /ex /lv /un<:>	Extensions
-//				/cy, /cd<:>			Country name & code
-//				/si, /li<:>			ISO codes
-//				FK=/fk<:>			FK
-//				/nt					Notes
-
 				LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( address_rows[index] );
 				lvw_PersonsAddresses.Items.Add( listview_address.RootItem );
 				lvw_PersonsAddresses.Items[index].SubItems.AddRange( listview_address.Subitems );

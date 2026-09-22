@@ -23,6 +23,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			private static string no_FINDER_Value = "as";
 			private static string Address_Token = "/as ";
 			private NULL_TEXT type_null_pair;
+			//                  234567890123456789012
+			private string x = "100000000000000000000";
 			#endregion
 
 

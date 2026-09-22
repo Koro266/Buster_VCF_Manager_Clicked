@@ -1,7 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 using System.Text.RegularExpressions;
 //GLOBAL
-using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
@@ -12,7 +11,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	//___________________________________________________________________________________________________________________________________________
 	public class TheGiantSwitch
 	{
-		private ADDRESS_ROW _AddressRow;
+		protected ADDRESS_ROW _AddressRow;
 
 		//___________________________________________________________________________________________________________________________________________
 		public TheGiantSwitch( ADDRESS_ROW address_row )

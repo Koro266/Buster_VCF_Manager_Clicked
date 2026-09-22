@@ -1,9 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-using System;
-using System.Linq;
 using System.Text.RegularExpressions;
 //GLOBAL
-using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
@@ -15,7 +12,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	//___________________________________________________________________________________________________________________________________________
 	public class BaseAddress : TheGiantSwitch
 	{
-		private static string SplitPattern	= "<:>";
+		private static string _SplitPattern	= "<:>";
 
 		//___________________________________________________________________________________________________________________________________________
 		public BaseAddress( ADDRESS_ROW address_row ) : base( address_row )
@@ -30,7 +27,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			s = base.RealiseAddressRule( address_rule );
 			s = this.RemoveUnusedReconCodes(s);
 
-			ss = Regex.Split( s, SplitString );
+			ss = Regex.Split( s, this.SplitPattern );
 			ss = SHORT_TXT.RectifyStrings( ss );
 
 			return ss;
@@ -61,7 +58,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		virtual public string IsoShort		{ get { return RECON.ShortIsoCode_AsIs; } }
 		virtual public string IsoLong		{ get { return RECON.LongIsoCode_AsIs; } }
 
-		virtual public string SplitString	{ get { return SplitPattern; } }
+		virtual public string SplitPattern	{ get { return _SplitPattern; } }
+		//___________________________________________________________________________________________________________________________________________
+		virtual public bool IsPostBox { get { return _AddressRow.BoxNumber.IsNotNull; } }
 
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -99,29 +98,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 }
 /*
 		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns the entire string array that derives from the default address-rule. 
-		/// </summary>
-		virtual public string[] Result
-		{
-			get { return _Result; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Return the 1st item (index=0) of the result array.
-		/// </summary>
-		virtual public string RootItem
-		{
-			get { return _Result[0]; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns items from index=1 to n of the result array.
-		/// </summary>
-		virtual public string[] Subitems
-		{
-			get { return _Result[1..]; }
-		}		//___________________________________________________________________________________________________________________________________________
 		private string[] ExtractLines(params int[] indices)
 		{
 			return indices
@@ -129,53 +105,5 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 				.Select( i => _Result[i] )
 				.Where( line => !string.IsNullOrWhiteSpace( line ) )
 				.ToArray();
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns an empty string array
-		/// </summary>
-		virtual public string[] Result
-		{
-			get { return new string[] { }; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string intended to be assigned to the ListView.Item property.
-		/// </summary>
-		virtual public string RootItem
-		{
-			get { return String.Empty; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to the ListView.SubItems property.
-		/// </summary>
-		virtual public string[] Subitems
-		{
-			get { return Result[1..]; }
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to a ListBox.Items property.
-		/// </summary>
-		virtual public string[] ListBoxItems()
-		{
-			return Result;
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to the TextBox.Lines property.
-		/// </summary>
-		virtual public string[] TextBoxLines()
-		{
-			return Result;
-		}
-		//_______________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns a string[] intended to be assigned to a VCF output file; i.e., a 'vertical' address format.
-		/// </summary>
-		virtual public string[] VcfAddress()
-		{
-			return Result;
 		}
  */
