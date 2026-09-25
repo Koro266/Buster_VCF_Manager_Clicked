@@ -126,7 +126,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		private XADDRESS_ROW PersonXAddressRow
 		{
 			get { return _PersonXAddressRow; }
-			set { _PersonXAddressRow = value;  }
+			set { _PersonXAddressRow = value; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private int PkPersonAddress
@@ -177,7 +177,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		/// </summary>
 		private ADDRESS_ROW[] GetPersonsAddresses
 		{
-			get 
+			get
 			{
 				Dictionary<int, BASE_ROW> base_rows = new SELECT_P_X_A.ByPkPerson( Person.PkPerson.Value ).Execute;
 				ADDRESS_ROW[] address_rows = new ADDRESS_ROW[base_rows.Count];
@@ -239,7 +239,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		private void DisplayTextBoxAddress()
 		{
 			TEXTBOX_ADDRESS textbox_address = new TEXTBOX_ADDRESS( _AddressRow );
-			
+
 			tbx_Address.Clear();
 			tbx_Address.Lines = textbox_address.Lines;
 		}
@@ -299,10 +299,15 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			_Messenger.Message = "Disconnected ...";
 		}
 		#endregion
+
+		private void Person_X_Address_Load( object sender, EventArgs e )
+		{
+
+		}
 	}
 }
 /* This here because VS thinks its ordering of alias declarations is superior to mine.
- 
+
 //PERSON_X_ADDRESS: 
 using System;
 //___________________________________________________________________________________________________________________________________________________

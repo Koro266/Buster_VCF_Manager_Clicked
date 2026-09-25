@@ -194,6 +194,11 @@ namespace CONTACTS.GLOBAL.DATABASE.COLUMN
 			return result_string.Replace( target_string, place_holder_value.AsIs );
 		}
 		//___________________________________________________________________________________________________________________________________________
+		virtual public string UnValue
+		{
+			get { return String.Empty; }
+		}
+		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns value formatted for use in a Find this-or-that context.
 		/// </summary>

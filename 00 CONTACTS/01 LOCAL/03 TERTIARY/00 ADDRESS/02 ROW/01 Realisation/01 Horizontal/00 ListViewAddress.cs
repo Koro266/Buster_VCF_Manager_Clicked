@@ -4,6 +4,7 @@ using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
+using STREET_LINE	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.StreetLine;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
@@ -12,12 +13,20 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	public class ListViewAddress : BaseAddress
 	{
 		private string[] _Result;
+		private STREET_LINE _StreetLine;
 
 		//___________________________________________________________________________________________________________________________________________
 		public ListViewAddress( ADDRESS_ROW address_row ) : base( address_row )
 		{
+			_StreetLine = new STREET_LINE( address_row );
+
 			string s = BuildAddressRule;
 			_Result = base.RealiseRule( s );
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private STREET_LINE StreetLine
+		{
+			get { return _StreetLine; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -32,7 +41,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 				string rule = String.Empty;
 
 				rule += PkAddress										+ base.SplitPattern;
-				rule += HouseNumber + StreetName + StreetType + Compass	+ base.SplitPattern;
+				rule += StreetLine.Rule									+ base.SplitPattern;
 				rule += Suburb + City									+ base.SplitPattern;
 				rule += Metropolitan + Province + ProvCode				+ base.SplitPattern;
 				rule += BoxNumber + RuralDelivery + PostalCode			+ base.SplitPattern;
@@ -50,10 +59,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
 		override public string PkAddress		{ get { return base.PkAddress; } }
-		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
-		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
-		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
-		override public string Compass			{ get { return RECON.Compass_UPPER; } }
 		override public string Suburb			{ get { return base.Suburb + ", "; } }
 		override public string City				{ get { return base.City; } }
 		override public string Metropolitan		{ get { return base.Metropolitan + ", "; } }

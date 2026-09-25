@@ -11,82 +11,56 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	//___________________________________________________________________________________________________________________________________________
 	public class StreetLine : BaseAddress
 	{
-		private string[] _Result;
+		private static string _UnValue = "no street data";
+		//_is_ExtantData = false if ALL columns that contribute to the street line are null. 
+		private bool _is_ExtantData = false;
 
 		//___________________________________________________________________________________________________________________________________________
 		public StreetLine( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			string s = BuildAddressRule;
-			_Result = base.RealiseRule( s );
+			_is_ExtantData = base.IsDataExtant(
+				address_row.HouseNumber,
+				address_row.StreetName,
+				address_row.StreetType,
+				address_row.Compass
+			);
 		}
-		//___________________________________________________________________________________________________________________________________________
+		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that incorporates the columns that are specific to use in a ListView.
-		/// Typically that means all of the columns in an address row.
-		/// "/pk<:>/hn /sn /st %cp<:>/sb /ct<:>/mt /pv (%pa)<:>/bx /rd /pc<:>/as /ex /lv /un<:>/fk<:>/cy, /cd<:>/si, /li<:>/nt";
+		/// Returns an address rule that assembles a 'default' street address:
+		/// "/hn /sn /st %cp" <= NB: no appended space, no split pattern.
+		/// If all columns are null, returns "no street data".
 		/// </summary>
-		private string BuildAddressRule
+		public string Rule
 		{
 			get
 			{
-				string rule = String.Empty;
-
-				rule += PkAddress										+ base.SplitPattern;
-				rule += HouseNumber + StreetName + StreetType + Compass	+ base.SplitPattern;
-				rule += Suburb + City									+ base.SplitPattern;
-				rule += Metropolitan + Province + ProvCode				+ base.SplitPattern;
-				rule += BoxNumber + RuralDelivery + PostalCode			+ base.SplitPattern;
-				rule += Assemblage + Extensions + Level + Unit			+ base.SplitPattern;
-				rule += PkCountry										+ base.SplitPattern;
-				rule += Country + TeleCode								+ base.SplitPattern;
-				rule += IsoLong + IsoShort								+ base.SplitPattern;
-				rule += Notes;
-
-				return rule;
+				if ( IsExtantData )
+					return BuildAddressRule;
+				else
+					return _UnValue;
 			}
+		}
+		//___________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns true if at least one street line column is not null.
+		/// </summary>
+		public bool IsExtantData
+		{
+			get { return _is_ExtantData; }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private string BuildAddressRule
+		{
+			get { return HouseNumber + StreetName + StreetType + Compass; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string PkAddress		{ get { return base.PkAddress; } }
 		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
 		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
 		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
 		override public string Compass			{ get { return RECON.Compass_UPPER; } }
-		override public string Suburb			{ get { return base.Suburb + ", "; } }
-		override public string City				{ get { return base.City; } }
-		override public string Metropolitan		{ get { return base.Metropolitan + ", "; } }
-		override public string Province			{ get { return base.Province + CONST.OneSpace; } }
-		override public string ProvCode			{ get { return "(" + RECON.ProvinceCode_UPPER + ")"; } }
-		override public string BoxNumber		{ get { return base.BoxNumber + CONST.OneSpace; } }
-		override public string RuralDelivery	{ get { return base.RuralDelivery + CONST.OneSpace; } }
-		override public string PostalCode		{ get { return base.PostalCode; } }
-		override public string Assemblage		{ get { return base.Assemblage + CONST.OneSpace; } }
-		override public string Extensions		{ get { return base.Extensions + CONST.OneSpace; } }
-		override public string Level			{ get { return base.Level + CONST.OneSpace; } }
-		override public string Unit				{ get { return base.Unit; } }
-		override public string PkCountry		{ get { return base.PkCountry; } }
-		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
-		override public string TeleCode			{ get { return "(" + base.TeleCode + ")"; } }
-		override public string IsoLong			{ get { return base.IsoLong + ", "; } }
-		override public string IsoShort			{ get { return base.IsoShort; } }
-		override public string Notes			{ get { return base.Notes; } }
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Return the 1st item (index=0) of the result array.
-		/// </summary>
-		virtual public string RootItem
-		{
-			get { return _Result[0]; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns items from index=1 to n of the result array.
-		/// </summary>
-		virtual public string[] Subitems
-		{
-			get { return _Result[1..]; }
-		}
 	}
 }

@@ -42,16 +42,16 @@
 			hdr_IsoCodes = new ColumnHeader();
 			hdr_Notes = new ColumnHeader();
 			tbx_PkPerson = new TextBox();
+			btn_Connect = new Button();
 			tbx_PersonName = new TextBox();
 			btn_FindPerson = new Button();
 			grp_Address = new GroupBox();
-			tbx_Address = new TextBox();
 			lbx_AttachedPersons = new ListBox();
 			tbx_PkAddress = new TextBox();
 			lbx_Address = new ListBox();
 			btn_FindAddress = new Button();
+			tbx_Address = new TextBox();
 			btn_Disconnect = new Button();
-			btn_Connect = new Button();
 			btn_Close = new Button();
 			tbx_Messages = new TextBox();
 			grp_Person.SuspendLayout();
@@ -147,6 +147,18 @@
 			tbx_PkPerson.Size = new Size( 50, 23 );
 			tbx_PkPerson.TabIndex = 3;
 			// 
+			// btn_Connect
+			// 
+			btn_Connect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_Connect.Location = new Point( 427, 22 );
+			btn_Connect.Name = "btn_Connect";
+			btn_Connect.Size = new Size( 121, 32 );
+			btn_Connect.TabIndex = 0;
+			btn_Connect.Text = "Connect";
+			btn_Connect.UseVisualStyleBackColor = true;
+			btn_Connect.Click +=  btn_Connect_Click ;
+			// 
 			// tbx_PersonName
 			// 
 			tbx_PersonName.Location = new Point( 79, 51 );
@@ -178,17 +190,6 @@
 			grp_Address.TabIndex = 1;
 			grp_Address.TabStop = false;
 			grp_Address.Text = "Address";
-			// 
-			// tbx_Address
-			// 
-			tbx_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
-			tbx_Address.Location = new Point( 749, 268 );
-			tbx_Address.Multiline = true;
-			tbx_Address.Name = "tbx_Address";
-			tbx_Address.Size = new Size( 454, 216 );
-			tbx_Address.TabIndex = 4;
-			tbx_Address.Text = "tbx_Address";
 			// 
 			// lbx_AttachedPersons
 			// 
@@ -228,6 +229,17 @@
 			btn_FindAddress.UseVisualStyleBackColor = true;
 			btn_FindAddress.Click +=  btn_FindAddress_Click ;
 			// 
+			// tbx_Address
+			// 
+			tbx_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
+			tbx_Address.Location = new Point( 749, 268 );
+			tbx_Address.Multiline = true;
+			tbx_Address.Name = "tbx_Address";
+			tbx_Address.Size = new Size( 454, 216 );
+			tbx_Address.TabIndex = 4;
+			tbx_Address.Text = "tbx_Address";
+			// 
 			// btn_Disconnect
 			// 
 			btn_Disconnect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
@@ -239,18 +251,6 @@
 			btn_Disconnect.Text = "Disconnect";
 			btn_Disconnect.UseVisualStyleBackColor = true;
 			btn_Disconnect.Click +=  btn_Disconnect_Click ;
-			// 
-			// btn_Connect
-			// 
-			btn_Connect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Connect.Location = new Point( 427, 22 );
-			btn_Connect.Name = "btn_Connect";
-			btn_Connect.Size = new Size( 121, 32 );
-			btn_Connect.TabIndex = 0;
-			btn_Connect.Text = "Connect";
-			btn_Connect.UseVisualStyleBackColor = true;
-			btn_Connect.Click +=  btn_Connect_Click ;
 			// 
 			// btn_Close
 			// 
@@ -290,6 +290,7 @@
 			Controls.Add( grp_Person );
 			Name = "Person_X_Address";
 			Text = "Person_X_Address";
+			Load +=  Person_X_Address_Load ;
 			grp_Person.ResumeLayout( false );
 			grp_Person.PerformLayout();
 			grp_Address.ResumeLayout( false );

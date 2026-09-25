@@ -19,12 +19,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.Assemblage];
-			private static string no_VCF_Value = "asm,";
-			private static string no_FINDER_Value = "as";
-			private static string Address_Token = "/as ";
+			private static string _UnValue = "asm";
 			private NULL_TEXT type_null_pair;
-			//                  234567890123456789012
-			private string x = "100000000000000000000";
 			#endregion
 
 
@@ -57,21 +53,13 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				return base.Value;
 			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns value formatted for use in a Find this-or-that context.
-			/// </summary>
-			override public string FinderValue
-			{
-				get { return base.FinderValue == String.Empty ? no_FINDER_Value : base.AsIs; }
-			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns ExcelPattern as used in a VCF file.
+			/// Returns 'un-value' if the underlying value is null.
 			/// </summary>
-			override public string VcfValue
+			override public string UnValue
 			{
-				get { return base.VcfValue == String.Empty ? no_VCF_Value : base.AsIs; }
+				get { return base.IsNull ? _UnValue : base.AsIs; }
 			}
 			#endregion
 

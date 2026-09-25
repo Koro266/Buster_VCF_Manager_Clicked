@@ -21,10 +21,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			get
 			{ 
 				return
-					HouseNumber.IsNotNull &&
-					StreetName.IsNotNull &&
-					StreetType.IsNotNull &&
-					Compass.IsNotNull;
+					HouseNumber.IsNull &&
+					StreetName.IsNull &&
+					StreetType.IsNull &&
+					Compass.IsNull;
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________

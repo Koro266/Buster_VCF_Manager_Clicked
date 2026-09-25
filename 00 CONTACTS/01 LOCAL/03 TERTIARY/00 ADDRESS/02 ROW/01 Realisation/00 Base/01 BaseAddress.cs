@@ -59,8 +59,23 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		virtual public string IsoLong		{ get { return RECON.LongIsoCode_AsIs; } }
 
 		virtual public string SplitPattern	{ get { return _SplitPattern; } }
+
 		//___________________________________________________________________________________________________________________________________________
-		virtual public bool IsPostBox { get { return _AddressRow.BoxNumber.IsNotNull; } }
+		/// <summary>
+		/// Loops through columns looking for extant data.
+		/// </summary>
+		/// <param name="columns"></param>
+		/// <returns>Returns true if there is at least one non-null column.</returns>
+		public bool IsDataExtant(params SHORT_TXT[] columns)
+		{
+			bool result = false;
+			for ( int i = 0; i < columns.Length; i++ )
+			{
+				if ( columns[i].IsNotNull )
+					return true;
+			}
+			return false;
+		}
 
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>

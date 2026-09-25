@@ -19,8 +19,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		{
 			#region DECLARATIONS
 			private static FACTORS column_factors = CONST.Factors[ORDINAL.StreetType];
-			private static string no_VCF_Value = "typ,";
-			private static string no_FINDER_Value = "st";
+			private static string _UnValue = "stp";
 			private NULL_TEXT type_null_pair;
 			#endregion
 
@@ -54,21 +53,13 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			{
 				return base.Value;
 			}
-			//___________________________________________________________________________________________________________________________________________
-			/// <summary>
-			/// Returns value formatted for use in a Find this-or-that context.
-			/// </summary>
-			override public string FinderValue
-			{
-				get { return base.FinderValue == String.Empty ? no_FINDER_Value : base.AsIs; }
-			}
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns ExcelPattern as used in a VCF file.
+			/// Returns 'un-value' if the underlying value is null.
 			/// </summary>
-			override public string VcfValue
+			override public string UnValue
 			{
-				get { return base.VcfValue == String.Empty ? no_VCF_Value : base.AsIs; }
+				get { return base.IsNull ? _UnValue : base.AsIs; }
 			}
 			#endregion
 
