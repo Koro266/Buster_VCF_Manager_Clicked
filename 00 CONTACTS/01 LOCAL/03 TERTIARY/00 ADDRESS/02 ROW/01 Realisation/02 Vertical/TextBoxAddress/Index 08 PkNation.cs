@@ -3,25 +3,28 @@
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index00_PkAddress : BaseAddress
+	public class Index08_PkNation : BaseAddress
 	{
 		private ADDRESS_ROW _Address;
-		private ListView _ListView;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index00_PkAddress( ADDRESS_ROW address_row, ListView list_view ) : base( address_row )
+		public Index08_PkNation( ADDRESS_ROW address_row) : base( address_row )
 		{
 			AddressRow = address_row;
-			ListViewControl = list_view;
-			ListViewControl.Items.Clear();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public ListViewItem InsertColumnValue()
+		public void InsertLineValue( TextBox text_box )
 		{
-			return ListViewControl.Items.Add( AddressRow.PkAddress.AsString );
+			string s;
+
+			s = "PK Country = ";
+			s = s + AddressRow.FkCountry.AsString;
+			s = s + Environment.NewLine;
+
+			text_box.AppendText( s );
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -31,15 +34,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
 		{
 			get { return _Address; }
 			set { _Address = value; }
-		}
-		//___________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Gets/sets ListView control object.
-		/// </summary>
-		private ListView ListViewControl
-		{
-			get { return _ListView; }
-			set { _ListView = value; }
 		}
 	}
 }

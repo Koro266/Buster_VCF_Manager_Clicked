@@ -231,10 +231,11 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayTextBoxAddress()
 		{
-			TEXTBOX_ADDRESS textbox_address = new TEXTBOX_ADDRESS( _AddressRow );
+			TEXTBOX_ADDRESS textbox_address = new TEXTBOX_ADDRESS( _AddressRow, tbx_Address );
+			textbox_address.InsertLineValues();
 
-			tbx_Address.Clear();
-			tbx_Address.Lines = textbox_address.Lines;
+			//tbx_Address.Clear();
+			//tbx_Address.Lines = textbox_address.Lines;
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()

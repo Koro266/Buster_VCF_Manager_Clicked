@@ -5,6 +5,14 @@ using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
+using IDX01_STREET		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index01_Street;
+using IDX02_CITY		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index02_City;
+using IDX03_METRO		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index03_Metro;
+using IDX04_POSTAL		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index04_Postal;
+using IDX05_EXTENSIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index05_Extensions;
+using IDX06_COUNTRY		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index06_Country;
+using IDX07_PK_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index07_PkAddress;
+using IDX08_PK_NATION	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.Index08_PkNation;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL
@@ -12,74 +20,52 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL
 	//___________________________________________________________________________________________________________________________________________
 	public class TextBoxAddress : BaseAddress
 	{
-		private static string AddressPattern = 
-			"/hn /sn /st %cp<:>" +
-			"/sb /ct<:>" +
-			"/mt /pv (%pa)<:>" +
-			"/bx /rd /pc<:>" +
-			"/as /ex /lv /un<:>" +
-			"/cy<:>" +
-			"/nt<:>" +
-			"/PK Address = pk<:>" +
-			"/PK Country = fk";
-		private string[] _Result;
+		private TextBox _TextBox;
+		private IDX01_STREET		_Street;
+		private IDX02_CITY			_City;
+		private IDX03_METRO			_Metro;
+		private IDX04_POSTAL		_Postal;
+		private IDX05_EXTENSIONS	_Extensions;
+		private IDX06_COUNTRY		_Country;
+		private IDX07_PK_ADDRESS	_PkAddress;
+		private IDX08_PK_NATION		_PkNation;
 
 		//___________________________________________________________________________________________________________________________________________
-		public TextBoxAddress( ADDRESS_ROW address_row ) : base( address_row )
+		public TextBoxAddress( ADDRESS_ROW address_row, TextBox text_box ) : base( address_row )
 		{
-			string s = BuildAddressRule;
-			_Result = base.RealiseRule( s );
+			TextBoxControl = text_box;
+			TextBoxControl.Multiline = true;
+
+			_Street = new IDX01_STREET( address_row );
+			_City = new IDX02_CITY( address_row );
+			_Metro = new IDX03_METRO( address_row );
+			_Postal = new IDX04_POSTAL( address_row );
+			_Extensions = new IDX05_EXTENSIONS( address_row );
+			_Country = new IDX06_COUNTRY( address_row );
+			_PkAddress = new IDX07_PK_ADDRESS( address_row );
+			_PkNation = new IDX08_PK_NATION( address_row );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns Fully constructed Address Rule.
-		/// "/pk<:>/hn /sn /st %cp<:>/sb /ct<:>/mt /pv (%pa)<:>/bx /rd /pc<:>/as /ex /lv /un<:>/fk<:>/cy, /cd<:>/si, /li<:>/nt";
-		/// </summary>
-		private string BuildAddressRule
+		public void InsertLineValues()
 		{
-			get
-			{
-				string rule = String.Empty;
-
-				rule += HouseNumber + StreetName + StreetType + Compass	+ base.SplitPattern;
-				rule += Suburb + City									+ base.SplitPattern;
-				rule += Metropolitan									+ base.SplitPattern;
-				rule += BoxNumber + RuralDelivery + PostalCode			+ base.SplitPattern;
-				rule += Assemblage + Extensions + Level + Unit			+ base.SplitPattern;
-				rule += Country + TeleCode;
-
-				return rule;
-			}
+			TextBoxControl.Clear();
+			_Street.InsertLineValue( TextBoxControl );
+			_City.InsertLineValue( TextBoxControl );
+			_Metro.InsertLineValue( TextBoxControl );
+			_Postal.InsertLineValue( TextBoxControl );
+			_Extensions.InsertLineValue( TextBoxControl );
+			_Country.InsertLineValue( TextBoxControl );
+			_PkAddress.InsertLineValue( TextBoxControl );
+			_PkNation.InsertLineValue( TextBoxControl );
 		}
-		//___________________________________________________________________________________________________________________________________________
-		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
-		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
-		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
-		override public string Compass			{ get { return RECON.Compass_UPPER; } }
-
-		override public string Suburb			{ get { return base.Suburb + ", "; } }
-		override public string City				{ get { return base.City; } }
-
-		override public string Metropolitan		{ get { return base.Metropolitan + ", "; } }
-		override public string PostalCode		{ get { return base.PostalCode; } }
-
-		override public string BoxNumber		{ get { return "PO Box" + base.BoxNumber + CONST.OneSpace; } }
-		override public string RuralDelivery	{ get { return base.RuralDelivery + CONST.OneSpace; } }
-
-		override public string Assemblage		{ get { return base.Assemblage + CONST.OneSpace; } }
-		override public string Extensions		{ get { return base.Extensions + CONST.OneSpace; } }
-		override public string Level			{ get { return base.Level + CONST.OneSpace; } }
-		override public string Unit				{ get { return base.Unit; } }
-
-		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
-		override public string TeleCode			{ get { return "(" + base.TeleCode + ")"; } }
-		//___________________________________________________________________________________________________________________________________________
+		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns result array.
+		/// Gets/sets TextBox control object.
 		/// </summary>
-		public string[] Lines
+		private TextBox TextBoxControl
 		{
-			get { return _Result; }
+			get { return _TextBox; }
+			set { _TextBox = value; }
 		}
 	}
 }

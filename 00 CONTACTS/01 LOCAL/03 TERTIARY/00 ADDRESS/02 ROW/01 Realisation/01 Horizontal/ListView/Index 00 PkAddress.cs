@@ -3,25 +3,25 @@
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class Index00_PkAddress : BaseAddress
 	{
 		private ADDRESS_ROW _Address;
-		private TextBox _TextBox;
+		private ListView _ListView;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index00_PkAddress( ADDRESS_ROW address_row, TextBox text_box ) : base( address_row )
+		public Index00_PkAddress( ADDRESS_ROW address_row, ListView list_view ) : base( address_row )
 		{
 			AddressRow = address_row;
-			TextBoxControl = text_box;
-			TextBoxControl.Clear();
+			ListViewControl = list_view;
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public string InsertColumnValue()
+		public ListViewItem InsertColumnValue()
 		{
-			return "";// TextBoxControl.Lines..Add( AddressRow.PkAddress.AsString );
+			ListViewControl.Items.Clear();
+			return ListViewControl.Items.Add( AddressRow.PkAddress.AsString );
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -34,12 +34,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Gets/sets TextBox control object.
+		/// Gets/sets ListView control object.
 		/// </summary>
-		private TextBox TextBoxControl
+		private ListView ListViewControl
 		{
-			get { return _TextBox; }
-			set { _TextBox = value; }
+			get { return _ListView; }
+			set { _ListView = value; }
 		}
 	}
 }
