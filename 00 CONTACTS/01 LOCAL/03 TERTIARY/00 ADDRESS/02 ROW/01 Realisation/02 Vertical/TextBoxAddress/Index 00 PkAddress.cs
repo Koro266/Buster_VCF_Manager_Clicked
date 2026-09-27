@@ -1,45 +1,45 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index07_Country : BaseAddress
+	public class Index00_PkAddress : BaseAddress
 	{
+		private ADDRESS_ROW _Address;
+		private TextBox _TextBox;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index07_Country( ADDRESS_ROW address_row ) : base( address_row )
+		public Index00_PkAddress( ADDRESS_ROW address_row, TextBox text_box ) : base( address_row )
 		{
+			AddressRow = address_row;
+			TextBoxControl = text_box;
+			TextBoxControl.Clear();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertColumnValue( ListViewItem list_view_item )
+		public string InsertColumnValue()
 		{
-			string s = String.Empty;
-
-			s = this.Rule;
-			s = base.RealiseAddressRule( s );
-
-			list_view_item.SubItems.Add( s );
+			return "";// TextBoxControl.Lines..Add( AddressRow.PkAddress.AsString );
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that assembles a 'default' country line.
+		/// Gets/sets Address row.
 		/// </summary>
-		public string Rule
+		private ADDRESS_ROW AddressRow
 		{
-			get
-			{
-				return Country + TeleCode;
-			}
+			get { return _Address; }
+			set { _Address = value; }
 		}
-		//___________________________________________________________________________________________________________________________________________
+		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Override all the base class reconstruction codes that need a specific function in this class. 
+		/// Gets/sets TextBox control object.
 		/// </summary>
-		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
-		override public string TeleCode			{ get { return "(" + base.TeleCode + ")"; } }
+		private TextBox TextBoxControl
+		{
+			get { return _TextBox; }
+			set { _TextBox = value; }
+		}
 	}
 }

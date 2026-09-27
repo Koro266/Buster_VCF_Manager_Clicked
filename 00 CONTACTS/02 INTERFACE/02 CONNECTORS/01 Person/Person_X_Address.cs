@@ -1,5 +1,4 @@
-﻿//PERSON_X_ADDRESS: 
-//___________________________________________________________________________________________________________________________________________________
+﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL: 
 using System;
 //LOCAL:ADDRESS
@@ -11,14 +10,14 @@ using FIND_ADDRESS		= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 using FIND_PERSON		= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
-using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.ListViewAddress;
+using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.ListViewAddress;
 using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL:PERSON
 using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using SELECT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
 using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
-using TEXTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TextBoxAddress;
+using TEXTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TextBoxAddress;
 //LOCAL:PERSON_X_ADDRESS
 using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
 
@@ -226,10 +225,6 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayListViewAddress()
 		{
-			//lbx_Address.Items.Clear();
-
-			//tbx_PkAddress.Text = this.PkAddressAsText;
-
 			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address, lvw_PersonsAddresses );
 			listview_address.InsertAddressValues();
 		}
@@ -244,6 +239,9 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()
 		{
+			//lbx_Address.Items.Clear();
+
+			//tbx_PkAddress.Text = this.PkAddressAsText;
 			//ADDRESS_ROW[] address_rows = GetPersonsAddresses;
 
 			//lvw_PersonsAddresses.Items.Clear();
