@@ -1,10 +1,16 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
-using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
-using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
-using STREET_LINE	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.StreetLine;
+using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using IDX00_PK_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index00_PkAddress;
+using IDX01_STREET		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index01_Street;
+using IDX02_CITY		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index02_City;
+using IDX03_METRO		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index03_Metro;
+using IDX04_POSTAL		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index04_Postal;
+using IDX05_EXTENSIONS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index05_Extensions;
+using IDX06_PK_NATION	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index06_PkNation;
+using IDX07_COUNTRY		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index07_Country;
+using IDX08_ISOCODES	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index08_IsoCodes;
+using IDX09_NOTES		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.Index09_Notes;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
@@ -12,86 +18,44 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 	//___________________________________________________________________________________________________________________________________________
 	public class ListViewAddress : BaseAddress
 	{
-		private string[] _Result;
-		private STREET_LINE _StreetLine;
+		private IDX00_PK_ADDRESS	_PkAddress;
+		private IDX01_STREET		_Street;
+		private IDX02_CITY			_City;
+		private IDX03_METRO			_Metro;
+		private IDX04_POSTAL		_Postal;
+		private IDX05_EXTENSIONS	_Extensions;
+		private IDX06_PK_NATION		_PkNation;
+		private IDX07_COUNTRY		_Country;
+		private IDX08_ISOCODES		_IsoCodes;
+		private IDX09_NOTES			_Notes;
 
 		//___________________________________________________________________________________________________________________________________________
-		public ListViewAddress( ADDRESS_ROW address_row ) : base( address_row )
+		public ListViewAddress( ADDRESS_ROW address_row, ListView list_view ) : base( address_row )
 		{
-			_StreetLine = new STREET_LINE( address_row );
-
-			string s = BuildAddressRule;
-			_Result = base.RealiseRule( s );
+			_PkAddress	= new IDX00_PK_ADDRESS( address_row, list_view );
+			_Street		= new IDX01_STREET( address_row );
+			_City		= new IDX02_CITY( address_row );
+			_Metro		= new IDX03_METRO( address_row );
+			_Postal		= new IDX04_POSTAL( address_row );
+			_Extensions	= new IDX05_EXTENSIONS( address_row );
+			_PkNation	= new IDX06_PK_NATION( address_row );
+			_Country	= new IDX07_COUNTRY( address_row );
+			_IsoCodes	= new IDX08_ISOCODES( address_row );
+			_Notes		= new IDX09_NOTES( address_row );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private STREET_LINE StreetLine
+		public void InsertAddressValues()
 		{
-			get { return _StreetLine; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns an address rule that incorporates the columns that are specific to use in a ListView.
-		/// Typically that means all of the columns in an address row.
-		/// "/pk<:>/hn /sn /st %cp<:>/sb /ct<:>/mt /pv (%pa)<:>/bx /rd /pc<:>/as /ex /lv /un<:>/fk<:>/cy, /cd<:>/si, /li<:>/nt";
-		/// </summary>
-		private string BuildAddressRule
-		{
-			get
-			{
-				string rule = String.Empty;
-
-				rule += PkAddress										+ base.SplitPattern;
-				rule += StreetLine.Rule									+ base.SplitPattern;
-				rule += Suburb + City									+ base.SplitPattern;
-				rule += Metropolitan + Province + ProvCode				+ base.SplitPattern;
-				rule += BoxNumber + RuralDelivery + PostalCode			+ base.SplitPattern;
-				rule += Assemblage + Extensions + Level + Unit			+ base.SplitPattern;
-				rule += PkCountry										+ base.SplitPattern;
-				rule += Country + TeleCode								+ base.SplitPattern;
-				rule += IsoLong + IsoShort								+ base.SplitPattern;
-				rule += Notes;
-
-				return rule;
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Override all the base class reconstruction codes that need a specific function in this class. 
-		/// </summary>
-		override public string PkAddress		{ get { return base.PkAddress; } }
-		override public string Suburb			{ get { return base.Suburb + ", "; } }
-		override public string City				{ get { return base.City; } }
-		override public string Metropolitan		{ get { return base.Metropolitan + ", "; } }
-		override public string Province			{ get { return base.Province + CONST.OneSpace; } }
-		override public string ProvCode			{ get { return "(" + RECON.ProvinceCode_UPPER + ")"; } }
-		override public string BoxNumber		{ get { return base.BoxNumber + CONST.OneSpace; } }
-		override public string RuralDelivery	{ get { return base.RuralDelivery + CONST.OneSpace; } }
-		override public string PostalCode		{ get { return base.PostalCode; } }
-		override public string Assemblage		{ get { return base.Assemblage + CONST.OneSpace; } }
-		override public string Extensions		{ get { return base.Extensions + CONST.OneSpace; } }
-		override public string Level			{ get { return base.Level + CONST.OneSpace; } }
-		override public string Unit				{ get { return base.Unit; } }
-		override public string PkCountry		{ get { return base.PkCountry; } }
-		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
-		override public string TeleCode			{ get { return "(" + base.TeleCode + ")"; } }
-		override public string IsoLong			{ get { return base.IsoLong + ", "; } }
-		override public string IsoShort			{ get { return base.IsoShort; } }
-		override public string Notes			{ get { return base.Notes; } }
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Return the 1st item (index=0) of the result array.
-		/// </summary>
-		virtual public string RootItem
-		{
-			get { return _Result[0]; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns items from index=1 to n of the result array.
-		/// </summary>
-		virtual public string[] Subitems
-		{
-			get { return _Result[1..]; }
+			ListViewItem list_view_item =_PkAddress.InsertColumnValue();
+			_Street.InsertColumnValue( list_view_item );
+			_City.InsertColumnValue( list_view_item );
+			_Metro.InsertColumnValue( list_view_item );
+			_Postal.InsertColumnValue( list_view_item );
+			_Extensions.InsertColumnValue( list_view_item );
+			_PkNation.InsertColumnValue( list_view_item );
+			_Country.InsertColumnValue( list_view_item );
+			_IsoCodes.InsertColumnValue( list_view_item );
+			_Notes.InsertColumnValue( list_view_item );
 		}
 	}
 }

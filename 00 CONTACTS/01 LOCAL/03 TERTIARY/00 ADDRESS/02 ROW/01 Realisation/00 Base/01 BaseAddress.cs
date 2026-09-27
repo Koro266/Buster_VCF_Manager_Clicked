@@ -19,7 +19,12 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public string[] RealiseRule( string address_rule )
+		virtual public string[] RealiseRule()
+		{
+			return new string[] { };
+		}
+		//___________________________________________________________________________________________________________________________________________
+		virtual public string[] RealiseRule( string address_rule )
 		{
 			string s = String.Empty;
 			string[] ss;
@@ -32,34 +37,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 
 			return ss;
 		}
-		//___________________________________________________________________________________________________________________________________________
-		virtual public string PkAddress		{ get { return RECON.PkAddress; } }
-		virtual public string PkCountry		{ get { return RECON.FkCountry; } }
-		virtual public string Notes			{ get { return RECON.Notes; } }
-
-		virtual public string HouseNumber	{ get { return RECON.HouseNumber_AsIs; } }
-		virtual public string StreetName	{ get { return RECON.StreetName_AsIs; } }
-		virtual public string StreetType	{ get { return RECON.StreetType_AsIs; } }
-		virtual public string Compass		{ get { return RECON.Compass_AsIs; } }
-		virtual public string Suburb		{ get { return RECON.Suburb_AsIs; } }
-		virtual public string City			{ get { return RECON.City_AsIs; } }
-		virtual public string Metropolitan	{ get { return RECON.Metropolitan_AsIs; } }
-		virtual public string Province		{ get { return RECON.ProvinceName_AsIs; } }
-		virtual public string ProvCode		{ get { return RECON.ProvinceCode_AsIs; } }
-		virtual public string BoxNumber		{ get { return RECON.BoxNumber_AsIs; } }
-		virtual public string RuralDelivery	{ get { return RECON.RuralDelivery_AsIs; } }
-		virtual public string PostalCode	{ get { return RECON.PostalCode_AsIs; } }
-		virtual public string Assemblage	{ get { return RECON.Assemblage_AsIs; } }
-		virtual public string Extensions	{ get { return RECON.Extension_AsIs; } }
-		virtual public string Level			{ get { return RECON.Level_AsIs; } }
-		virtual public string Unit			{ get { return RECON.Unit_AsIs; } }
-		virtual public string Country		{ get { return RECON.CountryName_AsIs; } }
-		virtual public string TeleCode		{ get { return RECON.CountryCode_AsIs; } }
-		virtual public string IsoShort		{ get { return RECON.ShortIsoCode_AsIs; } }
-		virtual public string IsoLong		{ get { return RECON.LongIsoCode_AsIs; } }
-
-		virtual public string SplitPattern	{ get { return _SplitPattern; } }
-
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Loops through columns looking for extant data.
@@ -81,7 +58,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		/// <summary>
 		/// Remove unused RECON codes for the result string.
 		/// </summary>
-		private string RemoveUnusedReconCodes( string s )
+		virtual public string RemoveUnusedReconCodes( string s )
 		{
 			s = s.Replace( this.PkAddress,		String.Empty ); //Included for completeness. PK_Person recon code is always replaced.
 			s = s.Replace( this.HouseNumber,	String.Empty );
@@ -109,16 +86,37 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 
 			return s;
 		}
+		//___________________________________________________________________________________________________________________________________________
+		virtual public string PkAddress		{ get { return RECON.PkAddress; } }
+		virtual public string PkCountry		{ get { return RECON.FkCountry; } }
+		virtual public string Notes			{ get { return RECON.Notes; } }
+
+		virtual public string HouseNumber	{ get { return RECON.HouseNumber_AsIs; } }
+		virtual public string StreetName	{ get { return RECON.StreetName_AsIs; } }
+		virtual public string StreetType	{ get { return RECON.StreetType_AsIs; } }
+		virtual public string Compass		{ get { return RECON.Compass_UPPER; } }
+
+		virtual public string Suburb		{ get { return RECON.Suburb_AsIs; } }
+		virtual public string City			{ get { return RECON.City_AsIs; } }
+
+		virtual public string Metropolitan	{ get { return RECON.Metropolitan_AsIs; } }
+		virtual public string Province		{ get { return RECON.ProvinceName_UPPER; } }
+		virtual public string ProvCode		{ get { return RECON.ProvinceCode_UPPER; } }
+		
+		virtual public string BoxNumber		{ get { return RECON.BoxNumber_AsIs; } }
+		virtual public string RuralDelivery	{ get { return RECON.RuralDelivery_AsIs; } }
+		virtual public string PostalCode	{ get { return RECON.PostalCode_AsIs; } }
+
+		virtual public string Assemblage	{ get { return RECON.Assemblage_AsIs; } }
+		virtual public string Extensions	{ get { return RECON.Extension_AsIs; } }
+		virtual public string Level			{ get { return RECON.Level_AsIs; } }
+		virtual public string Unit			{ get { return RECON.Unit_AsIs; } }
+		
+		virtual public string Country		{ get { return RECON.CountryName_AsIs; } }
+		virtual public string TeleCode		{ get { return RECON.CountryCode_AsIs; } }
+		virtual public string IsoShort		{ get { return RECON.ShortIsoCode_AsIs; } }
+		virtual public string IsoLong		{ get { return RECON.LongIsoCode_AsIs; } }
+
+		virtual public string SplitPattern	{ get { return _SplitPattern; } }
 	}
 }
-/*
-		//___________________________________________________________________________________________________________________________________________
-		private string[] ExtractLines(params int[] indices)
-		{
-			return indices
-				.Where( i => i >= 0 && i < _Result.Length )
-				.Select( i => _Result[i] )
-				.Where( line => !string.IsNullOrWhiteSpace( line ) )
-				.ToArray();
-		}
- */

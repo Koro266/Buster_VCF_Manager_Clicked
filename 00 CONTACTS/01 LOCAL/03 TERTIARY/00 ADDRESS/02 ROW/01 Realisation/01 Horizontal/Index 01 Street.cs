@@ -1,58 +1,69 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
+using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class StreetLine : BaseAddress
+	public class Index01_Street : BaseAddress
 	{
 		private static string _UnValue = "no street data";
-		//_is_ExtantData = false if ALL columns that contribute to the street line are null. 
-		private bool _is_ExtantData = false;
+		private bool _isDataExtant = false;
 
 		//___________________________________________________________________________________________________________________________________________
-		public StreetLine( ADDRESS_ROW address_row ) : base( address_row )
+		public Index01_Street( ADDRESS_ROW address_row) : base( address_row )
 		{
-			_is_ExtantData = base.IsDataExtant(
+			IsExtantData = base.IsDataExtant
+			(
 				address_row.HouseNumber,
 				address_row.StreetName,
 				address_row.StreetType,
 				address_row.Compass
 			);
 		}
+		//___________________________________________________________________________________________________________________________________________
+		public void InsertColumnValue( ListViewItem list_view_item )
+		{
+			string s = String.Empty;
+
+			s = this.Rule;
+			s = base.RealiseAddressRule( s );
+			s = this.RemoveUnusedCodes( s );
+			s = SHORT_TXT.RectifyString( s );
+
+			list_view_item.SubItems.Add( s );
+		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that assembles a 'default' street address:
-		/// "/hn /sn /st %cp" <= NB: no appended space, no split pattern.
+		/// Returns an address rule that assembles a 'default' street address.
 		/// If all columns are null, returns "no street data".
 		/// </summary>
-		public string Rule
+		private string Rule
 		{
 			get
 			{
 				if ( IsExtantData )
-					return BuildAddressRule;
+					return HouseNumber + StreetName + StreetType + Compass;
 				else
 					return _UnValue;
 			}
 		}
-		//___________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns true if at least one street line column is not null.
-		/// </summary>
-		public bool IsExtantData
-		{
-			get { return _is_ExtantData; }
-		}
 		//___________________________________________________________________________________________________________________________________________
-		private string BuildAddressRule
+		/// <summary>
+		/// Remove unused/unreplaced RECON codes from the result string.
+		/// </summary>
+		private string RemoveUnusedCodes( string s )
 		{
-			get { return HouseNumber + StreetName + StreetType + Compass; }
+			s = s.Replace( this.HouseNumber,	String.Empty );
+			s = s.Replace( this.StreetName,		String.Empty );
+			s = s.Replace( this.StreetType,		String.Empty );
+			s = s.Replace( this.Compass,		String.Empty );
+
+			return s;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -61,6 +72,15 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
 		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
 		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
-		override public string Compass			{ get { return RECON.Compass_UPPER; } }
+		override public string Compass			{ get { return base.Compass; } }
+		//___________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Gets/sets _isDataExtant == true if at least one street line column is NOT null.
+		/// </summary>
+		private bool IsExtantData
+		{
+			get { return _isDataExtant; }
+			set { _isDataExtant = value; }
+		}
 	}
 }

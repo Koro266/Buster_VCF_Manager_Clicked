@@ -243,6 +243,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\05 Aggregates\" />
     <Folder Include="CODE_Helpers\" />
   </ItemGroup>
 

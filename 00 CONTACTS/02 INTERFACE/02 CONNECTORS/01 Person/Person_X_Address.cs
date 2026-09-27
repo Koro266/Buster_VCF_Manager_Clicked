@@ -230,10 +230,8 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 
 			//tbx_PkAddress.Text = this.PkAddressAsText;
 
-			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address );
-			lvw_PersonsAddresses.Items.Clear();
-			lvw_PersonsAddresses.Items.Add( listview_address.RootItem );
-			lvw_PersonsAddresses.Items[0].SubItems.AddRange( listview_address.Subitems );
+			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( Address, lvw_PersonsAddresses );
+			listview_address.InsertAddressValues();
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayTextBoxAddress()
@@ -246,15 +244,15 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayPersonsAddresses()
 		{
-			ADDRESS_ROW[] address_rows = GetPersonsAddresses;
+			//ADDRESS_ROW[] address_rows = GetPersonsAddresses;
 
-			lvw_PersonsAddresses.Items.Clear();
-			for ( int index = 0; index < address_rows.Count(); index++ )
-			{
-				LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( address_rows[index] );
-				lvw_PersonsAddresses.Items.Add( listview_address.RootItem );
-				lvw_PersonsAddresses.Items[index].SubItems.AddRange( listview_address.Subitems );
-			}
+			//lvw_PersonsAddresses.Items.Clear();
+			//for ( int i = 0; i < address_rows.Count(); i++ )
+			//{
+			//	LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( address_rows[i], lvw_PersonsAddresses );
+			//	lvw_PersonsAddresses.Items.Add( listview_address.RootItem );
+			//	lvw_PersonsAddresses.Items[i].SubItems.AddRange( listview_address.Subitems );
+			//}
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayAddressPersons()

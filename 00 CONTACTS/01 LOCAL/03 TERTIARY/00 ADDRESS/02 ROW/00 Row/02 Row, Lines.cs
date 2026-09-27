@@ -14,21 +14,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		#region STREET LINE
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns true if there is at least one street value column that carries a non-null value.
-		/// </summary>
-		public bool IsStreetLine
-		{
-			get
-			{ 
-				return
-					HouseNumber.IsNull &&
-					StreetName.IsNull &&
-					StreetType.IsNull &&
-					Compass.IsNull;
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
 		/// Returns true if there is at least one city value column that carries a non-null value.
 		/// </summary>
 		public bool IsCityLine
