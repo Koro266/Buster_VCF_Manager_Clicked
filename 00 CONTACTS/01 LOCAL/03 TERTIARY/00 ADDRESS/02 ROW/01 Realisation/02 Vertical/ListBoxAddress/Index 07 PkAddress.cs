@@ -1,30 +1,30 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //LOCAL
+using System.Windows.Forms;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.LISTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index08_PkNation : BaseAddress
+	public class Index07_PkAddress : BaseAddress
 	{
 		private ADDRESS_ROW _Address;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index08_PkNation( ADDRESS_ROW address_row) : base( address_row )
+		public Index07_PkAddress( ADDRESS_ROW address_row ) : base( address_row )
 		{
 			AddressRow = address_row;
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertLineValue( TextBox text_box )
+		public void InsertLineValue( ListBox list_box )
 		{
 			string s;
+			
+			s = "PK Address = ";
+			s = s + AddressRow.PkAddress.AsString;
 
-			s = "PK Country = ";
-			s = s + AddressRow.FkCountry.AsString;
-			s = s + Environment.NewLine;
-
-			text_box.AppendText( s );
+			list_box.Items.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>

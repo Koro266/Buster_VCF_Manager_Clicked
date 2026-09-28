@@ -248,7 +248,6 @@
     <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\Excel\" />
     <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\VCF\" />
     <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\ExtendedAddress\" />
-    <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\ListBoxAddress\" />
     <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\PostalAddress\" />
     <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\PhysicalAddress\" />
     <Folder Include="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\05 Aggregates\" />

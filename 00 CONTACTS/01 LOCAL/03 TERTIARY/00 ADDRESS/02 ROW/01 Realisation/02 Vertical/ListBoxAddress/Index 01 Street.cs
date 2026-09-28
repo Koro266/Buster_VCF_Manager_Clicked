@@ -6,46 +6,50 @@ using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.LISTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index02_City : BaseAddress
+	public class Index01_Street : BaseAddress
 	{
 		private bool _isDataExtant = false;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index02_City( ADDRESS_ROW address_row ) : base( address_row )
+		public Index01_Street( ADDRESS_ROW address_row) : base( address_row )
 		{
 			IsExtantData = base.IsDataExtant
 			(
-				address_row.Suburb,
-				address_row.City
+				address_row.HouseNumber,
+				address_row.StreetName,
+				address_row.StreetType,
+				address_row.Compass
 			);
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertLineValue( TextBox text_box )
+		public void InsertLineValue( ListBox list_box )
 		{
 			if ( IsExtantData == false )
 				return;
 
 			string s = String.Empty;
 
-			s = Suburb + City;
+			s =  HouseNumber + StreetName + StreetType + Compass;
 			s = base.RealiseAddressRule( s );
 			s = this.RemoveUnusedCodes( s );
 			s = SHORT_TXT.RectifyString( s );
-			s = s + Environment.NewLine;
+//			s = s + Environment.NewLine;
 
-			text_box.AppendText( s );
+			list_box.Items.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Remove unused/unreplaced RECON codes from the result string.
 		/// </summary>
-		public string RemoveUnusedCodes( string s )
+		private string RemoveUnusedCodes( string s )
 		{
-			s = s.Replace( this.Suburb, String.Empty );
-			s = s.Replace( this.City, String.Empty );
+			s = s.Replace( this.HouseNumber,	String.Empty );
+			s = s.Replace( this.StreetName,		String.Empty );
+			s = s.Replace( this.StreetType,		String.Empty );
+			s = s.Replace( this.Compass,		String.Empty );
 
 			return s;
 		}
@@ -53,8 +57,10 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string Suburb	{ get { return base.Suburb + "," + CONST.OneSpace; } }
-		override public string City		{ get { return base.City; } }
+		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
+		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
+		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
+		override public string Compass			{ get { return base.Compass; } }
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Gets/sets _isDataExtant == true if at least one street line column is NOT null.

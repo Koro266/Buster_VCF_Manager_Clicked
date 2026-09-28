@@ -11,13 +11,14 @@ using FIND_PERSON		= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
 using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using INSERT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Insert.Persons_X_Address;
 using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.ListViewAddress;
+using LISTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.LISTBOX.ListBoxAddress;
 using MESSENGER			= CONTACTS.GLOBAL.TOOLS.Messenger;
 //LOCAL:PERSON
 using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using SELECT_P_X_A		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
 using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
-using TEXTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TextBoxAddress;
+using TEXTBOX_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX.TextBoxAddress;
 //LOCAL:PERSON_X_ADDRESS
 using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
 
@@ -72,6 +73,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
 			DisplayPerson();
+			DisplayListBoxAddress();
 			DisplayListViewAddress();
 			DisplayTextBoxAddress();
 			DisplayPersonsAddresses();
@@ -221,6 +223,12 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		{
 			tbx_PkPerson.Text = PkPersonAsText;
 			tbx_PersonName.Text = Person.NaturalName.AsIs;
+		}
+		//___________________________________________________________________________________________________________________________________________________
+		private void DisplayListBoxAddress()
+		{
+			LISTBOX_ADDRESS listbox_address = new LISTBOX_ADDRESS( Address, lbx_Address );
+			listbox_address.InsertLineValues();
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		private void DisplayListViewAddress()

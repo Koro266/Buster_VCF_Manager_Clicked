@@ -3,7 +3,7 @@
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.LISTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class Index08_PkNation : BaseAddress
@@ -16,15 +16,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
 			AddressRow = address_row;
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertLineValue( TextBox text_box )
+		public void InsertLineValue( ListBox list_box )
 		{
 			string s;
 
 			s = "PK Country = ";
 			s = s + AddressRow.FkCountry.AsString;
-			s = s + Environment.NewLine;
 
-			text_box.AppendText( s );
+			list_box.Items.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>

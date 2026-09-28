@@ -6,7 +6,7 @@ using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.LISTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class Index02_City : BaseAddress
@@ -23,7 +23,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
 			);
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertLineValue( TextBox text_box )
+		public void InsertLineValue( ListBox list_box )
 		{
 			if ( IsExtantData == false )
 				return;
@@ -34,9 +34,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
 			s = base.RealiseAddressRule( s );
 			s = this.RemoveUnusedCodes( s );
 			s = SHORT_TXT.RectifyString( s );
-			s = s + Environment.NewLine;
 
-			text_box.AppendText( s );
+			list_box.Items.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>

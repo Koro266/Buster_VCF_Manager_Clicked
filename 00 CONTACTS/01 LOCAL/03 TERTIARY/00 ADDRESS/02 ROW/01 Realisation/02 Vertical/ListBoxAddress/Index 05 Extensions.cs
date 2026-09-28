@@ -1,51 +1,55 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using System.Windows.Forms;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.LISTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index02_City : BaseAddress
+	public class Index05_Extensions : BaseAddress
 	{
 		private bool _isDataExtant = false;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index02_City( ADDRESS_ROW address_row ) : base( address_row )
+		public Index05_Extensions( ADDRESS_ROW address_row ) : base( address_row )
 		{
 			IsExtantData = base.IsDataExtant
 			(
-				address_row.Suburb,
-				address_row.City
+				address_row.Assemblage,
+				address_row.Level,
+				address_row.Unit,
+				address_row.Extension
 			);
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertLineValue( TextBox text_box )
+		public void InsertLineValue( ListBox list_box )
 		{
 			if ( IsExtantData == false )
 				return;
 
 			string s = String.Empty;
 
-			s = Suburb + City;
+			s = Assemblage + Level + Unit + Extensions;
 			s = base.RealiseAddressRule( s );
 			s = this.RemoveUnusedCodes( s );
 			s = SHORT_TXT.RectifyString( s );
-			s = s + Environment.NewLine;
 
-			text_box.AppendText( s );
+			list_box.Items.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Remove unused/unreplaced RECON codes from the result string.
+		/// Remove unused RECON codes for the result string.
 		/// </summary>
-		public string RemoveUnusedCodes( string s )
+		private string RemoveUnusedCodes( string s )
 		{
-			s = s.Replace( this.Suburb, String.Empty );
-			s = s.Replace( this.City, String.Empty );
+			s = s.Replace( this.HouseNumber, String.Empty );
+			s = s.Replace( this.StreetName, String.Empty );
+			s = s.Replace( this.StreetType, String.Empty );
+			s = s.Replace( this.Compass, String.Empty );
 
 			return s;
 		}
@@ -53,11 +57,13 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string Suburb	{ get { return base.Suburb + "," + CONST.OneSpace; } }
-		override public string City		{ get { return base.City; } }
+		override public string Assemblage	{ get { return base.Assemblage + CONST.OneSpace; } }
+		override public string Level		{ get { return base.Level + CONST.OneSpace; } }
+		override public string Unit			{ get { return base.Unit + CONST.OneSpace; } }
+		override public string Extensions	{ get { return base.Extensions + CONST.OneSpace; } }
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Gets/sets _isDataExtant == true if at least one street line column is NOT null.
+		/// Returns true if at least one extensions column is NOT null.
 		/// </summary>
 		private bool IsExtantData
 		{

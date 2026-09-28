@@ -6,7 +6,7 @@ using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class Index05_Extensions : BaseAddress

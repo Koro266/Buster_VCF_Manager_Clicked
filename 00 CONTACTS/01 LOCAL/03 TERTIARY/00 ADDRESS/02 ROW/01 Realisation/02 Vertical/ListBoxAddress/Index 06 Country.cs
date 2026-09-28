@@ -4,7 +4,7 @@ using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.LISTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class Index06_Country : BaseAddress
@@ -14,25 +14,20 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.VERTICAL.TEXTBOX
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertLineValue( TextBox text_box )
+		public void InsertLineValue( ListBox list_box )
 		{
-			string s = String.Empty;
-
-			s = Country + Environment.NewLine;
-			s = s + TeleCode + Environment.NewLine;
-			s = s + IsoLong + Environment.NewLine;
-			s = s + IsoShort + Environment.NewLine;
-			s = base.RealiseAddressRule( s );
-
-			text_box.AppendText( s );
+			list_box.Items.Add( RealiseAddressRule( Country) );
+			list_box.Items.Add( RealiseAddressRule( TeleCode ) );
+			list_box.Items.Add( RealiseAddressRule( IsoLong ) );
+			list_box.Items.Add( RealiseAddressRule( IsoShort) );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string Country		{ get { return base.Country + CONST.OneSpace; } }
-		override public string TeleCode		{ get { return "Country Code: " + base.TeleCode + CONST.OneSpace; } }
-		override public string IsoLong		{ get { return "ISO Long: "+base.IsoLong + CONST.OneSpace; } }
+		override public string Country		{ get { return base.Country; } }
+		override public string TeleCode		{ get { return "Country Code: " + base.TeleCode; } }
+		override public string IsoLong		{ get { return "ISO Long: "+base.IsoLong; } }
 		override public string IsoShort		{ get { return "ISO Short: "+base.IsoShort; } }
 	}
 }
