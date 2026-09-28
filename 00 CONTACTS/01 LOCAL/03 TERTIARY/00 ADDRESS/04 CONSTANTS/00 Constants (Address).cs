@@ -353,16 +353,8 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			public const string VcfPhysical			= @"/hn /sn /st\n/sb, /ct\n/mt, /pv\n/cy";			//'Typical' residential Physical rule.
 			public const string VcfExtended			= @"/as\n/lv\n/un\n/ex";							//'Typical' Extensions rule.
 			public const string ExcelPattern		= @"SID*AID*FID*SRT*OUT*/hn /sn /st*/ct*/pc*/cy";	//'Typical' Excel row rule. Asterisk is relaced by a tab.
-			/*
-			public const string Notification		= "Address PK: /pk|	Street: /hn /sn /st /sb /rd /pc /ct|" +
-													  "Provincial: /mt /pv /pa|" +
-													  "Country: FK: /fk, /cy /cd /si /li|" +
-													  "Extensions: /as /lv /un /ex||Operation: *";
-													  // vee-bars (|) are replaced by line breaks.
-			*/
 
 			//Reconstruction rules specific to building a Christmas letter address.
-			public const string Christmas			= "";		//?
 			public const string SortId				= "SID";	//Replaced with a generic integer sort order.
 			public const string AddressId			= "AID";	//Replaced with PK Address.
 			public const string FamilyId			= "FID";	//Replaced with PK Family.
