@@ -1,30 +1,31 @@
-﻿//___________________________________________________________________________________________________________________________________________________
+﻿
+//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
-using PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using System.Diagnostics;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using GIANT_SWITCH	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.TheGiantSwitch;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class VcfPostalRealiser : GIANT_SWITCH
+	public class VcfPostal : BaseAddress
 	{
-		private ADDRESS_ROW _AddressRow;
-		private GIANT_SWITCH _Switch;
-
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Constructs a VCF Postal address using the postal definition in the database address row. 
 		/// </summary>
-		public VcfPostalRealiser( ADDRESS_ROW address_row ) : base( address_row )
+		public VcfPostal( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			_AddressRow = address_row;
-			_Switch = new GIANT_SWITCH( address_row );
 		}
-		//_______________________________________________________________________________________________________________________________________
+	}
+}
+
+
+/*
+ 		//_______________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns a string[] intended to be assigned to a ListBox.Items property; i.e., a 'vertical' address format.
 		/// </summary>
@@ -93,16 +94,15 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		//_______________________________________________________________________________________________________________________________________
 		public string RealiseExcelRule()
 		{
-			/// SID*AID*FID*SRT*OUT*/hn /sn /st*/ct*/pc*/cy
 			string realised_rule = _Switch.RealiseAddressRule( _AddressRow.ExcelPattern.Value );
-			return realised_rule;
+return realised_rule;
 			//return SplitAddress( realised_rule );
 		}
 		//___________________________________________________________________________________________________________________________________________                                                                                                                                                   
 		private string[] SplitAddress( string in_line )
-		{
-			return in_line.Split( PRESET.Functional_LF, StringSplitOptions.None );
-		}
-		#endregion
-	}
+{
+	return in_line.Split( PRESET.Functional_LF, StringSplitOptions.None );
 }
+#endregion
+
+*/

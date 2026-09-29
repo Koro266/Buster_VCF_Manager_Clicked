@@ -64,7 +64,9 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 			string s;
 			string vcf_realisation = _Address.VcfPostal.Value;
 
-			s = ADDRESS_Line;
+			//s = ADDRESS_Line;
+			s = $"item{_VcfText.NextItem}.ADR:{vcf_realisation}";
+
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );
 			s = s.Replace( PRESET.S1, vcf_realisation );
 			_VcfText.NextIndex = s;

@@ -1,33 +1,45 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index06_PkNation : BaseAddress
+	public class Index08_IsoCodes : BaseAddress
 	{
-		private ADDRESS_ROW _Address;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index06_PkNation( ADDRESS_ROW address_row) : base( address_row )
+		public Index08_IsoCodes( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			AddressRow = address_row;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public void InsertColumnValue( ListViewItem list_view_item )
 		{
-			list_view_item.SubItems.Add( AddressRow.FkCountry.AsString );
+			string s = String.Empty;
+
+			s = this.Rule;
+			s = base.RealiseAddressRule( s );
+
+			list_view_item.SubItems.Add( s );
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Gets/sets Address row.
+		/// Returns an address rule that assembles a 'default' ISO Codes.
 		/// </summary>
-		private ADDRESS_ROW AddressRow
+		public string Rule
 		{
-			get { return _Address; }
-			set { _Address = value; }
+			get
+			{
+				return IsoLong + IsoShort;
+			}
 		}
+		//___________________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Override all the base class reconstruction codes that need a specific function in this class. 
+		/// </summary>
+		override public string IsoLong		{ get { return base.IsoLong + "," + CONST.OneSpace; } }
+		override public string IsoShort		{ get { return base.IsoShort; } }
 	}
 }

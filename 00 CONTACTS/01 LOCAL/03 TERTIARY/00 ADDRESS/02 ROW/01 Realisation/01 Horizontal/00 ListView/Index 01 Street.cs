@@ -6,23 +6,23 @@ using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
+namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index05_Extensions : BaseAddress
+	public class Index01_Street : BaseAddress
 	{
-		private static string _UnValue = "no extensions";
+		private static string _UnValue = "no street data";
 		private bool _isDataExtant = false;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index05_Extensions( ADDRESS_ROW address_row ) : base( address_row )
+		public Index01_Street( ADDRESS_ROW address_row) : base( address_row )
 		{
 			IsExtantData = base.IsDataExtant
 			(
-				address_row.Assemblage,
-				address_row.Level,
-				address_row.Unit,
-				address_row.Extension
+				address_row.HouseNumber,
+				address_row.StreetName,
+				address_row.StreetType,
+				address_row.Compass
 			);
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -39,29 +39,29 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that assembles a 'default' extensions line.
-		/// If all columns are null, returns "no extensions".
+		/// Returns an address rule that assembles a 'default' street address.
+		/// If all columns are null, returns "no street data".
 		/// </summary>
-		public string Rule
+		private string Rule
 		{
 			get
 			{
 				if ( IsExtantData )
-					return Assemblage + Level + Unit + Extensions;
+					return HouseNumber + StreetName + StreetType + Compass;
 				else
 					return _UnValue;
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Remove unused RECON codes for the result string.
+		/// Remove unused/unreplaced RECON codes from the result string.
 		/// </summary>
 		private string RemoveUnusedCodes( string s )
 		{
-			s = s.Replace( this.HouseNumber, String.Empty );
-			s = s.Replace( this.StreetName, String.Empty );
-			s = s.Replace( this.StreetType, String.Empty );
-			s = s.Replace( this.Compass, String.Empty );
+			s = s.Replace( this.HouseNumber,	String.Empty );
+			s = s.Replace( this.StreetName,		String.Empty );
+			s = s.Replace( this.StreetType,		String.Empty );
+			s = s.Replace( this.Compass,		String.Empty );
 
 			return s;
 		}
@@ -69,13 +69,13 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string Assemblage { get { return base.Assemblage + CONST.OneSpace; } }
-		override public string Level { get { return base.Level + CONST.OneSpace; } }
-		override public string Unit { get { return base.Unit + CONST.OneSpace; } }
-		override public string Extensions { get { return base.Extensions + CONST.OneSpace; } }
+		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
+		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
+		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
+		override public string Compass			{ get { return base.Compass; } }
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns true if at least one extensions column is NOT null.
+		/// Gets/sets _isDataExtant == true if at least one street line column is NOT null.
 		/// </summary>
 		private bool IsExtantData
 		{
