@@ -64,7 +64,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 			string s;
 			string vcf_realisation = _Address.VcfPostal.Value;
 
-			//s = ADDRESS_Line;
+			s = ADDRESS_Line;
 			s = $"item{_VcfText.NextItem}.ADR:{vcf_realisation}";
 
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );
@@ -145,7 +145,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 		private void AppendAllDataLines()
 		{
 			string s;
-			string vcf_realisation = "";// _Address.re.RealiseComprehensiveAddress();
+			string vcf_realisation = //_Address.RealiseComprehensiveAddress();
 
 			s = ADDRESS_Line;
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );

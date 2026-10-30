@@ -20,6 +20,14 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 		public VcfPostal( ADDRESS_ROW address_row ) : base( address_row )
 		{
 		}
+		//_______________________________________________________________________________________________________________________________________
+		public string RealiseExtendedRule()
+		{
+			/// /as\n/lv\n/un\n/ex
+			//string realised_rule = _Switch.RealiseAddressRule( _AddressRow.VcfExtended.Value );
+			return realised_rule;
+			//return SplitAddress( realised_rule );
+		}
 	}
 }
 
@@ -81,14 +89,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 			/// /hn /sn /st\n/sb, /ct\n/mt, /pv\n/si
 			return _Switch.RealiseAddressRule( _AddressRow.VcfPhysical.Value );
 			//return realised_rule;
-			//return SplitAddress( realised_rule );
-		}
-		//_______________________________________________________________________________________________________________________________________
-		public string RealiseExtendedRule()
-		{
-			/// /as\n/lv\n/un\n/ex
-			string realised_rule = _Switch.RealiseAddressRule( _AddressRow.VcfExtended.Value );
-			return realised_rule;
 			//return SplitAddress( realised_rule );
 		}
 		//_______________________________________________________________________________________________________________________________________

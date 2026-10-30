@@ -14,7 +14,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 		private static string ComprehensiveAddressPattern = "/bx /rd;/sb /ct /mt /pc;/hn /sn /st /cp;/pv /pa;/as  /lv /un /ex;/cy";
 
 		#region REALISE ADDRESS RULES: THE GIANT SWITCH.
-		//_______________________________________________________________________________________________________________________________________
+		/*/_______________________________________________________________________________________________________________________________________
 		public string RealiseComprehensiveAddress()
 		{
 			string s = ComprehensiveAddressPattern;
@@ -553,6 +553,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS
 			}
 			return s;
 		}
+		*/
 		#endregion
 	}
 }

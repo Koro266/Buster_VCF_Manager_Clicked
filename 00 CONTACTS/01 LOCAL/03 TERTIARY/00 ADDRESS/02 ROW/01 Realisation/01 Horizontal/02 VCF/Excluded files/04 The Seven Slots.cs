@@ -34,7 +34,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 				string[] addr_items = new string[7];
 
 				addr_items[0] = Pk;
-				addr_items[1] = LocalAddress;
+				addr_items[1] = StreetAddress;
 				addr_items[2] = BurbCity;
 				addr_items[3] = MetroProvince;
 				addr_items[4] = Postal;
@@ -53,7 +53,7 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 			}
 		}
 		//_______________________________________________________________________________________________________________________________________
-		private string LocalAddress
+		private string StreetAddress
 		{
 			get
 			{
