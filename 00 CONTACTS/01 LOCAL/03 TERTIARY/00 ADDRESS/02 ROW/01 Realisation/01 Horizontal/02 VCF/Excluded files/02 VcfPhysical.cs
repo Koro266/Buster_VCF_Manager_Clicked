@@ -25,7 +25,6 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		{
 			string realised_rule = base.RealiseAddressRule( VcfAddressPattern );
 			return realised_rule;
-			//return SplitAddress( realised_rule );
 		}
 		//___________________________________________________________________________________________________________________________________________                                                                                                                                                   
 		private string[] SplitAddress( string in_line )

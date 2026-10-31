@@ -7,12 +7,22 @@ using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
+
+
+/*
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class VcfPostal : BaseAddress
 	{
+		private static string VcfAddressPattern = 
+		  @"/bx /rd;
+			/sb /ct /mt /pc;
+			/hn /sn /st /cp;
+			/pv /pa;
+			/as  /lv /un /ex;
+			/cy";
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Constructs a VCF Postal address using the postal definition in the database address row. 
@@ -21,18 +31,13 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 		{
 		}
 		//_______________________________________________________________________________________________________________________________________
-		public string RealiseExtendedRule()
+		public string RealiseRule()
 		{
-			/// /as\n/lv\n/un\n/ex
-			//string realised_rule = _Switch.RealiseAddressRule( _AddressRow.VcfExtended.Value );
+			string realised_rule = base.RealiseAddressRule( VcfAddressPattern );
 			return realised_rule;
-			//return SplitAddress( realised_rule );
 		}
 	}
 }
-
-
-/*
  		//_______________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Returns a string[] intended to be assigned to a ListBox.Items property; i.e., a 'vertical' address format.

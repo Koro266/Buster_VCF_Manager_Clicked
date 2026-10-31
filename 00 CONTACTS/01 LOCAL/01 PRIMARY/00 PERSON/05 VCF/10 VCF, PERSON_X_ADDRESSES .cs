@@ -9,7 +9,7 @@ using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
 using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using SELECT_XADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
-//LOCAL
+using VCF_ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF.Item_01_Postal;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
@@ -51,6 +51,10 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
 				_Address = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
 
+				VCF_ADDRESS vcf_address = new VCF_ADDRESS( _Address );
+				string s = vcf_address.InsertColumnValue();
+
+
 				AppendPostalLines();
 				AppendPhysicalLines();
 				AppendExtendedLines();
@@ -62,6 +66,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 		private void AppendPostalLines()
 		{
 			string s;
+
 			string vcf_realisation = _Address.VcfPostal.Value;
 
 			s = ADDRESS_Line;
