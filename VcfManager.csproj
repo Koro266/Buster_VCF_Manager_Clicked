@@ -177,6 +177,10 @@
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\00 DATABASE\00 READ\03 COUNT\02 MinPk.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\00 Row\02 Row, Lines.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\01 Excel\04 XmasAddress.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\02 VCF\99 VCF Postal.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\02 VCF\Item 00 BoxRd.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\02 VCF\Item 01 Street.cs" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\02 VCF\Item 02 SuburbCity.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\01 ListBoxAddress.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\00 ListBox\01 ListBoxAddress.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\12 Row, FORM Realisation %28Address%29.cs" />

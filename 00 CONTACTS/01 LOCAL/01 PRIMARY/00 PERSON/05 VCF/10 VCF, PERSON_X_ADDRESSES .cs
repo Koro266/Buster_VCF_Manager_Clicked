@@ -5,18 +5,18 @@ using PRESET			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using VCF_TEXT			= CONTACTS.GLOBAL.VCF.VcfText;
 //LOCAL
 using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
-using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using XADDRESS_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
-using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using SELECT_XADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Database.Select;
-using VCF_ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF.Item_01_Postal;
+using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
+using VCF_ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF.VcfAddress;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 {
 	//___________________________________________________________________________________________________________________________________________
 	/// <summary>
-	/// Writes Person's addresses to VcfText.
+	/// Writes Person's address to VcfText.
 	/// </summary>
 	public class Vcf_10_PersonAddressLines
 	{
@@ -24,14 +24,9 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 		private ADDRESS_ROW	_Address;
 		private VCF_TEXT	_VcfText;
 
-		private const string ADDRESS_Line			= "item#0.ADR:#1";
+		private const string ADDRESS_Line			= "item#0.ADR;type=pref:#1";
 		private const string ADDRESS_Item_Number	= "item#0.X-ABADR:#1";
-
-		private const string ADDRESS_Postal_Label	= "item#0.X-ABLabel:postal address {#1}";
-		private const string ADDRESS_Physical_Label = "item#0.X-ABLabel:physical address";
-		private const string ADDRESS_Extended_Label = "item#0.X-ABLabel:address extensions";
-		private const string ADDRESS_Excel_Label	= "item#0.X-ABLabel:christmas address";
-		private const string ADDRESS_All_Label		= "item#0.X-ABLabel:all address data";
+		private const string ADDRESS_Label			= "item#0.X-ABLabel:address {#1}";
 
 		//___________________________________________________________________________________________________________________________________________
 		public Vcf_10_PersonAddressLines( PERSON_ROW person )
@@ -49,116 +44,25 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 			foreach ( var kvp in person_x_addresses )
 			{
 				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
-				_Address = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
+				ADDRESS_ROW address_row = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
 
-				VCF_ADDRESS vcf_address = new VCF_ADDRESS( _Address );
-				string s = vcf_address.InsertColumnValue();
-
-
-				AppendPostalLines();
-				AppendPhysicalLines();
-				AppendExtendedLines();
-				AppendExcelLines();
-				AppendAllDataLines();
+				string s = new VCF_ADDRESS( address_row ).RealiseAddressRule;
+				AppendAddressLines( s );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void AppendPostalLines()
+		private void AppendAddressLines(string vcf_realisation )
 		{
-			string s;
-
-			string vcf_realisation = _Address.VcfPostal.Value;
+			string s = String.Empty;
 
 			s = ADDRESS_Line;
-			s = $"item{_VcfText.NextItem}.ADR:{vcf_realisation}";
-
 			s = s.Replace( PRESET.S0, _VcfText.NextItem );
 			s = s.Replace( PRESET.S1, vcf_realisation );
 			_VcfText.NextIndex = s;
 
-			s = ADDRESS_Postal_Label;
+			s = ADDRESS_Label;
 			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
 			s = s.Replace( PRESET.S1, _Address.PkAddress.AsString );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_Item_Number;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
-			s = s.Replace( PRESET.S1, _Address.ShortIsoCode.AsLower );
-			_VcfText.NextIndex = s;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void AppendPhysicalLines()
-		{
-			string s;
-			string vcf_realisation = _Address.VcfPhysical.Value;
-
-			s = ADDRESS_Line;
-			s = s.Replace( PRESET.S0, _VcfText.NextItem );
-			s = s.Replace( PRESET.S1, vcf_realisation );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_Physical_Label;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_Item_Number;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
-			s = s.Replace( PRESET.S1, _Address.ShortIsoCode.AsLower );
-			_VcfText.NextIndex = s;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void AppendExtendedLines()
-		{
-			string s;
-			string vcf_realisation = _Address.VcfExtended.Value;
-
-			s = ADDRESS_Line;
-			s = s.Replace( PRESET.S0, _VcfText.NextItem );
-			s = s.Replace( PRESET.S1, vcf_realisation );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_Extended_Label;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_Item_Number;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
-			s = s.Replace( PRESET.S1, _Address.ShortIsoCode.AsLower );
-			_VcfText.NextIndex = s;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void AppendExcelLines()
-		{
-			string s;
-			string vcf_realisation = _Address.ExcelPattern.Value;
-
-			s = ADDRESS_Line;
-			s = s.Replace( PRESET.S0, _VcfText.NextItem );
-			s = s.Replace( PRESET.S1, vcf_realisation );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_Excel_Label;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_Item_Number;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
-			s = s.Replace( PRESET.S1, _Address.ShortIsoCode.AsLower );
-			_VcfText.NextIndex = s;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void AppendAllDataLines()
-		{
-			string s;
-			string vcf_realisation = //_Address.RealiseComprehensiveAddress();
-
-			s = ADDRESS_Line;
-			s = s.Replace( PRESET.S0, _VcfText.NextItem );
-			s = s.Replace( PRESET.S1, vcf_realisation );
-			_VcfText.NextIndex = s;
-
-			s = ADDRESS_All_Label;
-			s = s.Replace( PRESET.S0, _VcfText.CurrentItem );
 			_VcfText.NextIndex = s;
 
 			s = ADDRESS_Item_Number;
