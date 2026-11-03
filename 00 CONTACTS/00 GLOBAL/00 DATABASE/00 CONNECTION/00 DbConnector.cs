@@ -1,5 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
+//GLOBALS
 using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using STRING = System.Text.StringBuilder;
 
