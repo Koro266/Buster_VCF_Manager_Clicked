@@ -1,6 +1,5 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using static CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;

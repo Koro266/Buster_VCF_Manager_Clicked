@@ -44,9 +44,9 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 			foreach ( var kvp in person_x_addresses )
 			{
 				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
-				ADDRESS_ROW address_row = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
+				_Address = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
 
-				string s = new VCF_ADDRESS( address_row ).RealiseAddressRule;
+				string s = new VCF_ADDRESS( _Address ).RealiseAddressRule;
 				AppendAddressLines( s );
 			}
 		}
