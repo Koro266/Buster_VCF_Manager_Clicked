@@ -23,7 +23,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 		private MESSENGER _Messenger;
-		private EVENT_STATE _EventState;
+		private EVENT_STATE _EventState = new EVENT_STATE();
 		private const int _msg_Delay = 3000;
 		#endregion
 
