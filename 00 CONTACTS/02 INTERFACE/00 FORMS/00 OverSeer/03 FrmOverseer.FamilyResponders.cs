@@ -38,19 +38,27 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void ExportOneFamily( int pk_family )
 		{
 			string msg;
+			bool is_person = false;
 			FAMILY_ROW family_row;
 
-			if ( new FAMILY_COUNT.IsFamilyExtant( pk_family ).Execute )
+			is_person = new FAMILY_COUNT.IsFamilyExtant( pk_family ).Execute;
+			if ( !is_person )
 			{
-				family_row = new FAMILY_SELECT.ByPkFamily( pk_family ).Execute;
-				family_row.ExportFamily();
+				_Messenger.Message = $"PK Family: {pk_family} does not exist in Families table.";
+				return;
+			}
 
-				msg = $"{family_row.SortableName.AsUpper} (PK = {family_row.PkFamily.AsString}) successfully exported.";
-			}
-			else
+			family_row = new FAMILY_SELECT.ByPkFamily( pk_family ).Execute;
+
+			is_person = family_row.Export.Value;
+			if ( !is_person )
 			{
-				msg = $"Primary key: {pk_family} does not exist in Families table.";
+				_Messenger.Message = $"Family: {pk_family} is not exportable.";
+				return;
 			}
+
+			family_row.ExportFamily();
+			msg = $"{family_row.SortableName.AsUpper} (PK = {family_row.PkFamily.AsString}) successfully exported.";
 
 			_Messenger.Message = msg;
 		}
@@ -61,26 +69,30 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void ExportRecentFamilys( DateTime dt )
 		{
 			string msg;
+			int count = 0;
 			DATE_TIME date_time = new DATE_TIME( dt );
 
-			int count = new FAMILY_COUNT.CountAfterCurrencyDate( dt ).Execute;
-
-			if ( count > GLOBAL_PRESET.ZERO )
+			count = new FAMILY_COUNT.CountAfterCurrencyDate( dt ).Execute;
+			if ( count == 0 )
 			{
-				Dictionary<int, BASE_ROW> base_rows = new FAMILY_SELECT.SelectAfterCurrencyDate( dt ).Execute;
-				foreach ( BASE_ROW base_row in base_rows.Values )
+				_Messenger.Message = $"There are no Families updated after {date_time.As_d_MMM_yyyy}.";
+				return;
+			}
+
+			count = 0;
+			Dictionary<int, BASE_ROW> base_rows = new FAMILY_SELECT.SelectAfterCurrencyDate( dt ).Execute;
+			foreach ( BASE_ROW base_row in base_rows.Values )
+			{
+				FAMILY_ROW family_row = ( FAMILY_ROW )base_row;
+				if ( family_row.Export.Value == false )
 				{
-					FAMILY_ROW family_row = ( FAMILY_ROW )base_row;
-					family_row.ExportFamily();
+					_Messenger.Message = $"Family: {family_row.PkFamily.Value} is not exportable.";
+					break;
 				}
-				msg = $"{count} Families updated after {date_time.AsDisplayedDate} have been exported.";
+				count++;
+				family_row.ExportFamily();
 			}
-			else
-			{
-				msg = $"There are no Families updated after {date_time.As_d_MMM_yyyy}.";
-			}
-
-			_Messenger.Message = msg;
+			_Messenger.Message = $"{count} Families, updated after {date_time.AsDisplayedDate}, have been exported.";
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -88,7 +100,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private async void ExportAllFamilys()
 		{
-			_EventState.DisableButton( this._btn_Export_All_Families );
+			_EventState.DisableButton( _btn_Export_All_Persons );
 
 			Dictionary<int, BASE_ROW> base_rows = new FAMILY_SELECT.AllFamilys().Execute;
 
@@ -111,8 +123,11 @@ namespace CONTACTS.INTERFACE.FORMS
 						foreach ( BASE_ROW base_row in base_rows.Values )
 						{
 							FAMILY_ROW family_row = ( FAMILY_ROW )base_row;
-							family_row.ExportFamily();
-							current_count++;
+							if ( family_row.Export.Value == true )
+							{
+								family_row.ExportFamily();
+								current_count++;
+							}
 
 							( ( IProgress<int> )progress ).Report( current_count );
 						}

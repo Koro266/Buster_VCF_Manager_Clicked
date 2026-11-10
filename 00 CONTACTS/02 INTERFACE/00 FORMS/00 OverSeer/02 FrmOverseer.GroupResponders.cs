@@ -38,19 +38,27 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void ExportOneGroup( int pk_group )
 		{
 			string msg;
+			bool is_group = false;
 			GROUP_ROW group_row;
 
-			if ( new GROUP_COUNT.IsPkExtant( pk_group ).Execute )
+			is_group = new GROUP_COUNT.IsPkExtant( pk_group ).Execute;
+			if ( !is_group )
 			{
-				group_row = new GROUP_SELECT.ByPkGroup( pk_group ).Execute;
-				group_row.ExportGroup();
+				_Messenger.Message = $"PK Group: {pk_group} does not exist in Persons table.";
+				return;
+			}
 
-				msg = $"{group_row.GroupName.AsUpper} (PK = {group_row.PkGroup.AsString}) successfully exported.";
-			}
-			else
+			group_row = new GROUP_SELECT.ByPkGroup( pk_group ).Execute;
+
+			is_group = group_row.Export.Value;
+			if ( !is_group )
 			{
-				msg = $"Primary key: {pk_group} does not exist in Groups table.";
+				_Messenger.Message = $"Group: {pk_group} is not exportable.";
+				return;
 			}
+
+			group_row.ExportGroup();
+			msg = $"{group_row.GroupName.AsUpper} (PK = {group_row.PkGroup.AsString}) successfully exported.";
 
 			_Messenger.Message = msg;
 		}
@@ -61,26 +69,30 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void ExportRecentGroups( DateTime dt )
 		{
 			string msg;
+			int count = 0;
 			DATE_TIME date_time = new DATE_TIME( dt );
 
-			int count = new GROUP_COUNT.CountAfterCurrencyDate( dt ).Execute;
-
-			if ( count > GLOBAL_PRESET.ZERO )
+			count = new GROUP_COUNT.CountAfterCurrencyDate( dt ).Execute;
+			if ( count == 0 )
 			{
-				Dictionary<int, BASE_ROW> base_rows = new GROUP_SELECT.SelectAfterCurrencyDate( dt ).Execute;
-				foreach ( BASE_ROW base_row in base_rows.Values )
+				_Messenger.Message = $"There are no Groups updated after {date_time.As_d_MMM_yyyy}.";
+				return;
+			}
+
+			count = 0;
+			Dictionary<int, BASE_ROW> base_rows = new GROUP_SELECT.SelectAfterCurrencyDate( dt ).Execute;
+			foreach ( BASE_ROW base_row in base_rows.Values )
+			{
+				GROUP_ROW group_row = ( GROUP_ROW )base_row;
+				if ( group_row.Export.Value == false )
 				{
-					GROUP_ROW group_row = ( GROUP_ROW )base_row;
-					group_row.ExportGroup();
+					_Messenger.Message = $"Person: {group_row.PkGroup.Value} is not exportable.";
+					break;
 				}
-				msg = $"{count} Groups updated after {date_time.AsDisplayedDate} have been exported.";
+				count++;
+				group_row.ExportGroup();
 			}
-			else
-			{
-				msg = $"There are no Groups updated after {date_time.As_d_MMM_yyyy}.";
-			}
-
-			_Messenger.Message = msg;
+			_Messenger.Message = $"{count} Groups, updated after {date_time.AsDisplayedDate}, have been exported.";
 		}
 		//___________________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -88,7 +100,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		/// </summary>
 		private async void ExportAllGroups()
 		{
-			_EventState.DisableButton( this._btn_Export_All_Groups );
+			_EventState.DisableButton( _btn_Export_All_Persons );
 
 			Dictionary<int, BASE_ROW> base_rows = new GROUP_SELECT.AllGroups().Execute;
 
@@ -103,23 +115,26 @@ namespace CONTACTS.INTERFACE.FORMS
 					}
 				);
 
-			await 
+			await
 				Task.Run
 					( () =>
+					{
+						int current_count = 0;
+						foreach ( BASE_ROW base_row in base_rows.Values )
 						{
-							int current_count = 0;
-							foreach ( BASE_ROW base_row in base_rows.Values )
+							GROUP_ROW group_row = ( GROUP_ROW )base_row;
+							if ( group_row.Export.Value == true )
 							{
-								GROUP_ROW group_row = ( GROUP_ROW )base_row;
 								group_row.ExportGroup();
 								current_count++;
-
-								( ( IProgress<int> )progress ).Report( current_count );
 							}
+
+							( ( IProgress<int> )progress ).Report( current_count );
 						}
+					}
 					);
-			//TODO Fix this ...
-			//_Messenger.Done();
+
+			_Messenger.Done();
 
 			_EventState.EnableButton( _btn_Export_All_Groups );
 		}

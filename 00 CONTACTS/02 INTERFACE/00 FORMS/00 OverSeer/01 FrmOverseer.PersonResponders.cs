@@ -38,19 +38,27 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void ExportOnePerson( int pk_person )
 		{
 			string msg;
+			bool is_person = false;
 			PERSON_ROW person_row;
-			
-			if ( new PERSON_COUNT.IsPersonExtant( pk_person ).Execute )
-			{
-				person_row = new PERSON_SELECT.ByPkPerson( pk_person ).Execute;
-				person_row.ExportPerson();
 
-				msg = $"{person_row.SortableName.AsUpper} (PK = {person_row.PkPerson.AsString}) successfully exported.";
-			}
-			else
+			is_person = new PERSON_COUNT.IsPersonExtant( pk_person ).Execute;
+			if ( !is_person )
 			{
-				msg = $"Primary key: {pk_person} does not exist in Persons table.";
+				_Messenger.Message = $"PK Person: {pk_person} does not exist in Persons table.";
+				return;
 			}
+
+			person_row = new PERSON_SELECT.ByPkPerson( pk_person ).Execute;
+
+			is_person = person_row.Export.Value;
+			if ( !is_person )
+			{
+				_Messenger.Message = $"Person: {pk_person} is not exportable.";
+				return;
+			}
+
+			person_row.ExportPerson();
+			msg = $"{person_row.SortableName.AsUpper} (PK = {person_row.PkPerson.AsString}) successfully exported.";
 
 			_Messenger.Message = msg;
 		}
@@ -61,26 +69,30 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void ExportRecentPersons( DateTime dt )
 		{
 			string msg;
+			int count = 0;
 			DATE_TIME date_time =new DATE_TIME(dt);
 
-			int count = new PERSON_COUNT.CountAfterCurrencyDate( dt ).Execute;
-
-			if ( count > GLOBAL_PRESET.ZERO )
+			count = new PERSON_COUNT.CountAfterCurrencyDate( dt ).Execute;
+			if ( count == 0 )
 			{
-				Dictionary<int, BASE_ROW> base_rows = new PERSON_SELECT.SelectAfterCurrencyDate( dt ).Execute;
-				foreach ( BASE_ROW base_row in base_rows.Values )
+				_Messenger.Message = $"There are no Persons updated after {date_time.As_d_MMM_yyyy}.";
+				return;
+			}
+
+			count = 0;
+			Dictionary<int, BASE_ROW> base_rows = new PERSON_SELECT.SelectAfterCurrencyDate( dt ).Execute;
+			foreach ( BASE_ROW base_row in base_rows.Values )
+			{
+				PERSON_ROW person_row = ( PERSON_ROW )base_row;
+				if ( person_row.Export.Value == false )
 				{
-					PERSON_ROW person_row = ( PERSON_ROW )base_row;
-					person_row.ExportPerson();
+					_Messenger.Message = $"Person: {person_row.PkPerson.Value} is not exportable.";
+					break;
 				}
-				msg = $"{count} Persons updated after {date_time.AsDisplayedDate} have been exported.";
+				count++;
+				person_row.ExportPerson();
 			}
-			else
-			{
-				msg = $"There are no Persons updated after {date_time.As_d_MMM_yyyy}.";
-			}
-
-			_Messenger.Message = msg;
+			_Messenger.Message = $"{count} Persons, updated after {date_time.AsDisplayedDate}, have been exported.";
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -111,8 +123,11 @@ namespace CONTACTS.INTERFACE.FORMS
 							foreach ( BASE_ROW base_row in base_rows.Values )
 							{
 								PERSON_ROW person_row = ( PERSON_ROW )base_row;
-								person_row.ExportPerson();
-								current_count++;
+								if ( person_row.Export.Value == true )
+								{
+									person_row.ExportPerson();
+									current_count++;
+								}
 
 								( ( IProgress<int> )progress ).Report( current_count );
 							}
