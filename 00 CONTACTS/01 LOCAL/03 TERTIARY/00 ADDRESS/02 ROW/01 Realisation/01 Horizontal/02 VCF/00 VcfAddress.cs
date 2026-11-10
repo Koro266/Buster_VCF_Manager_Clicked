@@ -1,5 +1,4 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;

@@ -45,9 +45,7 @@ namespace CONTACTS.LOCAL.PRIMARY.PERSON.VCF
 			{
 				XADDRESS_ROW pxa = ( XADDRESS_ROW )kvp.Value;
 				_Address = new SELECT_ADDRESS.FullyQualifiedAddress( pxa.FkAddress.Value ).Execute;
-
-				string s = new VCF_ADDRESS( _Address ).RealiseAddressRule;
-				AppendAddressLines( s );
+				AppendAddressLines( new VCF_ADDRESS( _Address ).RealiseAddressRule );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
