@@ -48,6 +48,9 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 			{
 				string s = String.Empty;
 
+				if ( !_IsDataExtant )
+					return _UnValue;
+
 				s = this.Rule;
 				s = base.RealiseAddressRule( s );
 				s = this.RemoveUnusedCodes( s );
@@ -65,32 +68,29 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 		{
 			get
 			{
-				if ( _IsDataExtant )
-					return
-						BoxNumber +
-						RuralDelivery +
+				return
+					BoxNumber +
+					RuralDelivery +
 
-						HouseNumber +
-						StreetName +
-						StreetType +
-						Compass +
+					HouseNumber +
+					StreetName +
+					StreetType +
+					Compass +
 
-						Suburb +
-						City +
+					Suburb +
+					City +
 
-						Metropolitan +
-						Province +
-						ProvCode +
-						PostalCode +
+					Metropolitan +
+					Province +
+					ProvCode +
+					PostalCode +
 
-						Assemblage +
-						Level +
-						Unit +
-						Extensions +
+					Assemblage +
+					Level +
+					Unit +
+					Extensions +
 
-						Country;
-				else
-					return _UnValue;
+					Country;
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -129,21 +129,26 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.VCF
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
 		override public string BoxNumber		{ get { return base.BoxNumber + CONST.OneSpace; } }
-		override public string RuralDelivery	{ get { return base.RuralDelivery + CONST.OneSpace; } }
+		override public string RuralDelivery	{ get { return base.RuralDelivery + CONST.CommaSpace; } }
+
 		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
 		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
 		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
-		override public string Compass			{ get { return base.Compass + CONST.OneSpace; } }
+		override public string Compass			{ get { return base.Compass + CONST.CommaSpace; } }
+
 		override public string Suburb			{ get { return base.Suburb + CONST.OneSpace; } }
-		override public string City				{ get { return base.City + CONST.OneSpace; } }
+		override public string City				{ get { return base.City + CONST.CommaSpace; } }
+
 		override public string Metropolitan		{ get { return base.Metropolitan + CONST.OneSpace; } }
 		override public string Province			{ get { return base.Province + CONST.OneSpace; } }
 		override public string ProvCode			{ get { return base.ProvCode + CONST.OneSpace; } }
-		override public string PostalCode		{ get { return base.PostalCode + CONST.OneSpace; } }
+		override public string PostalCode		{ get { return base.PostalCode + CONST.CommaSpace; } }
+
 		override public string Assemblage		{ get { return base.Assemblage + CONST.OneSpace; } }
 		override public string Level			{ get { return base.Level + CONST.OneSpace; } }
 		override public string Unit				{ get { return base.Unit + CONST.OneSpace; } }
-		override public string Extensions		{ get { return base.Extensions + CONST.OneSpace; } }
-		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
+		override public string Extensions		{ get { return base.Extensions + CONST.CommaSpace; } }
+		
+		override public string Country			{ get { return base.Country; } }
 	}
 }
