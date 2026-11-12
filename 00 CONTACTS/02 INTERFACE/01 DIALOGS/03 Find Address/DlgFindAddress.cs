@@ -1,12 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL
-using ADDRESS		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using ADDRESSES		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Table;
-using LIKE			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
-using NATION		= CONTACTS.LOCAL.TERTIARY.NATION.Row;
-using NATIONS		= CONTACTS.LOCAL.TERTIARY.NATION.Table;
+using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
+using LIKE				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
+using NATION			= CONTACTS.LOCAL.TERTIARY.NATION.Row;
+using NATIONS			= CONTACTS.LOCAL.TERTIARY.NATION.Table;
+using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW.ListViewAddress;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.DIALOGS
@@ -16,16 +17,17 @@ namespace CONTACTS.INTERFACE.DIALOGS
 	{
 		#region DECLARATION & CONSTRUCTION
 		//TODO: Review all_Addresses & all_Nations. Do we really need them?
-		private static ADDRESSES all_Addresses = new ADDRESSES();
-		private static NATIONS all_Nations = new NATIONS();
+		//private static ADDRESSES all_Addresses = new ADDRESSES();
+		//private static NATIONS all_Nations = new NATIONS();
 
-		private ADDRESS selected_Address = all_Addresses.DefaultAddress;
-		private NATION one_Nation;
+		private ADDRESS selected_Address;
+		//private NATION one_Nation;
 
 		//___________________________________________________________________________________________________________________________________________
 		public DlgFindAddress()
 		{
 			InitializeComponent();
+			selected_Address = new SELECT_ADDRESS.DefaultAddress().Execute;
 		}
 		#endregion
 
@@ -38,42 +40,42 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			set
 			{
 				selected_Address = value;
-				Country = all_Nations.NationByKey( selected_Address.FkCountry.Value );
+//				Country = all_Nations.NationByKey( selected_Address.FkCountry.Value );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private NATION Country
-		{
-			get { return all_Nations.NationByKey( Address.FkCountry.Value ); }
-			set
-			{
-				Address.NewNation = value;
-				one_Nation = value;
-			}
-		}
+		//private NATION Country
+		//{
+		//	get { return all_Nations.NationByKey( Address.FkCountry.Value ); }
+		//	set
+		//	{
+		//		Address.NewNation = value;
+		//		one_Nation = value;
+		//	}
+		//}
 		//___________________________________________________________________________________________________________________________________________
 		private int AddressPk
 		{
 			get { return Address.PkAddress.Value; }
-			set { Address = all_Addresses.AddressByKey( value ); }
+			//set { Address = all_Addresses.AddressByKey( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string AddressPkAsText
 		{
 			get { return AddressPk.ToString(); }
-			set { AddressPk = Convert.ToInt32( value ); }
+			//set { AddressPk = Convert.ToInt32( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private int CountryPk
 		{
 			get { return Address.FkCountry.Value; }
-			set { Country = all_Nations.NationByKey( value ); }
+			//set { Country = all_Nations.NationByKey( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string CountryPkAsText
 		{
 			get { return CountryPk.ToString(); }
-			set { CountryPk = Convert.ToInt32( value ); }
+		//	set { CountryPk = Convert.ToInt32( value ); }
 		}
 
 
@@ -245,16 +247,16 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			set { selected_Address = value; }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public string SelectedIndexAsString
-		{
-			set { AddressPkAsText = value; }
-		}
+		//public string SelectedIndexAsString
+		//{
+		//	set { AddressPkAsText = value; }
+		//}
 		//___________________________________________________________________________________________________________________________________________
 		public string DoubleClick
 		{
 			set
 			{
-				AddressPkAsText = value;
+				//AddressPkAsText = value;
 				this.DialogResult = DialogResult.OK;
 				this.Close();
 			}
@@ -355,28 +357,28 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		//___________________________________________________________________________________________________________________________________________
 		public void DisplayAddresses( Dictionary<int, BASE_ROW> address_rows )
 		{
-			this.lvw_MatchingAddresses.Items.Clear();
+			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( lvw_MatchingAddresses );
+
 			int index = 0;
+			foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
+			{
+				ADDRESS address = ( ADDRESS )row.Value;
+				//listview_address.InsertAddressValues( address );
 
-			//foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
-			//{
-			//	ADDRESS address = ( ADDRESS )row.Value;
-			//	string[] columns = address.RealiseFinderPattern();
-
-			//	lvw_MatchingAddresses.Items.Add( columns[0] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
-			//	lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
-			//}
+				//	lvw_MatchingAddresses.Items.Add( columns[0] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
+				//	lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
+			}
 		}
 		#endregion
 
 
-		#region TERMINATION
-		//___________________________________________________________________________________________________________________________________________
+			#region TERMINATION
+			//___________________________________________________________________________________________________________________________________________
 		private void btn_CloseForm_Click( object sender, EventArgs e )
 		{
 			this.DialogResult = DialogResult.OK;
@@ -386,7 +388,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		private void btn_Cancel_Click( object sender, EventArgs e )
 		{
 			this.DialogResult = DialogResult.Cancel;
-			this.selected_Address = all_Addresses.DefaultAddress;
+			this.selected_Address = new SELECT_ADDRESS.DefaultAddress().Execute;
 			this.Close();
 		}
 		#endregion

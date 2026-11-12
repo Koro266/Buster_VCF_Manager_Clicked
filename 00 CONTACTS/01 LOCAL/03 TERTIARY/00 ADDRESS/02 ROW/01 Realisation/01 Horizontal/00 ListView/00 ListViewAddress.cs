@@ -1,4 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+//GLOBAL
+using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
 //LOCAL
 using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using IDX00_PK_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW.Index00_PkAddress;
@@ -16,7 +18,7 @@ using IDX09_NOTES		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIE
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class ListViewAddress : BaseAddress
+	public class ListViewAddress
 	{
 		private IDX00_PK_ADDRESS	_PkAddress;
 		private IDX01_STREET		_Street;
@@ -30,7 +32,11 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW
 		private IDX09_NOTES			_Notes;
 
 		//___________________________________________________________________________________________________________________________________________
-		public ListViewAddress( ADDRESS_ROW address_row, ListView list_view ) : base( address_row )
+		public ListViewAddress( ListView list_view )
+		{
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public ListViewAddress( ADDRESS_ROW address_row, ListView list_view )
 		{
 			_PkAddress	= new IDX00_PK_ADDRESS( address_row, list_view );
 			_Street		= new IDX01_STREET( address_row );
@@ -56,6 +62,34 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW
 			_Country.InsertColumnValue( list_view_item );
 			_IsoCodes.InsertColumnValue( list_view_item );
 			_Notes.InsertColumnValue( list_view_item );
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public void InsertAddressValues( ADDRESS_ROW[] address_rows )
+		{
+			//ListViewItem list_view_item = _PkAddress.InsertColumnValue();
+			//int index = 0;
+			//foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
+			//{
+			//	ADDRESS address = ( ADDRESS )row.Value;
+
+			//	lvw_MatchingAddresses.Items.Add( columns[0] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
+			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
+			//	lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
+			//}
+			//_PkAddress = new IDX00_PK_ADDRESS( address_row, list_view );
+			//_Street = new IDX01_STREET( address_row );
+			//_City = new IDX02_CITY( address_row );
+			//_Metro = new IDX03_METRO( address_row );
+			//_Postal = new IDX04_POSTAL( address_row );
+			//_Extensions = new IDX05_EXTENSIONS( address_row );
+			//_PkNation = new IDX06_PK_NATION( address_row );
+			//_Country = new IDX07_COUNTRY( address_row );
+			//_IsoCodes = new IDX08_ISOCODES( address_row );
+			//_Notes = new IDX09_NOTES( address_row );
 		}
 	}
 }

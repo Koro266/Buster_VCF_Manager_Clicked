@@ -30,6 +30,13 @@
 		{
 			ListViewItem listViewItem1 = new ListViewItem( new string[] { "pk", "street", "burb", "metro", "postal", "extensions", "fk", "country", "iso_codes", "notes" }, -1, Color.FromArgb(     192,     0,     0 ), Color.Empty, null );
 			grp_Person = new GroupBox();
+			tbx_PkPerson = new TextBox();
+			tbx_PersonName = new TextBox();
+			btn_FindPerson = new Button();
+			btn_Connect = new Button();
+			lbx_AttachedPersons = new ListBox();
+			lbx_Address = new ListBox();
+			tbx_Address = new TextBox();
 			lvw_PersonsAddresses = new ListView();
 			hdr_PkAddress = new ColumnHeader();
 			hdr_StreetAddress = new ColumnHeader();
@@ -41,16 +48,9 @@
 			hdr_Country = new ColumnHeader();
 			hdr_IsoCodes = new ColumnHeader();
 			hdr_Notes = new ColumnHeader();
-			tbx_PkPerson = new TextBox();
-			btn_Connect = new Button();
-			tbx_PersonName = new TextBox();
-			btn_FindPerson = new Button();
 			grp_Address = new GroupBox();
-			lbx_AttachedPersons = new ListBox();
 			tbx_PkAddress = new TextBox();
-			lbx_Address = new ListBox();
 			btn_FindAddress = new Button();
-			tbx_Address = new TextBox();
 			btn_Disconnect = new Button();
 			btn_Close = new Button();
 			tbx_Messages = new TextBox();
@@ -60,18 +60,85 @@
 			// 
 			// grp_Person
 			// 
-			grp_Person.Controls.Add( lvw_PersonsAddresses );
 			grp_Person.Controls.Add( tbx_PkPerson );
-			grp_Person.Controls.Add( btn_Connect );
 			grp_Person.Controls.Add( tbx_PersonName );
 			grp_Person.Controls.Add( btn_FindPerson );
+			grp_Person.Controls.Add( btn_Connect );
 			grp_Person.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_Person.Location = new Point( 28, 25 );
 			grp_Person.Name = "grp_Person";
-			grp_Person.Size = new Size( 1258, 227 );
+			grp_Person.Size = new Size( 421, 227 );
 			grp_Person.TabIndex = 0;
 			grp_Person.TabStop = false;
 			grp_Person.Text = "Person";
+			// 
+			// tbx_PkPerson
+			// 
+			tbx_PkPerson.Location = new Point( 24, 51 );
+			tbx_PkPerson.Name = "tbx_PkPerson";
+			tbx_PkPerson.Size = new Size( 50, 23 );
+			tbx_PkPerson.TabIndex = 3;
+			// 
+			// tbx_PersonName
+			// 
+			tbx_PersonName.Location = new Point( 79, 51 );
+			tbx_PersonName.Name = "tbx_PersonName";
+			tbx_PersonName.Size = new Size( 264, 23 );
+			tbx_PersonName.TabIndex = 1;
+			// 
+			// btn_FindPerson
+			// 
+			btn_FindPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_FindPerson.Location = new Point( 23, 22 );
+			btn_FindPerson.Name = "btn_FindPerson";
+			btn_FindPerson.Size = new Size( 109, 23 );
+			btn_FindPerson.TabIndex = 0;
+			btn_FindPerson.Text = "Find Person";
+			btn_FindPerson.UseVisualStyleBackColor = true;
+			btn_FindPerson.Click +=  btn_FindPerson_Click ;
+			// 
+			// btn_Connect
+			// 
+			btn_Connect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_Connect.Location = new Point( 279, 140 );
+			btn_Connect.Name = "btn_Connect";
+			btn_Connect.Size = new Size( 121, 32 );
+			btn_Connect.TabIndex = 0;
+			btn_Connect.Text = "Connect";
+			btn_Connect.UseVisualStyleBackColor = true;
+			btn_Connect.Click +=  btn_Connect_Click ;
+			// 
+			// lbx_AttachedPersons
+			// 
+			lbx_AttachedPersons.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lbx_AttachedPersons.FormattingEnabled = true;
+			lbx_AttachedPersons.ItemHeight = 15;
+			lbx_AttachedPersons.Location = new Point( 706, 25 );
+			lbx_AttachedPersons.Name = "lbx_AttachedPersons";
+			lbx_AttachedPersons.Size = new Size( 178, 124 );
+			lbx_AttachedPersons.TabIndex = 3;
+			// 
+			// lbx_Address
+			// 
+			lbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lbx_Address.FormattingEnabled = true;
+			lbx_Address.ItemHeight = 15;
+			lbx_Address.Location = new Point( 902, 25 );
+			lbx_Address.Name = "lbx_Address";
+			lbx_Address.Size = new Size( 177, 124 );
+			lbx_Address.TabIndex = 1;
+			// 
+			// tbx_Address
+			// 
+			tbx_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
+			tbx_Address.Location = new Point( 496, 25 );
+			tbx_Address.Multiline = true;
+			tbx_Address.Name = "tbx_Address";
+			tbx_Address.Size = new Size( 176, 143 );
+			tbx_Address.TabIndex = 4;
+			tbx_Address.Text = "tbx_Address";
 			// 
 			// lvw_PersonsAddresses
 			// 
@@ -82,7 +149,7 @@
 			lvw_PersonsAddresses.FullRowSelect = true;
 			lvw_PersonsAddresses.GridLines = true;
 			lvw_PersonsAddresses.Items.AddRange( new ListViewItem[] { listViewItem1 } );
-			lvw_PersonsAddresses.Location = new Point( 23, 80 );
+			lvw_PersonsAddresses.Location = new Point( 20, 89 );
 			lvw_PersonsAddresses.MultiSelect = false;
 			lvw_PersonsAddresses.Name = "lvw_PersonsAddresses";
 			lvw_PersonsAddresses.Size = new Size( 1216, 121 );
@@ -140,66 +207,18 @@
 			hdr_Notes.Text = "NOTES";
 			hdr_Notes.Width = 225;
 			// 
-			// tbx_PkPerson
-			// 
-			tbx_PkPerson.Location = new Point( 24, 51 );
-			tbx_PkPerson.Name = "tbx_PkPerson";
-			tbx_PkPerson.Size = new Size( 50, 23 );
-			tbx_PkPerson.TabIndex = 3;
-			// 
-			// btn_Connect
-			// 
-			btn_Connect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Connect.Location = new Point( 427, 22 );
-			btn_Connect.Name = "btn_Connect";
-			btn_Connect.Size = new Size( 121, 32 );
-			btn_Connect.TabIndex = 0;
-			btn_Connect.Text = "Connect";
-			btn_Connect.UseVisualStyleBackColor = true;
-			btn_Connect.Click +=  btn_Connect_Click ;
-			// 
-			// tbx_PersonName
-			// 
-			tbx_PersonName.Location = new Point( 79, 51 );
-			tbx_PersonName.Name = "tbx_PersonName";
-			tbx_PersonName.Size = new Size( 264, 23 );
-			tbx_PersonName.TabIndex = 1;
-			// 
-			// btn_FindPerson
-			// 
-			btn_FindPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_FindPerson.Location = new Point( 23, 22 );
-			btn_FindPerson.Name = "btn_FindPerson";
-			btn_FindPerson.Size = new Size( 109, 23 );
-			btn_FindPerson.TabIndex = 0;
-			btn_FindPerson.Text = "Find Person";
-			btn_FindPerson.UseVisualStyleBackColor = true;
-			btn_FindPerson.Click +=  btn_FindPerson_Click ;
-			// 
 			// grp_Address
 			// 
-			grp_Address.Controls.Add( lbx_AttachedPersons );
 			grp_Address.Controls.Add( tbx_PkAddress );
-			grp_Address.Controls.Add( lbx_Address );
 			grp_Address.Controls.Add( btn_FindAddress );
+			grp_Address.Controls.Add( lvw_PersonsAddresses );
 			grp_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_Address.Location = new Point( 31, 258 );
 			grp_Address.Name = "grp_Address";
-			grp_Address.Size = new Size( 672, 226 );
+			grp_Address.Size = new Size( 1255, 226 );
 			grp_Address.TabIndex = 1;
 			grp_Address.TabStop = false;
 			grp_Address.Text = "Address";
-			// 
-			// lbx_AttachedPersons
-			// 
-			lbx_AttachedPersons.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbx_AttachedPersons.FormattingEnabled = true;
-			lbx_AttachedPersons.ItemHeight = 15;
-			lbx_AttachedPersons.Location = new Point( 441, 22 );
-			lbx_AttachedPersons.Name = "lbx_AttachedPersons";
-			lbx_AttachedPersons.Size = new Size( 178, 154 );
-			lbx_AttachedPersons.TabIndex = 3;
 			// 
 			// tbx_PkAddress
 			// 
@@ -207,16 +226,6 @@
 			tbx_PkAddress.Name = "tbx_PkAddress";
 			tbx_PkAddress.Size = new Size( 50, 23 );
 			tbx_PkAddress.TabIndex = 2;
-			// 
-			// lbx_Address
-			// 
-			lbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbx_Address.FormattingEnabled = true;
-			lbx_Address.ItemHeight = 15;
-			lbx_Address.Location = new Point( 162, 22 );
-			lbx_Address.Name = "lbx_Address";
-			lbx_Address.Size = new Size( 264, 199 );
-			lbx_Address.TabIndex = 1;
 			// 
 			// btn_FindAddress
 			// 
@@ -228,17 +237,6 @@
 			btn_FindAddress.Text = "Find Address";
 			btn_FindAddress.UseVisualStyleBackColor = true;
 			btn_FindAddress.Click +=  btn_FindAddress_Click ;
-			// 
-			// tbx_Address
-			// 
-			tbx_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
-			tbx_Address.Location = new Point( 749, 268 );
-			tbx_Address.Multiline = true;
-			tbx_Address.Name = "tbx_Address";
-			tbx_Address.Size = new Size( 454, 216 );
-			tbx_Address.TabIndex = 4;
-			tbx_Address.Text = "tbx_Address";
 			// 
 			// btn_Disconnect
 			// 
@@ -256,7 +254,7 @@
 			// 
 			btn_Close.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Close.ForeColor = Color.Maroon;
-			btn_Close.Location = new Point( 818, 527 );
+			btn_Close.Location = new Point( 1153, 506 );
 			btn_Close.Name = "btn_Close";
 			btn_Close.Size = new Size( 133, 34 );
 			btn_Close.TabIndex = 8;
@@ -281,16 +279,17 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
-			ClientSize = new Size( 1299, 573 );
-			Controls.Add( tbx_Address );
+			ClientSize = new Size( 1295, 573 );
+			Controls.Add( lbx_Address );
+			Controls.Add( lbx_AttachedPersons );
 			Controls.Add( tbx_Messages );
 			Controls.Add( btn_Disconnect );
+			Controls.Add( tbx_Address );
 			Controls.Add( btn_Close );
 			Controls.Add( grp_Address );
 			Controls.Add( grp_Person );
 			Name = "Person_X_Address";
 			Text = "Person_X_Address";
-			Load +=  Person_X_Address_Load ;
 			grp_Person.ResumeLayout( false );
 			grp_Person.PerformLayout();
 			grp_Address.ResumeLayout( false );

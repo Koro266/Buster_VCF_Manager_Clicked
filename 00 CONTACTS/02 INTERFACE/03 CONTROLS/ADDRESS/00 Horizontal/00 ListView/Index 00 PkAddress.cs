@@ -1,0 +1,45 @@
+﻿//___________________________________________________________________________________________________________________________________________________
+//LOCAL
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+
+//___________________________________________________________________________________________________________________________________________________
+namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+{
+	//___________________________________________________________________________________________________________________________________________
+	public class Index00_PkAddress 
+	{
+		private ADDRESS_ROW _Address;
+		private ListView _ListView;
+
+		//___________________________________________________________________________________________________________________________________________
+		public Index00_PkAddress( ADDRESS_ROW address_row, ListView list_view )
+		{
+			AddressRow = address_row;
+			ListViewControl = list_view;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public ListViewItem InsertColumnValue()
+		{
+			ListViewControl.Items.Clear();
+			return ListViewControl.Items.Add( AddressRow.PkAddress.AsString );
+		}
+		//___________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Gets/sets Address row.
+		/// </summary>
+		private ADDRESS_ROW AddressRow
+		{
+			get { return _Address; }
+			set { _Address = value; }
+		}
+		//___________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Gets/sets ListView control object.
+		/// </summary>
+		private ListView ListViewControl
+		{
+			get { return _ListView; }
+			set { _ListView = value; }
+		}
+	}
+}

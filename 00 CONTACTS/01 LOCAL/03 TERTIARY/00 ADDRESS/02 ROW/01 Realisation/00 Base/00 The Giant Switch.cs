@@ -14,9 +14,19 @@ namespace CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER
 		protected ADDRESS_ROW _AddressRow;
 
 		//___________________________________________________________________________________________________________________________________________
+		public TheGiantSwitch()
+		{
+		}
+		//___________________________________________________________________________________________________________________________________________
 		public TheGiantSwitch( ADDRESS_ROW address_row )
 		{
 			_AddressRow = address_row;
+		}
+		//_______________________________________________________________________________________________________________________________________
+		virtual public string RealiseAddressRule( ADDRESS_ROW address_row, string address_rule )
+		{
+			_AddressRow = address_row;
+			return RealiseAddressRule( address_rule );
 		}
 		//_______________________________________________________________________________________________________________________________________
 		virtual public string RealiseAddressRule( string address_rule )
