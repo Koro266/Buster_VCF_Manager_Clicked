@@ -279,7 +279,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
-			ClientSize = new Size( 1295, 573 );
+			ClientSize = new Size( 1295, 514 );
 			Controls.Add( lbx_Address );
 			Controls.Add( lbx_AttachedPersons );
 			Controls.Add( tbx_Messages );

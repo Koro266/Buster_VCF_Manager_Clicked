@@ -1,13 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
-//LOCAL
+//LOCAL INTERFACE
+using LISTVIEW_ADDRESS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.ListViewAddress;
+//LOCAL ADDRESS
 using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using LIKE				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
-using NATION			= CONTACTS.LOCAL.TERTIARY.NATION.Row;
-using NATIONS			= CONTACTS.LOCAL.TERTIARY.NATION.Table;
-using LISTVIEW_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.HORIZONTAL.LISTVIEW.ListViewAddress;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.DIALOGS
@@ -16,12 +15,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 	public partial class DlgFindAddress : Form
 	{
 		#region DECLARATION & CONSTRUCTION
-		//TODO: Review all_Addresses & all_Nations. Do we really need them?
-		//private static ADDRESSES all_Addresses = new ADDRESSES();
-		//private static NATIONS all_Nations = new NATIONS();
-
 		private ADDRESS selected_Address;
-		//private NATION one_Nation;
 
 		//___________________________________________________________________________________________________________________________________________
 		public DlgFindAddress()
@@ -32,51 +26,62 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		#endregion
 
 
+		#region DISPLAY
+		//___________________________________________________________________________________________________________________________________________
+		public void DisplayAddresses( Dictionary<int, BASE_ROW> address_rows )
+		{
+			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( lvw_MatchingAddresses );
+
+			int index = 0;
+			foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
+			{
+				ADDRESS address = ( ADDRESS )row.Value;
+				//listview_address.InsertAddressValues( address );
+
+				//	lvw_MatchingAddresses.Items.Add( columns[0] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
+				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
+				//	lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
+			}
+		}
+		#endregion
+
+
 		#region RESPONDERS
+
+		#region ADDRESS/COUNTRY
 		//___________________________________________________________________________________________________________________________________________
 		private ADDRESS Address
 		{
 			get { return selected_Address; }
-			set
-			{
-				selected_Address = value;
-//				Country = all_Nations.NationByKey( selected_Address.FkCountry.Value );
-			}
+			set { selected_Address = value; }
 		}
-		//___________________________________________________________________________________________________________________________________________
-		//private NATION Country
-		//{
-		//	get { return all_Nations.NationByKey( Address.FkCountry.Value ); }
-		//	set
-		//	{
-		//		Address.NewNation = value;
-		//		one_Nation = value;
-		//	}
-		//}
 		//___________________________________________________________________________________________________________________________________________
 		private int AddressPk
 		{
 			get { return Address.PkAddress.Value; }
-			//set { Address = all_Addresses.AddressByKey( value ); }
+			set { Address = new SELECT_ADDRESS.ByPkAddress( value ).Execute; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string AddressPkAsText
 		{
 			get { return AddressPk.ToString(); }
-			//set { AddressPk = Convert.ToInt32( value ); }
+			set { AddressPk = Convert.ToInt32( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private int CountryPk
 		{
 			get { return Address.FkCountry.Value; }
-			//set { Country = all_Nations.NationByKey( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string CountryPkAsText
 		{
-			get { return CountryPk.ToString(); }
-		//	set { CountryPk = Convert.ToInt32( value ); }
+			get { return Address.FkCountry.AsString; }
 		}
+		#endregion
 
 
 		#region STREET ADDRESS
@@ -263,11 +268,10 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		}
 		#endregion
 
-
 		#endregion RESPONDERS
 
 
-		#region TEXTCHANGED & SELECTION
+		#region TEXTCHANGED
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_STR_HouseNumber_TextChanged( object sender, EventArgs e )
 		{
@@ -278,8 +282,6 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			StreetName = tbx_STR_StreetName.Text;
 		}
-
-
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LOC_City_TextChanged( object sender, EventArgs e )
 		{
@@ -290,8 +292,6 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			Suburb = tbx_LOC_Suburb.Text;
 		}
-
-
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_BOX_Number_TextChanged( object sender, EventArgs e )
 		{
@@ -307,8 +307,6 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			PostCode = tbx_ZIP_PostalCode.Text;
 		}
-
-
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_EXT_Assemblage_TextChanged( object sender, EventArgs e )
 		{
@@ -344,41 +342,16 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			ProvinceName = tbx_PRV_Name.Text;
 		}
+		#endregion
 
+
+		#region TERMINATION
 		//___________________________________________________________________________________________________________________________________________
 		private void lvw_MatchingAddresses_DoubleClick( object sender, EventArgs e )
 		{
 			DoubleClick = lvw_MatchingAddresses.SelectedItems[0].Text;
 		}
-		#endregion
-
-
-		#region DISPLAYER
 		//___________________________________________________________________________________________________________________________________________
-		public void DisplayAddresses( Dictionary<int, BASE_ROW> address_rows )
-		{
-			LISTVIEW_ADDRESS listview_address = new LISTVIEW_ADDRESS( lvw_MatchingAddresses );
-
-			int index = 0;
-			foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
-			{
-				ADDRESS address = ( ADDRESS )row.Value;
-				//listview_address.InsertAddressValues( address );
-
-				//	lvw_MatchingAddresses.Items.Add( columns[0] );
-				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
-				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
-				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
-				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
-				//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
-				//	lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
-			}
-		}
-		#endregion
-
-
-			#region TERMINATION
-			//___________________________________________________________________________________________________________________________________________
 		private void btn_CloseForm_Click( object sender, EventArgs e )
 		{
 			this.DialogResult = DialogResult.OK;
@@ -393,5 +366,9 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		}
 		#endregion
 
+		private void DlgFindAddress_Load( object sender, EventArgs e )
+		{
+
+		}
 	}
 }

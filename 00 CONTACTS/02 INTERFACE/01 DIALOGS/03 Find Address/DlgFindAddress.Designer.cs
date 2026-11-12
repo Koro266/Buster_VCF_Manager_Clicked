@@ -28,7 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			ListViewItem listViewItem1 = new ListViewItem( new string[] { "287", "24 Corlett Rd", "Plimmerton, Porirua", "WELLINGTON", "PO Box 1234, 5024", "Level 1", "New Zealand" }, -1 );
+			ListViewItem listViewItem3 = new ListViewItem( new string[] { "287", "24 Corlett Rd", "Plimmerton, Porirua", "WELLINGTON", "PO Box 1234, 5024", "Level 1", "New Zealand" }, -1 );
+			ListViewItem listViewItem4 = new ListViewItem( new string[] { "pk", "street", "burb", "metro", "postal", "extensions", "fk", "country", "iso_codes", "notes" }, -1, Color.FromArgb(     192,     0,     0 ), Color.Empty, null );
 			btn_Cancel = new Button();
 			tbx_EXT_Assemblage = new TextBox();
 			label15 = new Label();
@@ -67,6 +68,17 @@
 			tbx_MET_Metropolitan = new TextBox();
 			label3 = new Label();
 			tbx_PRV_Name = new TextBox();
+			lvw_PersonsAddresses = new ListView();
+			hdr_PkAddress = new ColumnHeader();
+			columnHeader1 = new ColumnHeader();
+			columnHeader2 = new ColumnHeader();
+			columnHeader3 = new ColumnHeader();
+			columnHeader4 = new ColumnHeader();
+			columnHeader5 = new ColumnHeader();
+			hdr_FkCountry = new ColumnHeader();
+			columnHeader6 = new ColumnHeader();
+			hdr_IsoCodes = new ColumnHeader();
+			hdr_Notes = new ColumnHeader();
 			SuspendLayout();
 			// 
 			// btn_Cancel
@@ -324,11 +336,11 @@
 			lvw_MatchingAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lvw_MatchingAddresses.FullRowSelect = true;
 			lvw_MatchingAddresses.GridLines = true;
-			lvw_MatchingAddresses.Items.AddRange( new ListViewItem[] { listViewItem1 } );
+			lvw_MatchingAddresses.Items.AddRange( new ListViewItem[] { listViewItem3 } );
 			lvw_MatchingAddresses.Location = new Point( 271, 12 );
 			lvw_MatchingAddresses.MultiSelect = false;
 			lvw_MatchingAddresses.Name = "lvw_MatchingAddresses";
-			lvw_MatchingAddresses.Size = new Size( 1072, 413 );
+			lvw_MatchingAddresses.Size = new Size( 1072, 192 );
 			lvw_MatchingAddresses.TabIndex = 14;
 			lvw_MatchingAddresses.UseCompatibleStateImageBehavior = false;
 			lvw_MatchingAddresses.View = View.Details;
@@ -429,6 +441,73 @@
 			tbx_PRV_Name.TabIndex = 12;
 			tbx_PRV_Name.TextChanged +=  tbx_PRV_Name_TextChanged ;
 			// 
+			// lvw_PersonsAddresses
+			// 
+			lvw_PersonsAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PkAddress, columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, hdr_FkCountry, columnHeader6, hdr_IsoCodes, hdr_Notes } );
+			lvw_PersonsAddresses.Cursor = Cursors.No;
+			lvw_PersonsAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			lvw_PersonsAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lvw_PersonsAddresses.FullRowSelect = true;
+			lvw_PersonsAddresses.GridLines = true;
+			lvw_PersonsAddresses.Items.AddRange( new ListViewItem[] { listViewItem4 } );
+			lvw_PersonsAddresses.Location = new Point( 271, 226 );
+			lvw_PersonsAddresses.MultiSelect = false;
+			lvw_PersonsAddresses.Name = "lvw_PersonsAddresses";
+			lvw_PersonsAddresses.Size = new Size( 1216, 121 );
+			lvw_PersonsAddresses.TabIndex = 56;
+			lvw_PersonsAddresses.UseCompatibleStateImageBehavior = false;
+			lvw_PersonsAddresses.View = View.Details;
+			// 
+			// hdr_PkAddress
+			// 
+			hdr_PkAddress.Text = "PK";
+			hdr_PkAddress.Width = 40;
+			// 
+			// columnHeader1
+			// 
+			columnHeader1.Text = "STREET";
+			columnHeader1.Width = 133;
+			// 
+			// columnHeader2
+			// 
+			columnHeader2.Text = "BURB, CITY";
+			columnHeader2.Width = 133;
+			// 
+			// columnHeader3
+			// 
+			columnHeader3.Text = "METRO, PROVINCE";
+			columnHeader3.Width = 133;
+			// 
+			// columnHeader4
+			// 
+			columnHeader4.Text = "POSTAL";
+			columnHeader4.Width = 133;
+			// 
+			// columnHeader5
+			// 
+			columnHeader5.Text = "EXTENSIONS";
+			columnHeader5.Width = 133;
+			// 
+			// hdr_FkCountry
+			// 
+			hdr_FkCountry.Text = "FK";
+			hdr_FkCountry.Width = 40;
+			// 
+			// columnHeader6
+			// 
+			columnHeader6.Text = "COUNTRY NAME";
+			columnHeader6.Width = 144;
+			// 
+			// hdr_IsoCodes
+			// 
+			hdr_IsoCodes.Text = "ISO CODES";
+			hdr_IsoCodes.Width = 80;
+			// 
+			// hdr_Notes
+			// 
+			hdr_Notes.Text = "NOTES";
+			hdr_Notes.Width = 225;
+			// 
 			// DlgFindAddress
 			// 
 			AcceptButton = btn_CloseForm;
@@ -436,7 +515,8 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Cancel;
-			ClientSize = new Size( 1358, 482 );
+			ClientSize = new Size( 1494, 482 );
+			Controls.Add( lvw_PersonsAddresses );
 			Controls.Add( label3 );
 			Controls.Add( tbx_PRV_Name );
 			Controls.Add( label2 );
@@ -472,6 +552,7 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Find Address";
 			TopMost = true;
+			Load +=  DlgFindAddress_Load ;
 			ResumeLayout( false );
 			PerformLayout();
 
@@ -516,5 +597,16 @@
 		private TextBox tbx_MET_Metropolitan;
 		private Label label3;
 		private TextBox tbx_PRV_Name;
+		private ListView lvw_PersonsAddresses;
+		private ColumnHeader hdr_PkAddress;
+		private ColumnHeader columnHeader1;
+		private ColumnHeader columnHeader2;
+		private ColumnHeader columnHeader3;
+		private ColumnHeader columnHeader4;
+		private ColumnHeader columnHeader5;
+		private ColumnHeader hdr_FkCountry;
+		private ColumnHeader columnHeader6;
+		private ColumnHeader hdr_IsoCodes;
+		private ColumnHeader hdr_Notes;
 	}
 }
