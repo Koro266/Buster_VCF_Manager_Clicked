@@ -7,6 +7,7 @@ using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
+using X_MANAGER		= CONTACTS.INTERFACE.CONNECTORS.X_Manager;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -212,5 +213,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			List<string> s = extract_txt.ExtractAllMessages();
 		}
 		#endregion
+
+		private void btn_Connector_Click( object sender, EventArgs e )
+		{
+			X_MANAGER x_manager = new X_MANAGER();
+			x_manager.ShowDialog();
+		}
 	}
 }

@@ -19,11 +19,12 @@ namespace CONTACTS.GLOBAL.TOOLS
 			FindAddress,
 			FindDevice,
 			Person_X_Address,
-			Person_X_Device
+			Person_X_Device,
+			X_Manager
 		};
 
 #if DEBUG
-		private static StartupForm startup_Interface = StartupForm.Overseer;
+		private static StartupForm startup_Interface = StartupForm.X_Manager;
 #else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
 #endif

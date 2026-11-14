@@ -13,7 +13,8 @@ using FIND_FAMILY	= CONTACTS.INTERFACE.DIALOGS.DlgFindFamily;
 using FIND_ADDRESS	= CONTACTS.INTERFACE.DIALOGS.DlgFindAddress;
 using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
 
-using PERSON_X_ADDRESS = CONTACTS.INTERFACE.CONNECTORS.Person_X_Address;
+using X_MANAGER			= CONTACTS.INTERFACE.CONNECTORS.X_Manager;
+using PERSON_X_ADDRESS	= CONTACTS.INTERFACE.CONNECTORS.Person_X_Address;
 
 
 //___________________________________________________________________________________________________________________________________________________
@@ -80,6 +81,10 @@ namespace VcfManager
 
 				case STARTUP_MAN.StartupForm.Person_X_Address:
 					Application.Run( new PERSON_X_ADDRESS() );
+					break;
+
+				case STARTUP_MAN.StartupForm.X_Manager:
+					Application.Run( new X_MANAGER() );
 					break;
 
 				default:

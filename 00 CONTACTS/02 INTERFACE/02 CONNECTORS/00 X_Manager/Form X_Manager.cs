@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace VcfManager._00_CONTACTS._02_INTERFACE._02_CONNECTORS
+﻿//___________________________________________________________________________________________________________________________________________________
+//LOCAL
+using PERSON_X_ADDRESS = CONTACTS.INTERFACE.CONNECTORS.Person_X_Address;
+//___________________________________________________________________________________________________________________________________________________
+namespace CONTACTS.INTERFACE.CONNECTORS
 {
-	public partial class Form1 : Form
+	//_______________________________________________________________________________________________________________________________________________
+	public partial class X_Manager : Form
 	{
-		public Form1()
+		//___________________________________________________________________________________________________________________________________________
+		public X_Manager()
 		{
 			InitializeComponent();
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void btn_Person_X_Address_Click( object sender, EventArgs e )
+		{
+			PERSON_X_ADDRESS person_x_address = new PERSON_X_ADDRESS();
+			person_x_address.ShowDialog( this );
 		}
 	}
 }
