@@ -52,10 +52,10 @@
 			grp_Export = new GroupBox();
 			tbx_Export_Status = new TextBox();
 			grp_Add_Mod_Del = new GroupBox();
-			btn_Open_Group_X_Form = new Button();
-			btn_Open_FamilyX_Form = new Button();
 			btn_Eddresses = new Button();
 			btn_Open_Group_Form = new Button();
+			btn_Open_Group_X_Form = new Button();
+			btn_Open_FamilyX_Form = new Button();
 			btn_CloseForm = new Button();
 			bx_Groups.SuspendLayout();
 			bx_Families.SuspendLayout();
@@ -365,6 +365,34 @@
 			grp_Add_Mod_Del.TabStop = false;
 			grp_Add_Mod_Del.Text = "Add, Modify, Delete";
 			// 
+			// btn_Eddresses
+			// 
+			btn_Eddresses.BackColor = Color.MistyRose;
+			btn_Eddresses.Enabled = false;
+			btn_Eddresses.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Eddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_Eddresses.Location = new Point( 352, 110 );
+			btn_Eddresses.Name = "btn_Eddresses";
+			btn_Eddresses.Size = new Size( 155, 38 );
+			btn_Eddresses.TabIndex = 5;
+			btn_Eddresses.Text = "Eddresses";
+			btn_Eddresses.UseVisualStyleBackColor = false;
+			btn_Eddresses.Visible = false;
+			btn_Eddresses.Click +=  btn_Eddresses_Click ;
+			// 
+			// btn_Open_Group_Form
+			// 
+			btn_Open_Group_Form.BackColor = Color.MistyRose;
+			btn_Open_Group_Form.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Open_Group_Form.ForeColor = Color.FromArgb(     192,     0,     0 );
+			btn_Open_Group_Form.Location = new Point( 146, 110 );
+			btn_Open_Group_Form.Name = "btn_Open_Group_Form";
+			btn_Open_Group_Form.Size = new Size( 155, 38 );
+			btn_Open_Group_Form.TabIndex = 2;
+			btn_Open_Group_Form.Text = "Groups";
+			btn_Open_Group_Form.UseVisualStyleBackColor = false;
+			btn_Open_Group_Form.Click +=  btn_Open_Group_Form_Click ;
+			// 
 			// btn_Open_Group_X_Form
 			// 
 			btn_Open_Group_X_Form.BackColor = Color.MistyRose;
@@ -395,34 +423,6 @@
 			btn_Open_FamilyX_Form.Visible = false;
 			btn_Open_FamilyX_Form.Click +=  btn_Open_Family_X_Form_Click ;
 			// 
-			// btn_Eddresses
-			// 
-			btn_Eddresses.BackColor = Color.MistyRose;
-			btn_Eddresses.Enabled = false;
-			btn_Eddresses.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_Eddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Eddresses.Location = new Point( 352, 110 );
-			btn_Eddresses.Name = "btn_Eddresses";
-			btn_Eddresses.Size = new Size( 155, 38 );
-			btn_Eddresses.TabIndex = 5;
-			btn_Eddresses.Text = "Eddresses";
-			btn_Eddresses.UseVisualStyleBackColor = false;
-			btn_Eddresses.Visible = false;
-			btn_Eddresses.Click +=  btn_Eddresses_Click ;
-			// 
-			// btn_Open_Group_Form
-			// 
-			btn_Open_Group_Form.BackColor = Color.MistyRose;
-			btn_Open_Group_Form.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
-			btn_Open_Group_Form.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Open_Group_Form.Location = new Point( 146, 110 );
-			btn_Open_Group_Form.Name = "btn_Open_Group_Form";
-			btn_Open_Group_Form.Size = new Size( 155, 38 );
-			btn_Open_Group_Form.TabIndex = 2;
-			btn_Open_Group_Form.Text = "Groups";
-			btn_Open_Group_Form.UseVisualStyleBackColor = false;
-			btn_Open_Group_Form.Click +=  btn_Open_Group_Form_Click ;
-			// 
 			// btn_CloseForm
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
@@ -441,7 +441,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_CloseForm;
-			ClientSize = new Size( 687, 520 );
+			ClientSize = new Size( 690, 517 );
 			Controls.Add( btn_Open_Group_X_Form );
 			Controls.Add( grp_Add_Mod_Del );
 			Controls.Add( btn_Open_FamilyX_Form );
