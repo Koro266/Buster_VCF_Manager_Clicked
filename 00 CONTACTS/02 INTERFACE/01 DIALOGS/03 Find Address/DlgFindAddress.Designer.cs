@@ -28,8 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			ListViewItem listViewItem3 = new ListViewItem( new string[] { "287", "24 Corlett Rd", "Plimmerton, Porirua", "WELLINGTON", "PO Box 1234, 5024", "Level 1", "New Zealand" }, -1 );
-			ListViewItem listViewItem4 = new ListViewItem( new string[] { "pk", "street", "burb", "metro", "postal", "extensions", "fk", "country", "iso_codes", "notes" }, -1, Color.FromArgb(     192,     0,     0 ), Color.Empty, null );
+			ListViewItem listViewItem1 = new ListViewItem( new string[] { "pk", "street", "burb", "metro", "postal", "extensions", "fk", "country", "iso_codes", "notes" }, -1, Color.FromArgb(     192,     0,     0 ), Color.Empty, null );
 			btn_Cancel = new Button();
 			tbx_EXT_Assemblage = new TextBox();
 			label15 = new Label();
@@ -54,29 +53,21 @@
 			tbx_BOX_RuralDelivery = new TextBox();
 			tbx_LOC_Suburb = new TextBox();
 			tbx_EXT_Extension = new TextBox();
-			lvw_MatchingAddresses = new ListView();
-			hdr_PrimaryKey = new ColumnHeader();
-			hdr_StreetAddress = new ColumnHeader();
-			hdr_BurbCity = new ColumnHeader();
-			hdr_Metropolitan = new ColumnHeader();
-			hdr_Postal = new ColumnHeader();
-			hdr_Extensions = new ColumnHeader();
-			hdr_Country = new ColumnHeader();
 			tbx_PRV_Abbreviation = new TextBox();
 			label1 = new Label();
 			label2 = new Label();
 			tbx_MET_Metropolitan = new TextBox();
 			label3 = new Label();
 			tbx_PRV_Name = new TextBox();
-			lvw_PersonsAddresses = new ListView();
+			lvw_MatchingAddresses = new ListView();
 			hdr_PkAddress = new ColumnHeader();
-			columnHeader1 = new ColumnHeader();
-			columnHeader2 = new ColumnHeader();
-			columnHeader3 = new ColumnHeader();
-			columnHeader4 = new ColumnHeader();
-			columnHeader5 = new ColumnHeader();
+			hdr_StreetAddress = new ColumnHeader();
+			hdr_BurbCity = new ColumnHeader();
+			hdr_MetroProv = new ColumnHeader();
+			hdr_PostalRd = new ColumnHeader();
+			hdr_Extensions = new ColumnHeader();
 			hdr_FkCountry = new ColumnHeader();
-			columnHeader6 = new ColumnHeader();
+			hdr_CountryName = new ColumnHeader();
 			hdr_IsoCodes = new ColumnHeader();
 			hdr_Notes = new ColumnHeader();
 			SuspendLayout();
@@ -85,7 +76,7 @@
 			// 
 			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Cancel.ForeColor = Color.Maroon;
-			btn_Cancel.Location = new Point( 1151, 431 );
+			btn_Cancel.Location = new Point( 1280, 436 );
 			btn_Cancel.Name = "btn_Cancel";
 			btn_Cancel.Size = new Size( 93, 34 );
 			btn_Cancel.TabIndex = 15;
@@ -126,7 +117,7 @@
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 1250, 431 );
+			btn_CloseForm.Location = new Point( 1379, 436 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 93, 34 );
 			btn_CloseForm.TabIndex = 16;
@@ -329,57 +320,6 @@
 			tbx_EXT_Extension.TabIndex = 10;
 			tbx_EXT_Extension.TextChanged +=  tbx_EXT_Extension_TextChanged ;
 			// 
-			// lvw_MatchingAddresses
-			// 
-			lvw_MatchingAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PrimaryKey, hdr_StreetAddress, hdr_BurbCity, hdr_Metropolitan, hdr_Postal, hdr_Extensions, hdr_Country } );
-			lvw_MatchingAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			lvw_MatchingAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lvw_MatchingAddresses.FullRowSelect = true;
-			lvw_MatchingAddresses.GridLines = true;
-			lvw_MatchingAddresses.Items.AddRange( new ListViewItem[] { listViewItem3 } );
-			lvw_MatchingAddresses.Location = new Point( 271, 12 );
-			lvw_MatchingAddresses.MultiSelect = false;
-			lvw_MatchingAddresses.Name = "lvw_MatchingAddresses";
-			lvw_MatchingAddresses.Size = new Size( 1072, 192 );
-			lvw_MatchingAddresses.TabIndex = 14;
-			lvw_MatchingAddresses.UseCompatibleStateImageBehavior = false;
-			lvw_MatchingAddresses.View = View.Details;
-			lvw_MatchingAddresses.DoubleClick +=  lvw_MatchingAddresses_DoubleClick ;
-			// 
-			// hdr_PrimaryKey
-			// 
-			hdr_PrimaryKey.Text = "PK";
-			// 
-			// hdr_StreetAddress
-			// 
-			hdr_StreetAddress.Text = "Num, Street, Type, Compass";
-			hdr_StreetAddress.Width = 180;
-			// 
-			// hdr_BurbCity
-			// 
-			hdr_BurbCity.Text = "Suburb, City";
-			hdr_BurbCity.Width = 160;
-			// 
-			// hdr_Metropolitan
-			// 
-			hdr_Metropolitan.Text = "Metro, Province, (Prov)";
-			hdr_Metropolitan.Width = 180;
-			// 
-			// hdr_Postal
-			// 
-			hdr_Postal.Text = "PO Box, RD, Post Code";
-			hdr_Postal.Width = 150;
-			// 
-			// hdr_Extensions
-			// 
-			hdr_Extensions.Text = "Assm, Ext, Level, Unit";
-			hdr_Extensions.Width = 180;
-			// 
-			// hdr_Country
-			// 
-			hdr_Country.Text = "Country (Code)";
-			hdr_Country.Width = 150;
-			// 
 			// tbx_PRV_Abbreviation
 			// 
 			tbx_PRV_Abbreviation.BackColor = SystemColors.Window;
@@ -441,62 +381,62 @@
 			tbx_PRV_Name.TabIndex = 12;
 			tbx_PRV_Name.TextChanged +=  tbx_PRV_Name_TextChanged ;
 			// 
-			// lvw_PersonsAddresses
+			// lvw_MatchingAddresses
 			// 
-			lvw_PersonsAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PkAddress, columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, hdr_FkCountry, columnHeader6, hdr_IsoCodes, hdr_Notes } );
-			lvw_PersonsAddresses.Cursor = Cursors.No;
-			lvw_PersonsAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			lvw_PersonsAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lvw_PersonsAddresses.FullRowSelect = true;
-			lvw_PersonsAddresses.GridLines = true;
-			lvw_PersonsAddresses.Items.AddRange( new ListViewItem[] { listViewItem4 } );
-			lvw_PersonsAddresses.Location = new Point( 271, 226 );
-			lvw_PersonsAddresses.MultiSelect = false;
-			lvw_PersonsAddresses.Name = "lvw_PersonsAddresses";
-			lvw_PersonsAddresses.Size = new Size( 1216, 121 );
-			lvw_PersonsAddresses.TabIndex = 56;
-			lvw_PersonsAddresses.UseCompatibleStateImageBehavior = false;
-			lvw_PersonsAddresses.View = View.Details;
+			lvw_MatchingAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PkAddress, hdr_StreetAddress, hdr_BurbCity, hdr_MetroProv, hdr_PostalRd, hdr_Extensions, hdr_FkCountry, hdr_CountryName, hdr_IsoCodes, hdr_Notes } );
+			lvw_MatchingAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			lvw_MatchingAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lvw_MatchingAddresses.FullRowSelect = true;
+			lvw_MatchingAddresses.GridLines = true;
+			lvw_MatchingAddresses.Items.AddRange( new ListViewItem[] { listViewItem1 } );
+			lvw_MatchingAddresses.Location = new Point( 256, 12 );
+			lvw_MatchingAddresses.MultiSelect = false;
+			lvw_MatchingAddresses.Name = "lvw_MatchingAddresses";
+			lvw_MatchingAddresses.Size = new Size( 1216, 413 );
+			lvw_MatchingAddresses.TabIndex = 56;
+			lvw_MatchingAddresses.UseCompatibleStateImageBehavior = false;
+			lvw_MatchingAddresses.View = View.Details;
+			lvw_MatchingAddresses.DoubleClick +=  lvw_MatchingAddresses_DoubleClick ;
 			// 
 			// hdr_PkAddress
 			// 
 			hdr_PkAddress.Text = "PK";
 			hdr_PkAddress.Width = 40;
 			// 
-			// columnHeader1
+			// hdr_StreetAddress
 			// 
-			columnHeader1.Text = "STREET";
-			columnHeader1.Width = 133;
+			hdr_StreetAddress.Text = "STREET";
+			hdr_StreetAddress.Width = 133;
 			// 
-			// columnHeader2
+			// hdr_BurbCity
 			// 
-			columnHeader2.Text = "BURB, CITY";
-			columnHeader2.Width = 133;
+			hdr_BurbCity.Text = "BURB, CITY";
+			hdr_BurbCity.Width = 133;
 			// 
-			// columnHeader3
+			// hdr_MetroProv
 			// 
-			columnHeader3.Text = "METRO, PROVINCE";
-			columnHeader3.Width = 133;
+			hdr_MetroProv.Text = "METRO, PROVINCE";
+			hdr_MetroProv.Width = 133;
 			// 
-			// columnHeader4
+			// hdr_PostalRd
 			// 
-			columnHeader4.Text = "POSTAL";
-			columnHeader4.Width = 133;
+			hdr_PostalRd.Text = "POSTAL";
+			hdr_PostalRd.Width = 133;
 			// 
-			// columnHeader5
+			// hdr_Extensions
 			// 
-			columnHeader5.Text = "EXTENSIONS";
-			columnHeader5.Width = 133;
+			hdr_Extensions.Text = "EXTENSIONS";
+			hdr_Extensions.Width = 133;
 			// 
 			// hdr_FkCountry
 			// 
 			hdr_FkCountry.Text = "FK";
 			hdr_FkCountry.Width = 40;
 			// 
-			// columnHeader6
+			// hdr_CountryName
 			// 
-			columnHeader6.Text = "COUNTRY NAME";
-			columnHeader6.Width = 144;
+			hdr_CountryName.Text = "COUNTRY NAME";
+			hdr_CountryName.Width = 144;
 			// 
 			// hdr_IsoCodes
 			// 
@@ -516,7 +456,7 @@
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Cancel;
 			ClientSize = new Size( 1494, 482 );
-			Controls.Add( lvw_PersonsAddresses );
+			Controls.Add( lvw_MatchingAddresses );
 			Controls.Add( label3 );
 			Controls.Add( tbx_PRV_Name );
 			Controls.Add( label2 );
@@ -524,7 +464,6 @@
 			Controls.Add( tbx_PRV_Abbreviation );
 			Controls.Add( label1 );
 			Controls.Add( btn_Cancel );
-			Controls.Add( lvw_MatchingAddresses );
 			Controls.Add( tbx_EXT_Assemblage );
 			Controls.Add( btn_CloseForm );
 			Controls.Add( tbx_EXT_Unit );
@@ -552,7 +491,6 @@
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Find Address";
 			TopMost = true;
-			Load +=  DlgFindAddress_Load ;
 			ResumeLayout( false );
 			PerformLayout();
 
@@ -583,29 +521,21 @@
 		private TextBox tbx_EXT_Extension;
 		private Button btn_CloseForm;
 		private Button btn_Cancel;
-		private ListView lvw_MatchingAddresses;
-		private ColumnHeader hdr_StreetAddress;
-		private ColumnHeader hdr_BurbCity;
-		private ColumnHeader hdr_Metropolitan;
-		private ColumnHeader hdr_Postal;
-		private ColumnHeader hdr_Extensions;
-		private ColumnHeader hdr_Country;
-		private ColumnHeader hdr_PrimaryKey;
 		private TextBox tbx_PRV_Abbreviation;
 		private Label label1;
 		private Label label2;
 		private TextBox tbx_MET_Metropolitan;
 		private Label label3;
 		private TextBox tbx_PRV_Name;
-		private ListView lvw_PersonsAddresses;
+		private ListView lvw_MatchingAddresses;
 		private ColumnHeader hdr_PkAddress;
-		private ColumnHeader columnHeader1;
-		private ColumnHeader columnHeader2;
-		private ColumnHeader columnHeader3;
-		private ColumnHeader columnHeader4;
-		private ColumnHeader columnHeader5;
+		private ColumnHeader hdr_StreetAddress;
+		private ColumnHeader hdr_BurbCity;
+		private ColumnHeader hdr_MetroProv;
+		private ColumnHeader hdr_PostalRd;
+		private ColumnHeader hdr_Extensions;
 		private ColumnHeader hdr_FkCountry;
-		private ColumnHeader columnHeader6;
+		private ColumnHeader hdr_CountryName;
 		private ColumnHeader hdr_IsoCodes;
 		private ColumnHeader hdr_Notes;
 	}

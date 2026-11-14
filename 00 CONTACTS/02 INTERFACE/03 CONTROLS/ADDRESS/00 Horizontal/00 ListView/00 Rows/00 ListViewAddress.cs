@@ -1,93 +1,94 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
-using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
+//SYSTEM
+using LIST_ITEM		= System.Windows.Forms.ListViewItem;
+using SUB_ITEM		= System.Windows.Forms.ListViewItem.ListViewSubItem;
+using System;
 //LOCAL
-using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using IDX00_PK_ADDRESS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index00_PkAddress;
-using IDX01_STREET		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index01_Street;
-using IDX02_CITY		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index02_City;
-using IDX03_METRO		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index03_Metro;
-using IDX04_POSTAL		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index04_Postal;
-using IDX05_EXTENSIONS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index05_Extensions;
-using IDX06_PK_NATION	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index06_PkNation;
-using IDX07_COUNTRY		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index07_Country;
-using IDX08_ISOCODES	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index08_IsoCodes;
-using IDX09_NOTES		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Index09_Notes;
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+//GLOBAL
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
+using CITY			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col2_City;
+using EXTENSIONS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col5_Extensions;
+using ISOCODES		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col8_IsoCodes;
+using METRO			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col3_Metro;
+using NATION		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col7_Country;
+using NOTES			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col8_Notes;
+using PK_ADDRESS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col0_PkAddress;
+using PK_NATION		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col6_PkCountry;
+using POSTAL		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col4_Postal;
+using STREET		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col1_Street;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 {
 	//_______________________________________________________________________________________________________________________________________________
-	public class ListViewAddress 
+	public partial class ListViewAddress
 	{
-		private ListView			_Control;
-		private IDX00_PK_ADDRESS	_PkAddress;
-		private IDX01_STREET		_Street;
-		private IDX02_CITY			_City;
-		private IDX03_METRO			_Metro;
-		private IDX04_POSTAL		_Postal;
-		private IDX05_EXTENSIONS	_Extensions;
-		private IDX06_PK_NATION		_PkNation;
-		private IDX07_COUNTRY		_Country;
-		private IDX08_ISOCODES		_IsoCodes;
-		private IDX09_NOTES			_Notes;
+		private ListView _Control;
+		private Dictionary<int, BASE_ROW> _BaseRows;
+		private int lvi_Index = 0;
+
+		private PK_ADDRESS _PkAddress;
+		private STREET _Street;
+		private CITY _City;
+		private METRO _Metro;
+		private POSTAL _Postal;
+		private EXTENSIONS _Extensions;
+		private PK_NATION _PkNation;
+		private NATION _Country;
+		private ISOCODES _IsoCodes;
+		private NOTES _Notes;
 
 		//___________________________________________________________________________________________________________________________________________
 		public ListViewAddress( ListView list_view )
 		{
 			_Control = list_view;
-
-			//_PkAddress	= new IDX00_PK_ADDRESS( address_row, list_view );
-			//_Street		= new IDX01_STREET( address_row );
-			//_City		= new IDX02_CITY( address_row );
-			//_Metro		= new IDX03_METRO( address_row );
-			//_Postal		= new IDX04_POSTAL( address_row );
-			//_Extensions	= new IDX05_EXTENSIONS( address_row );
-			//_PkNation	= new IDX06_PK_NATION( address_row );
-			//_Country	= new IDX07_COUNTRY( address_row );
-			//_IsoCodes	= new IDX08_ISOCODES( address_row );
-			//_Notes		= new IDX09_NOTES( address_row );
+			_Control.Items.Clear();
+			DisplayAddress( this.DefaultAddress);
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public ListViewAddress( ADDRESS_ROW[] address_rows, ListView list_view )
+		private void DisplayAddresses( Dictionary<int, BASE_ROW> base_rows )
 		{
-			//int index = 0;
-			//foreach ( KeyValuePair<int, BASE_ROW> row in address_rows )
-			//{
-			//	ADDRESS address = ( ADDRESS )row.Value;
+			_Control.Items.Clear();
+			lvi_Index = 0;
 
-			//	lvw_MatchingAddresses.Items.Add( columns[0] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[1] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[2] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[3] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[4] );
-			//	lvw_MatchingAddresses.Items[index].SubItems.Add( columns[5] );
-			//	lvw_MatchingAddresses.Items[index++].SubItems.Add( columns[6] );
-			//}
-			//_PkAddress = new IDX00_PK_ADDRESS( address_row, list_view );
-			//_Street = new IDX01_STREET( address_row );
-			//_City = new IDX02_CITY( address_row );
-			//_Metro = new IDX03_METRO( address_row );
-			//_Postal = new IDX04_POSTAL( address_row );
-			//_Extensions = new IDX05_EXTENSIONS( address_row );
-			//_PkNation = new IDX06_PK_NATION( address_row );
-			//_Country = new IDX07_COUNTRY( address_row );
-			//_IsoCodes = new IDX08_ISOCODES( address_row );
-			//_Notes = new IDX09_NOTES( address_row );
+			foreach ( KeyValuePair<int, BASE_ROW> row in base_rows )
+			{
+				ADDRESS_ROW address_row = ( ADDRESS_ROW )row.Value;
+				DisplayAddress( address_row );
+				lvi_Index++;
+			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertAddressValues()
+		public void DisplayAddress( ADDRESS_ROW address_row )
 		{
-			ListViewItem list_view_item =_PkAddress.InsertColumnValue();
-			_Street.InsertColumnValue( list_view_item );
-			_City.InsertColumnValue( list_view_item );
-			_Metro.InsertColumnValue( list_view_item );
-			_Postal.InsertColumnValue( list_view_item );
-			_Extensions.InsertColumnValue( list_view_item );
-			_PkNation.InsertColumnValue( list_view_item );
-			_Country.InsertColumnValue( list_view_item );
-			_IsoCodes.InsertColumnValue( list_view_item );
-			_Notes.InsertColumnValue( list_view_item );
+			ConstructColumns( address_row );
+			LIST_ITEM lvi = new LIST_ITEM( _PkAddress.ColumnValue );
+
+			_Control.Items.Add( lvi );
+			_Control.Items[lvi_Index].SubItems.Add( _Street.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _City.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _Metro.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _Postal.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _Extensions.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _PkNation.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _Country.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _IsoCodes.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _Notes.ColumnValue );
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public void ConstructColumns( ADDRESS_ROW address_row )
+		{
+			_PkAddress	= new PK_ADDRESS( address_row );
+			_Street		= new STREET( address_row );
+			_City		= new CITY( address_row );
+			_Metro		= new METRO( address_row );
+			_Postal		= new POSTAL( address_row );
+			_Extensions	= new EXTENSIONS( address_row );
+			_PkNation	= new PK_NATION( address_row );
+			_Country	= new NATION( address_row );
+			_IsoCodes	= new ISOCODES( address_row );
+			_Notes		= new NOTES( address_row );
 		}
 	}
 }

@@ -3,39 +3,36 @@
 using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
+using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index01_Street 
+	public class Col1_Street : BASE_ROW
 	{
 		private static string _UnValue = "no street data";
-		private bool _isDataExtant = false;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index01_Street( ADDRESS_ROW address_row)
+		public Col1_Street( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			//IsExtantData = this.IsDataExtant
-			//(
-			//	address_row.HouseNumber,
-			//	address_row.StreetName,
-			//	address_row.StreetType,
-			//	address_row.Compass
-			//);
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertColumnValue( ListViewItem list_view_item )
+		public string ColumnValue
 		{
-			string s = String.Empty;
+			get 
+			{
+				string s = String.Empty;
 
-			s = this.Rule;
-			//s = base.RealiseAddressRule( s );
-			s = this.RemoveUnusedCodes( s );
-			s = SHORT_TXT.RectifyString( s );
+				s = this.Rule;
+				s = base.RealiseAddressRule( s );
+				s = this.RemoveUnusedCodes( s );
+				s = SHORT_TXT.RectifyString( s );
 
-			list_view_item.SubItems.Add( s );
+				return s;
+			}
+
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -44,13 +41,7 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		/// </summary>
 		private string Rule
 		{
-			get
-			{
-				if ( IsExtantData )
-					return "";// HouseNumber + StreetName + StreetType + Compass;
-				else
-					return _UnValue;
-			}
+			get { return HouseNumber + StreetName + StreetType + Compass; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
@@ -58,10 +49,10 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		/// </summary>
 		private string RemoveUnusedCodes( string s )
 		{
-			//s = s.Replace( this.HouseNumber,	String.Empty );
-			//s = s.Replace( this.StreetName,		String.Empty );
-			//s = s.Replace( this.StreetType,		String.Empty );
-			//s = s.Replace( this.Compass,		String.Empty );
+			s = s.Replace( this.HouseNumber,	String.Empty );
+			s = s.Replace( this.StreetName,		String.Empty );
+			s = s.Replace( this.StreetType,		String.Empty );
+			s = s.Replace( this.Compass,		String.Empty );
 
 			return s;
 		}
@@ -69,18 +60,9 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		//override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
-		//override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
-		//override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
-		//override public string Compass			{ get { return base.Compass; } }
-		//___________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Gets/sets _isDataExtant == true if at least one street line column is NOT null.
-		/// </summary>
-		private bool IsExtantData
-		{
-			get { return _isDataExtant; }
-			set { _isDataExtant = value; }
-		}
+		override public string HouseNumber		{ get { return base.HouseNumber + CONST.OneSpace; } }
+		override public string StreetName		{ get { return base.StreetName + CONST.OneSpace; } }
+		override public string StreetType		{ get { return base.StreetType + CONST.OneSpace; } }
+		override public string Compass			{ get { return base.Compass; } }
 	}
 }

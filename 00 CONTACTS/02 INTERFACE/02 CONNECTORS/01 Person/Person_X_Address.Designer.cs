@@ -28,26 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			ListViewItem listViewItem1 = new ListViewItem( new string[] { "pk", "street", "burb", "metro", "postal", "extensions", "fk", "country", "iso_codes", "notes" }, -1, Color.FromArgb(     192,     0,     0 ), Color.Empty, null );
 			grp_Person = new GroupBox();
 			tbx_PkPerson = new TextBox();
 			tbx_PersonName = new TextBox();
 			btn_FindPerson = new Button();
 			btn_Connect = new Button();
-			lbx_AttachedPersons = new ListBox();
 			lbx_Address = new ListBox();
-			tbx_Address = new TextBox();
-			lvw_PersonsAddresses = new ListView();
-			hdr_PkAddress = new ColumnHeader();
-			hdr_StreetAddress = new ColumnHeader();
-			hdr_BurbCity = new ColumnHeader();
-			hdr_Metropolitan = new ColumnHeader();
-			hdr_Postal = new ColumnHeader();
-			hdr_Extensions = new ColumnHeader();
-			hdr_FkCountry = new ColumnHeader();
-			hdr_Country = new ColumnHeader();
-			hdr_IsoCodes = new ColumnHeader();
-			hdr_Notes = new ColumnHeader();
 			grp_Address = new GroupBox();
 			tbx_PkAddress = new TextBox();
 			btn_FindAddress = new Button();
@@ -63,11 +49,10 @@
 			grp_Person.Controls.Add( tbx_PkPerson );
 			grp_Person.Controls.Add( tbx_PersonName );
 			grp_Person.Controls.Add( btn_FindPerson );
-			grp_Person.Controls.Add( btn_Connect );
 			grp_Person.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_Person.Location = new Point( 28, 25 );
 			grp_Person.Name = "grp_Person";
-			grp_Person.Size = new Size( 421, 227 );
+			grp_Person.Size = new Size( 356, 92 );
 			grp_Person.TabIndex = 0;
 			grp_Person.TabStop = false;
 			grp_Person.Text = "Person";
@@ -101,121 +86,33 @@
 			// 
 			btn_Connect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Connect.Location = new Point( 279, 140 );
+			btn_Connect.Location = new Point( 51, 123 );
 			btn_Connect.Name = "btn_Connect";
-			btn_Connect.Size = new Size( 121, 32 );
+			btn_Connect.Size = new Size( 320, 32 );
 			btn_Connect.TabIndex = 0;
 			btn_Connect.Text = "Connect";
 			btn_Connect.UseVisualStyleBackColor = true;
 			btn_Connect.Click +=  btn_Connect_Click ;
-			// 
-			// lbx_AttachedPersons
-			// 
-			lbx_AttachedPersons.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lbx_AttachedPersons.FormattingEnabled = true;
-			lbx_AttachedPersons.ItemHeight = 15;
-			lbx_AttachedPersons.Location = new Point( 706, 25 );
-			lbx_AttachedPersons.Name = "lbx_AttachedPersons";
-			lbx_AttachedPersons.Size = new Size( 178, 124 );
-			lbx_AttachedPersons.TabIndex = 3;
 			// 
 			// lbx_Address
 			// 
 			lbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lbx_Address.FormattingEnabled = true;
 			lbx_Address.ItemHeight = 15;
-			lbx_Address.Location = new Point( 902, 25 );
+			lbx_Address.Location = new Point( 79, 51 );
 			lbx_Address.Name = "lbx_Address";
-			lbx_Address.Size = new Size( 177, 124 );
+			lbx_Address.Size = new Size( 264, 169 );
 			lbx_Address.TabIndex = 1;
-			// 
-			// tbx_Address
-			// 
-			tbx_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_Address.ForeColor = Color.FromArgb(     192,     0,     0 );
-			tbx_Address.Location = new Point( 496, 25 );
-			tbx_Address.Multiline = true;
-			tbx_Address.Name = "tbx_Address";
-			tbx_Address.Size = new Size( 176, 143 );
-			tbx_Address.TabIndex = 4;
-			tbx_Address.Text = "tbx_Address";
-			// 
-			// lvw_PersonsAddresses
-			// 
-			lvw_PersonsAddresses.Columns.AddRange( new ColumnHeader[] { hdr_PkAddress, hdr_StreetAddress, hdr_BurbCity, hdr_Metropolitan, hdr_Postal, hdr_Extensions, hdr_FkCountry, hdr_Country, hdr_IsoCodes, hdr_Notes } );
-			lvw_PersonsAddresses.Cursor = Cursors.No;
-			lvw_PersonsAddresses.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			lvw_PersonsAddresses.ForeColor = Color.FromArgb(     192,     0,     0 );
-			lvw_PersonsAddresses.FullRowSelect = true;
-			lvw_PersonsAddresses.GridLines = true;
-			lvw_PersonsAddresses.Items.AddRange( new ListViewItem[] { listViewItem1 } );
-			lvw_PersonsAddresses.Location = new Point( 20, 89 );
-			lvw_PersonsAddresses.MultiSelect = false;
-			lvw_PersonsAddresses.Name = "lvw_PersonsAddresses";
-			lvw_PersonsAddresses.Size = new Size( 1216, 121 );
-			lvw_PersonsAddresses.TabIndex = 15;
-			lvw_PersonsAddresses.UseCompatibleStateImageBehavior = false;
-			lvw_PersonsAddresses.View = View.Details;
-			// 
-			// hdr_PkAddress
-			// 
-			hdr_PkAddress.Text = "PK";
-			hdr_PkAddress.Width = 40;
-			// 
-			// hdr_StreetAddress
-			// 
-			hdr_StreetAddress.Text = "STREET";
-			hdr_StreetAddress.Width = 133;
-			// 
-			// hdr_BurbCity
-			// 
-			hdr_BurbCity.Text = "BURB, CITY";
-			hdr_BurbCity.Width = 133;
-			// 
-			// hdr_Metropolitan
-			// 
-			hdr_Metropolitan.Text = "METRO, PROVINCE";
-			hdr_Metropolitan.Width = 133;
-			// 
-			// hdr_Postal
-			// 
-			hdr_Postal.Text = "POSTAL";
-			hdr_Postal.Width = 133;
-			// 
-			// hdr_Extensions
-			// 
-			hdr_Extensions.Text = "EXTENSIONS";
-			hdr_Extensions.Width = 133;
-			// 
-			// hdr_FkCountry
-			// 
-			hdr_FkCountry.Text = "FK";
-			hdr_FkCountry.Width = 40;
-			// 
-			// hdr_Country
-			// 
-			hdr_Country.Text = "COUNTRY NAME";
-			hdr_Country.Width = 144;
-			// 
-			// hdr_IsoCodes
-			// 
-			hdr_IsoCodes.Text = "ISO CODES";
-			hdr_IsoCodes.Width = 80;
-			// 
-			// hdr_Notes
-			// 
-			hdr_Notes.Text = "NOTES";
-			hdr_Notes.Width = 225;
 			// 
 			// grp_Address
 			// 
+			grp_Address.Controls.Add( lbx_Address );
 			grp_Address.Controls.Add( tbx_PkAddress );
 			grp_Address.Controls.Add( btn_FindAddress );
-			grp_Address.Controls.Add( lvw_PersonsAddresses );
 			grp_Address.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			grp_Address.Location = new Point( 31, 258 );
+			grp_Address.Location = new Point( 28, 161 );
 			grp_Address.Name = "grp_Address";
-			grp_Address.Size = new Size( 1255, 226 );
+			grp_Address.Size = new Size( 356, 226 );
 			grp_Address.TabIndex = 1;
 			grp_Address.TabStop = false;
 			grp_Address.Text = "Address";
@@ -279,12 +176,10 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
-			ClientSize = new Size( 1295, 514 );
-			Controls.Add( lbx_Address );
-			Controls.Add( lbx_AttachedPersons );
+			ClientSize = new Size( 394, 395 );
 			Controls.Add( tbx_Messages );
+			Controls.Add( btn_Connect );
 			Controls.Add( btn_Disconnect );
-			Controls.Add( tbx_Address );
 			Controls.Add( btn_Close );
 			Controls.Add( grp_Address );
 			Controls.Add( grp_Person );
@@ -311,19 +206,6 @@
 		private ListBox lbx_Address;
 		private TextBox tbx_PkPerson;
 		private TextBox tbx_PkAddress;
-		private ListBox lbx_AttachedPersons;
-		private ListView lvw_PersonsAddresses;
-		private ColumnHeader hdr_StreetAddress;
-		private ColumnHeader hdr_BurbCity;
-		private ColumnHeader hdr_Metropolitan;
-		private ColumnHeader hdr_Postal;
-		private ColumnHeader hdr_Extensions;
-		private ColumnHeader hdr_Country;
-		private ColumnHeader hdr_Notes;
-		private ColumnHeader hdr_PkAddress;
 		private TextBox tbx_Messages;
-		private TextBox tbx_Address;
-		private ColumnHeader hdr_IsoCodes;
-		private ColumnHeader hdr_FkCountry;
 	}
 }

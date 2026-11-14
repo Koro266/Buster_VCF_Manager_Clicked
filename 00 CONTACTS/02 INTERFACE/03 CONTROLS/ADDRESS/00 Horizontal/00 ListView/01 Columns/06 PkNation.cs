@@ -1,24 +1,27 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //LOCAL
+using CONTACTS.GLOBAL.DATABASE.COLUMN;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index06_PkNation 
+	public class Col6_PkCountry : BASE_ROW
 	{
 		private ADDRESS_ROW _Address;
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index06_PkNation( ADDRESS_ROW address_row)
+		public Col6_PkCountry( ADDRESS_ROW address_row ) : base( address_row )
 		{
 			AddressRow = address_row;
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertColumnValue( ListViewItem list_view_item )
+		public string ColumnValue
 		{
-			list_view_item.SubItems.Add( AddressRow.FkCountry.AsString );
+			get { return AddressRow.FkCountry.AsString; }
+
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>

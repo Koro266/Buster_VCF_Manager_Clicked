@@ -2,7 +2,9 @@
 //GLOBAL
 using DB_CONNECTION		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnection;
 //LOCAL
+using PERSON_ROW			= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using PERSON_X_ADDRESS	= CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS.Row;
+using ADDRESS_ROW			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
@@ -15,7 +17,7 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// INSERTs fully-qualified TDF_Persons_X_Address. Returns true iff INSERT succeeds.
+			/// INSERTs TDF_Persons_X_Address row.
 			/// </summary>
 			public class Persons_X_Address : DB_CONNECTION
 			{
@@ -25,22 +27,19 @@ namespace CONTACTS.LOCAL.SECONDARY.PERSON.XADDRESS
 						TDF_Persons_X_Addresses
 						(
 							fk_Person,
-							fk_Address,
-							is_Selected
+							fk_Address
 						)
 						VALUES
 						(
 							= @fk_person,
-							= @fk_address,
-							= @is_selected
+							= @fk_address
 						);	
 				";
 				//_______________________________________________________________________________________________________________________________
-				public Persons_X_Address( PERSON_X_ADDRESS person_x_address ) : base( sql_text )
+				public Persons_X_Address( PERSON_ROW person_row, ADDRESS_ROW address_row ) : base( sql_text )
 				{
-					base.DbCommand.Parameters.Add( person_x_address.FkPerson.DbParameter );
-					base.DbCommand.Parameters.Add( person_x_address.FkAddress.DbParameter );
-					base.DbCommand.Parameters.Add( person_x_address.Selected.DbParameter );
+					base.DbCommand.Parameters.Add( person_row.PkPerson.DbParameter );
+					base.DbCommand.Parameters.Add( address_row.PkAddress.DbParameter );
 				}
 				//_______________________________________________________________________________________________________________________________
 				/// <summary>

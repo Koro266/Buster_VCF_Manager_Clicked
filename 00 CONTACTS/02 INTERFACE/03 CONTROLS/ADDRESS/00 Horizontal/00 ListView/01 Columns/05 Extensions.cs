@@ -3,63 +3,56 @@
 using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
+using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index04_Postal 
+	public class Col5_Extensions : BASE_ROW
 	{
-		private static string _UnValue = "no postal data";
-		private bool _isDataExtant = false;
+		private static string _UnValue = "no extensions";
 
 		//___________________________________________________________________________________________________________________________________________
-		public Index04_Postal( ADDRESS_ROW address_row )
+		public Col5_Extensions( ADDRESS_ROW address_row ) : base( address_row )
 		{
-			//IsExtantData = this.IsDataExtant
-			//(
-			//	address_row.BoxNumber,
-			//	address_row.RuralDelivery,
-			//	address_row.PostalCode
-			//);
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public void InsertColumnValue( ListViewItem list_view_item )
-		{
-			string s = String.Empty;
-
-			s = this.Rule;
-			//s = base.RealiseAddressRule( s );
-			s = this.RemoveUnusedCodes( s );
-			s = SHORT_TXT.RectifyString( s );
-
-			list_view_item.SubItems.Add( s );
-		}
-		//___________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns an address rule that assembles a 'default' postal line.
-		/// If all columns are null, returns "no postal data".
-		/// </summary>
-		public string Rule
+		public string ColumnValue
 		{
 			get
 			{
-				if ( IsExtantData )
-					return _UnValue; // BoxNumber + RuralDelivery + PostalCode;
-				else
-					return _UnValue;
+				string s = String.Empty;
+
+				s = this.Rule;
+				s = base.RealiseAddressRule( s );
+				s = this.RemoveUnusedCodes( s );
+				s = SHORT_TXT.RectifyString( s );
+
+				return s;
 			}
+
+		}
+		//___________________________________________________________________________________________________________________________________
+		/// <summary>
+		/// Returns an address rule that assembles a 'default' extensions line.
+		/// If all columns are null, returns "no extensions".
+		/// </summary>
+		public string Rule
+		{
+			get { return Assemblage + Level + Unit + Extensions; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Remove unused RECON codes for the result string.
 		/// </summary>
-		public string RemoveUnusedCodes( string s )
+		private string RemoveUnusedCodes( string s )
 		{
-			//s = s.Replace( this.BoxNumber, String.Empty );
-			//s = s.Replace( this.RuralDelivery, String.Empty );
-			//s = s.Replace( this.PostalCode, String.Empty );
+			s = s.Replace( this.Assemblage, String.Empty );
+			s = s.Replace( this.Level, String.Empty );
+			s = s.Replace( this.Unit, String.Empty );
+			s = s.Replace( this.Extensions, String.Empty );
 
 			return s;
 		}
@@ -67,17 +60,9 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		//override public string BoxNumber		{ get { return base.BoxNumber + CONST.OneSpace; } }
-		//override public string RuralDelivery	{ get { return base.RuralDelivery + CONST.OneSpace; } }
-		//override public string PostalCode		{ get { return base.PostalCode + CONST.OneSpace; } }
-		//___________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Gets/sets _isDataExtant == true if at least one postal line column is NOT null.
-		/// </summary>
-		private bool IsExtantData
-		{
-			get { return _isDataExtant; }
-			set { _isDataExtant = value; }
-		}
+		override public string Assemblage	{ get { return base.Assemblage + CONST.OneSpace; } }
+		override public string Level		{ get { return base.Level + CONST.OneSpace; } }
+		override public string Unit			{ get { return base.Unit + CONST.OneSpace; } }
+		override public string Extensions	{ get { return base.Extensions + CONST.OneSpace; } }
 	}
 }

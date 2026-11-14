@@ -1,45 +1,47 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//LOCAL
+using CONTACTS.GLOBAL.DATABASE.COLUMN;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+//LOCAL
+using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
+using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Index00_PkAddress 
+	public class Col7_Country : BASE_ROW
 	{
-		private ADDRESS_ROW _Address;
-		private ListView _ListView;
+		//___________________________________________________________________________________________________________________________________________
+		public Col7_Country( ADDRESS_ROW address_row ) : base( address_row )
+		{
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string ColumnValue
+		{
+			get
+			{
+				string s = String.Empty;
 
-		//___________________________________________________________________________________________________________________________________________
-		public Index00_PkAddress( ADDRESS_ROW address_row, ListView list_view )
-		{
-			AddressRow = address_row;
-			ListViewControl = list_view;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		public ListViewItem InsertColumnValue()
-		{
-			ListViewControl.Items.Clear();
-			return ListViewControl.Items.Add( AddressRow.PkAddress.AsString );
+				s = this.Rule;
+				s = base.RealiseAddressRule( s );
+
+				return s;
+			}
+
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Gets/sets Address row.
+		/// Returns an address rule that assembles a 'default' country line.
 		/// </summary>
-		private ADDRESS_ROW AddressRow
+		public string Rule
 		{
-			get { return _Address; }
-			set { _Address = value; }
+			get { return Country + TeleCode; }
 		}
-		//___________________________________________________________________________________________________________________________________
+		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Gets/sets ListView control object.
+		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		private ListView ListViewControl
-		{
-			get { return _ListView; }
-			set { _ListView = value; }
-		}
+		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
+		override public string TeleCode			{ get { return "(" + base.TeleCode + ")"; } }
 	}
 }

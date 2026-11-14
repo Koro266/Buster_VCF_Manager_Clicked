@@ -959,8 +959,8 @@ namespace CONTACTS.INTERFACE.FORMS
 			using ( ADDRESS_FINDER find_address = new ADDRESS_FINDER() )
 			{
 				find_address.ShowDialog();
-				if ( find_address.DialogResult == DialogResult.OK )
-					Address = find_address.SelectedAddress;
+				//if ( find_address.DialogResult == DialogResult.OK )
+				//	Address = find_address.SelectedAddress;
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
