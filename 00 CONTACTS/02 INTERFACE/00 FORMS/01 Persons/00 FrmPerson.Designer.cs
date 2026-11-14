@@ -841,9 +841,9 @@
 			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
 			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 566, 578 );
+			tbx_Messages.Location = new Point( 564, 578 );
 			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 445, 23 );
+			tbx_Messages.Size = new Size( 447, 23 );
 			tbx_Messages.TabIndex = 141;
 			tbx_Messages.TabStop = false;
 			// 

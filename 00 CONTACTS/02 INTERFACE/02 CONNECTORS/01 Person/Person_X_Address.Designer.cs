@@ -86,7 +86,7 @@
 			// 
 			btn_Connect.Font = new Font( "Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Connect.ForeColor = Color.FromArgb(     192,     0,     0 );
-			btn_Connect.Location = new Point( 51, 123 );
+			btn_Connect.Location = new Point( 51, 126 );
 			btn_Connect.Name = "btn_Connect";
 			btn_Connect.Size = new Size( 320, 32 );
 			btn_Connect.TabIndex = 0;
@@ -145,7 +145,6 @@
 			btn_Disconnect.TabIndex = 1;
 			btn_Disconnect.Text = "Disconnect";
 			btn_Disconnect.UseVisualStyleBackColor = true;
-			btn_Disconnect.Click +=  btn_Disconnect_Click ;
 			// 
 			// btn_Close
 			// 
@@ -164,9 +163,9 @@
 			tbx_Messages.BackColor = Color.FromArgb(     255,     255,     192 );
 			tbx_Messages.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			tbx_Messages.ForeColor = Color.ForestGreen;
-			tbx_Messages.Location = new Point( 31, 517 );
+			tbx_Messages.Location = new Point( 28, 393 );
 			tbx_Messages.Name = "tbx_Messages";
-			tbx_Messages.Size = new Size( 718, 23 );
+			tbx_Messages.Size = new Size( 356, 23 );
 			tbx_Messages.TabIndex = 142;
 			tbx_Messages.TabStop = false;
 			// 
@@ -176,7 +175,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Close;
-			ClientSize = new Size( 394, 395 );
+			ClientSize = new Size( 402, 428 );
 			Controls.Add( tbx_Messages );
 			Controls.Add( btn_Connect );
 			Controls.Add( btn_Disconnect );

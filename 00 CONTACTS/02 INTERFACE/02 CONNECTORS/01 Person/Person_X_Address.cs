@@ -30,8 +30,8 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		private ADDRESS_ROW _AddressRow = new SELECT_ADDRESS.DefaultAddress().Execute;
 		private XADDRESS_ROW _PersonXAddressRow;
 
-		private string _MsgFindPersonDismissed = "Find Person dialog dismissed.";
-		private string _MsgFindAddressDismissed = "Find Address dialog dismissed.";
+		private string _MsgConnectionSuccess	= "Connect Person to Address successful.";
+		private string _MsgConnectionFailed		= "Connect Person to Address failed.";
 		#endregion
 
 
@@ -84,11 +84,6 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private int PkPerson
-		{
-			get { return Person.PkPerson.Value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private string PkPersonAsText
 		{
 			get { return Person.PkPerson.AsString; }
@@ -104,30 +99,9 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private int PkAddress
-		{
-			get { return Address.PkAddress.Value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private string PkAddressAsText
 		{
 			get { return Address.PkAddress.AsString; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private XADDRESS_ROW PersonXAddressRow
-		{
-			get { return _PersonXAddressRow; }
-			set { _PersonXAddressRow = value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private int PkPersonAddress
-		{
-			get { return PersonXAddressRow.PkPerson_X_Address.Value; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private string PkPersonAddressText
-		{
-			get { return PersonXAddressRow.PkPerson_X_Address.AsString; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string Message
@@ -143,10 +117,9 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			if ( dlg_find_person.DialogResult == DialogResult.OK )
 			{
 				Person = dlg_find_person.SelectedPerson;
+				tbx_PkPerson.Text = PkPersonAsText;
 				return;
 			}
-
-			Message = _MsgFindPersonDismissed;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void FindAddress()
@@ -157,10 +130,9 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			if ( dlg_find_address.DialogResult == DialogResult.OK )
 			{
 				Address = dlg_find_address.SelectedAddress;
+				tbx_PkAddress.Text = PkAddressAsText;
 				return;
 			}
-
-			Message = _MsgFindAddressDismissed;
 		}
 		#endregion
 
@@ -202,18 +174,13 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		{
 			if ( new XADDRESS_INSERT( _PersonRow, _AddressRow ).Execute )
 			{
-				_Messenger.Message = "Connected ...";
+				Message = _MsgConnectionSuccess;
 			}
 			else
 			{
-				_Messenger.Message = "NOT Connected ...";
+				Message = _MsgConnectionFailed;
 
 			}
-		}
-		//___________________________________________________________________________________________________________________________________________________
-		private void btn_Disconnect_Click( object sender, EventArgs e )
-		{
-			_Messenger.Message = "Disconnected ...";
 		}
 		#endregion
 	}
