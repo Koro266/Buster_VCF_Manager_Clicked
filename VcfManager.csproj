@@ -26,6 +26,7 @@
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04b GROUP\**" />
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\05 X_NOTE\**" />
     <Compile Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\01 X_DEVICE\05 VCF\**" />
+    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\00 ListView\**" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\02 VCF\Excluded files\**" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\ExtendedAddress\**" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\05 Aggregates\**" />
@@ -69,6 +70,7 @@
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04b GROUP\**" />
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\05 X_NOTE\**" />
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\01 X_DEVICE\05 VCF\**" />
+    <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\00 ListView\**" />
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\02 VCF\Excluded files\**" />
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\ExtendedAddress\**" />
     <EmbeddedResource Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\05 Aggregates\**" />
@@ -112,6 +114,7 @@
     <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\04b GROUP\**" />
     <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\00 PERSON\05 X_NOTE\**" />
     <None Remove="00 CONTACTS\01 LOCAL\02 SECONDARY\01 GROUP\01 X_DEVICE\05 VCF\**" />
+    <None Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\00 ListView\**" />
     <None Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\01 Horizontal\02 VCF\Excluded files\**" />
     <None Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\02 Vertical\ExtendedAddress\**" />
     <None Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\01 Realisation\05 Aggregates\**" />
