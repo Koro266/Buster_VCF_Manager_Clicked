@@ -6,12 +6,13 @@ using GLOBAL_DB			= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using PERSON_ROW		= CONTACTS.LOCAL.PRIMARY.PERSON.Row;
 using SELECT_PERSON		= CONTACTS.LOCAL.PRIMARY.PERSON.Database.Select;
 //LOCAL:PERSON_X_ADDRESS
+using XDEVICE_DB		= CONTACTS.LOCAL.SECONDARY.PERSON.XDEVICE.Database;
 using XDEVICE_ROW		= CONTACTS.LOCAL.SECONDARY.PERSON.XDEVICE.Row;
-using XDEVICE_INSERT	= CONTACTS.LOCAL.SECONDARY.PERSON.XDEVICE.Database.Insert.Persons_X_Address;
+using XDEVICE_INSERT	= CONTACTS.LOCAL.SECONDARY.PERSON.XDEVICE.Database.Insert;
 //LOCAL:DEVICE
-using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
 using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using LISTBOX_DEVICE	= CONTACTS.LOCAL.TERTIARY.DEVICE.REALISER.VERTICAL.LISTBOX.ListBoxAddress;
+using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
+//using LISTBOX_DEVICE	= CONTACTS.LOCAL.TERTIARY.DEVICE.REALISER.VERTICAL.LISTBOX.ListBoxAddress;
 //INTERFACE:
 using FIND_DEVICE		= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
 using FIND_PERSON		= CONTACTS.INTERFACE.DIALOGS.DlgFindPerson;
@@ -53,7 +54,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		public Person_X_Device( DEVICE_ROW device_row )
 		{
 			InitializeComponent();
-			Address = address_row;
+			Device = device_row;
 			InitialiseForm();
 		}
 		#endregion
@@ -67,7 +68,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
 			DisplayPerson();
-			DisplayListBoxAddress();
+			DisplayDevice();
 		}
 		#endregion
 
@@ -95,7 +96,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			set
 			{
 				_DeviceRow = value;
-				DisplayListBoxAddress();
+				DisplayDevice();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -129,8 +130,8 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			dlg_find_device.ShowDialog();
 			if ( dlg_find_device.DialogResult == DialogResult.OK )
 			{
-				Device = dlg_find_device.SelectedDevice;
-				tbx_PkDevice.Text = PkDeviceAsText;
+				int pk = dlg_find_device.SelectedDevice;
+				//tbx_PkDevice.Text = PkDeviceAsText;
 				return;
 			}
 		}
@@ -145,10 +146,10 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			tbx_PersonName.Text = Person.NaturalName.AsIs;
 		}
 		//___________________________________________________________________________________________________________________________________________________
-		private void DisplayListBoxAddress()
+		private void DisplayDevice()
 		{
-			LISTBOX_DEVICE listbox_device = new LISTBOX_DEVICE( Device, lbx_Device );
-			listbox_device.InsertLineValues();
+			//LISTBOX_DEVICE listbox_device = new LISTBOX_DEVICE( Device, lbx_Device );
+			//listbox_device.InsertLineValues();
 		}
 		#endregion
 
@@ -172,7 +173,9 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 		//___________________________________________________________________________________________________________________________________________________
 		private void btn_Connect_Click( object sender, EventArgs e )
 		{
-			if ( new XDEVICE_INSERT( _PersonRow, _DeviceRow ).Execute )
+			XDEVICE_ROW xdevice_row = XDEVICE_DB.ConstructDeviceRow( Person.PkPerson.Value, Device.PkDevice.Value, "1", "LABEL" );
+
+			if ( new XDEVICE_INSERT.Persons_X_Device( xdevice_row ).Execute )
 			{
 				Message = _MsgConnectionSuccess;
 			}
