@@ -232,6 +232,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="00 CONTACTS\02 INTERFACE\02 CONNECTORS\01 Person_X\01 Person_X_Device.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FORMS\DIALOG\DlgFindFamily.cs">
       <SubType>Form</SubType>
     </Compile>

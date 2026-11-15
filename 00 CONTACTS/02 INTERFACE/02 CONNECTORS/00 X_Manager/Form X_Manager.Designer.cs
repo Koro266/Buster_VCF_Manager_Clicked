@@ -159,6 +159,7 @@
 			btn_Person_X_Device.TabIndex = 1;
 			btn_Person_X_Device.Text = "Device";
 			btn_Person_X_Device.UseVisualStyleBackColor = true;
+			btn_Person_X_Device.Click +=  btn_Person_X_Device_Click ;
 			// 
 			// btn_Person_X_Address
 			// 
@@ -197,7 +198,7 @@
 			btn_Group_X_Person.Location = new Point( 29, 274 );
 			btn_Group_X_Person.Name = "btn_Group_X_Person";
 			btn_Group_X_Person.Size = new Size( 75, 32 );
-			btn_Group_X_Person.TabIndex = 14;
+			btn_Group_X_Person.TabIndex = 6;
 			btn_Group_X_Person.Text = "Person";
 			btn_Group_X_Person.UseVisualStyleBackColor = true;
 			// 
@@ -209,7 +210,7 @@
 			btn_Group_X_Tags.Location = new Point( 29, 220 );
 			btn_Group_X_Tags.Name = "btn_Group_X_Tags";
 			btn_Group_X_Tags.Size = new Size( 75, 32 );
-			btn_Group_X_Tags.TabIndex = 13;
+			btn_Group_X_Tags.TabIndex = 5;
 			btn_Group_X_Tags.Text = "Tags";
 			btn_Group_X_Tags.UseVisualStyleBackColor = true;
 			// 
@@ -221,7 +222,7 @@
 			btn_Group_X_Notes.Location = new Point( 29, 182 );
 			btn_Group_X_Notes.Name = "btn_Group_X_Notes";
 			btn_Group_X_Notes.Size = new Size( 75, 32 );
-			btn_Group_X_Notes.TabIndex = 12;
+			btn_Group_X_Notes.TabIndex = 4;
 			btn_Group_X_Notes.Text = "Notes";
 			btn_Group_X_Notes.UseVisualStyleBackColor = true;
 			// 
@@ -233,7 +234,7 @@
 			btn_Group_X_Website.Location = new Point( 29, 144 );
 			btn_Group_X_Website.Name = "btn_Group_X_Website";
 			btn_Group_X_Website.Size = new Size( 75, 32 );
-			btn_Group_X_Website.TabIndex = 11;
+			btn_Group_X_Website.TabIndex = 3;
 			btn_Group_X_Website.Text = "Website";
 			btn_Group_X_Website.UseVisualStyleBackColor = true;
 			// 
@@ -245,7 +246,7 @@
 			btn_Group_X_Email.Location = new Point( 29, 106 );
 			btn_Group_X_Email.Name = "btn_Group_X_Email";
 			btn_Group_X_Email.Size = new Size( 75, 32 );
-			btn_Group_X_Email.TabIndex = 10;
+			btn_Group_X_Email.TabIndex = 2;
 			btn_Group_X_Email.Text = "Email";
 			btn_Group_X_Email.UseVisualStyleBackColor = true;
 			// 
@@ -257,7 +258,7 @@
 			btn_Group_X_Device.Location = new Point( 29, 68 );
 			btn_Group_X_Device.Name = "btn_Group_X_Device";
 			btn_Group_X_Device.Size = new Size( 75, 32 );
-			btn_Group_X_Device.TabIndex = 9;
+			btn_Group_X_Device.TabIndex = 1;
 			btn_Group_X_Device.Text = "Device";
 			btn_Group_X_Device.UseVisualStyleBackColor = true;
 			// 
@@ -269,7 +270,7 @@
 			btn_Group_X_.Location = new Point( 29, 30 );
 			btn_Group_X_.Name = "btn_Group_X_";
 			btn_Group_X_.Size = new Size( 75, 32 );
-			btn_Group_X_.TabIndex = 8;
+			btn_Group_X_.TabIndex = 0;
 			btn_Group_X_.Text = "Address";
 			btn_Group_X_.UseVisualStyleBackColor = true;
 			// 
@@ -298,7 +299,7 @@
 			btn_Family_X_Person.Location = new Point( 32, 274 );
 			btn_Family_X_Person.Name = "btn_Family_X_Person";
 			btn_Family_X_Person.Size = new Size( 75, 32 );
-			btn_Family_X_Person.TabIndex = 14;
+			btn_Family_X_Person.TabIndex = 6;
 			btn_Family_X_Person.Text = "Person";
 			btn_Family_X_Person.UseVisualStyleBackColor = true;
 			// 
@@ -310,7 +311,7 @@
 			btn_Family_X_Tags.Location = new Point( 32, 220 );
 			btn_Family_X_Tags.Name = "btn_Family_X_Tags";
 			btn_Family_X_Tags.Size = new Size( 75, 32 );
-			btn_Family_X_Tags.TabIndex = 13;
+			btn_Family_X_Tags.TabIndex = 5;
 			btn_Family_X_Tags.Text = "Tags";
 			btn_Family_X_Tags.UseVisualStyleBackColor = true;
 			// 
@@ -322,7 +323,7 @@
 			btn_Family_X_Notes.Location = new Point( 32, 182 );
 			btn_Family_X_Notes.Name = "btn_Family_X_Notes";
 			btn_Family_X_Notes.Size = new Size( 75, 32 );
-			btn_Family_X_Notes.TabIndex = 12;
+			btn_Family_X_Notes.TabIndex = 4;
 			btn_Family_X_Notes.Text = "Notes";
 			btn_Family_X_Notes.UseVisualStyleBackColor = true;
 			// 
@@ -334,7 +335,7 @@
 			btn_Family_X_Website.Location = new Point( 32, 144 );
 			btn_Family_X_Website.Name = "btn_Family_X_Website";
 			btn_Family_X_Website.Size = new Size( 75, 32 );
-			btn_Family_X_Website.TabIndex = 11;
+			btn_Family_X_Website.TabIndex = 3;
 			btn_Family_X_Website.Text = "Website";
 			btn_Family_X_Website.UseVisualStyleBackColor = true;
 			// 
@@ -346,7 +347,7 @@
 			btn_Family_X_Email.Location = new Point( 32, 106 );
 			btn_Family_X_Email.Name = "btn_Family_X_Email";
 			btn_Family_X_Email.Size = new Size( 75, 32 );
-			btn_Family_X_Email.TabIndex = 10;
+			btn_Family_X_Email.TabIndex = 2;
 			btn_Family_X_Email.Text = "Email";
 			btn_Family_X_Email.UseVisualStyleBackColor = true;
 			// 
@@ -358,7 +359,7 @@
 			btn_Family_X_Device.Location = new Point( 32, 68 );
 			btn_Family_X_Device.Name = "btn_Family_X_Device";
 			btn_Family_X_Device.Size = new Size( 75, 32 );
-			btn_Family_X_Device.TabIndex = 9;
+			btn_Family_X_Device.TabIndex = 1;
 			btn_Family_X_Device.Text = "Device";
 			btn_Family_X_Device.UseVisualStyleBackColor = true;
 			// 
@@ -370,7 +371,7 @@
 			btn_Family_X_Address.Location = new Point( 32, 30 );
 			btn_Family_X_Address.Name = "btn_Family_X_Address";
 			btn_Family_X_Address.Size = new Size( 75, 32 );
-			btn_Family_X_Address.TabIndex = 8;
+			btn_Family_X_Address.TabIndex = 0;
 			btn_Family_X_Address.Text = "Address";
 			btn_Family_X_Address.UseVisualStyleBackColor = true;
 			// 

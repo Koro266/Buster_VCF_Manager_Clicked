@@ -20,8 +20,8 @@ namespace CONTACTS.GLOBAL.DATABASE.CONNECTION
 	public class DbConnector
 	{
 		private const string prefix_Year		= "2026";
-		private const string prefix_Month		= "06";
-		private const string prefix_Day			= "01";
+		private const string prefix_Month		= "11";
+		private const string prefix_Day			= "11";
 		private const string prefix_Sequence	= "01";
 		private const string prefix_Pattern		= "#0.#1.#2.#3";
 		private const string currency_Pattern	= "#0 VCF Builder.accdb";
@@ -160,7 +160,7 @@ namespace CONTACTS.GLOBAL.DATABASE.CONNECTION
 		/// </summary>
 		private const string file_Name					= "VCF Builder.accdb";
 		private const string header_Text				= "VCF Builder";
-		private const string git_Commit					= "7d8092d; 11 November 26, 12:02 am";
+		private const string git_Commit					= "f9d1622; 15 November 26, 8:20 am";
 		private const string fullyqualified_Pattern		= "#0#1 #2";
 		private const string abbreviated_Pattern		= @"C:\...ContactsManager...\#0 #1, (RELEASE Commit: #2)";
 
