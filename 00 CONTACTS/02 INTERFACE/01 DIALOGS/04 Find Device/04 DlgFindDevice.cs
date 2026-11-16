@@ -190,5 +190,10 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			this.Close();
 		}
 		#endregion
+
+		private void DlgFindDevice_Load( object sender, EventArgs e )
+		{
+
+		}
 	}
 }

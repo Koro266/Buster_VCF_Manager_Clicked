@@ -28,213 +28,279 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lbx_MatchingDevices = new System.Windows.Forms.ListBox();
-			this.grp_AddressData = new System.Windows.Forms.GroupBox();
-			this.btn_Cancel = new System.Windows.Forms.Button();
-			this.btn_CloseForm = new System.Windows.Forms.Button();
-			this.label19 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.tbx_ShortAreaCode = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.tbx_TrailingDigits = new System.Windows.Forms.TextBox();
-			this.tbx_LongAreaCode = new System.Windows.Forms.TextBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.tbx_PkDevice = new System.Windows.Forms.TextBox();
-			this.tbx_LeadingDigits = new System.Windows.Forms.TextBox();
-			this.grp_AddressData.SuspendLayout();
-			this.SuspendLayout();
+			ListViewItem listViewItem1 = new ListViewItem( new ListViewItem.ListViewSubItem[] { new ListViewItem.ListViewSubItem( null, "1234" ), new ListViewItem.ListViewSubItem( null, "+64 27 266 1200", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "27" ), new ListViewItem.ListViewSubItem( null, "266" ), new ListViewItem.ListViewSubItem( null, "1200" ), new ListViewItem.ListViewSubItem( null, "Mobile" ), new ListViewItem.ListViewSubItem( null, "Cell" ), new ListViewItem.ListViewSubItem( null, "Goods Shed, Naenae.Rangi's cell: 022 041 5054." ) }, -1 );
+			lbx_MatchingDevices = new ListBox();
+			grp_DeviceData = new GroupBox();
+			label19 = new Label();
+			label16 = new Label();
+			tbx_ShortAreaCode = new TextBox();
+			label5 = new Label();
+			tbx_TrailingDigits = new TextBox();
+			tbx_LongAreaCode = new TextBox();
+			label7 = new Label();
+			label6 = new Label();
+			tbx_PkDevice = new TextBox();
+			tbx_LeadingDigits = new TextBox();
+			btn_Cancel = new Button();
+			btn_CloseForm = new Button();
+			lvw_MatchingDevices = new ListView();
+			ch_PkDevice = new ColumnHeader();
+			ch_DialNumber = new ColumnHeader();
+			ch_AreaCode = new ColumnHeader();
+			ch_LeadingDigits = new ColumnHeader();
+			ch_TrailingDigits = new ColumnHeader();
+			ch_DeviceLocation = new ColumnHeader();
+			ch_DeviceType = new ColumnHeader();
+			ch_Notes = new ColumnHeader();
+			grp_DeviceData.SuspendLayout();
+			SuspendLayout();
 			// 
 			// lbx_MatchingDevices
 			// 
-			this.lbx_MatchingDevices.BackColor = System.Drawing.Color.MistyRose;
-			this.lbx_MatchingDevices.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.lbx_MatchingDevices.ForeColor = System.Drawing.Color.Blue;
-			this.lbx_MatchingDevices.FormattingEnabled = true;
-			this.lbx_MatchingDevices.ItemHeight = 15;
-			this.lbx_MatchingDevices.Location = new System.Drawing.Point(12, 9);
-			this.lbx_MatchingDevices.Name = "lbx_MatchingDevices";
-			this.lbx_MatchingDevices.Size = new System.Drawing.Size(375, 589);
-			this.lbx_MatchingDevices.TabIndex = 1;
-			this.lbx_MatchingDevices.TabStop = false;
-			this.lbx_MatchingDevices.Click += new System.EventHandler(this.lbx_MatchingDevices_Click);
-			this.lbx_MatchingDevices.DoubleClick += new System.EventHandler(this.lbx_MatchingDevices_DoubleClick);
+			lbx_MatchingDevices.BackColor = Color.MistyRose;
+			lbx_MatchingDevices.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			lbx_MatchingDevices.ForeColor = Color.Blue;
+			lbx_MatchingDevices.FormattingEnabled = true;
+			lbx_MatchingDevices.ItemHeight = 15;
+			lbx_MatchingDevices.Location = new Point( 866, 234 );
+			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
+			lbx_MatchingDevices.Size = new Size( 135, 19 );
+			lbx_MatchingDevices.TabIndex = 1;
+			lbx_MatchingDevices.TabStop = false;
+			lbx_MatchingDevices.Click +=  lbx_MatchingDevices_Click ;
+			lbx_MatchingDevices.DoubleClick +=  lbx_MatchingDevices_DoubleClick ;
 			// 
-			// grp_AddressData
+			// grp_DeviceData
 			// 
-			this.grp_AddressData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.grp_AddressData.Controls.Add(this.btn_Cancel);
-			this.grp_AddressData.Controls.Add(this.btn_CloseForm);
-			this.grp_AddressData.Controls.Add(this.label19);
-			this.grp_AddressData.Controls.Add(this.label16);
-			this.grp_AddressData.Controls.Add(this.tbx_ShortAreaCode);
-			this.grp_AddressData.Controls.Add(this.label5);
-			this.grp_AddressData.Controls.Add(this.tbx_TrailingDigits);
-			this.grp_AddressData.Controls.Add(this.tbx_LongAreaCode);
-			this.grp_AddressData.Controls.Add(this.label7);
-			this.grp_AddressData.Controls.Add(this.label6);
-			this.grp_AddressData.Controls.Add(this.tbx_PkDevice);
-			this.grp_AddressData.Controls.Add(this.tbx_LeadingDigits);
-			this.grp_AddressData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.grp_AddressData.Location = new System.Drawing.Point(393, 12);
-			this.grp_AddressData.Name = "grp_AddressData";
-			this.grp_AddressData.Size = new System.Drawing.Size(268, 586);
-			this.grp_AddressData.TabIndex = 0;
-			this.grp_AddressData.TabStop = false;
-			this.grp_AddressData.Text = "Device Filters";
-			// 
-			// btn_Cancel
-			// 
-			this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.btn_Cancel.ForeColor = System.Drawing.Color.Maroon;
-			this.btn_Cancel.Location = new System.Drawing.Point(91, 542);
-			this.btn_Cancel.Name = "btn_Cancel";
-			this.btn_Cancel.Size = new System.Drawing.Size(171, 34);
-			this.btn_Cancel.TabIndex = 10;
-			this.btn_Cancel.Text = "Cancel";
-			this.btn_Cancel.UseVisualStyleBackColor = true;
-			this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-			// 
-			// btn_CloseForm
-			// 
-			this.btn_CloseForm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.btn_CloseForm.ForeColor = System.Drawing.Color.Maroon;
-			this.btn_CloseForm.Location = new System.Drawing.Point(91, 502);
-			this.btn_CloseForm.Name = "btn_CloseForm";
-			this.btn_CloseForm.Size = new System.Drawing.Size(171, 34);
-			this.btn_CloseForm.TabIndex = 9;
-			this.btn_CloseForm.Text = "Close";
-			this.btn_CloseForm.UseVisualStyleBackColor = true;
-			this.btn_CloseForm.Click += new System.EventHandler(this.btn_CloseForm_Click);
+			grp_DeviceData.BackColor = Color.FromArgb(     255,     224,     192 );
+			grp_DeviceData.Controls.Add( label19 );
+			grp_DeviceData.Controls.Add( label16 );
+			grp_DeviceData.Controls.Add( tbx_ShortAreaCode );
+			grp_DeviceData.Controls.Add( label5 );
+			grp_DeviceData.Controls.Add( tbx_TrailingDigits );
+			grp_DeviceData.Controls.Add( tbx_LongAreaCode );
+			grp_DeviceData.Controls.Add( label7 );
+			grp_DeviceData.Controls.Add( label6 );
+			grp_DeviceData.Controls.Add( tbx_PkDevice );
+			grp_DeviceData.Controls.Add( tbx_LeadingDigits );
+			grp_DeviceData.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			grp_DeviceData.Location = new Point( 12, 12 );
+			grp_DeviceData.Name = "grp_DeviceData";
+			grp_DeviceData.Size = new Size( 268, 205 );
+			grp_DeviceData.TabIndex = 0;
+			grp_DeviceData.TabStop = false;
+			grp_DeviceData.Text = "Device Filters";
 			// 
 			// label19
 			// 
-			this.label19.AutoSize = true;
-			this.label19.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label19.Location = new System.Drawing.Point(9, 86);
-			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(120, 19);
-			this.label19.TabIndex = 22;
-			this.label19.Text = "Short Area Code";
+			label19.AutoSize = true;
+			label19.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			label19.ForeColor = Color.FromArgb(     192,     0,     0 );
+			label19.Location = new Point( 9, 86 );
+			label19.Name = "label19";
+			label19.Size = new Size( 120, 19 );
+			label19.TabIndex = 22;
+			label19.Text = "Short Area Code";
 			// 
 			// label16
 			// 
-			this.label16.AutoSize = true;
-			this.label16.Enabled = false;
-			this.label16.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label16.Location = new System.Drawing.Point(52, 28);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(71, 19);
-			this.label16.TabIndex = 3;
-			this.label16.Text = "PkDevice";
-			this.label16.Visible = false;
+			label16.AutoSize = true;
+			label16.Enabled = false;
+			label16.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			label16.ForeColor = Color.FromArgb(     192,     0,     0 );
+			label16.Location = new Point( 52, 28 );
+			label16.Name = "label16";
+			label16.Size = new Size( 71, 19 );
+			label16.TabIndex = 3;
+			label16.Text = "PkDevice";
+			label16.Visible = false;
 			// 
 			// tbx_ShortAreaCode
 			// 
-			this.tbx_ShortAreaCode.BackColor = System.Drawing.SystemColors.Window;
-			this.tbx_ShortAreaCode.Location = new System.Drawing.Point(131, 83);
-			this.tbx_ShortAreaCode.Name = "tbx_ShortAreaCode";
-			this.tbx_ShortAreaCode.Size = new System.Drawing.Size(115, 23);
-			this.tbx_ShortAreaCode.TabIndex = 1;
-			this.tbx_ShortAreaCode.TextChanged += new System.EventHandler(this.tbx_ShortAreaCode_TextChanged);
+			tbx_ShortAreaCode.BackColor = SystemColors.Window;
+			tbx_ShortAreaCode.Location = new Point( 131, 83 );
+			tbx_ShortAreaCode.Name = "tbx_ShortAreaCode";
+			tbx_ShortAreaCode.Size = new Size( 115, 23 );
+			tbx_ShortAreaCode.TabIndex = 1;
+			tbx_ShortAreaCode.TextChanged +=  tbx_ShortAreaCode_TextChanged ;
 			// 
 			// label5
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label5.Location = new System.Drawing.Point(12, 57);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(117, 19);
-			this.label5.TabIndex = 18;
-			this.label5.Text = "Long Area Code";
+			label5.AutoSize = true;
+			label5.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			label5.ForeColor = Color.FromArgb(     192,     0,     0 );
+			label5.Location = new Point( 12, 57 );
+			label5.Name = "label5";
+			label5.Size = new Size( 117, 19 );
+			label5.TabIndex = 18;
+			label5.Text = "Long Area Code";
 			// 
 			// tbx_TrailingDigits
 			// 
-			this.tbx_TrailingDigits.BackColor = System.Drawing.SystemColors.Window;
-			this.tbx_TrailingDigits.Location = new System.Drawing.Point(131, 142);
-			this.tbx_TrailingDigits.Name = "tbx_TrailingDigits";
-			this.tbx_TrailingDigits.Size = new System.Drawing.Size(115, 23);
-			this.tbx_TrailingDigits.TabIndex = 3;
-			this.tbx_TrailingDigits.TextChanged += new System.EventHandler(this.tbx_TrailingDigits_TextChanged);
+			tbx_TrailingDigits.BackColor = SystemColors.Window;
+			tbx_TrailingDigits.Location = new Point( 131, 142 );
+			tbx_TrailingDigits.Name = "tbx_TrailingDigits";
+			tbx_TrailingDigits.Size = new Size( 115, 23 );
+			tbx_TrailingDigits.TabIndex = 3;
+			tbx_TrailingDigits.TextChanged +=  tbx_TrailingDigits_TextChanged ;
 			// 
 			// tbx_LongAreaCode
 			// 
-			this.tbx_LongAreaCode.BackColor = System.Drawing.SystemColors.Window;
-			this.tbx_LongAreaCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.tbx_LongAreaCode.Location = new System.Drawing.Point(131, 54);
-			this.tbx_LongAreaCode.Name = "tbx_LongAreaCode";
-			this.tbx_LongAreaCode.Size = new System.Drawing.Size(115, 23);
-			this.tbx_LongAreaCode.TabIndex = 0;
-			this.tbx_LongAreaCode.TextChanged += new System.EventHandler(this.tbx_LongAreaCode_TextChanged);
+			tbx_LongAreaCode.BackColor = SystemColors.Window;
+			tbx_LongAreaCode.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			tbx_LongAreaCode.Location = new Point( 131, 54 );
+			tbx_LongAreaCode.Name = "tbx_LongAreaCode";
+			tbx_LongAreaCode.Size = new Size( 115, 23 );
+			tbx_LongAreaCode.TabIndex = 0;
+			tbx_LongAreaCode.TextChanged +=  tbx_LongAreaCode_TextChanged ;
 			// 
 			// label7
 			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label7.Location = new System.Drawing.Point(28, 145);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(101, 19);
-			this.label7.TabIndex = 37;
-			this.label7.Text = "Trailing Digits";
+			label7.AutoSize = true;
+			label7.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			label7.ForeColor = Color.FromArgb(     192,     0,     0 );
+			label7.Location = new Point( 28, 145 );
+			label7.Name = "label7";
+			label7.Size = new Size( 101, 19 );
+			label7.TabIndex = 37;
+			label7.Text = "Trailing Digits";
 			// 
 			// label6
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label6.Location = new System.Drawing.Point(25, 115);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(104, 19);
-			this.label6.TabIndex = 33;
-			this.label6.Text = "Leading Digits";
+			label6.AutoSize = true;
+			label6.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			label6.ForeColor = Color.FromArgb(     192,     0,     0 );
+			label6.Location = new Point( 25, 115 );
+			label6.Name = "label6";
+			label6.Size = new Size( 104, 19 );
+			label6.TabIndex = 33;
+			label6.Text = "Leading Digits";
 			// 
 			// tbx_PkDevice
 			// 
-			this.tbx_PkDevice.BackColor = System.Drawing.SystemColors.Window;
-			this.tbx_PkDevice.Enabled = false;
-			this.tbx_PkDevice.Location = new System.Drawing.Point(131, 25);
-			this.tbx_PkDevice.Name = "tbx_PkDevice";
-			this.tbx_PkDevice.Size = new System.Drawing.Size(115, 23);
-			this.tbx_PkDevice.TabIndex = 5;
-			this.tbx_PkDevice.Visible = false;
-			this.tbx_PkDevice.TextChanged += new System.EventHandler(this.tbx_PkDevice_TextChanged);
+			tbx_PkDevice.BackColor = SystemColors.Window;
+			tbx_PkDevice.Enabled = false;
+			tbx_PkDevice.Location = new Point( 131, 25 );
+			tbx_PkDevice.Name = "tbx_PkDevice";
+			tbx_PkDevice.Size = new Size( 115, 23 );
+			tbx_PkDevice.TabIndex = 5;
+			tbx_PkDevice.Visible = false;
+			tbx_PkDevice.TextChanged +=  tbx_PkDevice_TextChanged ;
 			// 
 			// tbx_LeadingDigits
 			// 
-			this.tbx_LeadingDigits.BackColor = System.Drawing.SystemColors.Window;
-			this.tbx_LeadingDigits.Location = new System.Drawing.Point(131, 112);
-			this.tbx_LeadingDigits.Name = "tbx_LeadingDigits";
-			this.tbx_LeadingDigits.Size = new System.Drawing.Size(115, 23);
-			this.tbx_LeadingDigits.TabIndex = 2;
-			this.tbx_LeadingDigits.TextChanged += new System.EventHandler(this.tbx_LeadingDigits_TextChanged);
+			tbx_LeadingDigits.BackColor = SystemColors.Window;
+			tbx_LeadingDigits.Location = new Point( 131, 112 );
+			tbx_LeadingDigits.Name = "tbx_LeadingDigits";
+			tbx_LeadingDigits.Size = new Size( 115, 23 );
+			tbx_LeadingDigits.TabIndex = 2;
+			tbx_LeadingDigits.TextChanged +=  tbx_LeadingDigits_TextChanged ;
+			// 
+			// btn_Cancel
+			// 
+			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_Cancel.ForeColor = Color.Maroon;
+			btn_Cancel.Location = new Point( 1049, 234 );
+			btn_Cancel.Name = "btn_Cancel";
+			btn_Cancel.Size = new Size( 171, 34 );
+			btn_Cancel.TabIndex = 10;
+			btn_Cancel.Text = "Cancel";
+			btn_Cancel.UseVisualStyleBackColor = true;
+			btn_Cancel.Click +=  btn_Cancel_Click ;
+			// 
+			// btn_CloseForm
+			// 
+			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
+			btn_CloseForm.ForeColor = Color.Maroon;
+			btn_CloseForm.Location = new Point( 1226, 234 );
+			btn_CloseForm.Name = "btn_CloseForm";
+			btn_CloseForm.Size = new Size( 171, 34 );
+			btn_CloseForm.TabIndex = 9;
+			btn_CloseForm.Text = "Close";
+			btn_CloseForm.UseVisualStyleBackColor = true;
+			btn_CloseForm.Click +=  btn_CloseForm_Click ;
+			// 
+			// lvw_MatchingDevices
+			// 
+			lvw_MatchingDevices.Columns.AddRange( new ColumnHeader[] { ch_PkDevice, ch_DialNumber, ch_AreaCode, ch_LeadingDigits, ch_TrailingDigits, ch_DeviceLocation, ch_DeviceType, ch_Notes } );
+			lvw_MatchingDevices.Font = new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
+			lvw_MatchingDevices.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lvw_MatchingDevices.GridLines = true;
+			lvw_MatchingDevices.Items.AddRange( new ListViewItem[] { listViewItem1 } );
+			lvw_MatchingDevices.Location = new Point( 295, 15 );
+			lvw_MatchingDevices.Name = "lvw_MatchingDevices";
+			lvw_MatchingDevices.Size = new Size( 1102, 202 );
+			lvw_MatchingDevices.TabIndex = 11;
+			lvw_MatchingDevices.UseCompatibleStateImageBehavior = false;
+			lvw_MatchingDevices.View = View.Details;
+			// 
+			// ch_PkDevice
+			// 
+			ch_PkDevice.Text = "PK";
+			ch_PkDevice.Width = 50;
+			// 
+			// ch_DialNumber
+			// 
+			ch_DialNumber.Text = "Dial Number";
+			ch_DialNumber.Width = 125;
+			// 
+			// ch_AreaCode
+			// 
+			ch_AreaCode.Text = "Area Code";
+			ch_AreaCode.Width = 90;
+			// 
+			// ch_LeadingDigits
+			// 
+			ch_LeadingDigits.Text = "Leading Digits";
+			ch_LeadingDigits.Width = 125;
+			// 
+			// ch_TrailingDigits
+			// 
+			ch_TrailingDigits.Text = "Trailing Digits";
+			ch_TrailingDigits.Width = 125;
+			// 
+			// ch_DeviceLocation
+			// 
+			ch_DeviceLocation.Text = "Device Location";
+			ch_DeviceLocation.Width = 125;
+			// 
+			// ch_DeviceType
+			// 
+			ch_DeviceType.Text = "Device Type";
+			ch_DeviceType.Width = 90;
+			// 
+			// ch_Notes
+			// 
+			ch_Notes.Text = "Notes";
+			ch_Notes.Width = 350;
 			// 
 			// DlgFindDevice
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-			this.CancelButton = this.btn_Cancel;
-			this.ClientSize = new System.Drawing.Size(677, 610);
-			this.Controls.Add(this.grp_AddressData);
-			this.Controls.Add(this.lbx_MatchingDevices);
-			this.Name = "DlgFindDevice";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Devices";
-			this.TopMost = true;
-			this.grp_AddressData.ResumeLayout(false);
-			this.grp_AddressData.PerformLayout();
-			this.ResumeLayout(false);
+			AutoScaleDimensions = new SizeF( 7F, 15F );
+			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = Color.FromArgb(     255,     224,     192 );
+			CancelButton = btn_Cancel;
+			ClientSize = new Size( 1456, 295 );
+			Controls.Add( lvw_MatchingDevices );
+			Controls.Add( btn_Cancel );
+			Controls.Add( grp_DeviceData );
+			Controls.Add( btn_CloseForm );
+			Controls.Add( lbx_MatchingDevices );
+			Name = "DlgFindDevice";
+			StartPosition = FormStartPosition.CenterParent;
+			Text = "Find Devices";
+			TopMost = true;
+			Load +=  DlgFindDevice_Load ;
+			grp_DeviceData.ResumeLayout( false );
+			grp_DeviceData.PerformLayout();
+			ResumeLayout( false );
 
 		}
 
 		#endregion
 
 		private ListBox lbx_MatchingDevices;
-		private GroupBox grp_AddressData;
+		private GroupBox grp_DeviceData;
 		private Label label19;
 		private Label label16;
 		private TextBox tbx_ShortAreaCode;
@@ -247,5 +313,14 @@
 		private TextBox tbx_LeadingDigits;
 		private Button btn_CloseForm;
 		private Button btn_Cancel;
+		private ListView lvw_MatchingDevices;
+		private ColumnHeader ch_PkDevice;
+		private ColumnHeader ch_DialNumber;
+		private ColumnHeader ch_AreaCode;
+		private ColumnHeader ch_LeadingDigits;
+		private ColumnHeader ch_TrailingDigits;
+		private ColumnHeader ch_DeviceLocation;
+		private ColumnHeader ch_DeviceType;
+		private ColumnHeader ch_Notes;
 	}
 }

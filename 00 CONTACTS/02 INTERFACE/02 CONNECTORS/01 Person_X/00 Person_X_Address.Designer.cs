@@ -76,7 +76,7 @@
 			btn_FindPerson.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_FindPerson.Location = new Point( 23, 22 );
 			btn_FindPerson.Name = "btn_FindPerson";
-			btn_FindPerson.Size = new Size( 109, 23 );
+			btn_FindPerson.Size = new Size( 320, 23 );
 			btn_FindPerson.TabIndex = 0;
 			btn_FindPerson.Text = "Find Person";
 			btn_FindPerson.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@
 			btn_FindAddress.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_FindAddress.Location = new Point( 23, 22 );
 			btn_FindAddress.Name = "btn_FindAddress";
-			btn_FindAddress.Size = new Size( 109, 23 );
+			btn_FindAddress.Size = new Size( 320, 23 );
 			btn_FindAddress.TabIndex = 0;
 			btn_FindAddress.Text = "Find Address";
 			btn_FindAddress.UseVisualStyleBackColor = true;
