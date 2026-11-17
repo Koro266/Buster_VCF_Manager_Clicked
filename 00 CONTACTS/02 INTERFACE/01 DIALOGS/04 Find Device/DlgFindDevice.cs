@@ -1,9 +1,16 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
-using LIKE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+//LOCAL INTERFACE
+//LOCAL DEVICE	
+using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using LIKE = CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
+//___________________________________________________________________________________________________________________________________________________
+//GLOBAL
+using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using LIKE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using LISTVIEW_DEVICE	= CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW.ListViewDevice;
+using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.DIALOGS
@@ -12,6 +19,9 @@ namespace CONTACTS.INTERFACE.DIALOGS
 	public partial class DlgFindDevice : Form
 	{
 		#region DECLARATIONS & CONSTRUCTION
+		private DEVICE_ROW _SelectedDevice;
+		private LISTVIEW_DEVICE _ListViewDevice;
+
 		private LIKE_ROW[] matching_Devices;
 		private int selected_Device = GLOBAL_PRESET.MINUS_ONE;
 		private DialogResult dialog_Result = DialogResult.Cancel;
@@ -20,11 +30,23 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		public DlgFindDevice()
 		{
 			InitializeComponent();
+			_SelectedDevice = new SELECT_DEVICE.DefaultDevice().Execute;
+			_ListViewDevice = new LISTVIEW_DEVICE( lvw_MatchingDevices );
 		}
 		#endregion
 
 
 		#region DISPLAY
+		//___________________________________________________________________________________________________________________________________________
+		private void DisplayInListView()
+		{
+
+			this.lvw_MatchingDevices.Items.Clear();
+			if ( this.matching_Devices.Length == GLOBAL_PRESET.ZERO )
+				return;
+
+			this.lbx_MatchingDevices.Items.AddRange( this.matching_Devices );
+		}
 		//___________________________________________________________________________________________________________________________________________
 		private void Display()
 		{
@@ -190,10 +212,5 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			this.Close();
 		}
 		#endregion
-
-		private void DlgFindDevice_Load( object sender, EventArgs e )
-		{
-
-		}
 	}
 }

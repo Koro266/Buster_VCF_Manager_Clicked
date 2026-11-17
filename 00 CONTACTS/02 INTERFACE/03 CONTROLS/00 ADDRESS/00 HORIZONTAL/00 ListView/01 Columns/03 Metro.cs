@@ -1,19 +1,22 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+//GLOBAL
+using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
+using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
-using CONTACTS.GLOBAL.DATABASE.COLUMN;
-using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using RECON			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Constants.Reconstruction;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Col8_Notes : BASE_ROW
+	public class Col3_Metro : BASE_ROW
 	{
-		private static string _UnValue = "no notes";
-		
+		private static string _UnValue = "no metro data";
+
 		//___________________________________________________________________________________________________________________________________________
-		public Col8_Notes( ADDRESS_ROW address_row ) : base( address_row )
+		public Col3_Metro( ADDRESS_ROW address_row ) : base( address_row )
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -26,6 +29,7 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 				s = this.Rule;
 				s = base.RealiseAddressRule( s );
 				s = this.RemoveUnusedCodes( s );
+				s = SHORT_TXT.RectifyString( s );
 
 				return s;
 			}
@@ -33,20 +37,22 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that assembles a 'default' notes.
-		/// If all columns are null, returns "no notes".
+		/// Returns an address rule that assembles a 'default' metro line.
+		/// If all columns are null, returns "no metro data".
 		/// </summary>
 		public string Rule
 		{
-			get { return Notes; }
+			get { return Metropolitan + Province + ProvCode; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Remove unused RECON codes for the result string.
+		/// Remove unused/unreplaced RECON codes from the result string.
 		/// </summary>
 		private string RemoveUnusedCodes( string s )
 		{
-			s = s.Replace( this.Notes, String.Empty );
+			s = s.Replace( this.Metropolitan, String.Empty );
+			s = s.Replace( this.Province, String.Empty );
+			s = s.Replace( this.ProvCode, String.Empty );
 
 			return s;
 		}
@@ -54,6 +60,8 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string Notes	{ get { return base.Notes; } }
+		override public string Metropolitan		{ get { return base.Metropolitan + "," + CONST.OneSpace; } }
+		override public string Province			{ get { return base.Province + CONST.OneSpace; } }
+		override public string ProvCode			{ get { return "(" + RECON.ProvinceCode_UPPER + ")"; } }
 	}
 }

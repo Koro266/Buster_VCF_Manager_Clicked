@@ -6,45 +6,50 @@ using System;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 //GLOBAL
-using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
-using CITY			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col2_City;
-using EXTENSIONS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col5_Extensions;
-using ISOCODES		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col8_IsoCodes;
-using METRO			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col3_Metro;
-using NATION		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col7_Country;
-using NOTES			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col8_Notes;
-using PK_ADDRESS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col0_PkAddress;
-using PK_NATION		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col6_PkCountry;
-using POSTAL		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col4_Postal;
-using STREET		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col1_Street;
+using PK_DEVICE			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col0_PkDevice;
+using DIAL_NUMBER		= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col1_DialNumber;
+using COUNTRY			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col2_Country;
+using AREA_CODE			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col3_AreaCode;
+using LEADING_DIGITS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col4_LeadingDigits;
+using TRAILING_DIGITS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col5_TrailingDigits;
+using LOCATION			= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col6_Location;
+using TYPE				= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col7_Type;
+using NOTES				= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.Col8_Notes;
+
+
+
+
+
+
+
+
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 {
 	//_______________________________________________________________________________________________________________________________________________
-	public partial class ListViewAddress
+	public partial class ListViewDevice
 	{
 		private ListView _Control;
 		private Dictionary<int, BASE_ROW> _BaseRows;
 		private int lvi_Index = 0;
 
-		private PK_ADDRESS _PkAddress;
-		private STREET _Street;
-		private CITY _City;
-		private METRO _Metro;
-		private POSTAL _Postal;
-		private EXTENSIONS _Extensions;
-		private PK_NATION _PkNation;
-		private NATION _Country;
-		private ISOCODES _IsoCodes;
-		private NOTES _Notes;
+		private PK_DEVICE		PK_ADDRESS _PkAddress;
+		private DIAL_NUMBER		DIAL_NUMBER _Street;
+		private COUNTRY			COUNTRY _City;
+		private AREA_CODE		AREA_CODE _Metro;
+		private LEADING_DIGITS	LEADING_DIGITS _Postal;
+		private TRAILING_DIGITS	TRAILING_DIGITS _Extensions;
+		private LOCATION		LOCATION _PkNation;
+		private TYPE			TYPE _Country;
+		private NOTES			NOTES _IsoCodes;
 
 		//___________________________________________________________________________________________________________________________________________
-		public ListViewAddress( ListView list_view )
+		public ListViewDevice( ListView list_view )
 		{
 			_Control = list_view;
 			_Control.Items.Clear();
-			DisplayAddress( this.DefaultAddress);
+			DisplayAddress( this.DefaultDevice );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayAddresses( Dictionary<int, BASE_ROW> base_rows )

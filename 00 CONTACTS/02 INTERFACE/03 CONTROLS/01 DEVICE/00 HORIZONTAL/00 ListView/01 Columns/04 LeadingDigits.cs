@@ -1,34 +1,26 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //LOCAL
-using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
-using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
+using DEVICE_COL	= CONTACTS.LOCAL.TERTIARY.DEVICE.Column.ST_LeadingDigits;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Col0_PkAddress : BASE_ROW
+	public class Col4_LeadingDigits
 	{
-		private ADDRESS_ROW _Address;
+		private DEVICE_COL _LeadingDigits;
+		private static string _NoValue = "no lead";
 
 		//___________________________________________________________________________________________________________________________________________
-		public Col0_PkAddress( ADDRESS_ROW address_row ) : base( address_row )
+		public Col4_LeadingDigits( DEVICE_ROW device_row )
 		{
-			AddressRow = address_row;
+			_LeadingDigits = device_row.LeadingDigits;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public string ColumnValue
 		{
-			get { return AddressRow.PkAddress.AsString; }
-		}
-		//___________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Gets/sets Address row.
-		/// </summary>
-		private ADDRESS_ROW AddressRow
-		{
-			get { return _Address; }
-			set { _Address = value; }
+			get { return _LeadingDigits.IsNotNull ? _LeadingDigits.AsIs : _NoValue; }
 		}
 	}
 }

@@ -7,7 +7,7 @@ using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class Col5_Extensions : BASE_ROW

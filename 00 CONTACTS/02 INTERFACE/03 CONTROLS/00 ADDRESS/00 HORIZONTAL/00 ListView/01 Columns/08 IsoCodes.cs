@@ -8,7 +8,7 @@ using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;
 using CONST = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
 	public class Col8_IsoCodes : BASE_ROW

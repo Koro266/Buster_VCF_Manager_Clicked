@@ -1,12 +1,9 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
-using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //LOCAL INTERFACE
-using LISTVIEW_ADDRESS	= CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW.ListViewAddress;
+using LISTVIEW_ADDRESS	= CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW.ListViewAddress;
 //LOCAL ADDRESS
-using ADDRESS			= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
-using LIKE				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.DIALOGS
@@ -15,7 +12,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 	public partial class DlgFindAddress : Form
 	{
 		#region DECLARATION & CONSTRUCTION
-		private ADDRESS _SelectedAddress;
+		private ADDRESS_ROW _SelectedAddress;
 		private LISTVIEW_ADDRESS _ListViewAddress;
 
 		//___________________________________________________________________________________________________________________________________________
@@ -32,7 +29,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 
 		#region ADDRESS/COUNTRY
 		//___________________________________________________________________________________________________________________________________________
-		private ADDRESS Address
+		private ADDRESS_ROW Address
 		{
 			get { return _SelectedAddress; }
 			set { _SelectedAddress = value; }
@@ -64,7 +61,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 
 		#region SELECTION
 		//___________________________________________________________________________________________________________________________________________
-		public ADDRESS SelectedAddress
+		public ADDRESS_ROW SelectedAddress
 		{
 			get { return _SelectedAddress; }
 			set { _SelectedAddress = value; }

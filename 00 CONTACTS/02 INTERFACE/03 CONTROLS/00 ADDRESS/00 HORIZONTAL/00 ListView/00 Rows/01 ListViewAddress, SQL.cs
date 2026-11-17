@@ -7,7 +7,7 @@ using SELECT_ADDRESS	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Select;
 using LIKE				= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.Like;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 {
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class ListViewAddress

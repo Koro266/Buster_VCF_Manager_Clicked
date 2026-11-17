@@ -7,15 +7,15 @@ using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Col4_Postal : BASE_ROW
+	public class Col2_City : BASE_ROW
 	{
-		private static string _UnValue = "no postal data";
+		private static string _UnValue = "no city data";
 
 		//___________________________________________________________________________________________________________________________________________
-		public Col4_Postal( ADDRESS_ROW address_row ) : base( address_row )
+		public Col2_City( ADDRESS_ROW address_row ) : base( address_row )
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -36,22 +36,21 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that assembles a 'default' postal line.
-		/// If all columns are null, returns "no postal data".
+		/// Returns an address rule that assembles a 'default' city line.
+		/// If all columns are null, returns "no city data".
 		/// </summary>
 		public string Rule
 		{
-			get { return BoxNumber + RuralDelivery + PostalCode; }
+			get { return Suburb + City; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Remove unused RECON codes for the result string.
+		/// Remove unused/unreplaced RECON codes from the result string.
 		/// </summary>
 		public string RemoveUnusedCodes( string s )
 		{
-			s = s.Replace( this.BoxNumber, String.Empty );
-			s = s.Replace( this.RuralDelivery, String.Empty );
-			s = s.Replace( this.PostalCode, String.Empty );
+			s = s.Replace( this.Suburb, String.Empty );
+			s = s.Replace( this.City, String.Empty );
 
 			return s;
 		}
@@ -59,8 +58,7 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string BoxNumber		{ get { return base.BoxNumber + CONST.OneSpace; } }
-		override public string RuralDelivery	{ get { return base.RuralDelivery + CONST.OneSpace; } }
-		override public string PostalCode		{ get { return base.PostalCode + CONST.OneSpace; } }
+		override public string Suburb	{ get { return base.Suburb + "," + CONST.OneSpace; } }
+		override public string City		{ get { return base.City; } }
 	}
 }

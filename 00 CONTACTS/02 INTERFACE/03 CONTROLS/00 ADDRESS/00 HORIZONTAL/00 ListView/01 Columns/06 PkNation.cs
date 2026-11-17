@@ -1,47 +1,36 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+//LOCAL
 using CONTACTS.GLOBAL.DATABASE.COLUMN;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-//LOCAL
 using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
-using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Col7_Country : BASE_ROW
+	public class Col6_PkCountry : BASE_ROW
 	{
+		private ADDRESS_ROW _Address;
+
 		//___________________________________________________________________________________________________________________________________________
-		public Col7_Country( ADDRESS_ROW address_row ) : base( address_row )
+		public Col6_PkCountry( ADDRESS_ROW address_row ) : base( address_row )
 		{
+			AddressRow = address_row;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public string ColumnValue
 		{
-			get
-			{
-				string s = String.Empty;
-
-				s = this.Rule;
-				s = base.RealiseAddressRule( s );
-
-				return s;
-			}
+			get { return AddressRow.FkCountry.AsString; }
 
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that assembles a 'default' country line.
+		/// Gets/sets Address row.
 		/// </summary>
-		public string Rule
+		private ADDRESS_ROW AddressRow
 		{
-			get { return Country + TeleCode; }
+			get { return _Address; }
+			set { _Address = value; }
 		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Override all the base class reconstruction codes that need a specific function in this class. 
-		/// </summary>
-		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
-		override public string TeleCode			{ get { return "(" + base.TeleCode + ")"; } }
 	}
 }

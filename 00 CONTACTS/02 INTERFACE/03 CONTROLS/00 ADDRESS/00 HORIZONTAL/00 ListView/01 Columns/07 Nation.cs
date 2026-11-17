@@ -1,21 +1,18 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
-using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
-using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using CONTACTS.GLOBAL.DATABASE.COLUMN;
+using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 //LOCAL
 using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
-using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
+using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
+namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Col2_City : BASE_ROW
+	public class Col7_Country : BASE_ROW
 	{
-		private static string _UnValue = "no city data";
-
 		//___________________________________________________________________________________________________________________________________________
-		public Col2_City( ADDRESS_ROW address_row ) : base( address_row )
+		public Col7_Country( ADDRESS_ROW address_row ) : base( address_row )
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -27,8 +24,6 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 
 				s = this.Rule;
 				s = base.RealiseAddressRule( s );
-				s = this.RemoveUnusedCodes( s );
-				s = SHORT_TXT.RectifyString( s );
 
 				return s;
 			}
@@ -36,29 +31,17 @@ namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 		}
 		//___________________________________________________________________________________________________________________________________
 		/// <summary>
-		/// Returns an address rule that assembles a 'default' city line.
-		/// If all columns are null, returns "no city data".
+		/// Returns an address rule that assembles a 'default' country line.
 		/// </summary>
 		public string Rule
 		{
-			get { return Suburb + City; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Remove unused/unreplaced RECON codes from the result string.
-		/// </summary>
-		public string RemoveUnusedCodes( string s )
-		{
-			s = s.Replace( this.Suburb, String.Empty );
-			s = s.Replace( this.City, String.Empty );
-
-			return s;
+			get { return Country + TeleCode; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		/// <summary>
 		/// Override all the base class reconstruction codes that need a specific function in this class. 
 		/// </summary>
-		override public string Suburb	{ get { return base.Suburb + "," + CONST.OneSpace; } }
-		override public string City		{ get { return base.City; } }
+		override public string Country			{ get { return base.Country + CONST.OneSpace; } }
+		override public string TeleCode			{ get { return "(" + base.TeleCode + ")"; } }
 	}
 }

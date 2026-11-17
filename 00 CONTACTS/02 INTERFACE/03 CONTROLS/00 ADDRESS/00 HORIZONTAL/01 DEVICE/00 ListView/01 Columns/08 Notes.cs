@@ -1,36 +1,26 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //LOCAL
-using CONTACTS.GLOBAL.DATABASE.COLUMN;
-using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
-using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
+using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
+using DEVICE_COL	= CONTACTS.LOCAL.TERTIARY.DEVICE.Column.ST_Notes;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.HORIZONTAL.LISTVIEW
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Col6_PkCountry : BASE_ROW
+	public class Col8_Notes
 	{
-		private ADDRESS_ROW _Address;
+		private DEVICE_COL _Notes;
+		private static string _NoValue = "no note";
 
 		//___________________________________________________________________________________________________________________________________________
-		public Col6_PkCountry( ADDRESS_ROW address_row ) : base( address_row )
+		public Col8_Notes( DEVICE_ROW device_row )
 		{
-			AddressRow = address_row;
+			_Notes = device_row.Notes;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public string ColumnValue
 		{
-			get { return AddressRow.FkCountry.AsString; }
-
-		}
-		//___________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Gets/sets Address row.
-		/// </summary>
-		private ADDRESS_ROW AddressRow
-		{
-			get { return _Address; }
-			set { _Address = value; }
+			get { return _Notes.IsNotNull ? _Notes.AsIs : _NoValue; }
 		}
 	}
 }
