@@ -1,4 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+//SYSTEM
+using SUB_ITEM		= System.Windows.Forms.ListViewItem.ListViewSubItem;
 //GLOBAL
 using SHORT_TXT		= CONTACTS.GLOBAL.DATABASE.COLUMN.Short_Text;
 using CONST			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
@@ -19,7 +21,17 @@ namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public string ColumnValue
+		public SUB_ITEM SubItem
+		{
+			get
+			{
+				SUB_ITEM sub_item = new SUB_ITEM();
+				sub_item.Text = ColumnValue;
+				return sub_item;
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private string ColumnValue
 		{
 			get
 			{

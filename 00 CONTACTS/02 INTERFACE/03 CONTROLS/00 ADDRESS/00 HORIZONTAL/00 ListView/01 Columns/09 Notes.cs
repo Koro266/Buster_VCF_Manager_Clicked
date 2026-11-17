@@ -1,6 +1,7 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+//SYSTEM
+using SUB_ITEM		= System.Windows.Forms.ListViewItem.ListViewSubItem;
 //LOCAL
-using CONTACTS.GLOBAL.DATABASE.COLUMN;
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using BASE_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.REALISER.BaseAddress;	
 
@@ -17,7 +18,17 @@ namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 		{
 		}
 		//___________________________________________________________________________________________________________________________________________
-		public string ColumnValue
+		public SUB_ITEM SubItem
+		{
+			get
+			{
+				SUB_ITEM sub_item = new SUB_ITEM();
+				sub_item.Text = ColumnValue;
+				return sub_item;
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private string ColumnValue
 		{
 			get
 			{

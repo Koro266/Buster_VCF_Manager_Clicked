@@ -31,6 +31,7 @@
 			ListViewItem listViewItem1 = new ListViewItem( new ListViewItem.ListViewSubItem[] { new ListViewItem.ListViewSubItem( null, "1234" ), new ListViewItem.ListViewSubItem( null, "+64 27 266 1200", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "NZ, 64" ), new ListViewItem.ListViewSubItem( null, "27, 027" ), new ListViewItem.ListViewSubItem( null, "266" ), new ListViewItem.ListViewSubItem( null, "1200" ), new ListViewItem.ListViewSubItem( null, "Mobile" ), new ListViewItem.ListViewSubItem( null, "Cell" ), new ListViewItem.ListViewSubItem( null, "Goods Shed, Naenae.Rangi's cell: 022 041 5054." ) }, -1 );
 			lbx_MatchingDevices = new ListBox();
 			grp_DeviceData = new GroupBox();
+			label3 = new Label();
 			label2 = new Label();
 			label1 = new Label();
 			label19 = new Label();
@@ -48,14 +49,13 @@
 			lvw_MatchingDevices = new ListView();
 			ch_PkDevice = new ColumnHeader();
 			ch_DialNumber = new ColumnHeader();
+			ch_Country = new ColumnHeader();
 			ch_AreaCode = new ColumnHeader();
 			ch_LeadingDigits = new ColumnHeader();
 			ch_TrailingDigits = new ColumnHeader();
 			ch_DeviceLocation = new ColumnHeader();
 			ch_DeviceType = new ColumnHeader();
 			ch_Notes = new ColumnHeader();
-			ch_Country = new ColumnHeader();
-			label3 = new Label();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -66,9 +66,9 @@
 			lbx_MatchingDevices.ForeColor = Color.Blue;
 			lbx_MatchingDevices.FormattingEnabled = true;
 			lbx_MatchingDevices.ItemHeight = 15;
-			lbx_MatchingDevices.Location = new Point( 583, 431 );
+			lbx_MatchingDevices.Location = new Point( 636, 12 );
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
-			lbx_MatchingDevices.Size = new Size( 135, 19 );
+			lbx_MatchingDevices.Size = new Size( 280, 199 );
 			lbx_MatchingDevices.TabIndex = 1;
 			lbx_MatchingDevices.TabStop = false;
 			lbx_MatchingDevices.Click +=  lbx_MatchingDevices_Click ;
@@ -97,6 +97,17 @@
 			grp_DeviceData.TabIndex = 0;
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Filters";
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
+			label3.ForeColor = Color.FromArgb(     192,     0,     0 );
+			label3.Location = new Point( 363, 69 );
+			label3.Name = "label3";
+			label3.Size = new Size( 63, 19 );
+			label3.TabIndex = 40;
+			label3.Text = "Country";
 			// 
 			// label2
 			// 
@@ -273,6 +284,11 @@
 			ch_DialNumber.Text = "Dial Number";
 			ch_DialNumber.Width = 125;
 			// 
+			// ch_Country
+			// 
+			ch_Country.Text = "Country";
+			ch_Country.Width = 100;
+			// 
 			// ch_AreaCode
 			// 
 			ch_AreaCode.Text = "Code";
@@ -300,22 +316,6 @@
 			// 
 			ch_Notes.Text = "Notes";
 			ch_Notes.Width = 350;
-			// 
-			// ch_Country
-			// 
-			ch_Country.Text = "Country";
-			ch_Country.Width = 100;
-			// 
-			// label3
-			// 
-			label3.AutoSize = true;
-			label3.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			label3.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label3.Location = new Point( 363, 69 );
-			label3.Name = "label3";
-			label3.Size = new Size( 63, 19 );
-			label3.TabIndex = 40;
-			label3.Text = "Country";
 			// 
 			// DlgFindDevice
 			// 

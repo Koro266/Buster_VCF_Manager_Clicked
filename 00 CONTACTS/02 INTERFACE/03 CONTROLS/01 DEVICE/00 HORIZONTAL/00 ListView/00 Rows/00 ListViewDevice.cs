@@ -40,10 +40,10 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 		{
 			_Control = list_view;
 			_Control.Items.Clear();
-			//DisplayDevice( this.DefaultDevice );
+			DisplayDevice( this.DefaultDevice );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void DisplayAddresses( Dictionary<int, BASE_ROW> base_rows )
+		private void DisplayDevices( Dictionary<int, BASE_ROW> base_rows )
 		{
 			_Control.Items.Clear();
 			lvi_Index = 0;

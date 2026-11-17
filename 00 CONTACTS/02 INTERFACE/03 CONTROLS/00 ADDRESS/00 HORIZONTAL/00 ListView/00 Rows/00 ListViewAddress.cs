@@ -1,8 +1,6 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //SYSTEM
 using LIST_ITEM		= System.Windows.Forms.ListViewItem;
-using SUB_ITEM		= System.Windows.Forms.ListViewItem.ListViewSubItem;
-using System;
 //LOCAL
 using ADDRESS_ROW	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 //GLOBAL
@@ -66,15 +64,15 @@ namespace CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW
 			LIST_ITEM lvi = new LIST_ITEM( _PkAddress.ColumnValue );
 
 			_Control.Items.Add( lvi );
-			_Control.Items[lvi_Index].SubItems.Add( _Street.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _City.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _Metro.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _Postal.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _Extensions.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _PkNation.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _Country.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _IsoCodes.ColumnValue );
-			_Control.Items[lvi_Index].SubItems.Add( _Notes.ColumnValue );
+			_Control.Items[lvi_Index].SubItems.Add( _Street.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _City.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _Metro.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _Postal.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _Extensions.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _PkNation.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _Country.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _IsoCodes.SubItem );
+			_Control.Items[lvi_Index].SubItems.Add( _Notes.SubItem );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public void ConstructColumns( ADDRESS_ROW address_row )
