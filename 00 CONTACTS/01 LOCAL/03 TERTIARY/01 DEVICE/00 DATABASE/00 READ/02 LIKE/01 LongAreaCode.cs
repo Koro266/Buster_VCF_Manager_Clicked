@@ -1,7 +1,10 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using System.Data.OleDb;
 //GLOBAL
-using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using SELECT = CONTACTS.GLOBAL.DATABASE.READ.Like;
+using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using LIKE				= CONTACTS.GLOBAL.DATABASE.READ.Like;
+//LOCAL
+using DEVICE_READER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.DeviceReader;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.DEVICE
@@ -16,33 +19,22 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			/// <summary>
 			/// Returns pk_Device and concatenated TDF_Device rows where person LongAreaCode begins with the given character(s).
 			/// </summary>
-			public class LongAreaCode : SELECT
+			public class LongAreaCode : LIKE
 			{
 				private readonly string target_field = "st_LongAreaCode";
-				private const string sql_text =
-				@"
-					SELECT 
-						[TDF_Devices].[pk_Device], 
-						[TDF_Devices].[st_LongAreaCode] & ""		 | "" &  
-						[TDF_Devices].[st_DialNumber] & "",		"" &  
-						[TDF_Devices].[st_LongAreaCode] & "", "" &  
-						[TDF_Devices].[st_ShortAreaCode] & "",  "" & 
-						[TDF_Devices].[st_LeadingDigits] & "",  "" & 
-						[TDF_Devices].[st_TrailingDigits] 
-					FROM 
-						TDF_Devices 
-					WHERE 
-						(((TDF_Devices.st_LongAreaCode) Like @subtext)) 
-					ORDER BY 
-						TDF_Devices.st_DialNumber;
-				";
+				private DEVICE_READER device_reader;
 
-				//_______________________________________________________________________________________________________________________________
+				//___________________________________________________________________________________________________________________________
 				public LongAreaCode( string sought_after_text )
 				{
-					base.SetParameter = sought_after_text;
-					base.SetCount = sql_count.Replace( PRESET.S0, target_field );
-					base.SetSelect = sql_text;
+					string sql_text = PrepareSQL( target_field );
+					OleDbParameter parameter = PrepareParameter( sql_text, sought_after_text );
+					device_reader = new DEVICE_READER( sql_text, parameter );
+				}
+				//_______________________________________________________________________________________________________________________________
+				public Dictionary<int, BASE_ROW> Execute
+				{
+					get { return device_reader.ReadDevices(); }
 				}
 			}
 		}

@@ -85,7 +85,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
-				this.matching_Devices = new LIKE.LongAreaCode( value ).Execute;
+				//this.matching_Devices = new LIKE.LongAreaCode( value ).Execute;
 				Display();
 			}
 		}
@@ -94,7 +94,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
-				this.matching_Devices = new LIKE.ShortAreaCode( value ).Execute;
+				//this.matching_Devices = new LIKE.ShortAreaCode( value ).Execute;
 				Display();
 			}
 		}
@@ -103,10 +103,10 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
-				_ListViewDevice.
-			_ListViewAddress.HouseNumber = tbx_STR_HouseNumber.Text;
-				this.matching_Devices = new LIKE.LeadingDigits( value ).Execute;
-				Display();
+				//_ListViewDevice.
+				//_ListViewAddress.HouseNumber = tbx_STR_HouseNumber.Text;
+				//this.matching_Devices = new LIKE.LeadingDigits( value ).Execute;
+				//Display();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -114,7 +114,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
-				this.matching_Devices = new LIKE.TrailingDigits( value ).Execute;
+				//this.matching_Devices = new LIKE.TrailingDigits( value ).Execute;
 				Display();
 			}
 		}

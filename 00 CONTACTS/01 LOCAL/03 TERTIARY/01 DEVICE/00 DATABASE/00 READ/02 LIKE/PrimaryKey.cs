@@ -41,7 +41,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 				public PrimaryKey( string sought_after_text ) 
 				{
 					base.SetParameter = sought_after_text;
-					base.SetCount = sql_count.Replace( PRESET.S0, target_field );
+					//base.SetCount = sql_count.Replace( PRESET.S0, target_field );
 					base.SetSelect = sql_text;
 				}
 			}

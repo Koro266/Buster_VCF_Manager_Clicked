@@ -36,7 +36,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 				public MatchingNumbersList( string begins_with )
 				{
 					base.SetParameter = begins_with;
-					base.SetCount = sql_count.Replace( PRESET.S0, target_field );
+					//base.SetCount = sql_count.Replace( PRESET.S0, target_field );
 					base.SetSelect = sql_text;
 				}
 			}

@@ -1,14 +1,14 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+//SYSTEM
+using System.Text;
 using System.Data;
 using System.Data.OleDb;
 //GLOBAL
-using LIKE		= CONTACTS.GLOBAL.DATABASE.READ.Like;
 using PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using REGEX		= CONTACTS.GLOBAL.VALUES.CONSTANT.LikeCriteria;
 //LOCAL
 using ADDRESS_ROW		= CONTACTS.LOCAL.TERTIARY.ADDRESS.Row;
 using ADDRESS_READER	= CONTACTS.LOCAL.TERTIARY.ADDRESS.Database.AddressReader;
-using System.Text;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.ADDRESS

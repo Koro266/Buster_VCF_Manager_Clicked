@@ -3,7 +3,6 @@ using System.Data.OleDb;
 //GLOBAL
 using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using LIKE				= CONTACTS.GLOBAL.DATABASE.READ.Like;
-using PRESET			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using DEVICE_READER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.DeviceReader;
 
@@ -28,7 +27,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 				//___________________________________________________________________________________________________________________________
 				public LeadingDigits( string sought_after_text )
 				{
-					string sql_text = PrepareSQL( _target_Field );
+					string sql_text = PrepareSQL( target_field );
 					OleDbParameter parameter = PrepareParameter( sql_text, sought_after_text );
 					device_reader = new DEVICE_READER( sql_text, parameter );
 				}
@@ -36,14 +35,6 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 				public Dictionary<int, BASE_ROW> Execute
 				{
 					get { return device_reader.ReadDevices(); }
-				}
-
-				//_______________________________________________________________________________________________________________________________
-				public LeadingDigits( string sought_after_text )
-				{
-					base.SetParameter = sought_after_text;
-					base.SetCount = sql_count.Replace( PRESET.S0, target_field );
-					base.SetSelect = sql_text;
 				}
 			}
 		}

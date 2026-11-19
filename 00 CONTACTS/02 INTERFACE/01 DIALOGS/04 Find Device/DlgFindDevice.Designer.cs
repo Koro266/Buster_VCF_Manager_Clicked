@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			ListViewItem listViewItem1 = new ListViewItem( new ListViewItem.ListViewSubItem[] { new ListViewItem.ListViewSubItem( null, "1234" ), new ListViewItem.ListViewSubItem( null, "+64 27 266 1200", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "NZ, 64" ), new ListViewItem.ListViewSubItem( null, "27, 027" ), new ListViewItem.ListViewSubItem( null, "266" ), new ListViewItem.ListViewSubItem( null, "1200" ), new ListViewItem.ListViewSubItem( null, "Mobile" ), new ListViewItem.ListViewSubItem( null, "Cell" ), new ListViewItem.ListViewSubItem( null, "Goods Shed, Naenae.Rangi's cell: 022 041 5054." ) }, -1 );
+			ListViewItem listViewItem3 = new ListViewItem( new ListViewItem.ListViewSubItem[] { new ListViewItem.ListViewSubItem( null, "1234" ), new ListViewItem.ListViewSubItem( null, "+64 27 266 1200", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "NZ, 64" ), new ListViewItem.ListViewSubItem( null, "27, 027" ), new ListViewItem.ListViewSubItem( null, "266" ), new ListViewItem.ListViewSubItem( null, "1200" ), new ListViewItem.ListViewSubItem( null, "Mobile" ), new ListViewItem.ListViewSubItem( null, "Cell" ), new ListViewItem.ListViewSubItem( null, "Goods Shed, Naenae.Rangi's cell: 022 041 5054." ) }, -1 );
 			lbx_MatchingDevices = new ListBox();
 			grp_DeviceData = new GroupBox();
 			label3 = new Label();
@@ -68,7 +68,7 @@
 			lbx_MatchingDevices.ItemHeight = 15;
 			lbx_MatchingDevices.Location = new Point( 636, 12 );
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
-			lbx_MatchingDevices.Size = new Size( 280, 199 );
+			lbx_MatchingDevices.Size = new Size( 280, 79 );
 			lbx_MatchingDevices.TabIndex = 1;
 			lbx_MatchingDevices.TabStop = false;
 			lbx_MatchingDevices.Click +=  lbx_MatchingDevices_Click ;
@@ -81,14 +81,12 @@
 			grp_DeviceData.Controls.Add( label2 );
 			grp_DeviceData.Controls.Add( label1 );
 			grp_DeviceData.Controls.Add( label19 );
-			grp_DeviceData.Controls.Add( label16 );
 			grp_DeviceData.Controls.Add( tbx_ShortAreaCode );
 			grp_DeviceData.Controls.Add( label5 );
 			grp_DeviceData.Controls.Add( tbx_TrailingDigits );
 			grp_DeviceData.Controls.Add( tbx_LongAreaCode );
 			grp_DeviceData.Controls.Add( label7 );
 			grp_DeviceData.Controls.Add( label6 );
-			grp_DeviceData.Controls.Add( tbx_PkDevice );
 			grp_DeviceData.Controls.Add( tbx_LeadingDigits );
 			grp_DeviceData.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_DeviceData.Location = new Point( 12, 12 );
@@ -103,7 +101,7 @@
 			label3.AutoSize = true;
 			label3.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label3.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label3.Location = new Point( 363, 69 );
+			label3.Location = new Point( 59, 179 );
 			label3.Name = "label3";
 			label3.Size = new Size( 63, 19 );
 			label3.TabIndex = 40;
@@ -114,7 +112,7 @@
 			label2.AutoSize = true;
 			label2.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label2.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label2.Location = new Point( 290, 83 );
+			label2.Location = new Point( 81, 160 );
 			label2.Name = "label2";
 			label2.Size = new Size( 41, 19 );
 			label2.TabIndex = 39;
@@ -125,7 +123,7 @@
 			label1.AutoSize = true;
 			label1.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label1.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label1.Location = new Point( 290, 40 );
+			label1.Location = new Point( 56, 141 );
 			label1.Name = "label1";
 			label1.Size = new Size( 66, 19 );
 			label1.TabIndex = 38;
@@ -136,7 +134,7 @@
 			label19.AutoSize = true;
 			label19.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label19.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label19.Location = new Point( 9, 86 );
+			label19.Location = new Point( 2, 54 );
 			label19.Name = "label19";
 			label19.Size = new Size( 120, 19 );
 			label19.TabIndex = 22;
@@ -148,7 +146,7 @@
 			label16.Enabled = false;
 			label16.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label16.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label16.Location = new Point( 52, 28 );
+			label16.Location = new Point( 634, 113 );
 			label16.Name = "label16";
 			label16.Size = new Size( 71, 19 );
 			label16.TabIndex = 3;
@@ -158,7 +156,7 @@
 			// tbx_ShortAreaCode
 			// 
 			tbx_ShortAreaCode.BackColor = SystemColors.Window;
-			tbx_ShortAreaCode.Location = new Point( 131, 83 );
+			tbx_ShortAreaCode.Location = new Point( 124, 51 );
 			tbx_ShortAreaCode.Name = "tbx_ShortAreaCode";
 			tbx_ShortAreaCode.Size = new Size( 115, 23 );
 			tbx_ShortAreaCode.TabIndex = 1;
@@ -169,7 +167,7 @@
 			label5.AutoSize = true;
 			label5.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label5.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label5.Location = new Point( 12, 57 );
+			label5.Location = new Point( 5, 25 );
 			label5.Name = "label5";
 			label5.Size = new Size( 117, 19 );
 			label5.TabIndex = 18;
@@ -178,7 +176,7 @@
 			// tbx_TrailingDigits
 			// 
 			tbx_TrailingDigits.BackColor = SystemColors.Window;
-			tbx_TrailingDigits.Location = new Point( 131, 142 );
+			tbx_TrailingDigits.Location = new Point( 124, 110 );
 			tbx_TrailingDigits.Name = "tbx_TrailingDigits";
 			tbx_TrailingDigits.Size = new Size( 115, 23 );
 			tbx_TrailingDigits.TabIndex = 3;
@@ -188,7 +186,7 @@
 			// 
 			tbx_LongAreaCode.BackColor = SystemColors.Window;
 			tbx_LongAreaCode.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			tbx_LongAreaCode.Location = new Point( 131, 54 );
+			tbx_LongAreaCode.Location = new Point( 124, 22 );
 			tbx_LongAreaCode.Name = "tbx_LongAreaCode";
 			tbx_LongAreaCode.Size = new Size( 115, 23 );
 			tbx_LongAreaCode.TabIndex = 0;
@@ -199,7 +197,7 @@
 			label7.AutoSize = true;
 			label7.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label7.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label7.Location = new Point( 28, 145 );
+			label7.Location = new Point( 21, 113 );
 			label7.Name = "label7";
 			label7.Size = new Size( 101, 19 );
 			label7.TabIndex = 37;
@@ -210,7 +208,7 @@
 			label6.AutoSize = true;
 			label6.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label6.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label6.Location = new Point( 25, 115 );
+			label6.Location = new Point( 18, 83 );
 			label6.Name = "label6";
 			label6.Size = new Size( 104, 19 );
 			label6.TabIndex = 33;
@@ -220,7 +218,7 @@
 			// 
 			tbx_PkDevice.BackColor = SystemColors.Window;
 			tbx_PkDevice.Enabled = false;
-			tbx_PkDevice.Location = new Point( 131, 25 );
+			tbx_PkDevice.Location = new Point( 713, 110 );
 			tbx_PkDevice.Name = "tbx_PkDevice";
 			tbx_PkDevice.Size = new Size( 115, 23 );
 			tbx_PkDevice.TabIndex = 5;
@@ -230,7 +228,7 @@
 			// tbx_LeadingDigits
 			// 
 			tbx_LeadingDigits.BackColor = SystemColors.Window;
-			tbx_LeadingDigits.Location = new Point( 131, 112 );
+			tbx_LeadingDigits.Location = new Point( 124, 80 );
 			tbx_LeadingDigits.Name = "tbx_LeadingDigits";
 			tbx_LeadingDigits.Size = new Size( 115, 23 );
 			tbx_LeadingDigits.TabIndex = 2;
@@ -266,7 +264,7 @@
 			lvw_MatchingDevices.Font = new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			lvw_MatchingDevices.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lvw_MatchingDevices.GridLines = true;
-			lvw_MatchingDevices.Items.AddRange( new ListViewItem[] { listViewItem1 } );
+			lvw_MatchingDevices.Items.AddRange( new ListViewItem[] { listViewItem3 } );
 			lvw_MatchingDevices.Location = new Point( 12, 223 );
 			lvw_MatchingDevices.Name = "lvw_MatchingDevices";
 			lvw_MatchingDevices.Size = new Size( 1102, 202 );
@@ -328,7 +326,9 @@
 			Controls.Add( btn_Cancel );
 			Controls.Add( grp_DeviceData );
 			Controls.Add( btn_CloseForm );
+			Controls.Add( label16 );
 			Controls.Add( lbx_MatchingDevices );
+			Controls.Add( tbx_PkDevice );
 			Name = "DlgFindDevice";
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Find Devices";
@@ -336,6 +336,7 @@
 			grp_DeviceData.ResumeLayout( false );
 			grp_DeviceData.PerformLayout();
 			ResumeLayout( false );
+			PerformLayout();
 
 		}
 
