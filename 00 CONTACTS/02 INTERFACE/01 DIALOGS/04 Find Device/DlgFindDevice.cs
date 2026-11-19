@@ -1,13 +1,14 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //LOCAL INTERFACE
 //LOCAL DEVICE	
+using CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW;
+//___________________________________________________________________________________________________________________________________________________
+//GLOBAL
+using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
 using LIKE = CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
-//___________________________________________________________________________________________________________________________________________________
-//GLOBAL
-using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using LIKE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using LISTVIEW_DEVICE	= CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW.ListViewDevice;
 using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
@@ -102,6 +103,8 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
+				_ListViewDevice.
+			_ListViewAddress.HouseNumber = tbx_STR_HouseNumber.Text;
 				this.matching_Devices = new LIKE.LeadingDigits( value ).Execute;
 				Display();
 			}

@@ -20,15 +20,15 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 
 
 		#region STREET ADDRESS
-		////___________________________________________________________________________________________________________________________________________
-		//public string HouseNumber
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.HouseNumber( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
+		//___________________________________________________________________________________________________________________________________________
+		public string LeadingDigits
+		{
+			set
+			{
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.LeadingDigits( value ).Execute;
+				this.DisplayDevices( base_rows );
+			}
+		}
 		////___________________________________________________________________________________________________________________________________________
 		//public string StreetName
 		//{

@@ -1,7 +1,11 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using System.Data.OleDb;
 //GLOBAL
-using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using SELECT = CONTACTS.GLOBAL.DATABASE.READ.Like;
+using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using LIKE				= CONTACTS.GLOBAL.DATABASE.READ.Like;
+using PRESET			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+//LOCAL
+using DEVICE_READER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.DeviceReader;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.DEVICE
@@ -16,26 +20,23 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			/// <summary>
 			/// Returns pk_Device and concatenated TDF_Device rows where person LeadingDigits begins with the given character(s).
 			/// </summary>
-			public class LeadingDigits : SELECT
+			public class LeadingDigits : LIKE
 			{
 				private readonly string target_field = "st_LeadingDigits";
-				private const string sql_text =
-				@"
-					SELECT 
-						[TDF_Devices].[pk_Device], 
-						[TDF_Devices].[st_LeadingDigits] & ""		 | "" &  
-						[TDF_Devices].[st_DialNumber] & "",		"" &  
-						[TDF_Devices].[st_LongAreaCode] & "", "" &  
-						[TDF_Devices].[st_ShortAreaCode] & "",  "" & 
-						[TDF_Devices].[st_LeadingDigits] & "",  "" & 
-						[TDF_Devices].[st_TrailingDigits] 
-					FROM 
-						TDF_Devices 
-					WHERE 
-						(((TDF_Devices.st_LeadingDigits) Like @subtext)) 
-					ORDER BY 
-						TDF_Devices.st_DialNumber;
-				";
+				private DEVICE_READER device_reader;
+
+				//___________________________________________________________________________________________________________________________
+				public LeadingDigits( string sought_after_text )
+				{
+					string sql_text = PrepareSQL( _target_Field );
+					OleDbParameter parameter = PrepareParameter( sql_text, sought_after_text );
+					device_reader = new DEVICE_READER( sql_text, parameter );
+				}
+				//_______________________________________________________________________________________________________________________________
+				public Dictionary<int, BASE_ROW> Execute
+				{
+					get { return device_reader.ReadDevices(); }
+				}
 
 				//_______________________________________________________________________________________________________________________________
 				public LeadingDigits( string sought_after_text )
