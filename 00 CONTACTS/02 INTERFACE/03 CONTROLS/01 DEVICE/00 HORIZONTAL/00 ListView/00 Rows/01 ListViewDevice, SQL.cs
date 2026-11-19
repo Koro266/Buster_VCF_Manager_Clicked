@@ -17,9 +17,24 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 		{
 			get { return new SELECT_DEVICE.DefaultDevice().Execute; }
 		}
-
-
-		#region STREET ADDRESS
+		//___________________________________________________________________________________________________________________________________________
+		public string LongAreaCode
+		{
+			set
+			{
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.LongAreaCode( value ).Execute;
+				this.DisplayDevices( base_rows );
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string ShortAreaCode
+		{
+			set
+			{
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.ShortAreaCode( value ).Execute;
+				this.DisplayDevices( base_rows );
+			}
+		}
 		//___________________________________________________________________________________________________________________________________________
 		public string LeadingDigits
 		{
@@ -29,139 +44,41 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 				this.DisplayDevices( base_rows );
 			}
 		}
-		////___________________________________________________________________________________________________________________________________________
-		//public string StreetName
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.StreetName( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		#endregion
-
-
-		#region 'BURB, CITY
-		////___________________________________________________________________________________________________________________________________________
-		//public string Suburb
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.SuburbName( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string City
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.CityName( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		#endregion
-
-
-		#region POSTAL
-		////___________________________________________________________________________________________________________________________________________
-		//public string PoBox
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.BoxNumber( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string RuralDelivery
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.RuralDelivery( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string PostCode
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.PostalCode( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		#endregion
-
-
-		#region EXTENSIONS
-		////___________________________________________________________________________________________________________________________________________
-		//public string Assemblage
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.Assemblage( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string Level
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.LevelNumber( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string Unit
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.UnitName( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string Extentions
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.Extension( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		#endregion
-
-
-		#region METROPOLITAN/PROVINCE
-		////___________________________________________________________________________________________________________________________________________
-		//public string Metropolitan
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.Metropolitan( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string ProvinceName
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.ProvinceName( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		////___________________________________________________________________________________________________________________________________________
-		//public string ProvinceAbbrev
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.ProvinceAbbreviation( value ).Execute;
-		//		DisplayAddresses( base_rows );
-		//	}
-		//}
-		#endregion
+		//___________________________________________________________________________________________________________________________________________
+		public string TrailingDigits
+		{
+			set
+			{
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.TrailingDigits( value ).Execute;
+				this.DisplayDevices( base_rows );
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string Location
+		{
+			set
+			{
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.Location( value ).Execute;
+				this.DisplayDevices( base_rows );
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string Type
+		{
+			set
+			{
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.Type( value ).Execute;
+				this.DisplayDevices( base_rows );
+			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public string CountryName
+		{
+			set
+			{
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.CountryName( value ).Execute;
+				this.DisplayDevices( base_rows );
+			}
+		}
 	}
 }

@@ -17,7 +17,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		{
 			//_______________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns pk_Device and concatenated TDF_Device rows where person CountryName begins with the given character(s).
+			/// Returns pk_Device and concatenated TDF_Device rows where device CountryName begins with the given character(s).
 			/// </summary>
 			public class CountryName : LIKE
 			{

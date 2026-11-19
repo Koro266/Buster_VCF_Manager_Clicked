@@ -60,9 +60,9 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 						TDF_Devices
 						INNER JOIN TDF_Countries ON TDF_Devices.fk_Country = TDF_Countries.pk_Country 
 					WHERE 
-							(((TDF_Devices.#0) LIKE @subtext )) 
+						(((TDF_Devices.#0) LIKE @subtext )) 
 					ORDER BY
-							TDF_Devices.#0;
+						TDF_Devices.#0;
 				";
 
 				return sql_text.Replace( PRESET.S0, target_field_name );

@@ -27,7 +27,7 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 		{
 			get 
 			{
-				string s = PRESET.ZLS;
+				string s = _Rule;
 
 				s = s.Replace( PRESET.S0, _CountryName.AsIs );
 				s = s.Replace( PRESET.S1, _CountryCode.AsIs );

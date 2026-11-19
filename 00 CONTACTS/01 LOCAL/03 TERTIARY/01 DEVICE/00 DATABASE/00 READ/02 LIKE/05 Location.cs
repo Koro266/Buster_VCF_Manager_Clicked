@@ -17,11 +17,11 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		{
 			//_______________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns pk_Device and concatenated TDF_Device rows where person Location begins with the given character(s).
+			/// Returns pk_Device and concatenated TDF_Device rows where device Location begins with the given character(s).
 			/// </summary>
 			public class Location : LIKE
 			{
-				private readonly string target_field = "st_Location";
+				private readonly string target_field = "st_DeviceLocation";
 				private DEVICE_READER device_reader;
 
 				//___________________________________________________________________________________________________________________________

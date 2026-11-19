@@ -17,7 +17,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		{
 			//_______________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns pk_Device and concatenated TDF_Device rows where person LongAreaCode begins with the given character(s).
+			/// Returns pk_Device and concatenated TDF_Device rows where device ShortAreaCode begins with the given character(s).
 			/// </summary>
 			public class ShortAreaCode : LIKE
 			{

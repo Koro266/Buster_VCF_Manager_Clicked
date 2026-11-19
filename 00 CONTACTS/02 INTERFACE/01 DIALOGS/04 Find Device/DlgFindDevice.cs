@@ -2,6 +2,8 @@
 //LOCAL INTERFACE
 //LOCAL DEVICE	
 using CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW;
+using CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW;
+
 //___________________________________________________________________________________________________________________________________________________
 //GLOBAL
 using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
@@ -33,11 +35,14 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			InitializeComponent();
 			_SelectedDevice = new SELECT_DEVICE.DefaultDevice().Execute;
 			_ListViewDevice = new LISTVIEW_DEVICE( lvw_MatchingDevices );
+
+			_ListViewDevice.DisplayDevice( _SelectedDevice );
 		}
 		#endregion
 
 
 		#region DISPLAY
+		/*
 		//___________________________________________________________________________________________________________________________________________
 		private void DisplayInListView()
 		{
@@ -58,16 +63,18 @@ namespace CONTACTS.INTERFACE.DIALOGS
 
 			this.lbx_MatchingDevices.Items.AddRange( this.matching_Devices );
 		}
+		*/
 		#endregion
 
 
 		#region RESPONDERS
+		/*
 		//___________________________________________________________________________________________________________________________________________
 		private string PrimaryKeyAsText
 		{
 			set
 			{
-				this.matching_Devices = new LIKE.PrimaryKey( value ).Execute;
+				//this.matching_Devices = new LIKE.PrimaryKey( value ).Execute;
 				Display();
 			}
 		}
@@ -76,7 +83,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			set
 			{
-				this.matching_Devices = new LIKE.PrimaryKey( value ).Execute;
+				//this.matching_Devices = new LIKE.PrimaryKey( value ).Execute;
 				Display();
 			}
 		}
@@ -118,6 +125,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 				Display();
 			}
 		}
+		*/
 		//___________________________________________________________________________________________________________________________________________
 		private int MatchingDevicesSingleClicked
 		{
@@ -138,29 +146,44 @@ namespace CONTACTS.INTERFACE.DIALOGS
 
 		#region EVENT HANDLERS
 		//___________________________________________________________________________________________________________________________________________
-		private void tbx_PkDevice_TextChanged( object sender, EventArgs e )
-		{
-			PrimaryKeyAsText = this.tbx_PkDevice.Text;
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
 		{
-			LongAreaCode = this.tbx_LongAreaCode.Text;
+			_ListViewDevice.LongAreaCode = this.tbx_LongAreaCode.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_ShortAreaCode_TextChanged( object sender, EventArgs e )
 		{
-			ShortAreaCode = this.tbx_ShortAreaCode.Text;
+			_ListViewDevice.ShortAreaCode = this.tbx_ShortAreaCode.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LeadingDigits_TextChanged( object sender, EventArgs e )
 		{
-			LeadingDigits = this.tbx_LeadingDigits.Text;
+			_ListViewDevice.LeadingDigits = this.tbx_LeadingDigits.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_TrailingDigits_TextChanged( object sender, EventArgs e )
 		{
-			TrailingDigits = this.tbx_TrailingDigits.Text;
+			_ListViewDevice.TrailingDigits = this.tbx_TrailingDigits.Text;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void tbx_Location_TextChanged( object sender, EventArgs e )
+		{
+			_ListViewDevice.Location = this.tbx_Location.Text;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void tbx_Type_TextChanged( object sender, EventArgs e )
+		{
+			_ListViewDevice.Type = this.tbx_Type.Text;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void tbx_CountryName_TextChanged( object sender, EventArgs e )
+		{
+			_ListViewDevice.CountryName = this.tbx_CountryName.Text;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void tbx_PkDevice_TextChanged( object sender, EventArgs e )
+		{
+			//PrimaryKeyAsText = this.tbx_PkDevice.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void lbx_MatchingDevices_Click( object sender, EventArgs e )

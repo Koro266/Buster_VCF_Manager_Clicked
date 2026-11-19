@@ -295,7 +295,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			{
 				this.lbx_MatchingDevices.Items.Clear();
 
-				matching_Devices = new LIKE.MatchingNumbersList( value ).Execute;
+				//matching_Devices = new LIKE.MatchingNumbersList( value ).Execute;
 				if ( matching_Devices.Length == 0 )
 					return;
 
