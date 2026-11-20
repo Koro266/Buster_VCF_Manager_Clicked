@@ -1,16 +1,10 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //SYSTEM
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Data;
 using System.Data.OleDb;
 //GLOBAL
-using LIKE				= CONTACTS.GLOBAL.DATABASE.READ.Like;
 using PRESET			= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using REGEX				= CONTACTS.GLOBAL.VALUES.CONSTANT.LikeCriteria;
-//LOCAL
-using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using DEVICE_READER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.DeviceReader;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.DEVICE

@@ -1,19 +1,12 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
-//LOCAL INTERFACE
-//LOCAL DEVICE	
-using CONTACTS.INTERFACE.CONTROLS.ADDRESS.HORIZONTAL.LISTVIEW;
-using CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW;
-
-//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using BASE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
-using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using GLOBAL_PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using LIKE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using GLOBAL_PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 //LOCAL
-using LIKE = CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
-using LIKE_ROW = CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using LISTVIEW_DEVICE	= CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW.ListViewDevice;
+using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
+//LOCAL INTERFACE
+using LISTVIEW_DEVICE	= CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW.ListViewDevice;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.DIALOGS
@@ -41,91 +34,27 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		#endregion
 
 
-		#region DISPLAY
-		/*
-		//___________________________________________________________________________________________________________________________________________
-		private void DisplayInListView()
-		{
-
-			this.lvw_MatchingDevices.Items.Clear();
-			if ( this.matching_Devices.Length == GLOBAL_PRESET.ZERO )
-				return;
-
-			this.lbx_MatchingDevices.Items.AddRange( this.matching_Devices );
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void Display()
-		{
-
-			this.lbx_MatchingDevices.Items.Clear();
-			if ( this.matching_Devices.Length == GLOBAL_PRESET.ZERO )
-				return;
-
-			this.lbx_MatchingDevices.Items.AddRange( this.matching_Devices );
-		}
-		*/
-		#endregion
-
-
 		#region RESPONDERS
-		/*
 		//___________________________________________________________________________________________________________________________________________
-		private string PrimaryKeyAsText
+		/// <summary>
+		/// Returns the pk_Device of the selected device or GLOBAL_PRESET.MINUS_ONE is no device selected.
+		/// </summary>
+		public int SelectedDevice
 		{
+			get { return _SelectedDevice.PkDevice.Value; }
 			set
 			{
-				//this.matching_Devices = new LIKE.PrimaryKey( value ).Execute;
-				Display();
+				if ( value == GLOBAL_PRESET.MINUS_ONE )
+				{
+					dialog_Result = DialogResult.Cancel;
+				}
+				else
+				{
+					dialog_Result = DialogResult.OK;
+					selected_Device = value;
+				}
 			}
 		}
-		//___________________________________________________________________________________________________________________________________________
-		private string PrimaryKey
-		{
-			set
-			{
-				//this.matching_Devices = new LIKE.PrimaryKey( value ).Execute;
-				Display();
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private string LongAreaCode
-		{
-			set
-			{
-				//this.matching_Devices = new LIKE.LongAreaCode( value ).Execute;
-				Display();
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private string ShortAreaCode
-		{
-			set
-			{
-				//this.matching_Devices = new LIKE.ShortAreaCode( value ).Execute;
-				Display();
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private string LeadingDigits
-		{
-			set
-			{
-				//_ListViewDevice.
-				//_ListViewAddress.HouseNumber = tbx_STR_HouseNumber.Text;
-				//this.matching_Devices = new LIKE.LeadingDigits( value ).Execute;
-				//Display();
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private string TrailingDigits
-		{
-			set
-			{
-				//this.matching_Devices = new LIKE.TrailingDigits( value ).Execute;
-				Display();
-			}
-		}
-		*/
 		//___________________________________________________________________________________________________________________________________________
 		private int MatchingDevicesSingleClicked
 		{
@@ -180,51 +109,10 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		{
 			_ListViewDevice.CountryName = this.tbx_CountryName.Text;
 		}
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_PkDevice_TextChanged( object sender, EventArgs e )
-		{
-			//PrimaryKeyAsText = this.tbx_PkDevice.Text;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void lbx_MatchingDevices_Click( object sender, EventArgs e )
-		{
-			if ( lbx_MatchingDevices.SelectedIndex == GLOBAL_PRESET.NoItemSelected )
-				MatchingDevicesSingleClicked = GLOBAL_PRESET.MINUS_ONE;
-			else
-				MatchingDevicesSingleClicked = ( ( LIKE_ROW )( lbx_MatchingDevices.SelectedItem ) ).PkRow;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void lbx_MatchingDevices_DoubleClick( object sender, EventArgs e )
-		{
-			if ( lbx_MatchingDevices.SelectedIndex == GLOBAL_PRESET.NoItemSelected )
-				MatchingDevicesDoubleClicked = GLOBAL_PRESET.MINUS_ONE;
-			else
-				MatchingDevicesDoubleClicked = ( ( LIKE_ROW )( lbx_MatchingDevices.SelectedItem ) ).PkRow;
-		}
 		#endregion
 
 
 		#region TERMINATION OF FORM
-		//___________________________________________________________________________________________________________________________________________
-		/// <summary>
-		/// Returns the pk_Device of the selected device or GLOBAL_PRESET.MINUS_ONE is no device selected.
-		/// </summary>
-		public int SelectedDevice
-		{
-			get { return this.selected_Device; }
-			set
-			{
-				if ( value == GLOBAL_PRESET.MINUS_ONE )
-				{
-					dialog_Result = DialogResult.Cancel;
-				}
-				else
-				{
-					dialog_Result = DialogResult.OK;
-					selected_Device = value;
-				}
-			}
-		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_CloseForm_Click( object sender, EventArgs e )
 		{

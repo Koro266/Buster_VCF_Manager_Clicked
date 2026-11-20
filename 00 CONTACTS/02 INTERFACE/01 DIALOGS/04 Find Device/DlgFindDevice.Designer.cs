@@ -28,9 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			ListViewItem listViewItem3 = new ListViewItem( new ListViewItem.ListViewSubItem[] { new ListViewItem.ListViewSubItem( null, "1234" ), new ListViewItem.ListViewSubItem( null, "+64 27 266 1200", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "NZ, 64" ), new ListViewItem.ListViewSubItem( null, "27, 027" ), new ListViewItem.ListViewSubItem( null, "266" ), new ListViewItem.ListViewSubItem( null, "1200" ), new ListViewItem.ListViewSubItem( null, "Mobile" ), new ListViewItem.ListViewSubItem( null, "Cell" ), new ListViewItem.ListViewSubItem( null, "Goods Shed, Naenae.Rangi's cell: 022 041 5054." ) }, -1 );
-			lbx_MatchingDevices = new ListBox();
+			ListViewItem listViewItem1 = new ListViewItem( new ListViewItem.ListViewSubItem[] { new ListViewItem.ListViewSubItem( null, "1234" ), new ListViewItem.ListViewSubItem( null, "+64 27 266 1200", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "NZ, 64" ), new ListViewItem.ListViewSubItem( null, "27, 027" ), new ListViewItem.ListViewSubItem( null, "266" ), new ListViewItem.ListViewSubItem( null, "1200" ), new ListViewItem.ListViewSubItem( null, "Mobile", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 8.25F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "Cell", Color.FromArgb(     192,     0,     0 ), SystemColors.Window, new Font( "Rockwell", 8.25F, FontStyle.Bold, GraphicsUnit.Point ) ), new ListViewItem.ListViewSubItem( null, "Goods Shed, Naenae.Rangi's cell: 022 041 5054." ) }, -1 );
 			grp_DeviceData = new GroupBox();
+			tbx_Location = new TextBox();
+			tbx_Type = new TextBox();
+			tbx_CountryName = new TextBox();
 			label3 = new Label();
 			label2 = new Label();
 			label1 = new Label();
@@ -42,8 +44,6 @@
 			label7 = new Label();
 			label6 = new Label();
 			tbx_LeadingDigits = new TextBox();
-			label16 = new Label();
-			tbx_PkDevice = new TextBox();
 			btn_Cancel = new Button();
 			btn_CloseForm = new Button();
 			lvw_MatchingDevices = new ListView();
@@ -56,26 +56,8 @@
 			ch_DeviceLocation = new ColumnHeader();
 			ch_DeviceType = new ColumnHeader();
 			ch_Notes = new ColumnHeader();
-			tbx_CountryName = new TextBox();
-			tbx_Type = new TextBox();
-			tbx_Location = new TextBox();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
-			// 
-			// lbx_MatchingDevices
-			// 
-			lbx_MatchingDevices.BackColor = Color.MistyRose;
-			lbx_MatchingDevices.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			lbx_MatchingDevices.ForeColor = Color.Blue;
-			lbx_MatchingDevices.FormattingEnabled = true;
-			lbx_MatchingDevices.ItemHeight = 15;
-			lbx_MatchingDevices.Location = new Point( 636, 12 );
-			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
-			lbx_MatchingDevices.Size = new Size( 280, 79 );
-			lbx_MatchingDevices.TabIndex = 1;
-			lbx_MatchingDevices.TabStop = false;
-			lbx_MatchingDevices.Click +=  lbx_MatchingDevices_Click ;
-			lbx_MatchingDevices.DoubleClick +=  lbx_MatchingDevices_DoubleClick ;
 			// 
 			// grp_DeviceData
 			// 
@@ -97,10 +79,37 @@
 			grp_DeviceData.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
 			grp_DeviceData.Location = new Point( 12, 12 );
 			grp_DeviceData.Name = "grp_DeviceData";
-			grp_DeviceData.Size = new Size( 556, 242 );
+			grp_DeviceData.Size = new Size( 255, 242 );
 			grp_DeviceData.TabIndex = 0;
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Filters";
+			// 
+			// tbx_Location
+			// 
+			tbx_Location.BackColor = SystemColors.Window;
+			tbx_Location.Location = new Point( 124, 140 );
+			tbx_Location.Name = "tbx_Location";
+			tbx_Location.Size = new Size( 115, 23 );
+			tbx_Location.TabIndex = 43;
+			tbx_Location.TextChanged +=  tbx_Location_TextChanged ;
+			// 
+			// tbx_Type
+			// 
+			tbx_Type.BackColor = SystemColors.Window;
+			tbx_Type.Location = new Point( 124, 169 );
+			tbx_Type.Name = "tbx_Type";
+			tbx_Type.Size = new Size( 115, 23 );
+			tbx_Type.TabIndex = 42;
+			tbx_Type.TextChanged +=  tbx_Type_TextChanged ;
+			// 
+			// tbx_CountryName
+			// 
+			tbx_CountryName.BackColor = SystemColors.Window;
+			tbx_CountryName.Location = new Point( 124, 198 );
+			tbx_CountryName.Name = "tbx_CountryName";
+			tbx_CountryName.Size = new Size( 115, 23 );
+			tbx_CountryName.TabIndex = 41;
+			tbx_CountryName.TextChanged +=  tbx_CountryName_TextChanged ;
 			// 
 			// label3
 			// 
@@ -216,37 +225,13 @@
 			tbx_LeadingDigits.TabIndex = 2;
 			tbx_LeadingDigits.TextChanged +=  tbx_LeadingDigits_TextChanged ;
 			// 
-			// label16
-			// 
-			label16.AutoSize = true;
-			label16.Enabled = false;
-			label16.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
-			label16.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label16.Location = new Point( 634, 113 );
-			label16.Name = "label16";
-			label16.Size = new Size( 71, 19 );
-			label16.TabIndex = 3;
-			label16.Text = "PkDevice";
-			label16.Visible = false;
-			// 
-			// tbx_PkDevice
-			// 
-			tbx_PkDevice.BackColor = SystemColors.Window;
-			tbx_PkDevice.Enabled = false;
-			tbx_PkDevice.Location = new Point( 713, 110 );
-			tbx_PkDevice.Name = "tbx_PkDevice";
-			tbx_PkDevice.Size = new Size( 115, 23 );
-			tbx_PkDevice.TabIndex = 5;
-			tbx_PkDevice.Visible = false;
-			tbx_PkDevice.TextChanged +=  tbx_PkDevice_TextChanged ;
-			// 
 			// btn_Cancel
 			// 
 			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Cancel.ForeColor = Color.Maroon;
-			btn_Cancel.Location = new Point( 728, 162 );
+			btn_Cancel.Location = new Point( 1125, 507 );
 			btn_Cancel.Name = "btn_Cancel";
-			btn_Cancel.Size = new Size( 171, 34 );
+			btn_Cancel.Size = new Size( 122, 34 );
 			btn_Cancel.TabIndex = 10;
 			btn_Cancel.Text = "Cancel";
 			btn_Cancel.UseVisualStyleBackColor = true;
@@ -256,9 +241,9 @@
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 905, 162 );
+			btn_CloseForm.Location = new Point( 1253, 507 );
 			btn_CloseForm.Name = "btn_CloseForm";
-			btn_CloseForm.Size = new Size( 171, 34 );
+			btn_CloseForm.Size = new Size( 122, 34 );
 			btn_CloseForm.TabIndex = 9;
 			btn_CloseForm.Text = "Close";
 			btn_CloseForm.UseVisualStyleBackColor = true;
@@ -270,10 +255,10 @@
 			lvw_MatchingDevices.Font = new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			lvw_MatchingDevices.ForeColor = Color.FromArgb(     192,     0,     0 );
 			lvw_MatchingDevices.GridLines = true;
-			lvw_MatchingDevices.Items.AddRange( new ListViewItem[] { listViewItem3 } );
-			lvw_MatchingDevices.Location = new Point( 14, 260 );
+			lvw_MatchingDevices.Items.AddRange( new ListViewItem[] { listViewItem1 } );
+			lvw_MatchingDevices.Location = new Point( 273, 21 );
 			lvw_MatchingDevices.Name = "lvw_MatchingDevices";
-			lvw_MatchingDevices.Size = new Size( 1102, 202 );
+			lvw_MatchingDevices.Size = new Size( 1102, 471 );
 			lvw_MatchingDevices.TabIndex = 11;
 			lvw_MatchingDevices.UseCompatibleStateImageBehavior = false;
 			lvw_MatchingDevices.View = View.Details;
@@ -321,47 +306,17 @@
 			ch_Notes.Text = "Notes";
 			ch_Notes.Width = 350;
 			// 
-			// tbx_CountryName
-			// 
-			tbx_CountryName.BackColor = SystemColors.Window;
-			tbx_CountryName.Location = new Point( 124, 198 );
-			tbx_CountryName.Name = "tbx_CountryName";
-			tbx_CountryName.Size = new Size( 115, 23 );
-			tbx_CountryName.TabIndex = 41;
-			tbx_CountryName.TextChanged +=  tbx_CountryName_TextChanged ;
-			// 
-			// tbx_Type
-			// 
-			tbx_Type.BackColor = SystemColors.Window;
-			tbx_Type.Location = new Point( 124, 169 );
-			tbx_Type.Name = "tbx_Type";
-			tbx_Type.Size = new Size( 115, 23 );
-			tbx_Type.TabIndex = 42;
-			tbx_Type.TextChanged +=  tbx_Type_TextChanged ;
-			// 
-			// tbx_Location
-			// 
-			tbx_Location.BackColor = SystemColors.Window;
-			tbx_Location.Location = new Point( 124, 140 );
-			tbx_Location.Name = "tbx_Location";
-			tbx_Location.Size = new Size( 115, 23 );
-			tbx_Location.TabIndex = 43;
-			tbx_Location.TextChanged +=  tbx_Location_TextChanged ;
-			// 
 			// DlgFindDevice
 			// 
 			AutoScaleDimensions = new SizeF( 7F, 15F );
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Cancel;
-			ClientSize = new Size( 1155, 474 );
+			ClientSize = new Size( 1399, 548 );
 			Controls.Add( lvw_MatchingDevices );
 			Controls.Add( btn_Cancel );
 			Controls.Add( grp_DeviceData );
 			Controls.Add( btn_CloseForm );
-			Controls.Add( label16 );
-			Controls.Add( lbx_MatchingDevices );
-			Controls.Add( tbx_PkDevice );
 			Name = "DlgFindDevice";
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Find Devices";
@@ -369,23 +324,18 @@
 			grp_DeviceData.ResumeLayout( false );
 			grp_DeviceData.PerformLayout();
 			ResumeLayout( false );
-			PerformLayout();
 
 		}
 
 		#endregion
-
-		private ListBox lbx_MatchingDevices;
 		private GroupBox grp_DeviceData;
 		private Label label19;
-		private Label label16;
 		private TextBox tbx_ShortAreaCode;
 		private Label label5;
 		private TextBox tbx_TrailingDigits;
 		private TextBox tbx_LongAreaCode;
 		private Label label7;
 		private Label label6;
-		private TextBox tbx_PkDevice;
 		private TextBox tbx_LeadingDigits;
 		private Button btn_CloseForm;
 		private Button btn_Cancel;
