@@ -76,7 +76,7 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 		{
 			set
 			{
-				Dictionary<int, BASE_ROW> base_rows = new LIKE.CountryName( value ).Execute;
+				Dictionary<int, BASE_ROW> base_rows = new LIKE.CountryCode( value ).Execute;
 				this.DisplayDevices( base_rows );
 			}
 		}

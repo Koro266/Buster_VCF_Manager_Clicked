@@ -24,7 +24,7 @@ namespace CONTACTS.GLOBAL.TOOLS
 		};
 
 #if DEBUG
-		private static StartupForm startup_Interface = StartupForm.FindDevice;
+		private static StartupForm startup_Interface = StartupForm.Device;
 #else
 		private static StartupForm startup_Interface = StartupForm.Overseer;
 #endif

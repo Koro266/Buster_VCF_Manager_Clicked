@@ -116,11 +116,11 @@
 			label3.AutoSize = true;
 			label3.Font = new Font( "Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point );
 			label3.ForeColor = Color.FromArgb(     192,     0,     0 );
-			label3.Location = new Point( 16, 201 );
+			label3.Location = new Point( 19, 200 );
 			label3.Name = "label3";
-			label3.Size = new Size( 107, 19 );
+			label3.Size = new Size( 102, 19 );
 			label3.TabIndex = 40;
-			label3.Text = "Country Name";
+			label3.Text = "Country Code";
 			// 
 			// label2
 			// 
@@ -229,7 +229,7 @@
 			// 
 			btn_Cancel.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Cancel.ForeColor = Color.Maroon;
-			btn_Cancel.Location = new Point( 1125, 507 );
+			btn_Cancel.Location = new Point( 997, 635 );
 			btn_Cancel.Name = "btn_Cancel";
 			btn_Cancel.Size = new Size( 122, 34 );
 			btn_Cancel.TabIndex = 10;
@@ -241,7 +241,7 @@
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 1253, 507 );
+			btn_CloseForm.Location = new Point( 1125, 635 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 122, 34 );
 			btn_CloseForm.TabIndex = 9;
@@ -254,14 +254,18 @@
 			lvw_MatchingDevices.Columns.AddRange( new ColumnHeader[] { ch_PkDevice, ch_DialNumber, ch_Country, ch_AreaCode, ch_LeadingDigits, ch_TrailingDigits, ch_DeviceLocation, ch_DeviceType, ch_Notes } );
 			lvw_MatchingDevices.Font = new Font( "Rockwell", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			lvw_MatchingDevices.ForeColor = Color.FromArgb(     192,     0,     0 );
+			lvw_MatchingDevices.FullRowSelect = true;
 			lvw_MatchingDevices.GridLines = true;
 			lvw_MatchingDevices.Items.AddRange( new ListViewItem[] { listViewItem1 } );
 			lvw_MatchingDevices.Location = new Point( 273, 21 );
 			lvw_MatchingDevices.Name = "lvw_MatchingDevices";
-			lvw_MatchingDevices.Size = new Size( 1102, 471 );
+			lvw_MatchingDevices.Size = new Size( 974, 608 );
 			lvw_MatchingDevices.TabIndex = 11;
 			lvw_MatchingDevices.UseCompatibleStateImageBehavior = false;
 			lvw_MatchingDevices.View = View.Details;
+			lvw_MatchingDevices.SelectedIndexChanged +=  lvw_MatchingDevices_SelectedIndexChanged ;
+			lvw_MatchingDevices.MouseClick +=  lvw_MatchingDevices_MouseClick ;
+			lvw_MatchingDevices.MouseDoubleClick +=  lvw_MatchingDevices_MouseDoubleClick ;
 			// 
 			// ch_PkDevice
 			// 
@@ -276,11 +280,12 @@
 			// ch_Country
 			// 
 			ch_Country.Text = "Country";
-			ch_Country.Width = 100;
+			ch_Country.Width = 70;
 			// 
 			// ch_AreaCode
 			// 
-			ch_AreaCode.Text = "Code";
+			ch_AreaCode.Text = "Area Code";
+			ch_AreaCode.Width = 80;
 			// 
 			// ch_LeadingDigits
 			// 
@@ -295,16 +300,17 @@
 			// ch_DeviceLocation
 			// 
 			ch_DeviceLocation.Text = "Location";
-			ch_DeviceLocation.Width = 75;
+			ch_DeviceLocation.Width = 80;
 			// 
 			// ch_DeviceType
 			// 
 			ch_DeviceType.Text = "Type";
+			ch_DeviceType.Width = 85;
 			// 
 			// ch_Notes
 			// 
 			ch_Notes.Text = "Notes";
-			ch_Notes.Width = 350;
+			ch_Notes.Width = 300;
 			// 
 			// DlgFindDevice
 			// 
@@ -312,7 +318,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(     255,     224,     192 );
 			CancelButton = btn_Cancel;
-			ClientSize = new Size( 1399, 548 );
+			ClientSize = new Size( 1270, 682 );
 			Controls.Add( lvw_MatchingDevices );
 			Controls.Add( btn_Cancel );
 			Controls.Add( grp_DeviceData );

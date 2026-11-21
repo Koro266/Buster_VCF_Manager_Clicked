@@ -43,9 +43,14 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 			DisplayDevice( this.DefaultDevice );
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void DisplayDevices( Dictionary<int, BASE_ROW> base_rows )
+		public void ClearDevices()
 		{
 			_Control.Items.Clear();
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void DisplayDevices( Dictionary<int, BASE_ROW> base_rows )
+		{
+			ClearDevices();
 			lvi_Index = 0;
 
 			foreach ( KeyValuePair<int, BASE_ROW> row in base_rows )

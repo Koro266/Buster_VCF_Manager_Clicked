@@ -7,12 +7,12 @@ using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
 //DEVICE
-using DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using DEVICES		= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
+using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
+using DEVICE_ROWS	= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
 using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
 //COUNTRIES
-using NATION		= CONTACTS.LOCAL.TERTIARY.NATION.Row;
-using NATIONS		= CONTACTS.LOCAL.TERTIARY.NATION.Table;
+using NATION_ROW	= CONTACTS.LOCAL.TERTIARY.NATION.Row;
+using NATION_ROWS	= CONTACTS.LOCAL.TERTIARY.NATION.Table;
 //FORMS
 using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
 
@@ -25,13 +25,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
-		private DEVICE one_Device;						//One device.
-		private DEVICES all_Devices = new DEVICES();    //Device table (all devices).
+		private DEVICE_ROW	_Device;
+		private DEVICE_ROWS	_Devices = new DEVICE_ROWS();
 
-		private NATION one_Nation;						//One country.
-		private NATIONS all_Nations = new NATIONS();	//All countries.
+		private NATION_ROW _Nation;
+		private NATION_ROWS _Nations = new NATION_ROWS();
 
-		private LIKE_ROW[] matching_Devices;
+		private LIKE_ROW[] _MatchingDevices;
 		private MESSENGER _Messenger;
 		private EVENT_STATE _EventState;
 		#endregion
@@ -89,24 +89,24 @@ namespace CONTACTS.INTERFACE.FORMS
 
 		#region RESPONDERS
 		//___________________________________________________________________________________________________________________________________________
-		private DEVICE Device
+		private DEVICE_ROW Device
 		{
-			get { return one_Device; }
+			get { return _Device; }
 			set
 			{
-				one_Device = value;
-				FkCountry = one_Device.FkCountry.Value;
+				_Device = value;
+				FkCountry = _Device.FkCountry.Value;
 				DisplayDevice();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private NATION Country
+		private NATION_ROW Country
 		{
-			get { return all_Nations.NationByKey( Device.FkCountry.Value ); }
+			get { return _Nations.NationByKey( Device.FkCountry.Value ); }
 			set
 			{
-				one_Nation = value;
-				Device.CountryAltered( one_Nation );
+				_Nation = value;
+				Device.CountryAltered( _Nation );
 				DisplayDevice();
 			}
 		}
@@ -114,7 +114,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private int DevicePk
 		{
 			get { return Device.PkDevice.Value; }
-			set { Device = all_Devices.DeviceByKey( value ); }
+			set { Device = _Devices.DeviceByKey( value ); }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private string DevicePkAsText
@@ -128,14 +128,14 @@ namespace CONTACTS.INTERFACE.FORMS
 			get { return Device.FkCountry.Value; }
 			set
 			{
-				Country = all_Nations.NationByKey( value );
+				Country = _Nations.NationByKey( value );
 				DisplayDevice();
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertDevice()
 		{
-			if ( all_Devices.InsertDevice( Device ) )
+			if ( _Devices.InsertDevice( Device ) )
 				_Messenger.InsertSucceeded();
 			else
 				_Messenger.InsertFailed();
@@ -143,7 +143,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void UpdateDevice()
 		{
-			if ( all_Devices.UpdateDevice( Device ) )
+			if ( _Devices.UpdateDevice( Device ) )
 				_Messenger.UpdateSucceeded();
 			else
 				_Messenger.UpdateFailed();
@@ -295,11 +295,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			{
 				this.lbx_MatchingDevices.Items.Clear();
 
-				//matching_Devices = new LIKE.MatchingNumbersList( value ).Execute;
-				if ( matching_Devices.Length == 0 )
+				_MatchingDevices = new LIKE.MatchingNumbersList( value ).Execute;
+				if ( _MatchingDevices.Length == 0 )
 					return;
 
-				this.lbx_MatchingDevices.Items.AddRange( matching_Devices );
+				this.lbx_MatchingDevices.Items.AddRange( _MatchingDevices );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
@@ -309,7 +309,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			{
 				if ( value == GLOBAL_PRESET.NoItemSelected )
 				{
-					Device = all_Devices.DefaultDevice;
+					Device = _Devices.DefaultDevice;
 				}
 				else
 				{
@@ -325,11 +325,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			{
 				if ( value == GLOBAL_PRESET.NoItemSelected )
 				{
-					Country = all_Nations.DefaultNation;
+					Country = _Nations.DefaultNation;
 				}
 				else
 				{
-					Country = all_Nations.NationByIndex( value );
+					Country = _Nations.NationByIndex( value );
 				}
 			}
 		}
@@ -455,22 +455,22 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_FirstDevice_Click( object sender, EventArgs e )
 		{
-			Device = all_Devices.FirstDevice;
+			Device = _Devices.FirstDevice;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_PreviousDevice_Click( object sender, EventArgs e )
 		{
-			Device = all_Devices.PreviousDevice;
+			Device = _Devices.PreviousDevice;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_NextDevice_Click( object sender, EventArgs e )
 		{
-			Device = all_Devices.NextDevice;
+			Device = _Devices.NextDevice;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_LastDevice_Click( object sender, EventArgs e )
 		{
-			Device = all_Devices.LastDevice;
+			Device = _Devices.LastDevice;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_FindDevice_Click( object sender, EventArgs e )
@@ -515,30 +515,30 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm()
 		{
-			Initialise( all_Devices.DefaultDevice );
+			Initialise( _Devices.DefaultDevice );
 			SetTabIndices();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InitialiseForm( int device_pk )
 		{
-			Initialise( all_Devices.DeviceByKey( device_pk ) );
+			Initialise( _Devices.DeviceByKey( device_pk ) );
 			SetTabIndices();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void Initialise( DEVICE device )
+		private void Initialise( DEVICE_ROW device_row )
 		{
 			//Tack on the header text.
 			this.Text = db_Connector.PartiallyQualifiedFileName;
 
 			//Initialise the comboboxes.
-			cbx_Countries.Items.AddRange( all_Nations.NationsAsArray );
-			cbx_DeviceLocation.Items.AddRange( all_Devices.AllLocations.ToArray() );
-			cbx_DeviceType.Items.AddRange( all_Devices.AllTypes.ToArray() );
+			cbx_Countries.Items.AddRange( _Nations.NationsAsArray );
+			cbx_DeviceLocation.Items.AddRange( _Devices.AllLocations.ToArray() );
+			cbx_DeviceType.Items.AddRange( _Devices.AllTypes.ToArray() );
 
 			_EventState = new EVENT_STATE();
 			_Messenger = new MESSENGER( this.tbx_Messages );
 
-			Device = device;
+			Device = device_row;
 			Device.Country = Country;
 		}
 		//___________________________________________________________________________________________________________________________________________

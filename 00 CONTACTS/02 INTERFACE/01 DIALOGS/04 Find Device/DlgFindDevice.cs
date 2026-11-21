@@ -1,12 +1,13 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using LIKE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using GLOBAL_PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW;
 //LOCAL
 using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
+using GLOBAL_PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
+using LIKE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL INTERFACE
 using LISTVIEW_DEVICE	= CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW.ListViewDevice;
+using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.DIALOGS
@@ -19,16 +20,20 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		private LISTVIEW_DEVICE _ListViewDevice;
 
 		private LIKE_ROW[] matching_Devices;
-		private int selected_Device = GLOBAL_PRESET.MINUS_ONE;
-		private DialogResult dialog_Result = DialogResult.Cancel;
+
+		private int _SelectedPk;
+		private DialogResult _DialogResult;
 
 		//___________________________________________________________________________________________________________________________________________
 		public DlgFindDevice()
 		{
 			InitializeComponent();
 			_SelectedDevice = new SELECT_DEVICE.DefaultDevice().Execute;
-			_ListViewDevice = new LISTVIEW_DEVICE( lvw_MatchingDevices );
+			_SelectedPk = _SelectedDevice.PkDevice.Value;
+			_DialogResult = DialogResult.Cancel;
 
+			_ListViewDevice = new LISTVIEW_DEVICE( lvw_MatchingDevices );
+			_ListViewDevice.ClearDevices();
 			_ListViewDevice.DisplayDevice( _SelectedDevice );
 		}
 		#endregion
@@ -46,27 +51,27 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			{
 				if ( value == GLOBAL_PRESET.MINUS_ONE )
 				{
-					dialog_Result = DialogResult.Cancel;
+					_DialogResult = DialogResult.Cancel;
 				}
 				else
 				{
-					dialog_Result = DialogResult.OK;
-					selected_Device = value;
+					_DialogResult = DialogResult.OK;
+					_SelectedPk = value;
 				}
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private int MatchingDevicesSingleClicked
+		private DEVICE_ROW MatchingDevicesSingleClicked
 		{
-			set { this.SelectedDevice = value; }
+			set { this.SelectedDevice = 1; }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private int MatchingDevicesDoubleClicked
+		private DEVICE_ROW MatchingDevicesDoubleClicked
 		{
 			set
 			{
-				SelectedDevice = value;
-				this.DialogResult = dialog_Result;
+				SelectedDevice = 1;
+				this.DialogResult = _DialogResult;
 				this.Close();
 			}
 		}
@@ -74,6 +79,23 @@ namespace CONTACTS.INTERFACE.DIALOGS
 
 
 		#region EVENT HANDLERS
+		//___________________________________________________________________________________________________________________________________________
+		private void lvw_MatchingDevices_SelectedIndexChanged( object sender, EventArgs e )
+		{
+			DEVICE_ROW device_row = 
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void lvw_MatchingDevices_MouseClick( object sender, MouseEventArgs e )
+		{
+			//MatchingDevicesSingleClicked = DEVICE_ROW.se;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void lvw_MatchingDevices_MouseDoubleClick( object sender, MouseEventArgs e )
+		{
+			MatchingDevicesDoubleClicked = 1;
+
+
+		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
 		{
@@ -116,7 +138,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_CloseForm_Click( object sender, EventArgs e )
 		{
-			this.DialogResult = dialog_Result;
+			this.DialogResult = _DialogResult;
 			this.Close();
 		}
 		//___________________________________________________________________________________________________________________________________________

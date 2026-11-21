@@ -192,7 +192,6 @@
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\12 Row, FORM Realisation %28Address%29.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\13 Row, The Seven Slots %28Address%29.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\00 ADDRESS\02 ROW\17 Row, FINDER Realisation %28Address%29.cs" />
-    <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\01 DEVICE\00 DATABASE\00 READ\02 LIKE\MatchingNumbersList.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\01 DEVICE\00 DATABASE\00 READ\02 LIKE\PrimaryKey.cs" />
     <Compile Remove="00 CONTACTS\01 LOCAL\03 TERTIARY\03 WEBSITE\00 DATABASE\01 SELECT\DefaultWebsite.cs" />
     <Compile Remove="00 CONTACTS\02 FrmPerson.Respond.cs" />
