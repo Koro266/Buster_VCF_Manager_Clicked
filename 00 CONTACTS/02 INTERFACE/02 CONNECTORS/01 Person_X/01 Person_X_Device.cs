@@ -130,7 +130,7 @@ namespace CONTACTS.INTERFACE.CONNECTORS
 			dlg_find_device.ShowDialog();
 			if ( dlg_find_device.DialogResult == DialogResult.OK )
 			{
-				int pk = dlg_find_device.SelectedDevice;
+				//int pk = dlg_find_device.SelectedDevice;
 				//tbx_PkDevice.Text = PkDeviceAsText;
 				return;
 			}

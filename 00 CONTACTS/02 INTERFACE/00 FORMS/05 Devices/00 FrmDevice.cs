@@ -350,7 +350,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			{
 				dlg_find_device.ShowDialog();
 				if ( dlg_find_device.DialogResult == DialogResult.OK )
-					DevicePk = dlg_find_device.SelectedDevice;
+					Device = dlg_find_device.SelectedDevice;
 			}
 		}
 		#endregion

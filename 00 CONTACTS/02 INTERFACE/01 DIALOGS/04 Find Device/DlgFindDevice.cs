@@ -50,19 +50,10 @@ namespace CONTACTS.INTERFACE.DIALOGS
 			set { _SelectedDevice = value; }
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private DEVICE_ROW MatchingDevicesSingleClicked
+		private void MatchingDevicesDoubleClicked()
 		{
-			set { this.SelectedDevice = 1; }
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private DEVICE_ROW MatchingDevicesDoubleClicked
-		{
-			set
-			{
-				SelectedDevice = 1;
-				this.DialogResult = _DialogResult;
-				this.Close();
-			}
+			this.DialogResult = DialogResult.OK;
+			this.Close();
 		}
 		#endregion
 
@@ -72,6 +63,11 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		private void lvw_MatchingDevices_SelectedIndexChanged( object sender, EventArgs e )
 		{
 			SelectedDevice = lvw_MatchingDevices.SelectedItems[0].Tag as DEVICE_ROW;
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void lvw_MatchingDevices_MouseDoubleClick( object sender, MouseEventArgs e )
+		{
+			MatchingDevicesDoubleClicked();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
