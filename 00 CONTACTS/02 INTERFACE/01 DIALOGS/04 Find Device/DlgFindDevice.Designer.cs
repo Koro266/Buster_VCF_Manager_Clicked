@@ -264,8 +264,6 @@
 			lvw_MatchingDevices.UseCompatibleStateImageBehavior = false;
 			lvw_MatchingDevices.View = View.Details;
 			lvw_MatchingDevices.SelectedIndexChanged +=  lvw_MatchingDevices_SelectedIndexChanged ;
-			lvw_MatchingDevices.MouseClick +=  lvw_MatchingDevices_MouseClick ;
-			lvw_MatchingDevices.MouseDoubleClick +=  lvw_MatchingDevices_MouseDoubleClick ;
 			// 
 			// ch_PkDevice
 			// 

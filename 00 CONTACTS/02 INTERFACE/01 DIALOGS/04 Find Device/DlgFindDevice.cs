@@ -44,21 +44,10 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		/// <summary>
 		/// Returns the pk_Device of the selected device or GLOBAL_PRESET.MINUS_ONE is no device selected.
 		/// </summary>
-		public int SelectedDevice
+		public DEVICE_ROW SelectedDevice
 		{
-			get { return _SelectedDevice.PkDevice.Value; }
-			set
-			{
-				if ( value == GLOBAL_PRESET.MINUS_ONE )
-				{
-					_DialogResult = DialogResult.Cancel;
-				}
-				else
-				{
-					_DialogResult = DialogResult.OK;
-					_SelectedPk = value;
-				}
-			}
+			get { return _SelectedDevice; }
+			set { _SelectedDevice = value; }
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private DEVICE_ROW MatchingDevicesSingleClicked
@@ -82,19 +71,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		//___________________________________________________________________________________________________________________________________________
 		private void lvw_MatchingDevices_SelectedIndexChanged( object sender, EventArgs e )
 		{
-			DEVICE_ROW device_row = 
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void lvw_MatchingDevices_MouseClick( object sender, MouseEventArgs e )
-		{
-			//MatchingDevicesSingleClicked = DEVICE_ROW.se;
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void lvw_MatchingDevices_MouseDoubleClick( object sender, MouseEventArgs e )
-		{
-			MatchingDevicesDoubleClicked = 1;
-
-
+			SelectedDevice = lvw_MatchingDevices.SelectedItems[0].Tag as DEVICE_ROW;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_LongAreaCode_TextChanged( object sender, EventArgs e )
@@ -138,7 +115,7 @@ namespace CONTACTS.INTERFACE.DIALOGS
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_CloseForm_Click( object sender, EventArgs e )
 		{
-			this.DialogResult = _DialogResult;
+			this.DialogResult = DialogResult.OK;
 			this.Close();
 		}
 		//___________________________________________________________________________________________________________________________________________

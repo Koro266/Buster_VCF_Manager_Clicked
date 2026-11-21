@@ -66,6 +66,8 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 			ConstructColumns( device_row );
 			LIST_ITEM lvi = new LIST_ITEM( _PkDevice.ColumnValue );
 
+			lvi.Tag = device_row;
+
 			_Control.Items.Add( lvi );
 			_Control.Items[lvi_Index].SubItems.Add( _Number.ColumnValue );
 			_Control.Items[lvi_Index].SubItems.Add( _Country.ColumnValue );
