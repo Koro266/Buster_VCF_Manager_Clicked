@@ -294,13 +294,14 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			set
 			{
-			//	this.lbx_MatchingDevices.Items.Clear();
+				//use trailing digits for this
+				this.lbx_MatchingDevices.Items.Clear();
 
-			//	_MatchingDevices = new LIKE.TrailingDigits( value ).Execute;
-			//	if ( _MatchingDevices.Length == 0 )
-			//		return;
+				//_MatchingDevices = new LIKE.TrailingDigits( value ).Execute;
+				//if ( _MatchingDevices.Count == 0 )
+				//	return;
 
-			//	this.lbx_MatchingDevices.Items.AddRange( _MatchingDevices );
+				//this.lbx_MatchingDevices.Items.AddRange( _MatchingDevices );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________

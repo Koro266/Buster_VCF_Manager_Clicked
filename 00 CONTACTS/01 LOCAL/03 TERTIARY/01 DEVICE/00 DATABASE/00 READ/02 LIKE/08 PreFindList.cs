@@ -14,26 +14,25 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 		{
 			//___________________________________________________________________________________________________________________________________
 			/// <summary>
-			/// Returns device(s) that match (LIKE *) the specified portion of TrailingDigits field. 
+			/// PreFind is intended to avoid duplicating device numbers that are already present in the Devices table.
 			/// </summary>
-			public class MatchingNumbersList : LIKE
+			public class PreFindList : LIKE
 			{
 				private readonly string target_field = "st_TrailingDigits";
 				private const string sql_text =
 				@"
-					SELECT 
-						TDF_Devices.pk_Device, 
-						[st_CountryCode] & "" "" & [st_LongAreaCode] & "" "" & [st_LeadingDigits] & "" "" & [st_TrailingDigits] AS Matches 
-					FROM 
-						TDF_Devices INNER JOIN TDF_Countries ON TDF_Devices.fk_Country = TDF_Countries.pk_Country 
-					WHERE 
-						(((TDF_Devices.st_TrailingDigits) LIKE @subtext)) 
-					ORDER BY 
+					SELECT
+						TDF_Devices.st_DialNumber
+					FROM
+						TDF_Devices
+					WHERE
+						(((TDF_Devices.st_TrailingDigits) = LIKE @subtext))
+					ORDER BY
 						TDF_Devices.st_DialNumber;
 				";
 
 				//_______________________________________________________________________________________________________________________________
-				public MatchingNumbersList( string begins_with )
+				public PreFindList( string begins_with )
 				{
 					base.SetParameter = begins_with;
 					//base.SetCount = sql_count.Replace( PRESET.S0, target_field );
