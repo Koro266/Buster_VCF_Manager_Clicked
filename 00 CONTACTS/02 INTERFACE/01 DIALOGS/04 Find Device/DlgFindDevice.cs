@@ -1,13 +1,11 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW;
+using LIKE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 //LOCAL
 using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using GLOBAL_PRESET		= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
 //LOCAL INTERFACE
 using LISTVIEW_DEVICE	= CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW.ListViewDevice;
-using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.DIALOGS

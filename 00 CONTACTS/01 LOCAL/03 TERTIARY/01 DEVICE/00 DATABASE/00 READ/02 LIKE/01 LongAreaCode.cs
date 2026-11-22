@@ -4,6 +4,7 @@ using System.Data.OleDb;
 using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using LIKE				= CONTACTS.GLOBAL.DATABASE.READ.Like;
 //LOCAL
+using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICE_READER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.DeviceReader;
 
 //___________________________________________________________________________________________________________________________________________________
@@ -22,12 +23,13 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			public class LongAreaCode : LIKE
 			{
 				private readonly string target_field = "st_LongAreaCode";
+				private readonly string order_by_field = "st_DialNumber";
 				private DEVICE_READER device_reader;
 
 				//___________________________________________________________________________________________________________________________
 				public LongAreaCode( string sought_after_text )
 				{
-					string sql_text = PrepareSQL( target_field );
+					string sql_text = PrepareSQL( target_field, order_by_field );
 					OleDbParameter parameter = PrepareParameter( sql_text, sought_after_text );
 					device_reader = new DEVICE_READER( sql_text, parameter );
 				}

@@ -4,6 +4,7 @@ using System.Data.OleDb;
 using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using LIKE				= CONTACTS.GLOBAL.DATABASE.READ.Like;
 //LOCAL
+using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICE_READER		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.DeviceReader;
 
 //___________________________________________________________________________________________________________________________________________________

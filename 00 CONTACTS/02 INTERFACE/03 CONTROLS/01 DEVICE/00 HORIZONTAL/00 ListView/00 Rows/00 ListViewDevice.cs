@@ -53,7 +53,8 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTVIEW
 			ClearDevices();
 			lvi_Index = 0;
 
-			foreach ( KeyValuePair<int, BASE_ROW> row in base_rows )
+			foreach ( KeyValuePair<int, BASE_ROW
+				> row in base_rows )
 			{
 				DEVICE_ROW device_row = ( DEVICE_ROW )row.Value;
 				DisplayDevice( device_row );

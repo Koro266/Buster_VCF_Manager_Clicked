@@ -1,20 +1,21 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
-using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
-using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
-using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+using BASE_ROW =CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 //DEVICE
 using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICE_ROWS	= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
+//FORMS
+using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
+using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
+using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
 using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
+using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
+using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
 //COUNTRIES
 using NATION_ROW	= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATION_ROWS	= CONTACTS.LOCAL.TERTIARY.NATION.Table;
-//FORMS
-using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -31,7 +32,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATION_ROW _Nation;
 		private NATION_ROWS _Nations = new NATION_ROWS();
 
-		private LIKE_ROW[] _MatchingDevices;
+		private Dictionary<int, BASE_ROW> _MatchingDevices;
 		private MESSENGER _Messenger;
 		private EVENT_STATE _EventState;
 		#endregion
@@ -293,13 +294,13 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			set
 			{
-				this.lbx_MatchingDevices.Items.Clear();
+			//	this.lbx_MatchingDevices.Items.Clear();
 
-				_MatchingDevices = new LIKE.MatchingNumbersList( value ).Execute;
-				if ( _MatchingDevices.Length == 0 )
-					return;
+			//	_MatchingDevices = new LIKE.TrailingDigits( value ).Execute;
+			//	if ( _MatchingDevices.Length == 0 )
+			//		return;
 
-				this.lbx_MatchingDevices.Items.AddRange( _MatchingDevices );
+			//	this.lbx_MatchingDevices.Items.AddRange( _MatchingDevices );
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
