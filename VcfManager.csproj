@@ -197,6 +197,8 @@
     <Compile Remove="00 CONTACTS\02 FrmPerson.Respond.cs" />
     <Compile Remove="00 CONTACTS\02 INTERFACE\00 FORMS\01 Persons\04 FrmPerson.Constants.cs" />
     <Compile Remove="00 CONTACTS\02 INTERFACE\00 FORMS\02 Groups\03 FrmGroup.Constants.cs" />
+    <Compile Remove="00 CONTACTS\02 INTERFACE\03 CONTROLS\01 DEVICE\01 VERTICAL\00 ListBox\01 ListBoxDevice, SQL.cs" />
+    <Compile Remove="00 CONTACTS\02 INTERFACE\03 CONTROLS\01 DEVICE\01 VERTICAL\00 ListBox\02 TrailingDigits.cs" />
     <Compile Remove="00 CONTACTS\03 FrmPerson.EnterChangeLeave.cs" />
     <Compile Remove="00 CONTACTS\04 FrmPerson.ClickPrompt.cs" />
     <Compile Remove="00 CONTACTS\05 FrmPerson.NavigationEtc.cs" />

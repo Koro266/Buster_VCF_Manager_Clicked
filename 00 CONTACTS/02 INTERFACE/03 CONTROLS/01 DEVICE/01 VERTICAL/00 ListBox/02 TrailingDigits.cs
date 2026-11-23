@@ -2,18 +2,19 @@
 //LOCAL
 using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
 using DEVICE_COL	= CONTACTS.LOCAL.TERTIARY.DEVICE.Column.ST_TrailingDigits;
+using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.VERTICAL.LISTBOX
 {
 	//___________________________________________________________________________________________________________________________________________
-	public class Col5_TrailingDigits
+	public class TrailingDigits
 	{
 		private DEVICE_COL _TrailingDigits;
 		private static string _NoValue = "no trail";
 
 		//___________________________________________________________________________________________________________________________________________
-		public Col5_TrailingDigits( DEVICE_ROW device_row )
+		public TrailingDigits( DEVICE_ROW device_row )
 		{
 			_TrailingDigits = device_row.TrailingDigits;
 		}

@@ -1,7 +1,10 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using System.Data.OleDb;
 //GLOBAL
-using PRESET = CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE = CONTACTS.GLOBAL.DATABASE.READ.Like;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
+using LIKE			= CONTACTS.GLOBAL.DATABASE.READ.Like;
+//LOCAL
+using DEVICE_READER	= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.DeviceReader;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.LOCAL.TERTIARY.DEVICE
@@ -18,6 +21,7 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 			/// </summary>
 			public class PreFindList : LIKE
 			{
+				private DEVICE_READER device_reader;
 				private readonly string target_field = "st_TrailingDigits";
 				private const string sql_text =
 				@"
@@ -30,13 +34,17 @@ namespace CONTACTS.LOCAL.TERTIARY.DEVICE
 					ORDER BY
 						TDF_Devices.st_DialNumber;
 				";
-
-				//_______________________________________________________________________________________________________________________________
-				public PreFindList( string begins_with )
+				//___________________________________________________________________________________________________________________________
+				public PreFindList( string sought_after_text )
 				{
-					base.SetParameter = begins_with;
-					//base.SetCount = sql_count.Replace( PRESET.S0, target_field );
-					base.SetSelect = sql_text;
+					string sql_text = PrepareSQL( target_field );
+					OleDbParameter parameter = PrepareParameter( sql_text, sought_after_text );
+					device_reader = new DEVICE_READER( sql_text, parameter );
+				}
+				//_______________________________________________________________________________________________________________________________
+				public Dictionary<int, BASE_ROW> Execute
+				{
+					get { return device_reader.ReadDevices(); }
 				}
 			}
 		}

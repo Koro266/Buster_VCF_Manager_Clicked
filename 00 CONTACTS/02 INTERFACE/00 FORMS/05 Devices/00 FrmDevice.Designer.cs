@@ -400,7 +400,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.Size = new Size( 173, 334 );
 			lbx_MatchingDevices.TabIndex = 73;
 			lbx_MatchingDevices.TabStop = false;
-			lbx_MatchingDevices.SelectedIndexChanged +=  lbx_MatchingDevices_SelectedIndexChanged ;
 			// 
 			// tbx_Matches
 			// 

@@ -33,7 +33,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATION_ROW _Nation;
 		private NATION_ROWS _Nations = new NATION_ROWS();
 
-		//private Dictionary<int, BASE_ROW> _MatchingDevices;
 		private LIST_BOX _PreFindList;
 		private MESSENGER _Messenger;
 		private EVENT_STATE _EventState;
@@ -295,37 +294,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			}
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private string MatchesText
-		{
-			set
-			{
-				//use trailing digits for this
-				this.lbx_MatchingDevices.Items.Clear();
-
-				//_MatchingDevices = new LIKE.TrailingDigits( value ).Execute;
-				//if ( _MatchingDevices.Count == 0 )
-				//	return;
-
-				//this.lbx_MatchingDevices.Items.AddRange( _MatchingDevices );
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private int DevicesSelectedIndex
-		{
-			set
-			{
-				if ( value == GLOBAL_PRESET.NoItemSelected )
-				{
-					Device = _Devices.DefaultDevice;
-				}
-				else
-				{
-					LIKE_ROW like_row = ( LIKE_ROW )( this.lbx_MatchingDevices.SelectedItem );
-					this.DevicePk = like_row.PkRow;
-				}
-			}
-		}
-		//___________________________________________________________________________________________________________________________________________
 		private int CountrySelectedIndex
 		{
 			set
@@ -450,11 +418,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			if ( _EventState.IsEnabled )
 				CountrySelectedIndex = cbx_Countries.SelectedIndex;
 		}
-		//___________________________________________________________________________________________________________________________________________
-		private void lbx_MatchingDevices_SelectedIndexChanged( object sender, EventArgs e )
-		{
-			DevicesSelectedIndex = this.lbx_MatchingDevices.SelectedIndex;
-		}
 		#endregion
 
 
@@ -462,7 +425,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Matches_TextChanged( object sender, EventArgs e )
 		{
-			this._PreFindList.SoughtAfterText = tbx_Matches.Text;
+			_PreFindList.SoughtAfterText = tbx_Matches.Text;
 		}
 		#endregion
 
