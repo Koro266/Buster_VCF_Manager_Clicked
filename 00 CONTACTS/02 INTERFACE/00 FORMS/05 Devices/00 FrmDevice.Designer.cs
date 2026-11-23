@@ -395,9 +395,9 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbx_MatchingDevices.ForeColor = Color.Blue;
 			lbx_MatchingDevices.FormattingEnabled = true;
 			lbx_MatchingDevices.ItemHeight = 15;
-			lbx_MatchingDevices.Location = new Point( 445, 19 );
+			lbx_MatchingDevices.Location = new Point( 445, 16 );
 			lbx_MatchingDevices.Name = "lbx_MatchingDevices";
-			lbx_MatchingDevices.Size = new Size( 173, 334 );
+			lbx_MatchingDevices.Size = new Size( 173, 349 );
 			lbx_MatchingDevices.TabIndex = 73;
 			lbx_MatchingDevices.TabStop = false;
 			// 

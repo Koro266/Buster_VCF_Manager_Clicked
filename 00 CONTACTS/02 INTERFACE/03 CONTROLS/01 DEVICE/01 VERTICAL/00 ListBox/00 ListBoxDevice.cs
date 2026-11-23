@@ -42,7 +42,7 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.VERTICAL.LISTBOX
 			foreach ( KeyValuePair<int, BASE_ROW> row in base_rows )
 			{
 				DEVICE_ROW device_row = ( DEVICE_ROW )row.Value;
-				_Control.Items.Add( device_row.DialNumber.Value );
+				_Control.Items.Add( device_row.PickerNumber.Value );
 			}
 		}
 	}
