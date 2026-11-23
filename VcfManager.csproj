@@ -228,6 +228,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="00 CONTACTS\00 GLOBAL\06 TOOLS\TxtMsgs.txt" />
     <None Remove="2023.05.20.0000 TEST VCF Builder.accdb" />
     <None Remove="patch.diff" />
   </ItemGroup>

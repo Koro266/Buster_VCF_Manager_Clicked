@@ -150,7 +150,6 @@
 			// 
 			// btn_Person_X_Device
 			// 
-			btn_Person_X_Device.Enabled = false;
 			btn_Person_X_Device.Font = new Font( "Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_Person_X_Device.ForeColor = Color.FromArgb(     192,     0,     0 );
 			btn_Person_X_Device.Location = new Point( 32, 68 );
