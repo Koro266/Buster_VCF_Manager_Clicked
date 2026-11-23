@@ -30,7 +30,12 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.VERTICAL.LISTBOX
 			_Control.Items.Clear();
 		}
 		//___________________________________________________________________________________________________________________________________________
-		private void DisplayDevices( Dictionary<int, BASE_ROW> base_rows )
+		public string SoughtAfterText
+		{
+			set { }
+		}
+		//___________________________________________________________________________________________________________________________________________
+		public void DisplayDevices( Dictionary<int, BASE_ROW> base_rows )
 		{
 			ClearDevices();
 			lvi_Index = 0;

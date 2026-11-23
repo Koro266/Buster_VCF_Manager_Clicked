@@ -7,7 +7,7 @@ using SELECT_DEVICE		= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Select;
 using LIKE				= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
 
 //___________________________________________________________________________________________________________________________________________________
-namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTBOX
+namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.VERTICAL.LISTBOX
 {
 	//_______________________________________________________________________________________________________________________________________________
 	public partial class ListBoxDevice
@@ -17,15 +17,14 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.HORIZONTAL.LISTBOX
 		{
 			get { return new SELECT_DEVICE.DefaultDevice().Execute; }
 		}
-		////___________________________________________________________________________________________________________________________________________
-		//public string LongAreaCode
-		//{
-		//	set
-		//	{
-		//		Dictionary<int, BASE_ROW> base_rows = new LIKE.LongAreaCode( value ).Execute;
-		//		this.DisplayDevices( base_rows );
-		//	}
-		//}
+		//___________________________________________________________________________________________________________________________________________
+		public Dictionary<int, BASE_ROW> SqlResultSet
+		{
+			set
+			{
+				this.DisplayDevices( value );
+			}
+		}
 		////___________________________________________________________________________________________________________________________________________
 		//public string ShortAreaCode
 		//{

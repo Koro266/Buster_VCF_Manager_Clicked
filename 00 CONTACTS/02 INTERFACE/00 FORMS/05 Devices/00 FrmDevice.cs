@@ -1,21 +1,22 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
+using System.Windows.Forms;
 //GLOBAL
-using BASE_ROW =CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
-//DEVICE
-using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using DEVICE_ROWS	= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
-using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
-//FORMS
-using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow;
 using GLOBAL_DB		= CONTACTS.GLOBAL.DATABASE.CONNECTION.DbConnector;
 using GLOBAL_PRESET	= CONTACTS.GLOBAL.VALUES.CONSTANT.Preset;
-using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
+using EVENT_STATE	= CONTACTS.GLOBAL.TOOLS.EventState;
 using LIKE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.LikeRow;
 using MESSENGER		= CONTACTS.GLOBAL.TOOLS.Messenger;
-//COUNTRIES
+using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+//LOCAL
+using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
+using DEVICE_ROWS	= CONTACTS.LOCAL.TERTIARY.DEVICE.Table;
 using NATION_ROW	= CONTACTS.LOCAL.TERTIARY.NATION.Row;
 using NATION_ROWS	= CONTACTS.LOCAL.TERTIARY.NATION.Table;
-using TXT_GATHER	= CONTACTS.GLOBAL.TOOLS.TextAccumulator;
+using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
+//INTERFACE
+using FIND_DEVICE	= CONTACTS.INTERFACE.DIALOGS.DlgFindDevice;
+using LIST_BOX		= CONTACTS.INTERFACE.CONTROLS.DEVICE.VERTICAL.LISTBOX.ListBoxDevice;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.FORMS
@@ -32,7 +33,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		private NATION_ROW _Nation;
 		private NATION_ROWS _Nations = new NATION_ROWS();
 
-		private Dictionary<int, BASE_ROW> _MatchingDevices;
+		//private Dictionary<int, BASE_ROW> _MatchingDevices;
+		private LIST_BOX _PreFindList;
 		private MESSENGER _Messenger;
 		private EVENT_STATE _EventState;
 		#endregion
@@ -46,12 +48,15 @@ namespace CONTACTS.INTERFACE.FORMS
 
 			InitialiseForm();
 			DisplayDevice();
+
+			_PreFindList = new LIST_BOX( lbx_MatchingDevices );
 		}
 		//___________________________________________________________________________________________________________________________________________
 		public FrmDevice( int device_pk )
 		{
 			InitializeComponent();
 
+			_PreFindList = new LIST_BOX( lbx_MatchingDevices );
 			InitialiseForm( device_pk );
 			DisplayDevice();
 		}
@@ -453,6 +458,15 @@ namespace CONTACTS.INTERFACE.FORMS
 		#endregion
 
 
+		#region PRE-FIND
+		//___________________________________________________________________________________________________________________________________________
+		private void tbx_Matches_TextChanged( object sender, EventArgs e )
+		{
+			this._PreFindList.SoughtAfterText = tbx_Matches.Text;
+		}
+		#endregion
+
+
 		#region NAVIGATION
 		//___________________________________________________________________________________________________________________________________________
 		private void btn_FirstDevice_Click( object sender, EventArgs e )
@@ -478,11 +492,6 @@ namespace CONTACTS.INTERFACE.FORMS
 		private void btn_FindDevice_Click( object sender, EventArgs e )
 		{
 			FindDevice();
-		}
-		//___________________________________________________________________________________________________________________________________________
-		private void tbx_Matches_TextChanged( object sender, EventArgs e )
-		{
-			MatchesText = this.tbx_Matches.Text;
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void tbx_Filter_KeyUp( object sender, KeyEventArgs e )
@@ -529,10 +538,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void Initialise( DEVICE_ROW device_row )
 		{
-			//Tack on the header text.
 			this.Text = db_Connector.PartiallyQualifiedFileName;
 
-			//Initialise the comboboxes.
 			cbx_Countries.Items.AddRange( _Nations.NationsAsArray );
 			cbx_DeviceLocation.Items.AddRange( _Devices.AllLocations.ToArray() );
 			cbx_DeviceType.Items.AddRange( _Devices.AllTypes.ToArray() );
@@ -546,7 +553,7 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex				=  0;	//Pre-Find
+			tbx_Matches.TabIndex				=  0;
 			cbx_Countries.TabIndex				=  1;
 			tbx_LongAreaCode.TabIndex			=  2;
 			tbx_ShortAreaCode.TabIndex			=  3;
