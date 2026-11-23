@@ -55,9 +55,10 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			InitializeComponent();
 
-			_PreFindList = new LIST_BOX( lbx_MatchingDevices );
 			InitialiseForm( device_pk );
 			DisplayDevice();
+
+			_PreFindList = new LIST_BOX( lbx_MatchingDevices );
 		}
 		#endregion
 

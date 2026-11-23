@@ -64,7 +64,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_Note = new Label();
 			lbl_Search = new Label();
 			grp_DeviceData = new GroupBox();
-			label2 = new Label();
 			btn_NewDevice = new Button();
 			tbx_Messages = new TextBox();
 			label1 = new Label();
@@ -78,6 +77,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_DeviceLocation = new Label();
 			lbl_DeviceType = new Label();
 			cbx_DeviceLocation = new ComboBox();
+			label2 = new Label();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -434,11 +434,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			lbl_Search.AutoSize = true;
 			lbl_Search.ForeColor = Color.Blue;
-			lbl_Search.Location = new Point( 48, 23 );
+			lbl_Search.Location = new Point( 63, 22 );
 			lbl_Search.Name = "lbl_Search";
-			lbl_Search.Size = new Size( 76, 17 );
+			lbl_Search.Size = new Size( 64, 17 );
 			lbl_Search.TabIndex = 83;
-			lbl_Search.Text = "Pre-Find ...";
+			lbl_Search.Text = "Pre-Find:";
 			// 
 			// grp_DeviceData
 			// 
@@ -497,17 +497,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			grp_DeviceData.TabIndex = 0;
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Data";
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Font = new Font( "Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point );
-			label2.ForeColor = Color.Blue;
-			label2.Location = new Point( 227, 23 );
-			label2.Name = "label2";
-			label2.Size = new Size( 77, 13 );
-			label2.TabIndex = 148;
-			label2.Text = "Trailing digits";
 			// 
 			// btn_NewDevice
 			// 
@@ -658,6 +647,17 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceLocation.Size = new Size( 190, 25 );
 			cbx_DeviceLocation.TabIndex = 5;
 			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			label2.ForeColor = Color.Blue;
+			label2.Location = new Point( 225, 23 );
+			label2.Name = "label2";
+			label2.Size = new Size( 80, 15 );
+			label2.TabIndex = 148;
+			label2.Text = "Trailing digits";
 			// 
 			// FrmDevice
 			// 
