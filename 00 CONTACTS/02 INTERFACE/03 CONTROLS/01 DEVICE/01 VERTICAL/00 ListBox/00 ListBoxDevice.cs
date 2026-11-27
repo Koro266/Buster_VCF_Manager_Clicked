@@ -1,9 +1,9 @@
 ﻿//___________________________________________________________________________________________________________________________________________________
 //GLOBAL
-using BASE_ROW			= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
+using BASE_ROW		= CONTACTS.GLOBAL.DATABASE.ROW.BaseRow ;
 //LOCAL
-using DEVICE_ROW		= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
-using LIKE				= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
+using DEVICE_ROW	= CONTACTS.LOCAL.TERTIARY.DEVICE.Row;
+using LIKE			= CONTACTS.LOCAL.TERTIARY.DEVICE.Database.Like;
 
 //___________________________________________________________________________________________________________________________________________________
 namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.VERTICAL.LISTBOX
@@ -12,7 +12,6 @@ namespace CONTACTS.INTERFACE.CONTROLS.DEVICE.VERTICAL.LISTBOX
 	public partial class ListBoxDevice
 	{
 		private ListBox _Control;
-		private Dictionary<int, BASE_ROW> _BaseRows;
 
 		//___________________________________________________________________________________________________________________________________________
 		public ListBoxDevice( ListBox list_box )

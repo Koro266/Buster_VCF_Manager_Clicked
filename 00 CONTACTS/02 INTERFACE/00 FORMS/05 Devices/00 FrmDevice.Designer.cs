@@ -64,6 +64,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_Note = new Label();
 			lbl_Search = new Label();
 			grp_DeviceData = new GroupBox();
+			label2 = new Label();
 			btn_NewDevice = new Button();
 			tbx_Messages = new TextBox();
 			label1 = new Label();
@@ -77,7 +78,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			lbl_DeviceLocation = new Label();
 			lbl_DeviceType = new Label();
 			cbx_DeviceLocation = new ComboBox();
-			label2 = new Label();
 			grp_DeviceData.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -103,7 +103,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_UpdateDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_UpdateDevice.ForeColor = Color.Maroon;
-			btn_UpdateDevice.Location = new Point( 628, 214 );
+			btn_UpdateDevice.Location = new Point( 628, 206 );
 			btn_UpdateDevice.Name = "btn_UpdateDevice";
 			btn_UpdateDevice.Size = new Size( 133, 35 );
 			btn_UpdateDevice.TabIndex = 16;
@@ -236,7 +236,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_CloseForm.Font = new Font( "Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_CloseForm.ForeColor = Color.Maroon;
-			btn_CloseForm.Location = new Point( 627, 318 );
+			btn_CloseForm.Location = new Point( 627, 329 );
 			btn_CloseForm.Name = "btn_CloseForm";
 			btn_CloseForm.Size = new Size( 133, 35 );
 			btn_CloseForm.TabIndex = 17;
@@ -248,7 +248,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			// 
 			btn_InsertDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
 			btn_InsertDevice.ForeColor = Color.Maroon;
-			btn_InsertDevice.Location = new Point( 628, 172 );
+			btn_InsertDevice.Location = new Point( 628, 168 );
 			btn_InsertDevice.Name = "btn_InsertDevice";
 			btn_InsertDevice.Size = new Size( 133, 35 );
 			btn_InsertDevice.TabIndex = 15;
@@ -498,6 +498,17 @@ namespace CONTACTS.INTERFACE.FORMS
 			grp_DeviceData.TabStop = false;
 			grp_DeviceData.Text = "Device Data";
 			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
+			label2.ForeColor = Color.Blue;
+			label2.Location = new Point( 225, 23 );
+			label2.Name = "label2";
+			label2.Size = new Size( 80, 15 );
+			label2.TabIndex = 148;
+			label2.Text = "Trailing digits";
+			// 
 			// btn_NewDevice
 			// 
 			btn_NewDevice.Font = new Font( "Rockwell", 11F, FontStyle.Bold, GraphicsUnit.Point );
@@ -509,6 +520,7 @@ namespace CONTACTS.INTERFACE.FORMS
 			btn_NewDevice.Text = "New Device";
 			btn_NewDevice.UseVisualStyleBackColor = true;
 			btn_NewDevice.UseWaitCursor = true;
+			btn_NewDevice.Click +=  btn_NewDevice_Click ;
 			// 
 			// tbx_Messages
 			// 
@@ -647,17 +659,6 @@ namespace CONTACTS.INTERFACE.FORMS
 			cbx_DeviceLocation.Size = new Size( 190, 25 );
 			cbx_DeviceLocation.TabIndex = 5;
 			cbx_DeviceLocation.SelectedIndexChanged +=  cbx_DeviceLocation_SelectedIndexChanged ;
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Font = new Font( "Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point );
-			label2.ForeColor = Color.Blue;
-			label2.Location = new Point( 225, 23 );
-			label2.Name = "label2";
-			label2.Size = new Size( 80, 15 );
-			label2.TabIndex = 148;
-			label2.Text = "Trailing digits";
 			// 
 			// FrmDevice
 			// 

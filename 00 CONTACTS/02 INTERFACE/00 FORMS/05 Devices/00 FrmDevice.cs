@@ -27,8 +27,8 @@ namespace CONTACTS.INTERFACE.FORMS
 		#region DECLARATIONS
 		private GLOBAL_DB db_Connector = new GLOBAL_DB();
 
-		private DEVICE_ROW	_Device;
-		private DEVICE_ROWS	_Devices = new DEVICE_ROWS();
+		private DEVICE_ROW _Device;
+		private DEVICE_ROWS _Devices = new DEVICE_ROWS();
 
 		private NATION_ROW _Nation;
 		private NATION_ROWS _Nations = new NATION_ROWS();
@@ -69,24 +69,24 @@ namespace CONTACTS.INTERFACE.FORMS
 		{
 			_EventState.DisableEvents();
 
-			tbx_DeviceId.Text				= DevicePkAsText;
-			cbx_Countries.SelectedIndex		= FkCountry;
-			tbx_LongAreaCode.Text			= LongAreaCode;
-			tbx_ShortAreaCode.Text			= ShortAreaCode;
-			tbx_LeadingDigits.Text			= LeadingDigits;
-			tbx_TrailingDigits.Text			= TrailingDigits;
-			cbx_DeviceLocation.Text			= DeviceLocation;
-			cbx_DeviceType.Text				= DeviceType;
-			tbx_DialNumber.Text				= DialNumber;
-			tbx_PickerNumber.Text			= PickerNumber;
-			tbx_Notes.Text					= Notes;
+			tbx_DeviceId.Text = DevicePkAsText;
+			cbx_Countries.SelectedIndex = FkCountry;
+			tbx_LongAreaCode.Text = LongAreaCode;
+			tbx_ShortAreaCode.Text = ShortAreaCode;
+			tbx_LeadingDigits.Text = LeadingDigits;
+			tbx_TrailingDigits.Text = TrailingDigits;
+			cbx_DeviceLocation.Text = DeviceLocation;
+			cbx_DeviceType.Text = DeviceType;
+			tbx_DialNumber.Text = DialNumber;
+			tbx_PickerNumber.Text = PickerNumber;
+			tbx_Notes.Text = Notes;
 
-			chk_Selected.Checked			= Selected;
-			chk_DefaultRow.Checked			= DefaultRow;
-			chk_Blocked.Checked				= Blocked;
-			chk_X_Person.Checked			= XPerson;
-			chk_X_Group.Checked				= XGroup;
-			chk_X_Family.Checked			= XFamily;
+			chk_Selected.Checked = Selected;
+			chk_DefaultRow.Checked = DefaultRow;
+			chk_Blocked.Checked = Blocked;
+			chk_X_Person.Checked = XPerson;
+			chk_X_Group.Checked = XGroup;
+			chk_X_Family.Checked = XFamily;
 
 			_EventState.EnableEvents();
 		}
@@ -137,6 +137,12 @@ namespace CONTACTS.INTERFACE.FORMS
 				Country = _Nations.NationByKey( value );
 				DisplayDevice();
 			}
+		}
+		//___________________________________________________________________________________________________________________________________________
+		private void NewDevice()
+		{
+			_Device = _Devices.NewDevice;
+			DisplayDevice();
 		}
 		//___________________________________________________________________________________________________________________________________________
 		private void InsertDevice()
@@ -472,6 +478,11 @@ namespace CONTACTS.INTERFACE.FORMS
 			this.Close();
 		}
 		//___________________________________________________________________________________________________________________________________________
+		private void btn_NewDevice_Click( object sender, EventArgs e )
+		{
+			NewDevice();
+		}
+		//___________________________________________________________________________________________________________________________________________
 		private void btn_Insert_Click( object sender, EventArgs e )
 		{
 			InsertDevice();
@@ -517,33 +528,33 @@ namespace CONTACTS.INTERFACE.FORMS
 		//___________________________________________________________________________________________________________________________________________
 		private void SetTabIndices()
 		{
-			tbx_Matches.TabIndex				=  0;
-			cbx_Countries.TabIndex				=  1;
-			tbx_LongAreaCode.TabIndex			=  2;
-			tbx_ShortAreaCode.TabIndex			=  3;
-			tbx_LeadingDigits.TabIndex			=  4;
-			tbx_TrailingDigits.TabIndex			=  5;
-			cbx_DeviceLocation.TabIndex			=  6;
-			cbx_DeviceType.TabIndex				=  7;
-			tbx_Notes.TabIndex					=  8;
+			tbx_Matches.TabIndex = 0;
+			cbx_Countries.TabIndex = 1;
+			tbx_LongAreaCode.TabIndex = 2;
+			tbx_ShortAreaCode.TabIndex = 3;
+			tbx_LeadingDigits.TabIndex = 4;
+			tbx_TrailingDigits.TabIndex = 5;
+			cbx_DeviceLocation.TabIndex = 6;
+			cbx_DeviceType.TabIndex = 7;
+			tbx_Notes.TabIndex = 8;
 
-			chk_Selected.TabIndex				=  9;
-			chk_DefaultRow.TabIndex				= 10;
-			chk_Blocked.TabIndex				= 11;
-			chk_X_Person.TabIndex				= 12;
-			chk_X_Group.TabIndex				= 13;
-			chk_X_Family.TabIndex				= 14;
+			chk_Selected.TabIndex = 9;
+			chk_DefaultRow.TabIndex = 10;
+			chk_Blocked.TabIndex = 11;
+			chk_X_Person.TabIndex = 12;
+			chk_X_Group.TabIndex = 13;
+			chk_X_Family.TabIndex = 14;
 
-			tbx_Filter.TabIndex					= 15;
-			btn_FirstDevice.TabIndex			= 16;
-			btn_PreviousDevice.TabIndex			= 17;
-			btn_NextDevice.TabIndex				= 18;
-			btn_LastDevice.TabIndex				= 19;
-			btn_NewDevice.TabIndex				= 20;
-			btn_InsertDevice.TabIndex			= 21;
-			btn_UpdateDevice.TabIndex			= 22;
-			btn_FindDevice.TabIndex				= 23;
-			btn_CloseForm.TabIndex				= 24;
+			tbx_Filter.TabIndex = 15;
+			btn_FirstDevice.TabIndex = 16;
+			btn_PreviousDevice.TabIndex = 17;
+			btn_NextDevice.TabIndex = 18;
+			btn_LastDevice.TabIndex = 19;
+			btn_NewDevice.TabIndex = 20;
+			btn_InsertDevice.TabIndex = 21;
+			btn_UpdateDevice.TabIndex = 22;
+			btn_FindDevice.TabIndex = 23;
+			btn_CloseForm.TabIndex = 24;
 		}
 		#endregion
 	}
