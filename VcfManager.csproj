@@ -272,6 +272,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="00 CONTACTS\02 INTERFACE\03 CONTROLS\02 NATION\00 VERTICAL\ComboBox\" />
     <Folder Include="CODE_Helpers\" />
   </ItemGroup>
 
